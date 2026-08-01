@@ -37,13 +37,13 @@ public class C0686 implements Serializable {
          if (k > l) {
             this.gZ++;
             this.hb = m;
-            this.hc = GamePersistence.careerState.H();
+            this.hc = GamePersistence.careerState.getSeasonNumber();
             this.hd = k;
             this.he = l;
          } else {
             this.ha++;
             this.hf = m;
-            this.hg = GamePersistence.careerState.H();
+            this.hg = GamePersistence.careerState.getSeasonNumber();
             this.hh = k;
             this.hi = l;
          }
@@ -66,7 +66,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hc = GamePersistence.careerState.H();
+            this.hc = GamePersistence.careerState.getSeasonNumber();
             this.hb = l;
             this.hd = j;
             this.he = k;
@@ -81,7 +81,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hg = GamePersistence.careerState.H();
+            this.hg = GamePersistence.careerState.getSeasonNumber();
             this.hf = l;
             this.hh = j;
             this.hi = k;
@@ -226,7 +226,7 @@ public class C0686 implements Serializable {
    public String[] iP() {
       String[] var1 = new String[]{"", ""};
       if (this.hb >= 0) {
-         var1[0] = String.valueOf(GamePersistence.careerState.iU() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
+         var1[0] = String.valueOf(GamePersistence.careerState.getSeasonYearOffset() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
          var1[1] = "(" + GameConstants.tz[this.hb] + ")";
       }
 
@@ -236,7 +236,7 @@ public class C0686 implements Serializable {
    public String[] iQ() {
       String[] var1 = new String[]{"", ""};
       if (this.hf >= 0) {
-         var1[0] = String.valueOf(GamePersistence.careerState.iU() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
+         var1[0] = String.valueOf(GamePersistence.careerState.getSeasonYearOffset() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
          var1[1] = "(" + GameConstants.tz[this.hf] + ")";
       }
 

@@ -709,7 +709,7 @@ c	best/W	bf22/intermediary/C0689	bf22/intermediary/C0689
 c	best/X	bf22/intermediary/C0690	bf22/intermediary/C0690
 c	best/Y	bf22/intermediary/C0691	bf22/intermediary/C0691
 c	best/Z	bf22/intermediary/C0692	mod/recovered/competition/CountryCompetitions
-c	best/a	bf22/intermediary/C0693	bf22/intermediary/C0693
+c	best/a	bf22/intermediary/C0693	mod/recovered/game/ScheduleDay
 c	best/aa	bf22/intermediary/C0694	mod/recovered/competition/CountryPlayerComparator
 	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/ab	bf22/intermediary/C0695	mod/recovered/competition/CountryRankingComparator
@@ -749,6 +749,30 @@ c	best/c	bf22/intermediary/C0720	mod/recovered/competition/CompetitionPlayerStat
 c	best/d	bf22/intermediary/C0721	bf22/intermediary/C0721
 c	best/e	bf22/intermediary/C0722	bf22/intermediary/C0722
 c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
+	f	Lest/InfoArquivoSalvoType;	ad	ad	savedGameInfo
+	f	I	ae	ae	seasonNumber
+	f	I	af	af	currentScheduleIndex
+	f	Ljava/util/ArrayList;	as	as	scheduleDays
+	f	Ljava/lang/String;	bj	bj	saveName
+	f	I	rM	rM	firstSeasonYear
+	m	()I	H	H	getSeasonNumber
+	m	()V	I	I	advanceSeason
+	m	(I)V	I	I	setFirstSeasonYear
+	m	()I	J	J	getCurrentScheduleIndex
+	m	()Ljava/util/ArrayList;	R	R	getScheduleDays
+	m	()Ljava/util/ArrayList;	S	S	getCurrentMatches
+	m	()Ljava/lang/String;	T	T	getCurrentDateText
+	m	(Lest/InfoArquivoSalvoType;)V	a	a	setSavedGameInfo
+	m	()Ljava/util/Calendar;	bb	bb	getCurrentDate
+	m	()J	bc	bc	getCurrentTimeMillis
+	m	()Ljava/lang/String;	br	br	getSaveName
+	m	()Lest/InfoArquivoSalvoType;	bs	bs	getSavedGameInfo
+	m	(Ljava/lang/String;)V	d	d	setSaveName
+	m	()I	iU	iU	getSeasonYearOffset
+	m	(I)V	k	k	setSeasonNumber
+	m	(I)V	l	l	setCurrentScheduleIndex
+	m	(I)Ljava/util/ArrayList;	m	m	getMatchesAtScheduleIndex
+	m	()I	op	op	getFirstSeasonYear
 c	best/g	bf22/intermediary/C0724	mod/recovered/game/CoachPerformanceComparator
 	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725

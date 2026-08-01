@@ -1,5 +1,6 @@
-package bf22.intermediary;
+package mod.recovered.game;
 
+import bf22.intermediary.*;
 import mod.recovered.competition.ClubWorldCup;
 import mod.recovered.competition.Finalissima;
 import mod.recovered.competition.NationalLeague;
@@ -21,7 +22,7 @@ import java.util.Date;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 
-public class C0693 implements Serializable {
+public class ScheduleDay implements Serializable {
    private static final long serialVersionUID = 1L;
    private Calendar p = Calendar.getInstance();
    private ArrayList q = new ArrayList();
@@ -89,8 +90,8 @@ public class C0693 implements Serializable {
    public static ArrayList b(int i) {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.careerState.R().size(); var2++) {
-         if (((C0693)GamePersistence.careerState.R().get(var2)).b() == i) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.getScheduleDays().size(); var2++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).b() == i) {
             var1.add(var2);
          }
       }
@@ -101,8 +102,8 @@ public class C0693 implements Serializable {
    public static ArrayList c(int i) {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.careerState.R().size(); var2++) {
-         if (((C0693)GamePersistence.careerState.R().get(var2)).a().get(7) == i) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.getScheduleDays().size(); var2++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).a().get(7) == i) {
             var1.add(var2);
          }
       }
@@ -117,8 +118,8 @@ public class C0693 implements Serializable {
    public static ArrayList d() {
       ArrayList var0 = new ArrayList();
 
-      for (int var1 = 0; var1 < GamePersistence.careerState.R().size(); var1++) {
-         if (((C0693)GamePersistence.careerState.R().get(var1)).a().get(5) == 2) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).a().get(5) == 2) {
             var0.add(var1);
          }
       }
@@ -127,8 +128,8 @@ public class C0693 implements Serializable {
    }
 
    public static int d(int i) {
-      for (int var1 = GamePersistence.careerState.R().size() - 1; var1 >= 0; var1--) {
-         if (((C0693)GamePersistence.careerState.R().get(var1)).b() == i) {
+      for (int var1 = GamePersistence.careerState.getScheduleDays().size() - 1; var1 >= 0; var1--) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).b() == i) {
             return var1;
          }
       }
@@ -137,8 +138,8 @@ public class C0693 implements Serializable {
    }
 
    public static int e(int i) {
-      for (int var1 = 0; var1 < GamePersistence.careerState.R().size(); var1++) {
-         if (((C0693)GamePersistence.careerState.R().get(var1)).b() == i) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).b() == i) {
             return var1;
          }
       }
@@ -149,12 +150,12 @@ public class C0693 implements Serializable {
    public static int a(int i, int j) {
       int var2 = 1;
 
-      for (int var3 = 0; var3 < GamePersistence.careerState.R().size(); var3++) {
-         if (((C0693)GamePersistence.careerState.R().get(var3)).b() == i && var2 == j) {
+      for (int var3 = 0; var3 < GamePersistence.careerState.getScheduleDays().size(); var3++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var3)).b() == i && var2 == j) {
             return var3;
          }
 
-         if (((C0693)GamePersistence.careerState.R().get(var3)).b() == i) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var3)).b() == i) {
             var2++;
          }
       }
@@ -169,8 +170,8 @@ public class C0693 implements Serializable {
          var3 = 2;
       }
 
-      for (int var4 = 0; var4 < GamePersistence.careerState.R().size(); var4++) {
-         if (((C0693)GamePersistence.careerState.R().get(var4)).b() == i && !((C0693)GamePersistence.careerState.R().get(var4)).e()) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.getScheduleDays().size(); var4++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).b() == i && !((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).e()) {
             if (var3 <= 0) {
                var2.add(var4);
             }
@@ -217,26 +218,26 @@ public class C0693 implements Serializable {
       int var2 = 0;
       int var3 = 0;
 
-      for (int var4 = GamePersistence.careerState.R().size() - 1; var4 > 0; var4--) {
-         if (((C0693)GamePersistence.careerState.R().get(var4)).b() > 0) {
+      for (int var4 = GamePersistence.careerState.getScheduleDays().size() - 1; var4 > 0; var4--) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).b() > 0) {
             var3 = var4;
             break;
          }
       }
 
-      if (var3 < GamePersistence.careerState.J()) {
-         var3 = GamePersistence.careerState.J();
+      if (var3 < GamePersistence.careerState.getCurrentScheduleIndex()) {
+         var3 = GamePersistence.careerState.getCurrentScheduleIndex();
       }
 
-      for (int var5 = var3; var5 < GamePersistence.careerState.R().size(); var5++) {
-         if (((C0693)GamePersistence.careerState.R().get(var5)).b() == 0 && ((C0693)GamePersistence.careerState.R().get(var5)).a().get(7) == i) {
+      for (int var5 = var3; var5 < GamePersistence.careerState.getScheduleDays().size(); var5++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).b() == 0 && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).a().get(7) == i) {
             var2 = var5;
             break;
          }
       }
 
       if (var2 > 0) {
-         ((C0693)GamePersistence.careerState.R().get(var2)).a(j);
+         ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).a(j);
       }
    }
 
@@ -548,10 +549,10 @@ public class C0693 implements Serializable {
       }
 
       if (k == 0) {
-         C0693 var4 = (C0693)GamePersistence.careerState.R().get(i);
+         ScheduleDay var4 = (ScheduleDay)GamePersistence.careerState.getScheduleDays().get(i);
          var4.q.add(var3);
       } else {
-         C0693 var5 = (C0693)GamePersistence.careerState.R().get(i);
+         ScheduleDay var5 = (ScheduleDay)GamePersistence.careerState.getScheduleDays().get(i);
          var5.r.add(var3);
       }
    }
@@ -784,13 +785,13 @@ public class C0693 implements Serializable {
    public static void aD() {
       String var0 = "";
 
-      for (int var1 = 0; var1 < GamePersistence.careerState.R().size(); var1++) {
-         if (((C0693)GamePersistence.careerState.R().get(var1)).b() > 0) {
-            if (var0.equals(((C0693)GamePersistence.careerState.R().get(var1)).f())) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).b() > 0) {
+            if (var0.equals(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).f())) {
                System.out.println("erro de data: " + var1);
             }
 
-            var0 = ((C0693)GamePersistence.careerState.R().get(var1)).f();
+            var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).f();
          }
       }
    }
@@ -806,9 +807,9 @@ public class C0693 implements Serializable {
                "Amistoso Clube:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var2))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var2))).a().get(7)]
                   + " "
                   + var1.get(var2)
             );
@@ -823,9 +824,9 @@ public class C0693 implements Serializable {
                "Amistoso Seleção:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var34))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var34))).a().get(7)]
                   + " "
                   + var1.get(var34)
             );
@@ -840,9 +841,9 @@ public class C0693 implements Serializable {
                "Estadual:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var35))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var35))).a().get(7)]
                   + " "
                   + var1.get(var35)
             );
@@ -858,9 +859,9 @@ public class C0693 implements Serializable {
                "Regional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var36))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var36))).a().get(7)]
                   + " "
                   + var1.get(var36)
             );
@@ -876,9 +877,9 @@ public class C0693 implements Serializable {
                "SuperCopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var37))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var37))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var37))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var37))).a().get(7)]
                   + " "
                   + var1.get(var37)
             );
@@ -894,9 +895,9 @@ public class C0693 implements Serializable {
                "Nacional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var38))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var38))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var38))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var38))).a().get(7)]
                   + " "
                   + var1.get(var38)
             );
@@ -912,9 +913,9 @@ public class C0693 implements Serializable {
                "Int1:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var39))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var39))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var39))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var39))).a().get(7)]
                   + " "
                   + var1.get(var39)
             );
@@ -930,9 +931,9 @@ public class C0693 implements Serializable {
                "Copa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var40))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var40))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var40))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var40))).a().get(7)]
                   + " "
                   + var1.get(var40)
             );
@@ -948,9 +949,9 @@ public class C0693 implements Serializable {
                "Selecoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var41))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var41))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var41))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var41))).a().get(7)]
                   + " "
                   + var1.get(var41)
             );
@@ -966,9 +967,9 @@ public class C0693 implements Serializable {
                "INT2:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var42))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var42))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var42))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var42))).a().get(7)]
                   + " "
                   + var1.get(var42)
             );
@@ -984,9 +985,9 @@ public class C0693 implements Serializable {
                "Recopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var43))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var43))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var43))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var43))).a().get(7)]
                   + " "
                   + var1.get(var43)
             );
@@ -1002,9 +1003,9 @@ public class C0693 implements Serializable {
                "INT3:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var44))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var44))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var44))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var44))).a().get(7)]
                   + " "
                   + var1.get(var44)
             );
@@ -1020,9 +1021,9 @@ public class C0693 implements Serializable {
                "Mundial:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var45))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var45))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var45))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var45))).a().get(7)]
                   + " "
                   + var1.get(var45)
             );
@@ -1038,9 +1039,9 @@ public class C0693 implements Serializable {
                "Elimin:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var46))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var46))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var46))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var46))).a().get(7)]
                   + " "
                   + var1.get(var46)
             );
@@ -1056,9 +1057,9 @@ public class C0693 implements Serializable {
                "Finalissima:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var47))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var47))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var47))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var47))).a().get(7)]
                   + " "
                   + var1.get(var47)
             );
@@ -1074,9 +1075,9 @@ public class C0693 implements Serializable {
                "Liga Nacoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var48))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var48))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var48))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var48))).a().get(7)]
                   + " "
                   + var1.get(var48)
             );

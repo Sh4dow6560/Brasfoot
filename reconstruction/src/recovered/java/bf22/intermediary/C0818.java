@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.Competition;
 import mod.recovered.core.GameConstants;
 import mod.recovered.match.Match;
@@ -138,8 +139,8 @@ public class C0818 extends JPanel {
       }
 
       String var7 = "";
-      if (player.fP() && player.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
-         var7 = "Fim contusão: " + C0693.a(player.fo());
+      if (player.fP() && player.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+         var7 = "Fim contusão: " + ScheduleDay.a(player.fo());
       }
 
       String var8 = "";

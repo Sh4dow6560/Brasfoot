@@ -19,10 +19,11 @@
 - As outras 1.161 entradas permanecem byte a byte identicas.
 - O save completo de referencia, os 88 contratos serializaveis e os 703 times
   passaram os testes automatizados.
-- 79 classes ja possuem nomes semanticos. O nucleo legivel cobre
+- 80 classes ja possuem nomes semanticos. O nucleo legivel cobre
   `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
   `KnockoutStage`, `TransferNegotiation`, `Match` e `MatchEngine`, alem das
-  competicoes concretas nacionais e internacionais.
+  competicoes concretas nacionais e internacionais. `ScheduleDay` e os
+  acessos centrais de temporada, data e agenda tambem estao nomeados.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos e todas as suas

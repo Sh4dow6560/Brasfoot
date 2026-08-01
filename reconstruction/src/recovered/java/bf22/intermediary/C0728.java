@@ -19,7 +19,7 @@ public class C0728 implements Serializable {
    }
 
    public C0728(Club club) {
-      this.ae = GamePersistence.careerState.H();
+      this.ae = GamePersistence.careerState.getSeasonNumber();
       if (club != null) {
          this.bW = club.lk();
       }

@@ -92,8 +92,8 @@ public class C0498 extends JPanel {
             this.MG.addItem(Integer.toString(var5 + 1) + " ª rodada");
          }
       } else {
-         for (int var6 = 0; var6 < GamePersistence.careerState.H(); var6++) {
-            this.MG.addItem(Integer.toString(var6 + GamePersistence.careerState.op()));
+         for (int var6 = 0; var6 < GamePersistence.careerState.getSeasonNumber(); var6++) {
+            this.MG.addItem(Integer.toString(var6 + GamePersistence.careerState.getFirstSeasonYear()));
          }
       }
 
@@ -108,8 +108,8 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (GamePersistence.careerState.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(GamePersistence.careerState.H() - 1);
+      } else if (GamePersistence.careerState.getSeasonNumber() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.careerState.getSeasonNumber() - 1);
       }
    }
 
@@ -182,8 +182,8 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (GamePersistence.careerState.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(GamePersistence.careerState.H() - 1);
+      } else if (GamePersistence.careerState.getSeasonNumber() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.careerState.getSeasonNumber() - 1);
       }
    }
 

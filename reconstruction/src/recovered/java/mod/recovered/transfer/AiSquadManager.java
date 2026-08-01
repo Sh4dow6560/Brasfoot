@@ -56,7 +56,7 @@ public abstract class AiSquadManager {
             int var2 = 0;
 
             for (int var3 = var4.lO().size() - 1; var3 >= 0; var3--) {
-               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.careerState.H() - 1) {
+               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.careerState.getSeasonNumber() - 1) {
                   var2 = (int)(((C0728)var4.lO().get(var3)).cm() * 100.0F / ((C0728)var4.lO().get(var3)).w());
                   break;
                }

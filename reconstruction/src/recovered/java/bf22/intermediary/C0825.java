@@ -21,11 +21,11 @@ public class C0825 implements Serializable {
       GamePersistence.careerState.bt().add(this);
       long var3 = 366L;
       var3 *= 86400000L;
-      this.Pm = GamePersistence.careerState.bc() + var3;
+      this.Pm = GamePersistence.careerState.getCurrentTimeMillis() + var3;
    }
 
    public boolean tM() {
-      return this.Pm < GamePersistence.careerState.bc();
+      return this.Pm < GamePersistence.careerState.getCurrentTimeMillis();
    }
 
    public boolean tN() {

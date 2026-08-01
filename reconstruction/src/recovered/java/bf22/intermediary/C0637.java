@@ -24,7 +24,7 @@ public class C0637 extends DefaultTableCellRenderer {
             this.setIcon(var7.cu().kU());
             this.setText(var7.cu().getNome());
          } else if (j == 2) {
-            this.setText(Integer.toString(var7.H() + GamePersistence.careerState.iU()));
+            this.setText(Integer.toString(var7.H() + GamePersistence.careerState.getSeasonYearOffset()));
          }
       }
 

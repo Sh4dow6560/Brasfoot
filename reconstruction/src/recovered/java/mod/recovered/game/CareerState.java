@@ -63,10 +63,10 @@ import mod.recovered.save.SavedGameInfo;
 
 public class CareerState implements Serializable {
    private static final long serialVersionUID = 1L;
-   private SavedGameInfo ad = new SavedGameInfo();
-   private int ae = 1;
-   private int rM = 2022;
-   private int af = 1;
+   private SavedGameInfo savedGameInfo = new SavedGameInfo();
+   private int seasonNumber = 1;
+   private int firstSeasonYear = 2022;
+   private int currentScheduleIndex = 1;
    private ArrayList ag = new ArrayList();
    private ArrayList ah = new ArrayList();
    private ArrayList ai = new ArrayList();
@@ -79,7 +79,7 @@ public class CareerState implements Serializable {
    private ArrayList ap = new ArrayList();
    private ArrayList aq = new ArrayList();
    private ArrayList ar = new ArrayList();
-   private ArrayList as = new ArrayList();
+   private ArrayList scheduleDays = new ArrayList();
    private ArrayList at = new ArrayList();
    private ArrayList au = new ArrayList();
    private ArrayList av = new ArrayList();
@@ -158,7 +158,7 @@ public class CareerState implements Serializable {
    private boolean ignoraLigas = true;
    private boolean bi = false;
    private boolean verLeiloes = false;
-   private String bj = null;
+   private String saveName = null;
    public boolean bk = false;
    private int bl = 1;
    private int bm = 3;
@@ -242,24 +242,24 @@ public class CareerState implements Serializable {
       this.bB = new ArrayList();
    }
 
-   public int H() {
-      return this.ae;
+   public int getSeasonNumber() {
+      return this.seasonNumber;
    }
 
-   public void k(int i) {
-      this.ae = i;
+   public void setSeasonNumber(int i) {
+      this.seasonNumber = i;
    }
 
-   public void I() {
-      this.ae++;
+   public void advanceSeason() {
+      this.seasonNumber++;
    }
 
-   public int J() {
-      return this.af;
+   public int getCurrentScheduleIndex() {
+      return this.currentScheduleIndex;
    }
 
-   public void l(int i) {
-      this.af = i;
+   public void setCurrentScheduleIndex(int i) {
+      this.currentScheduleIndex = i;
    }
 
    public ArrayList L() {
@@ -314,8 +314,8 @@ public class CareerState implements Serializable {
       this.ah.add(player);
    }
 
-   public void a(C0693 c0693) {
-      this.as.add(c0693);
+   public void a(ScheduleDay c0693) {
+      this.scheduleDays.add(c0693);
    }
 
    public ArrayList Q() {
@@ -334,20 +334,20 @@ public class CareerState implements Serializable {
       this.am.add(coach);
    }
 
-   public ArrayList R() {
-      return this.as;
+   public ArrayList getScheduleDays() {
+      return this.scheduleDays;
    }
 
-   public ArrayList S() {
-      return ((C0693)this.as.get(this.af)).h();
+   public ArrayList getCurrentMatches() {
+      return ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).h();
    }
 
-   public ArrayList m(int i) {
-      return i < this.as.size() ? ((C0693)this.as.get(i)).h() : null;
+   public ArrayList getMatchesAtScheduleIndex(int i) {
+      return i < this.scheduleDays.size() ? ((ScheduleDay)this.scheduleDays.get(i)).h() : null;
    }
 
-   public String T() {
-      return ((C0693)this.as.get(this.af)).f();
+   public String getCurrentDateText() {
+      return ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).f();
    }
 
    private static boolean U() {
@@ -362,15 +362,15 @@ public class CareerState implements Serializable {
       }
    }
 
-   public int iU() {
-      return GamePersistence.careerState.op() - 1;
+   public int getSeasonYearOffset() {
+      return GamePersistence.careerState.getFirstSeasonYear() - 1;
    }
 
    private void W() {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < GamePersistence.careerState.bo().size(); var2++) {
-         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getY() + 10 < this.iU()) {
+         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getY() + 10 < this.getSeasonYearOffset()) {
             var1.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
          }
       }
@@ -408,8 +408,8 @@ public class CareerState implements Serializable {
          for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
             Object var2 = null;
             Object var3 = null;
-            var2 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jq().cv(GamePersistence.careerState.H() - 1);
-            Club[] var4 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).bk(GamePersistence.careerState.H() - 1);
+            var2 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jq().cv(GamePersistence.careerState.getSeasonNumber() - 1);
+            Club[] var4 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).bk(GamePersistence.careerState.getSeasonNumber() - 1);
             if (var4 != null) {
                if (var2 != var4[0]) {
                   var3 = var4[0];
@@ -454,15 +454,15 @@ public class CareerState implements Serializable {
       }
 
       if (GamePersistence.careerState.bk() || GamePersistence.careerState.X()) {
-         int var3 = C0693.e(1);
+         int var3 = ScheduleDay.e(1);
          if (var3 > 0) {
-            C0693.b(var3, 4, 1);
+            ScheduleDay.b(var3, 4, 1);
          }
       }
 
-      C0693.q();
+      ScheduleDay.q();
       this.af();
-      if (GamePersistence.careerState.H() >= 5) {
+      if (GamePersistence.careerState.getSeasonNumber() >= 5) {
          this.W();
       }
 
@@ -714,7 +714,7 @@ public class CareerState implements Serializable {
          this.aP.mw();
       }
 
-      if (this.bl == this.ae) {
+      if (this.bl == this.seasonNumber) {
          if (this.aK != null) {
             this.aK.ya();
          } else {
@@ -726,7 +726,7 @@ public class CareerState implements Serializable {
          this.bl += 4;
       }
 
-      if (this.bm - 1 == this.ae) {
+      if (this.bm - 1 == this.seasonNumber) {
          if (this.aM != null) {
             this.aM.fF(0);
          } else {
@@ -737,7 +737,7 @@ public class CareerState implements Serializable {
          }
       }
 
-      if (this.bl - 1 == this.ae) {
+      if (this.bl - 1 == this.seasonNumber) {
          if (this.aL != null) {
             this.aL.ya();
          } else {
@@ -793,7 +793,7 @@ public class CareerState implements Serializable {
          }
       }
 
-      if (this.bm == this.ae) {
+      if (this.bm == this.seasonNumber) {
          if (this.aS != null) {
             this.aS.ya();
          } else {
@@ -808,7 +808,7 @@ public class CareerState implements Serializable {
          this.aS.p((LeagueStage)null);
       }
 
-      if (this.bn == this.ae) {
+      if (this.bn == this.seasonNumber) {
          if (this.aR != null) {
             this.aR.ya();
          } else {
@@ -818,7 +818,7 @@ public class CareerState implements Serializable {
             this.aR.ya();
          }
 
-         if (this.ae == 1) {
+         if (this.seasonNumber == 1) {
             this.bn += 4;
          } else {
             this.bn += 4;
@@ -827,7 +827,7 @@ public class CareerState implements Serializable {
          this.aR.p((LeagueStage)null);
       }
 
-      if (this.bo == this.ae) {
+      if (this.bo == this.seasonNumber) {
          if (this.aT != null) {
             this.aT.ya();
          } else {
@@ -840,7 +840,7 @@ public class CareerState implements Serializable {
          this.aT.p((LeagueStage)null);
       }
 
-      if (this.bp == this.ae) {
+      if (this.bp == this.seasonNumber) {
          if (this.aU != null) {
             this.aU.ya();
          } else {
@@ -853,7 +853,7 @@ public class CareerState implements Serializable {
          this.aU.p((LeagueStage)null);
       }
 
-      if (this.br == this.ae) {
+      if (this.br == this.seasonNumber) {
          if (this.aV != null) {
             this.aV.ya();
          } else {
@@ -866,7 +866,7 @@ public class CareerState implements Serializable {
          this.aV.p((LeagueStage)null);
       }
 
-      if (this.bq == this.ae) {
+      if (this.bq == this.seasonNumber) {
          if (this.aW != null) {
             this.aW.ya();
          } else {
@@ -879,7 +879,7 @@ public class CareerState implements Serializable {
          this.aW.p((LeagueStage)null);
       }
 
-      if (this.IZ == this.ae) {
+      if (this.IZ == this.seasonNumber) {
          if (this.IX != null) {
             this.IX.Bs();
          }
@@ -887,7 +887,7 @@ public class CareerState implements Serializable {
          this.IZ += 4;
       }
 
-      if (this.Ja == this.ae) {
+      if (this.Ja == this.seasonNumber) {
          if (this.GC != null) {
             this.GC.Ar();
          }
@@ -895,7 +895,7 @@ public class CareerState implements Serializable {
          this.Ja += 2;
       }
 
-      if (this.Jb == this.ae) {
+      if (this.Jb == this.seasonNumber) {
          if (this.GI != null) {
             this.GI.Ar();
          }
@@ -976,9 +976,9 @@ public class CareerState implements Serializable {
          this.aW.mw();
       }
 
-      int var3 = C0693.d(4);
+      int var3 = ScheduleDay.d(4);
       if (var3 > 0) {
-         C0693.b(var3, 1, 0);
+         ScheduleDay.b(var3, 1, 0);
       }
 
       if (GamePersistence.careerState.aV() != null) {
@@ -1144,15 +1144,15 @@ public class CareerState implements Serializable {
    }
 
    private void ah() {
-      this.I();
+      this.advanceSeason();
 
-      for (int var1 = 0; var1 < this.as.size(); var1++) {
-         ((C0693)this.as.get(var1)).clear();
+      for (int var1 = 0; var1 < this.scheduleDays.size(); var1++) {
+         ((ScheduleDay)this.scheduleDays.get(var1)).clear();
       }
 
-      this.as.clear();
-      this.r(GamePersistence.careerState.op() + (this.ae - 1));
-      C0693.g();
+      this.scheduleDays.clear();
+      this.r(GamePersistence.careerState.getFirstSeasonYear() + (this.seasonNumber - 1));
+      ScheduleDay.g();
    }
 
    private void ai() {
@@ -1282,7 +1282,7 @@ public class CareerState implements Serializable {
 
    public static void an() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.af)).j();
+      ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.currentScheduleIndex)).j();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (var0.get(var1) instanceof LeagueStage && ((CompetitionStage)var0.get(var1)).b() == 1 && ((LeagueStage)var0.get(var1)).vl() != null) {
@@ -1292,12 +1292,12 @@ public class CareerState implements Serializable {
    }
 
    public int ao() {
-      return ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t().size() > 0 ? ((Competition)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t().get(0)).b() : -1;
+      return ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).t().size() > 0 ? ((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).t().get(0)).b() : -1;
    }
 
    public void ap() {
       this.bH = false;
-      if (GamePersistence.careerState.bD() && GamePersistence.careerState.H() == 10) {
+      if (GamePersistence.careerState.bD() && GamePersistence.careerState.getSeasonNumber() == 10) {
          GamePersistence.careerState.h(false);
       }
 
@@ -1416,8 +1416,8 @@ public class CareerState implements Serializable {
 
    public void as() {
       new ArrayList();
-      ArrayList var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
-      int var2 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).b();
+      ArrayList var1 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
+      int var2 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).b();
 
       for (int var3 = 0; var3 < var1.size(); var3++) {
          ((Match)var1.get(var3)).a(true);
@@ -1532,7 +1532,7 @@ public class CareerState implements Serializable {
       ArrayList var1 = new ArrayList();
       if (this.aw != null && GamePersistence.careerState.aw.size() > 0) {
          for (int var2 = 0; var2 < GamePersistence.careerState.aw.size(); var2++) {
-            if (((C0668)GamePersistence.careerState.aw.get(var2)).ew().before(GamePersistence.careerState.bb())) {
+            if (((C0668)GamePersistence.careerState.aw.get(var2)).ew().before(GamePersistence.careerState.getCurrentDate())) {
                ((C0668)GamePersistence.careerState.aw.get(var2)).ex();
                var1.add((C0668)GamePersistence.careerState.aw.get(var2));
             }
@@ -1547,7 +1547,7 @@ public class CareerState implements Serializable {
    }
 
    public void ax() {
-      int var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).i();
+      int var1 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).i();
       if (var1 == 1 || var1 == 3) {
          this.n(var1);
       }
@@ -1585,7 +1585,7 @@ public class CareerState implements Serializable {
 
    private static boolean ay() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.af)).h();
+      ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.currentScheduleIndex)).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (((Match)var0.get(var1)).hc().jZ() && !((Match)var0.get(var1)).hc().kf()) {
@@ -1612,9 +1612,9 @@ public class CareerState implements Serializable {
    }
 
    public int az() {
-      for (int var1 = GamePersistence.careerState.af; var1 < GamePersistence.careerState.R().size(); var1++) {
-         if (!((C0693)GamePersistence.careerState.R().get(var1)).e() && ((C0693)GamePersistence.careerState.R().get(var1)).b() > 0 && ((C0693)GamePersistence.careerState.R().get(var1)).h().size() > 0) {
-            GamePersistence.careerState.l(var1);
+      for (int var1 = GamePersistence.careerState.currentScheduleIndex; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         if (!((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).e() && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).b() > 0 && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).h().size() > 0) {
+            GamePersistence.careerState.setCurrentScheduleIndex(var1);
             return var1;
          }
       }
@@ -1627,7 +1627,7 @@ public class CareerState implements Serializable {
 
    private void aB() {
       new ArrayList();
-      ArrayList var1 = ((C0693)this.as.get(this.af)).t();
+      ArrayList var1 = ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).t();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          ((Competition)var1.get(var2)).mx();
@@ -1636,7 +1636,7 @@ public class CareerState implements Serializable {
 
    private void aC() {
       new ArrayList();
-      ArrayList var1 = ((C0693)this.as.get(this.af)).j();
+      ArrayList var1 = ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).j();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          if (var1.get(var2) instanceof LeagueStage) {
@@ -1768,22 +1768,22 @@ public class CareerState implements Serializable {
    }
 
    public void aM() {
-      for (int var1 = 0; var1 <= this.af; var1++) {
-         ((C0693)this.as.get(var1)).a(true);
+      for (int var1 = 0; var1 <= this.currentScheduleIndex; var1++) {
+         ((ScheduleDay)this.scheduleDays.get(var1)).a(true);
       }
    }
 
    public void q(int i) {
       if (i == 0) {
-         for (int var2 = 0; var2 <= this.af; var2++) {
-            if (((C0693)this.as.get(var2)).r().size() > 0) {
-               ((C0693)this.as.get(var2)).f(0);
+         for (int var2 = 0; var2 <= this.currentScheduleIndex; var2++) {
+            if (((ScheduleDay)this.scheduleDays.get(var2)).r().size() > 0) {
+               ((ScheduleDay)this.scheduleDays.get(var2)).f(0);
             }
          }
       } else {
-         for (int var3 = 0; var3 <= this.af; var3++) {
-            if (((C0693)this.as.get(var3)).s().size() > 0) {
-               ((C0693)this.as.get(var3)).f(1);
+         for (int var3 = 0; var3 <= this.currentScheduleIndex; var3++) {
+            if (((ScheduleDay)this.scheduleDays.get(var3)).s().size() > 0) {
+               ((ScheduleDay)this.scheduleDays.get(var3)).f(1);
             }
          }
       }
@@ -1842,12 +1842,12 @@ public class CareerState implements Serializable {
       var2.set(i, 0, 1, 0, 0, 0);
 
       while (var2.get(1) == i) {
-         C0693 var7 = new C0693();
+         ScheduleDay var7 = new ScheduleDay();
          var7.a(var2.get(1), var2.get(2), var2.get(5));
          GamePersistence.careerState.a(var7);
          if (var2.get(2) == 0 && var2.get(7) == 1) {
             if (++var4 == 1) {
-               GamePersistence.careerState.l(var6);
+               GamePersistence.careerState.setCurrentScheduleIndex(var6);
             }
          }
 
@@ -1859,8 +1859,8 @@ public class CareerState implements Serializable {
    }
 
    private void aS() {
-      ArrayList var1 = C0693.d();
-      ArrayList var2 = C0693.c(1);
+      ArrayList var1 = ScheduleDay.d();
+      ArrayList var2 = ScheduleDay.c(1);
       ArrayList var3;
       if (this.salarioMensal) {
          var3 = var1;
@@ -1869,17 +1869,17 @@ public class CareerState implements Serializable {
       }
 
       for (int var4 = 0; var4 < var3.size(); var4++) {
-         C0693.b((Integer)var3.get(var4), 2, 0);
+         ScheduleDay.b((Integer)var3.get(var4), 2, 0);
       }
 
       for (int var6 = 0; var6 < var1.size(); var6++) {
-         C0693.b((Integer)var1.get(var6), 5, 0);
+         ScheduleDay.b((Integer)var1.get(var6), 5, 0);
       }
 
       var3 = var2;
 
       for (int var7 = 0; var7 < var3.size(); var7++) {
-         C0693.b((Integer)var3.get(var7), 3, 0);
+         ScheduleDay.b((Integer)var3.get(var7), 3, 0);
       }
    }
 
@@ -1996,12 +1996,12 @@ public class CareerState implements Serializable {
       return null;
    }
 
-   public Calendar bb() {
-      return ((C0693)this.as.get(this.af)).a();
+   public Calendar getCurrentDate() {
+      return ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).a();
    }
 
-   public long bc() {
-      return ((C0693)this.as.get(this.af)).a().getTime().getTime();
+   public long getCurrentTimeMillis() {
+      return ((ScheduleDay)this.scheduleDays.get(this.currentScheduleIndex)).a().getTime().getTime();
    }
 
    public ArrayList bd() {
@@ -2338,24 +2338,24 @@ public class CareerState implements Serializable {
       this.bq();
    }
 
-   public String br() {
-      return this.bj;
+   public String getSaveName() {
+      return this.saveName;
    }
 
-   public void d(String string) {
-      this.bj = string;
+   public void setSaveName(String string) {
+      this.saveName = string;
    }
 
-   public SavedGameInfo bs() {
-      if (this.ad == null) {
-         this.ad = new SavedGameInfo();
+   public SavedGameInfo getSavedGameInfo() {
+      if (this.savedGameInfo == null) {
+         this.savedGameInfo = new SavedGameInfo();
       }
 
-      return this.ad;
+      return this.savedGameInfo;
    }
 
-   public void a(SavedGameInfo savedGameInfo) {
-      this.ad = savedGameInfo;
+   public void setSavedGameInfo(SavedGameInfo savedGameInfo) {
+      this.savedGameInfo = savedGameInfo;
    }
 
    public ArrayList bt() {
@@ -2521,7 +2521,7 @@ public class CareerState implements Serializable {
    }
 
    public void n(ArrayList arrayList) {
-      this.as = arrayList;
+      this.scheduleDays = arrayList;
    }
 
    public void o(ArrayList arrayList) {
@@ -2848,12 +2848,12 @@ public class CareerState implements Serializable {
       this.IY = c0932;
    }
 
-   public int op() {
-      return this.rM;
+   public int getFirstSeasonYear() {
+      return this.firstSeasonYear;
    }
 
-   public void I(int i) {
-      this.rM = i;
+   public void setFirstSeasonYear(int i) {
+      this.firstSeasonYear = i;
    }
 
    public void rU() {

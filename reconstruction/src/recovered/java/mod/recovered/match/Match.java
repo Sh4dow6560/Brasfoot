@@ -1,5 +1,6 @@
 package mod.recovered.match;
 
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.*;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionStage;
@@ -212,9 +213,9 @@ public class Match implements Serializable {
          }
       }
 
-      ((C0693)GamePersistence.careerState.R().get(j)).a(this);
-      ((C0693)GamePersistence.careerState.R().get(j)).a(c0678);
-      ((C0693)GamePersistence.careerState.R().get(j)).a(c0713);
+      ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(this);
+      ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(c0678);
+      ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(c0713);
       if (this.fx.b() == 5 || this.fx.b() == 15) {
          this.dH = null;
       }
@@ -335,7 +336,7 @@ public class Match implements Serializable {
 
    public static void he() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
+      ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
       Competition var1 = null;
       int var2 = 0;
 

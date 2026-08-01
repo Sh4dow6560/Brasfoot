@@ -3,7 +3,7 @@ package mod.recovered.model;
 import mod.recovered.match.Match;
 import bf22.intermediary.C0689;
 import mod.recovered.competition.CountryCompetitions;
-import bf22.intermediary.C0693;
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.C0696;
 import bf22.intermediary.C0703;
 import bf22.intermediary.C0704;
@@ -347,7 +347,7 @@ public class Club implements Serializable {
 
    public static void kh() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
+      ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (!((Match)var0.get(var1)).hc().jZ() && !((Match)var0.get(var1)).hc().kf()) {
@@ -729,7 +729,7 @@ public class Club implements Serializable {
 
    public C0703 n(Competition c0713) {
       for (int var2 = 0; var2 < this.np.size(); var2++) {
-         if (((C0703)this.np.get(var2)).H() == GamePersistence.careerState.H() - 1 && ((C0703)this.np.get(var2)).b() == c0713.b() && ((C0703)this.np.get(var2)).el() == c0713.el()
+         if (((C0703)this.np.get(var2)).H() == GamePersistence.careerState.getSeasonNumber() - 1 && ((C0703)this.np.get(var2)).b() == c0713.b() && ((C0703)this.np.get(var2)).el() == c0713.el()
             )
           {
             return (C0703)this.np.get(var2);
@@ -741,7 +741,7 @@ public class Club implements Serializable {
 
    public C0703 a(Competition c0713, int i) {
       for (int var3 = 0; var3 < this.np.size(); var3++) {
-         if (((C0703)this.np.get(var3)).H() == GamePersistence.careerState.H() && ((C0703)this.np.get(var3)).b() == c0713.b() && ((C0703)this.np.get(var3)).el() == i) {
+         if (((C0703)this.np.get(var3)).H() == GamePersistence.careerState.getSeasonNumber() && ((C0703)this.np.get(var3)).b() == c0713.b() && ((C0703)this.np.get(var3)).el() == i) {
             return (C0703)this.np.get(var3);
          }
       }
@@ -2020,7 +2020,7 @@ public class Club implements Serializable {
 
    public void q(Competition c0713) {
       C0708 var2 = new C0708();
-      var2.k(GamePersistence.careerState.H());
+      var2.k(GamePersistence.careerState.getSeasonNumber());
       var2.C(this.lk());
       var2.a(c0713.b());
       var2.m(c0713);
@@ -2154,8 +2154,8 @@ public class Club implements Serializable {
    }
 
    public boolean bY(int i) {
-      for (int var2 = 0; var2 < GamePersistence.careerState.R().size(); var2++) {
-         if (((C0693)GamePersistence.careerState.R().get(var2)).a().get(2) == i && ((C0693)GamePersistence.careerState.R().get(var2)).a(this)) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.getScheduleDays().size(); var2++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).a().get(2) == i && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).a(this)) {
             return true;
          }
       }

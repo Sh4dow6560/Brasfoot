@@ -77,7 +77,7 @@ public class CopaLibertadores extends Competition implements Serializable {
    }
 
    public void yq() {
-      if (GamePersistence.careerState.H() == 1 && GamePersistence.careerState.isGruposIntPadrao() && this.yv() && this.yu()) {
+      if (GamePersistence.careerState.getSeasonNumber() == 1 && GamePersistence.careerState.isGruposIntPadrao() && this.yv() && this.yu()) {
          this.YX = true;
          this.yr();
       } else {
@@ -224,7 +224,7 @@ public class CopaLibertadores extends Competition implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4101);
       }
 
-      if (GamePersistence.careerState.H() == 1 && this.YX) {
+      if (GamePersistence.careerState.getSeasonNumber() == 1 && this.YX) {
          this.ae(arrayList);
       } else {
          ArrayList var10 = new ArrayList();
@@ -277,7 +277,7 @@ public class CopaLibertadores extends Competition implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4102);
       }
 
-      if (GamePersistence.careerState.H() == 1 && this.YX) {
+      if (GamePersistence.careerState.getSeasonNumber() == 1 && this.YX) {
          this.af(arrayList);
       } else {
          ArrayList var6 = new ArrayList();
@@ -330,7 +330,7 @@ public class CopaLibertadores extends Competition implements Serializable {
 
       GamePersistence.careerState.aH().Aa().addAll(arrayList2);
       GamePersistence.careerState.aH().c(arrayList2, 0);
-      if (GamePersistence.careerState.H() == 1 && this.YX) {
+      if (GamePersistence.careerState.getSeasonNumber() == 1 && this.YX) {
          this.ag(arrayList);
       } else {
          ArrayList var13 = new ArrayList();
@@ -572,14 +572,14 @@ public class CopaLibertadores extends Competition implements Serializable {
 
    @Override
    public CountryCompetitions mF() {
-      int var1 = GamePersistence.careerState.H() - 1;
+      int var1 = GamePersistence.careerState.getSeasonNumber() - 1;
       var1 %= 10;
       int[] var2 = new int[]{42, 11, 29, 46, 150, 195, 26, 198, 60, 151};
       return var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = GamePersistence.careerState.H() - 1;
+      int var0 = GamePersistence.careerState.getSeasonNumber() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Santiago", "Buenos Aires", "Rio de Janeiro", "Bogotá", "Assunción", "Montevidéu", "La Paz", "Caracas", "Quito", "Lima"};

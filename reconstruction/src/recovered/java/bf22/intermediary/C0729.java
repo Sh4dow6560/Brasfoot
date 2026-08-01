@@ -74,7 +74,7 @@ public class C0729 implements Serializable {
    }
 
    public C0729(Player player, Club club) {
-      this.ae = GamePersistence.careerState.H();
+      this.ae = GamePersistence.careerState.getSeasonNumber();
       this.bW = club.lk();
    }
 

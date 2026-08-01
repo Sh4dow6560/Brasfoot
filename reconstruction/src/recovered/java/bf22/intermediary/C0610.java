@@ -23,7 +23,7 @@ public class C0610 extends DefaultTableCellRenderer {
                super.setBackground(Color.BLACK);
                super.setForeground(Color.white);
             } else if (!var7.tt()) {
-               this.setText(Integer.toString(var7.H() + GamePersistence.careerState.iU()));
+               this.setText(Integer.toString(var7.H() + GamePersistence.careerState.getSeasonYearOffset()));
             }
          }
 

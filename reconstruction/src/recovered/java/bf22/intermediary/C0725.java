@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.CafChampionsLeague;
 import mod.recovered.competition.ConcacafChampionsLeague;
@@ -152,7 +153,7 @@ public class C0725 {
    public static void u() {
       int var0 = 0;
       var0 = 0;
-      ArrayList var1 = C0693.b(100);
+      ArrayList var1 = ScheduleDay.b(100);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          System.out
@@ -160,16 +161,16 @@ public class C0725 {
                "Amistoso C:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var2))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var2))).a().get(7)]
                   + " "
                   + var1.get(var2)
             );
       }
 
       var0 = 0;
-      var1 = C0693.b(200);
+      var1 = ScheduleDay.b(200);
 
       for (int var26 = 0; var26 < var1.size(); var26++) {
          System.out
@@ -177,16 +178,16 @@ public class C0725 {
                "Amistoso S:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var26))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var26))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var26))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var26))).a().get(7)]
                   + " "
                   + var1.get(var26)
             );
       }
 
       var0 = 0;
-      var1 = C0693.b(10);
+      var1 = ScheduleDay.b(10);
 
       for (int var27 = 0; var27 < var1.size(); var27++) {
          System.out
@@ -194,16 +195,16 @@ public class C0725 {
                "Regional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var27))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var27))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var27))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var27))).a().get(7)]
                   + " "
                   + var1.get(var27)
             );
       }
 
       var0 = 0;
-      var1 = C0693.b(3);
+      var1 = ScheduleDay.b(3);
 
       for (int var28 = 0; var28 < var1.size(); var28++) {
          System.out
@@ -211,9 +212,9 @@ public class C0725 {
                "Estadual:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var28))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var28))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var28))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var28))).a().get(7)]
                   + " "
                   + var1.get(var28)
             );
@@ -221,7 +222,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(1);
+      var1 = ScheduleDay.b(1);
 
       for (int var29 = 0; var29 < var1.size(); var29++) {
          System.out
@@ -229,9 +230,9 @@ public class C0725 {
                "Nacional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var29))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var29))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var29))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var29))).a().get(7)]
                   + " "
                   + var1.get(var29)
             );
@@ -239,7 +240,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(4);
+      var1 = ScheduleDay.b(4);
 
       for (int var30 = 0; var30 < var1.size(); var30++) {
          System.out
@@ -247,9 +248,9 @@ public class C0725 {
                "Int1:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var30))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var30))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var30))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var30))).a().get(7)]
                   + " "
                   + var1.get(var30)
             );
@@ -257,7 +258,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(2);
+      var1 = ScheduleDay.b(2);
 
       for (int var31 = 0; var31 < var1.size(); var31++) {
          System.out
@@ -265,9 +266,9 @@ public class C0725 {
                "Copa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var31))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var31))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var31))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var31))).a().get(7)]
                   + " "
                   + var1.get(var31)
             );
@@ -275,7 +276,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(7);
+      var1 = ScheduleDay.b(7);
 
       for (int var32 = 0; var32 < var1.size(); var32++) {
          System.out
@@ -283,9 +284,9 @@ public class C0725 {
                "Selecoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var32))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var32))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var32))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var32))).a().get(7)]
                   + " "
                   + var1.get(var32)
             );
@@ -293,7 +294,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(6);
+      var1 = ScheduleDay.b(6);
 
       for (int var33 = 0; var33 < var1.size(); var33++) {
          System.out
@@ -301,9 +302,9 @@ public class C0725 {
                "INT2:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var33))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var33))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var33))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var33))).a().get(7)]
                   + " "
                   + var1.get(var33)
             );
@@ -311,7 +312,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(8);
+      var1 = ScheduleDay.b(8);
 
       for (int var34 = 0; var34 < var1.size(); var34++) {
          System.out
@@ -319,9 +320,9 @@ public class C0725 {
                "Recopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var34))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var34))).a().get(7)]
                   + " "
                   + var1.get(var34)
             );
@@ -329,7 +330,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(5);
+      var1 = ScheduleDay.b(5);
 
       for (int var35 = 0; var35 < var1.size(); var35++) {
          System.out
@@ -337,9 +338,9 @@ public class C0725 {
                "Mundial:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var35))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var35))).a().get(7)]
                   + " "
                   + var1.get(var35)
             );
@@ -347,7 +348,7 @@ public class C0725 {
 
       var0 = 0;
       var1.clear();
-      var1 = C0693.b(9);
+      var1 = ScheduleDay.b(9);
 
       for (int var36 = 0; var36 < var1.size(); var36++) {
          System.out
@@ -355,9 +356,9 @@ public class C0725 {
                "Elimin:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).f()
+                  + ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var36))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).a().get(7)]
+                  + GameConstants.rF[((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var1.get(var36))).a().get(7)]
                   + " "
                   + var1.get(var36)
             );

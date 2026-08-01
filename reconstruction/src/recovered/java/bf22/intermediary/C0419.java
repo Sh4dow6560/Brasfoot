@@ -166,10 +166,10 @@ public class C0419 extends JPanel {
    private void oq() {
       this.Bw.setCursor(new Cursor(3));
       if (this.afA.getSelectedIndex() == 1) {
-         GamePersistence.careerState.I(2023);
+         GamePersistence.careerState.setFirstSeasonYear(2023);
          GameConstants.f("anoinicio", 1);
       } else {
-         GamePersistence.careerState.I(2022);
+         GamePersistence.careerState.setFirstSeasonYear(2022);
          GameConstants.f("anoinicio", 0);
       }
 

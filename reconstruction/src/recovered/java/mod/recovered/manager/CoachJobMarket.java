@@ -250,7 +250,7 @@ public class CoachJobMarket implements Serializable {
       ArrayList var5 = new ArrayList();
       boolean var6 = false;
       boolean var7 = false;
-      if (GamePersistence.careerState.ca() - 1 == GamePersistence.careerState.H()) {
+      if (GamePersistence.careerState.ca() - 1 == GamePersistence.careerState.getSeasonNumber()) {
          var7 = true;
          LeagueStage[] var8 = new LeagueStage[6];
          if (GamePersistence.careerState.bK() != null) {

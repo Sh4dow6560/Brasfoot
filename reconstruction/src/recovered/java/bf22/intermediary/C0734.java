@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.CafChampionsLeague;
 import mod.recovered.competition.ConcacafChampionsLeague;
@@ -127,18 +128,18 @@ public abstract class C0734 {
       }
 
       GamePersistence.careerState.cb();
-      GamePersistence.careerState.r(GamePersistence.careerState.op());
-      C0693.g();
-      C0693.u();
+      GamePersistence.careerState.r(GamePersistence.careerState.getFirstSeasonYear());
+      ScheduleDay.g();
+      ScheduleDay.u();
       w(GamePersistence.careerState.bF);
       if (GamePersistence.careerState.bk() || GamePersistence.careerState.X()) {
-         int var2 = C0693.e(1);
+         int var2 = ScheduleDay.e(1);
          if (var2 > 0) {
-            C0693.b(var2, 4, 1);
+            ScheduleDay.b(var2, 4, 1);
          }
       }
 
-      C0693.q();
+      ScheduleDay.q();
       new C0679(false);
       dj();
 
@@ -156,7 +157,7 @@ public abstract class C0734 {
 
       GamePersistence.careerState.aU();
       GamePersistence.careerState.c(false);
-      if (GamePersistence.careerState.op() == 2023) {
+      if (GamePersistence.careerState.getFirstSeasonYear() == 2023) {
          GamePersistence.careerState.rU();
       }
 
@@ -173,9 +174,9 @@ public abstract class C0734 {
          dk();
          dn();
          dl();
-         int var6 = C0693.d(4);
+         int var6 = ScheduleDay.d(4);
          if (var6 > 0) {
-            C0693.b(var6, 1, 0);
+            ScheduleDay.b(var6, 1, 0);
          }
 
          method_kw_do();
@@ -270,7 +271,7 @@ public abstract class C0734 {
             }
          }
 
-         if (GamePersistence.careerState.H() > 1 && GamePersistence.careerState.bx().size() > 0 && GamePersistence.careerState.bk() && var2.eb().size() == 4) {
+         if (GamePersistence.careerState.getSeasonNumber() > 1 && GamePersistence.careerState.bx().size() > 0 && GamePersistence.careerState.bk() && var2.eb().size() == 4) {
             for (int var5 = 0; var5 < GamePersistence.careerState.bx().size(); var5++) {
                if (!var0.contains(var0.add(((C0779)GamePersistence.careerState.bx().get(var5)).vD()))) {
                   var0.add(((C0779)GamePersistence.careerState.bx().get(var5)).vD());

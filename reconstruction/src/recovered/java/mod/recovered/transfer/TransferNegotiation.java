@@ -215,7 +215,7 @@ public class TransferNegotiation {
          var3 = this.cH();
       }
 
-      if (this.cl == null && GamePersistence.careerState.H() > 2 && this.cj && this.ci < this.U.fk()) {
+      if (this.cl == null && GamePersistence.careerState.getSeasonNumber() > 2 && this.cj && this.ci < this.U.fk()) {
          var3 = this.cJ();
       }
 

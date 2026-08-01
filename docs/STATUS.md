@@ -23,10 +23,13 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 79 classes e 135 membros mapeados possuem nomes validos ou
+- Legibilidade: 80 classes e 159 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
+- Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
+  expoe temporada, ano inicial, data atual, indice, partidas e dias agendados
+  por nomes diretos.
 - Migracao: nomes de membros estaticos podem ser aplicados de forma
   transacional nas 1.032 fontes, com backup e verificacao de referencias.
-- Proxima fase: nomear calendario e a API interna da carreira, ampliando os
-  testes funcionais antes de implementar novas mecanicas.
+- Proxima fase: nomear eventos do calendario e ampliar os testes funcionais
+  antes de implementar novas mecanicas.

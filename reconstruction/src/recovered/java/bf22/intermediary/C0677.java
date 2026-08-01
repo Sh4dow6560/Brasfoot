@@ -98,7 +98,7 @@ public abstract class C0677 {
       }
 
       player.h(false);
-      player.ar(GamePersistence.careerState.H());
+      player.ar(GamePersistence.careerState.getSeasonNumber());
       player.d(0.0);
       player.a(180L, true);
       player.fK();
@@ -199,7 +199,7 @@ public abstract class C0677 {
       var3 = var3 - 5 + new Random().nextInt(8);
       player.ad(var3);
       player.h(false);
-      player.ar(GamePersistence.careerState.H());
+      player.ar(GamePersistence.careerState.getSeasonNumber());
       player.d(0.0);
       player.a(180L, true);
       if (GamePersistence.careerState.isHabilidadeIndividual()) {

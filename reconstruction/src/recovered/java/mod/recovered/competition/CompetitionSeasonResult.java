@@ -23,7 +23,7 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public CompetitionSeasonResult(Competition c0713, CompetitionStage c0678, Club club, Club club2) {
-      this.ae = GamePersistence.careerState.H();
+      this.ae = GamePersistence.careerState.getSeasonNumber();
       if (club != null) {
          this.bQ = club.lk();
       }

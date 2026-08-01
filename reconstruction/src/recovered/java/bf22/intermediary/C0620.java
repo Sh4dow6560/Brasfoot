@@ -21,7 +21,7 @@ public class C0620 extends DefaultTableCellRenderer {
       if (var7 != null) {
          if (var7.cC() > 0) {
             if (j == 0) {
-               this.setText(Integer.toString(var7.cC() + GamePersistence.careerState.iU()));
+               this.setText(Integer.toString(var7.cC() + GamePersistence.careerState.getSeasonYearOffset()));
             }
 
             if (j == 1) {
@@ -37,7 +37,7 @@ public class C0620 extends DefaultTableCellRenderer {
                   this.setText("Total carreira:");
                }
             } else if (j == 0) {
-               this.setText(Integer.toString(var7.H() + GamePersistence.careerState.iU()));
+               this.setText(Integer.toString(var7.H() + GamePersistence.careerState.getSeasonYearOffset()));
             } else if (j == 1) {
                this.setText(var7.ck());
                Club var8 = var7.cu();

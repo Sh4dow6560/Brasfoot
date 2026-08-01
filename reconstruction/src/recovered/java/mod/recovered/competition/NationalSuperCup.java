@@ -33,8 +33,8 @@ public class NationalSuperCup extends Competition implements Serializable {
       Club var2 = null;
       CountryCompetitions var3 = GamePersistence.careerState.o(this.pais);
       if (var3 != null && var3.eb() != null && var3.eb().size() > 0) {
-         var1 = ((NationalLeague)var3.eb().get(0)).cv(GamePersistence.careerState.H() - 1);
-         Club[] var4 = var3.bk(GamePersistence.careerState.H() - 1);
+         var1 = ((NationalLeague)var3.eb().get(0)).cv(GamePersistence.careerState.getSeasonNumber() - 1);
+         Club[] var4 = var3.bk(GamePersistence.careerState.getSeasonNumber() - 1);
          if (var4 != null) {
             if (var1 != var4[0]) {
                var2 = var4[0];

@@ -149,16 +149,16 @@ public class C0208 extends JPanel {
       for (int var2 = 0; var2 < arrayList.size(); var2++) {
          boolean var3 = true;
 
-         for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
-            if (((Match)GamePersistence.careerState.S().get(var4)).hy() == arrayList.get(var2)) {
+         for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
+            if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() == arrayList.get(var2)) {
                if (var3) {
                   if (var2 == 0) {
-                     this.a(((Match)GamePersistence.careerState.S().get(var4)).hy(), ((Match)GamePersistence.careerState.S().get(var4)).ht());
+                     this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy(), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).ht());
                   }
 
                   if (var2 != -1) {
                      C0827 var5 = new C0827();
-                     var5.L(this.a(((Match)GamePersistence.careerState.S().get(var4)).hy(), (Match)GamePersistence.careerState.S().get(var4), ((Match)GamePersistence.careerState.S().get(var4)).ht()));
+                     var5.L(this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy(), (Match)GamePersistence.careerState.getCurrentMatches().get(var4), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).ht()));
                      vK.add(var5);
                   }
 
@@ -166,7 +166,7 @@ public class C0208 extends JPanel {
                }
 
                C0827 var13 = new C0827();
-               var13.n((Match)GamePersistence.careerState.S().get(var4));
+               var13.n((Match)GamePersistence.careerState.getCurrentMatches().get(var4));
                var13.tW();
                if (var13.tR().hc() != null) {
                   var13.tR().hc().Q(var13.tR().hp());
@@ -178,20 +178,20 @@ public class C0208 extends JPanel {
                   var13.tR().hd().O(var13.tR().hq());
                }
 
-               if (((Match)GamePersistence.careerState.S().get(var4)).hy().b() == 7) {
+               if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 7) {
                   Object var6 = null;
                   var13.p(var13.tR().ik());
                } else if (var13.tR().ev() == null) {
-                  if (((Match)GamePersistence.careerState.S().get(var4)).hy().b() == 4) {
-                     if (((Match)GamePersistence.careerState.S().get(var4)).hy() instanceof UefaChampionsLeague) {
+                  if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 4) {
+                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof UefaChampionsLeague) {
                         var13.p(UefaChampionsLeague.yD());
-                     } else if (((Match)GamePersistence.careerState.S().get(var4)).hy() instanceof CopaLibertadores) {
+                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof CopaLibertadores) {
                         var13.p(CopaLibertadores.yD());
                      }
-                  } else if (((Match)GamePersistence.careerState.S().get(var4)).hy().b() == 6) {
-                     if (((Match)GamePersistence.careerState.S().get(var4)).hy() instanceof CopaSudamericana) {
+                  } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 6) {
+                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof CopaSudamericana) {
                         var13.p(CopaSudamericana.yD());
-                     } else if (((Match)GamePersistence.careerState.S().get(var4)).hy() instanceof UefaEuropaLeague) {
+                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof UefaEuropaLeague) {
                         var13.p(UefaEuropaLeague.yD());
                      }
                   }

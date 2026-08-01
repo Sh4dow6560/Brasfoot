@@ -542,8 +542,8 @@ public class C0741 implements Serializable {
    }
 
    public boolean ej() {
-      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
-         if (this.ds.contains(((Match)GamePersistence.careerState.S().get(var1)).hy())) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
+         if (this.ds.contains(((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy())) {
             return true;
          }
       }

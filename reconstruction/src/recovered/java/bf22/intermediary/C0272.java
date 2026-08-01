@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
@@ -387,8 +388,8 @@ public class C0272 extends JPanel {
             var5 = "Emprestado até:";
          }
 
-         if (this.uz.fP() && this.uz.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
-            var3 = "Fim contusão: " + C0693.a(this.uz.fo());
+         if (this.uz.fP() && this.uz.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+            var3 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
          }
 
          int[] var6 = this.uz.e(this.bv.hy());
@@ -586,7 +587,7 @@ public class C0272 extends JPanel {
       this.ze.setText("Mensagens");
       this.Hf.setValue(this.zu.ka().lL());
       this.Ig.setValue(this.zu.ka().lM());
-      this.Eg.setText(GamePersistence.careerState.T());
+      this.Eg.setText(GamePersistence.careerState.getCurrentDateText());
       if (!this.yp) {
          this.Fq.setIcon(this.zu.kP());
       } else {
@@ -664,7 +665,7 @@ public class C0272 extends JPanel {
    }
 
    private void qy() {
-      if (GamePersistence.careerState.bs() != null) {
+      if (GamePersistence.careerState.getSavedGameInfo() != null) {
          String var1;
          if (this.AT == 0) {
             var1 = "C - ";
@@ -672,10 +673,10 @@ public class C0272 extends JPanel {
             var1 = "F - ";
          }
 
-         GamePersistence.careerState.bs().setClubName(this.zu.ka().dS());
-         GamePersistence.careerState.bs().setManagerName(this.zu.getNome());
-         GamePersistence.careerState.bs().setSeasonYear(GamePersistence.careerState.H() + GamePersistence.careerState.iU());
-         GamePersistence.careerState.bs().setNextMatch(var1 + this.Hv.getNome() + " - " + this.Bj.getText());
+         GamePersistence.careerState.getSavedGameInfo().setClubName(this.zu.ka().dS());
+         GamePersistence.careerState.getSavedGameInfo().setManagerName(this.zu.getNome());
+         GamePersistence.careerState.getSavedGameInfo().setSeasonYear(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset());
+         GamePersistence.careerState.getSavedGameInfo().setNextMatch(var1 + this.Hv.getNome() + " - " + this.Bj.getText());
       }
    }
 
@@ -1724,7 +1725,7 @@ public class C0272 extends JPanel {
    }
 
    public void rt() {
-      if (GamePersistence.careerState.br() == null) {
+      if (GamePersistence.careerState.getSaveName() == null) {
          JDialog var1 = new JDialog(this.Br);
          C0341 var2 = new C0341(var1);
          var1.add(var2);
@@ -1738,11 +1739,11 @@ public class C0272 extends JPanel {
    }
 
    public void ru() {
-      if (GamePersistence.careerState.br() == null) {
+      if (GamePersistence.careerState.getSaveName() == null) {
          this.rt();
       }
 
-      if (GamePersistence.careerState.br() != null) {
+      if (GamePersistence.careerState.getSaveName() != null) {
          this.Br.setCursor(new Cursor(3));
          MainWindow.a("", false);
          this.Br.setCursor(new Cursor(12));

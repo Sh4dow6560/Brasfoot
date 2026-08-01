@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.Competition;
 import mod.recovered.core.GameConstants;
 import mod.recovered.match.Match;
@@ -102,11 +103,11 @@ public class C0012 extends JPanel {
       this.va.addActionListener(new C0014(this));
       this.u.clear();
 
-      for (int var2 = 0; var2 < GamePersistence.careerState.R().size(); var2++) {
-         for (int var3 = 0; var3 < ((C0693)GamePersistence.careerState.R().get(var2)).h().size(); var3++) {
-            if (((Match)((C0693)GamePersistence.careerState.R().get(var2)).h().get(var3)).hc() == this.uk
-               || ((Match)((C0693)GamePersistence.careerState.R().get(var2)).h().get(var3)).hd() == this.uk) {
-               this.vK.add((Match)((C0693)GamePersistence.careerState.R().get(var2)).h().get(var3));
+      for (int var2 = 0; var2 < GamePersistence.careerState.getScheduleDays().size(); var2++) {
+         for (int var3 = 0; var3 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().size(); var3++) {
+            if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).hc() == this.uk
+               || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).hd() == this.uk) {
+               this.vK.add((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3));
             }
          }
       }

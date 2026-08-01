@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -58,11 +59,11 @@ public class C0176 extends JPanel {
       this.dH = stadium;
       this.zu = club;
       this.Cn = c0171;
-      if (GamePersistence.careerState.H() >= 2) {
+      if (GamePersistence.careerState.getSeasonNumber() >= 2) {
          this.Co = GameConstants.pa[1];
-      } else if (GamePersistence.careerState.H() >= 6) {
+      } else if (GamePersistence.careerState.getSeasonNumber() >= 6) {
          this.Co = GameConstants.pa[2];
-      } else if (GamePersistence.careerState.H() >= 10) {
+      } else if (GamePersistence.careerState.getSeasonNumber() >= 10) {
          this.Co = GameConstants.pa[3];
       }
 
@@ -122,7 +123,7 @@ public class C0176 extends JPanel {
 
       this.Ct += 100000;
       int var7 = this.cZ(var2);
-      Calendar var4 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a();
+      Calendar var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
       this.dI.set(var4.get(1), var4.get(2), var4.get(5));
       this.dI.add(5, var7);
       DateFormat var5 = DateFormat.getDateInstance();

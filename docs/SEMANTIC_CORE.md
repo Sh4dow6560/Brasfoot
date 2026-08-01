@@ -12,11 +12,17 @@ chamadas binaras permanecem compativeis.
 | `save/GamePersistence` | `c/a` | leitura de saves, backup e opcoes |
 | `save/SavedGameInfo` | `est/InfoArquivoSalvoType` | metadados exibidos no carregamento |
 | `manager/CoachJobMarket` | `best/ay` | propostas e mercado de tecnicos |
+| `game/ScheduleDay` | `best/a` | data, partidas, fases e eventos agendados |
 
 `GamePersistence` ja possui API fonte legivel: `careerState`,
 `coachJobMarket`, `getOptions`, `saveCareer`, `loadCareer`,
 `loadCareerInfo`, `saveOptions`, `preloadSoundFiles` e `getSoundFile`. Esses
 nomes voltam aos identificadores oficiais somente na montagem final.
+
+`CareerState` tambem expoe `getSeasonNumber`, `advanceSeason`,
+`getScheduleDays`, `getCurrentScheduleIndex`, `getCurrentMatches`,
+`getCurrentDate`, `getCurrentTimeMillis`, `getFirstSeasonYear` e os respectivos
+ajustes essenciais.
 
 ## Competicoes
 

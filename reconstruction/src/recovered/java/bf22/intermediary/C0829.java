@@ -10,8 +10,8 @@ public class C0829 {
       this.Z = c0676.C();
       int var2 = c0676.hM();
       int var3 = c0676.im();
-      if (var2 >= 0 && var3 >= 0 && GamePersistence.careerState.m(var2) != null && var3 < GamePersistence.careerState.m(var2).size()) {
-         this.zz = (Match)GamePersistence.careerState.m(var2).get(var3);
+      if (var2 >= 0 && var3 >= 0 && GamePersistence.careerState.getMatchesAtScheduleIndex(var2) != null && var3 < GamePersistence.careerState.getMatchesAtScheduleIndex(var2).size()) {
+         this.zz = (Match)GamePersistence.careerState.getMatchesAtScheduleIndex(var2).get(var3);
       }
    }
 

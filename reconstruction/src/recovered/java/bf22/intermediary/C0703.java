@@ -35,7 +35,7 @@ public class C0703 implements Serializable {
    }
 
    public C0703(Competition c0713, Club club, int i) {
-      this.ae = GamePersistence.careerState.H();
+      this.ae = GamePersistence.careerState.getSeasonNumber();
       this.w = c0713.b();
       this.dz = i;
       if (c0713 instanceof NationalLeague) {
@@ -285,7 +285,7 @@ public class C0703 implements Serializable {
             return Integer.toString(this.lu()) + " º";
          }
 
-         if (this.ae < GamePersistence.careerState.H()) {
+         if (this.ae < GamePersistence.careerState.getSeasonNumber()) {
             if (this.w == 1) {
                this.nR = true;
                return "1ª fase";

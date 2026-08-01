@@ -593,9 +593,9 @@ public class MatchEngine {
    public double a(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (GamePersistence.careerState.H() >= 5) {
+      if (GamePersistence.careerState.getSeasonNumber() >= 5) {
          var7 = 11;
-      } else if (GamePersistence.careerState.H() >= 9) {
+      } else if (GamePersistence.careerState.getSeasonNumber() >= 9) {
          var7 = 12;
       }
 
@@ -606,7 +606,7 @@ public class MatchEngine {
    public double b(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (GamePersistence.careerState.H() >= 5) {
+      if (GamePersistence.careerState.getSeasonNumber() >= 5) {
          var7 = 10;
       }
 

@@ -45,7 +45,7 @@ public class C0156 extends JPanel {
       this.pp();
       this.pq();
       this.po();
-      this.ug.setText("Finanças - " + String.valueOf(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
+      this.ug.setText("Finanças - " + String.valueOf(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset()));
       this.mG();
    }
 

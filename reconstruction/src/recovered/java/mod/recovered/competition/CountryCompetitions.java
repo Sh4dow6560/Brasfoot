@@ -278,7 +278,7 @@ public class CountryCompetitions implements Serializable {
             var2.add(0, var3);
          }
 
-         Club[] var10 = this.bk(GamePersistence.careerState.H() - 1);
+         Club[] var10 = this.bk(GamePersistence.careerState.getSeasonNumber() - 1);
          if (var10 != null) {
             var2.remove(var10[0]);
             var2.add(0, var10[0]);
@@ -377,7 +377,7 @@ public class CountryCompetitions implements Serializable {
    public void a(int i, ArrayList arrayList, ArrayList arrayList2, boolean bl) {
       this.jd();
       if (bl) {
-         Club[] var5 = this.bk(GamePersistence.careerState.H() - 1);
+         Club[] var5 = this.bk(GamePersistence.careerState.getSeasonNumber() - 1);
          if (var5 != null && !arrayList2.contains(var5[0])) {
             arrayList.add(var5[0]);
             arrayList2.add(var5[0]);
@@ -1157,8 +1157,8 @@ public class CountryCompetitions implements Serializable {
    }
 
    public boolean ju() {
-      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
-         if (((Match)GamePersistence.careerState.S().get(var1)).hy() == this.hu && (((Match)GamePersistence.careerState.S().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var1)).hd().jZ())) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy() == this.hu && (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hd().jZ())) {
             return true;
          }
       }
@@ -1179,8 +1179,8 @@ public class CountryCompetitions implements Serializable {
    }
 
    public boolean jv() {
-      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
-         if (((Match)GamePersistence.careerState.S().get(var1)).hy() == this.hu) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy() == this.hu) {
             return true;
          }
       }
@@ -1189,8 +1189,8 @@ public class CountryCompetitions implements Serializable {
    }
 
    public boolean ej() {
-      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
-         if (this.ds.contains(((Match)GamePersistence.careerState.S().get(var1)).hy())) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
+         if (this.ds.contains(((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy())) {
             return true;
          }
       }

@@ -1,5 +1,6 @@
 package mod.recovered.competition;
 
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.*;
 import mod.recovered.competition.Competition;
 import mod.recovered.match.Match;
@@ -19,7 +20,7 @@ public class FriendlyMatches extends Competition implements Serializable {
 
    public static boolean d(Club club, int i) {
       new ArrayList();
-      ArrayList var2 = ((C0693)GamePersistence.careerState.R().get(i)).h();
+      ArrayList var2 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
          if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
@@ -32,10 +33,10 @@ public class FriendlyMatches extends Competition implements Serializable {
 
    public static ArrayList L(Club club) {
       ArrayList var1 = new ArrayList();
-      ArrayList var2 = C0693.b(100);
+      ArrayList var2 = ScheduleDay.b(100);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)GamePersistence.careerState.R().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.getCurrentDate()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }
@@ -45,10 +46,10 @@ public class FriendlyMatches extends Competition implements Serializable {
 
    public static ArrayList M(Club club) {
       ArrayList var1 = new ArrayList();
-      ArrayList var2 = C0693.b(200);
+      ArrayList var2 = ScheduleDay.b(200);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)GamePersistence.careerState.R().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.getCurrentDate()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }

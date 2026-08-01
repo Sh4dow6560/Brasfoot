@@ -177,11 +177,11 @@ public class C0971 {
    }
 
    private void K(Club club) {
-      if (GamePersistence.careerState.bs() != null) {
-         GamePersistence.careerState.bs().setClubName(club.ka().dS());
-         GamePersistence.careerState.bs().setManagerName(club.getNome());
-         GamePersistence.careerState.bs().setSeasonYear(GamePersistence.careerState.H() + GamePersistence.careerState.iU());
-         GamePersistence.careerState.bs().setNextMatch("");
+      if (GamePersistence.careerState.getSavedGameInfo() != null) {
+         GamePersistence.careerState.getSavedGameInfo().setClubName(club.ka().dS());
+         GamePersistence.careerState.getSavedGameInfo().setManagerName(club.getNome());
+         GamePersistence.careerState.getSavedGameInfo().setSeasonYear(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset());
+         GamePersistence.careerState.getSavedGameInfo().setNextMatch("");
       }
    }
 

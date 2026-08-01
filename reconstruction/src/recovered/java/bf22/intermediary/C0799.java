@@ -45,7 +45,7 @@ public class C0799 implements Serializable {
       this.RV = j;
       this.RW = string;
       this.RX = string2;
-      this.data = GamePersistence.careerState.T();
+      this.data = GamePersistence.careerState.getCurrentDateText();
       if (coach != null) {
          if (coach.lQ() == null) {
             coach.T(new ArrayList());

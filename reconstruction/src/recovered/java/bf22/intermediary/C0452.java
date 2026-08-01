@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.competition.CountryCompetitions;
@@ -431,8 +432,8 @@ public class C0452 extends JPanel {
          this.MO.setIcon(var2);
          var1 = this.yK.gw();
          String var3 = "";
-         if (this.yK.fP() && this.yK.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
-            var3 = "Fim contusão: " + C0693.a(this.yK.fo());
+         if (this.yK.fP() && this.yK.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+            var3 = "Fim contusão: " + ScheduleDay.a(this.yK.fo());
          }
 
          String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.fi()) + "&nbsp;&nbsp;&nbsp;";

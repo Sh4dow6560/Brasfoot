@@ -186,7 +186,7 @@ public class UefaConferenceLeague extends Competition implements Serializable {
    }
 
    public void yq() {
-      if (GamePersistence.careerState.H() == 3) {
+      if (GamePersistence.careerState.getSeasonNumber() == 3) {
          this.Bd();
       }
 
@@ -641,14 +641,14 @@ public class UefaConferenceLeague extends Competition implements Serializable {
 
    @Override
    public CountryCompetitions mF() {
-      int var1 = GamePersistence.careerState.H() - 1;
+      int var1 = GamePersistence.careerState.getSeasonNumber() - 1;
       var1 %= 10;
       int[] var2 = new int[]{152, 65, 52, 31, 21, 154, 3, 72, 162, 97};
       return var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = GamePersistence.careerState.H() - 1;
+      int var0 = GamePersistence.careerState.getSeasonNumber() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Gdansk", "Sevilla", "Zagreb", "Sofia", "Bruxelas", "Porto", "Frankfurt", "Lyon", "Moscou", "Liverpool"};

@@ -59,7 +59,7 @@ public class C0341 extends JPanel {
       if (var3) {
          this.zn.setCursor(new Cursor(3));
          this.ub.setCursor(new Cursor(3));
-         GamePersistence.careerState.d(var1);
+         GamePersistence.careerState.setSaveName(var1);
          this.ub.dispose();
       }
    }

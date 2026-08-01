@@ -2,7 +2,7 @@ package mod.recovered.model;
 
 import mod.recovered.match.Match;
 import mod.recovered.competition.CountryCompetitions;
-import bf22.intermediary.C0693;
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.C0708;
 import mod.recovered.core.GameConstants;
 import mod.recovered.competition.Competition;
@@ -127,7 +127,7 @@ public class Coach implements Serializable {
    public C0728 C(Club club) {
       for (int var2 = 0; var2 < this.ob.size(); var2++) {
          try {
-            if (((C0728)this.ob.get(var2)).ct() == club.lk() && ((C0728)this.ob.get(var2)).H() == GamePersistence.careerState.H()) {
+            if (((C0728)this.ob.get(var2)).ct() == club.lk() && ((C0728)this.ob.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
                return (C0728)this.ob.get(var2);
             }
          } catch (Exception var4) {
@@ -640,14 +640,14 @@ public class Coach implements Serializable {
          this.setReputacao(club.getReputacao());
       }
 
-      this.ci(GamePersistence.careerState.H());
+      this.ci(GamePersistence.careerState.getSeasonNumber());
    }
 
    public void i(Coach coach) {
       CoachChangeRecord var2 = new CoachChangeRecord();
       var2.c(this);
       var2.d(coach);
-      Calendar var3 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a();
+      Calendar var3 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
       var2.a().set(var3.get(1), var3.get(2), var3.get(5));
       if (this.fg() != null) {
          var2.C(this.fg().lk());
@@ -772,7 +772,7 @@ public class Coach implements Serializable {
       int var2 = c0713.b();
       int var3 = -1;
       C0708 var4 = new C0708();
-      var4.k(GamePersistence.careerState.H());
+      var4.k(GamePersistence.careerState.getSeasonNumber());
       if (var2 == 7) {
          if (this.jo() != null) {
             var4.C(this.jo().lk());

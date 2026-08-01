@@ -1,5 +1,6 @@
 package mod.recovered.competition;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.transfer.AiSquadManager;
 import bf22.intermediary.*;
 import mod.recovered.match.Match;
@@ -269,7 +270,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          }
       }
 
-      if ((this.b() != 7 || GamePersistence.careerState.H() != 1) && !this.jogosDentroGrupo) {
+      if ((this.b() != 7 || GamePersistence.careerState.getSeasonNumber() != 1) && !this.jogosDentroGrupo) {
          this.a(this.Zb, this.doisTurnos, true, this.Za);
       }
    }
@@ -356,7 +357,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
       int var13 = arrayList.size() / 2;
       new ArrayList();
-      ArrayList var8 = C0693.a(this.b(), this.pulaDuasDatas);
+      ArrayList var8 = ScheduleDay.a(this.b(), this.pulaDuasDatas);
 
       for (int var9 = 0; var9 < var5.length; var9++) {
          for (int var10 = 0; var10 < var13; var10++) {
@@ -657,7 +658,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public void pO() {
       new ArrayList();
-      ArrayList var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
+      ArrayList var1 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          if (((Match)var1.get(var2)).ht() == this) {
@@ -794,7 +795,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       Club[] var1 = new Club[2];
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.H()) {
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
             var1[0] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
             var1[1] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).cf();
             return var1;
@@ -808,7 +809,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       Object var1 = null;
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.H()) {
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
             return ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
          }
       }

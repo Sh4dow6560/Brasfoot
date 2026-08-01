@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
@@ -167,7 +168,7 @@ public class C0078 extends JPanel {
 
       this.mH();
       this.cM(var3);
-      this.xN.setText(Integer.toString(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
+      this.xN.setText(Integer.toString(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset()));
    }
 
    private void mG() {
@@ -1061,10 +1062,10 @@ public class C0078 extends JPanel {
          ArrayList var2 = new ArrayList();
          int var3 = 0;
 
-         for (int var4 = 0; var4 < GamePersistence.careerState.R().size(); var4++) {
-            for (int var5 = 0; var5 < ((C0693)GamePersistence.careerState.R().get(var4)).j().size(); var5++) {
-               if (((C0693)GamePersistence.careerState.R().get(var4)).j().get(var5) == this.wV) {
-                  var2.add((C0693)GamePersistence.careerState.R().get(var4));
+         for (int var4 = 0; var4 < GamePersistence.careerState.getScheduleDays().size(); var4++) {
+            for (int var5 = 0; var5 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).j().size(); var5++) {
+               if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).j().get(var5) == this.wV) {
+                  var2.add((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4));
                   break;
                }
             }
@@ -1077,10 +1078,10 @@ public class C0078 extends JPanel {
             this.vU.add(var10);
             var3 = 0;
 
-            for (int var6 = 0; var6 < ((C0693)var2.get(var8)).h().size(); var6++) {
-               if (((Match)((C0693)var2.get(var8)).h().get(var6)).ht() == this.wV) {
+            for (int var6 = 0; var6 < ((ScheduleDay)var2.get(var8)).h().size(); var6++) {
+               if (((Match)((ScheduleDay)var2.get(var8)).h().get(var6)).ht() == this.wV) {
                   C0828 var7 = new C0828();
-                  var7.n((Match)((C0693)var2.get(var8)).h().get(var6));
+                  var7.n((Match)((ScheduleDay)var2.get(var8)).h().get(var6));
                   this.vU.add(var7);
                   var3++;
                }

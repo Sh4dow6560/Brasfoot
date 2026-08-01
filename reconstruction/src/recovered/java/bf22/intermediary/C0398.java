@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.FriendlyMatches;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
@@ -71,7 +72,7 @@ public class C0398 extends JPanel {
       this.un = FriendlyMatches.L(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
-         this.up.addItem(((C0693)GamePersistence.careerState.R().get((Integer)this.un.get(var1))).f());
+         this.up.addItem(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get((Integer)this.un.get(var1))).f());
       }
    }
 

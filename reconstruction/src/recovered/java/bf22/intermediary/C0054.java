@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
@@ -341,10 +342,10 @@ public class C0054 extends JPanel {
          this.wm.setVisible(false);
       }
 
-      for (int var18 = 0; var18 < GamePersistence.careerState.R().size(); var18++) {
-         for (int var21 = 0; var21 < ((C0693)GamePersistence.careerState.R().get(var18)).t().size(); var21++) {
-            if (((C0693)GamePersistence.careerState.R().get(var18)).t().get(var21) == this.vX) {
-               this.vV.add((C0693)GamePersistence.careerState.R().get(var18));
+      for (int var18 = 0; var18 < GamePersistence.careerState.getScheduleDays().size(); var18++) {
+         for (int var21 = 0; var21 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var18)).t().size(); var21++) {
+            if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var18)).t().get(var21) == this.vX) {
+               this.vV.add((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var18));
                break;
             }
          }

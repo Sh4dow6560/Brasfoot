@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
@@ -327,7 +328,7 @@ public class C0435 extends JPanel {
       this.va.setMaximumRowCount(24);
       this.w = 0;
       this.cP.clear();
-      this.cP.addAll(((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t());
+      this.cP.addAll(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).t());
       KT = 0;
       if (this.cP.size() > 0) {
          if (((Competition)this.cP.get(0)).b() == 1) {
@@ -390,8 +391,8 @@ public class C0435 extends JPanel {
       byte var3 = 0;
       byte var4 = 0;
 
-      for (int var5 = 0; var5 < GamePersistence.careerState.S().size(); var5++) {
-         if (((Match)GamePersistence.careerState.S().get(var5)).hy() == c0713) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.getCurrentMatches().size(); var5++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy() == c0713) {
             var3 = -1;
             if (var3 != var4) {
                var2 = true;
@@ -399,14 +400,14 @@ public class C0435 extends JPanel {
 
             if (var2) {
                C0826 var6 = new C0826();
-               var6.D(((Match)GamePersistence.careerState.S().get(var5)).ij());
+               var6.D(((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).ij());
                this.a(var6);
                var2 = false;
                var4 = var3;
             }
 
             C0826 var9 = new C0826();
-            var9.n((Match)GamePersistence.careerState.S().get(var5));
+            var9.n((Match)GamePersistence.careerState.getCurrentMatches().get(var5));
             this.a(var9);
          }
       }
@@ -485,9 +486,9 @@ public class C0435 extends JPanel {
       int var4 = 0;
       ArrayList var5 = new ArrayList();
 
-      for (int var6 = 0; var6 < GamePersistence.careerState.S().size(); var6++) {
-         if (((Match)GamePersistence.careerState.S().get(var6)).hy() instanceof StateChampionship && ((StateChampionship)((Match)GamePersistence.careerState.S().get(var6)).hy()).yj() == c0741) {
-            var5.add((Match)GamePersistence.careerState.S().get(var6));
+      for (int var6 = 0; var6 < GamePersistence.careerState.getCurrentMatches().size(); var6++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).hy() instanceof StateChampionship && ((StateChampionship)((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).hy()).yj() == c0741) {
+            var5.add((Match)GamePersistence.careerState.getCurrentMatches().get(var6));
          }
       }
 
@@ -588,9 +589,9 @@ public class C0435 extends JPanel {
       int var3 = 0;
       int var4 = 0;
 
-      for (int var5 = 0; var5 < GamePersistence.careerState.S().size(); var5++) {
-         if (((Match)GamePersistence.careerState.S().get(var5)).hy().iq() == c0692) {
-            var3 = ((Match)GamePersistence.careerState.S().get(var5)).hy().ip();
+      for (int var5 = 0; var5 < GamePersistence.careerState.getCurrentMatches().size(); var5++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy().iq() == c0692) {
+            var3 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy().ip();
             if (var3 != var4) {
                var2 = true;
             }
@@ -599,12 +600,12 @@ public class C0435 extends JPanel {
                var2 = false;
                var4 = var3;
                C0826 var6 = new C0826();
-               var6.D(((Match)GamePersistence.careerState.S().get(var5)).ij());
+               var6.D(((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).ij());
                this.a(var6);
             }
 
             C0826 var9 = new C0826();
-            var9.n((Match)GamePersistence.careerState.S().get(var5));
+            var9.n((Match)GamePersistence.careerState.getCurrentMatches().get(var5));
             this.a(var9);
          }
       }
@@ -614,9 +615,9 @@ public class C0435 extends JPanel {
    }
 
    public void sd() {
-      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
-         if (((Match)GamePersistence.careerState.S().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var1)).hd().jZ()) {
-            this.KS = (Match)GamePersistence.careerState.S().get(var1);
+      for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hd().jZ()) {
+            this.KS = (Match)GamePersistence.careerState.getCurrentMatches().get(var1);
             break;
          }
       }

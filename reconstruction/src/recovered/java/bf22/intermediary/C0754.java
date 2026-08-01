@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.core.GameConstants;
 import mod.recovered.ui.MainWindow;
 import java.awt.Color;
@@ -29,7 +30,7 @@ public class C0754 extends JPanel {
       if (i == 1) {
          this.mJ();
          this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
-         this.Qn.setText(C0693.a(c0825.tO()));
+         this.Qn.setText(ScheduleDay.a(c0825.tO()));
          if (c0825.tP() != null) {
             this.zO.setText(c0825.tP().getNome());
             this.zO.setIcon(c0825.tP().kU());
@@ -40,7 +41,7 @@ public class C0754 extends JPanel {
          this.ui();
          this.mJ();
          this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
-         this.Qn.setText(C0693.a(c0825.tO()));
+         this.Qn.setText(ScheduleDay.a(c0825.tO()));
          if (c0825.x().fg() != null) {
             this.zO.setText(c0825.x().fg().getNome());
             this.zO.setIcon(c0825.x().fg().kU());

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
@@ -29,13 +30,13 @@ public abstract class C0737 {
       int var2 = -1;
       boolean[] var3 = GamePersistence.careerState.getVerJint();
 
-      for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
          if (var1 == -1) {
-            var1 = ((Match)GamePersistence.careerState.S().get(var4)).hy().b();
-            var2 = ((Match)GamePersistence.careerState.S().get(var4)).hy().el();
+            var1 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b();
+            var2 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().el();
          }
 
-         if (((Match)GamePersistence.careerState.S().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var4)).hd().jZ()) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hd().jZ()) {
             var0 = true;
             break;
          }
@@ -60,8 +61,8 @@ public abstract class C0737 {
       int var2 = c0713.gg();
       boolean[] var3 = GamePersistence.careerState.getVerJint();
 
-      for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
-         if (((Match)GamePersistence.careerState.S().get(var4)).hy() == c0713 && (((Match)GamePersistence.careerState.S().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var4)).hd().jZ())) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() == c0713 && (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hd().jZ())) {
             return true;
          }
       }
@@ -80,7 +81,7 @@ public abstract class C0737 {
       cV = -1;
       cW = null;
       cP.clear();
-      cP.addAll(((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t());
+      cP.addAll(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).t());
       if (cP.size() > 0) {
          if (GamePersistence.careerState.bs) {
             cR = MainWindow.aY(4);
@@ -322,15 +323,15 @@ public abstract class C0737 {
    }
 
    public static boolean dG() {
-      for (int var0 = 0; var0 < ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().size(); var0++) {
+      for (int var0 = 0; var0 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().size(); var0++) {
          LeagueStage var1 = null;
          Competition var2 = null;
-         if (((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0) instanceof LeagueStage) {
-            var1 = (LeagueStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0);
-         } else if (((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0) instanceof KnockoutStage) {
-            var1 = (LeagueStage)((KnockoutStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0)).zy();
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().get(var0) instanceof LeagueStage) {
+            var1 = (LeagueStage)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().get(var0);
+         } else if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().get(var0) instanceof KnockoutStage) {
+            var1 = (LeagueStage)((KnockoutStage)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().get(var0)).zy();
             if (var1 == null) {
-               var2 = ((KnockoutStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0)).yT();
+               var2 = ((KnockoutStage)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).j().get(var0)).yT();
                if (var2 instanceof NationalLeague) {
                   var1 = ((NationalLeague)var2).yi();
                }

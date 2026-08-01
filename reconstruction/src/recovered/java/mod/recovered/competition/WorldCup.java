@@ -43,7 +43,7 @@ public class WorldCup extends Competition implements Serializable {
    }
 
    public void ya() {
-      if (GamePersistence.careerState.H() > 1) {
+      if (GamePersistence.careerState.getSeasonNumber() > 1) {
          this.Bu();
       } else {
          this.YE.clear();
@@ -52,13 +52,13 @@ public class WorldCup extends Competition implements Serializable {
          boolean var1 = false;
          int[] var2 = new int[]{13, 4, 5, 4, 3, 0};
          int[] var3 = new int[6];
-         if (GamePersistence.careerState.H() == 1) {
+         if (GamePersistence.careerState.getSeasonNumber() == 1) {
             var3 = var2;
          }
 
          this.YH++;
          this.YG = this.eY(0);
-         if (GamePersistence.careerState.H() == 1 && GamePersistence.careerState.isUsarGruposReaisCopa()) {
+         if (GamePersistence.careerState.getSeasonNumber() == 1 && GamePersistence.careerState.isUsarGruposReaisCopa()) {
             var1 = true;
             int[] var9 = new int[]{
                39, 60, 169, 85, 97, 98, 68, 145, 11, 9, 131, 152, 72, 14, 54, 190, 65, 51, 3, 107, 21, 38, 129, 52, 29, 171, 180, 36, 154, 75, 195, 49

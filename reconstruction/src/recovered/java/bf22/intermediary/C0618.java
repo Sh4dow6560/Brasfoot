@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.match.Match;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -23,7 +24,7 @@ public class C0618 extends DefaultTableCellRenderer {
       Match var7 = (Match)object;
       if (object != null) {
          if (j == 0) {
-            this.setText(((C0693)GamePersistence.careerState.R().get(var7.hM())).f());
+            this.setText(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var7.hM())).f());
          } else if (j == 1) {
             this.setHorizontalAlignment(4);
             super.setHorizontalTextPosition(2);

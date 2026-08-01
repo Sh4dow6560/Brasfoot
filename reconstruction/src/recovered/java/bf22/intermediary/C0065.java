@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.AfricaCupOfNations;
 import mod.recovered.competition.AfricaWorldCupQualifiers;
@@ -160,7 +161,7 @@ public class C0065 extends JPanel {
       this.wR.setForeground(new Color(255, 255, 255));
       this.vd.setBackground(new Color(35, 28, 14));
       this.vd.setOpaque(true);
-      this.vf.setText("Classificação e jogos - " + Integer.toString(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
+      this.vf.setText("Classificação e jogos - " + Integer.toString(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset()));
       this.mG();
    }
 
@@ -335,10 +336,10 @@ public class C0065 extends JPanel {
       this.wv = i;
       this.vV.clear();
 
-      for (int var4 = 0; var4 < GamePersistence.careerState.R().size(); var4++) {
-         for (int var5 = 0; var5 < ((C0693)GamePersistence.careerState.R().get(var4)).t().size(); var5++) {
-            if (((C0693)GamePersistence.careerState.R().get(var4)).t().get(var5) == c0713) {
-               this.vV.add((C0693)GamePersistence.careerState.R().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.getScheduleDays().size(); var4++) {
+         for (int var5 = 0; var5 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).t().size(); var5++) {
+            if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4)).t().get(var5) == c0713) {
+               this.vV.add((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var4));
                break;
             }
          }
@@ -361,17 +362,17 @@ public class C0065 extends JPanel {
       }
 
       try {
-         for (int var9 = 0; var9 < ((C0693)this.vV.get(i)).h().size(); var9++) {
-            if (((Match)((C0693)this.vV.get(i)).h().get(var9)).ht() == c0955) {
+         for (int var9 = 0; var9 < ((ScheduleDay)this.vV.get(i)).h().size(); var9++) {
+            if (((Match)((ScheduleDay)this.vV.get(i)).h().get(var9)).ht() == c0955) {
                C0828 var11 = new C0828();
                var11.ao(true);
                this.vU.add(var11);
                C0828 var6 = new C0828();
-               var6.n((Match)((C0693)this.vV.get(i)).h().get(var9));
+               var6.n((Match)((ScheduleDay)this.vV.get(i)).h().get(var9));
                var6.ah(true);
                this.vU.add(var6);
                C0828 var7 = new C0828();
-               var7.n((Match)((C0693)this.vV.get(i)).h().get(var9));
+               var7.n((Match)((ScheduleDay)this.vV.get(i)).h().get(var9));
                this.vU.add(var7);
             }
          }

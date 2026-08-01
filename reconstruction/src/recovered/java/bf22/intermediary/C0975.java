@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +18,8 @@ class C0975 implements ActionListener {
       C0971.a(this.Xb);
       GamePersistence.careerState.aO(true);
 
-      for (; GamePersistence.careerState.H() < 1 || !((C0693)GamePersistence.careerState.R().get(342)).e() && !GamePersistence.careerState.bN; GamePersistence.careerState.V()) {
-         var2 = GamePersistence.careerState.H();
+      for (; GamePersistence.careerState.getSeasonNumber() < 1 || !((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(342)).e() && !GamePersistence.careerState.bN; GamePersistence.careerState.V()) {
+         var2 = GamePersistence.careerState.getSeasonNumber();
          if (var3 != var2) {
             var3 = var2;
             System.out.println("ano: " + Integer.toString(var2));

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.geo.CountryInfo;
@@ -183,13 +184,13 @@ public class C0039 extends JPanel {
 
             this.yj.clear();
 
-            for (int var5 = 0; var5 < GamePersistence.careerState.R().size(); var5++) {
-               for (int var6 = 0; var6 < ((C0693)GamePersistence.careerState.R().get(var5)).h().size(); var6++) {
-                  if (((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hc() == this.ym
-                        && ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hd() == this.yn
-                     || ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hd() == this.ym
-                        && ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hc() == this.yn) {
-                     this.yj.add((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6));
+            for (int var5 = 0; var5 < GamePersistence.careerState.getScheduleDays().size(); var5++) {
+               for (int var6 = 0; var6 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().size(); var6++) {
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hc() == this.ym
+                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hd() == this.yn
+                     || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hd() == this.ym
+                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hc() == this.yn) {
+                     this.yj.add((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6));
                   }
                }
             }

@@ -143,7 +143,7 @@ public class C0221 extends JPanel {
       for (int var7 = this.zY.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.zY.cT().get(var7)).b() == i && ((C0708)this.zY.cT().get(var7)).H() != var6) {
             var3++;
-            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.iU());
+            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.getSeasonYearOffset());
             var4 = ((C0708)this.zY.cT().get(var7)).gS();
             var6 = ((C0708)this.zY.cT().get(var7)).H();
          }
@@ -164,7 +164,7 @@ public class C0221 extends JPanel {
       for (int var7 = this.zY.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.zY.cT().get(var7)).b() == i && ((C0708)this.zY.cT().get(var7)).el() == j && ((C0708)this.zY.cT().get(var7)).H() != var6) {
             var3++;
-            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.iU());
+            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.getSeasonYearOffset());
             var4 = ((C0708)this.zY.cT().get(var7)).gS();
             var6 = ((C0708)this.zY.cT().get(var7)).H();
          }

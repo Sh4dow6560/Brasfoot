@@ -1,5 +1,6 @@
 package mod.recovered.competition;
 
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.*;
 import mod.recovered.core.GameConstants;
 import mod.recovered.match.Match;
@@ -48,7 +49,7 @@ public class KnockoutRound implements Serializable {
          var11 = true;
       }
 
-      ArrayList var10 = C0693.a(l, var11);
+      ArrayList var10 = ScheduleDay.a(l, var11);
 
       for (byte var12 = 0; var12 < arrayList.size(); var12 += 2) {
          this.aai.add(new Match(c0962, i, (Club)arrayList.get(var12), (Club)arrayList.get(var12 + 1), (Integer)var10.get(0), var9, null));

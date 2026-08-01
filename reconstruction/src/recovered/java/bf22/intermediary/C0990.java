@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.transfer.PlayerTransferRecord;
 import mod.recovered.competition.Competition;
 import mod.recovered.save.GamePersistence;
@@ -11,10 +12,10 @@ public abstract class C0990 {
    public static void Af() {
       ArrayList var0 = new ArrayList();
 
-      for (int var1 = 0; var1 < GamePersistence.careerState.R().size(); var1++) {
-         for (int var2 = 0; var2 < ((C0693)GamePersistence.careerState.R().get(var1)).t().size(); var2++) {
-            if (!var0.contains(((C0693)GamePersistence.careerState.R().get(var1)).t().get(var2))) {
-               var0.add((Competition)((C0693)GamePersistence.careerState.R().get(var1)).t().get(var2));
+      for (int var1 = 0; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         for (int var2 = 0; var2 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().size(); var2++) {
+            if (!var0.contains(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().get(var2))) {
+               var0.add((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().get(var2));
             }
          }
       }
@@ -40,10 +41,10 @@ public abstract class C0990 {
    public static void Ag() {
       ArrayList var0 = new ArrayList();
 
-      for (int var1 = 0; var1 < GamePersistence.careerState.R().size(); var1++) {
-         for (int var2 = 0; var2 < ((C0693)GamePersistence.careerState.R().get(var1)).t().size(); var2++) {
-            if (!var0.contains(((C0693)GamePersistence.careerState.R().get(var1)).t().get(var2))) {
-               var0.add((Competition)((C0693)GamePersistence.careerState.R().get(var1)).t().get(var2));
+      for (int var1 = 0; var1 < GamePersistence.careerState.getScheduleDays().size(); var1++) {
+         for (int var2 = 0; var2 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().size(); var2++) {
+            if (!var0.contains(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().get(var2))) {
+               var0.add((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var1)).t().get(var2));
             }
          }
       }

@@ -65,7 +65,7 @@ public class C0450 extends JPanel {
          if (false) {
             throw new FileNotFoundException();
          }
-         GamePersistence.saveCareer(GamePersistence.careerState.br());
+         GamePersistence.saveCareer(GamePersistence.careerState.getSaveName());
       } catch (FileNotFoundException var2) {
          var2.printStackTrace();
       }

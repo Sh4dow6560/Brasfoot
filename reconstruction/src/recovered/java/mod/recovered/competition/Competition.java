@@ -1,5 +1,6 @@
 package mod.recovered.competition;
 
+import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.*;
 import mod.recovered.match.Match;
 import mod.recovered.save.GamePersistence;
@@ -68,7 +69,7 @@ public abstract class Competition implements Serializable {
       Object var1 = null;
 
       for (int var2 = 0; var2 < this.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.mn().get(var2)).H() == GamePersistence.careerState.H()) {
+         if (((CompetitionSeasonResult)this.mn().get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
             return ((CompetitionSeasonResult)this.mn().get(var2)).ce();
          }
       }
@@ -90,7 +91,7 @@ public abstract class Competition implements Serializable {
 
    public CompetitionSeasonResult mo() {
       for (int var1 = 0; var1 < this.mn().size(); var1++) {
-         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.H()) {
+         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.getSeasonNumber()) {
             return (CompetitionSeasonResult)this.mn().get(var1);
          }
       }
@@ -100,7 +101,7 @@ public abstract class Competition implements Serializable {
 
    public CompetitionSeasonResult mp() {
       for (int var1 = 0; var1 < this.mn().size(); var1++) {
-         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.H() - 1) {
+         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.getSeasonNumber() - 1) {
             return (CompetitionSeasonResult)this.mn().get(var1);
          }
       }
@@ -187,16 +188,16 @@ public abstract class Competition implements Serializable {
       ArrayList var3 = new ArrayList();
       boolean var4 = false;
 
-      for (int var5 = 0; var5 < GamePersistence.careerState.R().size(); var5++) {
-         for (int var6 = 0; var6 < ((C0693)GamePersistence.careerState.R().get(var5)).t().size(); var6++) {
-            if (i == 3 && j == 1 && ((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)).b() == 9) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.getScheduleDays().size(); var5++) {
+         for (int var6 = 0; var6 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).t().size(); var6++) {
+            if (i == 3 && j == 1 && ((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).t().get(var6)).b() == 9) {
                var4 = true;
             } else {
                var4 = false;
             }
 
-            if (!var4 && !var3.contains(((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)) && ((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)).cw(i)) {
-               var3.add((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6));
+            if (!var4 && !var3.contains(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).t().get(var6)) && ((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).t().get(var6)).cw(i)) {
+               var3.add((Competition)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).t().get(var6));
             }
          }
       }
@@ -410,21 +411,21 @@ public abstract class Competition implements Serializable {
       Club var7 = null;
       ArrayList var8 = new ArrayList();
 
-      for (int var9 = 0; var9 < GamePersistence.careerState.R().size(); var9++) {
-         if (((C0693)GamePersistence.careerState.R().get(var9)).e() && ((C0693)GamePersistence.careerState.R().get(var9)).h().size() > 0) {
-            for (int var10 = 0; var10 < ((C0693)GamePersistence.careerState.R().get(var9)).h().size(); var10++) {
-               if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hy() == this) {
+      for (int var9 = 0; var9 < GamePersistence.careerState.getScheduleDays().size(); var9++) {
+         if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).e() && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().size() > 0) {
+            for (int var10 = 0; var10 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().size(); var10++) {
+               if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hy() == this) {
                   var3++;
-                  var4 += ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu();
-                  var4 += ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw();
-                  if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() >= var6) {
-                     var5 = (Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10);
-                     var6 = ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw();
+                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu();
+                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw();
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() >= var6) {
+                     var5 = (Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10);
+                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw();
                   }
 
-                  if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() >= var6) {
-                     var5 = (Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10);
-                     var6 = ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu();
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() >= var6) {
+                     var5 = (Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10);
+                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu();
                   }
                }
             }
@@ -439,7 +440,7 @@ public abstract class Competition implements Serializable {
          var7 = this.cS();
       } else {
          for (int var13 = 0; var13 < this.mn().size(); var13++) {
-            if (((CompetitionSeasonResult)this.mn().get(var13)).H() == GamePersistence.careerState.H() - 1) {
+            if (((CompetitionSeasonResult)this.mn().get(var13)).H() == GamePersistence.careerState.getSeasonNumber() - 1) {
                var7 = ((CompetitionSeasonResult)this.mn().get(var13)).ce();
                break;
             }

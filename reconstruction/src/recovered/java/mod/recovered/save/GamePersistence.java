@@ -74,7 +74,7 @@ public class GamePersistence {
          try {
             FileOutputStream var1 = new FileOutputStream(System.getProperty("user.dir") + "/sav/" + string + ".info");
             ObjectOutputStream var2 = new ObjectOutputStream(var1);
-            var2.writeObject(careerState.bs());
+            var2.writeObject(careerState.getSavedGameInfo());
             var2.flush();
             var2.close();
             var1.close();
@@ -93,7 +93,7 @@ public class GamePersistence {
          try {
             FileOutputStream var2 = new FileOutputStream(System.getProperty("user.dir") + "/sav/" + string + ".info");
             ObjectOutputStream var3 = new ObjectOutputStream(var2);
-            var3.writeObject(careerState.bs());
+            var3.writeObject(careerState.getSavedGameInfo());
             var3.flush();
             var3.close();
             var2.close();

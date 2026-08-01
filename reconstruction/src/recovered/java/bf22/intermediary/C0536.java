@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.game.ScheduleDay;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -79,8 +80,8 @@ public class C0536 extends JPanel {
 
       var2 = this.uz.gw();
       String var3 = "";
-      if (this.uz.fP() && this.uz.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
-         var3 = "Fim contusão: " + C0693.a(this.uz.fo());
+      if (this.uz.fP() && this.uz.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+         var3 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
       }
 
       String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.fi()) + "&nbsp;&nbsp;&nbsp;";
