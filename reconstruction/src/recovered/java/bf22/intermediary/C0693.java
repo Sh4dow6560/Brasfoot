@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.ClubWorldCup;
+import mod.recovered.competition.Finalissima;
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionStage;
 import mod.recovered.competition.CountryCompetitions;
@@ -648,11 +651,11 @@ public class C0693 implements Serializable {
    public void m() {
       CountryCompetitions var1 = GamePersistence.SR.o(29);
       if (var1 != null && GamePersistence.SR.bk() && var1.eb().size() == 4) {
-         LeagueStage var2 = ((C0924)var1.eb().get(var1.eb().size() - 1)).yi();
+         LeagueStage var2 = ((NationalLeague)var1.eb().get(var1.eb().size() - 1)).yi();
          ArrayList var3 = null;
          if (var2 != null) {
             var2.aN(false);
-            int var4 = ((C0924)var1.eb().get(var1.eb().size() - 1)).yi().getnTimes();
+            int var4 = ((NationalLeague)var1.eb().get(var1.eb().size() - 1)).yi().getnTimes();
             var3 = C0741.Q(var4);
             if (var3 != null && var4 == var3.size()) {
                var2.yK().addAll(var3);
@@ -668,8 +671,8 @@ public class C0693 implements Serializable {
          int var5 = 0;
 
          for (int var6 = 0; var6 <= 2; var6++) {
-            for (int var7 = 0; var7 < ((C0924)var1.eb().get(var6)).yi().yK().size(); var7++) {
-               var10.add((Club)((C0924)var1.eb().get(var6)).yi().yK().get(var7));
+            for (int var7 = 0; var7 < ((NationalLeague)var1.eb().get(var6)).yi().yK().size(); var7++) {
+               var10.add((Club)((NationalLeague)var1.eb().get(var6)).yi().yK().get(var7));
                var5++;
             }
          }
@@ -705,7 +708,7 @@ public class C0693 implements Serializable {
    }
 
    public void p() {
-      C0923 var1 = GamePersistence.SR.aR();
+      ClubWorldCup var1 = GamePersistence.SR.aR();
       var1.zC();
    }
 

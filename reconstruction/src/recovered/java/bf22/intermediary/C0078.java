@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionPlayerStats;
 import mod.recovered.competition.CompetitionStage;
@@ -818,10 +820,10 @@ public class C0078 extends JPanel {
       if (var2 == 0) {
          if (c0955.getDivisao() > 1) {
             int[] var3 = new int[3];
-            if (c0955.yT() instanceof C0924) {
-               var3 = ((C0924)c0955.yT()).t(c0955);
-            } else if (c0955.yT() instanceof C0951) {
-               var3 = ((C0951)c0955.yT()).t(c0955);
+            if (c0955.yT() instanceof NationalLeague) {
+               var3 = ((NationalLeague)c0955.yT()).t(c0955);
+            } else if (c0955.yT() instanceof StateChampionship) {
+               var3 = ((StateChampionship)c0955.yT()).t(c0955);
             }
 
             if (var3[0] > 0) {

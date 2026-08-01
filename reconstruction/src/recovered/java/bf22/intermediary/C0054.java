@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.KnockoutRound;
 import mod.recovered.competition.KnockoutStage;
@@ -228,9 +230,9 @@ public class C0054 extends JPanel {
       String var4 = "";
       int var5 = -1;
       if (c0955.b() == 1 && c0955.getDivisao() > 1) {
-         var5 = ((C0924)c0955.iq().eb().get(c0955.getDivisao() - 2)).yi().getnRebaixados();
+         var5 = ((NationalLeague)c0955.iq().eb().get(c0955.getDivisao() - 2)).yi().getnRebaixados();
       } else if (c0955.b() == 3 && c0955.getDivisao() > 1) {
-         var5 = ((C0951)c0955.ir().eb().get(c0955.getDivisao() - 2)).yi().getnRebaixados();
+         var5 = ((StateChampionship)c0955.ir().eb().get(c0955.getDivisao() - 2)).yi().getnRebaixados();
       }
 
       if (c0955.yQ().size() == 0) {

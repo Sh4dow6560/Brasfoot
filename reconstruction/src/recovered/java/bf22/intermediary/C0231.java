@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -148,7 +149,7 @@ public class C0231 extends JPanel {
       }
 
       if (this.FR.getSelectedRow() >= 0 && this.FL != null) {
-         C0730.l(false);
+         TransferNegotiation.l(false);
          if (this.Af.ky().size() < 20) {
             JDialog var1 = new JDialog(this.ub);
             C0185 var2 = new C0185(var1, this.FL, this.Af, true);
@@ -160,7 +161,7 @@ public class C0231 extends JPanel {
             var1.setLocationRelativeTo(null);
             var1.setUndecorated(true);
             var1.setVisible(true);
-            if (C0730.cO()) {
+            if (TransferNegotiation.cO()) {
                this.pJ();
             }
          } else {

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.match.Match;
@@ -341,12 +342,12 @@ public class C0404 extends JPanel {
          defaultMutableTreeNode.add(var2);
 
          for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               var3 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
+            if (((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               var3 = new DefaultMutableTreeNode(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
                var2.add(var3);
 
-               for (int var7 = 0; var7 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
-                  var4 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
+               for (int var7 = 0; var7 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
+                  var4 = new DefaultMutableTreeNode(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
                   var3.add(var4);
                }
             }

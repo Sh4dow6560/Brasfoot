@@ -23,7 +23,8 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 38 classes possuem nomes semanticos; o nucleo inclui carreira,
-  persistencia, paises, competicoes, fases, partidas e motor de simulacao.
+- Legibilidade: 79 classes possuem nomes semanticos; o nucleo inclui carreira,
+  persistencia, transferencias, todas as competicoes principais, partidas e
+  motor de simulacao.
 - Proxima fase: ampliar nomes de membros e testes funcionais antes de implementar
   novas mecanicas.

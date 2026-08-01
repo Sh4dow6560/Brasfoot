@@ -1,5 +1,6 @@
 package mod.recovered.ui;
 
+import mod.recovered.competition.NationalLeague;
 import bf22.intermediary.*;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
@@ -379,7 +380,7 @@ public class MainWindow {
       var1.setVisible(true);
    }
 
-   public static void a(C0924 c0924, CountryCompetitions c0692, int i) {
+   public static void a(NationalLeague c0924, CountryCompetitions c0692, int i) {
       JDialog var3 = new JDialog(cC);
       C0498 var4 = new C0498(var3, c0924, c0692, i);
       var3.add(var4);

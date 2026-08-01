@@ -7,7 +7,7 @@ import bf22.intermediary.C0708;
 import mod.recovered.core.GameConstants;
 import mod.recovered.competition.Competition;
 import bf22.intermediary.C0728;
-import bf22.intermediary.C0739;
+import mod.recovered.manager.CoachChangeRecord;
 import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0799;
 import mod.recovered.competition.LeagueStage;
@@ -644,7 +644,7 @@ public class Coach implements Serializable {
    }
 
    public void i(Coach coach) {
-      C0739 var2 = new C0739();
+      CoachChangeRecord var2 = new CoachChangeRecord();
       var2.c(this);
       var2.d(coach);
       Calendar var3 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a();

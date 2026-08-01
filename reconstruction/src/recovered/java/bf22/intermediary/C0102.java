@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.geo.CountryInfo;
@@ -304,7 +305,7 @@ public class C0102 extends JPanel {
       this.Bv[i].setVisible(true);
       this.Bu[i].setVisible(true);
       this.Bu[i].setEnabled(true);
-      Collections.sort(((C0924)this.Bs.eb().get(i)).yi().yK(), C1007.VS);
+      Collections.sort(((NationalLeague)this.Bs.eb().get(i)).yi().yK(), C1007.VS);
       int var2 = 0;
       boolean var3 = true;
       if (i == 3 && this.Bs.jc() == 29 && GamePersistence.SR.isJogaEstadual() && GamePersistence.SR.bk()) {
@@ -312,9 +313,9 @@ public class C0102 extends JPanel {
       }
 
       if (var3) {
-         for (int var4 = 0; var4 < ((C0924)this.Bs.eb().get(i)).yi().yK().size(); var4++) {
-            if (!((Club)((C0924)this.Bs.eb().get(i)).yi().yK().get(var4)).jZ()) {
-               this.Bu[i].addItem(((C0924)this.Bs.eb().get(i)).yi().yK().get(var4));
+         for (int var4 = 0; var4 < ((NationalLeague)this.Bs.eb().get(i)).yi().yK().size(); var4++) {
+            if (!((Club)((NationalLeague)this.Bs.eb().get(i)).yi().yK().get(var4)).jZ()) {
+               this.Bu[i].addItem(((NationalLeague)this.Bs.eb().get(i)).yi().yK().get(var4));
                var2++;
             }
          }

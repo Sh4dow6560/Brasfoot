@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.manager.CoachChangeRecord;
+import mod.recovered.transfer.PlayerTransferRecord;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -45,7 +47,7 @@ public class C0401 extends JPanel {
          int var4 = 0;
 
          for (int var5 = 0; var5 < GamePersistence.SR.bn().size(); var5++) {
-            this.LB.add((C0739)GamePersistence.SR.bn().get(var5));
+            this.LB.add((CoachChangeRecord)GamePersistence.SR.bn().get(var5));
             if (++var4 == 100) {
                break;
             }
@@ -74,8 +76,8 @@ public class C0401 extends JPanel {
       int var1 = 0;
       if (this.GD.getSelectedIndex() == 0) {
          for (int var2 = GamePersistence.SR.bo().size() - 1; var2 >= 0; var2--) {
-            if (((C0709)GamePersistence.SR.bo().get(var2)).x() != null) {
-               this.uK.add((C0709)GamePersistence.SR.bo().get(var2));
+            if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var2)).x() != null) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var2));
                if (++var1 == 200) {
                   break;
                }
@@ -83,9 +85,9 @@ public class C0401 extends JPanel {
          }
       } else {
          for (int var3 = GamePersistence.SR.bo().size() - 1; var3 >= 0; var3--) {
-            if (((C0709)GamePersistence.SR.bo().get(var3)).x() != null
-               && (((C0709)GamePersistence.SR.bo().get(var3)).lZ() == this.uk.lk() || ((C0709)GamePersistence.SR.bo().get(var3)).ma() == this.uk.lk())) {
-               this.uK.add((C0709)GamePersistence.SR.bo().get(var3));
+            if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).x() != null
+               && (((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).lZ() == this.uk.lk() || ((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).ma() == this.uk.lk())) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var3));
             }
          }
       }
@@ -105,7 +107,7 @@ public class C0401 extends JPanel {
       this.LC.setAutoResizeMode(3);
       this.LC.setRowHeight(20);
       this.LC.setShowGrid(false);
-      this.LC.setDefaultRenderer(C0739.class, new C0609());
+      this.LC.setDefaultRenderer(CoachChangeRecord.class, new C0609());
       this.LC.setAutoCreateRowSorter(false);
       this.LC.getTableHeader().setReorderingAllowed(false);
       this.LC.setIntercellSpacing(new Dimension(0, 0));
@@ -128,7 +130,7 @@ public class C0401 extends JPanel {
       this.LC.setAutoResizeMode(3);
       this.LC.setRowHeight(20);
       this.LC.setShowGrid(false);
-      this.LC.setDefaultRenderer(C0709.class, new C0608());
+      this.LC.setDefaultRenderer(PlayerTransferRecord.class, new C0608());
       this.LC.setAutoCreateRowSorter(false);
       this.LC.getTableHeader().setReorderingAllowed(false);
       this.LC.setIntercellSpacing(new Dimension(0, 0));

@@ -1,5 +1,33 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.AfcChampionsLeague;
+import mod.recovered.competition.AfricaCupOfNations;
+import mod.recovered.competition.AfricaWorldCupQualifiers;
+import mod.recovered.competition.AsiaWorldCupQualifiers;
+import mod.recovered.competition.AsianCup;
+import mod.recovered.competition.CafChampionsLeague;
+import mod.recovered.competition.ClubWorldCup;
+import mod.recovered.competition.ConcacafChampionsLeague;
+import mod.recovered.competition.ConcacafGoldCup;
+import mod.recovered.competition.ConcacafWorldCupQualifiers;
+import mod.recovered.competition.CopaAmerica;
+import mod.recovered.competition.CopaLibertadores;
+import mod.recovered.competition.CopaSudamericana;
+import mod.recovered.competition.EuropeWorldCupQualifiers;
+import mod.recovered.competition.EuropeanChampionship;
+import mod.recovered.competition.EuropeanSuperCup;
+import mod.recovered.competition.NationalCup;
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.OceaniaWorldCupQualifiers;
+import mod.recovered.competition.OfcChampionsLeague;
+import mod.recovered.competition.OfcNationsCup;
+import mod.recovered.competition.RegionalCup;
+import mod.recovered.competition.SouthAmericaWorldCupQualifiers;
+import mod.recovered.competition.SouthAmericanRecopa;
+import mod.recovered.competition.StateChampionship;
+import mod.recovered.competition.UefaChampionsLeague;
+import mod.recovered.competition.UefaEuropaLeague;
+import mod.recovered.competition.WorldCup;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.competition.KnockoutRound;
@@ -266,10 +294,10 @@ public class C0065 extends JPanel {
                if (this.ww >= this.vW.yR()) {
                   this.b(1, false);
                }
-            } else if (this.vX instanceof C0942 && this.ww < ((C0942)this.vX).iW()) {
+            } else if (this.vX instanceof NationalCup && this.ww < ((NationalCup)this.vX).iW()) {
                this.ww++;
                this.cI(this.wa);
-               if (this.ww >= ((C0942)this.vX).iW()) {
+               if (this.ww >= ((NationalCup)this.vX).iW()) {
                   this.b(1, false);
                }
             }
@@ -282,7 +310,7 @@ public class C0065 extends JPanel {
          } else {
             this.cI(this.wa + i);
          }
-      } else if (this.wa == 0 && this.vX instanceof C0923) {
+      } else if (this.wa == 0 && this.vX instanceof ClubWorldCup) {
          this.cI(2);
       } else {
          this.cI(this.wa + i);
@@ -404,7 +432,7 @@ public class C0065 extends JPanel {
       this.wy = bl;
       this.wx = bl2;
       this.wz = true;
-      if (this.vX instanceof C0942 || this.vX instanceof C0926 || this.vX instanceof C0927 || this.vX instanceof C0930 || this.vX instanceof C0923) {
+      if (this.vX instanceof NationalCup || this.vX instanceof EuropeanSuperCup || this.vX instanceof SouthAmericanRecopa || this.vX instanceof CopaSudamericana || this.vX instanceof ClubWorldCup) {
          this.wz = false;
       }
 
@@ -412,11 +440,11 @@ public class C0065 extends JPanel {
          this.vY = this.vW.yY();
       }
 
-      if (this.vX instanceof C0947 && GamePersistence.SR.bQ() != null && GamePersistence.SR.bQ().yd().yY() != null) {
+      if (this.vX instanceof ConcacafWorldCupQualifiers && GamePersistence.SR.bQ() != null && GamePersistence.SR.bQ().yd().yY() != null) {
          this.vY = GamePersistence.SR.bQ().yd().yY();
       }
 
-      if (this.vX instanceof C0949 && GamePersistence.SR.bK() != null && GamePersistence.SR.bK().yd().yY() != null) {
+      if (this.vX instanceof OceaniaWorldCupQualifiers && GamePersistence.SR.bK() != null && GamePersistence.SR.bK().yd().yY() != null) {
          this.vY = GamePersistence.SR.bK().yd().yY();
       }
 
@@ -435,7 +463,7 @@ public class C0065 extends JPanel {
          this.wa = 2;
       }
 
-      if (this.vX instanceof C0923) {
+      if (this.vX instanceof ClubWorldCup) {
          this.wG = true;
          if (this.vY == null) {
             this.wa = 0;
@@ -492,8 +520,8 @@ public class C0065 extends JPanel {
             var3 = var4.length - 1 - this.vY.zq();
          } else if (this.wz && this.vW != null) {
             var3 = var4.length - 1 - this.vW.yR();
-         } else if (this.vX instanceof C0942) {
-            var3 = var4.length - 1 - ((C0942)this.vX).iW();
+         } else if (this.vX instanceof NationalCup) {
+            var3 = var4.length - 1 - ((NationalCup)this.vX).iW();
          }
 
          for (int var6 = var3; var6 < var4.length; var6++) {
@@ -651,7 +679,7 @@ public class C0065 extends JPanel {
          var1 = var2[this.wH];
       }
 
-      if (this.wJ && this.vX instanceof C0958 && this.wa == 0 && this.ww == 1) {
+      if (this.wJ && this.vX instanceof UefaChampionsLeague && this.wa == 0 && this.ww == 1) {
          var1 = 10;
       }
 
@@ -666,7 +694,7 @@ public class C0065 extends JPanel {
          } else {
             var12 = true;
          }
-      } else if (this.vX instanceof C0958 || this.vX instanceof C0954) {
+      } else if (this.vX instanceof UefaChampionsLeague || this.vX instanceof CopaLibertadores) {
          var12 = var4[this.ww];
       } else if (this.vY != null) {
          var3 = this.vY.zz();
@@ -697,51 +725,51 @@ public class C0065 extends JPanel {
 
       ArrayList var7 = null;
       if (this.ww == 0) {
-         if (this.vX instanceof C0958 || this.vX instanceof C0960) {
+         if (this.vX instanceof UefaChampionsLeague || this.vX instanceof UefaEuropaLeague) {
             var6 = "sorteio";
-         } else if (this.vX instanceof C0954 || this.vX instanceof C0957 || this.vX instanceof C0956) {
-            var7 = C0954.yc();
-         } else if (this.vX instanceof C0959) {
-            var7 = C0959.yc();
-         } else if (this.vX instanceof C0961) {
-            var7 = C0961.yc();
-         } else if (this.vX instanceof C0940) {
-            var7 = C0940.yc();
-         } else if (this.vX instanceof C0939) {
-            var7 = C0939.yc();
-         } else if (this.vX instanceof C0941) {
-            var7 = C0941.yc();
-         } else if (this.vX instanceof C0944) {
-            var7 = C0944.yc();
-         } else if (this.vX instanceof C0943) {
-            var7 = C0943.yc();
-         } else if (this.vX instanceof C0928) {
-            var7 = C0928.yc();
-         } else if (this.vX instanceof C0948) {
-            var7 = C0948.yc();
-         } else if (this.vX instanceof C0950) {
-            var7 = C0950.yc();
-         } else if (this.vX instanceof C0945) {
-            var7 = C0945.yc();
-         } else if (this.vX instanceof C0946) {
-            var7 = C0946.yc();
-         } else if (this.vX instanceof C0949) {
-            var7 = C0949.yc();
+         } else if (this.vX instanceof CopaLibertadores || this.vX instanceof AfcChampionsLeague || this.vX instanceof CafChampionsLeague) {
+            var7 = CopaLibertadores.yc();
+         } else if (this.vX instanceof ConcacafChampionsLeague) {
+            var7 = ConcacafChampionsLeague.yc();
+         } else if (this.vX instanceof OfcChampionsLeague) {
+            var7 = OfcChampionsLeague.yc();
+         } else if (this.vX instanceof CopaAmerica) {
+            var7 = CopaAmerica.yc();
+         } else if (this.vX instanceof AfricaCupOfNations) {
+            var7 = AfricaCupOfNations.yc();
+         } else if (this.vX instanceof AsianCup) {
+            var7 = AsianCup.yc();
+         } else if (this.vX instanceof ConcacafGoldCup) {
+            var7 = ConcacafGoldCup.yc();
+         } else if (this.vX instanceof OfcNationsCup) {
+            var7 = OfcNationsCup.yc();
+         } else if (this.vX instanceof RegionalCup) {
+            var7 = RegionalCup.yc();
+         } else if (this.vX instanceof EuropeWorldCupQualifiers) {
+            var7 = EuropeWorldCupQualifiers.yc();
+         } else if (this.vX instanceof SouthAmericaWorldCupQualifiers) {
+            var7 = SouthAmericaWorldCupQualifiers.yc();
+         } else if (this.vX instanceof AfricaWorldCupQualifiers) {
+            var7 = AfricaWorldCupQualifiers.yc();
+         } else if (this.vX instanceof AsiaWorldCupQualifiers) {
+            var7 = AsiaWorldCupQualifiers.yc();
+         } else if (this.vX instanceof OceaniaWorldCupQualifiers) {
+            var7 = OceaniaWorldCupQualifiers.yc();
          } else if (this.vX.b() != 1) {
             this.vX.b();
          }
       }
 
       boolean var8 = false;
-      if (this.vX instanceof C0948) {
+      if (this.vX instanceof EuropeWorldCupQualifiers) {
          var1 = 4;
-      } else if (this.vX instanceof C0950) {
+      } else if (this.vX instanceof SouthAmericaWorldCupQualifiers) {
          var1 = 1;
-      } else if (this.vX instanceof C0946) {
+      } else if (this.vX instanceof AsiaWorldCupQualifiers) {
          var1 = 1;
-      } else if (this.vX instanceof C0949) {
+      } else if (this.vX instanceof OceaniaWorldCupQualifiers) {
          var1 = 1;
-      } else if (this.vX instanceof C0947) {
+      } else if (this.vX instanceof ConcacafWorldCupQualifiers) {
          var1 = 1;
       }
 
@@ -756,9 +784,9 @@ public class C0065 extends JPanel {
          }
 
          if (this.wa == 1) {
-            var7 = C0923.eX(1);
+            var7 = ClubWorldCup.eX(1);
          } else if (this.wa == 2) {
-            var7 = C0923.eX(2);
+            var7 = ClubWorldCup.eX(2);
             var8 = true;
          }
 
@@ -783,7 +811,7 @@ public class C0065 extends JPanel {
             var17 = "Taça Rio";
          }
 
-         var7 = C0951.eX(319);
+         var7 = StateChampionship.eX(319);
          C0809 var10 = new C0809();
          var10.ai(true);
          var10.aj(true);
@@ -796,8 +824,8 @@ public class C0065 extends JPanel {
          this.vT.addAll(C0809.a(var1, var12, var5, var6, var7, var8));
       }
 
-      if (this.vX != null && this.vX.b() == 2 && this.vX instanceof C0942) {
-         CountryCompetitions var18 = ((C0942)this.vX).yg();
+      if (this.vX != null && this.vX.b() == 2 && this.vX instanceof NationalCup) {
+         CountryCompetitions var18 = ((NationalCup)this.vX).yg();
          if (var18.jc() == 29 && GamePersistence.vM().isNovoFormatoCopa() && (var18.jq() == null || var18.jq().yf() == null)) {
             this.vT.clear();
             C0809 var19 = new C0809();
@@ -814,7 +842,7 @@ public class C0065 extends JPanel {
    }
 
    private void ni() {
-      if (this.vX instanceof C0948 || this.vX instanceof C0950 || this.vX instanceof C0946 || this.vX instanceof C0949 || this.vX instanceof C0947) {
+      if (this.vX instanceof EuropeWorldCupQualifiers || this.vX instanceof SouthAmericaWorldCupQualifiers || this.vX instanceof AsiaWorldCupQualifiers || this.vX instanceof OceaniaWorldCupQualifiers || this.vX instanceof ConcacafWorldCupQualifiers) {
          this.wm.setText("Repescagem");
       } else if (this.wB) {
          if (this.wH == 2) {
@@ -1024,11 +1052,11 @@ public class C0065 extends JPanel {
       ArrayList var3 = new ArrayList();
       ArrayList var4 = new ArrayList();
       int var5 = c0955.yX();
-      if (this.vX instanceof C0948 || this.vX instanceof C0945) {
+      if (this.vX instanceof EuropeWorldCupQualifiers || this.vX instanceof AfricaWorldCupQualifiers) {
          var5 = 1;
-      } else if (this.vX instanceof C0950 || this.vX instanceof C0946) {
+      } else if (this.vX instanceof SouthAmericaWorldCupQualifiers || this.vX instanceof AsiaWorldCupQualifiers) {
          var5 = 4;
-      } else if (this.vX instanceof C0947) {
+      } else if (this.vX instanceof ConcacafWorldCupQualifiers) {
          var5 = 3;
       }
 
@@ -1231,7 +1259,7 @@ public class C0065 extends JPanel {
          }
       }
 
-      if (this.vX instanceof C0948) {
+      if (this.vX instanceof EuropeWorldCupQualifiers) {
          ArrayList var20 = new ArrayList();
 
          for (int var38 = 0; var38 < c0955.yQ().size(); var38++) {
@@ -1244,13 +1272,13 @@ public class C0065 extends JPanel {
          for (int var39 = 0; var39 < 8; var39++) {
             var2.add((Club)var20.get(var39));
          }
-      } else if (this.vX instanceof C0950) {
+      } else if (this.vX instanceof SouthAmericaWorldCupQualifiers) {
          var2.add((Club)c0955.yK().get(4));
-      } else if (this.vX instanceof C0946) {
+      } else if (this.vX instanceof AsiaWorldCupQualifiers) {
          var2.add((Club)c0955.yK().get(4));
-      } else if (this.vX instanceof C0947) {
+      } else if (this.vX instanceof ConcacafWorldCupQualifiers) {
          var2.add((Club)c0955.yK().get(3));
-      } else if (this.vX instanceof C0949) {
+      } else if (this.vX instanceof OceaniaWorldCupQualifiers) {
          var2.add((Club)c0955.yK().get(0));
       }
 
@@ -1421,78 +1449,78 @@ public class C0065 extends JPanel {
       this.wJ = false;
       this.wS.setVisible(false);
       this.wS.removeAllItems();
-      if (this.vX instanceof C0956) {
+      if (this.vX instanceof CafChampionsLeague) {
          this.wA = true;
          this.a(GamePersistence.SR.aO().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0957) {
+      } else if (this.vX instanceof AfcChampionsLeague) {
          this.wA = true;
          this.a(GamePersistence.SR.aL().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0958) {
+      } else if (this.vX instanceof UefaChampionsLeague) {
          this.wA = true;
          this.wJ = true;
          this.a(GamePersistence.SR.aI().yd(), null, GamePersistence.SR.aI().yC(), true, true);
-      } else if (this.vX instanceof C0954) {
+      } else if (this.vX instanceof CopaLibertadores) {
          this.wA = true;
          this.wJ = true;
          this.a(GamePersistence.SR.aF().yd(), null, GamePersistence.SR.aF().yC(), true, true);
-      } else if (this.vX instanceof C0959) {
+      } else if (this.vX instanceof ConcacafChampionsLeague) {
          this.wA = true;
          this.a(GamePersistence.SR.aP().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0961) {
+      } else if (this.vX instanceof OfcChampionsLeague) {
          this.wA = true;
          this.a(GamePersistence.SR.aQ().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0960) {
+      } else if (this.vX instanceof UefaEuropaLeague) {
          this.wA = true;
          this.a(GamePersistence.SR.aK().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0923) {
+      } else if (this.vX instanceof ClubWorldCup) {
          this.a(null, GamePersistence.SR.aR().zE(), GamePersistence.SR.aR().zD(), true, true);
-      } else if (this.vX instanceof C0953) {
+      } else if (this.vX instanceof WorldCup) {
          this.wA = true;
          this.a(GamePersistence.SR.aY().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0952) {
+      } else if (this.vX instanceof EuropeanChampionship) {
          this.wA = true;
          this.a(GamePersistence.SR.ba().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0940) {
+      } else if (this.vX instanceof CopaAmerica) {
          this.wA = true;
          this.a(GamePersistence.SR.aZ().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0939) {
+      } else if (this.vX instanceof AfricaCupOfNations) {
          this.wA = true;
          this.a(GamePersistence.SR.be().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0941) {
+      } else if (this.vX instanceof AsianCup) {
          this.wA = true;
          this.a(GamePersistence.SR.bf().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0944) {
+      } else if (this.vX instanceof ConcacafGoldCup) {
          this.wA = true;
          this.a(GamePersistence.SR.bg().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0943) {
+      } else if (this.vX instanceof OfcNationsCup) {
          this.wA = true;
          this.a(GamePersistence.SR.bX().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0928) {
-         this.a(((C0928)this.vX).yd(), null, null, true, false);
-      } else if (this.vX instanceof C0949) {
+      } else if (this.vX instanceof RegionalCup) {
+         this.a(((RegionalCup)this.vX).yd(), null, null, true, false);
+      } else if (this.vX instanceof OceaniaWorldCupQualifiers) {
          this.wA = true;
          this.a(GamePersistence.SR.bS().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0950) {
+      } else if (this.vX instanceof SouthAmericaWorldCupQualifiers) {
          this.wA = true;
          this.a(GamePersistence.SR.bK().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0945) {
+      } else if (this.vX instanceof AfricaWorldCupQualifiers) {
          this.wA = true;
          this.a(GamePersistence.SR.bM().yd(), null, null, false, false);
-      } else if (this.vX instanceof C0946) {
+      } else if (this.vX instanceof AsiaWorldCupQualifiers) {
          this.wA = true;
          this.a(GamePersistence.SR.bQ().yd(), null, null, true, false);
-      } else if (this.vX instanceof C0942) {
-         this.a(null, ((C0942)this.vX).yf(), null, true, false);
-      } else if (this.vX instanceof C0926) {
+      } else if (this.vX instanceof NationalCup) {
+         this.a(null, ((NationalCup)this.vX).yf(), null, true, false);
+      } else if (this.vX instanceof EuropeanSuperCup) {
          this.a(null, GamePersistence.SR.aW().zS(), null, true, false);
-      } else if (this.vX instanceof C0927) {
+      } else if (this.vX instanceof SouthAmericanRecopa) {
          this.a(null, GamePersistence.SR.aV().zS(), null, true, false);
-      } else if (this.vX instanceof C0924 || this.vX instanceof C0951) {
+      } else if (this.vX instanceof NationalLeague || this.vX instanceof StateChampionship) {
          LeagueStage var2 = null;
-         if (this.vX instanceof C0924) {
-            var2 = ((C0924)this.vX).yi();
-         } else if (this.vX instanceof C0951) {
-            var2 = ((C0951)this.vX).yi();
+         if (this.vX instanceof NationalLeague) {
+            var2 = ((NationalLeague)this.vX).yi();
+         } else if (this.vX instanceof StateChampionship) {
+            var2 = ((StateChampionship)this.vX).yi();
          }
 
          boolean var3 = false;

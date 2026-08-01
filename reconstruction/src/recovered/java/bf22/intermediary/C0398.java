@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.FriendlyMatches;
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -66,7 +68,7 @@ public class C0398 extends JPanel {
    }
 
    private void mK() {
-      this.un = C0937.L(this.ul);
+      this.un = FriendlyMatches.L(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
          this.up.addItem(((C0693)GamePersistence.SR.R().get((Integer)this.un.get(var1))).f());
@@ -85,12 +87,12 @@ public class C0398 extends JPanel {
          JOptionPane.showMessageDialog(this.ub, "Selecione um adversário", "Amistoso", 2);
       } else if (this.ul != this.uk) {
          int var1 = -1;
-         var1 = C0937.a(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
+         var1 = FriendlyMatches.a(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
          String[] var2 = new String[]{
             "Amistoso recusado",
             "Amistoso marcado",
             this.uk.getNome() + " já tem um amistoso nesta data",
-            "Quer um valor de " + ClubFinances.c(C0937.xY()) + "\n Deseja aceitar?"
+            "Quer um valor de " + ClubFinances.c(FriendlyMatches.xY()) + "\n Deseja aceitar?"
          };
          if (var1 >= 0 && var1 < 3) {
             JOptionPane.showMessageDialog(this.ub, var2[var1], "Amistoso", 2);
@@ -99,12 +101,12 @@ public class C0398 extends JPanel {
             var3 = JOptionPane.showConfirmDialog(this.ub, var2[3], "Amistoso", 0);
             if (var3 == 0) {
                var1 = 1;
-               this.ul.w(C0937.xY(), -1);
+               this.ul.w(FriendlyMatches.xY(), -1);
             }
          }
 
          if (var1 == 1) {
-            C0937.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
+            FriendlyMatches.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
             this.un.clear();
             this.up.removeAllItems();
             this.mK();
@@ -144,12 +146,12 @@ public class C0398 extends JPanel {
          defaultMutableTreeNode.add(var2);
 
          for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               var3 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
+            if (((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               var3 = new DefaultMutableTreeNode(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
                var2.add(var3);
 
-               for (int var7 = 0; var7 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
-                  var4 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
+               for (int var7 = 0; var7 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
+                  var4 = new DefaultMutableTreeNode(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
                   var3.add(var4);
                }
             }

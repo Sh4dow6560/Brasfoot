@@ -202,7 +202,7 @@ public abstract class Competition implements Serializable {
       }
 
       if (i == 4) {
-         C0928[] var10 = GamePersistence.SR.bV();
+         RegionalCup[] var10 = GamePersistence.SR.bV();
 
          for (int var12 = 0; var12 < var10.length; var12++) {
             if (var10[var12] != null) {
@@ -217,10 +217,10 @@ public abstract class Competition implements Serializable {
          int var7 = 0;
 
          for (int var8 = 0; var8 < var3.size(); var8++) {
-            if (var3.get(var8) instanceof C0924
-               && ((C0924)var3.get(var8)).yg() != null
-               && ((C0924)var3.get(var8)).yg().jc() == 29
-               && ((C0924)var3.get(var8)).ip() == 3) {
+            if (var3.get(var8) instanceof NationalLeague
+               && ((NationalLeague)var3.get(var8)).yg() != null
+               && ((NationalLeague)var3.get(var8)).yg().jc() == 29
+               && ((NationalLeague)var3.get(var8)).ip() == 3) {
                var7 = var8 + 1;
                break;
             }
@@ -240,7 +240,7 @@ public abstract class Competition implements Serializable {
 
          if (var11 != null) {
             if (var11.jq() == null) {
-               var11.a((C0942)null);
+               var11.a((NationalCup)null);
             }
 
             if (!var3.contains(var11.jq())) {

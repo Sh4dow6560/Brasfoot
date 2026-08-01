@@ -1,5 +1,6 @@
 package mod.recovered.competition;
 
+import mod.recovered.transfer.AiSquadManager;
 import bf22.intermediary.*;
 import mod.recovered.match.Match;
 import mod.recovered.save.GamePersistence;
@@ -160,7 +161,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
       boolean[] var7 = new boolean[]{true, true, true, true, true, true, true};
       KnockoutStage var5 = new KnockoutStage(this, 8, this.b(), 1, var7, this.YY, 1068);
-      ((C0924)c0713).d(var5);
+      ((NationalLeague)c0713).d(var5);
       KnockoutRound var6 = new KnockoutRound();
       var6.a(var5, var3, 0, true, 0, 0, this.b(), false);
       var6.fb(1068);
@@ -168,7 +169,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public void aN(boolean bl) {
       if (this.var0 == 1020) {
-         ((C0924)this.YY).zF();
+         ((NationalLeague)this.YY).zF();
       }
 
       this.NS = null;
@@ -641,7 +642,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       }
 
       if (this.var0 == 1020) {
-         ((C0924)this.YY).a(var3, this, this.var0);
+         ((NationalLeague)this.YY).a(var3, this, this.var0);
       } else {
          this.Zc = new KnockoutStage(this, var3.size(), this.b(), 0, this.duasVoltasMataMata, this.YY, -1);
          KnockoutRound var14 = new KnockoutRound();
@@ -675,12 +676,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       this.Zf++;
       if (this.b() == 1 && this.Zd == 0 && this.Zf == this.zk()) {
          GamePersistence.afQ.zj();
-         C0700.b(this);
+         AiSquadManager.b(this);
       }
 
       if (this.Zf > this.Ze) {
          if (this.b() == 1 && this.Zd > 0) {
-            C0700.b(this);
+            AiSquadManager.b(this);
          }
 
          if (this.Zd > 0) {
@@ -844,7 +845,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
             }
          }
       } else if (this.ze() == 1020) {
-         LeagueStage var9 = ((C0924)this.YY).zP();
+         LeagueStage var9 = ((NationalLeague)this.YY).zP();
          KnockoutStage var5 = var9.yY();
          if (i > var3.size()) {
             var3.add((Club)((KnockoutRound)var5.zp().get(0)).zY().get(0));
@@ -915,8 +916,8 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          }
       }
 
-      if (bl && this.YY != null && this.YY instanceof C0924 && this.RT != null) {
-         KnockoutStage var13 = ((C0924)this.YY).BR();
+      if (bl && this.YY != null && this.YY instanceof NationalLeague && this.RT != null) {
+         KnockoutStage var13 = ((NationalLeague)this.YY).BR();
          if (var13 != null) {
             ArrayList var15 = new ArrayList();
             byte var18 = -1;
@@ -994,7 +995,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       KnockoutStage var2 = this.Zc;
       LeagueStage var3 = null;
       if (this.ze() == 1020) {
-         var3 = ((C0924)this.YY).zP();
+         var3 = ((NationalLeague)this.YY).zP();
          if (var3 != null) {
             var2 = var3.yY();
          }
@@ -1337,12 +1338,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
    }
 
    public boolean zc() {
-      return this.YY != null && this.YY instanceof C0924 ? ((C0924)this.YY).zc() : false;
+      return this.YY != null && this.YY instanceof NationalLeague ? ((NationalLeague)this.YY).zc() : false;
    }
 
    public void aS(boolean bl) {
-      if (this.YY != null && this.YY instanceof C0924) {
-         ((C0924)this.YY).aS(bl);
+      if (this.YY != null && this.YY instanceof NationalLeague) {
+         ((NationalLeague)this.YY).aS(bl);
       }
    }
 
@@ -1415,10 +1416,10 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       int[] var1 = new int[3];
       if (this.YZ != null) {
          if (this.divisao >= 2 && this.divisao - 2 >= 0 && this.divisao - 2 < this.YZ.eb().size()) {
-            var1[0] = ((C0951)this.YZ.eb().get(this.divisao - 2)).getnRebaixados();
+            var1[0] = ((StateChampionship)this.YZ.eb().get(this.divisao - 2)).getnRebaixados();
          }
       } else if (this.RT != null && this.divisao >= 2 && this.divisao - 2 >= 0 && this.divisao - 2 < this.RT.eb().size()) {
-         var1[0] = ((C0924)this.RT.eb().get(this.divisao - 2)).getnRebaixados();
+         var1[0] = ((NationalLeague)this.RT.eb().get(this.divisao - 2)).getnRebaixados();
       }
 
       System.out.println(this.YY);
@@ -1427,15 +1428,15 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public int getnRebaixados() {
       if (this.YZ != null) {
-         return ((C0951)this.YZ.eb().get(this.divisao - 1)).getnRebaixados();
+         return ((StateChampionship)this.YZ.eb().get(this.divisao - 1)).getnRebaixados();
       } else {
-         return this.RT != null ? ((C0924)this.RT.eb().get(this.divisao - 1)).getnRebaixados() : 0;
+         return this.RT != null ? ((NationalLeague)this.RT.eb().get(this.divisao - 1)).getnRebaixados() : 0;
       }
    }
 
    public int Bw() {
       return this.RT != null
-         ? ((C0924)this.RT.eb().get(this.divisao - 1)).getnRebaixados() - ((C0924)this.RT.eb().get(this.divisao - 1)).getRebaixadosDireto()
+         ? ((NationalLeague)this.RT.eb().get(this.divisao - 1)).getnRebaixados() - ((NationalLeague)this.RT.eb().get(this.divisao - 1)).getRebaixadosDireto()
          : 0;
    }
 

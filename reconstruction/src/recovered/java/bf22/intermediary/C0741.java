@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.competition.LeagueStage;
 import mod.recovered.core.GameConstants;
@@ -127,7 +128,7 @@ public class C0741 implements Serializable {
             }
 
             LeagueStage var24 = null;
-            C0951 var14 = new C0951(this, this.ds.size() + 1);
+            StateChampionship var14 = new StateChampionship(this, this.ds.size() + 1);
             var14.setnRebaixados(var10);
             var24 = new LeagueStage(var9, var7, 0, null, null, null, 3, this, var5, null, var6, var14);
             this.ds.add(var14);
@@ -256,10 +257,10 @@ public class C0741 implements Serializable {
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
       boolean var3 = false;
-      ((C0951)this.ds.get(0)).yi().ah(0, ((C0951)this.ds.get(0)).getnRebaixados());
+      ((StateChampionship)this.ds.get(0)).yi().ah(0, ((StateChampionship)this.ds.get(0)).getnRebaixados());
 
       for (int var4 = 1; var4 < this.ds.size(); var4++) {
-         ((C0951)this.ds.get(var4)).yi().ah(((C0951)this.ds.get(var4 - 1)).getnRebaixados(), ((C0951)this.ds.get(var4)).getnRebaixados());
+         ((StateChampionship)this.ds.get(var4)).yi().ah(((StateChampionship)this.ds.get(var4 - 1)).getnRebaixados(), ((StateChampionship)this.ds.get(var4)).getnRebaixados());
       }
 
       for (int var7 = 0; var7 < this.ds.size(); var7++) {
@@ -267,37 +268,37 @@ public class C0741 implements Serializable {
             var2.clear();
             var1.clear();
 
-            for (int var8 = 0; var8 < ((C0951)this.ds.get(var7)).yi().yU().size(); var8++) {
-               var2.add((Club)((C0951)this.ds.get(var7)).yi().yU().get(var8));
+            for (int var8 = 0; var8 < ((StateChampionship)this.ds.get(var7)).yi().yU().size(); var8++) {
+               var2.add((Club)((StateChampionship)this.ds.get(var7)).yi().yU().get(var8));
             }
 
-            for (int var9 = 0; var9 < ((C0951)this.ds.get(var7 + 1)).yi().yW().size(); var9++) {
-               var1.add((Club)((C0951)this.ds.get(var7 + 1)).yi().yW().get(var9));
+            for (int var9 = 0; var9 < ((StateChampionship)this.ds.get(var7 + 1)).yi().yW().size(); var9++) {
+               var1.add((Club)((StateChampionship)this.ds.get(var7 + 1)).yi().yW().get(var9));
             }
 
             if (var2.size() == var1.size()) {
                for (int var10 = 0; var10 < var2.size(); var10++) {
-                  ((C0951)this.ds.get(var7)).yi().yK().remove(var2.get(var10));
-                  ((C0951)this.ds.get(var7 + 1)).yi().yK().add((Club)var2.get(var10));
+                  ((StateChampionship)this.ds.get(var7)).yi().yK().remove(var2.get(var10));
+                  ((StateChampionship)this.ds.get(var7 + 1)).yi().yK().add((Club)var2.get(var10));
                }
 
                for (int var11 = 0; var11 < var1.size(); var11++) {
-                  ((C0951)this.ds.get(var7 + 1)).yi().yK().remove(var1.get(var11));
-                  ((C0951)this.ds.get(var7)).yi().yK().add((Club)var1.get(var11));
+                  ((StateChampionship)this.ds.get(var7 + 1)).yi().yK().remove(var1.get(var11));
+                  ((StateChampionship)this.ds.get(var7)).yi().yK().add((Club)var1.get(var11));
                }
             }
          } else {
             var2.clear();
             var1.clear();
-            int var5 = ((C0951)this.ds.get(var7)).getnRebaixados();
+            int var5 = ((StateChampionship)this.ds.get(var7)).getnRebaixados();
             if (this.dt.size() < var5) {
                var5 = this.dt.size();
             }
 
             if (var5 > 0) {
-               for (int var6 = 0; var6 < ((C0951)this.ds.get(var7)).yi().yU().size(); var6++) {
+               for (int var6 = 0; var6 < ((StateChampionship)this.ds.get(var7)).yi().yU().size(); var6++) {
                   if (var6 < var5) {
-                     var2.add((Club)((C0951)this.ds.get(var7)).yi().yU().get(var6));
+                     var2.add((Club)((StateChampionship)this.ds.get(var7)).yi().yU().get(var6));
                   }
                }
 
@@ -307,13 +308,13 @@ public class C0741 implements Serializable {
 
                if (var2.size() == var1.size()) {
                   for (int var13 = 0; var13 < var2.size(); var13++) {
-                     ((C0951)this.ds.get(var7)).yi().yK().remove(var2.get(var13));
+                     ((StateChampionship)this.ds.get(var7)).yi().yK().remove(var2.get(var13));
                      this.dt.add((Club)var2.get(var13));
                   }
 
                   for (int var14 = 0; var14 < var1.size(); var14++) {
                      this.dt.remove(var1.get(var14));
-                     ((C0951)this.ds.get(var7)).yi().yK().add((Club)var1.get(var14));
+                     ((StateChampionship)this.ds.get(var7)).yi().yK().add((Club)var1.get(var14));
                   }
                }
             }
@@ -512,14 +513,14 @@ public class C0741 implements Serializable {
 
    public void A(ArrayList arrayList) {
       for (int var2 = 0; var2 < this.ds.size(); var2++) {
-         ((C0951)this.ds.get(var2)).yi().A(arrayList);
+         ((StateChampionship)this.ds.get(var2)).yi().A(arrayList);
       }
    }
 
    public boolean ei() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
-         for (int var2 = 0; var2 < ((C0951)this.ds.get(var1)).yi().yK().size(); var2++) {
-            if (((Club)((C0951)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
+         for (int var2 = 0; var2 < ((StateChampionship)this.ds.get(var1)).yi().yK().size(); var2++) {
+            if (((Club)((StateChampionship)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
                return true;
             }
          }
@@ -530,8 +531,8 @@ public class C0741 implements Serializable {
 
    public boolean j(Club club) {
       for (int var2 = 0; var2 < this.ds.size(); var2++) {
-         for (int var3 = 0; var3 < ((C0951)this.ds.get(var2)).yi().yK().size(); var3++) {
-            if (((C0951)this.ds.get(var2)).yi().yK().get(var3) == club) {
+         for (int var3 = 0; var3 < ((StateChampionship)this.ds.get(var2)).yi().yK().size(); var3++) {
+            if (((StateChampionship)this.ds.get(var2)).yi().yK().get(var3) == club) {
                return true;
             }
          }
@@ -556,6 +557,6 @@ public class C0741 implements Serializable {
 
    public int K(int i) {
       int var2 = i - 2;
-      return i > 1 && var2 < this.ds.size() ? ((C0951)this.ds.get(var2)).getnRebaixados() : 0;
+      return i > 1 && var2 < this.ds.size() ? ((StateChampionship)this.ds.get(var2)).getnRebaixados() : 0;
    }
 }

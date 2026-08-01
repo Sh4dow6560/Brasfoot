@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalCup;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
@@ -28,8 +29,8 @@ public class C0626 extends JLabel implements ListCellRenderer {
             this.setIcon(new ImageIcon(this.getClass().getResource("/aesticons/" + var10.getEstado() + ".png")));
             String var11 = GameConstants.rY[var10.getEstado()];
             this.setText(var11);
-         } else if (object != null && object instanceof C0942) {
-            C0942 var9 = (C0942)object;
+         } else if (object != null && object instanceof NationalCup) {
+            NationalCup var9 = (NationalCup)object;
             if (C0435.sf() == 1) {
                this.setText(var9.yg().jf());
             } else {

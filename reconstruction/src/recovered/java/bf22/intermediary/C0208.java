@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CopaLibertadores;
+import mod.recovered.competition.CopaSudamericana;
+import mod.recovered.competition.NationalSuperCup;
+import mod.recovered.competition.UefaChampionsLeague;
+import mod.recovered.competition.UefaEuropaLeague;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionStage;
 import mod.recovered.competition.KnockoutStage;
@@ -178,16 +183,16 @@ public class C0208 extends JPanel {
                   var13.p(var13.tR().ik());
                } else if (var13.tR().ev() == null) {
                   if (((Match)GamePersistence.SR.S().get(var4)).hy().b() == 4) {
-                     if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof C0958) {
-                        var13.p(C0958.yD());
-                     } else if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof C0954) {
-                        var13.p(C0954.yD());
+                     if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof UefaChampionsLeague) {
+                        var13.p(UefaChampionsLeague.yD());
+                     } else if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof CopaLibertadores) {
+                        var13.p(CopaLibertadores.yD());
                      }
                   } else if (((Match)GamePersistence.SR.S().get(var4)).hy().b() == 6) {
-                     if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof C0930) {
-                        var13.p(C0930.yD());
-                     } else if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof C0960) {
-                        var13.p(C0960.yD());
+                     if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof CopaSudamericana) {
+                        var13.p(CopaSudamericana.yD());
+                     } else if (((Match)GamePersistence.SR.S().get(var4)).hy() instanceof UefaEuropaLeague) {
+                        var13.p(UefaEuropaLeague.yD());
                      }
                   }
                }
@@ -313,8 +318,8 @@ public class C0208 extends JPanel {
          if (c0678 != null && c0678 instanceof LeagueStage && ((LeagueStage)c0678).ze() == 7701) {
             var4 = "Torneio Repescagem";
          }
-      } else if (c0713 instanceof C0931) {
-         var4 = "Supercopa " + CountryInfo.bt(((C0931)c0713).getPais());
+      } else if (c0713 instanceof NationalSuperCup) {
+         var4 = "Supercopa " + CountryInfo.bt(((NationalSuperCup)c0713).getPais());
       } else if (c0713.b() == 8) {
          var4 = c0713.getNome();
       } else {

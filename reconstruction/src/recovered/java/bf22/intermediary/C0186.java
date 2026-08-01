@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.FriendlyMatches;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.geo.CountryInfo;
@@ -66,7 +67,7 @@ public class C0186 extends JPanel {
    }
 
    private void mK() {
-      this.un = C0937.M(this.ul);
+      this.un = FriendlyMatches.M(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
          this.up.addItem(((C0693)GamePersistence.SR.R().get((Integer)this.un.get(var1))).f());
@@ -100,7 +101,7 @@ public class C0186 extends JPanel {
          JOptionPane.showMessageDialog(this.ub, "A seleção adversária já tem um jogo nesta data", "Amistoso", 2);
       } else if (this.ul != this.uk) {
          JOptionPane.showMessageDialog(this.ub, "Amistoso marcado.", "Amistoso", 2);
-         C0937.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
+         FriendlyMatches.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
          if (!this.uk.jZ()) {
             CountryCompetitions var1 = GamePersistence.SR.s(this.uk.getPais());
             var1.z(false);

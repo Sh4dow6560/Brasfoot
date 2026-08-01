@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.competition.KnockoutStage;
@@ -330,8 +331,8 @@ public abstract class C0737 {
             var1 = (LeagueStage)((KnockoutStage)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0)).zy();
             if (var1 == null) {
                var2 = ((KnockoutStage)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0)).yT();
-               if (var2 instanceof C0924) {
-                  var1 = ((C0924)var2).yi();
+               if (var2 instanceof NationalLeague) {
+                  var1 = ((NationalLeague)var2).yi();
                }
             }
          }

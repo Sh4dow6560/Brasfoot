@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -184,9 +186,9 @@ public class C0452 extends JPanel {
    }
 
    private void sz() {
-      C0730.l(false);
+      TransferNegotiation.l(false);
       int var1 = 0;
-      var1 = C0730.a(this.yK, this.ul);
+      var1 = TransferNegotiation.a(this.yK, this.ul);
       String[] var2 = new String[]{
          "Não foi possível emprestar",
          "Empréstimo realizado",
@@ -205,9 +207,9 @@ public class C0452 extends JPanel {
    }
 
    private void oM() {
-      C0730.l(false);
+      TransferNegotiation.l(false);
       int var1 = 0;
-      var1 = C0730.b(this.yK, this.ul);
+      var1 = TransferNegotiation.b(this.yK, this.ul);
       String[] var2 = new String[]{
          "Não está à venda",
          "Compra realizada",
@@ -227,13 +229,13 @@ public class C0452 extends JPanel {
    private void sA() {
       if (!GamePersistence.vL()) {
          JOptionPane.showMessageDialog(this.ub, "Apenas na versão registrada é possível fazer oferta em qualquer jogador.", "Oferta", 2);
-      } else if (C0730.d(this.sE(), this.ul)) {
+      } else if (TransferNegotiation.d(this.sE(), this.ul)) {
          if (this.sE().fg() == this.ul) {
             JOptionPane.showMessageDialog(this.ub, "Jogador do time", "Proposta", 2);
          } else if (this.ul.kc().size() >= 35) {
             JOptionPane.showMessageDialog(this.ub, "Limite de 32 jogadores alcançado", "Limite de jogadores", 2);
          } else if (this.sE() != null) {
-            C0730.l(false);
+            TransferNegotiation.l(false);
             JDialog var1 = new JDialog(this.ub);
             C0185 var2 = new C0185(var1, this.sE(), this.ul, false);
             var1.add(var2);
@@ -244,7 +246,7 @@ public class C0452 extends JPanel {
             var1.setLocationRelativeTo(null);
             var1.setUndecorated(true);
             var1.setVisible(true);
-            if (C0730.cO()) {
+            if (TransferNegotiation.cO()) {
                this.sH();
                this.zj.addNotify();
             }
@@ -369,8 +371,8 @@ public class C0452 extends JPanel {
          defaultMutableTreeNode.add(var2);
 
          for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               String var7 = ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome();
+            if (((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               String var7 = ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome();
                if (var7.length() > 39) {
                   var7 = var7.substring(0, 39) + "...";
                }
@@ -378,7 +380,7 @@ public class C0452 extends JPanel {
                var3 = new DefaultMutableTreeNode(var7);
                var2.add(var3);
                ArrayList var8 = new ArrayList();
-               var8.addAll(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK());
+               var8.addAll(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK());
                Collections.sort(var8, C1007.VS);
 
                for (int var9 = 0; var9 < var8.size(); var9++) {

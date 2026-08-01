@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionStage;
 import mod.recovered.competition.CountryCompetitions;
@@ -36,10 +38,10 @@ public class C0703 implements Serializable {
       this.ae = GamePersistence.SR.H();
       this.w = c0713.b();
       this.dz = i;
-      if (c0713 instanceof C0924) {
-         this.divisao = ((C0924)c0713).ip();
-      } else if (c0713 instanceof C0951) {
-         this.divisao = ((C0951)c0713).ip();
+      if (c0713 instanceof NationalLeague) {
+         this.divisao = ((NationalLeague)c0713).ip();
+      } else if (c0713 instanceof StateChampionship) {
+         this.divisao = ((StateChampionship)c0713).ip();
       }
    }
 

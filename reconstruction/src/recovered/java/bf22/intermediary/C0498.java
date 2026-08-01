@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -19,7 +20,7 @@ import mod.recovered.model.Player;
 public class C0498 extends JPanel {
    private JDialog ub;
    private CountryCompetitions vt = null;
-   private C0924 vu = null;
+   private NationalLeague vu = null;
    private int w;
    private JLabel Az = new JLabel();
    private ArrayList AE = new ArrayList();
@@ -34,7 +35,7 @@ public class C0498 extends JPanel {
    private JLabel vf;
    private JLayeredPane MH;
 
-   public C0498(JDialog jDialog, C0924 c0924, CountryCompetitions c0692, int i) {
+   public C0498(JDialog jDialog, NationalLeague c0924, CountryCompetitions c0692, int i) {
       this.ub = jDialog;
       this.vu = c0924;
       this.vt = c0692;
@@ -57,7 +58,7 @@ public class C0498 extends JPanel {
       }
 
       if (this.vu == null) {
-         this.vu = (C0924)this.vt.eb().get(0);
+         this.vu = (NationalLeague)this.vt.eb().get(0);
       }
 
       this.mW();
@@ -168,7 +169,7 @@ public class C0498 extends JPanel {
 
    private void mX() {
       if (this.vv.getSelectedIndex() < this.vt.eb().size()) {
-         this.vu = (C0924)this.vt.eb().get(this.vv.getSelectedIndex());
+         this.vu = (NationalLeague)this.vt.eb().get(this.vv.getSelectedIndex());
       }
 
       if (this.w == 0) {

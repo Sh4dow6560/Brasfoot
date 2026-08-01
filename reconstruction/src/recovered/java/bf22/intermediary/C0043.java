@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerSearchCriteria;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.geo.CountryInfo;
@@ -248,7 +249,7 @@ public class C0043 extends JPanel {
    }
 
    private void nD() {
-      C0699 var1 = new C0699();
+      PlayerSearchCriteria var1 = new PlayerSearchCriteria();
       var1.setNome(this.zi.uf.getText());
       var1.bv(this.zi.Nq.getSelectedIndex() - 1);
       var1.bw(this.zi.Qx.getSelectedIndex() - 1);

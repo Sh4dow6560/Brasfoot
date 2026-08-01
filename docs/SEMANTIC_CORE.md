@@ -34,6 +34,24 @@ chamadas binaras permanecem compativeis.
 | `match/MatchEngine` | `c/b` | probabilidades e processamento da simulacao |
 | `core/GameConstants` | `best/aq` | codigos, tabelas e parametros globais |
 
+## Transferencias
+
+| Fonte | Classe oficial | Papel |
+|---|---|---|
+| `transfer/PlayerSearchCriteria` | `best/af` | filtros da busca de jogadores |
+| `transfer/AiSquadManager` | `best/ag` | manutencao de elencos e compras da IA |
+| `transfer/PlayerTransferRecord` | `best/ap` | registro persistente de transferencia |
+| `transfer/TransferNegotiation` | `best/l` | selecao de destino e avaliacao de proposta |
+| `manager/CoachChangeRecord` | `best/u` | historico de troca de tecnicos |
+
+## Torneios Concretos
+
+O pacote `competition` tambem contem nomes diretos para as competicoes
+persistidas pela carreira: `WorldCup`, `CopaLibertadores`,
+`UefaChampionsLeague`, `UefaEuropaLeague`, `UefaConferenceLeague`, os torneios
+continentais de selecoes, as seis eliminatorias, ligas, copas nacionais,
+estaduais, regionais e supercopas.
+
 ## Modelos E Interface
 
 | Fonte | Classe oficial | Papel |

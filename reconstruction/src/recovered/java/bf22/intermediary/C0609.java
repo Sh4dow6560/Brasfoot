@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.manager.CoachChangeRecord;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -14,7 +15,7 @@ public class C0609 extends DefaultTableCellRenderer {
       this.setHorizontalAlignment(2);
       this.setIcon(null);
       this.setText("");
-      C0739 var7 = (C0739)object;
+      CoachChangeRecord var7 = (CoachChangeRecord)object;
       if (var7 != null) {
          if (j == 0) {
             this.setText(var7.f());

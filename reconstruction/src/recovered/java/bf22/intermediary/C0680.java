@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class C0680 {
    }
 
    private void iy() {
-      C0730 var1 = new C0730(this.gE, this.gE.fk(), true, false, 0);
+      TransferNegotiation var1 = new TransferNegotiation(this.gE, this.gE.fk(), true, false, 0);
       var1.a(false, false);
       this.gD = var1.cK();
    }

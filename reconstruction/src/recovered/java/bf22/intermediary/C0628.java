@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalSuperCup;
 import mod.recovered.competition.Competition;
 import java.awt.Color;
 import java.awt.Component;
@@ -20,8 +21,8 @@ public class C0628 extends JLabel implements ListCellRenderer {
          this.setForeground(jList.getForeground());
       }
 
-      if (object != null && object instanceof C0931) {
-         C0931 var8 = (C0931)object;
+      if (object != null && object instanceof NationalSuperCup) {
+         NationalSuperCup var8 = (NationalSuperCup)object;
          String var9 = var8.getNome();
          this.setText(var9);
          this.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + var8.getPais() + ".png")));

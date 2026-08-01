@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.competition.KnockoutStage;
@@ -306,7 +307,7 @@ public class C0272 extends JPanel {
       Player var14 = null;
       var14 = (Player)var2.get(var11);
       if (var14 != null) {
-         C0730 var5 = new C0730(var14, var14.fk(), true, true, 0);
+         TransferNegotiation var5 = new TransferNegotiation(var14, var14.fk(), true, true, 0);
          Club var6 = var5.a(true, bl);
          int var7 = (int)(var14.fk() + Math.round(var14.fk() * 0.3));
          if (var6 != null) {

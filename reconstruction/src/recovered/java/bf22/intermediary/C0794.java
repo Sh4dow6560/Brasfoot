@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.save.GamePersistence;
 import mod.recovered.ui.MainWindow;
 import java.awt.Dimension;
@@ -52,7 +53,7 @@ public class C0794 {
    }
 
    private void iy() {
-      C0730 var1 = new C0730(this.U, this.oq, true, false, 0);
+      TransferNegotiation var1 = new TransferNegotiation(this.U, this.oq, true, false, 0);
       var1.a(false, false);
       this.RB = var1.cK();
       this.RA = var1.cL();

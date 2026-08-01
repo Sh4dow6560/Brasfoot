@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ class C0974 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      Club var2 = (Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(0)).eb().get(0)).yi().yK().get(0);
+      Club var2 = (Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(0)).eb().get(0)).yi().yK().get(0);
       var2.k(true);
       var2.ka().k(true);
       GamePersistence.SR.M().add(var2.ka());

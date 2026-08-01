@@ -10,7 +10,7 @@ import bf22.intermediary.C0704;
 import bf22.intermediary.C0708;
 import mod.recovered.core.GameConstants;
 import mod.recovered.competition.Competition;
-import bf22.intermediary.C0730;
+import mod.recovered.transfer.TransferNegotiation;
 import bf22.intermediary.C0741;
 import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0788;
@@ -18,8 +18,8 @@ import bf22.intermediary.C0799;
 import bf22.intermediary.C0825;
 import bf22.intermediary.C0914;
 import bf22.intermediary.C0915;
-import bf22.intermediary.C0924;
-import bf22.intermediary.C0951;
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.LeagueStage;
 import mod.recovered.competition.KnockoutStage;
 import bf22.intermediary.C1007;
@@ -1036,8 +1036,8 @@ public class Club implements Serializable {
       CountryCompetitions var1 = GamePersistence.SR.o(this.getPais());
       if (var1 != null) {
          for (int var2 = 0; var2 < var1.eb().size(); var2++) {
-            for (int var3 = 0; var3 < ((C0924)var1.eb().get(var2)).yi().yK().size(); var3++) {
-               if (((Club)((C0924)var1.eb().get(var2)).yi().yK().get(var3)).equals(this)) {
+            for (int var3 = 0; var3 < ((NationalLeague)var1.eb().get(var2)).yi().yK().size(); var3++) {
+               if (((Club)((NationalLeague)var1.eb().get(var2)).yi().yK().get(var3)).equals(this)) {
                   return true;
                }
             }
@@ -1152,7 +1152,7 @@ public class Club implements Serializable {
             }
 
             int[] var5 = new int[]{var3, var4};
-            C0730.a(this, var5);
+            TransferNegotiation.a(this, var5);
          }
       }
    }
@@ -1468,10 +1468,10 @@ public class Club implements Serializable {
       int var7 = 0;
       if (c0713 != null && (c0713.b() == 1 || c0713.b() == 3)) {
          LeagueStage var8 = null;
-         if (c0713 instanceof C0924) {
-            var8 = ((C0924)c0713).yi();
-         } else if (c0713 instanceof C0951) {
-            var8 = ((C0951)c0713).yi();
+         if (c0713 instanceof NationalLeague) {
+            var8 = ((NationalLeague)c0713).yi();
+         } else if (c0713 instanceof StateChampionship) {
+            var8 = ((StateChampionship)c0713).yi();
          }
 
          var3 = var8.P(this);
@@ -1550,19 +1550,19 @@ public class Club implements Serializable {
       return var1;
    }
 
-   public C0924 kF() {
+   public NationalLeague kF() {
       CountryCompetitions var1 = GamePersistence.SR.o(this.pais);
       if (var1 != null) {
          for (int var2 = 0; var2 < var1.eb().size(); var2++) {
-            for (int var3 = 0; var3 < ((C0924)var1.eb().get(var2)).yi().yK().size(); var3++) {
-               if (((C0924)var1.eb().get(var2)).yi().yK().get(var3) == this) {
-                  return (C0924)var1.eb().get(var2);
+            for (int var3 = 0; var3 < ((NationalLeague)var1.eb().get(var2)).yi().yK().size(); var3++) {
+               if (((NationalLeague)var1.eb().get(var2)).yi().yK().get(var3) == this) {
+                  return (NationalLeague)var1.eb().get(var2);
                }
             }
          }
 
          if (var1.eb().size() > 0) {
-            return (C0924)var1.eb().get(0);
+            return (NationalLeague)var1.eb().get(0);
          }
       }
 

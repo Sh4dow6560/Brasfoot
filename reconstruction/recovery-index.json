@@ -63,7 +63,7 @@
       "namedName": "bf22/intermediary/C0008",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "5A9B531A795B6510A5A7FFD9CE8E9827BC19AA8E8ED0AC088F9866923E3ECF72"
+      "sourceSha256": "6358F1E0EB5829709095C99B941925C93C0C270E0B6D399E88939B4BF021CC6B"
     },
     {
       "officialName": "a/I",
@@ -343,7 +343,7 @@
       "namedName": "bf22/intermediary/C0043",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "0BF8E35461199683AC4C51A4A75E5EFCBB05CE73326421F8EBA8A0CED51408CC"
+      "sourceSha256": "8C63FE0A4E58931EBB1F633CB66B83E71F342D2D027B0869FFE951F5A3DD6714"
     },
     {
       "officialName": "a/aQ",
@@ -431,7 +431,7 @@
       "namedName": "bf22/intermediary/C0054",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CC381ACCDE8769ABAFAFEE0DB68FA39C6D587083C72CB9CE4CF9CC2A6F083DEB"
+      "sourceSha256": "3F089E5F76F89E9162E83B628C499F30355D6F5B379DA234EC226B476A11433F"
     },
     {
       "officialName": "a/ab",
@@ -519,7 +519,7 @@
       "namedName": "bf22/intermediary/C0065",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "FD04CC33E1368ABA95BF69BE460CBD96B1D43C72E033A384CE63936B85B658B8"
+      "sourceSha256": "D5C293B5698492F73857DE7052E3A6E49E3765AE0E378772137B341B177703A4"
     },
     {
       "officialName": "a/am",
@@ -623,7 +623,7 @@
       "namedName": "bf22/intermediary/C0078",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "FD3BFC20F8A7D072A10695E5F6E6707CF8BCFB1DA1B0055D8EC308480E99FF55"
+      "sourceSha256": "322880CE398F664B790EAC6061029489A414268D633253A6E483BF640D6578FB"
     },
     {
       "officialName": "a/az",
@@ -815,7 +815,7 @@
       "namedName": "bf22/intermediary/C0102",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "7E856D63AD5735BCAD11688500E10F8F171951E3DD91A3515A340371A4949930"
+      "sourceSha256": "FC0266384FE8CCFBE7095A0984EC39668CB561D395558D918BF0DC038512AB19"
     },
     {
       "officialName": "a/bW",
@@ -1095,7 +1095,7 @@
       "namedName": "bf22/intermediary/C0137",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "6A1AA9B22B044D9D97DF25DAD965CD3CEF709941A0D1A0665785B47D4684C1B1"
+      "sourceSha256": "077538D439C271B61C9DA71AB1B114452149032DFCE096B017D8AF2975DCF300"
     },
     {
       "officialName": "a/cE",
@@ -1207,7 +1207,7 @@
       "namedName": "bf22/intermediary/C0151",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "BA976951FA51AF0C2B64AF870945D42001B737E89F79914C210C68CC074FDCAC"
+      "sourceSha256": "9E21DCF3CFF8C4810913BCA580FF856C67520CE4ADDCFCCC5F0520EBF7B3EA1F"
     },
     {
       "officialName": "a/cS",
@@ -1479,7 +1479,7 @@
       "namedName": "bf22/intermediary/C0185",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "1AFF2A4A29167A5A8ECAB4722FEC7011E3BB8F7D1E46B937BA4E4BE0038966A2"
+      "sourceSha256": "03EAFAD63682FC622870CA7D2ED255575DADA180580E79EB67E710FFB9092F10"
     },
     {
       "officialName": "a/d",
@@ -1487,7 +1487,7 @@
       "namedName": "bf22/intermediary/C0186",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "D98458D4F66984F59387A0852097E3448ABCD0786D830C74A0AF37DF5B2530CC"
+      "sourceSha256": "6191D711462A7F259B3C7F447312542E71687647FCC835D76391EE867055CABA"
     },
     {
       "officialName": "a/dA",
@@ -1663,7 +1663,7 @@
       "namedName": "bf22/intermediary/C0208",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CE4CA06E0A10332498E9D24AD9604232B54C89C25C762422EB5D5A30418A5A3D"
+      "sourceSha256": "ACF1FAE1157BE07489A00DE6D62BF4640FB6DC7AD20C6954A0125E8445481F43"
     },
     {
       "officialName": "a/dW",
@@ -1847,7 +1847,7 @@
       "namedName": "bf22/intermediary/C0231",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "6008C4CE4A43FD3CAA2C981BD8696D393A5D2BAF01C31405EC11371C7C123189"
+      "sourceSha256": "AB8B6EB2A0CA6D1900489A0578967259D70AC38D53A1FB3B73B686BFDC40EA20"
     },
     {
       "officialName": "a/dt",
@@ -2175,7 +2175,7 @@
       "namedName": "bf22/intermediary/C0272",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "5521933F522C2454D9BE04A6484B198F91D8FD943CC30C51AE8D7D003868B74F"
+      "sourceSha256": "582DA746AB717B279B7E04643F924AF94C2F8ABAE7038CBEEC0D302E41457BD6"
     },
     {
       "officialName": "a/eh",
@@ -3159,7 +3159,7 @@
       "namedName": "bf22/intermediary/C0395",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "92A948C597DF765EE32029873FAA34F301DBFA24BFC032F70B66D351F5BD35F3"
+      "sourceSha256": "48A547BA69052AF2221A64A4430099AC0D3E3E55B03CA7E0837EDB832A6F97BB"
     },
     {
       "officialName": "a/gy",
@@ -3183,7 +3183,7 @@
       "namedName": "bf22/intermediary/C0398",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "D855B7564D7C3EF2DA0B72B048DFF91B614FE417BE0F63A746BBC4D0E8B1AB8B"
+      "sourceSha256": "5053959186E12AD082B0B3DE9C9B5142D5AE4891DD8744BF30CF5F7927D0A930"
     },
     {
       "officialName": "a/hA",
@@ -3207,7 +3207,7 @@
       "namedName": "bf22/intermediary/C0401",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "1DDFF74BF792367228338D49E79436731A67C5CF00EAFE811AF1B0140224EFDD"
+      "sourceSha256": "29EA96CFA8E94A11B3EB0AF983240473DAA188E22B379A4F4701F043D792DDCE"
     },
     {
       "officialName": "a/hD",
@@ -3231,7 +3231,7 @@
       "namedName": "bf22/intermediary/C0404",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "938B5132653B4640AFA54EAD387D1C1BD62B2441A3CE6BE817CEB0A7DF120696"
+      "sourceSha256": "2523CCAE4E95E1EAE0B9F91A87CD142269EB034159D7F1ECAA9F79E2C80B2AC0"
     },
     {
       "officialName": "a/hG",
@@ -3479,7 +3479,7 @@
       "namedName": "bf22/intermediary/C0435",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "C06D160DA2B3EB3203EF8CD37EFA5F97444D9DE2C10E3DD46DF5F8BE37F63986"
+      "sourceSha256": "B42C28E0B0DE590C7680316697E9EBD46D5A980996098C763217DDC7C9972F2D"
     },
     {
       "officialName": "a/hl",
@@ -3615,7 +3615,7 @@
       "namedName": "bf22/intermediary/C0452",
       "introducedIn": "2020",
       "status": "compile-clean",
-      "sourceSha256": "F27091FA3C623AF9D73901B0205C74F1EAEA72A6729EB73B0A446037CDED48CD"
+      "sourceSha256": "DF86805693FC603234B1C673C9B69F427726838B592FF368F91AA225F07EA56A"
     },
     {
       "officialName": "a/iB",
@@ -3983,7 +3983,7 @@
       "namedName": "bf22/intermediary/C0498",
       "introducedIn": "2020",
       "status": "compile-clean",
-      "sourceSha256": "24F2745BBE4B4266EF651982C336DBA71B1939FCEBBDBAFEA9B8810E9F11E447"
+      "sourceSha256": "48F9EBD710729D6B4D7D1261B0661480FA42E8B9D3F4E38B93BA6423A0EAF0A0"
     },
     {
       "officialName": "a/iv",
@@ -4095,7 +4095,7 @@
       "namedName": "bf22/intermediary/C0512",
       "introducedIn": "22-23",
       "status": "compile-clean",
-      "sourceSha256": "CF83C665336E3272375576360E8220036FA2022E1B2CD32E1462A2F39C12E5A9"
+      "sourceSha256": "DACEC679D00A573F625393F2CEC9BB0D2F9FD79E5EDE9A6338E69558738C2BB8"
     },
     {
       "officialName": "a/jI",
@@ -4863,7 +4863,7 @@
       "namedName": "bf22/intermediary/C0608",
       "introducedIn": "2020",
       "status": "compile-clean",
-      "sourceSha256": "061EFBF9B91880A098914B5F2211828C3BAE295614E6E11BC0A080C4B5C0D9B9"
+      "sourceSha256": "BA2941762464BF7B0773C2D8DD6969E713E95ADD903F0271FA5B5A898A88277B"
     },
     {
       "officialName": "b/aQ",
@@ -4871,7 +4871,7 @@
       "namedName": "bf22/intermediary/C0609",
       "introducedIn": "2020",
       "status": "compile-clean",
-      "sourceSha256": "C6A68DF6391B0BE6834F2AF1C9D59348EAD76D7B5A5C0ABCD97119070A4A36DE"
+      "sourceSha256": "8D6007D813E446343952DF2DF4D31AC0736FB151F2BE55B40E6B7966F617CB9C"
     },
     {
       "officialName": "b/aR",
@@ -4999,7 +4999,7 @@
       "namedName": "bf22/intermediary/C0625",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CB6564312F8AD562579284482ECCA538F7F222600022BDEB77EAC139C6EF4461"
+      "sourceSha256": "E6C01B77F3DFD2EAAE554807D0328F7F49782AB5C04DEBB8652F69B621A1D844"
     },
     {
       "officialName": "b/ak",
@@ -5007,7 +5007,7 @@
       "namedName": "bf22/intermediary/C0626",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "6DDA68EBCDB1161C0F6660B500FA15762EB5E7B41651D33C776DF6B96D64FC8B"
+      "sourceSha256": "6CC03FD2532D5B6EFFA69AA694A61E61CF34168D504A3B1A8FB335E59066C9C9"
     },
     {
       "officialName": "b/al",
@@ -5023,7 +5023,7 @@
       "namedName": "bf22/intermediary/C0628",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "E0A5B98EFAE4AE5B26727CC1525A7A43804768174235FF8829B1A688025B4CDC"
+      "sourceSha256": "20458BB05154F526067A925B6B8228E441D807B05E83CA960426DD025C5B9A9B"
     },
     {
       "officialName": "b/an",
@@ -5375,7 +5375,7 @@
       "namedName": "mod/recovered/model/Player",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "8A693AE00230ED0CE901017DC0F1A676E1F87EE6F3632BFA3AED1C79CC4D6028"
+      "sourceSha256": "F606AE6C01E63820C3598A2419D88B87C795F24CA5BA3CB31B9DEB044D67219E"
     },
     {
       "officialName": "best/G",
@@ -5439,7 +5439,7 @@
       "namedName": "bf22/intermediary/C0680",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "BEFDA940D8BFC75B11148D9143C268E44967807D1D713AF631E66F2AA45A6533"
+      "sourceSha256": "FC882C5000144E204112EF7C5292534963082FC92BA900AF23A349D45C1AA4B7"
     },
     {
       "officialName": "best/O",
@@ -5479,7 +5479,7 @@
       "namedName": "mod/recovered/ui/MainWindow",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "5C48BC890254226BC501A7425EF45C9455C5108F5CB5610E5D0307DCBF45D6D9"
+      "sourceSha256": "167191BE7A2DD5DFAA4E6B26B5E504CE78CFA7D3A4DDF3684616406B7E3D7400"
     },
     {
       "officialName": "best/T",
@@ -5535,7 +5535,7 @@
       "namedName": "mod/recovered/competition/CountryCompetitions",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "B1EA0A7502503E6115B15A5DBCB2CF793DB69B91220E311B377097CAF9B9A211"
+      "sourceSha256": "1E0EFE432A8BDD9BA618D7364D6651501C7A7B274F23D0F1198E0AA688B466E2"
     },
     {
       "officialName": "best/a",
@@ -5543,7 +5543,7 @@
       "namedName": "bf22/intermediary/C0693",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "538FF40927A29BF62FA594806DE9EA3D74BA3FF76FCD6421901F0C611B5EFF1D"
+      "sourceSha256": "7E4DE18576E0CB21999C6F88F78E93DA5919B1D40D8221837B94A71C5E48CD79"
     },
     {
       "officialName": "best/aa",
@@ -5588,18 +5588,18 @@
     {
       "officialName": "best/af",
       "intermediaryName": "bf22/intermediary/C0699",
-      "namedName": "bf22/intermediary/C0699",
+      "namedName": "mod/recovered/transfer/PlayerSearchCriteria",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "869DDB6A123BBCA84E3496FFD8BB3E6F07743B3E99746C12CCF28797DC97D71A"
+      "sourceSha256": "6DAB53D743C1EEC86F1751DDCBEE3C8EE28CB851B3695DB3BD8431ECE489DD79"
     },
     {
       "officialName": "best/ag",
       "intermediaryName": "bf22/intermediary/C0700",
-      "namedName": "bf22/intermediary/C0700",
+      "namedName": "mod/recovered/transfer/AiSquadManager",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "A3F4E7E94B943825A024D0978754DF25E57F0337D871D8BA2AE31306748C1429"
+      "sourceSha256": "F75F51B3B7617B495F9BAE83E29256E1E9C59D76BDC3EF9021E559B3A7AFD0A9"
     },
     {
       "officialName": "best/ah",
@@ -5607,7 +5607,7 @@
       "namedName": "mod/recovered/model/Club",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "F4FE6E530D8655578570151205A901122D0E75846DDC4A1065ADCC26EB118755"
+      "sourceSha256": "57B1D9587C3146FCF1DB88CCC0ECE1100D7312505EAC82D270DBBFB107DFD04C"
     },
     {
       "officialName": "best/ai",
@@ -5623,7 +5623,7 @@
       "namedName": "bf22/intermediary/C0703",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "EF972979EAF973D09014DE06DDC19489BBF338E7F2E16198E52DBDBE7928B386"
+      "sourceSha256": "CCBF1766182E9F702B2443532102AA8C2685159AC0D64B02A6CF792A2B387C6B"
     },
     {
       "officialName": "best/ak",
@@ -5639,7 +5639,7 @@
       "namedName": "mod/recovered/model/Coach",
       "introducedIn": "2017",
       "status": "runtime-verified",
-      "sourceSha256": "3EF0848102C1464A1BDAA0EE5EEE561A95949F4F4FAC6EFD411BDBC54F786F65"
+      "sourceSha256": "B5CF344DB665BA772F454584369F59A672A04063D7900721953B186AA4658170"
     },
     {
       "officialName": "best/am",
@@ -5668,10 +5668,10 @@
     {
       "officialName": "best/ap",
       "intermediaryName": "bf22/intermediary/C0709",
-      "namedName": "bf22/intermediary/C0709",
+      "namedName": "mod/recovered/transfer/PlayerTransferRecord",
       "introducedIn": "2021",
       "status": "runtime-verified",
-      "sourceSha256": "E1F40BA406992ED69098762305E491A3A538F066AA402FA0E0A47E92666F6B17"
+      "sourceSha256": "94AB1F16F18076089C1086A4A030168560E2BE0DA049917AD64D81FC42232E50"
     },
     {
       "officialName": "best/aq",
@@ -5703,7 +5703,7 @@
       "namedName": "mod/recovered/competition/Competition",
       "introducedIn": "2021",
       "status": "compile-clean",
-      "sourceSha256": "A59F14FF0011B1B448844E279A54D0B083E9A671218E3DE9D59308A03A1D6AAE"
+      "sourceSha256": "C64344F7D942B44740F58441F8DCC1CFE42D826E849F52C7AEA2A8D0DF29C34D"
     },
     {
       "officialName": "best/au",
@@ -5743,7 +5743,7 @@
       "namedName": "mod/recovered/manager/CoachJobMarket",
       "introducedIn": "22-23",
       "status": "runtime-verified",
-      "sourceSha256": "EB7A1C48180B11A55696F559C2BAA68E24A05B21C36A9BC51311B967ADF91405"
+      "sourceSha256": "16E5974D302BFD73F2E8F3ED77FCFE807EE5773D9A761DFE193F5875B3B2E7CF"
     },
     {
       "officialName": "best/b",
@@ -5783,7 +5783,7 @@
       "namedName": "mod/recovered/game/CareerState",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "E6BC65B8F1C553E073303565193532273380D9C86430C7A6A8DE9BBA86718F9E"
+      "sourceSha256": "786E38F312E0E82FC608B088D3AD96CE810209E290E4F24A20F5D44B50AC3D83"
     },
     {
       "officialName": "best/g",
@@ -5799,7 +5799,7 @@
       "namedName": "bf22/intermediary/C0725",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "4F5FA6998EB81042C1ED4143700E1091C8EB8D14F4BDEA6AB8825523C3BC0B87"
+      "sourceSha256": "6369F31BDC80E03B8F141431F31A87984FAA35996C31E46F77CED073D23F0DCD"
     },
     {
       "officialName": "best/h2",
@@ -5815,7 +5815,7 @@
       "namedName": "mod/recovered/competition/CompetitionSeasonResult",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "677E0BEAC7955BDB30308E19772461293C100B2BDDC792439E2EACD7EAF3DC98"
+      "sourceSha256": "AB0077710E48B85316E455D0300AD77D89748AF1E9DDDCFF1C2A2A166C86B4BF"
     },
     {
       "officialName": "best/j",
@@ -5836,10 +5836,10 @@
     {
       "officialName": "best/l",
       "intermediaryName": "bf22/intermediary/C0730",
-      "namedName": "bf22/intermediary/C0730",
+      "namedName": "mod/recovered/transfer/TransferNegotiation",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "48749B300044BED5F438CE47DA35167D6761B5B09EF83294C39EDE121757FA02"
+      "sourceSha256": "4C5A0B6E82490F3DE6B2F639C413C13DF200D8714C25165ACA2FE13F2752501E"
     },
     {
       "officialName": "best/m",
@@ -5871,7 +5871,7 @@
       "namedName": "bf22/intermediary/C0734",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "33DDD105E6345BA2E8BCD3F2838799821CAB81DD79937648EBE34B8A79AD605C"
+      "sourceSha256": "79482E441811564A6DAE904466E8A1E97EFE4C66284408508788D6B880ABC1A0"
     },
     {
       "officialName": "best/q",
@@ -5895,7 +5895,7 @@
       "namedName": "bf22/intermediary/C0737",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "0C11C2D96A171767C71ADC46B7EF370ED3E8D0B943E60B6A971E380F55C59CF3"
+      "sourceSha256": "113A5871208BD7B6E1FAF2316AB95749BA96121992F2BF8C7D8735B948EA0950"
     },
     {
       "officialName": "best/t",
@@ -5908,10 +5908,10 @@
     {
       "officialName": "best/u",
       "intermediaryName": "bf22/intermediary/C0739",
-      "namedName": "bf22/intermediary/C0739",
+      "namedName": "mod/recovered/manager/CoachChangeRecord",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "A32188553AE5B404380831D10618AB948A974AC0B058EA5D8CEDC8F13598DA95"
+      "sourceSha256": "FAB5AA4E49B8CEB4AB81FB086302C0C9D2A4D7F28166B9C5DBE8C53D00A5EECF"
     },
     {
       "officialName": "best/v",
@@ -5927,7 +5927,7 @@
       "namedName": "bf22/intermediary/C0741",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "2BB793E94C4B5F9393FC742644A5A34A26D0AF3D60E947835BF1A509EAA9A50E"
+      "sourceSha256": "86DF854FB96F1596C09717C5C85EC8DCBED426DB8B20912F1C13B3986C16D14A"
     },
     {
       "officialName": "best/x",
@@ -6351,7 +6351,7 @@
       "namedName": "bf22/intermediary/C0794",
       "introducedIn": "2021",
       "status": "compile-clean",
-      "sourceSha256": "C848A6EC58C4BE0B8D52F6A0704096CC2A07165B50E4D148C000AC6B73B659E7"
+      "sourceSha256": "2D7F7135761FFD705A6ED2688A72BF8DD0E65AD969D1C5736C682CBD7F6809A6"
     },
     {
       "officialName": "components/ao",
@@ -7380,50 +7380,50 @@
     {
       "officialName": "f/A",
       "intermediaryName": "bf22/intermediary/C0923",
-      "namedName": "bf22/intermediary/C0923",
+      "namedName": "mod/recovered/competition/ClubWorldCup",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "008EF70F070E8F3F5D5D18F1E41F4B80BDA3BB5DA2F1C4FA7F2B874D6D03D436"
+      "sourceSha256": "27FC8248C0FD78ED9DA8BCA9641587C451CC366FDDF8BE46E26BCF185E74C18E"
     },
     {
       "officialName": "f/B",
       "intermediaryName": "bf22/intermediary/C0924",
-      "namedName": "bf22/intermediary/C0924",
+      "namedName": "mod/recovered/competition/NationalLeague",
       "introducedIn": "2017",
       "status": "runtime-verified",
-      "sourceSha256": "EE92BC598DB999FD59859638CB7395B21AACDCD166297A3B310F5EA11B9225AE"
+      "sourceSha256": "AF57B6F73A5B939C80B05F5D35917629EF1078935CEBDA3D82A2BE07A48ECB92"
     },
     {
       "officialName": "f/C",
       "intermediaryName": "bf22/intermediary/C0925",
-      "namedName": "bf22/intermediary/C0925",
+      "namedName": "mod/recovered/competition/NationalLeagueTableComparator",
       "introducedIn": "2017",
       "status": "compile-clean",
-      "sourceSha256": "54BD9FD19A7C8C7D9F280D1A1AED87226D685B012969C338E0EFC963B8DE2F4A"
+      "sourceSha256": "F3EC0AFB21E46509963BE7C610FEECFF46507ABF585F7A8AD6F2F10CFD1F110E"
     },
     {
       "officialName": "f/D",
       "intermediaryName": "bf22/intermediary/C0926",
-      "namedName": "bf22/intermediary/C0926",
+      "namedName": "mod/recovered/competition/EuropeanSuperCup",
       "introducedIn": "2017",
       "status": "compile-clean",
-      "sourceSha256": "B6BF8A3E0C87C75EA99F0EB5C9DC0D5CDCD739928C8DBA0470E0A34C488659B9"
+      "sourceSha256": "6F4466652246FB4DDAC424A77E13399E7FA37CFC82C395AD74BED5481757FD4E"
     },
     {
       "officialName": "f/E",
       "intermediaryName": "bf22/intermediary/C0927",
-      "namedName": "bf22/intermediary/C0927",
+      "namedName": "mod/recovered/competition/SouthAmericanRecopa",
       "introducedIn": "2017",
       "status": "compile-clean",
-      "sourceSha256": "9078FB04EE05BB88E7BC855B91F092E3BB8058DF1723050FFA1C1FEEAAE330FC"
+      "sourceSha256": "CF4C0331E4381AD3B72F05148193F4700CB3694DA4EAE8018C810FD4FCA633CF"
     },
     {
       "officialName": "f/F",
       "intermediaryName": "bf22/intermediary/C0928",
-      "namedName": "bf22/intermediary/C0928",
+      "namedName": "mod/recovered/competition/RegionalCup",
       "introducedIn": "2019",
       "status": "compile-clean",
-      "sourceSha256": "7FB1B0BC19C8CEBBFB7918413F6C4B5623567A8F905FCB828A4AD3BAB8247A22"
+      "sourceSha256": "82FA30B75A55C286688F6837383181408F0E3180C04F430A1BA79600DEE596D2"
     },
     {
       "officialName": "f/G",
@@ -7431,71 +7431,71 @@
       "namedName": "mod/recovered/competition/KnockoutRound",
       "introducedIn": "2019",
       "status": "runtime-verified",
-      "sourceSha256": "4C9CCA3D31DCE1F95FDFB5B429393D8F66A4F60E786C78F6B4DBCF2859C1F2DF"
+      "sourceSha256": "01F87EA7FC3F27ACD4140EC9F06431BC452A79E3FA3B1D33F1AE1E89D50ABF23"
     },
     {
       "officialName": "f/H",
       "intermediaryName": "bf22/intermediary/C0930",
-      "namedName": "bf22/intermediary/C0930",
+      "namedName": "mod/recovered/competition/CopaSudamericana",
       "introducedIn": "2019",
       "status": "compile-clean",
-      "sourceSha256": "19F4AE1AEA1B80C0458BFFBA822C6335D3632BD602BA42F7379C83242ECF10A9"
+      "sourceSha256": "62D97D61F7B2C28391CDBFD6B0429959C55E7F8E9452DDD6F755303F1153285A"
     },
     {
       "officialName": "f/I",
       "intermediaryName": "bf22/intermediary/C0931",
-      "namedName": "bf22/intermediary/C0931",
+      "namedName": "mod/recovered/competition/NationalSuperCup",
       "introducedIn": "2019",
       "status": "compile-clean",
-      "sourceSha256": "79D40AE3A9653CB390CBEE3A6EC5DF479562E949625E5D193D6AAF3CB6B7DF01"
+      "sourceSha256": "01B68FA9008F454A801F362C12E964EFBCBAA3DD762D6EF19CD2134344D5BCF8"
     },
     {
       "officialName": "f/J",
       "intermediaryName": "bf22/intermediary/C0932",
-      "namedName": "bf22/intermediary/C0932",
+      "namedName": "mod/recovered/competition/UefaConferenceLeague",
       "introducedIn": "2019",
       "status": "compile-clean",
-      "sourceSha256": "B4D3949EA21244813F11438628E4E7E8AB03BBE87664779C6127C18A5ABEF42D"
+      "sourceSha256": "3FB531A8830EB1FF90938CED6A9B22217EE4ADFFA7F93D0445D0FA36927CF798"
     },
     {
       "officialName": "f/K",
       "intermediaryName": "bf22/intermediary/C0933",
-      "namedName": "bf22/intermediary/C0933",
+      "namedName": "mod/recovered/competition/Finalissima",
       "introducedIn": "2020",
       "status": "compile-clean",
-      "sourceSha256": "6F374F8E8CBEA62D1283B7ED36798BF5597473477A6D95B010408081902E84EE"
+      "sourceSha256": "6FD2F79B73154189157773EADFAC6128F2506081FC5F8000D826B0D2E26185CF"
     },
     {
       "officialName": "f/L",
       "intermediaryName": "bf22/intermediary/C0934",
-      "namedName": "bf22/intermediary/C0934",
+      "namedName": "mod/recovered/competition/FriendlyTournament",
       "introducedIn": "2020",
       "status": "runtime-verified",
-      "sourceSha256": "FBAAB8840487A15CE12E4B511B69934AF41E9BF6BF12803221E9E476553AF1A0"
+      "sourceSha256": "CB1EF8496427B1BB49DF78EB30A5FB1562AA66AB8E3553CE7022CCABED33B453"
     },
     {
       "officialName": "f/M",
       "intermediaryName": "bf22/intermediary/C0935",
-      "namedName": "bf22/intermediary/C0935",
+      "namedName": "mod/recovered/competition/UefaNationsLeague",
       "introducedIn": "22-23",
       "status": "compile-clean",
-      "sourceSha256": "59CBF0BBD49FE2CF0328F77E32BE62037D9CD418BBFF3AFF4B8C6CCF978EE5C4"
+      "sourceSha256": "3EB274B4172F7CE6E91DB6DE4841E48FAFBE49510B6618F916792CE3358630EE"
     },
     {
       "officialName": "f/N",
       "intermediaryName": "bf22/intermediary/C0936",
-      "namedName": "bf22/intermediary/C0936",
+      "namedName": "mod/recovered/competition/ConcacafNationsLeague",
       "introducedIn": "22-23",
       "status": "compile-clean",
-      "sourceSha256": "DF02968CDF7EAACF1104A1CE2F2723D3ECD73E5E4FDF94A884258D25DD3CBCB2"
+      "sourceSha256": "B140920946768CA9E6FEC3C8ACF7BDDAA1B9F544A66B870FB4C5FD7FC1248B46"
     },
     {
       "officialName": "f/a",
       "intermediaryName": "bf22/intermediary/C0937",
-      "namedName": "bf22/intermediary/C0937",
+      "namedName": "mod/recovered/competition/FriendlyMatches",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "5FE0C34F3A5EE7216AFFAC0361E072DF4CA3B9C6869010A4D0BFE99E42CA5EA3"
+      "sourceSha256": "A5F5C2B8D97671FFC98AFF0B7967DDE87C2D42E7EA0F7346C46036D9B2D5F5C4"
     },
     {
       "officialName": "f/b",
@@ -7508,130 +7508,130 @@
     {
       "officialName": "f/c",
       "intermediaryName": "bf22/intermediary/C0939",
-      "namedName": "bf22/intermediary/C0939",
+      "namedName": "mod/recovered/competition/AfricaCupOfNations",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "F1693D501D59B778E4AFEF3DC5ABACB505E62983342F2CEB3A618C37CD1954ED"
+      "sourceSha256": "7C57749D30C093DBC1F3FF4A1398C2871A4B26678649BD45750DFD455667D941"
     },
     {
       "officialName": "f/d",
       "intermediaryName": "bf22/intermediary/C0940",
-      "namedName": "bf22/intermediary/C0940",
+      "namedName": "mod/recovered/competition/CopaAmerica",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "E4BCBE85976F9F8D4E73B74E8792370DF5EEDA5C3E6B1526C756769F28093746"
+      "sourceSha256": "0D03A974EEE2207DEBE1D5FC45A933FE9629E7043B423E7B797E910DCF410031"
     },
     {
       "officialName": "f/e",
       "intermediaryName": "bf22/intermediary/C0941",
-      "namedName": "bf22/intermediary/C0941",
+      "namedName": "mod/recovered/competition/AsianCup",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "56EE9754B6F04A4D59410431E5DC616A6BCFF02AEE3859A67DEA28F7AB61489D"
+      "sourceSha256": "6BB01BC059D156731703E2252E9E0DAE6AB50B136095805BE18C7947F7230C8C"
     },
     {
       "officialName": "f/f",
       "intermediaryName": "bf22/intermediary/C0942",
-      "namedName": "bf22/intermediary/C0942",
+      "namedName": "mod/recovered/competition/NationalCup",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "3B53027ABF7C2FB8C4D94F4686FC79972145F2FDD104EC6C01434D8E03B6A6F7"
+      "sourceSha256": "DB63186B2A45EE5070833B85F8577CB1449730E53FB847225B45DD7BF8829EB1"
     },
     {
       "officialName": "f/g",
       "intermediaryName": "bf22/intermediary/C0943",
-      "namedName": "bf22/intermediary/C0943",
+      "namedName": "mod/recovered/competition/OfcNationsCup",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "385BF52E9339186C148D5D37E7780C39F643822E2FC83953D2D87E202369A573"
+      "sourceSha256": "080701221190092C29972710A30A38084519437AE8C448EE2ADA5D012D96BC46"
     },
     {
       "officialName": "f/h",
       "intermediaryName": "bf22/intermediary/C0944",
-      "namedName": "bf22/intermediary/C0944",
+      "namedName": "mod/recovered/competition/ConcacafGoldCup",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "7B1BD2E35DF643C8D3F8A80BF2806F634915D35980000CAFE12A53AA575C0AC2"
+      "sourceSha256": "AEDF9844133F7D3BFC88F8524681482289E9A380DCF4D3242482FD94BBEC6B3D"
     },
     {
       "officialName": "f/i",
       "intermediaryName": "bf22/intermediary/C0945",
-      "namedName": "bf22/intermediary/C0945",
+      "namedName": "mod/recovered/competition/AfricaWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "24237439A4578E8282956CEE5B92BBD45CFAA49414A32A58304ADA2187C61B1A"
+      "sourceSha256": "D0D973FDBF65DD9849B3DF70BB8B782439D7AD7DF80CA236D1FCA385220E6F50"
     },
     {
       "officialName": "f/j",
       "intermediaryName": "bf22/intermediary/C0946",
-      "namedName": "bf22/intermediary/C0946",
+      "namedName": "mod/recovered/competition/AsiaWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "1D8C52C9F71025CCBEA66C6DA3520082E0430016A1FD95552000001D6BCDDC98"
+      "sourceSha256": "61E0DFA9949BECC2170C916BB660059138C82E533127475BCA630189B249C8BF"
     },
     {
       "officialName": "f/k",
       "intermediaryName": "bf22/intermediary/C0947",
-      "namedName": "bf22/intermediary/C0947",
+      "namedName": "mod/recovered/competition/ConcacafWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "1C16547D33CC1A2D5C28D59DA22858B2BB2BACB4D47AD969ADE075C13E534599"
+      "sourceSha256": "4F03D8D1087DE299D156ADC2A556D851D6309E51A2BE25939E18E10799D401B8"
     },
     {
       "officialName": "f/l",
       "intermediaryName": "bf22/intermediary/C0948",
-      "namedName": "bf22/intermediary/C0948",
+      "namedName": "mod/recovered/competition/EuropeWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "4B45B718137F7C51D755382D724D367749DF6815061FBBAC7B6F8F35AC2EC8AA"
+      "sourceSha256": "225A0EC1D029497DD478D9D6F0354942BE86742E363797F867D4B2E232072811"
     },
     {
       "officialName": "f/m",
       "intermediaryName": "bf22/intermediary/C0949",
-      "namedName": "bf22/intermediary/C0949",
+      "namedName": "mod/recovered/competition/OceaniaWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "E91BF95F6C2F22E3E509E703A5B7F3D7E4F442D35446B4FD97E4E3038FD77F89"
+      "sourceSha256": "8C8A3F6C8A936CA4A73197DDBA3539F4BE1ADE3747E455152FF029579974C13B"
     },
     {
       "officialName": "f/n",
       "intermediaryName": "bf22/intermediary/C0950",
-      "namedName": "bf22/intermediary/C0950",
+      "namedName": "mod/recovered/competition/SouthAmericaWorldCupQualifiers",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "DD26A6313F5A66551153EB800C7D7CD40DFAD7B4F80F620B2012F26F16052197"
+      "sourceSha256": "546C5F14B59622EF02839826EC62CB4AD2AADF40D3AF412B1E089EAF260DEF1E"
     },
     {
       "officialName": "f/o",
       "intermediaryName": "bf22/intermediary/C0951",
-      "namedName": "bf22/intermediary/C0951",
+      "namedName": "mod/recovered/competition/StateChampionship",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CD384181B03E8B027F9A274E9334C3FE45B288A028DA2E59F45CA37BCE57A8E6"
+      "sourceSha256": "DAFB10F353B9FE0EE6FD951DC713FCD698738DD60BD80BC972F7B2C986171357"
     },
     {
       "officialName": "f/p",
       "intermediaryName": "bf22/intermediary/C0952",
-      "namedName": "bf22/intermediary/C0952",
+      "namedName": "mod/recovered/competition/EuropeanChampionship",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CBCC325A3438EC58C30241BCF0A7A6E06EE7B1A1FCFD70DAEC7C8EC0AEC1AE85"
+      "sourceSha256": "76CA17FFD8907FDA35B3092F812914924C5E8EA78155E3F473B7915F03B9A768"
     },
     {
       "officialName": "f/q",
       "intermediaryName": "bf22/intermediary/C0953",
-      "namedName": "bf22/intermediary/C0953",
+      "namedName": "mod/recovered/competition/WorldCup",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "817F443608F0BAD6C89B23A2BB9D599C034DC43A94C9D0BCAD9045C1C54FEBD3"
+      "sourceSha256": "9BF7BF76785AE81C180908D547DAE172638B2E0503459C3D820710F806CD2C16"
     },
     {
       "officialName": "f/r",
       "intermediaryName": "bf22/intermediary/C0954",
-      "namedName": "bf22/intermediary/C0954",
+      "namedName": "mod/recovered/competition/CopaLibertadores",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "91E67FE10139CFE890E7AE21F327EA302BFC2F9F021055275C092908B4674416"
+      "sourceSha256": "116DFA749417A0D73E43BC99C4A81BFA04698F330BD151F00BA0091831250293"
     },
     {
       "officialName": "f/s",
@@ -7639,55 +7639,55 @@
       "namedName": "mod/recovered/competition/LeagueStage",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "C963402AB5A54D937283B2D0FA6F127ADDB344B125CE6C560B71D401026E7591"
+      "sourceSha256": "86B195AD7E6325DA9E4FA86891169566262C898BE33B33D100C0E0BD02AE2E94"
     },
     {
       "officialName": "f/t",
       "intermediaryName": "bf22/intermediary/C0956",
-      "namedName": "bf22/intermediary/C0956",
+      "namedName": "mod/recovered/competition/CafChampionsLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "F6DFD5C56C5A0D64746D8754706DCFE6F2EAD9750646F34A11DFE4C2D9849C70"
+      "sourceSha256": "B5A82E4395AEF026C45CB2BD46BAA37AFB0286E4ECD0FA8C184EB67C60769807"
     },
     {
       "officialName": "f/u",
       "intermediaryName": "bf22/intermediary/C0957",
-      "namedName": "bf22/intermediary/C0957",
+      "namedName": "mod/recovered/competition/AfcChampionsLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "ACE968860FE2472130F31780E95051A8202CE76DB06FD48D5B1825E8529AFA83"
+      "sourceSha256": "C5F909383D90C8AE64D096E2E2D6F14D81067F024BCAB6E7425CE7A4FAA27F34"
     },
     {
       "officialName": "f/v",
       "intermediaryName": "bf22/intermediary/C0958",
-      "namedName": "bf22/intermediary/C0958",
+      "namedName": "mod/recovered/competition/UefaChampionsLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "403352C9AE0A466C92847A9CC61BF8891D25C48E66402D6F579D2B45B26AF946"
+      "sourceSha256": "1DFACA3241A7C2F158934E9CBDB4D5808FF3C97BBA54716FC9B6D003BBDE36E7"
     },
     {
       "officialName": "f/w",
       "intermediaryName": "bf22/intermediary/C0959",
-      "namedName": "bf22/intermediary/C0959",
+      "namedName": "mod/recovered/competition/ConcacafChampionsLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "99B873F0BDCF59ED9742375937851B9FDF490E5A6E67D7763D2A4A10D86B37D8"
+      "sourceSha256": "D8EB6253D2C6C0EB4DCBA94204BA25C1AC6EBD2E8D4E69635FC84E62B35DA374"
     },
     {
       "officialName": "f/x",
       "intermediaryName": "bf22/intermediary/C0960",
-      "namedName": "bf22/intermediary/C0960",
+      "namedName": "mod/recovered/competition/UefaEuropaLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "FD907FA75711F2B25E495530F3D2C7F95085B5740B3A911CDAF0A72C9CD6C1F5"
+      "sourceSha256": "ACEBA2C1D1EDE7489D1FDF4AE996F54DC979F67CD23C4878B657C097016226C5"
     },
     {
       "officialName": "f/y",
       "intermediaryName": "bf22/intermediary/C0961",
-      "namedName": "bf22/intermediary/C0961",
+      "namedName": "mod/recovered/competition/OfcChampionsLeague",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CAAF97E6EFDD1265B16ABECEF16DE4B7B41F001C31B99B87508102AB18DE7D0F"
+      "sourceSha256": "6CF2149A49AB6F594503D1F440E048705C9992F9C8F76F1D618DBD6CE7EEFD8E"
     },
     {
       "officialName": "f/z",
@@ -7791,7 +7791,7 @@
       "namedName": "bf22/intermediary/C0974",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CDCE20B4DF22A5F2AF022DCD180ED36CFFF97CC65790637B4391AD93886811B5"
+      "sourceSha256": "62E7CEF1FBF3B9AB73E63E0BF7645EED6A6C7AC11AC319514B2CB753407E121B"
     },
     {
       "officialName": "forms/l",
@@ -7919,7 +7919,7 @@
       "namedName": "bf22/intermediary/C0990",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "347BD7EA0683616E3A4F370116BAF484E3E05A761CCA63FEAC2CF5B2C55C70E3"
+      "sourceSha256": "B4D1ADA19FC5CEB06FD354B47544019BF585A3B3CCEB0F90DAB64982C038B0E2"
     },
     {
       "officialName": "h/A",

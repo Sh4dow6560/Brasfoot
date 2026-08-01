@@ -354,12 +354,12 @@ public class KnockoutRound implements Serializable {
 
       if (bl2) {
          if (this.aae.zf() == 1099) {
-            ((C0924)this.aae.yT()).BO();
+            ((NationalLeague)this.aae.yT()).BO();
          } else if (this.aae.zf() == 1098) {
-            ((C0924)this.aae.yT()).r(this.aak, this.aal);
+            ((NationalLeague)this.aae.yT()).r(this.aak, this.aal);
          } else if (this.aae.zf() != 91) {
             if (this.aae.zf() == 1068) {
-               ((C0924)this.aae.yT()).n(this.aak, this.aal);
+               ((NationalLeague)this.aae.yT()).n(this.aak, this.aal);
             } else if (this.aae.zf() == 9502) {
                GamePersistence.SR.bS().p(this.aak, this.aal);
             } else if (this.aae.zf() == 9401) {
@@ -413,7 +413,7 @@ public class KnockoutRound implements Serializable {
             } else if (this.aae.zf() == 14006) {
                GamePersistence.SR.sq().aA(this.aal);
             } else if (this.aae.zf() == 2029 && this.var0 != 2729) {
-               C0942 var33 = (C0942)this.aae.yT();
+               NationalCup var33 = (NationalCup)this.aae.yT();
                if (this.var0 == 2129) {
                   var33.ad(this.aak);
                } else if (this.var0 == 2229) {

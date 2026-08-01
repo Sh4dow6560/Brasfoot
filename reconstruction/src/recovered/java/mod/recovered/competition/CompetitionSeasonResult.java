@@ -69,8 +69,8 @@ public class CompetitionSeasonResult implements Serializable {
          MainWindow.a(club, c0713, var5);
       }
 
-      if (var5 == 1 && c0713 instanceof C0924) {
-         ((C0924)c0713).BQ();
+      if (var5 == 1 && c0713 instanceof NationalLeague) {
+         ((NationalLeague)c0713).BQ();
       }
    }
 

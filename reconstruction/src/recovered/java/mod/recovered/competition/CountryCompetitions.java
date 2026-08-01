@@ -23,7 +23,7 @@ public class CountryCompetitions implements Serializable {
    private int pais;
    private ArrayList dt = new ArrayList();
    private int dw = 0;
-   private C0942 hu;
+   private NationalCup hu;
    private boolean[] duasVoltasMataMata = new boolean[]{true, true, true, true, true, true, true};
    private ArrayList hv = new ArrayList();
    private ArrayList hw = new ArrayList();
@@ -57,12 +57,12 @@ public class CountryCompetitions implements Serializable {
 
    public void K() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
-         C0924 var2 = null;
+         NationalLeague var2 = null;
          if (var1 + 1 < this.ds.size()) {
-            var2 = (C0924)this.ds.get(var1 + 1);
+            var2 = (NationalLeague)this.ds.get(var1 + 1);
          }
 
-         ((C0924)this.ds.get(var1)).a(var2);
+         ((NationalLeague)this.ds.get(var1)).a(var2);
       }
    }
 
@@ -70,17 +70,17 @@ public class CountryCompetitions implements Serializable {
       return i >= this.ds.size();
    }
 
-   public C0924 fo(int i) {
+   public NationalLeague fo(int i) {
       Object var2 = null;
-      return i < this.ds.size() ? (C0924)this.ds.get(i) : null;
+      return i < this.ds.size() ? (NationalLeague)this.ds.get(i) : null;
    }
 
-   public C0924 fp(int i) {
+   public NationalLeague fp(int i) {
       if (i > 1) {
          Object var2 = null;
          int var3 = i - 2;
          if (var3 < this.ds.size()) {
-            return (C0924)this.ds.get(var3);
+            return (NationalLeague)this.ds.get(var3);
          }
       }
 
@@ -169,7 +169,7 @@ public class CountryCompetitions implements Serializable {
                }
             }
 
-            C0924 var19 = new C0924(this, this.ds.size() + 1);
+            NationalLeague var19 = new NationalLeague(this, this.ds.size() + 1);
             if (!var5) {
                var19.aS(var13.isRebaixadoPeloGrupo());
                var19.setRebaixadosDireto(var13.getRebaixadosDireto());
@@ -260,9 +260,9 @@ public class CountryCompetitions implements Serializable {
          Club var3 = null;
          Object var4 = null;
          Object var5 = null;
-         var2.addAll(((C0924)this.ds.get(0)).yi().yV());
+         var2.addAll(((NationalLeague)this.ds.get(0)).yi().yV());
          if (this.ds.size() > 1) {
-            ArrayList var6 = ((C0924)this.ds.get(1)).yi().yV();
+            ArrayList var6 = ((NationalLeague)this.ds.get(1)).yi().yV();
             var2.addAll(var6);
             if (var6.size() > 0) {
                var3 = (Club)var6.get(0);
@@ -313,13 +313,13 @@ public class CountryCompetitions implements Serializable {
       int var4 = arrayList.size();
       if (this.pais == 29 && var4 >= 91 && GamePersistence.vM().isNovoFormatoCopa() && !bl) {
          if (this.hu == null) {
-            this.hu = new C0942(this);
+            this.hu = new NationalCup(this);
          }
 
          this.hu.b(this.hu, arrayList, this.duasVoltasMataMata);
       } else if (var4 >= 8) {
          if (this.hu == null) {
-            this.hu = new C0942(this);
+            this.hu = new NationalCup(this);
          }
 
          this.hu.a(this.hu, arrayList, this.duasVoltasMataMata);
@@ -364,9 +364,9 @@ public class CountryCompetitions implements Serializable {
    public void jd() {
       if (this.hD.size() == 0) {
          if (this.ds.size() >= 1) {
-            this.hD.addAll(((C0924)this.ds.get(0)).yi().yV());
+            this.hD.addAll(((NationalLeague)this.ds.get(0)).yi().yV());
             if (this.ds.size() > 1) {
-               this.hD.addAll(((C0924)this.ds.get(1)).yi().yV());
+               this.hD.addAll(((NationalLeague)this.ds.get(1)).yi().yV());
             }
          } else {
             this.hD = this.je();
@@ -456,11 +456,11 @@ public class CountryCompetitions implements Serializable {
       ArrayList var2 = new ArrayList();
       boolean var3 = false;
       if (this.ds.size() > 0) {
-         ((C0924)this.ds.get(0)).yi().ah(0, ((C0924)this.ds.get(0)).getnRebaixados());
+         ((NationalLeague)this.ds.get(0)).yi().ah(0, ((NationalLeague)this.ds.get(0)).getnRebaixados());
       }
 
       for (int var4 = 1; var4 < this.ds.size(); var4++) {
-         ((C0924)this.ds.get(var4)).yi().ah(((C0924)this.ds.get(var4 - 1)).getnRebaixados(), ((C0924)this.ds.get(var4)).getnRebaixados());
+         ((NationalLeague)this.ds.get(var4)).yi().ah(((NationalLeague)this.ds.get(var4 - 1)).getnRebaixados(), ((NationalLeague)this.ds.get(var4)).getnRebaixados());
       }
 
       for (int var7 = 0; var7 < this.ds.size(); var7++) {
@@ -471,18 +471,18 @@ public class CountryCompetitions implements Serializable {
                System.out.println("====divisao " + (var7 + 1));
             }
 
-            for (int var10 = 0; var10 < ((C0924)this.ds.get(var7)).yi().yK().size(); var10++) {
+            for (int var10 = 0; var10 < ((NationalLeague)this.ds.get(var7)).yi().yK().size(); var10++) {
                if (var3) {
-                  System.out.println(var10 + " " + ((Club)((C0924)this.ds.get(var7)).yi().yK().get(var10)).getNome());
+                  System.out.println(var10 + " " + ((Club)((NationalLeague)this.ds.get(var7)).yi().yK().get(var10)).getNome());
                }
             }
 
-            for (int var11 = 0; var11 < ((C0924)this.ds.get(var7)).yi().yU().size(); var11++) {
-               var2.add((Club)((C0924)this.ds.get(var7)).yi().yU().get(var11));
+            for (int var11 = 0; var11 < ((NationalLeague)this.ds.get(var7)).yi().yU().size(); var11++) {
+               var2.add((Club)((NationalLeague)this.ds.get(var7)).yi().yU().get(var11));
             }
 
-            for (int var12 = 0; var12 < ((C0924)this.ds.get(var7 + 1)).yi().yW().size(); var12++) {
-               var1.add((Club)((C0924)this.ds.get(var7 + 1)).yi().yW().get(var12));
+            for (int var12 = 0; var12 < ((NationalLeague)this.ds.get(var7 + 1)).yi().yW().size(); var12++) {
+               var1.add((Club)((NationalLeague)this.ds.get(var7 + 1)).yi().yW().get(var12));
             }
 
             if (var3) {
@@ -505,13 +505,13 @@ public class CountryCompetitions implements Serializable {
                new ArrayList();
 
                for (int var19 = 0; var19 < var2.size(); var19++) {
-                  if (!((C0924)this.ds.get(var7)).ac((Club)var2.get(var19))) {
+                  if (!((NationalLeague)this.ds.get(var7)).ac((Club)var2.get(var19))) {
                      ((Club)var2.get(var19)).b((Competition)this.ds.get(var7), 0);
                      ((Club)var1.get(var19)).b((Competition)this.ds.get(var7 + 1), 1);
-                     ((C0924)this.ds.get(var7)).yi().yK().remove(var2.get(var19));
-                     ((C0924)this.ds.get(var7 + 1)).yi().yK().add((Club)var2.get(var19));
-                     ((C0924)this.ds.get(var7 + 1)).yi().yK().remove(var1.get(var19));
-                     ((C0924)this.ds.get(var7)).yi().yK().add((Club)var1.get(var19));
+                     ((NationalLeague)this.ds.get(var7)).yi().yK().remove(var2.get(var19));
+                     ((NationalLeague)this.ds.get(var7 + 1)).yi().yK().add((Club)var2.get(var19));
+                     ((NationalLeague)this.ds.get(var7 + 1)).yi().yK().remove(var1.get(var19));
+                     ((NationalLeague)this.ds.get(var7)).yi().yK().add((Club)var1.get(var19));
                      if (GamePersistence.SR.bk() && var7 == 2 && this.jc() == 29) {
                         GamePersistence.SR.bY().add((Club)var2.get(var19));
                      }
@@ -523,23 +523,23 @@ public class CountryCompetitions implements Serializable {
                System.out.println("====divisao ultima " + var7);
             }
 
-            for (int var5 = 0; var5 < ((C0924)this.ds.get(var7)).yi().yK().size(); var5++) {
+            for (int var5 = 0; var5 < ((NationalLeague)this.ds.get(var7)).yi().yK().size(); var5++) {
                if (var3) {
-                  System.out.println(var5 + " " + ((Club)((C0924)this.ds.get(var7)).yi().yK().get(var5)).getNome());
+                  System.out.println(var5 + " " + ((Club)((NationalLeague)this.ds.get(var7)).yi().yK().get(var5)).getNome());
                }
             }
 
             var2.clear();
             var1.clear();
-            int var9 = ((C0924)this.ds.get(var7)).getnRebaixados();
+            int var9 = ((NationalLeague)this.ds.get(var7)).getnRebaixados();
             if (this.dt.size() < var9) {
                var9 = this.dt.size();
             }
 
             if (var9 > 0) {
-               for (int var6 = 0; var6 < ((C0924)this.ds.get(var7)).yi().yU().size(); var6++) {
+               for (int var6 = 0; var6 < ((NationalLeague)this.ds.get(var7)).yi().yU().size(); var6++) {
                   if (var6 < var9) {
-                     var2.add((Club)((C0924)this.ds.get(var7)).yi().yU().get(var6));
+                     var2.add((Club)((NationalLeague)this.ds.get(var7)).yi().yU().get(var6));
                   }
                }
 
@@ -563,28 +563,28 @@ public class CountryCompetitions implements Serializable {
                   Collections.reverse(var1);
 
                   for (int var18 = 0; var18 < var2.size(); var18++) {
-                     if (!((C0924)this.ds.get(var7)).ac((Club)var2.get(var18))) {
+                     if (!((NationalLeague)this.ds.get(var7)).ac((Club)var2.get(var18))) {
                         ((Club)var2.get(var18)).b((Competition)this.ds.get(var7), 0);
-                        ((C0924)this.ds.get(var7)).yi().yK().remove(var2.get(var18));
+                        ((NationalLeague)this.ds.get(var7)).yi().yK().remove(var2.get(var18));
                         this.dt.add((Club)var2.get(var18));
                         ((Club)var2.get(var18)).setDivisao(0);
                         this.dt.remove(var1.get(var18));
-                        ((C0924)this.ds.get(var7)).yi().yK().add((Club)var1.get(var18));
+                        ((NationalLeague)this.ds.get(var7)).yi().yK().add((Club)var1.get(var18));
                      }
                   }
                }
             }
          }
 
-         ((C0924)this.ds.get(var7)).yi().yI();
+         ((NationalLeague)this.ds.get(var7)).yi().yI();
       }
 
       if (this.pais == 29 && GamePersistence.SR.bk()) {
-         ((C0924)this.ds.get(this.ds.size() - 1)).yi().yJ();
+         ((NationalLeague)this.ds.get(this.ds.size() - 1)).yi().yJ();
       }
 
       for (int var8 = 0; var8 < this.ds.size(); var8++) {
-         ((C0924)this.ds.get(var8)).BJ();
+         ((NationalLeague)this.ds.get(var8)).BJ();
       }
    }
 
@@ -1050,8 +1050,8 @@ public class CountryCompetitions implements Serializable {
             }
 
             if (var11[var13] >= 0 && var11[var13] < this.ds.size()) {
-               if (((C0924)this.ds.get(var11[var13])).yi().yK().size() > 0) {
-                  ((C0924)this.ds.get(var11[var13])).yi().b(arrayList, coach, bl);
+               if (((NationalLeague)this.ds.get(var11[var13])).yi().yK().size() > 0) {
+                  ((NationalLeague)this.ds.get(var11[var13])).yi().b(arrayList, coach, bl);
                } else if (!coach.jZ()) {
                   this.a(arrayList, coach, bl);
                }
@@ -1078,7 +1078,7 @@ public class CountryCompetitions implements Serializable {
 
    public void A(ArrayList arrayList) {
       for (int var2 = 0; var2 < this.ds.size(); var2++) {
-         ((C0924)this.ds.get(var2)).yi().A(arrayList);
+         ((NationalLeague)this.ds.get(var2)).yi().A(arrayList);
       }
    }
 
@@ -1090,7 +1090,7 @@ public class CountryCompetitions implements Serializable {
       return this.dt;
    }
 
-   public C0942 jq() {
+   public NationalCup jq() {
       return this.hu;
    }
 
@@ -1150,9 +1150,9 @@ public class CountryCompetitions implements Serializable {
       this.jo().k(coach.jZ());
    }
 
-   public void a(C0942 c0942) {
+   public void a(NationalCup c0942) {
       if (c0942 == null && this.hu == null) {
-         this.hu = new C0942(this);
+         this.hu = new NationalCup(this);
       }
    }
 
@@ -1168,8 +1168,8 @@ public class CountryCompetitions implements Serializable {
 
    public boolean ei() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
-         for (int var2 = 0; var2 < ((C0924)this.ds.get(var1)).yi().yK().size(); var2++) {
-            if (((Club)((C0924)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
+         for (int var2 = 0; var2 < ((NationalLeague)this.ds.get(var1)).yi().yK().size(); var2++) {
+            if (((Club)((NationalLeague)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
                return true;
             }
          }
@@ -1200,15 +1200,15 @@ public class CountryCompetitions implements Serializable {
 
    public void jx() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
-         ((C0924)this.ds.get(var1)).zJ();
-         ((C0924)this.ds.get(var1)).zK();
+         ((NationalLeague)this.ds.get(var1)).zJ();
+         ((NationalLeague)this.ds.get(var1)).zK();
       }
    }
 
    public void a(LeagueStage c0955) {
       for (int var2 = 0; var2 < this.ds.size(); var2++) {
-         if (((C0924)this.ds.get(var2)).yi() == c0955) {
-            ((C0924)this.ds.get(var2)).zH();
+         if (((NationalLeague)this.ds.get(var2)).yi() == c0955) {
+            ((NationalLeague)this.ds.get(var2)).zH();
          }
       }
    }
@@ -1219,12 +1219,12 @@ public class CountryCompetitions implements Serializable {
 
    public int K(int i) {
       int var2 = i - 2;
-      return i > 1 && var2 < this.ds.size() ? ((C0924)this.ds.get(var2)).getnRebaixados() : 0;
+      return i > 1 && var2 < this.ds.size() ? ((NationalLeague)this.ds.get(var2)).getnRebaixados() : 0;
    }
 
    public int fq(int i) {
       int var2 = i - 2;
-      return i > 1 && var2 < this.ds.size() ? ((C0924)this.ds.get(var2)).BL() : 0;
+      return i > 1 && var2 < this.ds.size() ? ((NationalLeague)this.ds.get(var2)).BL() : 0;
    }
 
    public Stadium C(boolean bl) {

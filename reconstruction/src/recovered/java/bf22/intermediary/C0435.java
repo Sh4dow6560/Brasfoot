@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.match.Match;
@@ -485,7 +486,7 @@ public class C0435 extends JPanel {
       ArrayList var5 = new ArrayList();
 
       for (int var6 = 0; var6 < GamePersistence.SR.S().size(); var6++) {
-         if (((Match)GamePersistence.SR.S().get(var6)).hy() instanceof C0951 && ((C0951)((Match)GamePersistence.SR.S().get(var6)).hy()).yj() == c0741) {
+         if (((Match)GamePersistence.SR.S().get(var6)).hy() instanceof StateChampionship && ((StateChampionship)((Match)GamePersistence.SR.S().get(var6)).hy()).yj() == c0741) {
             var5.add((Match)GamePersistence.SR.S().get(var6));
          }
       }

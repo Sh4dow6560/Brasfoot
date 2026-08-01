@@ -1733,7 +1733,7 @@
     },
     {
       "officialName": "best/ap",
-      "namedName": "bf22/intermediary/C0709",
+      "namedName": "mod/recovered/transfer/PlayerTransferRecord",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -2756,7 +2756,7 @@
     },
     {
       "officialName": "best/u",
-      "namedName": "bf22/intermediary/C0739",
+      "namedName": "mod/recovered/manager/CoachChangeRecord",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -3873,7 +3873,7 @@
     },
     {
       "officialName": "f/A",
-      "namedName": "bf22/intermediary/C0923",
+      "namedName": "mod/recovered/competition/ClubWorldCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -3932,7 +3932,7 @@
     },
     {
       "officialName": "f/B",
-      "namedName": "bf22/intermediary/C0924",
+      "namedName": "mod/recovered/competition/NationalLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4042,7 +4042,7 @@
     },
     {
       "officialName": "f/D",
-      "namedName": "bf22/intermediary/C0926",
+      "namedName": "mod/recovered/competition/EuropeanSuperCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4070,7 +4070,7 @@
     },
     {
       "officialName": "f/E",
-      "namedName": "bf22/intermediary/C0927",
+      "namedName": "mod/recovered/competition/SouthAmericanRecopa",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4098,7 +4098,7 @@
     },
     {
       "officialName": "f/F",
-      "namedName": "bf22/intermediary/C0928",
+      "namedName": "mod/recovered/competition/RegionalCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4220,7 +4220,7 @@
     },
     {
       "officialName": "f/H",
-      "namedName": "bf22/intermediary/C0930",
+      "namedName": "mod/recovered/competition/CopaSudamericana",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4280,7 +4280,7 @@
     },
     {
       "officialName": "f/I",
-      "namedName": "bf22/intermediary/C0931",
+      "namedName": "mod/recovered/competition/NationalSuperCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4313,7 +4313,7 @@
     },
     {
       "officialName": "f/J",
-      "namedName": "bf22/intermediary/C0932",
+      "namedName": "mod/recovered/competition/UefaConferenceLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4393,7 +4393,7 @@
     },
     {
       "officialName": "f/K",
-      "namedName": "bf22/intermediary/C0933",
+      "namedName": "mod/recovered/competition/Finalissima",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4457,7 +4457,7 @@
     },
     {
       "officialName": "f/L",
-      "namedName": "bf22/intermediary/C0934",
+      "namedName": "mod/recovered/competition/FriendlyTournament",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4485,7 +4485,7 @@
     },
     {
       "officialName": "f/M",
-      "namedName": "bf22/intermediary/C0935",
+      "namedName": "mod/recovered/competition/UefaNationsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4569,7 +4569,7 @@
     },
     {
       "officialName": "f/N",
-      "namedName": "bf22/intermediary/C0936",
+      "namedName": "mod/recovered/competition/ConcacafNationsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4638,7 +4638,7 @@
     },
     {
       "officialName": "f/a",
-      "namedName": "bf22/intermediary/C0937",
+      "namedName": "mod/recovered/competition/FriendlyMatches",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4653,7 +4653,7 @@
     },
     {
       "officialName": "f/c",
-      "namedName": "bf22/intermediary/C0939",
+      "namedName": "mod/recovered/competition/AfricaCupOfNations",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4697,7 +4697,7 @@
     },
     {
       "officialName": "f/d",
-      "namedName": "bf22/intermediary/C0940",
+      "namedName": "mod/recovered/competition/CopaAmerica",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4741,7 +4741,7 @@
     },
     {
       "officialName": "f/e",
-      "namedName": "bf22/intermediary/C0941",
+      "namedName": "mod/recovered/competition/AsianCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4785,7 +4785,7 @@
     },
     {
       "officialName": "f/f",
-      "namedName": "bf22/intermediary/C0942",
+      "namedName": "mod/recovered/competition/NationalCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4824,7 +4824,7 @@
     },
     {
       "officialName": "f/g",
-      "namedName": "bf22/intermediary/C0943",
+      "namedName": "mod/recovered/competition/OfcNationsCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4868,7 +4868,7 @@
     },
     {
       "officialName": "f/h",
-      "namedName": "bf22/intermediary/C0944",
+      "namedName": "mod/recovered/competition/ConcacafGoldCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4918,7 +4918,7 @@
     },
     {
       "officialName": "f/i",
-      "namedName": "bf22/intermediary/C0945",
+      "namedName": "mod/recovered/competition/AfricaWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -4963,7 +4963,7 @@
     },
     {
       "officialName": "f/j",
-      "namedName": "bf22/intermediary/C0946",
+      "namedName": "mod/recovered/competition/AsiaWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5018,7 +5018,7 @@
     },
     {
       "officialName": "f/k",
-      "namedName": "bf22/intermediary/C0947",
+      "namedName": "mod/recovered/competition/ConcacafWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5063,7 +5063,7 @@
     },
     {
       "officialName": "f/l",
-      "namedName": "bf22/intermediary/C0948",
+      "namedName": "mod/recovered/competition/EuropeWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5097,7 +5097,7 @@
     },
     {
       "officialName": "f/m",
-      "namedName": "bf22/intermediary/C0949",
+      "namedName": "mod/recovered/competition/OceaniaWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5142,7 +5142,7 @@
     },
     {
       "officialName": "f/n",
-      "namedName": "bf22/intermediary/C0950",
+      "namedName": "mod/recovered/competition/SouthAmericaWorldCupQualifiers",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5181,7 +5181,7 @@
     },
     {
       "officialName": "f/o",
-      "namedName": "bf22/intermediary/C0951",
+      "namedName": "mod/recovered/competition/StateChampionship",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5220,7 +5220,7 @@
     },
     {
       "officialName": "f/p",
-      "namedName": "bf22/intermediary/C0952",
+      "namedName": "mod/recovered/competition/EuropeanChampionship",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5269,7 +5269,7 @@
     },
     {
       "officialName": "f/q",
-      "namedName": "bf22/intermediary/C0953",
+      "namedName": "mod/recovered/competition/WorldCup",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5333,7 +5333,7 @@
     },
     {
       "officialName": "f/r",
-      "namedName": "bf22/intermediary/C0954",
+      "namedName": "mod/recovered/competition/CopaLibertadores",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5635,7 +5635,7 @@
     },
     {
       "officialName": "f/t",
-      "namedName": "bf22/intermediary/C0956",
+      "namedName": "mod/recovered/competition/CafChampionsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5685,7 +5685,7 @@
     },
     {
       "officialName": "f/u",
-      "namedName": "bf22/intermediary/C0957",
+      "namedName": "mod/recovered/competition/AfcChampionsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5724,7 +5724,7 @@
     },
     {
       "officialName": "f/v",
-      "namedName": "bf22/intermediary/C0958",
+      "namedName": "mod/recovered/competition/UefaChampionsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5809,7 +5809,7 @@
     },
     {
       "officialName": "f/w",
-      "namedName": "bf22/intermediary/C0959",
+      "namedName": "mod/recovered/competition/ConcacafChampionsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5848,7 +5848,7 @@
     },
     {
       "officialName": "f/x",
-      "namedName": "bf22/intermediary/C0960",
+      "namedName": "mod/recovered/competition/UefaEuropaLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",
@@ -5923,7 +5923,7 @@
     },
     {
       "officialName": "f/y",
-      "namedName": "bf22/intermediary/C0961",
+      "namedName": "mod/recovered/competition/OfcChampionsLeague",
       "role": "unknown",
       "direct": true,
       "superName": "best/at",

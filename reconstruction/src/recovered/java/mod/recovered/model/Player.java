@@ -9,7 +9,7 @@ import bf22.intermediary.C0679;
 import bf22.intermediary.C0689;
 import bf22.intermediary.C0693;
 import bf22.intermediary.C0696;
-import bf22.intermediary.C0709;
+import mod.recovered.transfer.PlayerTransferRecord;
 import mod.recovered.core.GameConstants;
 import mod.recovered.competition.Competition;
 import bf22.intermediary.C0719;
@@ -21,7 +21,7 @@ import bf22.intermediary.C0799;
 import bf22.intermediary.C0824;
 import bf22.intermediary.C0825;
 import bf22.intermediary.C0914;
-import bf22.intermediary.C0924;
+import mod.recovered.competition.NationalLeague;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -3045,9 +3045,9 @@ public class Player implements Serializable {
          this.a(100, club, var21);
       }
 
-      if (var21 > 0.0 && c0675.hy() != null && c0675.hy() instanceof C0924) {
-         ((C0924)c0675.hy()).E(this);
-         ((C0924)c0675.hy()).F(this);
+      if (var21 > 0.0 && c0675.hy() != null && c0675.hy() instanceof NationalLeague) {
+         ((NationalLeague)c0675.hy()).E(this);
+         ((NationalLeague)c0675.hy()).F(this);
       }
 
       if (var21 > 0.0 && c0713 != null && c0713.b() > 0) {
@@ -3105,7 +3105,7 @@ public class Player implements Serializable {
       var3.v(i, 1);
       club.w(i, 1);
       Calendar var4 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a();
-      C0709 var5 = new C0709();
+      PlayerTransferRecord var5 = new PlayerTransferRecord();
       var5.a(this);
       var5.f(var4.get(5), var4.get(2), var4.get(1));
       var5.cs(var3.lk());
@@ -3193,7 +3193,7 @@ public class Player implements Serializable {
             this.e(true);
          }
 
-         C0709 var12 = new C0709();
+         PlayerTransferRecord var12 = new PlayerTransferRecord();
          var12.a(this);
          var12.f(var7.get(5), var7.get(2), var7.get(1));
          var12.cs(var6.lk());

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerTransferRecord;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -15,7 +16,7 @@ public class C0608 extends DefaultTableCellRenderer {
       this.setHorizontalAlignment(2);
       this.setIcon(null);
       this.setText("");
-      C0709 var7 = (C0709)object;
+      PlayerTransferRecord var7 = (PlayerTransferRecord)object;
       if (var7 != null && var7.x() != null) {
          if (j == 0) {
             this.setText(var7.f());

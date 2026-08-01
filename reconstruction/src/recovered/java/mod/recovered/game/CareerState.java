@@ -1,5 +1,42 @@
 package mod.recovered.game;
 
+import mod.recovered.competition.AfcChampionsLeague;
+import mod.recovered.competition.AfricaCupOfNations;
+import mod.recovered.competition.AfricaWorldCupQualifiers;
+import mod.recovered.competition.AsiaWorldCupQualifiers;
+import mod.recovered.competition.AsianCup;
+import mod.recovered.competition.CafChampionsLeague;
+import mod.recovered.competition.ClubWorldCup;
+import mod.recovered.competition.ConcacafChampionsLeague;
+import mod.recovered.competition.ConcacafGoldCup;
+import mod.recovered.competition.ConcacafNationsLeague;
+import mod.recovered.competition.ConcacafWorldCupQualifiers;
+import mod.recovered.competition.CopaAmerica;
+import mod.recovered.competition.CopaLibertadores;
+import mod.recovered.competition.CopaSudamericana;
+import mod.recovered.competition.EuropeWorldCupQualifiers;
+import mod.recovered.competition.EuropeanChampionship;
+import mod.recovered.competition.EuropeanSuperCup;
+import mod.recovered.competition.Finalissima;
+import mod.recovered.competition.FriendlyMatches;
+import mod.recovered.competition.FriendlyTournament;
+import mod.recovered.competition.NationalCup;
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.NationalSuperCup;
+import mod.recovered.competition.OceaniaWorldCupQualifiers;
+import mod.recovered.competition.OfcChampionsLeague;
+import mod.recovered.competition.OfcNationsCup;
+import mod.recovered.competition.RegionalCup;
+import mod.recovered.competition.SouthAmericaWorldCupQualifiers;
+import mod.recovered.competition.SouthAmericanRecopa;
+import mod.recovered.competition.StateChampionship;
+import mod.recovered.competition.UefaChampionsLeague;
+import mod.recovered.competition.UefaConferenceLeague;
+import mod.recovered.competition.UefaEuropaLeague;
+import mod.recovered.competition.UefaNationsLeague;
+import mod.recovered.competition.WorldCup;
+import mod.recovered.transfer.AiSquadManager;
+import mod.recovered.transfer.PlayerTransferRecord;
 import bf22.intermediary.*;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionStage;
@@ -50,37 +87,37 @@ public class CareerState implements Serializable {
    private ArrayList ax = new ArrayList();
    private ArrayList ay = new ArrayList();
    private ArrayList az = new ArrayList();
-   private C0923 aA = null;
-   private C0958 aB = null;
-   private C0954 aC = null;
-   private C0956 aD = null;
-   private C0957 aE = null;
-   private C0959 aF = null;
-   private C0961 aG = null;
-   private C0937 aH = new C0937();
-   private C0934 Gy = new C0934();
-   private C0927 aI = null;
-   private C0926 aJ = null;
-   private C0953 aK = null;
-   private C0935 GC = null;
-   private C0936 GI = null;
-   private C0933 IX = null;
-   private C0950 aL = null;
-   private C0948 aM = null;
-   private C0945 aN = null;
-   private C0946 aO = null;
-   private C0949 aP = null;
-   private C0947 aQ = null;
-   private C0940 aR = null;
-   private C0952 aS = null;
-   private C0939 aT = null;
-   private C0941 aU = null;
-   private C0944 aV = null;
-   private C0943 aW = null;
-   private C0960 aX = null;
-   private C0932 IY = null;
-   private C0930 aY = null;
-   private C0928[] aZ = new C0928[4];
+   private ClubWorldCup aA = null;
+   private UefaChampionsLeague aB = null;
+   private CopaLibertadores aC = null;
+   private CafChampionsLeague aD = null;
+   private AfcChampionsLeague aE = null;
+   private ConcacafChampionsLeague aF = null;
+   private OfcChampionsLeague aG = null;
+   private FriendlyMatches aH = new FriendlyMatches();
+   private FriendlyTournament Gy = new FriendlyTournament();
+   private SouthAmericanRecopa aI = null;
+   private EuropeanSuperCup aJ = null;
+   private WorldCup aK = null;
+   private UefaNationsLeague GC = null;
+   private ConcacafNationsLeague GI = null;
+   private Finalissima IX = null;
+   private SouthAmericaWorldCupQualifiers aL = null;
+   private EuropeWorldCupQualifiers aM = null;
+   private AfricaWorldCupQualifiers aN = null;
+   private AsiaWorldCupQualifiers aO = null;
+   private OceaniaWorldCupQualifiers aP = null;
+   private ConcacafWorldCupQualifiers aQ = null;
+   private CopaAmerica aR = null;
+   private EuropeanChampionship aS = null;
+   private AfricaCupOfNations aT = null;
+   private AsianCup aU = null;
+   private ConcacafGoldCup aV = null;
+   private OfcNationsCup aW = null;
+   private UefaEuropaLeague aX = null;
+   private UefaConferenceLeague IY = null;
+   private CopaSudamericana aY = null;
+   private RegionalCup[] aZ = new RegionalCup[4];
    private boolean[] jogaRegionaisTodos = new boolean[]{false, false, true, false};
    private boolean jogaRegionais = true;
    private boolean jogaEstadual = true;
@@ -333,8 +370,8 @@ public class CareerState implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < GamePersistence.SR.bo().size(); var2++) {
-         if (((C0709)GamePersistence.SR.bo().get(var2)).getY() + 10 < this.iU()) {
-            var1.add((C0709)GamePersistence.SR.bo().get(var2));
+         if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var2)).getY() + 10 < this.iU()) {
+            var1.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var2));
          }
       }
 
@@ -364,8 +401,8 @@ public class CareerState implements Serializable {
    private void Z() {
       if (this.ar != null && this.ar.size() != 0) {
          for (int var6 = 0; var6 < GamePersistence.SR.bW().size(); var6++) {
-            ((C0931)GamePersistence.SR.bW().get(var6)).Ab();
-            ((C0931)GamePersistence.SR.bW().get(var6)).mw();
+            ((NationalSuperCup)GamePersistence.SR.bW().get(var6)).Ab();
+            ((NationalSuperCup)GamePersistence.SR.bW().get(var6)).mw();
          }
       } else {
          for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
@@ -381,7 +418,7 @@ public class CareerState implements Serializable {
                }
             }
 
-            C0931 var5 = new C0931(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc());
+            NationalSuperCup var5 = new NationalSuperCup(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc());
             GamePersistence.SR.ar.add(var5);
             var5.Ab();
          }
@@ -431,8 +468,8 @@ public class CareerState implements Serializable {
 
       GamePersistence.afQ.zi();
       GamePersistence.afQ.zj();
-      C0700.jO();
-      C0700.jQ();
+      AiSquadManager.jO();
+      AiSquadManager.jQ();
       if (GamePersistence.SR.isJogaSelecoesAll()) {
          this.ac();
       }
@@ -528,37 +565,37 @@ public class CareerState implements Serializable {
    }
 
    public void ab() {
-      C0950 var1 = new C0950();
+      SouthAmericaWorldCupQualifiers var1 = new SouthAmericaWorldCupQualifiers();
       this.a(var1);
-      C0948 var2 = new C0948();
+      EuropeWorldCupQualifiers var2 = new EuropeWorldCupQualifiers();
       this.a(var2);
-      C0945 var3 = new C0945();
+      AfricaWorldCupQualifiers var3 = new AfricaWorldCupQualifiers();
       this.a(var3);
-      C0947 var4 = new C0947();
+      ConcacafWorldCupQualifiers var4 = new ConcacafWorldCupQualifiers();
       this.a(var4);
-      C0946 var5 = new C0946();
+      AsiaWorldCupQualifiers var5 = new AsiaWorldCupQualifiers();
       this.a(var5);
-      C0949 var6 = new C0949();
+      OceaniaWorldCupQualifiers var6 = new OceaniaWorldCupQualifiers();
       this.a(var6);
-      C0943 var7 = new C0943();
+      OfcNationsCup var7 = new OfcNationsCup();
       this.a(var7);
-      C0944 var8 = new C0944();
+      ConcacafGoldCup var8 = new ConcacafGoldCup();
       this.a(var8);
-      C0941 var9 = new C0941();
+      AsianCup var9 = new AsianCup();
       this.a(var9);
-      C0939 var10 = new C0939();
+      AfricaCupOfNations var10 = new AfricaCupOfNations();
       this.a(var10);
-      C0940 var11 = new C0940();
+      CopaAmerica var11 = new CopaAmerica();
       this.a(var11);
-      C0952 var12 = new C0952();
+      EuropeanChampionship var12 = new EuropeanChampionship();
       this.a(var12);
-      C0953 var13 = new C0953();
+      WorldCup var13 = new WorldCup();
       this.a(var13);
-      C0933 var14 = new C0933();
+      Finalissima var14 = new Finalissima();
       this.a(var14);
-      C0935 var15 = new C0935();
+      UefaNationsLeague var15 = new UefaNationsLeague();
       this.a(var15);
-      C0936 var16 = new C0936();
+      ConcacafNationsLeague var16 = new ConcacafNationsLeague();
       this.a(var16);
       var1.setNome(C0679.getString("eliAS"));
       var2.setNome(C0679.getString("eliEU"));
@@ -681,7 +718,7 @@ public class CareerState implements Serializable {
          if (this.aK != null) {
             this.aK.ya();
          } else {
-            C0953 var1 = new C0953();
+            WorldCup var1 = new WorldCup();
             this.a(var1);
             this.aK.ya();
          }
@@ -693,7 +730,7 @@ public class CareerState implements Serializable {
          if (this.aM != null) {
             this.aM.fF(0);
          } else {
-            C0948 var2 = new C0948();
+            EuropeWorldCupQualifiers var2 = new EuropeWorldCupQualifiers();
             this.a(var2);
             var2.setNome(C0679.getString("eliEU"));
             this.aM.fF(0);
@@ -704,7 +741,7 @@ public class CareerState implements Serializable {
          if (this.aL != null) {
             this.aL.ya();
          } else {
-            C0950 var3 = new C0950();
+            SouthAmericaWorldCupQualifiers var3 = new SouthAmericaWorldCupQualifiers();
             this.a(var3);
             var3.setNome(C0679.getString("eliAS"));
             this.aL.ya();
@@ -713,7 +750,7 @@ public class CareerState implements Serializable {
          if (this.aM != null) {
             this.aM.fF(7);
          } else {
-            C0948 var4 = new C0948();
+            EuropeWorldCupQualifiers var4 = new EuropeWorldCupQualifiers();
             this.a(var4);
             var4.setNome(C0679.getString("eliEU"));
             this.aM.fF(7);
@@ -722,7 +759,7 @@ public class CareerState implements Serializable {
          if (this.aN != null) {
             this.aN.Bj();
          } else {
-            C0945 var5 = new C0945();
+            AfricaWorldCupQualifiers var5 = new AfricaWorldCupQualifiers();
             this.a(var5);
             var5.setNome(C0679.getString("eliAfr"));
             this.aN.Bj();
@@ -731,7 +768,7 @@ public class CareerState implements Serializable {
          if (this.aQ != null) {
             this.aQ.Bj();
          } else {
-            C0947 var6 = new C0947();
+            ConcacafWorldCupQualifiers var6 = new ConcacafWorldCupQualifiers();
             this.a(var6);
             var6.setNome(C0679.getString("eliConcacaf"));
             this.aQ.Bj();
@@ -740,7 +777,7 @@ public class CareerState implements Serializable {
          if (this.aO != null) {
             this.aO.Bj();
          } else {
-            C0946 var7 = new C0946();
+            AsiaWorldCupQualifiers var7 = new AsiaWorldCupQualifiers();
             this.a(var7);
             var7.setNome(C0679.getString("eliAsia"));
             this.aO.Bj();
@@ -749,7 +786,7 @@ public class CareerState implements Serializable {
          if (this.aP != null) {
             this.aP.Bj();
          } else {
-            C0949 var8 = new C0949();
+            OceaniaWorldCupQualifiers var8 = new OceaniaWorldCupQualifiers();
             this.a(var8);
             var8.setNome(C0679.getString("eliOce"));
             this.aP.Bj();
@@ -760,7 +797,7 @@ public class CareerState implements Serializable {
          if (this.aS != null) {
             this.aS.ya();
          } else {
-            C0952 var9 = new C0952();
+            EuropeanChampionship var9 = new EuropeanChampionship();
             this.a(var9);
             var9.setNome(C0679.getString("cro"));
             this.aS.ya();
@@ -775,7 +812,7 @@ public class CareerState implements Serializable {
          if (this.aR != null) {
             this.aR.ya();
          } else {
-            C0940 var10 = new C0940();
+            CopaAmerica var10 = new CopaAmerica();
             this.a(var10);
             var10.setNome(C0679.getString("cam"));
             this.aR.ya();
@@ -794,7 +831,7 @@ public class CareerState implements Serializable {
          if (this.aT != null) {
             this.aT.ya();
          } else {
-            this.a(new C0939());
+            this.a(new AfricaCupOfNations());
             this.aT.ya();
          }
 
@@ -807,7 +844,7 @@ public class CareerState implements Serializable {
          if (this.aU != null) {
             this.aU.ya();
          } else {
-            this.a(new C0941());
+            this.a(new AsianCup());
             this.aU.ya();
          }
 
@@ -820,7 +857,7 @@ public class CareerState implements Serializable {
          if (this.aV != null) {
             this.aV.ya();
          } else {
-            this.a(new C0944());
+            this.a(new ConcacafGoldCup());
             this.aV.ya();
          }
 
@@ -833,7 +870,7 @@ public class CareerState implements Serializable {
          if (this.aW != null) {
             this.aW.ya();
          } else {
-            this.a(new C0943());
+            this.a(new OfcNationsCup());
             this.aW.ya();
          }
 
@@ -947,7 +984,7 @@ public class CareerState implements Serializable {
       if (GamePersistence.SR.aV() != null) {
          GamePersistence.SR.aV().zR();
       } else {
-         C0927 var2 = new C0927();
+         SouthAmericanRecopa var2 = new SouthAmericanRecopa();
          GamePersistence.SR.a(var2);
          var2.zR();
       }
@@ -955,7 +992,7 @@ public class CareerState implements Serializable {
       if (GamePersistence.SR.aW() != null) {
          GamePersistence.SR.aW().zR();
       } else {
-         C0926 var4 = new C0926();
+         EuropeanSuperCup var4 = new EuropeanSuperCup();
          GamePersistence.SR.a(var4);
          var4.zR();
       }
@@ -1171,7 +1208,7 @@ public class CareerState implements Serializable {
 
       for (int var3 = 0; var3 < GamePersistence.SR.aE().size(); var3++) {
          for (int var2 = 0; var2 < ((C0741)GamePersistence.SR.aE().get(var3)).eb().size(); var2++) {
-            ((C0951)((C0741)GamePersistence.SR.aE().get(var3)).eb().get(var2)).yi().aN(false);
+            ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var3)).eb().get(var2)).yi().aN(false);
          }
       }
    }
@@ -1179,7 +1216,7 @@ public class CareerState implements Serializable {
    public void al() {
       for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
          for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.SR.N().get(var1)).eb().size(); var2++) {
-            ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var1)).eb().get(var2)).fi(var2);
+            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var1)).eb().get(var2)).fi(var2);
          }
       }
 
@@ -1188,8 +1225,8 @@ public class CareerState implements Serializable {
       }
 
       for (int var4 = 0; var4 < GamePersistence.SR.N().size(); var4++) {
-         for (int var5 = 0; var5 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().size(); var5++) {
-            ((Player)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().get(var5)).fd();
+         for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().size(); var5++) {
+            ((Player)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().get(var5)).fd();
          }
       }
    }
@@ -1202,8 +1239,8 @@ public class CareerState implements Serializable {
 
       for (int var6 = 0; var6 < GamePersistence.SR.N().size(); var6++) {
          for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().size(); var2++) {
-            ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).yi().aN(false);
-            ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).aT(false);
+            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).yi().aN(false);
+            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).aT(false);
          }
       }
 
@@ -1217,14 +1254,14 @@ public class CareerState implements Serializable {
 
          if (!var8) {
             if (((CountryCompetitions)GamePersistence.SR.N().get(var7)).jc() == 29) {
-               ((CountryCompetitions)GamePersistence.SR.N().get(var7)).a((C0942)null);
+               ((CountryCompetitions)GamePersistence.SR.N().get(var7)).a((NationalCup)null);
             }
          } else {
             ArrayList var3 = new ArrayList();
 
             for (int var4 = 0; var4 < ((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().size(); var4++) {
-               for (int var5 = 0; var5 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().size(); var5++) {
-                  var3.add((Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().get(var5));
+               for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().size(); var5++) {
+                  var3.add((Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().get(var5));
                }
             }
 
@@ -1650,11 +1687,11 @@ public class CareerState implements Serializable {
       return this.aq;
    }
 
-   public C0954 aF() {
+   public CopaLibertadores aF() {
       return this.aC;
    }
 
-   public void a(C0954 c0954) {
+   public void a(CopaLibertadores c0954) {
       this.aC = c0954;
    }
 
@@ -1682,11 +1719,11 @@ public class CareerState implements Serializable {
       return this.ap;
    }
 
-   public C0930 aH() {
+   public CopaSudamericana aH() {
       return this.aY;
    }
 
-   public void a(C0930 c0930) {
+   public void a(CopaSudamericana c0930) {
       this.aY = c0930;
    }
 
@@ -1698,11 +1735,11 @@ public class CareerState implements Serializable {
       this.jogaIntClubes = bl;
    }
 
-   public C0958 aI() {
+   public UefaChampionsLeague aI() {
       return this.aB;
    }
 
-   public void a(C0958 c0958) {
+   public void a(UefaChampionsLeague c0958) {
       this.aB = c0958;
    }
 
@@ -1714,19 +1751,19 @@ public class CareerState implements Serializable {
       this.bb = bl;
    }
 
-   public C0960 aK() {
+   public UefaEuropaLeague aK() {
       return this.aX;
    }
 
-   public void a(C0960 c0960) {
+   public void a(UefaEuropaLeague c0960) {
       this.aX = c0960;
    }
 
-   public C0957 aL() {
+   public AfcChampionsLeague aL() {
       return this.aE;
    }
 
-   public void a(C0957 c0957) {
+   public void a(AfcChampionsLeague c0957) {
       this.aE = c0957;
    }
 
@@ -1760,39 +1797,39 @@ public class CareerState implements Serializable {
       this.ak.add(club);
    }
 
-   public C0956 aO() {
+   public CafChampionsLeague aO() {
       return this.aD;
    }
 
-   public void a(C0956 c0956) {
+   public void a(CafChampionsLeague c0956) {
       this.aD = c0956;
    }
 
-   public C0959 aP() {
+   public ConcacafChampionsLeague aP() {
       return this.aF;
    }
 
-   public C0961 aQ() {
+   public OfcChampionsLeague aQ() {
       return this.aG;
    }
 
-   public void a(C0961 c0961) {
+   public void a(OfcChampionsLeague c0961) {
       this.aG = c0961;
    }
 
-   public void a(C0959 c0959) {
+   public void a(ConcacafChampionsLeague c0959) {
       this.aF = c0959;
    }
 
-   public C0923 aR() {
+   public ClubWorldCup aR() {
       if (this.aA == null && GamePersistence.SR.isJogaIntClubes()) {
-         this.aA = new C0923();
+         this.aA = new ClubWorldCup();
       }
 
       return this.aA;
    }
 
-   public void a(C0923 c0923) {
+   public void a(ClubWorldCup c0923) {
       this.aA = c0923;
    }
 
@@ -1893,19 +1930,19 @@ public class CareerState implements Serializable {
       }
    }
 
-   public C0927 aV() {
+   public SouthAmericanRecopa aV() {
       return this.aI;
    }
 
-   public void a(C0927 c0927) {
+   public void a(SouthAmericanRecopa c0927) {
       this.aI = c0927;
    }
 
-   public C0926 aW() {
+   public EuropeanSuperCup aW() {
       return this.aJ;
    }
 
-   public void a(C0926 c0926) {
+   public void a(EuropeanSuperCup c0926) {
       this.aJ = c0926;
    }
 
@@ -1925,27 +1962,27 @@ public class CareerState implements Serializable {
       return this.bx;
    }
 
-   public C0953 aY() {
+   public WorldCup aY() {
       return this.aK;
    }
 
-   public void a(C0953 c0953) {
+   public void a(WorldCup c0953) {
       this.aK = c0953;
    }
 
-   public C0940 aZ() {
+   public CopaAmerica aZ() {
       return this.aR;
    }
 
-   public void a(C0940 c0940) {
+   public void a(CopaAmerica c0940) {
       this.aR = c0940;
    }
 
-   public C0952 ba() {
+   public EuropeanChampionship ba() {
       return this.aS;
    }
 
-   public void a(C0952 c0952) {
+   public void a(EuropeanChampionship c0952) {
       this.aS = c0952;
    }
 
@@ -1971,27 +2008,27 @@ public class CareerState implements Serializable {
       return this.ax;
    }
 
-   public C0939 be() {
+   public AfricaCupOfNations be() {
       return this.aT;
    }
 
-   public void a(C0939 c0939) {
+   public void a(AfricaCupOfNations c0939) {
       this.aT = c0939;
    }
 
-   public C0941 bf() {
+   public AsianCup bf() {
       return this.aU;
    }
 
-   public void a(C0941 c0941) {
+   public void a(AsianCup c0941) {
       this.aU = c0941;
    }
 
-   public C0944 bg() {
+   public ConcacafGoldCup bg() {
       return this.aV;
    }
 
-   public void a(C0944 c0944) {
+   public void a(ConcacafGoldCup c0944) {
       this.aV = c0944;
    }
 
@@ -2333,7 +2370,7 @@ public class CareerState implements Serializable {
       return this.an;
    }
 
-   public C0937 bv() {
+   public FriendlyMatches bv() {
       return this.aH;
    }
 
@@ -2577,27 +2614,27 @@ public class CareerState implements Serializable {
       this.az = arrayList;
    }
 
-   public C0950 bK() {
+   public SouthAmericaWorldCupQualifiers bK() {
       return this.aL;
    }
 
-   public void a(C0950 c0950) {
+   public void a(SouthAmericaWorldCupQualifiers c0950) {
       this.aL = c0950;
    }
 
-   public C0948 bL() {
+   public EuropeWorldCupQualifiers bL() {
       return this.aM;
    }
 
-   public void a(C0948 c0948) {
+   public void a(EuropeWorldCupQualifiers c0948) {
       this.aM = c0948;
    }
 
-   public C0945 bM() {
+   public AfricaWorldCupQualifiers bM() {
       return this.aN;
    }
 
-   public void a(C0945 c0945) {
+   public void a(AfricaWorldCupQualifiers c0945) {
       this.aN = c0945;
    }
 
@@ -2637,27 +2674,27 @@ public class CareerState implements Serializable {
       this.bi = bl;
    }
 
-   public C0946 bQ() {
+   public AsiaWorldCupQualifiers bQ() {
       return this.aO;
    }
 
-   public void a(C0946 c0946) {
+   public void a(AsiaWorldCupQualifiers c0946) {
       this.aO = c0946;
    }
 
-   public C0947 bR() {
+   public ConcacafWorldCupQualifiers bR() {
       return this.aQ;
    }
 
-   public void a(C0947 c0947) {
+   public void a(ConcacafWorldCupQualifiers c0947) {
       this.aQ = c0947;
    }
 
-   public C0949 bS() {
+   public OceaniaWorldCupQualifiers bS() {
       return this.aP;
    }
 
-   public void a(C0949 c0949) {
+   public void a(OceaniaWorldCupQualifiers c0949) {
       this.aP = c0949;
    }
 
@@ -2678,11 +2715,11 @@ public class CareerState implements Serializable {
       return this.bt;
    }
 
-   public C0928[] bV() {
+   public RegionalCup[] bV() {
       return this.aZ;
    }
 
-   public void a(C0928 c0928, int i) {
+   public void a(RegionalCup c0928, int i) {
       this.aZ[i] = c0928;
    }
 
@@ -2702,11 +2739,11 @@ public class CareerState implements Serializable {
       this.ar = arrayList;
    }
 
-   public C0943 bX() {
+   public OfcNationsCup bX() {
       return this.aW;
    }
 
-   public void a(C0943 c0943) {
+   public void a(OfcNationsCup c0943) {
       this.aW = c0943;
    }
 
@@ -2803,11 +2840,11 @@ public class CareerState implements Serializable {
       return false;
    }
 
-   public C0932 mj() {
+   public UefaConferenceLeague mj() {
       return this.IY;
    }
 
-   public void a(C0932 c0932) {
+   public void a(UefaConferenceLeague c0932) {
       this.IY = c0932;
    }
 
@@ -2832,35 +2869,35 @@ public class CareerState implements Serializable {
       this.Jb = 1;
    }
 
-   public C0935 sq() {
+   public UefaNationsLeague sq() {
       return this.GC;
    }
 
-   public void a(C0935 c0935) {
+   public void a(UefaNationsLeague c0935) {
       this.GC = c0935;
    }
 
-   public C0933 yl() {
+   public Finalissima yl() {
       return this.IX;
    }
 
-   public void a(C0933 c0933) {
+   public void a(Finalissima c0933) {
       this.IX = c0933;
    }
 
-   public C0936 ym() {
+   public ConcacafNationsLeague ym() {
       return this.GI;
    }
 
-   public void a(C0936 c0936) {
+   public void a(ConcacafNationsLeague c0936) {
       this.GI = c0936;
    }
 
-   public C0934 yn() {
+   public FriendlyTournament yn() {
       return this.Gy;
    }
 
-   public void a(C0934 c0934) {
+   public void a(FriendlyTournament c0934) {
       this.Gy = c0934;
    }
 

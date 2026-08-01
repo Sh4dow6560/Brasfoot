@@ -1,5 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.AfcChampionsLeague;
+import mod.recovered.competition.CafChampionsLeague;
+import mod.recovered.competition.ConcacafChampionsLeague;
+import mod.recovered.competition.CopaLibertadores;
+import mod.recovered.competition.CopaSudamericana;
+import mod.recovered.competition.OfcChampionsLeague;
+import mod.recovered.competition.UefaChampionsLeague;
+import mod.recovered.competition.UefaEuropaLeague;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
@@ -100,43 +108,43 @@ public class C0725 {
    }
 
    private static void dk() {
-      GamePersistence.SR.a(new C0957());
+      GamePersistence.SR.a(new AfcChampionsLeague());
       GamePersistence.SR.aL().yq();
    }
 
    private static void dl() {
-      GamePersistence.SR.a(new C0961());
+      GamePersistence.SR.a(new OfcChampionsLeague());
       GamePersistence.SR.aQ().yq();
    }
 
    private static void dm() {
-      GamePersistence.SR.a(new C0959());
+      GamePersistence.SR.a(new ConcacafChampionsLeague());
       GamePersistence.SR.aP().yq();
    }
 
    private static void dn() {
-      GamePersistence.SR.a(new C0956());
+      GamePersistence.SR.a(new CafChampionsLeague());
       GamePersistence.SR.aO().yq();
    }
 
    private static void method_kw_do() {
-      GamePersistence.SR.a(new C0930());
+      GamePersistence.SR.a(new CopaSudamericana());
       GamePersistence.SR.aH().yq();
    }
 
    private static void dp() {
-      GamePersistence.SR.a(new C0960());
+      GamePersistence.SR.a(new UefaEuropaLeague());
       GamePersistence.SR.aK().yq();
    }
 
    private static void dq() {
-      GamePersistence.SR.a(new C0958());
+      GamePersistence.SR.a(new UefaChampionsLeague());
       GamePersistence.SR.aI().setNome(C0679.getString("ligaC"));
       GamePersistence.SR.aI().yq();
    }
 
    private static void dr() {
-      GamePersistence.SR.a(new C0954());
+      GamePersistence.SR.a(new CopaLibertadores());
       GamePersistence.SR.aF().setNome(C0679.getString("lib"));
       GamePersistence.SR.aF().yq();
    }

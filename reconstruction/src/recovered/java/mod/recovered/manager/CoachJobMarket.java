@@ -1,5 +1,6 @@
 package mod.recovered.manager;
 
+import mod.recovered.competition.NationalLeague;
 import bf22.intermediary.*;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.competition.LeagueStage;
@@ -164,12 +165,12 @@ public class CoachJobMarket implements Serializable {
       for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
          for (int var4 = 0; var4 < ((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().size(); var4++) {
             var2.clear();
-            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() > 0) {
-               var1 = Math.round(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() / 2);
+            if (((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() > 0) {
+               var1 = Math.round(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() / 2);
             }
 
-            for (int var5 = var1; var5 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size(); var5++) {
-               var2.add(((Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).lk());
+            for (int var5 = var1; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size(); var5++) {
+               var2.add(((Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).lk());
             }
 
             this.M(var2);

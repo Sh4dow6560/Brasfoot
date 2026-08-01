@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
+import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CompetitionSeasonResult;
 import mod.recovered.competition.CountryCompetitions;
@@ -122,8 +124,8 @@ public class C0151 extends JPanel {
          for (int var5 = 0; var5 < GamePersistence.SR.aE().size(); var5++) {
             for (int var6 = 0; var6 < ((C0741)GamePersistence.SR.aE().get(var5)).eb().size(); var6++) {
                int var7 = ((C0741)GamePersistence.SR.aE().get(var5)).getEstado();
-               String var4 = ((C0951)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).is();
-               this.a(this.DL, ((C0951)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
+               String var4 = ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).is();
+               this.a(this.DL, ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
             }
          }
       }
@@ -136,7 +138,7 @@ public class C0151 extends JPanel {
       this.DM = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
 
       for (int var1 = 0; var1 < this.DM.eb().size(); var1++) {
-         this.a(this.DJ, ((C0924)this.DM.eb().get(var1)).mo(), ((C0924)this.DM.eb().get(var1)).is(), -1);
+         this.a(this.DJ, ((NationalLeague)this.DM.eb().get(var1)).mo(), ((NationalLeague)this.DM.eb().get(var1)).is(), -1);
       }
 
       this.a(this.DJ, this.DM.jq().mo(), this.DM.jq().getNome(), -1);

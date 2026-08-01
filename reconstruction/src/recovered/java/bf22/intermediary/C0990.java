@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerTransferRecord;
 import mod.recovered.competition.Competition;
 import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
@@ -88,13 +89,13 @@ public abstract class C0990 {
       }
 
       for (int var3 = 0; var3 < GamePersistence.SR.bo().size(); var3++) {
-         ((C0709)GamePersistence.SR.bo().get(var3)).mb();
+         ((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).mb();
       }
    }
 
    public static void Aj() {
       for (int var0 = 0; var0 < GamePersistence.SR.bo().size(); var0++) {
-         ((C0709)GamePersistence.SR.bo().get(var0)).me();
+         ((PlayerTransferRecord)GamePersistence.SR.bo().get(var0)).me();
       }
    }
 }

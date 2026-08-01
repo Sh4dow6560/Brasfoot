@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -16,7 +17,7 @@ import javax.swing.JPanel;
 public class C0008 extends JPanel {
    private JDialog ub;
    private CountryCompetitions vt = null;
-   private C0924 vu = null;
+   private NationalLeague vu = null;
    private JButton vm;
    private JComboBox vv;
    private JComboBox ue;
@@ -39,7 +40,7 @@ public class C0008 extends JPanel {
    private C0800 vH;
    private C0800 vI;
 
-   public C0008(JDialog jDialog, C0924 c0924, CountryCompetitions c0692) {
+   public C0008(JDialog jDialog, NationalLeague c0924, CountryCompetitions c0692) {
       this.ub = jDialog;
       this.vu = c0924;
       this.vt = c0692;
@@ -107,7 +108,7 @@ public class C0008 extends JPanel {
 
    private void mX() {
       if (this.vv.getSelectedIndex() < this.vt.eb().size()) {
-         this.vu = (C0924)this.vt.eb().get(this.vv.getSelectedIndex());
+         this.vu = (NationalLeague)this.vt.eb().get(this.vv.getSelectedIndex());
       }
 
       this.vu.zL();

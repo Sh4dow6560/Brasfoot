@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -96,7 +97,7 @@ public class C0185 extends JPanel {
                      this.CY.c(this.ul, var4);
                   }
 
-                  C0730.l(true);
+                  TransferNegotiation.l(true);
                   this.ub.dispose();
                }
             } else if (this.CY.ft() && var3 >= this.CY.fl() && !this.CZ) {
@@ -104,7 +105,7 @@ public class C0185 extends JPanel {
             } else {
                int var14 = 0;
                int var16 = Integer.parseInt(var1);
-               var14 = C0730.a(this.CY, this.ul, var16);
+               var14 = TransferNegotiation.a(this.CY, this.ul, var16);
                String[] var17 = new String[]{
                   "Oferta recusada",
                   "Compra realizada",
@@ -116,23 +117,23 @@ public class C0185 extends JPanel {
                if (var14 <= 5) {
                   JOptionPane.showMessageDialog(this.ub, var17[var14], "Compra", 2);
                } else if (var14 == 6) {
-                  String var7 = ClubFinances.c(C0730.cM());
+                  String var7 = ClubFinances.c(TransferNegotiation.cM());
                   var2 = JOptionPane.showConfirmDialog(
                      this.ub, "Para jogar no seu time\no jogador quer um salário de:\n" + var7 + "\n" + "Deseja aceitar?", "Deseja aumento de salário", 0
                   );
                   if (var2 == 0) {
-                     this.CY.ae(C0730.cM());
+                     this.CY.ae(TransferNegotiation.cM());
                      var14 = 1;
                   }
                } else if (var14 == 7) {
-                  var16 = C0730.cN();
+                  var16 = TransferNegotiation.cN();
                   String var18 = this.CY.fg().getNome();
                   String var8 = "";
                   String var9 = "";
                   int var10 = 0;
-                  if (C0730.cM() > 0) {
-                     var10 = C0730.cM();
-                     var8 = ClubFinances.c(C0730.cM());
+                  if (TransferNegotiation.cM() > 0) {
+                     var10 = TransferNegotiation.cM();
+                     var8 = ClubFinances.c(TransferNegotiation.cM());
                      var9 = "E o jogador quer um salário de " + var8 + "\n";
                   }
 
@@ -155,12 +156,12 @@ public class C0185 extends JPanel {
                   if (!this.CZ) {
                      Club var19 = this.CY.fg();
                      this.CY.a(this.ul, var16, false, false, false);
-                     C0730.a(var19, this.CY);
+                     TransferNegotiation.a(var19, this.CY);
                   } else {
                      this.CY.c(this.ul, var16);
                   }
 
-                  C0730.l(true);
+                  TransferNegotiation.l(true);
                   this.ub.dispose();
                }
             }
@@ -174,7 +175,7 @@ public class C0185 extends JPanel {
 
    private void oM() {
       int var1 = 0;
-      var1 = C0730.b(this.CY, this.ul);
+      var1 = TransferNegotiation.b(this.CY, this.ul);
       String[] var2 = new String[]{
          "Não está à venda",
          "Compra realizada",
