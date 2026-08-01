@@ -1,0 +1,206 @@
+package com.brasfoot.reconstruction;
+
+import com.brasfoot.reconstruction.HybridService.OverlayManifest;
+import com.brasfoot.reconstruction.ArchiveService.ArchiveData;
+import com.brasfoot.reconstruction.ArchiveService.ClassInfo;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Map;
+import org.objectweb.asm.ClassReader;
+
+final class SmokeService {
+  private final ProjectContext context;
+
+  SmokeService(ProjectContext context) {
+    this.context = context;
+  }
+
+  void staticSmoke() throws IOException {
+    new MappingService(context).validateExisting();
+    verifyMappingRoundTrip();
+    if (!Files.isRegularFile(context.hybridJar())) {
+      throw new IOException("Hybrid JAR not found: " + context.hybridJar());
+    }
+
+    OverlayManifest manifest;
+    Path manifestPath = context.hybridRoot().resolve("overlay-manifest.json");
+    try (Reader reader = Files.newBufferedReader(manifestPath, StandardCharsets.UTF_8)) {
+      manifest = ProjectContext.JSON.fromJson(reader, OverlayManifest.class);
+    }
+    if (manifest == null || manifest.overlays() == null || manifest.overlays().isEmpty()) {
+      throw new IllegalStateException("Overlay manifest is empty");
+    }
+
+    Map<String, byte[]> original = ZipSupport.readEntries(context.normalizedGameJar());
+    Map<String, byte[]> hybrid = ZipSupport.readEntries(context.hybridJar());
+    long classCount = hybrid.keySet().stream().filter(name -> name.endsWith(".class")).count();
+    if (classCount != 1038) {
+      throw new IllegalStateException("Expected 1038 classes in hybrid JAR, got " + classCount);
+    }
+
+    byte[] recovered = hybrid.get(HybridService.ORIGINAL_COMPONENT);
+    if (recovered == null) {
+      throw new IllegalStateException("Missing recovered class " + HybridService.ORIGINAL_COMPONENT);
+    }
+    ClassReader reader = new ClassReader(recovered);
+    if (!"components/ar".equals(reader.getClassName())) {
+      throw new IllegalStateException("Recovered class has wrong internal name: "
+          + reader.getClassName());
+    }
+    boolean handler = java.util.Arrays.asList(reader.getInterfaces())
+        .contains("java/lang/Thread$UncaughtExceptionHandler");
+    if (!handler) {
+      throw new IllegalStateException("Recovered class lost UncaughtExceptionHandler interface");
+    }
+    if (Hashing.sha256(recovered).equals(Hashing.sha256(original.get(HybridService.ORIGINAL_COMPONENT)))) {
+      throw new IllegalStateException("Recovered class is still the original bytecode");
+    }
+
+    var overlayNames = manifest.overlays().stream().map(HybridService.OverlayEntry::entry)
+        .collect(java.util.stream.Collectors.toSet());
+    for (Map.Entry<String, byte[]> entry : original.entrySet()) {
+      if (overlayNames.contains(entry.getKey())) {
+        continue;
+      }
+      byte[] current = hybrid.get(entry.getKey());
+      if (current == null || !Hashing.sha256(entry.getValue()).equals(Hashing.sha256(current))) {
+        throw new IllegalStateException("Static smoke found changed non-overlay: " + entry.getKey());
+      }
+    }
+    System.out.println("Static smoke passed: 1038 classes, recovered component present, "
+        + manifest.unchangedEntries() + " unchanged entries verified.");
+  }
+
+  private void verifyMappingRoundTrip() throws IOException {
+    Path roundTrip = context.buildDir().resolve("work/roundtrip/bf22-23-official.jar");
+    new RemapService(context).remapNamedGameToOfficial(roundTrip);
+    ArchiveService archiveService = new ArchiveService();
+    ArchiveData expected = archiveService.analyze(context.normalizedGameJar());
+    ArchiveData actual = archiveService.analyze(roundTrip);
+    if (!expected.classes().keySet().equals(actual.classes().keySet())) {
+      throw new IllegalStateException("Mapping round-trip changed the class set");
+    }
+    for (String name : expected.classes().keySet()) {
+      ClassInfo left = expected.classes().get(name);
+      ClassInfo right = actual.classes().get(name);
+      if (left.access() != right.access()
+          || !java.util.Objects.equals(left.superName(), right.superName())
+          || !left.interfaces().equals(right.interfaces())
+          || !left.members().equals(right.members())) {
+        throw new IllegalStateException("Mapping round-trip changed class structure: " + name);
+      }
+    }
+    if (!expected.resources().keySet().equals(actual.resources().keySet())) {
+      throw new IllegalStateException("Mapping round-trip changed the resource set");
+    }
+    for (String name : expected.resources().keySet()) {
+      if (!expected.resources().get(name).sha256().equals(actual.resources().get(name).sha256())) {
+        throw new IllegalStateException("Mapping round-trip changed resource: " + name);
+      }
+    }
+  }
+
+  void runtimeSmoke() throws Exception {
+    Path agentJar = context.buildDir().resolve("libs/brasfoot-runtime-probe.jar");
+    if (!Files.isRegularFile(agentJar)) {
+      throw new IOException("Runtime agent not found: " + agentJar);
+    }
+    Path probeLog = context.reportsDir().resolve("runtime-probe.log");
+    Path processLog = context.reportsDir().resolve("runtime-process.log");
+    Files.createDirectories(context.reportsDir());
+    Files.deleteIfExists(probeLog);
+    Files.deleteIfExists(processLog);
+    Files.deleteIfExists(context.hybridRoot().resolve("erros.log"));
+
+    ProcessBuilder builder = new ProcessBuilder(
+        context.java8Executable().toString(),
+        "-javaagent:" + agentJar + "=" + probeLog,
+        "-jar",
+        context.hybridJar().getFileName().toString());
+    builder.directory(context.hybridRoot().toFile());
+    builder.redirectErrorStream(true);
+    builder.redirectOutput(processLog.toFile());
+    Process process = builder.start();
+
+    boolean loaded = false;
+    Instant deadline = Instant.now().plus(Duration.ofSeconds(25));
+    try {
+      while (Instant.now().isBefore(deadline)) {
+        if (Files.isRegularFile(probeLog)) {
+          String text = Files.readString(probeLog, StandardCharsets.UTF_8);
+          if (text.contains("LOADED best/h2 ") && text.contains("LOADED components/ar ")) {
+            loaded = true;
+            break;
+          }
+        }
+        if (!process.isAlive()) {
+          break;
+        }
+        Thread.sleep(250L);
+      }
+    } finally {
+      if (process.isAlive()) {
+        process.destroy();
+        if (!process.waitFor(3, java.util.concurrent.TimeUnit.SECONDS)) {
+          process.destroyForcibly();
+          process.waitFor(3, java.util.concurrent.TimeUnit.SECONDS);
+        }
+      }
+      terminateProbedProcess(probeLog);
+    }
+
+    if (!loaded) {
+      String output = Files.isRegularFile(processLog)
+          ? Files.readString(processLog, StandardCharsets.UTF_8) : "<no process output>";
+      throw new IllegalStateException("Runtime did not load expected classes. Output:\n" + output);
+    }
+    String expected = Hashing.sha256(
+        ZipSupport.readEntries(context.hybridJar()).get(HybridService.ORIGINAL_COMPONENT));
+    String probe = Files.readString(probeLog, StandardCharsets.UTF_8);
+    if (!probe.contains("LOADED components/ar " + expected)) {
+      throw new IllegalStateException("Runtime loaded a different components/ar bytecode");
+    }
+    if (Files.exists(context.hybridRoot().resolve("erros.log"))) {
+      throw new IllegalStateException("Game wrote erros.log during runtime smoke");
+    }
+    new AtlasService(context).verifyInputs();
+    System.out.println("Runtime smoke passed: hybrid best/h2 and recovered components/ar loaded on Java 8.");
+  }
+
+  private void terminateProbedProcess(Path probeLog) throws Exception {
+    if (!Files.isRegularFile(probeLog)) {
+      return;
+    }
+    String text = Files.readString(probeLog, StandardCharsets.UTF_8);
+    for (String line : text.split("\\R")) {
+      if (!line.startsWith("PID ")) {
+        continue;
+      }
+      long pid = Long.parseLong(line.substring(4).trim());
+      java.util.Optional<ProcessHandle> handle = ProcessHandle.of(pid);
+      if (handle.isPresent() && handle.get().isAlive()) {
+        handle.get().destroy();
+        Thread.sleep(500L);
+        if (handle.get().isAlive()) {
+          handle.get().destroyForcibly();
+        }
+      }
+    }
+  }
+
+  void runHybrid() throws Exception {
+    ProcessBuilder builder = new ProcessBuilder(
+        context.java8Executable().toString(), "-jar", context.hybridJar().getFileName().toString());
+    builder.directory(context.hybridRoot().toFile());
+    builder.inheritIO();
+    int exit = builder.start().waitFor();
+    if (exit != 0) {
+      throw new IllegalStateException("Hybrid game exited with code " + exit);
+    }
+  }
+}

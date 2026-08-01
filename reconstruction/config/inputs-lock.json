@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "versions": [
+    {"id":"2016","fileName":"bf2016.exe","size":3469355,"sha256":"D0196BF8C88196612A79DD35968A87B1E73984E6DF5B15B3095127E6C6626811","entries":1227,"classes":828,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"2017","fileName":"bf2017.exe","size":3498909,"sha256":"9605D296A2610DB18651C5206D90CBCB0E9A06A089D231BF7442F0C56D398776","entries":1241,"classes":840,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"2018","fileName":"bf2018.exe","size":2919362,"sha256":"32F38BBB5D46B929E44ACEE5545CBB2B9EDF0DE352321FB3FBD910FFDBF35B37","entries":1274,"classes":872,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"2019","fileName":"bf2019.exe","size":3414088,"sha256":"959A09EC3AF054274C41A19608807CADF18D04D3CA0BD50FD1E7AE60EECF5F53","entries":1296,"classes":887,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"2020","fileName":"bf2020.exe","size":5147753,"sha256":"0B5197C590B67DF1861ABD17BA357C1932D2EFE5491745621E272FD45CD84534","entries":2021,"classes":926,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"2021","fileName":"bf2021.exe","size":7201445,"sha256":"F0E774E1849F498B19BE487078FE189935B3E59DFD7A666550C2E9292311BE4E","entries":2144,"classes":998,"javaMajor":51,"mainClass":"best.h2"},
+    {"id":"22-23","fileName":"bf22-23.exe","size":7320384,"sha256":"2FA65476A92611419CE28C0CFD158A0C7F741AF235AA988B0BED00C44443BB1C","entries":2193,"classes":1038,"javaMajor":51,"mainClass":"best.h2"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "classes": {
+    "components/ar": "mod/recovered/CrashLogHandler"
+  },
+  "methods": [
+    {"owner":"components/ar","name":"a","descriptor":"(Ljava/lang/Throwable;)Ljava/lang/String;","named":"stackTrace"},
+    {"owner":"components/ar","name":"d","descriptor":"(Ljava/lang/String;Ljava/lang/String;)V","named":"appendLog"},
+    {"owner":"components/ar","name":"b","descriptor":"(Ljava/lang/Throwable;)V","named":"writeThrowable"},
+    {"owner":"components/ar","name":"ao","descriptor":"(Ljava/lang/String;)V","named":"touchInfoError"}
+  ]
+}

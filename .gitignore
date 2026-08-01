@@ -1,0 +1,9 @@
+/tools/bin/
+/build/
+/tmp/
+/reconstruction/.gradle/
+/reconstruction/build/
+/reconstruction/generated/
+/reconstruction/local.properties
+*.class
+*.log
