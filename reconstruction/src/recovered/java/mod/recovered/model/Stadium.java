@@ -101,9 +101,9 @@ public class Stadium implements Serializable {
       boolean var2 = false;
       int[] var3 = new int[4];
       int var4 = 0;
-      int var5 = c0675.hy().b();
-      int var6 = c0675.hy().el();
-      int[] var7 = a(c0675.hy().b(), c0675.hc());
+      int var5 = c0675.getCompetition().b();
+      int var6 = c0675.getCompetition().el();
+      int[] var7 = a(c0675.getCompetition().b(), c0675.getHomeClub());
       int[] var8 = new int[4];
       int[] var9 = new int[4];
 
@@ -114,8 +114,8 @@ public class Stadium implements Serializable {
       int[][] var27 = new int[][]{
          {200, 500, 50, 0}, {1000, 5000, 1200, 20}, {2000, 10000, 1500, 50}, {4000, 20000, 2500, 300}, {4500, 30000, 3500, 400}, {5000, 40000, 5500, 500}
       };
-      int var11 = c0675.hc().getDivisao();
-      int var12 = c0675.hc().getReputacao();
+      int var11 = c0675.getHomeClub().getDivisao();
+      int var12 = c0675.getHomeClub().getReputacao();
 
       for (int var13 = 0; var13 < var8.length; var13++) {
          var8[var13] = var27[var12][var13];
@@ -134,7 +134,7 @@ public class Stadium implements Serializable {
       }
 
       double var30 = 0.3;
-      if (c0675.ht() instanceof KnockoutStage) {
+      if (c0675.getCompetitionStage() instanceof KnockoutStage) {
          var30 += 0.15;
       }
 
@@ -151,7 +151,7 @@ public class Stadium implements Serializable {
       }
 
       double var31 = 0.0;
-      int var17 = c0675.hd().getReputacao() - c0675.hc().getReputacao();
+      int var17 = c0675.getAwayClub().getReputacao() - c0675.getHomeClub().getReputacao();
       double[] var18 = new double[]{0.0, 0.05, 0.1, 0.15, 0.2, 0.25};
       var31 += var18[Math.abs(var17)];
       if (var17 > 0) {
@@ -165,8 +165,8 @@ public class Stadium implements Serializable {
       }
 
       int var34 = 80;
-      if (c0675.hc().ka() != null) {
-         var34 = c0675.hc().ka().lM();
+      if (c0675.getHomeClub().ka() != null) {
+         var34 = c0675.getHomeClub().ka().lM();
       }
 
       double var20 = var34 / 100.0;
@@ -186,7 +186,7 @@ public class Stadium implements Serializable {
 
       int[] var36 = new int[4];
       if (this.dV()) {
-         var3 = a(c0675.hy().b(), c0675.hc());
+         var3 = a(c0675.getCompetition().b(), c0675.getHomeClub());
       } else {
          var3 = this.dU();
 

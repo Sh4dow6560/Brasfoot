@@ -499,7 +499,7 @@ public class ScheduleDay implements Serializable {
    }
 
    public int i() {
-      return this.s.size() > 0 ? ((Match)this.s.get(0)).hy().b() : 0;
+      return this.s.size() > 0 ? ((Match)this.s.get(0)).getCompetition().b() : 0;
    }
 
    public void a(Match c0675) {
@@ -774,7 +774,7 @@ public class ScheduleDay implements Serializable {
 
    public boolean a(Club club) {
       for (int var2 = 0; var2 < this.s.size(); var2++) {
-         if (((Match)this.s.get(var2)).hc() == club || ((Match)this.s.get(var2)).hd() == club) {
+         if (((Match)this.s.get(var2)).getHomeClub() == club || ((Match)this.s.get(var2)).getAwayClub() == club) {
             return true;
          }
       }

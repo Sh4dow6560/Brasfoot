@@ -19,10 +19,10 @@ public class C0802 extends JPanel {
 
    public C0802(C0809 c0809, ArrayList arrayList) {
       Object var3 = null;
-      if (arrayList.contains(c0809.sP().hc())) {
-         var3 = c0809.sP().hc();
+      if (arrayList.contains(c0809.sP().getHomeClub())) {
+         var3 = c0809.sP().getHomeClub();
       } else {
-         var3 = c0809.sP().hd();
+         var3 = c0809.sP().getAwayClub();
       }
 
       if (c0809.sQ() != null) {
@@ -32,13 +32,13 @@ public class C0802 extends JPanel {
       }
 
       if (c0809.sP() != null) {
-         this.Sp.setText(c0809.sP().hc().getNome());
-         this.Sp.setIcon(c0809.sP().hc().kU());
-         this.Sq.setText(c0809.sP().hd().getNome());
-         this.Sq.setIcon(c0809.sP().hd().kU());
+         this.Sp.setText(c0809.sP().getHomeClub().getNome());
+         this.Sp.setIcon(c0809.sP().getHomeClub().kU());
+         this.Sq.setText(c0809.sP().getAwayClub().getNome());
+         this.Sq.setIcon(c0809.sP().getAwayClub().kU());
          if (c0809.b() == 4 || c0809.b() == 6 || c0809.b() == 12) {
-            this.Sp.setToolTipText(C0696.bl(c0809.sP().hc().getPais()));
-            this.Sq.setToolTipText(C0696.bl(c0809.sP().hd().getPais()));
+            this.Sp.setToolTipText(C0696.bl(c0809.sP().getHomeClub().getPais()));
+            this.Sq.setToolTipText(C0696.bl(c0809.sP().getAwayClub().getPais()));
          }
 
          if (c0809.sP().e()) {
@@ -47,13 +47,13 @@ public class C0802 extends JPanel {
       }
 
       if (c0809.sQ() != null) {
-         this.Sr.setText(c0809.sQ().hc().getNome());
-         this.Sr.setIcon(c0809.sQ().hc().kU());
-         this.Ss.setText(c0809.sQ().hd().getNome());
-         this.Ss.setIcon(c0809.sQ().hd().kU());
+         this.Sr.setText(c0809.sQ().getHomeClub().getNome());
+         this.Sr.setIcon(c0809.sQ().getHomeClub().kU());
+         this.Ss.setText(c0809.sQ().getAwayClub().getNome());
+         this.Ss.setIcon(c0809.sQ().getAwayClub().kU());
          if (c0809.b() == 4 || c0809.b() == 6 || c0809.b() == 12) {
-            this.Sr.setToolTipText(C0696.bl(c0809.sQ().hc().getPais()));
-            this.Ss.setToolTipText(C0696.bl(c0809.sQ().hd().getPais()));
+            this.Sr.setToolTipText(C0696.bl(c0809.sQ().getHomeClub().getPais()));
+            this.Ss.setToolTipText(C0696.bl(c0809.sQ().getAwayClub().getPais()));
          }
 
          if (c0809.sQ().e()) {
@@ -67,7 +67,7 @@ public class C0802 extends JPanel {
             this.Su.setText("P:" + c0809.sP().u(false));
          }
 
-         if (var3 == c0809.sP().hc()) {
+         if (var3 == c0809.sP().getHomeClub()) {
             this.Sp.setFont(new Font("Arial", 1, 12));
          } else {
             this.Sq.setFont(new Font("Arial", 1, 12));
@@ -78,13 +78,13 @@ public class C0802 extends JPanel {
             this.Su.setText("P:" + c0809.sQ().u(false));
          }
 
-         if (var3 == c0809.sP().hc()) {
+         if (var3 == c0809.sP().getHomeClub()) {
             this.Sp.setFont(new Font("Arial", 1, 12));
          } else {
             this.Sq.setFont(new Font("Arial", 1, 12));
          }
 
-         if (var3 == c0809.sQ().hc()) {
+         if (var3 == c0809.sQ().getHomeClub()) {
             this.Sr.setFont(new Font("Arial", 1, 12));
          } else {
             this.Ss.setFont(new Font("Arial", 1, 12));

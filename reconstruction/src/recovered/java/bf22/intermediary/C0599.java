@@ -29,10 +29,10 @@ public class C0599 extends DefaultTableCellRenderer {
             }
          } else if (j == 1) {
             this.setHorizontalAlignment(2);
-            this.setBackground(var7.tR().hc().kB());
-            this.setForeground(var7.tR().hc().kC());
-            this.setText(var7.tR().hc().getNome());
-            this.setIcon(var7.tR().hc().kU());
+            this.setBackground(var7.tR().getHomeClub().kB());
+            this.setForeground(var7.tR().getHomeClub().kC());
+            this.setText(var7.tR().getHomeClub().getNome());
+            this.setIcon(var7.tR().getHomeClub().kU());
          } else if (j == 2) {
             this.setHorizontalAlignment(0);
             if (var7.ei() && GamePersistence.careerState.isUsaCorPlacar()) {
@@ -59,10 +59,10 @@ public class C0599 extends DefaultTableCellRenderer {
             this.setText(Integer.toString(var7.tU()));
          } else if (j == 4) {
             this.setHorizontalAlignment(2);
-            this.setBackground(var7.tR().hd().kB());
-            this.setForeground(var7.tR().hd().kC());
-            this.setText(var7.tR().hd().getNome());
-            this.setIcon(var7.tR().hd().kU());
+            this.setBackground(var7.tR().getAwayClub().kB());
+            this.setForeground(var7.tR().getAwayClub().kC());
+            this.setText(var7.tR().getAwayClub().getNome());
+            this.setIcon(var7.tR().getAwayClub().kU());
          } else if (j == 5) {
             this.setHorizontalAlignment(2);
             if (var7.tV() != null) {
@@ -71,7 +71,7 @@ public class C0599 extends DefaultTableCellRenderer {
                }
 
                boolean var11 = true;
-               if (var7.tV().getType() == 6 && !var7.tR().hc().jZ() && !var7.tR().hd().jZ()) {
+               if (var7.tV().getType() == 6 && !var7.tR().getHomeClub().jZ() && !var7.tR().getAwayClub().jZ()) {
                   var11 = false;
                }
 

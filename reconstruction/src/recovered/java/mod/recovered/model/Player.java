@@ -1201,7 +1201,7 @@ public class Player implements Serializable {
    }
 
    public boolean a(Match c0675, boolean bl) {
-      Competition var3 = c0675.hy();
+      Competition var3 = c0675.getCompetition();
       boolean var4 = true;
       boolean var5 = true;
       if (var3 == null || var3.b() == 0) {
@@ -1220,7 +1220,7 @@ public class Player implements Serializable {
    }
 
    public boolean d(Match c0675) {
-      Competition var2 = c0675.hy();
+      Competition var2 = c0675.getCompetition();
       boolean var3 = true;
       boolean var4 = true;
       if (var2 == null || var2.b() == 0) {
@@ -1273,7 +1273,7 @@ public class Player implements Serializable {
 
       Competition var4 = null;
       if (CareerState.bl() != null) {
-         var4 = CareerState.bl().hy();
+         var4 = CareerState.bl().getCompetition();
       }
 
       if (var4 != null) {
@@ -2785,42 +2785,42 @@ public class Player implements Serializable {
       int var9 = 0;
       int var10 = 90;
 
-      for (int var11 = 0; var11 < c0675.hE().size(); var11++) {
-         if (((MatchEvent)c0675.hE().get(var11)).getPrimaryPlayer() == this) {
-            if (((MatchEvent)c0675.hE().get(var11)).getPeriod() == 1) {
-               var10 = ((MatchEvent)c0675.hE().get(var11)).getMinute();
+      for (int var11 = 0; var11 < c0675.getEvents().size(); var11++) {
+         if (((MatchEvent)c0675.getEvents().get(var11)).getPrimaryPlayer() == this) {
+            if (((MatchEvent)c0675.getEvents().get(var11)).getPeriod() == 1) {
+               var10 = ((MatchEvent)c0675.getEvents().get(var11)).getMinute();
             } else {
-               var10 = 48 + ((MatchEvent)c0675.hE().get(var11)).getMinute();
+               var10 = 48 + ((MatchEvent)c0675.getEvents().get(var11)).getMinute();
             }
          }
 
-         if (((MatchEvent)c0675.hE().get(var11)).getSecondaryPlayer() == this) {
-            if (((MatchEvent)c0675.hE().get(var11)).getPeriod() == 1) {
-               var10 = 48 + (50 - ((MatchEvent)c0675.hE().get(var11)).getMinute());
+         if (((MatchEvent)c0675.getEvents().get(var11)).getSecondaryPlayer() == this) {
+            if (((MatchEvent)c0675.getEvents().get(var11)).getPeriod() == 1) {
+               var10 = 48 + (50 - ((MatchEvent)c0675.getEvents().get(var11)).getMinute());
             } else {
-               var10 = 50 - ((MatchEvent)c0675.hE().get(var11)).getMinute();
+               var10 = 50 - ((MatchEvent)c0675.getEvents().get(var11)).getMinute();
             }
          }
       }
 
       if (i == 0) {
-         if (c0675.hu() > c0675.hw()) {
+         if (c0675.getHomeGoals() > c0675.getAwayGoals()) {
             var7 = 1;
-         } else if (c0675.hu() < c0675.hw()) {
+         } else if (c0675.getHomeGoals() < c0675.getAwayGoals()) {
             var7 = 2;
          }
 
-         var8 = c0675.hu();
-         var9 = c0675.hw();
+         var8 = c0675.getHomeGoals();
+         var9 = c0675.getAwayGoals();
       } else {
-         if (c0675.hw() > c0675.hu()) {
+         if (c0675.getAwayGoals() > c0675.getHomeGoals()) {
             var7 = 1;
-         } else if (c0675.hw() < c0675.hu()) {
+         } else if (c0675.getAwayGoals() < c0675.getHomeGoals()) {
             var7 = 2;
          }
 
-         var8 = c0675.hw();
-         var9 = c0675.hu();
+         var8 = c0675.getAwayGoals();
+         var9 = c0675.getHomeGoals();
       }
 
       double var21 = 5.5;
@@ -2871,7 +2871,7 @@ public class Player implements Serializable {
 
       Random var14 = new Random();
       if (var13 >= 10 && var13 <= 17) {
-         int[] var15 = c0675.hz();
+         int[] var15 = c0675.getPossessionPercentages();
          if (var15[i] > var15[j]) {
             if (var14.nextInt(3) == 1) {
                var21 += 0.3;
@@ -2924,7 +2924,7 @@ public class Player implements Serializable {
       }
 
       if (var13 >= 1 && var13 <= 13) {
-         int[] var23 = c0675.hB();
+         int[] var23 = c0675.getTackles();
          if (var23[i] > var23[j]) {
             if (var14.nextInt(3) == 1) {
                var21 += 0.9;
@@ -2957,8 +2957,8 @@ public class Player implements Serializable {
 
       if (var13 == 1) {
          var21 -= 0.8;
-         int[] var24 = c0675.hA();
-         int[] var16 = c0675.hZ();
+         int[] var24 = c0675.getShots();
+         int[] var16 = c0675.getShotsOnTarget();
          int var17 = var16[j];
          var21 += var17 * 0.2;
          if (this.gB().tI() > 0) {
@@ -3045,9 +3045,9 @@ public class Player implements Serializable {
          this.a(100, club, var21);
       }
 
-      if (var21 > 0.0 && c0675.hy() != null && c0675.hy() instanceof NationalLeague) {
-         ((NationalLeague)c0675.hy()).E(this);
-         ((NationalLeague)c0675.hy()).F(this);
+      if (var21 > 0.0 && c0675.getCompetition() != null && c0675.getCompetition() instanceof NationalLeague) {
+         ((NationalLeague)c0675.getCompetition()).E(this);
+         ((NationalLeague)c0675.getCompetition()).F(this);
       }
 
       if (var21 > 0.0 && c0713 != null && c0713.b() > 0) {

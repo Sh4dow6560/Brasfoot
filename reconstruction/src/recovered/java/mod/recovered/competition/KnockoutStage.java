@@ -144,12 +144,12 @@ public class KnockoutStage extends CompetitionStage implements Serializable {
       for (int var2 = this.ZF.size() - 1; var2 >= 0; var2--) {
          if (((KnockoutRound)this.ZF.get(var2)).zW().size() == 2) {
             for (int var3 = 0; var3 <= 1; var3++) {
-               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hc())) {
-                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hc());
+               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).getHomeClub())) {
+                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).getHomeClub());
                }
 
-               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hd())) {
-                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hd());
+               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).getAwayClub())) {
+                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).getAwayClub());
                }
             }
          }
@@ -268,7 +268,7 @@ public class KnockoutStage extends CompetitionStage implements Serializable {
    public boolean U(Club club) {
       for (int var2 = this.zp().size() - 1; var2 >= 0; var2--) {
          for (int var3 = 0; var3 < ((KnockoutRound)this.zp().get(var2)).zW().size(); var3++) {
-            if (((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).hc() == club || ((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).hd() == club) {
+            if (((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).getHomeClub() == club || ((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).getAwayClub() == club) {
                return true;
             }
          }
@@ -286,12 +286,12 @@ public class KnockoutStage extends CompetitionStage implements Serializable {
          for (int var6 = 0; var6 < ((KnockoutRound)this.zp().get(var5)).zW().size(); var6++) {
             Club var7 = null;
             Club var8 = null;
-            if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc())) {
-               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc();
-               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd();
-            } else if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd())) {
-               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd();
-               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc();
+            if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getHomeClub())) {
+               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getHomeClub();
+               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getAwayClub();
+            } else if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getAwayClub())) {
+               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getAwayClub();
+               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).getHomeClub();
             }
 
             if (!var2.contains(var7)) {

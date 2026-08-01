@@ -414,18 +414,18 @@ public abstract class Competition implements Serializable {
       for (int var9 = 0; var9 < GamePersistence.careerState.getScheduleDays().size(); var9++) {
          if (((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).e() && ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().size() > 0) {
             for (int var10 = 0; var10 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().size(); var10++) {
-               if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hy() == this) {
+               if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getCompetition() == this) {
                   var3++;
-                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu();
-                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw();
-                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() >= var6) {
+                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getHomeGoals();
+                  var4 += ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getAwayGoals();
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getHomeGoals() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getAwayGoals() >= var6) {
                      var5 = (Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10);
-                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw();
+                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getHomeGoals() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getAwayGoals();
                   }
 
-                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu() >= var6) {
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getAwayGoals() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getHomeGoals() >= var6) {
                      var5 = (Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10);
-                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hw() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).hu();
+                     var6 = ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getAwayGoals() - ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var9)).h().get(var10)).getHomeGoals();
                   }
                }
             }

@@ -363,7 +363,7 @@ public class C0065 extends JPanel {
 
       try {
          for (int var9 = 0; var9 < ((ScheduleDay)this.vV.get(i)).h().size(); var9++) {
-            if (((Match)((ScheduleDay)this.vV.get(i)).h().get(var9)).ht() == c0955) {
+            if (((Match)((ScheduleDay)this.vV.get(i)).h().get(var9)).getCompetitionStage() == c0955) {
                C0828 var11 = new C0828();
                var11.ao(true);
                this.vU.add(var11);

@@ -95,7 +95,7 @@ final class SemanticMemberSourceMigrationService {
     }
     context.writeJson(context.reportsDir().resolve("semantic-member-source-migration.json"),
         new MigrationReport(sourceCount, changedFiles, migrations));
-    System.out.println("Applied " + migrations.size() + " semantic static member mappings across "
+    System.out.println("Applied " + migrations.size() + " semantic member mappings across "
         + changedFiles + " of " + sourceCount + " recovered sources.");
   }
 
@@ -141,9 +141,19 @@ final class SemanticMemberSourceMigrationService {
     if (member == null) {
       throw new IllegalStateException("Semantic member is absent from game: " + key);
     }
-    if ((member.access() & Opcodes.ACC_STATIC) == 0) {
-      throw new IllegalStateException("Automatic source migration currently requires a static "
-          + "member: " + key);
+    boolean externalReferences = (member.access() & Opcodes.ACC_STATIC) != 0;
+    boolean privateField = "field".equals(kind)
+        && (member.access() & Opcodes.ACC_PRIVATE) != 0;
+    boolean globalInstanceReferences = !externalReferences
+        && "method".equals(kind)
+        && game.classes().values().stream()
+            .flatMap(classInfo -> classInfo.members().stream())
+            .filter(candidate -> candidate.kind().equals(kind))
+            .filter(candidate -> candidate.name().equals(officialName))
+            .count() == 1;
+    if (!externalReferences && !privateField && !globalInstanceReferences) {
+      throw new IllegalStateException("Automatic source migration requires a static member, "
+          + "a private field, or a globally unique instance method: " + key);
     }
     long sameNameMembers = ownerInfo.members().stream()
         .filter(candidate -> candidate.kind().equals(kind))
@@ -154,15 +164,21 @@ final class SemanticMemberSourceMigrationService {
           + key);
     }
     migrations.add(new MemberMigration(
-        owner, ownerNamed, kind, officialName, descriptor, currentName, desiredName));
+        owner, ownerNamed, kind, officialName, descriptor, currentName, desiredName,
+        externalReferences, globalInstanceReferences));
   }
 
   private String migrateExternalReferences(String source, List<MemberMigration> migrations) {
     String migrated = source;
     for (MemberMigration migration : migrations) {
-      String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
-      String newReference = simpleName(migration.ownerNamed()) + "." + migration.desiredName();
-      migrated = replaceIdentifier(migrated, oldReference, newReference);
+      if (migration.externalReferences()) {
+        String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
+        String newReference = simpleName(migration.ownerNamed()) + "." + migration.desiredName();
+        migrated = replaceIdentifier(migrated, oldReference, newReference);
+      } else if (migration.globalInstanceReferences()) {
+        migrated = replaceMethodSelection(
+            migrated, migration.currentName(), migration.desiredName());
+      }
     }
     return migrated;
   }
@@ -188,10 +204,18 @@ final class SemanticMemberSourceMigrationService {
       }
     }
     for (MemberMigration migration : migrations) {
-      String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
-      for (Map.Entry<String, String> source : sources.entrySet()) {
-        if (containsIdentifier(source.getValue(), oldReference)) {
-          stale.add(source.getKey() + ":" + oldReference);
+      if (migration.externalReferences()) {
+        String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
+        for (Map.Entry<String, String> source : sources.entrySet()) {
+          if (containsIdentifier(source.getValue(), oldReference)) {
+            stale.add(source.getKey() + ":" + oldReference);
+          }
+        }
+      } else if (migration.globalInstanceReferences()) {
+        for (Map.Entry<String, String> source : sources.entrySet()) {
+          if (containsMethodSelection(source.getValue(), migration.currentName())) {
+            stale.add(source.getKey() + ":." + migration.currentName() + "()");
+          }
         }
       }
       String ownerSource = sources.get(migration.ownerNamed());
@@ -233,6 +257,16 @@ final class SemanticMemberSourceMigrationService {
         + "(?![A-Za-z0-9_$])").matcher(text).find();
   }
 
+  private String replaceMethodSelection(String text, String oldName, String newName) {
+    return Pattern.compile("\\." + Pattern.quote(oldName) + "(?=\\s*\\()")
+        .matcher(text).replaceAll(Matcher.quoteReplacement("." + newName));
+  }
+
+  private boolean containsMethodSelection(String text, String methodName) {
+    return Pattern.compile("\\." + Pattern.quote(methodName) + "(?=\\s*\\()")
+        .matcher(text).find();
+  }
+
   private String memberKey(String owner, String kind, String name, String descriptor) {
     return owner + ":" + kind + ":" + name + ":" + descriptor;
   }
@@ -272,7 +306,9 @@ final class SemanticMemberSourceMigrationService {
       String officialName,
       String descriptor,
       String currentName,
-      String desiredName) {
+      String desiredName,
+      boolean externalReferences,
+      boolean globalInstanceReferences) {
     String key() {
       return ownerOfficial + ":" + kind + ":" + officialName + ":" + descriptor;
     }

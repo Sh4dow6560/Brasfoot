@@ -47,11 +47,11 @@ public class C0770 extends JPanel {
    }
 
    private void b(C0826 c0826) {
-      this.zO.setText(c0826.tR().hc().getNome());
-      this.zO.setIcon(c0826.tR().hc().kU());
-      this.zP.setText(c0826.tR().hd().getNome());
-      this.zP.setIcon(c0826.tR().hd().kU());
-      this.Lm.setText(c0826.tR().hu() + " x " + c0826.tR().hw() + " ");
+      this.zO.setText(c0826.tR().getHomeClub().getNome());
+      this.zO.setIcon(c0826.tR().getHomeClub().kU());
+      this.zP.setText(c0826.tR().getAwayClub().getNome());
+      this.zP.setIcon(c0826.tR().getAwayClub().kU());
+      this.Lm.setText(c0826.tR().getHomeGoals() + " x " + c0826.tR().getAwayGoals() + " ");
    }
 
    private void mJ() {

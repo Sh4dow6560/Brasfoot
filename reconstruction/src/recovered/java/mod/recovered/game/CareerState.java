@@ -1426,8 +1426,8 @@ public class CareerState implements Serializable {
          ((Match)var1.get(var3)).hi();
          ((Match)var1.get(var3)).hf();
          ((Match)var1.get(var3)).hh();
-         ((Match)var1.get(var3)).hc().I(false);
-         ((Match)var1.get(var3)).hd().I(false);
+         ((Match)var1.get(var3)).getHomeClub().I(false);
+         ((Match)var1.get(var3)).getAwayClub().I(false);
          ((Match)var1.get(var3)).a(null);
       }
 
@@ -1589,13 +1589,13 @@ public class CareerState implements Serializable {
       ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.currentScheduleIndex)).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
-         if (((Match)var0.get(var1)).hc().jZ() && !((Match)var0.get(var1)).hc().kf()) {
-            a(((Match)var0.get(var1)).hc(), (Match)var0.get(var1));
+         if (((Match)var0.get(var1)).getHomeClub().jZ() && !((Match)var0.get(var1)).getHomeClub().kf()) {
+            a(((Match)var0.get(var1)).getHomeClub(), (Match)var0.get(var1));
             return true;
          }
 
-         if (((Match)var0.get(var1)).hd().jZ() && !((Match)var0.get(var1)).hd().kf()) {
-            a(((Match)var0.get(var1)).hd(), (Match)var0.get(var1));
+         if (((Match)var0.get(var1)).getAwayClub().jZ() && !((Match)var0.get(var1)).getAwayClub().kf()) {
+            a(((Match)var0.get(var1)).getAwayClub(), (Match)var0.get(var1));
             return true;
          }
       }

@@ -145,7 +145,7 @@ public class C0818 extends JPanel {
 
       String var8 = "";
       if (c0675 != null && c0713 != null) {
-         int[] var9 = player.e(c0675.hy());
+         int[] var9 = player.e(c0675.getCompetition());
          if (var9 == null) {
             var9 = new int[2];
          }

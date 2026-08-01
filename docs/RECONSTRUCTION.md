@@ -25,6 +25,10 @@
 - Os 3.116 eventos de partida do save sao validados por tipo, vinculos,
   minuto, periodo e lado do time antes e depois da regravacao. Um segundo
   cenario executa diretamente todos os acessores essenciais de `MatchEvent`.
+- As 2.312 partidas persistidas validam clubes, competicao, fase, estadio,
+  indice do calendario, escalacoes, placar, eventos e arrays de estatisticas.
+  Um cenario isolado recalcula um placar de 2x1 a partir dos eventos e confirma
+  que `MatchEngine` continua transitorio.
 - A expansao de estadio possui cenario funcional isolado que confirma aumento
   de capacidade, consumo dos lugares pendentes e idempotencia.
 - 82 classes ja possuem nomes semanticos. O nucleo legivel cobre
@@ -35,9 +39,9 @@
   data e agenda tambem estao nomeados.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
-- `applySemanticMemberMappings` migra membros estaticos e todas as suas
-  referencias de forma transacional. O primeiro lote tornou legiveis os 7
-  campos e 14 metodos centrais de `GamePersistence`.
+- `applySemanticMemberMappings` migra membros estaticos, campos privados e
+  metodos de instancia globalmente unicos de forma transacional. Os lotes ja
+  cobrem a persistencia central e o estado essencial de `Match`.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases

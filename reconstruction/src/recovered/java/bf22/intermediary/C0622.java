@@ -26,16 +26,16 @@ public class C0622 extends DefaultTableCellRenderer {
          } else if (var7.sP() != null) {
             if (j == 0) {
                this.setHorizontalAlignment(4);
-               this.setIcon(var7.sP().hc().kU());
+               this.setIcon(var7.sP().getHomeClub().kU());
                this.setHorizontalTextPosition(2);
-               this.setText(var7.sP().hc().getNome());
+               this.setText(var7.sP().getHomeClub().getNome());
             } else if (j == 1) {
                this.setText("x");
             } else if (j == 2) {
                this.setHorizontalAlignment(2);
                this.setHorizontalTextPosition(4);
-               this.setIcon(var7.sP().hd().kU());
-               this.setText(var7.sP().hd().getNome());
+               this.setIcon(var7.sP().getAwayClub().kU());
+               this.setText(var7.sP().getAwayClub().getNome());
             } else if (j == 4) {
                if (var7.sP().e()) {
                   this.setText(var7.sP().t(false));

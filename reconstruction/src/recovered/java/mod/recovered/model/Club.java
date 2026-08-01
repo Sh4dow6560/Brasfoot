@@ -350,12 +350,12 @@ public class Club implements Serializable {
       ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
-         if (!((Match)var0.get(var1)).hc().jZ() && !((Match)var0.get(var1)).hc().kf()) {
-            a(((Match)var0.get(var1)).hc(), (Match)var0.get(var1), 1, -1, true);
+         if (!((Match)var0.get(var1)).getHomeClub().jZ() && !((Match)var0.get(var1)).getHomeClub().kf()) {
+            a(((Match)var0.get(var1)).getHomeClub(), (Match)var0.get(var1), 1, -1, true);
          }
 
-         if (!((Match)var0.get(var1)).hd().jZ() && !((Match)var0.get(var1)).hd().kf()) {
-            a(((Match)var0.get(var1)).hd(), (Match)var0.get(var1), 2, -1, true);
+         if (!((Match)var0.get(var1)).getAwayClub().jZ() && !((Match)var0.get(var1)).getAwayClub().kf()) {
+            a(((Match)var0.get(var1)).getAwayClub(), (Match)var0.get(var1), 2, -1, true);
          }
       }
    }
@@ -424,11 +424,11 @@ public class Club implements Serializable {
             var11.b(true);
             club.nf.add(var11);
             if (i == 1) {
-               c0675.hl().add(var11);
-               c0675.hp().add(var11);
+               c0675.getHomeStartingLineup().add(var11);
+               c0675.getHomePlayersOnField().add(var11);
             } else if (i == 2) {
-               c0675.hm().add(var11);
-               c0675.hq().add(var11);
+               c0675.getAwayStartingLineup().add(var11);
+               c0675.getAwayPlayersOnField().add(var11);
             }
 
             var5.remove(var11);
@@ -440,9 +440,9 @@ public class Club implements Serializable {
          if (var21 != null) {
             club.ng.add(var21);
             if (i == 1) {
-               c0675.hn().add(var21);
+               c0675.getHomeBench().add(var21);
             } else if (i == 2) {
-               c0675.ho().add(var21);
+               c0675.getAwayBench().add(var21);
             }
 
             var5.remove(var21);
@@ -492,9 +492,9 @@ public class Club implements Serializable {
       boolean var7 = false;
       ArrayList var8;
       if (i == 1) {
-         var8 = c0675.hl();
+         var8 = c0675.getHomeStartingLineup();
       } else {
-         var8 = c0675.hm();
+         var8 = c0675.getAwayStartingLineup();
       }
 
       for (int var9 = 0; var9 < var8.size(); var9++) {
@@ -940,35 +940,35 @@ public class Club implements Serializable {
    }
 
    public void e(Match c0675) {
-      if (c0675.hy() != null) {
+      if (c0675.getCompetition() != null) {
          int var2 = 0;
          int var3 = 0;
-         if (c0675.hc() == this) {
-            var2 = c0675.hu();
-            var3 = c0675.hw();
-         } else if (c0675.hd() == this) {
-            var2 = c0675.hw();
-            var3 = c0675.hu();
+         if (c0675.getHomeClub() == this) {
+            var2 = c0675.getHomeGoals();
+            var3 = c0675.getAwayGoals();
+         } else if (c0675.getAwayClub() == this) {
+            var2 = c0675.getAwayGoals();
+            var3 = c0675.getHomeGoals();
          }
 
-         int var4 = c0675.hy().el();
-         if (c0675.ht() != null && c0675.ht() instanceof KnockoutStage && ((KnockoutStage)c0675.ht()).zf() == 1098) {
+         int var4 = c0675.getCompetition().el();
+         if (c0675.getCompetitionStage() != null && c0675.getCompetitionStage() instanceof KnockoutStage && ((KnockoutStage)c0675.getCompetitionStage()).zf() == 1098) {
             var4 = 1098;
          }
 
-         C0703 var5 = this.a(c0675.hy(), var4);
+         C0703 var5 = this.a(c0675.getCompetition(), var4);
          var5.cl();
          var5.ca(var2);
-         this.e(c0675.hy().b(), 1, var2);
+         this.e(c0675.getCompetition().b(), 1, var2);
          var5.cb(var3);
-         this.e(c0675.hy().b(), 2, var3);
+         this.e(c0675.getCompetition().b(), 2, var3);
          if (var2 > var3) {
             var5.cn();
-            this.e(c0675.hy().b(), 0, 3);
+            this.e(c0675.getCompetition().b(), 0, 3);
          } else if (var2 < var3) {
             var5.cp();
          } else if (var2 == var3) {
-            this.e(c0675.hy().b(), 0, 1);
+            this.e(c0675.getCompetition().b(), 0, 1);
          }
       }
    }
@@ -976,17 +976,17 @@ public class Club implements Serializable {
    public void a(Match c0675, LeagueStage c0955) {
       int var3 = 0;
       int var4 = 0;
-      int var5 = c0675.ht().b();
+      int var5 = c0675.getCompetitionStage().b();
       if (var5 < 0 || var5 > 14) {
          boolean var7 = false;
       }
 
-      if (c0675.hc() == this) {
-         var3 = c0675.hu();
-         var4 = c0675.hw();
-      } else if (c0675.hd() == this) {
-         var3 = c0675.hw();
-         var4 = c0675.hu();
+      if (c0675.getHomeClub() == this) {
+         var3 = c0675.getHomeGoals();
+         var4 = c0675.getAwayGoals();
+      } else if (c0675.getAwayClub() == this) {
+         var3 = c0675.getAwayGoals();
+         var4 = c0675.getHomeGoals();
       }
 
       C0704 var6 = this.c(c0955);

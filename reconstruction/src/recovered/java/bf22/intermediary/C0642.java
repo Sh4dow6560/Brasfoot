@@ -66,10 +66,10 @@ public class C0642 extends DefaultTableCellRenderer {
             if (var7.sR()) {
                if (j == 0) {
                   this.setHorizontalAlignment(4);
-                  this.setIcon(var7.sP().hc().a(25, 25, true));
+                  this.setIcon(var7.sP().getHomeClub().a(25, 25, true));
                } else if (j == 2) {
                   this.setHorizontalAlignment(2);
-                  this.setIcon(var7.sP().hd().a(25, 25, true));
+                  this.setIcon(var7.sP().getAwayClub().a(25, 25, true));
                } else if (j == 3) {
                   this.setText(var7.sU());
                }
@@ -77,9 +77,9 @@ public class C0642 extends DefaultTableCellRenderer {
                if (var7.sP().e()) {
                   if (j == 1) {
                      String var12 = "";
-                     var12 = Integer.toString(var7.sP().hu());
+                     var12 = Integer.toString(var7.sP().getHomeGoals());
                      String var17 = "";
-                     var17 = Integer.toString(var7.sP().hw());
+                     var17 = Integer.toString(var7.sP().getAwayGoals());
                      this.setText(var12 + "x" + var17);
                   }
                } else if (j == 1) {
@@ -89,18 +89,18 @@ public class C0642 extends DefaultTableCellRenderer {
                if (var7.sQ() != null) {
                   if (j == 4) {
                      this.setHorizontalAlignment(4);
-                     this.setIcon(var7.sQ().hc().a(25, 25, true));
+                     this.setIcon(var7.sQ().getHomeClub().a(25, 25, true));
                   } else if (j == 6) {
                      this.setHorizontalAlignment(2);
-                     this.setIcon(var7.sQ().hd().a(25, 25, true));
+                     this.setIcon(var7.sQ().getAwayClub().a(25, 25, true));
                   }
 
                   if (var7.sQ().e()) {
                      if (j == 5) {
                         String var14 = "";
-                        var14 = Integer.toString(var7.sQ().hu());
+                        var14 = Integer.toString(var7.sQ().getHomeGoals());
                         String var19 = "";
-                        var19 = Integer.toString(var7.sQ().hw());
+                        var19 = Integer.toString(var7.sQ().getAwayGoals());
                         this.setText(var14 + "x" + var19);
                      }
                   } else if (j == 5) {
@@ -112,7 +112,7 @@ public class C0642 extends DefaultTableCellRenderer {
                this.setBorder(var16);
                if (j == 0) {
                   this.setHorizontalAlignment(4);
-                  this.setText(var7.sP().hc().getNome());
+                  this.setText(var7.sP().getHomeClub().getNome());
                } else if (j == 1 && var7.sP().e()) {
                   int[] var21 = var7.sP().hQ();
                   if (var21[0] >= 0 && var21[1] >= 0) {
@@ -122,13 +122,13 @@ public class C0642 extends DefaultTableCellRenderer {
                   }
                } else if (j == 2) {
                   this.setHorizontalAlignment(2);
-                  this.setText(var7.sP().hd().getNome());
+                  this.setText(var7.sP().getAwayClub().getNome());
                }
 
                if (var7.sQ() != null) {
                   if (j == 4) {
                      this.setHorizontalAlignment(4);
-                     this.setText(var7.sQ().hc().getNome());
+                     this.setText(var7.sQ().getHomeClub().getNome());
                   } else if (j == 5 && var7.sQ().e()) {
                      int[] var22 = var7.sQ().hQ();
                      if (var22[0] >= 0 && var22[1] >= 0) {
@@ -138,7 +138,7 @@ public class C0642 extends DefaultTableCellRenderer {
                      }
                   } else if (j == 6) {
                      this.setHorizontalAlignment(2);
-                     this.setText(var7.sQ().hd().getNome());
+                     this.setText(var7.sQ().getAwayClub().getNome());
                   }
                }
             }

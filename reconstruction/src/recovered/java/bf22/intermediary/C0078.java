@@ -378,13 +378,13 @@ public class C0078 extends JPanel {
       if (this.wU.mE().cR() != null) {
          this.xA
             .setText(
-               this.wU.mE().cR().hc().getNome()
+               this.wU.mE().cR().getHomeClub().getNome()
                   + " "
-                  + Integer.toString(this.wU.mE().cR().hu())
+                  + Integer.toString(this.wU.mE().cR().getHomeGoals())
                   + " x "
-                  + Integer.toString(this.wU.mE().cR().hw())
+                  + Integer.toString(this.wU.mE().cR().getAwayGoals())
                   + " "
-                  + this.wU.mE().cR().hd().getNome()
+                  + this.wU.mE().cR().getAwayClub().getNome()
             );
       }
 
@@ -1079,7 +1079,7 @@ public class C0078 extends JPanel {
             var3 = 0;
 
             for (int var6 = 0; var6 < ((ScheduleDay)var2.get(var8)).h().size(); var6++) {
-               if (((Match)((ScheduleDay)var2.get(var8)).h().get(var6)).ht() == this.wV) {
+               if (((Match)((ScheduleDay)var2.get(var8)).h().get(var6)).getCompetitionStage() == this.wV) {
                   C0828 var7 = new C0828();
                   var7.n((Match)((ScheduleDay)var2.get(var8)).h().get(var6));
                   this.vU.add(var7);

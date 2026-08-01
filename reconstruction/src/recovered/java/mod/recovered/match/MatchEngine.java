@@ -156,36 +156,36 @@ public class MatchEngine {
 
    public MatchEngine(Match c0675) {
       this.zz = c0675;
-      Club[] var2 = new Club[]{c0675.hc(), c0675.hd()};
+      Club[] var2 = new Club[]{c0675.getHomeClub(), c0675.getAwayClub()};
       this.TA = var2;
       this.TB = this.vN();
       this.TD = c0675.hX();
-      if (c0675.hp().size() == 0) {
-         System.out.println("erro escala: " + c0675.hc().getNome());
+      if (c0675.getHomePlayersOnField().size() == 0) {
+         System.out.println("erro escala: " + c0675.getHomeClub().getNome());
          GamePersistence.careerState.bN = true;
-         Club.a(c0675.hc(), c0675, 1, -1, true);
+         Club.a(c0675.getHomeClub(), c0675, 1, -1, true);
       }
 
-      if (c0675.hq().size() == 0) {
-         System.out.println("erro escala: " + c0675.hd().getNome());
+      if (c0675.getAwayPlayersOnField().size() == 0) {
+         System.out.println("erro escala: " + c0675.getAwayClub().getNome());
          GamePersistence.careerState.bN = true;
-         Club.a(c0675.hd(), c0675, 1, -1, true);
+         Club.a(c0675.getAwayClub(), c0675, 1, -1, true);
       }
 
-      for (int var3 = 0; var3 < c0675.hl().size(); var3++) {
-         ((Player)c0675.hl().get(var3)).fe();
+      for (int var3 = 0; var3 < c0675.getHomeStartingLineup().size(); var3++) {
+         ((Player)c0675.getHomeStartingLineup().get(var3)).fe();
       }
 
-      for (int var4 = 0; var4 < c0675.hm().size(); var4++) {
-         ((Player)c0675.hm().get(var4)).fe();
+      for (int var4 = 0; var4 < c0675.getAwayStartingLineup().size(); var4++) {
+         ((Player)c0675.getAwayStartingLineup().get(var4)).fe();
       }
 
-      for (int var5 = 0; var5 < c0675.hn().size(); var5++) {
-         ((Player)c0675.hn().get(var5)).fe();
+      for (int var5 = 0; var5 < c0675.getHomeBench().size(); var5++) {
+         ((Player)c0675.getHomeBench().get(var5)).fe();
       }
 
-      for (int var6 = 0; var6 < c0675.ho().size(); var6++) {
-         ((Player)c0675.ho().get(var6)).fe();
+      for (int var6 = 0; var6 < c0675.getAwayBench().size(); var6++) {
+         ((Player)c0675.getAwayBench().get(var6)).fe();
       }
    }
 
@@ -198,17 +198,17 @@ public class MatchEngine {
       int var2 = this.vR();
       if (var2 == this.TB) {
          if (this.vS() == 0) {
-            this.zz.hA()[this.TB]++;
+            this.zz.getShots()[this.TB]++;
             var1 = this.vT();
          } else if (this.To.nextInt(100) < 50) {
-            this.zz.hB()[this.vQ()]++;
+            this.zz.getTackles()[this.vQ()]++;
          } else {
-            this.zz.hC()[this.TB]++;
+            this.zz.getMisplacedPasses()[this.TB]++;
          }
       } else if (this.To.nextInt(100) < 50) {
-         this.zz.hB()[this.vQ()]++;
+         this.zz.getTackles()[this.vQ()]++;
       } else {
-         this.zz.hC()[this.TB]++;
+         this.zz.getMisplacedPasses()[this.TB]++;
       }
 
       this.vP();
@@ -230,9 +230,9 @@ public class MatchEngine {
    private double ez(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       int var3 = this.TA[i].kj()[2];
@@ -263,9 +263,9 @@ public class MatchEngine {
    private double eA(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -290,9 +290,9 @@ public class MatchEngine {
    private double eB(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       Player var3 = null;
@@ -327,9 +327,9 @@ public class MatchEngine {
       ArrayList var2 = null;
       int var3 = 0;
       if (i == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       for (int var4 = 0; var4 < var2.size(); var4++) {
@@ -344,9 +344,9 @@ public class MatchEngine {
    private double eE(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -434,27 +434,27 @@ public class MatchEngine {
          var2 = 1;
       }
 
-      if (this.zz != null && this.zz.hy().b() == 7) {
-         if (this.zz.hc() != null && player.getPais() == this.zz.hc().getPais()) {
-            if (this.zz.hc().getReputacao() < 3) {
+      if (this.zz != null && this.zz.getCompetition().b() == 7) {
+         if (this.zz.getHomeClub() != null && player.getPais() == this.zz.getHomeClub().getPais()) {
+            if (this.zz.getHomeClub().getReputacao() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.zz.hc().getReputacao() == 3) {
+            } else if (this.zz.getHomeClub().getReputacao() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.zz.hc().getReputacao() == 4) {
+            } else if (this.zz.getHomeClub().getReputacao() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
-         } else if (this.zz.hd() != null && player.getPais() == this.zz.hd().getPais()) {
-            if (this.zz.hd().getReputacao() < 3) {
+         } else if (this.zz.getAwayClub() != null && player.getPais() == this.zz.getAwayClub().getPais()) {
+            if (this.zz.getAwayClub().getReputacao() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.zz.hd().getReputacao() == 3) {
+            } else if (this.zz.getAwayClub().getReputacao() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.zz.hd().getReputacao() == 4) {
+            } else if (this.zz.getAwayClub().getReputacao() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
          }
       }
 
-      if (this.zz != null && this.zz.hy().b() == 4) {
+      if (this.zz != null && this.zz.getCompetition().b() == 4) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.75);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -464,7 +464,7 @@ public class MatchEngine {
          }
       }
 
-      if (this.zz != null && this.zz.hy().b() == 5) {
+      if (this.zz != null && this.zz.getCompetition().b() == 5) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.55);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -474,7 +474,7 @@ public class MatchEngine {
          }
       }
 
-      if (this.zz != null && this.zz.hy().b() == 1) {
+      if (this.zz != null && this.zz.getCompetition().b() == 1) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.85);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -483,11 +483,11 @@ public class MatchEngine {
       }
 
       if (this.zz != null
-         && (this.zz.hy().b() == 3 || this.zz.hy().b() == 2)
-         && this.zz.hc().getReputacao() < 3
-         && this.zz.hd().getReputacao() >= 3
+         && (this.zz.getCompetition().b() == 3 || this.zz.getCompetition().b() == 2)
+         && this.zz.getHomeClub().getReputacao() < 3
+         && this.zz.getAwayClub().getReputacao() >= 3
          && player.fg() != null
-         && player.fg().equals(this.zz.hd())) {
+         && player.fg().equals(this.zz.getAwayClub())) {
          var2 = (int)Math.round(var2 * 0.8);
       }
 
@@ -498,8 +498,8 @@ public class MatchEngine {
       this.zz.hY()[i]++;
       int var2 = GameConstants.A(this.zz.hY()[0], this.zz.hY()[0] + this.zz.hY()[1]);
       int var3 = GameConstants.A(this.zz.hY()[1], this.zz.hY()[0] + this.zz.hY()[1]);
-      this.zz.hz()[0] = var2;
-      this.zz.hz()[1] = var3;
+      this.zz.getPossessionPercentages()[0] = var2;
+      this.zz.getPossessionPercentages()[1] = var3;
    }
 
    public int vR() {
@@ -680,14 +680,14 @@ public class MatchEngine {
          var1 = new MatchEvent(this.TB);
          var1.setClub(this.TA[this.TB]);
          this.a(var1, this.TE);
-         this.zz.hZ()[this.TB]++;
+         this.zz.getShotsOnTarget()[this.TB]++;
       } else if (var17 == 1) {
-         this.zz.hZ()[this.TB]++;
+         this.zz.getShotsOnTarget()[this.TB]++;
          if (this.TE != null) {
             this.TE.gB().tL();
          }
       } else if (var17 == 2) {
-         this.zz.ia()[this.TB]++;
+         this.zz.getShotsOffTarget()[this.TB]++;
       }
 
       return var1;
@@ -741,9 +741,9 @@ public class MatchEngine {
       Player var1 = null;
       ArrayList var2 = null;
       if (this.TB == 0) {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       } else {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -811,11 +811,11 @@ public class MatchEngine {
       ArrayList var3 = null;
       int var4 = 0;
       if (this.TB == 0) {
-         var3 = this.zz.hp();
-         var4 = this.zz.hc().kj()[2];
+         var3 = this.zz.getHomePlayersOnField();
+         var4 = this.zz.getHomeClub().kj()[2];
       } else {
-         var3 = this.zz.hq();
-         var4 = this.zz.hd().kj()[2];
+         var3 = this.zz.getAwayPlayersOnField();
+         var4 = this.zz.getAwayClub().kj()[2];
       }
 
       double var5 = 0.0;
@@ -911,9 +911,9 @@ public class MatchEngine {
       Object var1 = null;
       ArrayList var2 = null;
       if (this.TB == 0) {
-         var2 = this.zz.hq();
+         var2 = this.zz.getAwayPlayersOnField();
       } else {
-         var2 = this.zz.hp();
+         var2 = this.zz.getHomePlayersOnField();
       }
 
       double var3 = 0.0;
@@ -987,9 +987,9 @@ public class MatchEngine {
       if (player == null) {
          ArrayList var5 = null;
          if (this.TB == 0) {
-            var5 = this.zz.hp();
+            var5 = this.zz.getHomePlayersOnField();
          } else {
-            var5 = this.zz.hq();
+            var5 = this.zz.getAwayPlayersOnField();
          }
 
          if (var5.size() == 0) {
@@ -1008,7 +1008,7 @@ public class MatchEngine {
          if (var8 != null && var8 != player) {
             var8.gB().gV();
             if (var8.fg() != null && !var8.fC()) {
-               var8.a(8, c0667.getClub(), this.zz.hy());
+               var8.a(8, c0667.getClub(), this.zz.getCompetition());
             }
 
             c0667.setSecondaryPlayer(var8);
@@ -1018,9 +1018,9 @@ public class MatchEngine {
       if (player != null && var3 == 5) {
          ArrayList var9 = null;
          if (this.TB == 0) {
-            var9 = this.zz.hp();
+            var9 = this.zz.getHomePlayersOnField();
          } else {
-            var9 = this.zz.hq();
+            var9 = this.zz.getAwayPlayersOnField();
          }
 
          if (this.TA[this.TB].lq() != null && var9.contains(this.TA[this.TB].lq())) {
@@ -1046,9 +1046,9 @@ public class MatchEngine {
       if (var3 == 3 || var3 == 4) {
          ArrayList var12 = null;
          if (this.TB == 0) {
-            var12 = this.zz.hp();
+            var12 = this.zz.getHomePlayersOnField();
          } else {
-            var12 = this.zz.hq();
+            var12 = this.zz.getAwayPlayersOnField();
          }
 
          if (this.TA[this.TB].ke() != null && var12.contains(this.TA[this.TB].ke())) {
@@ -1069,9 +1069,9 @@ public class MatchEngine {
       if (!var14) {
          this.zA[this.TB]++;
          if (this.TB == 0) {
-            this.zz.hv();
+            this.zz.incrementHomeGoals();
          } else {
-            this.zz.hx();
+            this.zz.incrementAwayGoals();
          }
 
          if (player != null) {

@@ -113,11 +113,11 @@ public class C0137 extends JPanel {
       this.ub = jDialog;
       this.Db = c0827;
       this.Dg = bl;
-      this.De = c0827.tR().hc().jZ();
-      this.Df = c0827.tR().hd().jZ();
-      this.zu = c0827.tR().hc();
-      if (c0827.tR().hd().jZ() && !c0827.tR().hc().jZ()) {
-         this.zu = c0827.tR().hd();
+      this.De = c0827.tR().getHomeClub().jZ();
+      this.Df = c0827.tR().getAwayClub().jZ();
+      this.zu = c0827.tR().getHomeClub();
+      if (c0827.tR().getAwayClub().jZ() && !c0827.tR().getHomeClub().jZ()) {
+         this.zu = c0827.tR().getAwayClub();
          this.Di = 2;
       }
 
@@ -194,9 +194,9 @@ public class C0137 extends JPanel {
 
       this.Di = i;
       if (i == 1) {
-         this.zu = this.Db.tR().hc();
+         this.zu = this.Db.tR().getHomeClub();
       } else {
-         this.zu = this.Db.tR().hd();
+         this.zu = this.Db.tR().getAwayClub();
       }
 
       this.cS(-1);
@@ -232,7 +232,7 @@ public class C0137 extends JPanel {
    }
 
    private void nc() {
-      C0662 var1 = new C0662(this.Db.tR().hE());
+      C0662 var1 = new C0662(this.Db.tR().getEvents());
       this.DG.setModel(var1);
       this.DG.setTableHeader(null);
       int[] var2 = new int[]{20, 180, 20};
@@ -254,17 +254,17 @@ public class C0137 extends JPanel {
 
    private void oS() {
       if (this.De) {
-         this.AL = this.Db.tR().hc().kS();
+         this.AL = this.Db.tR().getHomeClub().kS();
       } else {
-         this.Db.tR().hc().bV(0);
-         this.AL = this.Db.tR().hc().kS();
+         this.Db.tR().getHomeClub().bV(0);
+         this.AL = this.Db.tR().getHomeClub().kS();
       }
 
       if (this.Df) {
-         this.Dd = this.Db.tR().hd().kS();
+         this.Dd = this.Db.tR().getAwayClub().kS();
       } else {
-         this.Db.tR().hd().bV(1);
-         this.Dd = this.Db.tR().hd().kS();
+         this.Db.tR().getAwayClub().bV(1);
+         this.Dd = this.Db.tR().getAwayClub().kS();
       }
    }
 
@@ -531,11 +531,11 @@ public class C0137 extends JPanel {
 
    private void cS(int i) {
       if (this.Di == 1) {
-         this.a(this.Az, ((C0795)this.AE.get(0)).a(this.AE, i, this.AL, false, 1, this.Db.tR().hc(), 2), false);
-         this.a(this.AA, ((C0795)this.AE.get(0)).a(this.AE, i, this.AL, false, 1, this.Db.tR().hc(), 3), true);
+         this.a(this.Az, ((C0795)this.AE.get(0)).a(this.AE, i, this.AL, false, 1, this.Db.tR().getHomeClub(), 2), false);
+         this.a(this.AA, ((C0795)this.AE.get(0)).a(this.AE, i, this.AL, false, 1, this.Db.tR().getHomeClub(), 3), true);
       } else {
-         this.a(this.Az, ((C0795)this.AE.get(0)).a(this.Dc, i, this.Dd, false, 2, this.Db.tR().hd(), 2), false);
-         this.a(this.AA, ((C0795)this.AE.get(0)).a(this.Dc, i, this.Dd, false, 2, this.Db.tR().hd(), 3), true);
+         this.a(this.Az, ((C0795)this.AE.get(0)).a(this.Dc, i, this.Dd, false, 2, this.Db.tR().getAwayClub(), 2), false);
+         this.a(this.AA, ((C0795)this.AE.get(0)).a(this.Dc, i, this.Dd, false, 2, this.Db.tR().getAwayClub(), 3), true);
       }
    }
 
@@ -564,7 +564,7 @@ public class C0137 extends JPanel {
          this.Dc.add(var13);
       }
 
-      if (!this.Db.tR().hc().jZ() && !this.Db.tR().hd().jZ()) {
+      if (!this.Db.tR().getHomeClub().jZ() && !this.Db.tR().getAwayClub().jZ()) {
          for (int var12 = 1; var12 <= 2; var12++) {
             ArrayList var16 = this.dd(var12);
             ArrayList var3 = this.AE;
@@ -591,25 +591,25 @@ public class C0137 extends JPanel {
             }
          }
       } else {
-         for (int var8 = 0; var8 < this.Db.tR().hp().size(); var8++) {
-            if (this.Db.tR().hp().get(var8) != null && ((Player)this.Db.tR().hp().get(var8)).fT() >= 1 && ((Player)this.Db.tR().hp().get(var8)).fT() <= 25) {
-               ((C0795)this.AE.get(((Player)this.Db.tR().hp().get(var8)).fT())).a((Player)this.Db.tR().hp().get(var8));
-               ((C0795)this.AE.get(((Player)this.Db.tR().hp().get(var8)).fT())).h(this.AL);
+         for (int var8 = 0; var8 < this.Db.tR().getHomePlayersOnField().size(); var8++) {
+            if (this.Db.tR().getHomePlayersOnField().get(var8) != null && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT() >= 1 && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT() <= 25) {
+               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT())).a((Player)this.Db.tR().getHomePlayersOnField().get(var8));
+               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT())).h(this.AL);
             }
          }
 
-         for (int var9 = 0; var9 < this.Db.tR().hq().size(); var9++) {
-            if (this.Db.tR().hq().get(var9) != null && ((Player)this.Db.tR().hq().get(var9)).fT() >= 1 && ((Player)this.Db.tR().hq().get(var9)).fT() <= 25) {
-               ((C0795)this.Dc.get(((Player)this.Db.tR().hq().get(var9)).fT())).a((Player)this.Db.tR().hq().get(var9));
-               ((C0795)this.Dc.get(((Player)this.Db.tR().hq().get(var9)).fT())).h(this.Dd);
+         for (int var9 = 0; var9 < this.Db.tR().getAwayPlayersOnField().size(); var9++) {
+            if (this.Db.tR().getAwayPlayersOnField().get(var9) != null && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT() >= 1 && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT() <= 25) {
+               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT())).a((Player)this.Db.tR().getAwayPlayersOnField().get(var9));
+               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT())).h(this.Dd);
             }
          }
 
          int var10 = 26;
 
-         for (int var14 = 0; var14 < this.Db.tR().hn().size(); var14++) {
-            if (var10 <= 36 && this.Db.tR().hn().get(var14) != null && !this.Db.tR().hp().contains(this.Db.tR().hn().get(var14))) {
-               ((C0795)this.AE.get(var10)).a((Player)this.Db.tR().hn().get(var14));
+         for (int var14 = 0; var14 < this.Db.tR().getHomeBench().size(); var14++) {
+            if (var10 <= 36 && this.Db.tR().getHomeBench().get(var14) != null && !this.Db.tR().getHomePlayersOnField().contains(this.Db.tR().getHomeBench().get(var14))) {
+               ((C0795)this.AE.get(var10)).a((Player)this.Db.tR().getHomeBench().get(var14));
                ((C0795)this.AE.get(var10)).h(this.AL);
                var10++;
             }
@@ -617,9 +617,9 @@ public class C0137 extends JPanel {
 
          var10 = 26;
 
-         for (int var15 = 0; var15 < this.Db.tR().ho().size(); var15++) {
-            if (var10 <= 36 && this.Db.tR().ho().get(var15) != null && !this.Db.tR().hq().contains(this.Db.tR().ho().get(var15))) {
-               ((C0795)this.Dc.get(var10)).a((Player)this.Db.tR().ho().get(var15));
+         for (int var15 = 0; var15 < this.Db.tR().getAwayBench().size(); var15++) {
+            if (var10 <= 36 && this.Db.tR().getAwayBench().get(var15) != null && !this.Db.tR().getAwayPlayersOnField().contains(this.Db.tR().getAwayBench().get(var15))) {
+               ((C0795)this.Dc.get(var10)).a((Player)this.Db.tR().getAwayBench().get(var15));
                ((C0795)this.Dc.get(var10)).h(this.Dd);
                var10++;
             }
@@ -630,33 +630,33 @@ public class C0137 extends JPanel {
    }
 
    private ArrayList dd(int i) {
-      Club var2 = this.Db.tR().hc();
+      Club var2 = this.Db.tR().getHomeClub();
       if (i == 2) {
-         var2 = this.Db.tR().hd();
+         var2 = this.Db.tR().getAwayClub();
       }
 
       ArrayList var3 = new ArrayList();
       if (i == 1) {
-         var3.addAll(this.Db.tR().hl());
+         var3.addAll(this.Db.tR().getHomeStartingLineup());
       } else if (i == 2) {
-         var3.addAll(this.Db.tR().hm());
+         var3.addAll(this.Db.tR().getAwayStartingLineup());
       }
 
-      for (int var4 = 0; var4 < this.Db.tR().hE().size(); var4++) {
-         if (((MatchEvent)this.Db.tR().hE().get(var4)).isDone()
-            && ((MatchEvent)this.Db.tR().hE().get(var4)).getType() == 6
-            && ((MatchEvent)this.Db.tR().hE().get(var4)).getClub() == var2) {
-            var3.remove(((MatchEvent)this.Db.tR().hE().get(var4)).getPrimaryPlayer());
-            var3.add(((MatchEvent)this.Db.tR().hE().get(var4)).getSecondaryPlayer());
+      for (int var4 = 0; var4 < this.Db.tR().getEvents().size(); var4++) {
+         if (((MatchEvent)this.Db.tR().getEvents().get(var4)).isDone()
+            && ((MatchEvent)this.Db.tR().getEvents().get(var4)).getType() == 6
+            && ((MatchEvent)this.Db.tR().getEvents().get(var4)).getClub() == var2) {
+            var3.remove(((MatchEvent)this.Db.tR().getEvents().get(var4)).getPrimaryPlayer());
+            var3.add(((MatchEvent)this.Db.tR().getEvents().get(var4)).getSecondaryPlayer());
          }
       }
 
-      for (int var5 = 0; var5 < this.Db.tR().hE().size(); var5++) {
-         if (((MatchEvent)this.Db.tR().hE().get(var5)).isDone()
-            && ((MatchEvent)this.Db.tR().hE().get(var5)).getClub() == var2
-            && (((MatchEvent)this.Db.tR().hE().get(var5)).getType() == 3 || ((MatchEvent)this.Db.tR().hE().get(var5)).getType() == 4)) {
-            var3.remove(((MatchEvent)this.Db.tR().hE().get(var5)).getPrimaryPlayer());
-            var3.add(((MatchEvent)this.Db.tR().hE().get(var5)).getSecondaryPlayer());
+      for (int var5 = 0; var5 < this.Db.tR().getEvents().size(); var5++) {
+         if (((MatchEvent)this.Db.tR().getEvents().get(var5)).isDone()
+            && ((MatchEvent)this.Db.tR().getEvents().get(var5)).getClub() == var2
+            && (((MatchEvent)this.Db.tR().getEvents().get(var5)).getType() == 3 || ((MatchEvent)this.Db.tR().getEvents().get(var5)).getType() == 4)) {
+            var3.remove(((MatchEvent)this.Db.tR().getEvents().get(var5)).getPrimaryPlayer());
+            var3.add(((MatchEvent)this.Db.tR().getEvents().get(var5)).getSecondaryPlayer());
          }
       }
 
@@ -664,25 +664,25 @@ public class C0137 extends JPanel {
    }
 
    private ArrayList de(int i) {
-      Club var2 = this.Db.tR().hc();
+      Club var2 = this.Db.tR().getHomeClub();
       if (i == 2) {
-         var2 = this.Db.tR().hd();
+         var2 = this.Db.tR().getAwayClub();
       }
 
       ArrayList var3 = new ArrayList();
       if (i == 1) {
-         var3.addAll(this.Db.tR().hn());
+         var3.addAll(this.Db.tR().getHomeBench());
          var3.addAll(this.Db.tR().ie());
       } else if (i == 2) {
-         var3.addAll(this.Db.tR().ho());
+         var3.addAll(this.Db.tR().getAwayBench());
          var3.addAll(this.Db.tR().method_kw_if());
       }
 
-      for (int var4 = 0; var4 < this.Db.tR().hE().size(); var4++) {
-         if (((MatchEvent)this.Db.tR().hE().get(var4)).isDone()
-            && ((MatchEvent)this.Db.tR().hE().get(var4)).getType() == 6
-            && ((MatchEvent)this.Db.tR().hE().get(var4)).getClub() == var2) {
-            var3.remove(((MatchEvent)this.Db.tR().hE().get(var4)).getSecondaryPlayer());
+      for (int var4 = 0; var4 < this.Db.tR().getEvents().size(); var4++) {
+         if (((MatchEvent)this.Db.tR().getEvents().get(var4)).isDone()
+            && ((MatchEvent)this.Db.tR().getEvents().get(var4)).getType() == 6
+            && ((MatchEvent)this.Db.tR().getEvents().get(var4)).getClub() == var2) {
+            var3.remove(((MatchEvent)this.Db.tR().getEvents().get(var4)).getSecondaryPlayer());
          }
       }
 
@@ -722,10 +722,10 @@ public class C0137 extends JPanel {
    }
 
    private void mK() {
-      this.zO.setForeground(this.Db.tR().hc().kC());
-      this.zO.setBackground(this.Db.tR().hc().kB());
-      this.zP.setForeground(this.Db.tR().hd().kC());
-      this.zP.setBackground(this.Db.tR().hd().kB());
+      this.zO.setForeground(this.Db.tR().getHomeClub().kC());
+      this.zO.setBackground(this.Db.tR().getHomeClub().kB());
+      this.zP.setForeground(this.Db.tR().getAwayClub().kC());
+      this.zP.setBackground(this.Db.tR().getAwayClub().kB());
       this.Dw.setForeground(Color.WHITE);
       this.Dw.setBackground(Color.BLACK);
       this.Dx.setForeground(Color.WHITE);
@@ -751,8 +751,8 @@ public class C0137 extends JPanel {
       } else {
          if (this.Db.ik() != null) {
             this.Cg.setText(this.Db.ik());
-         } else if (this.Db.tR().hc().lp()) {
-            this.Cg.setText(this.Db.tR().hc().getNome());
+         } else if (this.Db.tR().getHomeClub().lp()) {
+            this.Cg.setText(this.Db.tR().getHomeClub().getNome());
          }
 
          this.Dy.setText("n/i");
@@ -760,8 +760,8 @@ public class C0137 extends JPanel {
       }
 
       int[] var1 = new int[]{-1, -1};
-      if (this.Db.tR().ht() instanceof KnockoutStage && ((KnockoutStage)this.Db.tR().ht()).zr() == 2) {
-         var1 = ((KnockoutStage)this.Db.tR().ht()).o(this.Db.tR());
+      if (this.Db.tR().getCompetitionStage() instanceof KnockoutStage && ((KnockoutStage)this.Db.tR().getCompetitionStage()).zr() == 2) {
+         var1 = ((KnockoutStage)this.Db.tR().getCompetitionStage()).o(this.Db.tR());
       }
 
       String[] var2 = new String[]{"", ""};
@@ -771,12 +771,12 @@ public class C0137 extends JPanel {
          this.Dl.setText("Primeiro jogo:" + Integer.toString(var1[0]) + " x " + Integer.toString(var1[1]));
       }
 
-      this.zO.setText("  " + this.Db.tR().hc().getNome());
-      this.zP.setText("  " + this.Db.tR().hd().getNome());
+      this.zO.setText("  " + this.Db.tR().getHomeClub().getNome());
+      this.zP.setText("  " + this.Db.tR().getAwayClub().getNome());
       this.Dw.setText(Integer.toString(this.Db.tT()));
       this.Dx.setText(Integer.toString(this.Db.tU()));
-      this.zO.setIcon(this.Db.tR().hc().kU());
-      this.zP.setIcon(this.Db.tR().hd().kU());
+      this.zO.setIcon(this.Db.tR().getHomeClub().kU());
+      this.zP.setIcon(this.Db.tR().getAwayClub().kU());
       if (this.Db.ei()) {
          this.xI.setText(this.Db.tR().ha());
       } else {

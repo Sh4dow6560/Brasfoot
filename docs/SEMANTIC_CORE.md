@@ -53,6 +53,13 @@ jogadores principal e secundario, lado do time, confirmacao, texto e icone.
 Esses acessos sao exercitados no JAR final e preservados pelo round-trip do
 save de referencia.
 
+`Match` identifica diretamente fase, competicao, indice do calendario, clubes
+da casa e visitante, placar, estadio, titulares, reservas, jogadores em campo,
+eventos, posse, finalizacoes, chutes no gol, chutes para fora, desarmes, passes
+errados e faltas. A API funcional inclui os respectivos acessos, incrementos
+de placar, `getEvents`, `getScheduleIndex`, `getMatchEngine` e
+`recalculateScoreFromEvents`.
+
 ## Transferencias
 
 | Fonte | Classe oficial | Papel |

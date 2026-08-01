@@ -37,14 +37,14 @@ public class C0373 extends JPanel {
       this.Db = c0827;
       this.JO = c0667;
       this.ef = player;
-      if (c0827.tR().hc() == c0667.getClub()) {
+      if (c0827.tR().getHomeClub() == c0667.getClub()) {
          this.JQ = 1;
          this.JR = 2;
-         this.JS = c0827.tR().hc().jZ();
-      } else if (c0827.tR().hd() == c0667.getClub()) {
+         this.JS = c0827.tR().getHomeClub().jZ();
+      } else if (c0827.tR().getAwayClub() == c0667.getClub()) {
          this.JQ = 2;
          this.JR = 1;
-         this.JS = c0827.tR().hd().jZ();
+         this.JS = c0827.tR().getAwayClub().jZ();
       }
 
       this.JP = c0827.tR().aT(this.JR);
@@ -166,18 +166,18 @@ public class C0373 extends JPanel {
          this.Db.a(this.JO);
 
          try {
-            this.Db.tR().hW().eG(this.JQ - 1);
+            this.Db.tR().getMatchEngine().eG(this.JQ - 1);
          } catch (Exception var8) {
          }
 
          if (this.JQ == 1) {
-            this.Db.tR().hv();
+            this.Db.tR().incrementHomeGoals();
          } else {
-            this.Db.tR().hx();
+            this.Db.tR().incrementAwayGoals();
          }
 
-         this.Db.tR().hA()[this.JQ - 1]++;
-         this.Db.tR().hZ()[this.JQ - 1]++;
+         this.Db.tR().getShots()[this.JQ - 1]++;
+         this.Db.tR().getShotsOnTarget()[this.JQ - 1]++;
          this.ef.gB().z();
          if (this.JS && this.JT != null) {
             this.JT.dk(2);
@@ -185,7 +185,7 @@ public class C0373 extends JPanel {
             this.JT.dk(3);
          }
       } else {
-         this.Db.tR().hA()[this.JQ - 1]++;
+         this.Db.tR().getShots()[this.JQ - 1]++;
          this.ef.gB().tF();
          int var11 = new Random().nextInt(7);
          if (var11 == 0) {
@@ -207,9 +207,9 @@ public class C0373 extends JPanel {
          }
 
          if (var11 != 2 && var11 != 6) {
-            this.Db.tR().hZ()[this.JQ - 1]++;
+            this.Db.tR().getShotsOnTarget()[this.JQ - 1]++;
          } else {
-            this.Db.tR().ia()[this.JQ - 1]++;
+            this.Db.tR().getShotsOffTarget()[this.JQ - 1]++;
          }
 
          this.JO.setType(7);

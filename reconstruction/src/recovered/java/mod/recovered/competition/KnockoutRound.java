@@ -85,8 +85,8 @@ public class KnockoutRound implements Serializable {
       if (this.aaj != null && this.aaj.size() > 0) {
          for (int var3 = 0; var3 < this.aaj.size(); var3++) {
             if (this.aaj.get(var3) == c0675) {
-               var2[0] = ((Match)this.aai.get(var3)).hw();
-               var2[1] = ((Match)this.aai.get(var3)).hu();
+               var2[0] = ((Match)this.aai.get(var3)).getAwayGoals();
+               var2[1] = ((Match)this.aai.get(var3)).getHomeGoals();
                break;
             }
          }
@@ -192,8 +192,8 @@ public class KnockoutRound implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < this.aai.size(); var2++) {
-         var1.add(((Match)this.aai.get(var2)).hc());
-         var1.add(((Match)this.aai.get(var2)).hd());
+         var1.add(((Match)this.aai.get(var2)).getHomeClub());
+         var1.add(((Match)this.aai.get(var2)).getAwayClub());
       }
 
       return var1;
@@ -256,8 +256,8 @@ public class KnockoutRound implements Serializable {
          var9 = 0;
          var10 = 0;
          var11 = 0;
-         var3 = ((Match)this.aai.get(var12)).hu();
-         var4 = ((Match)this.aai.get(var12)).hw();
+         var3 = ((Match)this.aai.get(var12)).getHomeGoals();
+         var4 = ((Match)this.aai.get(var12)).getAwayGoals();
          var10 = var3;
          var11 = var4;
          if (var3 > var4) {
@@ -267,8 +267,8 @@ public class KnockoutRound implements Serializable {
          }
 
          if (this.gj) {
-            var5 = ((Match)this.aaj.get(var12)).hw();
-            var6 = ((Match)this.aaj.get(var12)).hu();
+            var5 = ((Match)this.aaj.get(var12)).getAwayGoals();
+            var6 = ((Match)this.aaj.get(var12)).getHomeGoals();
             if (var5 > var6) {
                var7++;
             } else if (var6 > var5) {
@@ -310,12 +310,12 @@ public class KnockoutRound implements Serializable {
             }
 
             if (var13.hP() && var13.hR() != null) {
-               if (var13.hR() == ((Match)this.aai.get(var12)).hc()) {
+               if (var13.hR() == ((Match)this.aai.get(var12)).getHomeClub()) {
                   var9 = 1;
                } else {
                   var9 = 2;
                }
-            } else if (((Match)this.aai.get(var12)).hc().lf() < ((Match)this.aai.get(var12)).hc().lf()) {
+            } else if (((Match)this.aai.get(var12)).getHomeClub().lf() < ((Match)this.aai.get(var12)).getHomeClub().lf()) {
                var9 = 1;
             } else {
                var9 = 2;
@@ -323,32 +323,32 @@ public class KnockoutRound implements Serializable {
          }
 
          if (var9 == 1) {
-            this.aak.add(((Match)this.aai.get(var12)).hc());
-            this.aal.add(((Match)this.aai.get(var12)).hd());
+            this.aak.add(((Match)this.aai.get(var12)).getHomeClub());
+            this.aal.add(((Match)this.aai.get(var12)).getAwayClub());
             Match var34 = (Match)this.aai.get(var12);
             if (this.gj) {
                var34 = (Match)this.aaj.get(var12);
             }
 
-            this.a(var34, ((Match)this.aai.get(var12)).hc().ka(), 1);
-            this.a(var34, ((Match)this.aai.get(var12)).hd().ka(), 2);
-            this.V(((Match)this.aai.get(var12)).hc());
+            this.a(var34, ((Match)this.aai.get(var12)).getHomeClub().ka(), 1);
+            this.a(var34, ((Match)this.aai.get(var12)).getAwayClub().ka(), 2);
+            this.V(((Match)this.aai.get(var12)).getHomeClub());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
-               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).hc().getPais()));
+               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).getHomeClub().getPais()));
             }
          } else {
-            this.aak.add(((Match)this.aai.get(var12)).hd());
-            this.aal.add(((Match)this.aai.get(var12)).hc());
+            this.aak.add(((Match)this.aai.get(var12)).getAwayClub());
+            this.aal.add(((Match)this.aai.get(var12)).getHomeClub());
             Match var35 = (Match)this.aai.get(var12);
             if (this.gj) {
                var35 = (Match)this.aaj.get(var12);
             }
 
-            this.a(var35, ((Match)this.aai.get(var12)).hc().ka(), 2);
-            this.a(var35, ((Match)this.aai.get(var12)).hd().ka(), 1);
-            this.V(((Match)this.aai.get(var12)).hd());
+            this.a(var35, ((Match)this.aai.get(var12)).getHomeClub().ka(), 2);
+            this.a(var35, ((Match)this.aai.get(var12)).getAwayClub().ka(), 1);
+            this.V(((Match)this.aai.get(var12)).getAwayClub());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
-               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).hd().getPais()));
+               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).getAwayClub().getPais()));
             }
          }
       }
@@ -436,14 +436,14 @@ public class KnockoutRound implements Serializable {
                   CompetitionStage var36 = this.aae.zy();
                   Club var14 = null;
                   Club var15 = null;
-                  if (this.aak.get(0) == ((Match)this.aai.get(0)).hc()) {
+                  if (this.aak.get(0) == ((Match)this.aai.get(0)).getHomeClub()) {
                      boolean var26 = true;
-                     var14 = ((Match)this.aai.get(0)).hc();
-                     var15 = ((Match)this.aai.get(0)).hd();
+                     var14 = ((Match)this.aai.get(0)).getHomeClub();
+                     var15 = ((Match)this.aai.get(0)).getAwayClub();
                   } else {
                      var9 = 2;
-                     var14 = ((Match)this.aai.get(0)).hd();
-                     var15 = ((Match)this.aai.get(0)).hc();
+                     var14 = ((Match)this.aai.get(0)).getAwayClub();
+                     var15 = ((Match)this.aai.get(0)).getHomeClub();
                   }
 
                   new CompetitionSeasonResult(var32, var36, var14, var15);
@@ -468,7 +468,7 @@ public class KnockoutRound implements Serializable {
    }
 
    private void a(Match c0675, Coach coach, int i) {
-      if (c0675 != null && coach != null && c0675.hy() != null && c0675.hy().b() != 7 && c0675.hy().b() != 9) {
+      if (c0675 != null && coach != null && c0675.getCompetition() != null && c0675.getCompetition().b() != 7 && c0675.getCompetition().b() != 9) {
          coach.a(c0675, true, i);
       }
    }
@@ -487,7 +487,7 @@ public class KnockoutRound implements Serializable {
 
    public boolean ad(Club club) {
       for (int var2 = 0; var2 < this.aai.size(); var2++) {
-         if (((Match)this.aai.get(var2)).hc() == club || ((Match)this.aai.get(var2)).hd() == club) {
+         if (((Match)this.aai.get(var2)).getHomeClub() == club || ((Match)this.aai.get(var2)).getAwayClub() == club) {
             return true;
          }
       }

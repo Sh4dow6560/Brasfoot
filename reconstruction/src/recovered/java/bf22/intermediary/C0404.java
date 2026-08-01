@@ -112,8 +112,8 @@ public class C0404 extends JPanel {
 
       for (int var18 = 0; var18 < i; var18++) {
          Match var19 = new Match(this.LF, this.LG, this.LQ.isSelected());
-         Club.a(var19.hc(), var19, 1, var16, false);
-         Club.a(var19.hd(), var19, 2, var17, false);
+         Club.a(var19.getHomeClub(), var19, 1, var16, false);
+         Club.a(var19.getAwayClub(), var19, 2, var17, false);
          MatchEngine var20 = new MatchEngine(var19);
          var19.a(var20);
          int[] var21 = new int[]{new Random().nextInt(3), new Random().nextInt(5) + 1};
@@ -124,7 +124,7 @@ public class C0404 extends JPanel {
             if (var23 != null) {
                var23.setMinute(var22);
                var23.setPeriod(1);
-               var19.hE().add(var23);
+               var19.getEvents().add(var23);
             }
          }
 
@@ -134,7 +134,7 @@ public class C0404 extends JPanel {
             if (var43 != null) {
                var43.setMinute(var28);
                var43.setPeriod(2);
-               var19.hE().add(var43);
+               var19.getEvents().add(var43);
             }
          }
 
@@ -170,7 +170,7 @@ public class C0404 extends JPanel {
          var13[1] += var20.wh()[1];
          if (var18 == i - 1) {
             int[] var29 = var20.vX();
-            this.GJ.setText(var19.hc().getNome() + Integer.toString(var29[0]) + " x " + Integer.toString(var29[1]) + var19.hd().getNome());
+            this.GJ.setText(var19.getHomeClub().getNome() + Integer.toString(var29[0]) + " x " + Integer.toString(var29[1]) + var19.getAwayClub().getNome());
             String var45 = "<html>";
             var45 = var45 + "<br>Placar:" + Integer.toString(var20.vX()[0]) + " x " + Integer.toString(var20.vX()[1]);
             var45 = var45 + "<br>Venceu meio: " + Integer.toString(var20.hY()[0]) + "/" + Integer.toString(var20.hY()[1]);
@@ -183,17 +183,17 @@ public class C0404 extends JPanel {
             this.yA.setText(var45);
             String var24 = "<html>";
 
-            for (int var25 = 0; var25 < var19.hE().size(); var25++) {
+            for (int var25 = 0; var25 < var19.getEvents().size(); var25++) {
                var24 = var24
-                  + ((MatchEvent)var19.hE().get(var25)).getPrimaryPlayer().getNome()
+                  + ((MatchEvent)var19.getEvents().get(var25)).getPrimaryPlayer().getNome()
                   + " "
-                  + GameConstants.rI[((MatchEvent)var19.hE().get(var25)).getPrimaryPlayer().getPosicao()]
+                  + GameConstants.rI[((MatchEvent)var19.getEvents().get(var25)).getPrimaryPlayer().getPosicao()]
                   + " "
-                  + Integer.toString(((MatchEvent)var19.hE().get(var25)).getMinute())
+                  + Integer.toString(((MatchEvent)var19.getEvents().get(var25)).getMinute())
                   + "' - "
-                  + Integer.toString(((MatchEvent)var19.hE().get(var25)).getPeriod())
+                  + Integer.toString(((MatchEvent)var19.getEvents().get(var25)).getPeriod())
                   + "º "
-                  + ((MatchEvent)var19.hE().get(var25)).getClub().getNome()
+                  + ((MatchEvent)var19.getEvents().get(var25)).getClub().getNome()
                   + "<br>";
             }
 

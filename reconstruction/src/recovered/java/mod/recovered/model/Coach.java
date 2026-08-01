@@ -169,32 +169,32 @@ public class Coach implements Serializable {
       int var12 = 0;
       int[] var13 = new int[3];
       int var14 = 0;
-      if (c0675.hy() != null) {
-         var14 = c0675.hy().b();
+      if (c0675.getCompetition() != null) {
+         var14 = c0675.getCompetition().b();
       }
 
-      if (c0675.hc() == this.fg()) {
-         var4 = c0675.hu();
-         var5 = c0675.hw();
-         if (c0675.hc().A(c0675.hd())) {
+      if (c0675.getHomeClub() == this.fg()) {
+         var4 = c0675.getHomeGoals();
+         var5 = c0675.getAwayGoals();
+         if (c0675.getHomeClub().A(c0675.getAwayClub())) {
             var10 = true;
          }
 
-         var12 = c0675.hc().getNivel() - c0675.hd().getNivel();
+         var12 = c0675.getHomeClub().getNivel() - c0675.getAwayClub().getNivel();
          if (!bl) {
-            var13 = c0675.hc().p(c0675.hy());
+            var13 = c0675.getHomeClub().p(c0675.getCompetition());
          }
-      } else if (c0675.hd() == this.fg()) {
-         var4 = c0675.hw();
-         var5 = c0675.hu();
+      } else if (c0675.getAwayClub() == this.fg()) {
+         var4 = c0675.getAwayGoals();
+         var5 = c0675.getHomeGoals();
          var8 = true;
-         if (c0675.hd().A(c0675.hc())) {
+         if (c0675.getAwayClub().A(c0675.getHomeClub())) {
             var10 = true;
          }
 
-         var12 = c0675.hd().getNivel() - c0675.hc().getNivel();
+         var12 = c0675.getAwayClub().getNivel() - c0675.getHomeClub().getNivel();
          if (!bl) {
-            var13 = c0675.hd().p(c0675.hy());
+            var13 = c0675.getAwayClub().p(c0675.getCompetition());
          }
       }
 
@@ -429,22 +429,22 @@ public class Coach implements Serializable {
       int var3 = 0;
       boolean var4 = false;
       Club var5 = null;
-      if (c0675.hc() == this.fg()) {
-         var2 = c0675.hu();
-         var3 = c0675.hw();
+      if (c0675.getHomeClub() == this.fg()) {
+         var2 = c0675.getHomeGoals();
+         var3 = c0675.getAwayGoals();
          var5 = this.fg();
-      } else if (c0675.hd() == this.fg()) {
-         var2 = c0675.hw();
-         var3 = c0675.hu();
+      } else if (c0675.getAwayClub() == this.fg()) {
+         var2 = c0675.getAwayGoals();
+         var3 = c0675.getHomeGoals();
          var4 = true;
          var5 = this.fg();
-      } else if (c0675.hc() == this.hy) {
-         var2 = c0675.hu();
-         var3 = c0675.hw();
+      } else if (c0675.getHomeClub() == this.hy) {
+         var2 = c0675.getHomeGoals();
+         var3 = c0675.getAwayGoals();
          var5 = this.hy;
-      } else if (c0675.hd() == this.hy) {
-         var2 = c0675.hw();
-         var3 = c0675.hu();
+      } else if (c0675.getAwayClub() == this.hy) {
+         var2 = c0675.getAwayGoals();
+         var3 = c0675.getHomeGoals();
          var5 = this.hy;
          var4 = true;
       }
@@ -452,10 +452,10 @@ public class Coach implements Serializable {
       int var6 = 0;
       int var7 = 0;
       boolean var8 = false;
-      if (c0675.hy() != null) {
-         var6 = c0675.hy().b();
+      if (c0675.getCompetition() != null) {
+         var6 = c0675.getCompetition().b();
          if (var6 == 1 || var6 == 3) {
-            var7 = c0675.hy().ip();
+            var7 = c0675.getCompetition().ip();
          }
       }
 

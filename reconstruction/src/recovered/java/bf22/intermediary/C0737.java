@@ -32,11 +32,11 @@ public abstract class C0737 {
 
       for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
          if (var1 == -1) {
-            var1 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b();
-            var2 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().el();
+            var1 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b();
+            var2 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().el();
          }
 
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hd().jZ()) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().jZ()) {
             var0 = true;
             break;
          }
@@ -62,7 +62,7 @@ public abstract class C0737 {
       boolean[] var3 = GamePersistence.careerState.getVerJint();
 
       for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() == c0713 && (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hd().jZ())) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() == c0713 && (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().jZ())) {
             return true;
          }
       }

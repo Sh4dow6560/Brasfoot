@@ -151,15 +151,15 @@ public class C0208 extends JPanel {
          boolean var3 = true;
 
          for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
-            if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() == arrayList.get(var2)) {
+            if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() == arrayList.get(var2)) {
                if (var3) {
                   if (var2 == 0) {
-                     this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy(), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).ht());
+                     this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition(), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetitionStage());
                   }
 
                   if (var2 != -1) {
                      C0827 var5 = new C0827();
-                     var5.L(this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy(), (Match)GamePersistence.careerState.getCurrentMatches().get(var4), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).ht()));
+                     var5.L(this.a(((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition(), (Match)GamePersistence.careerState.getCurrentMatches().get(var4), ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetitionStage()));
                      vK.add(var5);
                   }
 
@@ -169,30 +169,30 @@ public class C0208 extends JPanel {
                C0827 var13 = new C0827();
                var13.n((Match)GamePersistence.careerState.getCurrentMatches().get(var4));
                var13.tW();
-               if (var13.tR().hc() != null) {
-                  var13.tR().hc().Q(var13.tR().hp());
-                  var13.tR().hc().O(var13.tR().hp());
+               if (var13.tR().getHomeClub() != null) {
+                  var13.tR().getHomeClub().Q(var13.tR().getHomePlayersOnField());
+                  var13.tR().getHomeClub().O(var13.tR().getHomePlayersOnField());
                }
 
-               if (var13.tR().hd() != null) {
-                  var13.tR().hd().Q(var13.tR().hq());
-                  var13.tR().hd().O(var13.tR().hq());
+               if (var13.tR().getAwayClub() != null) {
+                  var13.tR().getAwayClub().Q(var13.tR().getAwayPlayersOnField());
+                  var13.tR().getAwayClub().O(var13.tR().getAwayPlayersOnField());
                }
 
-               if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 7) {
+               if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b() == 7) {
                   Object var6 = null;
                   var13.p(var13.tR().ik());
                } else if (var13.tR().ev() == null) {
-                  if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 4) {
-                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof UefaChampionsLeague) {
+                  if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b() == 4) {
+                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() instanceof UefaChampionsLeague) {
                         var13.p(UefaChampionsLeague.yD());
-                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof CopaLibertadores) {
+                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() instanceof CopaLibertadores) {
                         var13.p(CopaLibertadores.yD());
                      }
-                  } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy().b() == 6) {
-                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof CopaSudamericana) {
+                  } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b() == 6) {
+                     if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() instanceof CopaSudamericana) {
                         var13.p(CopaSudamericana.yD());
-                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).hy() instanceof UefaEuropaLeague) {
+                     } else if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() instanceof UefaEuropaLeague) {
                         var13.p(UefaEuropaLeague.yD());
                      }
                   }
@@ -258,14 +258,14 @@ public class C0208 extends JPanel {
 
    public void pZ() {
       this.Hr.setVisible(true);
-      this.Hp.setBackground(((C0827)vK.get(this.GW)).tR().hc().kB());
-      this.Hp.setForeground(((C0827)vK.get(this.GW)).tR().hc().kC());
-      this.Hp.setText(((C0827)vK.get(this.GW)).tR().hc().getNome() + " ");
-      this.Ho.setBackground(((C0827)vK.get(this.GW)).tR().hd().kB());
-      this.Ho.setForeground(((C0827)vK.get(this.GW)).tR().hd().kC());
-      this.Ho.setText(" " + ((C0827)vK.get(this.GW)).tR().hd().getNome());
-      this.Hh.setIcon(((C0827)vK.get(this.GW)).tR().hc().kP());
-      this.Hi.setIcon(((C0827)vK.get(this.GW)).tR().hd().kP());
+      this.Hp.setBackground(((C0827)vK.get(this.GW)).tR().getHomeClub().kB());
+      this.Hp.setForeground(((C0827)vK.get(this.GW)).tR().getHomeClub().kC());
+      this.Hp.setText(((C0827)vK.get(this.GW)).tR().getHomeClub().getNome() + " ");
+      this.Ho.setBackground(((C0827)vK.get(this.GW)).tR().getAwayClub().kB());
+      this.Ho.setForeground(((C0827)vK.get(this.GW)).tR().getAwayClub().kC());
+      this.Ho.setText(" " + ((C0827)vK.get(this.GW)).tR().getAwayClub().getNome());
+      this.Hh.setIcon(((C0827)vK.get(this.GW)).tR().getHomeClub().kP());
+      this.Hi.setIcon(((C0827)vK.get(this.GW)).tR().getAwayClub().kP());
       if (((C0827)vK.get(this.GW)).tR().ev() != null) {
          this.Hl.setText(((C0827)vK.get(this.GW)).tR().ev().dS());
          this.Hm.setText(Integer.toString(((C0827)vK.get(this.GW)).hU()));
@@ -283,8 +283,8 @@ public class C0208 extends JPanel {
       this.Hk.setIcon(null);
       this.Hn.setText("0 x 0");
       this.xI.setText("");
-      if (((C0827)vK.get(this.GW)).tR().hy() != null) {
-         this.Ht.setText(this.a(((C0827)vK.get(this.GW)).tR().hy(), ((C0827)vK.get(this.GW)).tR(), ((C0827)vK.get(this.GW)).tR().ht()));
+      if (((C0827)vK.get(this.GW)).tR().getCompetition() != null) {
+         this.Ht.setText(this.a(((C0827)vK.get(this.GW)).tR().getCompetition(), ((C0827)vK.get(this.GW)).tR(), ((C0827)vK.get(this.GW)).tR().getCompetitionStage()));
       } else {
          this.Ht.setText("");
       }
@@ -431,30 +431,30 @@ public class C0208 extends JPanel {
    }
 
    private void g(Match c0675) {
-      if (!c0675.hc().jZ() && !c0675.hd().jZ()) {
+      if (!c0675.getHomeClub().jZ() && !c0675.getAwayClub().jZ()) {
          ArrayList var5 = new ArrayList();
-         var5.addAll(c0675.hp());
+         var5.addAll(c0675.getHomePlayersOnField());
          Collections.sort(var5, C1007.abg);
          zD = var5;
          ArrayList var3 = new ArrayList();
-         var3.addAll(c0675.hq());
+         var3.addAll(c0675.getAwayPlayersOnField());
          Collections.sort(var3, C1007.abg);
          zE = var3;
       } else {
-         if (c0675.hc().jZ()) {
-            this.a(c0675, c0675.hc());
+         if (c0675.getHomeClub().jZ()) {
+            this.a(c0675, c0675.getHomeClub());
          } else {
             ArrayList var2 = new ArrayList();
-            var2.addAll(c0675.hp());
+            var2.addAll(c0675.getHomePlayersOnField());
             Collections.sort(var2, C1007.abg);
             zD = var2;
          }
 
-         if (c0675.hd().jZ()) {
-            this.a(c0675, c0675.hd());
+         if (c0675.getAwayClub().jZ()) {
+            this.a(c0675, c0675.getAwayClub());
          } else {
             ArrayList var4 = new ArrayList();
-            var4.addAll(c0675.hq());
+            var4.addAll(c0675.getAwayPlayersOnField());
             Collections.sort(var4, C1007.abg);
             zE = var4;
          }
@@ -490,7 +490,7 @@ public class C0208 extends JPanel {
 
       for (int var1 = 0; var1 < vK.size(); var1++) {
          if (((C0827)vK.get(var1)).tR() != null && ((C0827)vK.get(var1)).tR().hS() && ((C0827)vK.get(var1)).tR().hk()) {
-            if (!((C0827)vK.get(var1)).tR().hc().jZ() && !((C0827)vK.get(var1)).tR().hd().jZ()) {
+            if (!((C0827)vK.get(var1)).tR().getHomeClub().jZ() && !((C0827)vK.get(var1)).tR().getAwayClub().jZ()) {
                if (GamePersistence.careerState.getVerDecisaoPenNaoHumano() == 1) {
                   GY.add(((C0827)vK.get(var1)).tR());
                }
@@ -504,12 +504,12 @@ public class C0208 extends JPanel {
    public void qe() {
       for (int var1 = 0; var1 < vK.size(); var1++) {
          boolean var2 = false;
-         if (((C0827)vK.get(var1)).tR() != null && ((C0827)vK.get(var1)).tR().hu() != ((C0827)vK.get(var1)).tT()) {
+         if (((C0827)vK.get(var1)).tR() != null && ((C0827)vK.get(var1)).tR().getHomeGoals() != ((C0827)vK.get(var1)).tT()) {
             var2 = true;
          }
 
          if (var2) {
-            ((C0827)vK.get(var1)).tR().hF();
+            ((C0827)vK.get(var1)).tR().recalculateScoreFromEvents();
          }
       }
    }
@@ -665,11 +665,11 @@ public class C0208 extends JPanel {
 
       for (int var4 = 0; var4 < vK.size(); var4++) {
          if (((C0827)vK.get(var4)).tR() != null) {
-            for (int var5 = 0; var5 < ((C0827)vK.get(var4)).tR().hE().size(); var5++) {
-               if (!((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).isDone()
-                  && ((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).getPeriod() == dB
-                  && ((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).getMinute() <= GT) {
-                  this.a((C0827)vK.get(var4), ((C0827)vK.get(var4)).tR(), (MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5), var4);
+            for (int var5 = 0; var5 < ((C0827)vK.get(var4)).tR().getEvents().size(); var5++) {
+               if (!((MatchEvent)((C0827)vK.get(var4)).tR().getEvents().get(var5)).isDone()
+                  && ((MatchEvent)((C0827)vK.get(var4)).tR().getEvents().get(var5)).getPeriod() == dB
+                  && ((MatchEvent)((C0827)vK.get(var4)).tR().getEvents().get(var5)).getMinute() <= GT) {
+                  this.a((C0827)vK.get(var4), ((C0827)vK.get(var4)).tR(), (MatchEvent)((C0827)vK.get(var4)).tR().getEvents().get(var5), var4);
                }
             }
          }
@@ -696,9 +696,9 @@ public class C0208 extends JPanel {
       if (!c0667.isDone()) {
          c0667.setDone(true);
          byte var5 = 0;
-         if (c0667.getClub() == c0675.hc()) {
+         if (c0667.getClub() == c0675.getHomeClub()) {
             var5 = 1;
-         } else if (c0667.getClub() == c0675.hd()) {
+         } else if (c0667.getClub() == c0675.getAwayClub()) {
             var5 = 2;
          }
 
@@ -761,10 +761,10 @@ public class C0208 extends JPanel {
 
    private void a(C0827 c0827, MatchEvent c0667) {
       ArrayList var3;
-      if (c0667.getClub() == c0827.tR().hc()) {
-         var3 = c0827.tR().hp();
+      if (c0667.getClub() == c0827.tR().getHomeClub()) {
+         var3 = c0827.tR().getHomePlayersOnField();
       } else {
-         var3 = c0827.tR().hq();
+         var3 = c0827.tR().getAwayPlayersOnField();
       }
 
       JDialog var4 = new JDialog(Br);
@@ -796,9 +796,9 @@ public class C0208 extends JPanel {
    public String h(Match c0675) {
       String var2 = null;
       int var3 = -1;
-      var3 = c0675.hy().b();
+      var3 = c0675.getCompetition().b();
       if (var3 == 3) {
-         var2 = c0675.hy().getNome() + " " + c0675.hy().ip();
+         var2 = c0675.getCompetition().getNome() + " " + c0675.getCompetition().ip();
       }
 
       return var2;

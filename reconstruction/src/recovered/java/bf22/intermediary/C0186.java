@@ -85,7 +85,7 @@ public class C0186 extends JPanel {
       ArrayList var2 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
+         if (((Match)var2.get(var3)).getHomeClub() == club || ((Match)var2.get(var3)).getAwayClub() == club) {
             return true;
          }
       }

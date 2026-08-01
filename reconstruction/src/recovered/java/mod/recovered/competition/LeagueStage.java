@@ -661,9 +661,9 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       ArrayList var1 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-         if (((Match)var1.get(var2)).ht() == this) {
-            ((Match)var1.get(var2)).hc().a((Match)var1.get(var2), this);
-            ((Match)var1.get(var2)).hd().a((Match)var1.get(var2), this);
+         if (((Match)var1.get(var2)).getCompetitionStage() == this) {
+            ((Match)var1.get(var2)).getHomeClub().a((Match)var1.get(var2), this);
+            ((Match)var1.get(var2)).getAwayClub().a((Match)var1.get(var2), this);
          }
       }
 
@@ -1149,12 +1149,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          for (int var7 = 0; var7 < ((KnockoutRound)c0962.zp().get(var6)).zW().size(); var7++) {
             Club var8 = null;
             Club var9 = null;
-            if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc())) {
-               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc();
-               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd();
-            } else if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd())) {
-               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd();
-               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc();
+            if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getHomeClub())) {
+               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getHomeClub();
+               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getAwayClub();
+            } else if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getAwayClub())) {
+               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getAwayClub();
+               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).getHomeClub();
             }
 
             if (!var5.contains(var8)) {
@@ -1212,12 +1212,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
             for (int var7 = 0; var7 < ((KnockoutRound)this.Zc.zp().get(var6)).zW().size(); var7++) {
                Club var8 = null;
                Club var9 = null;
-               if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc())) {
-                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc();
-                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd();
-               } else if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd())) {
-                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd();
-                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc();
+               if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getHomeClub())) {
+                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getHomeClub();
+                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getAwayClub();
+               } else if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getAwayClub())) {
+                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getAwayClub();
+                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).getHomeClub();
                }
 
                if (!var3.contains(var8)) {

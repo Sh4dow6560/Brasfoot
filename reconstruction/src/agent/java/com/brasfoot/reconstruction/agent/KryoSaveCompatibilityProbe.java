@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.IdentityHashMap;
@@ -41,10 +42,13 @@ public final class KryoSaveCompatibilityProbe {
       Object[] roots = read(original, loader);
       CalendarSummary calendar = validateCalendar(roots[0]);
       String matchEventApi = validateMatchEventBehavior(loader);
+      String matchStateApi = validateMatchStateBehavior(loader);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
-      Map<String, Integer> counts = countTargets(roots, targets, matchEvents);
+      MatchStateSummary matches = new MatchStateSummary();
+      Map<String, Integer> counts = countTargets(roots, targets, matchEvents, matches);
       matchEvents.validate();
+      matches.validate(matchEvents.count());
       for (String target : targets) {
         System.out.println("COUNT " + target + " " + counts.get(target));
       }
@@ -56,7 +60,9 @@ public final class KryoSaveCompatibilityProbe {
             + calendar + " -> " + restoredCalendar);
       }
       MatchEventSummary restoredMatchEvents = new MatchEventSummary();
-      Map<String, Integer> restoredCounts = countTargets(restored, targets, restoredMatchEvents);
+      MatchStateSummary restoredMatches = new MatchStateSummary();
+      Map<String, Integer> restoredCounts = countTargets(
+          restored, targets, restoredMatchEvents, restoredMatches);
       if (!counts.equals(restoredCounts)) {
         throw new IllegalStateException("Kryo round-trip changed recovered model counts");
       }
@@ -64,11 +70,17 @@ public final class KryoSaveCompatibilityProbe {
         throw new IllegalStateException("Kryo round-trip changed match events: "
             + matchEvents + " -> " + restoredMatchEvents);
       }
+      if (!matches.equals(restoredMatches)) {
+        throw new IllegalStateException("Kryo round-trip changed match state: "
+            + matches + " -> " + restoredMatches);
+      }
       System.out.println("ROOT " + roots[0].getClass().getName()
           + " AUX " + roots[1].getClass().getName());
       System.out.println("CALENDAR " + calendar.toLogLine());
       System.out.println("MATCH_EVENTS " + matchEvents.toLogLine());
       System.out.println("MATCH_EVENT_API " + matchEventApi);
+      System.out.println("MATCH_STATE " + matches.toLogLine());
+      System.out.println("MATCH_STATE_API " + matchStateApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
           + " outputBytes=" + roundTrip.length
@@ -128,6 +140,112 @@ public final class KryoSaveCompatibilityProbe {
     assertBoolean(eventClass, restored, "isDone", true);
     assertBoolean(eventClass, restored, "eu", true);
     return "type=3 subtype=5 minute=37 period=2 teamSide=1 icon=true roundTrip=true";
+  }
+
+  private static String validateMatchStateBehavior(ClassLoader loader) throws Exception {
+    Class<?> matchClass = loader.loadClass("best.I");
+    Class<?> eventClass = loader.loadClass("best.A");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Object homeClub = clubClass.getDeclaredConstructor().newInstance();
+    Object awayClub = clubClass.getDeclaredConstructor().newInstance();
+    Object match = matchClass.getDeclaredConstructor().newInstance();
+    ArrayList<Object> events = new ArrayList<Object>();
+    events.add(createMatchEvent(eventClass, clubClass, homeClub, 1));
+    events.add(createMatchEvent(eventClass, clubClass, awayClub, 1));
+    events.add(createMatchEvent(eventClass, clubClass, homeClub, 1));
+    events.add(createMatchEvent(eventClass, clubClass, homeClub, 2));
+
+    setField(match, "fz", homeClub);
+    setField(match, "fA", awayClub);
+    setField(match, "fy", 42);
+    setField(match, "fN", events);
+    setField(match, "dH", loader.loadClass("best.v").getDeclaredConstructor().newInstance());
+    setField(match, "fW", new int[]{57, 43});
+    setField(match, "fY", new int[]{12, 8});
+    setField(match, "fZ", new int[]{7, 3});
+    setField(match, "ga", new int[]{5, 5});
+    setField(match, "gb", new int[]{18, 15});
+    setField(match, "gc", new int[]{21, 27});
+    setField(match, "gd", new int[]{9, 11});
+    setField(match, "go", loader.loadClass("c.b").getDeclaredConstructor().newInstance());
+
+    assertSame(homeClub, matchClass.getDeclaredMethod("hc").invoke(match), "home club");
+    assertSame(awayClub, matchClass.getDeclaredMethod("hd").invoke(match), "away club");
+    assertMatchListAccessor(matchClass, match, "hl", "fF");
+    assertMatchListAccessor(matchClass, match, "hm", "fG");
+    assertMatchListAccessor(matchClass, match, "hn", "fH");
+    assertMatchListAccessor(matchClass, match, "ho", "fI");
+    assertMatchListAccessor(matchClass, match, "hp", "fJ");
+    assertMatchListAccessor(matchClass, match, "hq", "fK");
+    assertSame(events, matchClass.getDeclaredMethod("hE").invoke(match), "match events");
+    assertSame(readField(match, "fW"), matchClass.getDeclaredMethod("hz").invoke(match),
+        "possession percentages");
+    assertSame(readField(match, "fY"), matchClass.getDeclaredMethod("hA").invoke(match),
+        "shots");
+    assertSame(readField(match, "fZ"), matchClass.getDeclaredMethod("hZ").invoke(match),
+        "shots on target");
+    assertSame(readField(match, "ga"), matchClass.getDeclaredMethod("ia").invoke(match),
+        "shots off target");
+    assertSame(readField(match, "gb"), matchClass.getDeclaredMethod("hB").invoke(match),
+        "tackles");
+    assertSame(readField(match, "gc"), matchClass.getDeclaredMethod("hC").invoke(match),
+        "misplaced passes");
+    assertSame(readField(match, "gd"), matchClass.getDeclaredMethod("hD").invoke(match),
+        "fouls");
+    assertSame(readField(match, "go"), matchClass.getDeclaredMethod("hW").invoke(match),
+        "match engine");
+    assertInteger(matchClass, match, "hM", 42);
+    matchClass.getDeclaredMethod("hF").invoke(match);
+    assertInteger(matchClass, match, "hu", 2);
+    assertInteger(matchClass, match, "hw", 1);
+    matchClass.getDeclaredMethod("hv").invoke(match);
+    matchClass.getDeclaredMethod("hx").invoke(match);
+    assertInteger(matchClass, match, "hu", 3);
+    assertInteger(matchClass, match, "hw", 2);
+    matchClass.getDeclaredMethod("hF").invoke(match);
+
+    Object restored = roundTripObject(match, loader);
+    assertInteger(matchClass, restored, "hM", 42);
+    assertInteger(matchClass, restored, "hu", 2);
+    assertInteger(matchClass, restored, "hw", 1);
+    assertIntArray((int[])readField(restored, "fW"), new int[]{57, 43},
+        "possession percentages");
+    assertIntArray((int[])readField(restored, "fY"), new int[]{12, 8}, "shots");
+    assertIntArray((int[])readField(restored, "fZ"), new int[]{7, 3}, "shots on target");
+    assertIntArray((int[])readField(restored, "ga"), new int[]{5, 5}, "shots off target");
+    assertIntArray((int[])readField(restored, "gb"), new int[]{18, 15}, "tackles");
+    assertIntArray((int[])readField(restored, "gc"), new int[]{21, 27},
+        "misplaced passes");
+    assertIntArray((int[])readField(restored, "gd"), new int[]{9, 11}, "fouls");
+    Object restoredEvents = matchClass.getDeclaredMethod("hE").invoke(restored);
+    if (!(restoredEvents instanceof List) || ((List<?>)restoredEvents).size() != 4) {
+      throw new IllegalStateException("Match event list changed in Kryo round-trip");
+    }
+    if (readField(restored, "go") != null) {
+      throw new IllegalStateException("Transient match engine was serialized");
+    }
+    if (matchClass.getDeclaredMethod("hW").invoke(restored) != null) {
+      throw new IllegalStateException("Match engine accessor returned a transient value");
+    }
+    matchClass.getDeclaredMethod("hF").invoke(restored);
+    assertInteger(matchClass, restored, "hu", 2);
+    assertInteger(matchClass, restored, "hw", 1);
+    return "scheduleIndex=42 score=2x1 events=4 stats=true transientEngine=true "
+        + "roundTrip=true";
+  }
+
+  private static Object createMatchEvent(
+      Class<?> eventClass, Class<?> clubClass, Object club, int type) throws Exception {
+    Object event = eventClass.getDeclaredConstructor().newInstance();
+    eventClass.getDeclaredMethod("k", clubClass).invoke(event, club);
+    eventClass.getDeclaredMethod("a", Integer.TYPE).invoke(event, type);
+    return event;
+  }
+
+  private static void assertMatchListAccessor(
+      Class<?> matchClass, Object match, String method, String field) throws Exception {
+    assertSame(readField(match, field), matchClass.getDeclaredMethod(method).invoke(match),
+        "match list " + field);
   }
 
   private static void assertSame(Object expected, Object actual, String description) {
@@ -326,7 +444,10 @@ public final class KryoSaveCompatibilityProbe {
   }
 
   private static Map<String, Integer> countTargets(
-      Object[] roots, String[] targets, MatchEventSummary matchEvents) throws Exception {
+      Object[] roots,
+      String[] targets,
+      MatchEventSummary matchEvents,
+      MatchStateSummary matches) throws Exception {
     Map<String, Integer> counts = new LinkedHashMap<String, Integer>();
     for (String target : targets) {
       counts.put(target, 0);
@@ -354,6 +475,8 @@ public final class KryoSaveCompatibilityProbe {
       }
       if ("best.A".equals(name)) {
         matchEvents.accept(value);
+      } else if ("best.I".equals(name)) {
+        matches.accept(value);
       }
       if (isTerminal(type)) {
         continue;
@@ -507,6 +630,132 @@ public final class KryoSaveCompatibilityProbe {
     }
   }
 
+  private static final class MatchStateSummary {
+    private int count;
+    private int withCompetitionStage;
+    private int withCompetition;
+    private int withStadium;
+    private int minimumScheduleIndex = Integer.MAX_VALUE;
+    private int maximumScheduleIndex = Integer.MIN_VALUE;
+    private long totalGoals;
+    private long totalEvents;
+
+    void accept(Object match) throws Exception {
+      count++;
+      validateReference(readField(match, "fz"), "best.ah", "home club");
+      validateReference(readField(match, "fA"), "best.ah", "away club");
+      if (readField(match, "fw") != null) {
+        withCompetitionStage++;
+      }
+      if (readField(match, "fx") != null) {
+        withCompetition++;
+      }
+      Object stadium = readField(match, "dH");
+      if (stadium != null) {
+        validateReference(stadium, "best.v", "stadium");
+        withStadium++;
+      }
+      int scheduleIndex = readInt(match, "fy");
+      int homeGoals = readInt(match, "fB");
+      int awayGoals = readInt(match, "fC");
+      if (homeGoals < 0 || awayGoals < 0) {
+        throw new IllegalStateException("Match has a negative score");
+      }
+      minimumScheduleIndex = Math.min(minimumScheduleIndex, scheduleIndex);
+      maximumScheduleIndex = Math.max(maximumScheduleIndex, scheduleIndex);
+      totalGoals += homeGoals + awayGoals;
+      totalEvents += requireList(match, "fN").size();
+      requireList(match, "fF");
+      requireList(match, "fG");
+      requireList(match, "fH");
+      requireList(match, "fI");
+      requireList(match, "fJ");
+      requireList(match, "fK");
+      requirePair(match, "fW");
+      requirePair(match, "fY");
+      requirePair(match, "fZ");
+      requirePair(match, "ga");
+      requirePair(match, "gb");
+      requirePair(match, "gc");
+      requirePair(match, "gd");
+    }
+
+    private void validateReference(Object value, String expectedClass, String description) {
+      if (value == null || !expectedClass.equals(value.getClass().getName())) {
+        throw new IllegalStateException("Match has invalid " + description);
+      }
+    }
+
+    private List<?> requireList(Object match, String field) throws Exception {
+      Object value = readField(match, field);
+      if (!(value instanceof List)) {
+        throw new IllegalStateException("Match field " + field + " is not a list");
+      }
+      return (List<?>)value;
+    }
+
+    private void requirePair(Object match, String field) throws Exception {
+      Object value = readField(match, field);
+      if (!(value instanceof int[]) || ((int[])value).length != 2) {
+        throw new IllegalStateException("Match field " + field + " is not a two-team array");
+      }
+    }
+
+    void validate(int expectedEvents) {
+      if (count == 0 || minimumScheduleIndex < 0 || maximumScheduleIndex >= 1000
+          || totalEvents != expectedEvents || totalGoals == 0) {
+        throw new IllegalStateException("Reference save has invalid match state: " + this
+            + " expectedEvents=" + expectedEvents);
+      }
+    }
+
+    String toLogLine() {
+      return "count=" + count
+          + " scheduleIndex=" + minimumScheduleIndex + ".." + maximumScheduleIndex
+          + " withCompetitionStage=" + withCompetitionStage
+          + " withCompetition=" + withCompetition
+          + " withStadium=" + withStadium
+          + " goals=" + totalGoals
+          + " events=" + totalEvents;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+      if (this == other) {
+        return true;
+      }
+      if (!(other instanceof MatchStateSummary)) {
+        return false;
+      }
+      MatchStateSummary value = (MatchStateSummary)other;
+      return count == value.count
+          && withCompetitionStage == value.withCompetitionStage
+          && withCompetition == value.withCompetition
+          && withStadium == value.withStadium
+          && minimumScheduleIndex == value.minimumScheduleIndex
+          && maximumScheduleIndex == value.maximumScheduleIndex
+          && totalGoals == value.totalGoals
+          && totalEvents == value.totalEvents;
+    }
+
+    @Override
+    public int hashCode() {
+      int result = count;
+      result = 31 * result + withCompetitionStage;
+      result = 31 * result + withCompetition;
+      result = 31 * result + withStadium;
+      result = 31 * result + minimumScheduleIndex;
+      result = 31 * result + maximumScheduleIndex;
+      result = 31 * result + (int)(totalGoals ^ totalGoals >>> 32);
+      return 31 * result + (int)(totalEvents ^ totalEvents >>> 32);
+    }
+
+    @Override
+    public String toString() {
+      return toLogLine();
+    }
+  }
+
   private static final class MatchEventSummary {
     private final Map<Integer, Integer> types = new TreeMap<Integer, Integer>();
     private int count;
@@ -564,6 +813,10 @@ public final class KryoSaveCompatibilityProbe {
       if (count == 0 || types.isEmpty() || withClub == 0 || withPrimaryPlayer == 0) {
         throw new IllegalStateException("Reference save has no usable match events: " + this);
       }
+    }
+
+    int count() {
+      return count;
     }
 
     String toLogLine() {

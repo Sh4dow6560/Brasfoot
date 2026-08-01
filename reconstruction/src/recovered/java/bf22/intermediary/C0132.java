@@ -123,7 +123,7 @@ public class C0132 extends JPanel {
 
       this.bv = c0675;
       AG = this;
-      if (this.bv.hc() == this.zu) {
+      if (this.bv.getHomeClub() == this.zu) {
          this.AT = 0;
       } else {
          this.AT = 1;
@@ -139,7 +139,7 @@ public class C0132 extends JPanel {
       this.Bp.setLayer(this.Ay, JLayeredPane.PALETTE_LAYER);
       this.od();
       ToolTipManager.sharedInstance().registerComponent(this.Bp);
-      if (!bl && this.bv.hy() != null && this.bv.hy().b() == 0) {
+      if (!bl && this.bv.getCompetition() != null && this.bv.getCompetition().b() == 0) {
          this.AX = true;
          this.Bd.setVisible(true);
       } else {
@@ -216,11 +216,11 @@ public class C0132 extends JPanel {
       if (this.bv != null) {
          Club var15 = null;
          boolean var6 = false;
-         if (this.bv.hc() == this.zu) {
-            var15 = this.bv.hd();
+         if (this.bv.getHomeClub() == this.zu) {
+            var15 = this.bv.getAwayClub();
             var6 = true;
          } else {
-            var15 = this.bv.hc();
+            var15 = this.bv.getHomeClub();
          }
 
          this.Bk.setIcon(var15.kU());
@@ -604,13 +604,13 @@ public class C0132 extends JPanel {
    public void oi() {
       this.zu.kY().clear();
       if (this.AT == 0) {
-         this.bv.hl().clear();
-         this.bv.hp().clear();
-         this.bv.hn().clear();
+         this.bv.getHomeStartingLineup().clear();
+         this.bv.getHomePlayersOnField().clear();
+         this.bv.getHomeBench().clear();
       } else if (this.AT == 1) {
-         this.bv.hm().clear();
-         this.bv.hq().clear();
-         this.bv.ho().clear();
+         this.bv.getAwayStartingLineup().clear();
+         this.bv.getAwayPlayersOnField().clear();
+         this.bv.getAwayBench().clear();
       }
 
       for (int var1 = 1; var1 <= 25; var1++) {
@@ -619,11 +619,11 @@ public class C0132 extends JPanel {
             ((C0795)this.AE.get(var1)).x().b(true);
             this.zu.kY().add(((C0795)this.AE.get(var1)).x());
             if (this.AT == 0) {
-               this.bv.hl().add(((C0795)this.AE.get(var1)).x());
-               this.bv.hp().add(((C0795)this.AE.get(var1)).x());
+               this.bv.getHomeStartingLineup().add(((C0795)this.AE.get(var1)).x());
+               this.bv.getHomePlayersOnField().add(((C0795)this.AE.get(var1)).x());
             } else if (this.AT == 1) {
-               this.bv.hm().add(((C0795)this.AE.get(var1)).x());
-               this.bv.hq().add(((C0795)this.AE.get(var1)).x());
+               this.bv.getAwayStartingLineup().add(((C0795)this.AE.get(var1)).x());
+               this.bv.getAwayPlayersOnField().add(((C0795)this.AE.get(var1)).x());
             }
          }
       }
@@ -636,9 +636,9 @@ public class C0132 extends JPanel {
             ((C0795)this.AE.get(var2)).x().b(true);
             this.zu.kZ().add(((C0795)this.AE.get(var2)).x());
             if (this.AT == 0) {
-               this.bv.hn().add(((C0795)this.AE.get(var2)).x());
+               this.bv.getHomeBench().add(((C0795)this.AE.get(var2)).x());
             } else if (this.AT == 1) {
-               this.bv.ho().add(((C0795)this.AE.get(var2)).x());
+               this.bv.getAwayBench().add(((C0795)this.AE.get(var2)).x());
             }
          }
       }

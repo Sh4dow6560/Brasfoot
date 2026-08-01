@@ -151,14 +151,14 @@ public class C0272 extends JPanel {
       UIManager.put("ProgressBar.selectionForeground", this.zu.kC());
       UIManager.put("ProgressBar.selectionBackground", Color.black);
       this.bv = CareerState.bl();
-      this.tR = this.bv.hy().b();
+      this.tR = this.bv.getCompetition().b();
       HM = this.zu.kB();
       if (this.bv != null) {
-         if (this.bv.hc() == this.zu) {
-            this.Hv = this.bv.hd();
+         if (this.bv.getHomeClub() == this.zu) {
+            this.Hv = this.bv.getAwayClub();
             this.AT = 0;
          } else {
-            this.Hv = this.bv.hc();
+            this.Hv = this.bv.getHomeClub();
             this.AT = 1;
          }
 
@@ -377,7 +377,7 @@ public class C0272 extends JPanel {
 
    private void qt() {
       if (this.uz != null && this.bv != null) {
-         Competition var1 = this.bv.hy();
+         Competition var1 = this.bv.getCompetition();
          w(var1);
          this.If.a(this.uz, this.bv, var1, this.yp);
          new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png"));
@@ -392,7 +392,7 @@ public class C0272 extends JPanel {
             var3 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
          }
 
-         int[] var6 = this.uz.e(this.bv.hy());
+         int[] var6 = this.uz.e(this.bv.getCompetition());
          int[] var7 = new int[6];
          var7 = this.uz.gw();
          if (var6 == null) {
@@ -557,26 +557,26 @@ public class C0272 extends JPanel {
       this.qu();
       this.ur.setFont(new Font("Tahoma", 1, 11));
       this.us.setFont(new Font("Tahoma", 1, 11));
-      if (this.bv.hy() != null) {
+      if (this.bv.getCompetition() != null) {
          String var1 = "";
-         if (this.bv.ht() instanceof LeagueStage && ((LeagueStage)this.bv.ht()).zb() > 1) {
+         if (this.bv.getCompetitionStage() instanceof LeagueStage && ((LeagueStage)this.bv.getCompetitionStage()).zb() > 1) {
             int var2 = 0;
-            var2 = ((LeagueStage)this.bv.ht()).Q(this.zu);
+            var2 = ((LeagueStage)this.bv.getCompetitionStage()).Q(this.zu);
             if (var2 > 0) {
                var1 = " - " + Integer.toString(var2) + "º lugar";
             }
          }
 
          this.Bj.setText(this.bv.hI());
-         if (this.bv.hy() != null && this.bv.ht() != null && this.bv.hy().b() == 1 && this.bv.ht() instanceof KnockoutStage) {
-            if (((KnockoutStage)this.bv.ht()).zf() == 1099) {
+         if (this.bv.getCompetition() != null && this.bv.getCompetitionStage() != null && this.bv.getCompetition().b() == 1 && this.bv.getCompetitionStage() instanceof KnockoutStage) {
+            if (((KnockoutStage)this.bv.getCompetitionStage()).zf() == 1099) {
                this.Bj.setText("Mata Mata Ascenso - " + this.bv.hJ()[1]);
-            } else if (((KnockoutStage)this.bv.ht()).zf() == 1098) {
+            } else if (((KnockoutStage)this.bv.getCompetitionStage()).zf() == 1098) {
                this.Bj.setText("Playoff rebaixamento - " + this.bv.hJ()[1]);
             }
          }
 
-         this.uh.setText(this.bv.hy().getNome() + var1);
+         this.uh.setText(this.bv.getCompetition().getNome() + var1);
       } else {
          this.uh.setText("");
          this.Bj.setText("");
@@ -602,9 +602,9 @@ public class C0272 extends JPanel {
 
       if (this.Hv != null) {
          String var6 = "";
-         if (this.bv.ht() instanceof LeagueStage && ((LeagueStage)this.bv.ht()).zb() > 1) {
+         if (this.bv.getCompetitionStage() instanceof LeagueStage && ((LeagueStage)this.bv.getCompetitionStage()).zb() > 1) {
             int var3 = 0;
-            var3 = ((LeagueStage)this.bv.ht()).Q(this.Hv);
+            var3 = ((LeagueStage)this.bv.getCompetitionStage()).Q(this.Hv);
             if (var3 > 0) {
                var6 = "(" + Integer.toString(var3) + "º)";
             }
@@ -894,7 +894,7 @@ public class C0272 extends JPanel {
    private void qL() {
       for (int var1 = 0; var1 < this.zu.kc().size(); var1++) {
          if (this.tR != 0) {
-            ((Player)this.zu.kc().get(var1)).ax(((Player)this.zu.kc().get(var1)).d(this.bv.hy()));
+            ((Player)this.zu.kc().get(var1)).ax(((Player)this.zu.kc().get(var1)).d(this.bv.getCompetition()));
          }
       }
    }
@@ -1168,7 +1168,7 @@ public class C0272 extends JPanel {
    }
 
    private void qV() {
-      Competition var1 = this.bv.hy();
+      Competition var1 = this.bv.getCompetition();
       MainWindow.a(this.tR, var1);
    }
 

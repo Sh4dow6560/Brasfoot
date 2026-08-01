@@ -88,11 +88,11 @@ public class C0229 extends JPanel {
    }
 
    private void nc() {
-      for (int var1 = 0; var1 < this.Db.tR().hE().size(); var1++) {
-         ((MatchEvent)this.Db.tR().hE().get(var1)).setDone(true);
+      for (int var1 = 0; var1 < this.Db.tR().getEvents().size(); var1++) {
+         ((MatchEvent)this.Db.tR().getEvents().get(var1)).setDone(true);
       }
 
-      C0662 var4 = new C0662(this.Db.tR().hE());
+      C0662 var4 = new C0662(this.Db.tR().getEvents());
       this.DG.setModel(var4);
       this.DG.setTableHeader(null);
       int[] var2 = new int[]{20, 180, 20};
@@ -113,10 +113,10 @@ public class C0229 extends JPanel {
    }
 
    private void mK() {
-      this.zO.setForeground(this.Db.tR().hc().kC());
-      this.zO.setBackground(this.Db.tR().hc().kB());
-      this.zP.setForeground(this.Db.tR().hd().kC());
-      this.zP.setBackground(this.Db.tR().hd().kB());
+      this.zO.setForeground(this.Db.tR().getHomeClub().kC());
+      this.zO.setBackground(this.Db.tR().getHomeClub().kB());
+      this.zP.setForeground(this.Db.tR().getAwayClub().kC());
+      this.zP.setBackground(this.Db.tR().getAwayClub().kB());
       if (this.Db.tR().ev() != null) {
          this.Cg.setText(this.Db.tR().ev().dS());
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
@@ -133,10 +133,10 @@ public class C0229 extends JPanel {
          this.Dz.setText("n/i");
       }
 
-      this.zO.setText(this.Db.tR().hc().getNome() + " " + Integer.toString(this.Db.tR().hu()) + " ");
-      this.zP.setText(" " + Integer.toString(this.Db.tR().hw()) + " " + this.Db.tR().hd().getNome());
-      this.zO.setIcon(this.Db.tR().hc().kU());
-      this.zP.setIcon(this.Db.tR().hd().kU());
+      this.zO.setText(this.Db.tR().getHomeClub().getNome() + " " + Integer.toString(this.Db.tR().getHomeGoals()) + " ");
+      this.zP.setText(" " + Integer.toString(this.Db.tR().getAwayGoals()) + " " + this.Db.tR().getAwayClub().getNome());
+      this.zO.setIcon(this.Db.tR().getHomeClub().kU());
+      this.zP.setIcon(this.Db.tR().getAwayClub().kU());
       this.xI.setText(this.Db.tR().ha());
    }
 
@@ -153,16 +153,16 @@ public class C0229 extends JPanel {
 
       int[][] var4 = this.Db.tR().id();
 
-      for (int var6 = 0; var6 < this.Db.tR().hl().size(); var6++) {
-         if (this.Db.tR().hl().get(var6) != null && var4[0][var6] > 0) {
-            ((C0795)this.AE.get(var4[0][var6])).a((Player)this.Db.tR().hl().get(var6));
+      for (int var6 = 0; var6 < this.Db.tR().getHomeStartingLineup().size(); var6++) {
+         if (this.Db.tR().getHomeStartingLineup().get(var6) != null && var4[0][var6] > 0) {
+            ((C0795)this.AE.get(var4[0][var6])).a((Player)this.Db.tR().getHomeStartingLineup().get(var6));
             ((C0795)this.AE.get(var4[0][var6])).h(this.AL);
          }
       }
 
-      for (int var7 = 0; var7 < this.Db.tR().hm().size(); var7++) {
-         if (this.Db.tR().hm().get(var7) != null && var4[1][var7] > 0) {
-            ((C0795)this.Dc.get(var4[1][var7])).a((Player)this.Db.tR().hm().get(var7));
+      for (int var7 = 0; var7 < this.Db.tR().getAwayStartingLineup().size(); var7++) {
+         if (this.Db.tR().getAwayStartingLineup().get(var7) != null && var4[1][var7] > 0) {
+            ((C0795)this.Dc.get(var4[1][var7])).a((Player)this.Db.tR().getAwayStartingLineup().get(var7));
             ((C0795)this.Dc.get(var4[1][var7])).h(this.Dd);
          }
       }
@@ -171,10 +171,10 @@ public class C0229 extends JPanel {
    }
 
    private void oS() {
-      this.Db.tR().hc().bV(0);
-      this.AL = this.Db.tR().hc().kS();
-      this.Db.tR().hd().bV(1);
-      this.Dd = this.Db.tR().hd().kS();
+      this.Db.tR().getHomeClub().bV(0);
+      this.AL = this.Db.tR().getHomeClub().kS();
+      this.Db.tR().getAwayClub().bV(1);
+      this.Dd = this.Db.tR().getAwayClub().kS();
    }
 
    private void cS(int i) {

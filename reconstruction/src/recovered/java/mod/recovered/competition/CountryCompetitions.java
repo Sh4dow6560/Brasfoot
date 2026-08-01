@@ -1158,7 +1158,7 @@ public class CountryCompetitions implements Serializable {
 
    public boolean ju() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy() == this.hu && (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hd().jZ())) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getCompetition() == this.hu && (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().jZ())) {
             return true;
          }
       }
@@ -1180,7 +1180,7 @@ public class CountryCompetitions implements Serializable {
 
    public boolean jv() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy() == this.hu) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getCompetition() == this.hu) {
             return true;
          }
       }
@@ -1190,7 +1190,7 @@ public class CountryCompetitions implements Serializable {
 
    public boolean ej() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (this.ds.contains(((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hy())) {
+         if (this.ds.contains(((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getCompetition())) {
             return true;
          }
       }

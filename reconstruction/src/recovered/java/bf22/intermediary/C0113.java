@@ -53,18 +53,18 @@ public class C0113 extends JPanel {
       this.zz = c0675;
       this.mJ();
       this.zK.setVisible(false);
-      this.zO.setText(c0675.hc().getNome());
-      this.zO.setForeground(c0675.hc().kC());
-      this.zO.setBackground(c0675.hc().kB());
-      this.zP.setText(c0675.hd().getNome());
-      this.zP.setForeground(c0675.hd().kC());
-      this.zP.setBackground(c0675.hd().kB());
-      if (c0675.hc().kP() != null) {
-         this.yt.setIcon(c0675.hc().kP());
+      this.zO.setText(c0675.getHomeClub().getNome());
+      this.zO.setForeground(c0675.getHomeClub().kC());
+      this.zO.setBackground(c0675.getHomeClub().kB());
+      this.zP.setText(c0675.getAwayClub().getNome());
+      this.zP.setForeground(c0675.getAwayClub().kC());
+      this.zP.setBackground(c0675.getAwayClub().kB());
+      if (c0675.getHomeClub().kP() != null) {
+         this.yt.setIcon(c0675.getHomeClub().kP());
       }
 
-      if (c0675.hd().kP() != null) {
-         this.zL.setIcon(c0675.hd().kP());
+      if (c0675.getAwayClub().kP() != null) {
+         this.zL.setIcon(c0675.getAwayClub().kP());
       }
 
       this.nP();
@@ -132,9 +132,9 @@ public class C0113 extends JPanel {
       Club var4 = null;
       this.zQ.setVisible(true);
       if (i == 1) {
-         var4 = this.zz.hc();
+         var4 = this.zz.getHomeClub();
       } else {
-         var4 = this.zz.hd();
+         var4 = this.zz.getAwayClub();
       }
 
       this.zQ.setForeground(var4.kC());
@@ -213,9 +213,9 @@ public class C0113 extends JPanel {
 
    private void nO() {
       if (this.zI == 1) {
-         this.zz.u(this.zz.hc());
+         this.zz.u(this.zz.getHomeClub());
       } else if (this.zI == 2) {
-         this.zz.u(this.zz.hd());
+         this.zz.u(this.zz.getAwayClub());
       }
 
       this.zz.i(this.zA);

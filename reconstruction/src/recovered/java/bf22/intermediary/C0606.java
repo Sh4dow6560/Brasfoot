@@ -18,26 +18,26 @@ public class C0606 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       C0829 var7 = (C0829)object;
-      if (var7 != null && var7.tR() != null && var7.tR().hc() != null && var7.tR().hd() != null) {
+      if (var7 != null && var7.tR() != null && var7.tR().getHomeClub() != null && var7.tR().getAwayClub() != null) {
          if (j == 0) {
             if (var7.tR() != null) {
-               this.setText(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var7.tR().hM())).f());
+               this.setText(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var7.tR().getScheduleIndex())).f());
             }
          } else if (j == 1) {
             super.setHorizontalTextPosition(4);
             this.setHorizontalAlignment(2);
-            this.setText(var7.tR().hc().getNome());
-            this.setIcon(var7.tR().hc().kU());
+            this.setText(var7.tR().getHomeClub().getNome());
+            this.setIcon(var7.tR().getHomeClub().kU());
          } else if (j == 3) {
             super.setHorizontalTextPosition(2);
             this.setHorizontalAlignment(4);
-            this.setText(var7.tR().hd().getNome());
-            this.setIcon(var7.tR().hd().kU());
+            this.setText(var7.tR().getAwayClub().getNome());
+            this.setIcon(var7.tR().getAwayClub().kU());
          } else if (j == 2) {
             String var8 = "";
-            var8 = Integer.toString(var7.tR().hu());
+            var8 = Integer.toString(var7.tR().getHomeGoals());
             String var9 = "";
-            var9 = Integer.toString(var7.tR().hw());
+            var9 = Integer.toString(var7.tR().getAwayGoals());
             this.setText(var8 + "x" + var9);
          } else if (j == 4) {
             this.setHorizontalAlignment(0);

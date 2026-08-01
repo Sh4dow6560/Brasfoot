@@ -24,28 +24,28 @@ public class C0618 extends DefaultTableCellRenderer {
       Match var7 = (Match)object;
       if (object != null) {
          if (j == 0) {
-            this.setText(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var7.hM())).f());
+            this.setText(((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var7.getScheduleIndex())).f());
          } else if (j == 1) {
             this.setHorizontalAlignment(4);
             super.setHorizontalTextPosition(2);
-            this.setText(var7.hc().getNome());
-            this.setIcon(var7.hc().kU());
+            this.setText(var7.getHomeClub().getNome());
+            this.setIcon(var7.getHomeClub().kU());
          } else if (j == 3) {
             super.setHorizontalTextPosition(4);
             this.setHorizontalAlignment(2);
-            this.setText(var7.hd().getNome());
-            this.setIcon(var7.hd().kU());
+            this.setText(var7.getAwayClub().getNome());
+            this.setIcon(var7.getAwayClub().kU());
          } else if (j == 4) {
             this.setHorizontalAlignment(4);
-            this.setText(var7.hy().getNome());
+            this.setText(var7.getCompetition().getNome());
          }
 
          if (var7.e()) {
             if (j == 2) {
                String var8 = "";
-               var8 = Integer.toString(var7.hu());
+               var8 = Integer.toString(var7.getHomeGoals());
                String var9 = "";
-               var9 = Integer.toString(var7.hw());
+               var9 = Integer.toString(var7.getAwayGoals());
                int[] var10 = var7.hQ();
                if (var10[0] >= 0 && var10[1] >= 0) {
                   var8 = var8 + "(" + Integer.toString(var10[0]) + ") ";

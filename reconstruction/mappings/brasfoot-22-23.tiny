@@ -731,6 +731,54 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
 c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
+	f	Lbest/v;	dH	dH	stadium
+	f	Lbest/ah;	fA	fA	awayClub
+	f	I	fB	fB	homeGoals
+	f	I	fC	fC	awayGoals
+	f	Ljava/util/ArrayList;	fF	fF	homeStartingLineup
+	f	Ljava/util/ArrayList;	fG	fG	awayStartingLineup
+	f	Ljava/util/ArrayList;	fH	fH	homeBench
+	f	Ljava/util/ArrayList;	fI	fI	awayBench
+	f	Ljava/util/ArrayList;	fJ	fJ	homePlayersOnField
+	f	Ljava/util/ArrayList;	fK	fK	awayPlayersOnField
+	f	Ljava/util/ArrayList;	fN	fN	events
+	f	[I	fW	fW	possessionPercentages
+	f	[I	fY	fY	shots
+	f	[I	fZ	fZ	shotsOnTarget
+	f	Lbest/L;	fw	fw	competitionStage
+	f	Lbest/at;	fx	fx	competition
+	f	I	fy	fy	scheduleIndex
+	f	Lbest/ah;	fz	fz	homeClub
+	f	[I	ga	ga	shotsOffTarget
+	f	[I	gb	gb	tackles
+	f	[I	gc	gc	misplacedPasses
+	f	[I	gd	gd	fouls
+	f	Lc/b;	go	go	matchEngine
+	m	()[I	hA	hA	getShots
+	m	()[I	hB	hB	getTackles
+	m	()[I	hC	hC	getMisplacedPasses
+	m	()[I	hD	hD	getFouls
+	m	()Ljava/util/ArrayList;	hE	hE	getEvents
+	m	()V	hF	hF	recalculateScoreFromEvents
+	m	()I	hM	hM	getScheduleIndex
+	m	()Lc/b;	hW	hW	getMatchEngine
+	m	()[I	hZ	hZ	getShotsOnTarget
+	m	()Lbest/ah;	hc	hc	getHomeClub
+	m	()Lbest/ah;	hd	hd	getAwayClub
+	m	()Ljava/util/ArrayList;	hl	hl	getHomeStartingLineup
+	m	()Ljava/util/ArrayList;	hm	hm	getAwayStartingLineup
+	m	()Ljava/util/ArrayList;	hn	hn	getHomeBench
+	m	()Ljava/util/ArrayList;	ho	ho	getAwayBench
+	m	()Ljava/util/ArrayList;	hp	hp	getHomePlayersOnField
+	m	()Ljava/util/ArrayList;	hq	hq	getAwayPlayersOnField
+	m	()Lbest/L;	ht	ht	getCompetitionStage
+	m	()I	hu	hu	getHomeGoals
+	m	()V	hv	hv	incrementHomeGoals
+	m	()I	hw	hw	getAwayGoals
+	m	()V	hx	hx	incrementAwayGoals
+	m	()Lbest/at;	hy	hy	getCompetition
+	m	()[I	hz	hz	getPossessionPercentages
+	m	()[I	ia	ia	getShotsOffTarget
 	m	()Ljava/util/ArrayList;	if	method_kw_if	method_kw_if
 c	best/J	bf22/intermediary/C0676	bf22/intermediary/C0676
 c	best/K	bf22/intermediary/C0677	bf22/intermediary/C0677

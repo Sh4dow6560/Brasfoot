@@ -186,10 +186,10 @@ public class C0039 extends JPanel {
 
             for (int var5 = 0; var5 < GamePersistence.careerState.getScheduleDays().size(); var5++) {
                for (int var6 = 0; var6 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().size(); var6++) {
-                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hc() == this.ym
-                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hd() == this.yn
-                     || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hd() == this.ym
-                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).hc() == this.yn) {
+                  if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).getHomeClub() == this.ym
+                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).getAwayClub() == this.yn
+                     || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).getAwayClub() == this.ym
+                        && ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6)).getHomeClub() == this.yn) {
                      this.yj.add((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var5)).h().get(var6));
                   }
                }

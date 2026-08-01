@@ -280,7 +280,7 @@ public class C0435 extends JPanel {
    private void qV() {
       Competition var1 = null;
       if (this.KY != null) {
-         var1 = this.KY.hy();
+         var1 = this.KY.getCompetition();
       }
 
       this.HS.setCursor(new Cursor(3));
@@ -393,7 +393,7 @@ public class C0435 extends JPanel {
       byte var4 = 0;
 
       for (int var5 = 0; var5 < GamePersistence.careerState.getCurrentMatches().size(); var5++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy() == c0713) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).getCompetition() == c0713) {
             var3 = -1;
             if (var3 != var4) {
                var2 = true;
@@ -488,13 +488,13 @@ public class C0435 extends JPanel {
       ArrayList var5 = new ArrayList();
 
       for (int var6 = 0; var6 < GamePersistence.careerState.getCurrentMatches().size(); var6++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).hy() instanceof StateChampionship && ((StateChampionship)((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).hy()).yj() == c0741) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).getCompetition() instanceof StateChampionship && ((StateChampionship)((Match)GamePersistence.careerState.getCurrentMatches().get(var6)).getCompetition()).yj() == c0741) {
             var5.add((Match)GamePersistence.careerState.getCurrentMatches().get(var6));
          }
       }
 
       for (int var9 = 0; var9 < var5.size(); var9++) {
-         var3 = ((Match)var5.get(var9)).hy().ip();
+         var3 = ((Match)var5.get(var9)).getCompetition().ip();
          if (var3 != var4) {
             var2 = true;
          }
@@ -518,7 +518,7 @@ public class C0435 extends JPanel {
 
    private int sc() {
       for (int var1 = 0; var1 < this.vK.size(); var1++) {
-         if (((C0831)this.vK.get(var1)).tR() != null && (((C0831)this.vK.get(var1)).tR().hc().jZ() || ((C0831)this.vK.get(var1)).tR().hd().jZ())) {
+         if (((C0831)this.vK.get(var1)).tR() != null && (((C0831)this.vK.get(var1)).tR().getHomeClub().jZ() || ((C0831)this.vK.get(var1)).tR().getAwayClub().jZ())) {
             return var1;
          }
       }
@@ -591,8 +591,8 @@ public class C0435 extends JPanel {
       int var4 = 0;
 
       for (int var5 = 0; var5 < GamePersistence.careerState.getCurrentMatches().size(); var5++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy().iq() == c0692) {
-            var3 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).hy().ip();
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).getCompetition().iq() == c0692) {
+            var3 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var5)).getCompetition().ip();
             if (var3 != var4) {
                var2 = true;
             }
@@ -617,7 +617,7 @@ public class C0435 extends JPanel {
 
    public void sd() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hc().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).hd().jZ()) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().jZ()) {
             this.KS = (Match)GamePersistence.careerState.getCurrentMatches().get(var1);
             break;
          }
@@ -627,7 +627,7 @@ public class C0435 extends JPanel {
          int var3 = -1;
 
          for (int var2 = 0; var2 < this.cQ.size(); var2++) {
-            if (this.cQ.get(var2) == this.KS.hy()) {
+            if (this.cQ.get(var2) == this.KS.getCompetition()) {
                var3 = var2;
                break;
             }
@@ -662,10 +662,10 @@ public class C0435 extends JPanel {
    public void i(Match c0675) {
       if (c0675 != null && c0675 != this.KY) {
          this.KY = c0675;
-         this.zO.setForeground(c0675.hc().kC());
-         this.zO.setBackground(c0675.hc().kB());
-         this.zP.setForeground(c0675.hd().kC());
-         this.zP.setBackground(c0675.hd().kB());
+         this.zO.setForeground(c0675.getHomeClub().kC());
+         this.zO.setBackground(c0675.getHomeClub().kB());
+         this.zP.setForeground(c0675.getAwayClub().kC());
+         this.zP.setBackground(c0675.getAwayClub().kB());
          if (c0675.ev() != null) {
             this.Cg.setText(c0675.ev().dS());
             this.Dz.setText(ClubFinances.a(c0675.hN(), 0));
@@ -679,8 +679,8 @@ public class C0435 extends JPanel {
          } else {
             if (c0675.ik() != null) {
                this.Cg.setText(c0675.ik());
-            } else if (c0675.hc().lp()) {
-               this.Cg.setText(c0675.hc().getNome());
+            } else if (c0675.getHomeClub().lp()) {
+               this.Cg.setText(c0675.getHomeClub().getNome());
             }
 
             this.Dz.setText("n/i");
@@ -694,19 +694,19 @@ public class C0435 extends JPanel {
             this.Ll.setText("");
          }
 
-         this.Lm.setText(c0675.hu() + " x " + c0675.hw());
-         this.zO.setText(c0675.hc().getNome() + " ");
-         this.zP.setText(" " + c0675.hd().getNome());
-         if (c0675.hc().jY() != null) {
-            this.Fq.setIcon(c0675.hc().kP());
+         this.Lm.setText(c0675.getHomeGoals() + " x " + c0675.getAwayGoals());
+         this.zO.setText(c0675.getHomeClub().getNome() + " ");
+         this.zP.setText(" " + c0675.getAwayClub().getNome());
+         if (c0675.getHomeClub().jY() != null) {
+            this.Fq.setIcon(c0675.getHomeClub().kP());
          } else {
-            this.Fq.setIcon(c0675.hc().K(true));
+            this.Fq.setIcon(c0675.getHomeClub().K(true));
          }
 
-         if (c0675.hd().jY() != null) {
-            this.yu.setIcon(c0675.hd().kP());
+         if (c0675.getAwayClub().jY() != null) {
+            this.yu.setIcon(c0675.getAwayClub().kP());
          } else {
-            this.yu.setIcon(c0675.hd().K(true));
+            this.yu.setIcon(c0675.getAwayClub().K(true));
          }
 
          this.k(c0675);
@@ -725,29 +725,29 @@ public class C0435 extends JPanel {
       Object var4 = null;
       ArrayList var5 = null;
 
-      for (int var6 = 0; var6 < c0675.hE().size(); var6++) {
-         ((MatchEvent)c0675.hE().get(var6)).setDone(true);
+      for (int var6 = 0; var6 < c0675.getEvents().size(); var6++) {
+         ((MatchEvent)c0675.getEvents().get(var6)).setDone(true);
       }
 
-      for (int var7 = 0; var7 < c0675.hE().size(); var7++) {
-         if (((MatchEvent)c0675.hE().get(var7)).getType() == 1) {
+      for (int var7 = 0; var7 < c0675.getEvents().size(); var7++) {
+         if (((MatchEvent)c0675.getEvents().get(var7)).getType() == 1) {
             if (var2 == null) {
                var2 = new ArrayList();
             }
 
-            var2.add((MatchEvent)c0675.hE().get(var7));
-         } else if (((MatchEvent)c0675.hE().get(var7)).getType() >= 2 && ((MatchEvent)c0675.hE().get(var7)).getType() <= 4) {
+            var2.add((MatchEvent)c0675.getEvents().get(var7));
+         } else if (((MatchEvent)c0675.getEvents().get(var7)).getType() >= 2 && ((MatchEvent)c0675.getEvents().get(var7)).getType() <= 4) {
             if (var3 == null) {
                var3 = new ArrayList();
             }
 
-            var3.add((MatchEvent)c0675.hE().get(var7));
-         } else if (((MatchEvent)c0675.hE().get(var7)).getType() == 5) {
+            var3.add((MatchEvent)c0675.getEvents().get(var7));
+         } else if (((MatchEvent)c0675.getEvents().get(var7)).getType() == 5) {
             if (var5 == null) {
                var5 = new ArrayList();
             }
 
-            var5.add((MatchEvent)c0675.hE().get(var7));
+            var5.add((MatchEvent)c0675.getEvents().get(var7));
          }
       }
 
@@ -770,16 +770,16 @@ public class C0435 extends JPanel {
    }
 
    private void k(Match c0675) {
-      this.Ln.setText(Integer.toString(c0675.hz()[0]));
-      this.Lo.setText(Integer.toString(c0675.hz()[1]));
-      this.Lp.setText(Integer.toString(c0675.hA()[0]));
-      this.Lq.setText(Integer.toString(c0675.hA()[1]));
-      this.Lh.setText(Integer.toString(c0675.hZ()[0]) + "(" + Integer.toString(c0675.ia()[0]) + ")");
-      this.Li.setText(Integer.toString(c0675.hZ()[1]) + "(" + Integer.toString(c0675.ia()[1]) + ")");
-      this.Le.setText(Integer.toString(c0675.hB()[0]));
-      this.Lf.setText(Integer.toString(c0675.hB()[1]));
-      this.Lj.setText(Integer.toString(c0675.hC()[0]));
-      this.Lk.setText(Integer.toString(c0675.hC()[1]));
+      this.Ln.setText(Integer.toString(c0675.getPossessionPercentages()[0]));
+      this.Lo.setText(Integer.toString(c0675.getPossessionPercentages()[1]));
+      this.Lp.setText(Integer.toString(c0675.getShots()[0]));
+      this.Lq.setText(Integer.toString(c0675.getShots()[1]));
+      this.Lh.setText(Integer.toString(c0675.getShotsOnTarget()[0]) + "(" + Integer.toString(c0675.getShotsOffTarget()[0]) + ")");
+      this.Li.setText(Integer.toString(c0675.getShotsOnTarget()[1]) + "(" + Integer.toString(c0675.getShotsOffTarget()[1]) + ")");
+      this.Le.setText(Integer.toString(c0675.getTackles()[0]));
+      this.Lf.setText(Integer.toString(c0675.getTackles()[1]));
+      this.Lj.setText(Integer.toString(c0675.getMisplacedPasses()[0]));
+      this.Lk.setText(Integer.toString(c0675.getMisplacedPasses()[1]));
    }
 
    private void a(Match c0675, int i) {
@@ -788,12 +788,12 @@ public class C0435 extends JPanel {
       Club var5;
       if (i == 1) {
          var3 = this.KP;
-         var4 = c0675.hl();
-         var5 = c0675.hc();
+         var4 = c0675.getHomeStartingLineup();
+         var5 = c0675.getHomeClub();
       } else {
          var3 = this.KQ;
-         var4 = c0675.hm();
-         var5 = c0675.hd();
+         var4 = c0675.getAwayStartingLineup();
+         var5 = c0675.getAwayClub();
       }
 
       var3.clear();
@@ -812,15 +812,15 @@ public class C0435 extends JPanel {
       var12.ao(true);
       var3.add(var12);
 
-      for (int var8 = 0; var8 < c0675.hE().size(); var8++) {
-         if (((MatchEvent)c0675.hE().get(var8)).getType() == 6 && ((MatchEvent)c0675.hE().get(var8)).getClub() == var5) {
+      for (int var8 = 0; var8 < c0675.getEvents().size(); var8++) {
+         if (((MatchEvent)c0675.getEvents().get(var8)).getType() == 6 && ((MatchEvent)c0675.getEvents().get(var8)).getClub() == var5) {
             C0814 var9 = new C0814();
-            var9.h(((MatchEvent)c0675.hE().get(var8)).getSecondaryPlayer());
+            var9.h(((MatchEvent)c0675.getEvents().get(var8)).getSecondaryPlayer());
             var9.ap(true);
-            var9.K(((MatchEvent)c0675.hE().get(var8)).getTimeLabel());
+            var9.K(((MatchEvent)c0675.getEvents().get(var8)).getTimeLabel());
             var3.add(var9);
             C0814 var10 = new C0814();
-            var10.h(((MatchEvent)c0675.hE().get(var8)).getPrimaryPlayer());
+            var10.h(((MatchEvent)c0675.getEvents().get(var8)).getPrimaryPlayer());
             var10.aq(true);
             var3.add(var10);
          }
@@ -839,8 +839,8 @@ public class C0435 extends JPanel {
 
    public static String h(Match c0675) {
       String var1 = null;
-      if (c0675.hy().b() == 3) {
-         var1 = c0675.hy().getNome() + " " + c0675.hy().ip();
+      if (c0675.getCompetition().b() == 3) {
+         var1 = c0675.getCompetition().getNome() + " " + c0675.getCompetition().ip();
       }
 
       return var1;

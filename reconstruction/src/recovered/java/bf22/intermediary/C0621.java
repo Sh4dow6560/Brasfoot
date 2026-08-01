@@ -22,21 +22,21 @@ public class C0621 extends DefaultTableCellRenderer {
             if (j == 0) {
                this.setHorizontalAlignment(4);
                this.setHorizontalTextPosition(2);
-               this.setText(var7.tR().hc().getNome());
-               this.setIcon(var7.tR().hc().kU());
+               this.setText(var7.tR().getHomeClub().getNome());
+               this.setIcon(var7.tR().getHomeClub().kU());
             } else if (j == 2) {
                this.setHorizontalAlignment(2);
                this.setHorizontalTextPosition(4);
-               this.setText(var7.tR().hd().getNome());
-               this.setIcon(var7.tR().hd().kU());
+               this.setText(var7.tR().getAwayClub().getNome());
+               this.setIcon(var7.tR().getAwayClub().kU());
             }
 
             if (j == 1) {
                if (var7.tR().e()) {
                   String var8 = "";
-                  var8 = Integer.toString(var7.tR().hu());
+                  var8 = Integer.toString(var7.tR().getHomeGoals());
                   String var9 = "";
-                  var9 = Integer.toString(var7.tR().hw());
+                  var9 = Integer.toString(var7.tR().getAwayGoals());
                   this.setText(var8 + "x" + var9);
                } else {
                   this.setText("x");

@@ -20,25 +20,25 @@ import mod.recovered.model.Stadium;
 public class Match implements Serializable {
    private static final long serialVersionUID = 1L;
    private boolean v = false;
-   private CompetitionStage fw;
-   private Competition fx;
-   private int fy;
-   private Club fz;
-   private Club fA;
-   private int fB = 0;
-   private int fC = 0;
-   private Stadium dH;
+   private CompetitionStage competitionStage;
+   private Competition competition;
+   private int scheduleIndex;
+   private Club homeClub;
+   private Club awayClub;
+   private int homeGoals = 0;
+   private int awayGoals = 0;
+   private Stadium stadium;
    private int[] fD = new int[4];
    private int fE = 0;
-   private ArrayList fF = new ArrayList();
-   private ArrayList fG = new ArrayList();
-   private ArrayList fH = new ArrayList();
-   private ArrayList fI = new ArrayList();
-   private ArrayList fJ = new ArrayList();
-   private ArrayList fK = new ArrayList();
+   private ArrayList homeStartingLineup = new ArrayList();
+   private ArrayList awayStartingLineup = new ArrayList();
+   private ArrayList homeBench = new ArrayList();
+   private ArrayList awayBench = new ArrayList();
+   private ArrayList homePlayersOnField = new ArrayList();
+   private ArrayList awayPlayersOnField = new ArrayList();
    private ArrayList fL = new ArrayList();
    private ArrayList fM = new ArrayList();
-   private ArrayList fN = new ArrayList();
+   private ArrayList events = new ArrayList();
    private int fO = 0;
    private int fP = 0;
    private int[] fQ = new int[]{0, 0, -1};
@@ -47,14 +47,14 @@ public class Match implements Serializable {
    private int fT = 0;
    private int fU = 0;
    private ArrayList fV = new ArrayList();
-   private int[] fW = new int[]{50, 50};
+   private int[] possessionPercentages = new int[]{50, 50};
    private int[] fX = new int[2];
-   private int[] fY = new int[2];
-   private int[] fZ = new int[2];
-   private int[] ga = new int[2];
-   private int[] gb = new int[2];
-   private int[] gc = new int[2];
-   private int[] gd = new int[2];
+   private int[] shots = new int[2];
+   private int[] shotsOnTarget = new int[2];
+   private int[] shotsOffTarget = new int[2];
+   private int[] tackles = new int[2];
+   private int[] misplacedPasses = new int[2];
+   private int[] fouls = new int[2];
    private boolean ge = false;
    private boolean gf = false;
    private int gg = -1;
@@ -66,7 +66,7 @@ public class Match implements Serializable {
    private int[][] gm = new int[][]{{-1, -1, -1, -1}, {-1, -1, -1, -1}};
    private int[][] gn = new int[][]{{-1, -1, -1}, {-1, -1, -1}};
    private int dq = 0;
-   private transient MatchEngine go = null;
+   private transient MatchEngine matchEngine = null;
    private transient String gp = "";
    private transient String gq = null;
    private transient Stadium gr = null;
@@ -80,96 +80,96 @@ public class Match implements Serializable {
    }
 
    public void clear() {
-      this.fN.clear();
-      this.fF.clear();
-      this.fG.clear();
-      this.fH.clear();
-      this.fI.clear();
-      this.fJ.clear();
-      this.fK.clear();
+      this.events.clear();
+      this.homeStartingLineup.clear();
+      this.awayStartingLineup.clear();
+      this.homeBench.clear();
+      this.awayBench.clear();
+      this.homePlayersOnField.clear();
+      this.awayPlayersOnField.clear();
       this.fL.clear();
       this.fM.clear();
    }
 
    public String ha() {
       String var1 = "<html>"
-         + this.fW[0]
+         + this.possessionPercentages[0]
          + "% "
          + " <b>posse de bola</b> "
-         + this.fW[1]
+         + this.possessionPercentages[1]
          + " %"
          + "<br>"
-         + this.fY[0]
+         + this.shots[0]
          + " <b>finalizações</b> "
-         + this.fY[1]
+         + this.shots[1]
          + "<br>"
          + "<center>"
-         + this.fZ[0]
+         + this.shotsOnTarget[0]
          + " <b>no gol</b> "
-         + this.fZ[1]
+         + this.shotsOnTarget[1]
          + "</center>"
          + "<br>"
-         + this.ga[0]
+         + this.shotsOffTarget[0]
          + " <b>para fora</b> "
-         + this.ga[1]
+         + this.shotsOffTarget[1]
          + "<br>"
-         + this.gb[0]
+         + this.tackles[0]
          + " <b>desarnes</b> "
-         + this.gb[1]
+         + this.tackles[1]
          + "<br>"
-         + this.gc[0]
+         + this.misplacedPasses[0]
          + " passes errados "
-         + this.gc[1]
+         + this.misplacedPasses[1]
          + "<br>"
-         + this.gd[0]
+         + this.fouls[0]
          + " faltas "
-         + this.gd[1]
+         + this.fouls[1]
          + "</html>";
       return "<html><body><table width=\"190\" border=\"0\"><tr><td colspan=\"2\">"
-         + this.fW[0]
+         + this.possessionPercentages[0]
          + "% </td>"
          + "<td colspan=\"2\" align=\"center\"><strong>posse de bola</strong></td>"
          + "<td colspan=\"2\">"
-         + this.fW[1]
+         + this.possessionPercentages[1]
          + "% </td>"
          + "</tr>"
          + "<tr>"
          + "<td colspan=\"2\">"
-         + this.fY[0]
+         + this.shots[0]
          + "</td>"
          + "<td colspan=\"2\" align=\"center\"><strong>finalizações</strong></td>"
          + "<td colspan=\"2\">"
-         + this.fY[1]
+         + this.shots[1]
          + "</td>"
          + "</tr>"
          + "<tr>"
          + "<td colspan=\"2\">"
-         + this.fZ[0]
+         + this.shotsOnTarget[0]
          + "/"
-         + this.ga[0]
+         + this.shotsOffTarget[0]
          + "</td>"
          + "<td colspan=\"2\" align=\"center\"><strong>no gol/fora</strong></td>"
          + "<td colspan=\"2\">"
-         + this.fZ[1]
+         + this.shotsOnTarget[1]
          + "/"
-         + this.ga[1]
+         + this.shotsOffTarget[1]
          + "</td>"
          + "</tr>"
          + "<td colspan=\"2\">"
-         + this.gb[0]
+         + this.tackles[0]
          + "</td>"
          + "<td colspan=\"2\" align=\"center\"><strong>desarmes</strong></td>"
          + "<td colspan=\"2\">"
-         + this.gb[1]
+         + this.tackles[1]
          + "</td>"
          + "</tr>"
          + "</tr>"
          + "<td colspan=\"2\">"
-         + this.gc[0]
+         + this.misplacedPasses[0]
          + "</td>"
          + "<td colspan=\"2\" align=\"center\"><strong>erros passes</strong></td>"
          + "<td  colspan=\"2\">"
-         + this.gc[1]
+         + this.misplacedPasses[1]
          + "</td>"
          + "</tr>"
          + "</table>"
@@ -178,29 +178,29 @@ public class Match implements Serializable {
    }
 
    public Match(CompetitionStage c0678, int i, Club club, Club club2, int j, Competition c0713, Stadium stadium) {
-      this.fw = c0678;
-      this.fz = club;
-      this.fA = club2;
-      this.fy = j;
-      this.fx = c0713;
+      this.competitionStage = c0678;
+      this.homeClub = club;
+      this.awayClub = club2;
+      this.scheduleIndex = j;
+      this.competition = c0713;
       if (stadium == null) {
-         this.dH = this.fz.ev();
+         this.stadium = this.homeClub.ev();
       } else {
-         this.dH = stadium;
+         this.stadium = stadium;
       }
 
-      if (this.dH != null) {
-         this.dq = this.dH.dX();
+      if (this.stadium != null) {
+         this.dq = this.stadium.dX();
       }
 
       if (c0678 != null) {
          if (c0678.b() == 9) {
-            CountryCompetitions var8 = GamePersistence.careerState.s(this.fz.getPais());
+            CountryCompetitions var8 = GamePersistence.careerState.s(this.homeClub.getPais());
             if (var8 != null) {
-               this.dH = var8.C(false);
+               this.stadium = var8.C(false);
             }
          } else if ((c0678.b() == 4 || c0678.b() == 6 || c0678.b() == 12) && (c0713.gg() == 0 || c0713.gg() == 1) && c0713.cz(i)) {
-            this.dH = null;
+            this.stadium = null;
             CountryCompetitions var10 = c0713.mF();
             if (var10 != null) {
                boolean var9 = true;
@@ -208,7 +208,7 @@ public class Match implements Serializable {
                   var9 = false;
                }
 
-               this.dH = var10.C(var9);
+               this.stadium = var10.C(var9);
             }
          }
       }
@@ -216,8 +216,8 @@ public class Match implements Serializable {
       ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(this);
       ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(c0678);
       ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(j)).a(c0713);
-      if (this.fx.b() == 5 || this.fx.b() == 15) {
-         this.dH = null;
+      if (this.competition.b() == 5 || this.competition.b() == 15) {
+         this.stadium = null;
       }
 
       this.hb();
@@ -314,24 +314,24 @@ public class Match implements Serializable {
    }
 
    public Match(Club club, Club club2, boolean bl) {
-      this.fz = club;
-      this.fA = club2;
+      this.homeClub = club;
+      this.awayClub = club2;
    }
 
-   public Club hc() {
-      return this.fz;
+   public Club getHomeClub() {
+      return this.homeClub;
    }
 
    public void s(Club club) {
-      this.fz = club;
+      this.homeClub = club;
    }
 
-   public Club hd() {
-      return this.fA;
+   public Club getAwayClub() {
+      return this.awayClub;
    }
 
    public void t(Club club) {
-      this.fA = club;
+      this.awayClub = club;
    }
 
    public static void he() {
@@ -342,37 +342,37 @@ public class Match implements Serializable {
 
       for (int var3 = 0; var3 < var0.size(); var3++) {
          ((Match)var0.get(var3)).o(((Match)var0.get(var3)).hG());
-         if (((Match)var0.get(var3)).hy() != null) {
-            if (((Match)var0.get(var3)).hy().b() == 15) {
-               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).hy(), var2, true, GamePersistence.careerState.yn().Bt());
+         if (((Match)var0.get(var3)).getCompetition() != null) {
+            if (((Match)var0.get(var3)).getCompetition().b() == 15) {
+               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).getCompetition(), var2, true, GamePersistence.careerState.yn().Bt());
             }
 
             boolean var4 = false;
-            if (((Match)var0.get(var3)).hy().b() == 14 && ((Match)var0.get(var3)).ht() == GamePersistence.careerState.sq().BF()) {
+            if (((Match)var0.get(var3)).getCompetition().b() == 14 && ((Match)var0.get(var3)).getCompetitionStage() == GamePersistence.careerState.sq().BF()) {
                var4 = true;
             }
 
-            if (((Match)var0.get(var3)).hy().b() == 7 || ((Match)var0.get(var3)).hy().b() == 13 || var4) {
-               if (var1 != ((Match)var0.get(var3)).hy()) {
+            if (((Match)var0.get(var3)).getCompetition().b() == 7 || ((Match)var0.get(var3)).getCompetition().b() == 13 || var4) {
+               if (var1 != ((Match)var0.get(var3)).getCompetition()) {
                   var2 = 0;
                }
 
-               var1 = ((Match)var0.get(var3)).hy();
-               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).hy(), var2, false, "");
+               var1 = ((Match)var0.get(var3)).getCompetition();
+               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).getCompetition(), var2, false, "");
                var2++;
             }
 
-            if (((Match)var0.get(var3)).hy().b() == 9
-               && ((Match)var0.get(var3)).ht() != null
-               && ((Match)var0.get(var3)).ht() instanceof LeagueStage
-               && ((LeagueStage)((Match)var0.get(var3)).ht()).ze() == 7701) {
+            if (((Match)var0.get(var3)).getCompetition().b() == 9
+               && ((Match)var0.get(var3)).getCompetitionStage() != null
+               && ((Match)var0.get(var3)).getCompetitionStage() instanceof LeagueStage
+               && ((LeagueStage)((Match)var0.get(var3)).getCompetitionStage()).ze() == 7701) {
                CountryCompetitions var5 = GamePersistence.careerState.aY().eY(2);
                String var6 = "";
                if (var5 != null) {
                   var6 = var5.jf();
                }
 
-               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).hy(), var2, true, var6);
+               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).getCompetition(), var2, true, var6);
             }
          }
 
@@ -381,129 +381,129 @@ public class Match implements Serializable {
    }
 
    public void hf() {
-      int var1 = this.fx.b();
-      if (var1 != 7 && var1 != 5 && this.hc().jZ()) {
-         this.hc().v(this.fE, 5);
+      int var1 = this.competition.b();
+      if (var1 != 7 && var1 != 5 && this.getHomeClub().jZ()) {
+         this.getHomeClub().v(this.fE, 5);
       }
    }
 
    public void hg() {
       int var1 = -1;
-      if (this.fx != null) {
-         var1 = this.fx.b();
+      if (this.competition != null) {
+         var1 = this.competition.b();
       }
 
       C0686 var2 = null;
 
       for (int var3 = 0; var3 < GamePersistence.careerState.bd().size(); var3++) {
-         if (((C0686)GamePersistence.careerState.bd().get(var3)).a(this.fz, this.fA)) {
+         if (((C0686)GamePersistence.careerState.bd().get(var3)).a(this.homeClub, this.awayClub)) {
             var2 = (C0686)GamePersistence.careerState.bd().get(var3);
          }
       }
 
       if (var2 != null) {
-         var2.a(this.fz, this.fA, this.fB, this.fC, var1);
+         var2.a(this.homeClub, this.awayClub, this.homeGoals, this.awayGoals, var1);
       } else {
-         new C0686(this.fz.lk(), this.fA.lk(), this.fB, this.fC, var1);
+         new C0686(this.homeClub.lk(), this.awayClub.lk(), this.homeGoals, this.awayGoals, var1);
       }
 
-      this.fz.e(this);
-      this.fA.e(this);
-      if (this.fz.ka() != null) {
-         this.fz.ka().e(this);
-         if (this.fx != null
+      this.homeClub.e(this);
+      this.awayClub.e(this);
+      if (this.homeClub.ka() != null) {
+         this.homeClub.ka().e(this);
+         if (this.competition != null
             && (
-               this.fx.b() == 1
-                  || this.fx.b() == 3
-                  || this.fx.b() == 2
-                  || this.fx.b() == 4
-                  || this.fx.b() == 5
-                  || this.fx.b() == 6
-                  || this.fx.b() == 8
-                  || this.fx.b() == 10
+               this.competition.b() == 1
+                  || this.competition.b() == 3
+                  || this.competition.b() == 2
+                  || this.competition.b() == 4
+                  || this.competition.b() == 5
+                  || this.competition.b() == 6
+                  || this.competition.b() == 8
+                  || this.competition.b() == 10
             )) {
-            this.fz.ka().a(this, false, -1);
+            this.homeClub.ka().a(this, false, -1);
          }
       }
 
-      if (this.fA.ka() != null) {
-         this.fA.ka().e(this);
-         if (this.fx != null
+      if (this.awayClub.ka() != null) {
+         this.awayClub.ka().e(this);
+         if (this.competition != null
             && (
-               this.fx.b() == 1
-                  || this.fx.b() == 3
-                  || this.fx.b() == 2
-                  || this.fx.b() == 4
-                  || this.fx.b() == 5
-                  || this.fx.b() == 6
-                  || this.fx.b() == 8
-                  || this.fx.b() == 10
+               this.competition.b() == 1
+                  || this.competition.b() == 3
+                  || this.competition.b() == 2
+                  || this.competition.b() == 4
+                  || this.competition.b() == 5
+                  || this.competition.b() == 6
+                  || this.competition.b() == 8
+                  || this.competition.b() == 10
             )) {
-            this.fA.ka().a(this, false, -1);
+            this.awayClub.ka().a(this, false, -1);
          }
       }
    }
 
    public void hh() {
-      for (int var1 = 0; var1 < this.fF.size(); var1++) {
-         ((Player)this.fF.get(var1)).b(this.fx, this.hc());
-         ((Player)this.fF.get(var1)).a(this.fx, this, 0, 1, this.hc());
+      for (int var1 = 0; var1 < this.homeStartingLineup.size(); var1++) {
+         ((Player)this.homeStartingLineup.get(var1)).b(this.competition, this.getHomeClub());
+         ((Player)this.homeStartingLineup.get(var1)).a(this.competition, this, 0, 1, this.getHomeClub());
          if (var1 < this.gl[0].length) {
-            this.gl[0][var1] = ((Player)this.fF.get(var1)).fT();
+            this.gl[0][var1] = ((Player)this.homeStartingLineup.get(var1)).fT();
          }
       }
 
-      for (int var2 = 0; var2 < this.fG.size(); var2++) {
-         ((Player)this.fG.get(var2)).b(this.fx, this.hd());
-         ((Player)this.fG.get(var2)).a(this.fx, this, 1, 0, this.hd());
+      for (int var2 = 0; var2 < this.awayStartingLineup.size(); var2++) {
+         ((Player)this.awayStartingLineup.get(var2)).b(this.competition, this.getAwayClub());
+         ((Player)this.awayStartingLineup.get(var2)).a(this.competition, this, 1, 0, this.getAwayClub());
          if (var2 < this.gl[1].length) {
-            this.gl[1][var2] = ((Player)this.fG.get(var2)).fT();
+            this.gl[1][var2] = ((Player)this.awayStartingLineup.get(var2)).fT();
          }
       }
 
       for (int var3 = 0; var3 < this.fL.size(); var3++) {
-         ((Player)this.fL.get(var3)).b(this.fx, this.hc());
-         ((Player)this.fL.get(var3)).a(this.fx, this, 0, 1, this.hc());
+         ((Player)this.fL.get(var3)).b(this.competition, this.getHomeClub());
+         ((Player)this.fL.get(var3)).a(this.competition, this, 0, 1, this.getHomeClub());
       }
 
       for (int var4 = 0; var4 < this.fM.size(); var4++) {
-         ((Player)this.fM.get(var4)).b(this.fx, this.hd());
-         ((Player)this.fM.get(var4)).a(this.fx, this, 1, 0, this.hd());
+         ((Player)this.fM.get(var4)).b(this.competition, this.getAwayClub());
+         ((Player)this.fM.get(var4)).a(this.competition, this, 1, 0, this.getAwayClub());
       }
 
-      for (int var5 = 0; var5 < this.fN.size(); var5++) {
-         if (((MatchEvent)this.fN.get(var5)).getPrimaryPlayer() != null) {
-            if (((MatchEvent)this.fN.get(var5)).getType() == 1 && ((MatchEvent)this.fN.get(var5)).getSubtype() != 2) {
-               ((MatchEvent)this.fN.get(var5)).getPrimaryPlayer().a(this.fx, ((MatchEvent)this.fN.get(var5)).getClub());
-            } else if (((MatchEvent)this.fN.get(var5)).getType() == 2 || ((MatchEvent)this.fN.get(var5)).getType() == 3 || ((MatchEvent)this.fN.get(var5)).getType() == 4) {
-               ((MatchEvent)this.fN.get(var5)).getPrimaryPlayer().a(((MatchEvent)this.fN.get(var5)).getType(), this.fx, ((MatchEvent)this.fN.get(var5)).getClub());
+      for (int var5 = 0; var5 < this.events.size(); var5++) {
+         if (((MatchEvent)this.events.get(var5)).getPrimaryPlayer() != null) {
+            if (((MatchEvent)this.events.get(var5)).getType() == 1 && ((MatchEvent)this.events.get(var5)).getSubtype() != 2) {
+               ((MatchEvent)this.events.get(var5)).getPrimaryPlayer().a(this.competition, ((MatchEvent)this.events.get(var5)).getClub());
+            } else if (((MatchEvent)this.events.get(var5)).getType() == 2 || ((MatchEvent)this.events.get(var5)).getType() == 3 || ((MatchEvent)this.events.get(var5)).getType() == 4) {
+               ((MatchEvent)this.events.get(var5)).getPrimaryPlayer().a(((MatchEvent)this.events.get(var5)).getType(), this.competition, ((MatchEvent)this.events.get(var5)).getClub());
             }
          }
       }
    }
 
    public void hi() {
-      Competition var1 = this.fx;
+      Competition var1 = this.competition;
 
-      for (int var2 = 0; var2 < this.fz.kc().size(); var2++) {
-         ((Player)this.fz.kc().get(var2)).aw(0);
-         if (((Player)this.fz.kc().get(var2)).c(var1)) {
-            ((Player)this.fz.kc().get(var2)).f(var1);
+      for (int var2 = 0; var2 < this.homeClub.kc().size(); var2++) {
+         ((Player)this.homeClub.kc().get(var2)).aw(0);
+         if (((Player)this.homeClub.kc().get(var2)).c(var1)) {
+            ((Player)this.homeClub.kc().get(var2)).f(var1);
          }
       }
 
-      for (int var3 = 0; var3 < this.fA.kc().size(); var3++) {
-         ((Player)this.fA.kc().get(var3)).aw(0);
-         if (((Player)this.fA.kc().get(var3)).c(var1)) {
-            ((Player)this.fA.kc().get(var3)).f(var1);
+      for (int var3 = 0; var3 < this.awayClub.kc().size(); var3++) {
+         ((Player)this.awayClub.kc().get(var3)).aw(0);
+         if (((Player)this.awayClub.kc().get(var3)).c(var1)) {
+            ((Player)this.awayClub.kc().get(var3)).f(var1);
          }
       }
    }
 
    public static void a(int i, Match c0675, Player player, int j, int k) {
-      Club var5 = c0675.hc();
+      Club var5 = c0675.getHomeClub();
       if (i == 1) {
-         var5 = c0675.hd();
+         var5 = c0675.getAwayClub();
       }
 
       a(4, -1, c0675, var5, player, null, j, k);
@@ -511,9 +511,9 @@ public class Match implements Serializable {
 
    public static void b(int i, Match c0675, Player player, int j, int k) {
       player.gj();
-      Club var5 = c0675.hc();
+      Club var5 = c0675.getHomeClub();
       if (i == 1) {
-         var5 = c0675.hd();
+         var5 = c0675.getAwayClub();
       }
 
       if (player.gi() == 2) {
@@ -546,11 +546,11 @@ public class Match implements Serializable {
       byte var17 = 0;
       ArrayList var14;
       if (var15 > 55) {
-         var14 = c0675.fJ;
-         var16 = c0675.hc().kj()[2];
+         var14 = c0675.homePlayersOnField;
+         var16 = c0675.getHomeClub().kj()[2];
       } else {
-         var14 = c0675.fK;
-         var16 = c0675.hd().kj()[2];
+         var14 = c0675.awayPlayersOnField;
+         var16 = c0675.getAwayClub().kj()[2];
          var17 = 1;
       }
 
@@ -610,9 +610,9 @@ public class Match implements Serializable {
          c0675.fT++;
       } else if (new Random().nextInt(var5) == 1) {
          c0675.fU++;
-         Club var19 = c0675.hc();
+         Club var19 = c0675.getHomeClub();
          if (var17 == 1) {
-            var19 = c0675.hd();
+            var19 = c0675.getAwayClub();
          }
 
          var6 = I(var14);
@@ -664,11 +664,11 @@ public class Match implements Serializable {
       if (var4 == 3) {
          ArrayList var6 = null;
          byte var7 = 0;
-         if (player.fg() == this.fz) {
-            var6 = this.fK;
+         if (player.fg() == this.homeClub) {
+            var6 = this.awayPlayersOnField;
             var7 = 1;
-         } else if (player.fg() == this.fA) {
-            var6 = this.fJ;
+         } else if (player.fg() == this.awayClub) {
+            var6 = this.homePlayersOnField;
             var7 = 0;
          }
 
@@ -705,13 +705,13 @@ public class Match implements Serializable {
       ArrayList var8 = null;
       ArrayList var9 = null;
       byte var10 = 0;
-      if (club == c0675.fz) {
-         var8 = c0675.hp();
-         var9 = c0675.hq();
+      if (club == c0675.homeClub) {
+         var8 = c0675.getHomePlayersOnField();
+         var9 = c0675.getAwayPlayersOnField();
          var10 = 0;
-      } else if (club == c0675.fA) {
-         var8 = c0675.hq();
-         var9 = c0675.hp();
+      } else if (club == c0675.awayClub) {
+         var8 = c0675.getAwayPlayersOnField();
+         var9 = c0675.getHomePlayersOnField();
          var10 = 1;
       }
 
@@ -737,7 +737,7 @@ public class Match implements Serializable {
       var11.setMinute(l);
       var11.setPeriod(k);
       var11.setClub(club);
-      c0675.fN.add(var11);
+      c0675.events.add(var11);
       if (i == 2) {
          player.gB().tG();
       } else if (i == 4) {
@@ -776,11 +776,11 @@ public class Match implements Serializable {
       ArrayList var8 = null;
       Player var9 = null;
       if (i == 0) {
-         var7 = c0675.hn();
-         var8 = c0675.fJ;
+         var7 = c0675.getHomeBench();
+         var8 = c0675.homePlayersOnField;
       } else if (i == 1) {
-         var7 = c0675.ho();
-         var8 = c0675.fK;
+         var7 = c0675.getAwayBench();
+         var8 = c0675.awayPlayersOnField;
       }
 
       if (bl) {
@@ -825,18 +825,18 @@ public class Match implements Serializable {
       ArrayList var9 = null;
       ArrayList var10 = null;
       if (player != null && player2 != null) {
-         Club var11 = this.hc();
+         Club var11 = this.getHomeClub();
          if (i == 0) {
-            var8 = this.hp();
-            var9 = this.hn();
+            var8 = this.getHomePlayersOnField();
+            var9 = this.getHomeBench();
             var10 = this.fL;
             this.aS(0);
          } else if (i == 1) {
-            var8 = this.hq();
-            var9 = this.ho();
+            var8 = this.getAwayPlayersOnField();
+            var9 = this.getAwayBench();
             this.aS(1);
             var10 = this.fM;
-            var11 = this.hd();
+            var11 = this.getAwayClub();
          }
 
          if (var8 != null && var9 != null) {
@@ -859,19 +859,19 @@ public class Match implements Serializable {
    }
 
    public void l(int i, int j) {
-      for (int var3 = 0; var3 < this.fJ.size(); var3++) {
-         if (((Player)this.fJ.get(var3)).fT() != 1) {
-            ((Player)this.fJ.get(var3)).fq();
+      for (int var3 = 0; var3 < this.homePlayersOnField.size(); var3++) {
+         if (((Player)this.homePlayersOnField.get(var3)).fT() != 1) {
+            ((Player)this.homePlayersOnField.get(var3)).fq();
          } else if (i == 2) {
-            ((Player)this.fJ.get(var3)).fq();
+            ((Player)this.homePlayersOnField.get(var3)).fq();
          }
       }
 
-      for (int var4 = 0; var4 < this.fK.size(); var4++) {
-         if (((Player)this.fK.get(var4)).fT() != 1) {
-            ((Player)this.fK.get(var4)).fq();
+      for (int var4 = 0; var4 < this.awayPlayersOnField.size(); var4++) {
+         if (((Player)this.awayPlayersOnField.get(var4)).fT() != 1) {
+            ((Player)this.awayPlayersOnField.get(var4)).fq();
          } else if (i == 2) {
-            ((Player)this.fK.get(var4)).fq();
+            ((Player)this.awayPlayersOnField.get(var4)).fq();
          }
       }
    }
@@ -879,31 +879,31 @@ public class Match implements Serializable {
    public void m(int i, int j) {
       boolean var3 = false;
       if (i == 2) {
-         if (!this.fz.jZ() && this.fR[0] > 0) {
+         if (!this.homeClub.jZ() && this.fR[0] > 0) {
             if (j == 0 && this.n(1, 1)) {
                if (new Random().nextInt(100) > 50) {
-                  var3 = this.a(2, 0, i, j, this.hp());
+                  var3 = this.a(2, 0, i, j, this.getHomePlayersOnField());
                }
             } else if (j != this.gn[0][0] && j != this.gn[0][1] && j != this.gn[0][2]) {
                if (j == this.gm[0][0] || j == this.gm[0][1] || j == this.gm[0][2] || j == this.gm[0][3]) {
-                  var3 = this.a(1, 0, i, j, this.hp());
+                  var3 = this.a(1, 0, i, j, this.getHomePlayersOnField());
                }
             } else if (this.n(1, 1) || this.hj()) {
-               var3 = this.a(2, 0, i, j, this.hp());
+               var3 = this.a(2, 0, i, j, this.getHomePlayersOnField());
             }
          }
 
-         if (!var3 && !this.fA.jZ() && this.fR[1] > 0) {
+         if (!var3 && !this.awayClub.jZ() && this.fR[1] > 0) {
             if (j == 0 && this.n(2, 2)) {
                if (new Random().nextInt(100) > 50) {
-                  this.a(2, 1, i, j, this.hq());
+                  this.a(2, 1, i, j, this.getAwayPlayersOnField());
                }
             } else if (j != this.gn[1][0] && j != this.gn[1][1] && j != this.gn[1][2]) {
                if (j == this.gm[1][0] || j == this.gm[1][1] || j == this.gm[1][2] || j == this.gm[1][3]) {
-                  this.a(1, 1, i, j, this.hq());
+                  this.a(1, 1, i, j, this.getAwayPlayersOnField());
                }
             } else if (this.n(2, 1)) {
-               this.a(2, 1, i, j, this.hq());
+               this.a(2, 1, i, j, this.getAwayPlayersOnField());
             }
          }
       }
@@ -951,15 +951,15 @@ public class Match implements Serializable {
    }
 
    private boolean hj() {
-      return this.fB == this.fC;
+      return this.homeGoals == this.awayGoals;
    }
 
    private boolean n(int i, int j) {
       if (i == 1) {
-         if (this.fC - this.fB >= j) {
+         if (this.awayGoals - this.homeGoals >= j) {
             return true;
          }
-      } else if (this.fB - this.fC >= j) {
+      } else if (this.homeGoals - this.awayGoals >= j) {
          return true;
       }
 
@@ -981,31 +981,31 @@ public class Match implements Serializable {
 
       boolean var5 = false;
       if (var3 > var4) {
-         if (!this.fz.jZ() && this.fR[0] > 0) {
-            for (int var6 = 0; var6 < this.fJ.size(); var6++) {
-               if (((Player)this.fJ.get(var6)).fT() != 1) {
-                  if (((Player)this.fJ.get(var6)).fp() < 75) {
-                     a(0, false, this, (Player)this.fJ.get(var6), i, j, false);
+         if (!this.homeClub.jZ() && this.fR[0] > 0) {
+            for (int var6 = 0; var6 < this.homePlayersOnField.size(); var6++) {
+               if (((Player)this.homePlayersOnField.get(var6)).fT() != 1) {
+                  if (((Player)this.homePlayersOnField.get(var6)).fp() < 75) {
+                     a(0, false, this, (Player)this.homePlayersOnField.get(var6), i, j, false);
                      var5 = true;
                      break;
                   }
-               } else if (i == 2 && ((Player)this.fJ.get(var6)).fp() < 40) {
-                  a(0, false, this, (Player)this.fJ.get(var6), i, j, false);
+               } else if (i == 2 && ((Player)this.homePlayersOnField.get(var6)).fp() < 40) {
+                  a(0, false, this, (Player)this.homePlayersOnField.get(var6), i, j, false);
                   var5 = true;
                   break;
                }
             }
          }
 
-         if (!var5 && !this.fA.jZ() && this.fR[1] > 0) {
-            for (int var8 = 0; var8 < this.fK.size(); var8++) {
-               if (((Player)this.fK.get(var8)).fT() != 1) {
-                  if (((Player)this.fK.get(var8)).fp() < 75) {
-                     a(1, false, this, (Player)this.fK.get(var8), i, j, false);
+         if (!var5 && !this.awayClub.jZ() && this.fR[1] > 0) {
+            for (int var8 = 0; var8 < this.awayPlayersOnField.size(); var8++) {
+               if (((Player)this.awayPlayersOnField.get(var8)).fT() != 1) {
+                  if (((Player)this.awayPlayersOnField.get(var8)).fp() < 75) {
+                     a(1, false, this, (Player)this.awayPlayersOnField.get(var8), i, j, false);
                      break;
                   }
-               } else if (i == 2 && ((Player)this.fK.get(var8)).fp() < 40) {
-                  a(1, false, this, (Player)this.fK.get(var8), i, j, false);
+               } else if (i == 2 && ((Player)this.awayPlayersOnField.get(var8)).fp() < 40) {
+                  a(1, false, this, (Player)this.awayPlayersOnField.get(var8), i, j, false);
                   break;
                }
             }
@@ -1137,11 +1137,11 @@ public class Match implements Serializable {
 
    public void q(int i, int j) {
       MatchEngine var3 = null;
-      if (this.go == null) {
+      if (this.matchEngine == null) {
          var3 = new MatchEngine(this);
          this.a(var3);
       } else {
-         var3 = this.go;
+         var3 = this.matchEngine;
       }
 
       a(this, j, i);
@@ -1150,14 +1150,14 @@ public class Match implements Serializable {
       if (var4 != null) {
          var4.setMinute(i);
          var4.setPeriod(j);
-         this.hE().add(var4);
+         this.getEvents().add(var4);
          if (var4.getType() == 1 && var4.getSecondaryPlayer() != null) {
             MatchEvent var5 = new MatchEvent(var4.getTeamSide());
             var5.setMinute(i);
             var5.setPrimaryPlayer(var4.getSecondaryPlayer());
             var5.setType(8);
             var5.setPeriod(j);
-            this.hE().add(var5);
+            this.getEvents().add(var5);
          }
       }
    }
@@ -1168,7 +1168,7 @@ public class Match implements Serializable {
          int var5 = c0713.cy(i);
          this.b(new Stadium(true, this.ik(), var5));
       } else {
-         this.dH = null;
+         this.stadium = null;
          this.gr = null;
          this.p(string);
       }
@@ -1178,10 +1178,10 @@ public class Match implements Serializable {
       MatchEngine var1 = new MatchEngine(this);
       this.a(var1);
       int[] var10000 = new int[]{-1, -1};
-      if (this.ht() instanceof KnockoutStage) {
-         if (((KnockoutStage)this.ht()).zu()) {
-            if (((KnockoutStage)this.ht()).zr() == 2) {
-               int[] var2 = ((KnockoutStage)this.ht()).o(this);
+      if (this.getCompetitionStage() instanceof KnockoutStage) {
+         if (((KnockoutStage)this.getCompetitionStage()).zu()) {
+            if (((KnockoutStage)this.getCompetitionStage()).zr() == 2) {
+               int[] var2 = ((KnockoutStage)this.getCompetitionStage()).o(this);
                this.aU(var2[1]);
                this.aV(var2[0]);
                this.gj = true;
@@ -1192,7 +1192,7 @@ public class Match implements Serializable {
          }
 
          if (this.ge) {
-            if (((KnockoutStage)this.ht()).zA()) {
+            if (((KnockoutStage)this.getCompetitionStage()).zA()) {
                this.gf = false;
             } else {
                this.gf = true;
@@ -1206,7 +1206,7 @@ public class Match implements Serializable {
          this.il().b(this);
       }
 
-      if (!this.hc().jZ() && !this.hd().jZ()) {
+      if (!this.getHomeClub().jZ() && !this.getAwayClub().jZ()) {
          this.fQ[0] = new Random().nextInt(3);
          this.fQ[1] = new Random().nextInt(5) + 1;
 
@@ -1217,14 +1217,14 @@ public class Match implements Serializable {
             if (var4 != null) {
                var4.setMinute(var3);
                var4.setPeriod(1);
-               this.hE().add(var4);
+               this.getEvents().add(var4);
                if (var4.getType() == 1 && var4.getSecondaryPlayer() != null) {
                   MatchEvent var5 = new MatchEvent(var4.getTeamSide());
                   var5.setMinute(var3);
                   var5.setPrimaryPlayer(var4.getSecondaryPlayer());
                   var5.setType(8);
                   var5.setPeriod(1);
-                  this.hE().add(var5);
+                  this.getEvents().add(var5);
                }
             }
          }
@@ -1238,14 +1238,14 @@ public class Match implements Serializable {
             if (var9 != null) {
                var9.setMinute(var6);
                var9.setPeriod(2);
-               this.hE().add(var9);
+               this.getEvents().add(var9);
                if (var9.getType() == 1 && var9.getSecondaryPlayer() != null) {
                   MatchEvent var12 = new MatchEvent(var9.getTeamSide());
                   var12.setMinute(var6);
                   var12.setPrimaryPlayer(var9.getSecondaryPlayer());
                   var12.setPeriod(2);
                   var12.setType(8);
-                  this.hE().add(var12);
+                  this.getEvents().add(var12);
                }
             }
          }
@@ -1254,24 +1254,24 @@ public class Match implements Serializable {
             int var7 = new Random().nextInt(7) + 2;
             int var11 = new Random().nextInt(7) + 2;
             if (var7 >= var11) {
-               this.gk = this.hc();
+               this.gk = this.getHomeClub();
                this.gi[0] = var7;
                this.gi[1] = var7 - 1;
             } else {
-               this.gk = this.hd();
+               this.gk = this.getAwayClub();
                this.gi[0] = var7;
                this.gi[1] = var7 + 1;
             }
          }
       }
 
-      this.hc().I(false);
-      this.hd().I(false);
+      this.getHomeClub().I(false);
+      this.getAwayClub().I(false);
    }
 
    public boolean hk() {
-      boolean var1 = ((KnockoutStage)this.ht()).zv();
-      int var2 = ((KnockoutStage)this.ht()).BI();
+      boolean var1 = ((KnockoutStage)this.getCompetitionStage()).zv();
+      int var2 = ((KnockoutStage)this.getCompetitionStage()).BI();
       int var3 = 0;
       int var4 = 0;
       int var5 = 0;
@@ -1281,8 +1281,8 @@ public class Match implements Serializable {
       byte var9 = 0;
       int var10 = 0;
       int var11 = 0;
-      var3 = this.hu();
-      var4 = this.hw();
+      var3 = this.getHomeGoals();
+      var4 = this.getAwayGoals();
       var10 = var3;
       var11 = var4;
       if (var3 > var4) {
@@ -1329,28 +1329,28 @@ public class Match implements Serializable {
       return var9 == 0 && var2 == 2129 ? false : var9 == 0;
    }
 
-   public ArrayList hl() {
-      return this.fF;
+   public ArrayList getHomeStartingLineup() {
+      return this.homeStartingLineup;
    }
 
-   public ArrayList hm() {
-      return this.fG;
+   public ArrayList getAwayStartingLineup() {
+      return this.awayStartingLineup;
    }
 
-   public ArrayList hn() {
-      return this.fH;
+   public ArrayList getHomeBench() {
+      return this.homeBench;
    }
 
-   public ArrayList ho() {
-      return this.fI;
+   public ArrayList getAwayBench() {
+      return this.awayBench;
    }
 
-   public ArrayList hp() {
-      return this.fJ;
+   public ArrayList getHomePlayersOnField() {
+      return this.homePlayersOnField;
    }
 
-   public ArrayList hq() {
-      return this.fK;
+   public ArrayList getAwayPlayersOnField() {
+      return this.awayPlayersOnField;
    }
 
    public int hr() {
@@ -1369,24 +1369,24 @@ public class Match implements Serializable {
       this.fP = i;
    }
 
-   public CompetitionStage ht() {
-      return this.fw;
+   public CompetitionStage getCompetitionStage() {
+      return this.competitionStage;
    }
 
-   public int hu() {
-      return this.fB;
+   public int getHomeGoals() {
+      return this.homeGoals;
    }
 
-   public void hv() {
-      this.fB++;
+   public void incrementHomeGoals() {
+      this.homeGoals++;
    }
 
-   public int hw() {
-      return this.fC;
+   public int getAwayGoals() {
+      return this.awayGoals;
    }
 
-   public void hx() {
-      this.fC++;
+   public void incrementAwayGoals() {
+      this.awayGoals++;
    }
 
    public int aR(int i) {
@@ -1397,69 +1397,69 @@ public class Match implements Serializable {
       this.fR[i]--;
    }
 
-   public Competition hy() {
-      return this.fx;
+   public Competition getCompetition() {
+      return this.competition;
    }
 
-   public int[] hz() {
-      return this.fW;
+   public int[] getPossessionPercentages() {
+      return this.possessionPercentages;
    }
 
    public void d(int[] is) {
-      this.fW = is;
+      this.possessionPercentages = is;
    }
 
-   public int[] hA() {
-      return this.fY;
+   public int[] getShots() {
+      return this.shots;
    }
 
    public void e(int[] is) {
-      this.fY = is;
+      this.shots = is;
    }
 
-   public int[] hB() {
-      return this.gb;
+   public int[] getTackles() {
+      return this.tackles;
    }
 
    public void f(int[] is) {
-      this.gb = is;
+      this.tackles = is;
    }
 
-   public int[] hC() {
-      return this.gc;
+   public int[] getMisplacedPasses() {
+      return this.misplacedPasses;
    }
 
    public void g(int[] is) {
-      this.gc = is;
+      this.misplacedPasses = is;
    }
 
-   public int[] hD() {
-      return this.gd;
+   public int[] getFouls() {
+      return this.fouls;
    }
 
    public void h(int[] is) {
-      this.gd = is;
+      this.fouls = is;
    }
 
-   public ArrayList hE() {
-      return this.fN;
+   public ArrayList getEvents() {
+      return this.events;
    }
 
    public Stadium ev() {
-      return this.dH;
+      return this.stadium;
    }
 
    public Player aT(int i) {
       if (i == 1) {
-         for (int var2 = 0; var2 < this.fJ.size(); var2++) {
-            if (((Player)this.fJ.get(var2)).fT() == 1) {
-               return (Player)this.fJ.get(var2);
+         for (int var2 = 0; var2 < this.homePlayersOnField.size(); var2++) {
+            if (((Player)this.homePlayersOnField.get(var2)).fT() == 1) {
+               return (Player)this.homePlayersOnField.get(var2);
             }
          }
       } else if (i == 2) {
-         for (int var3 = 0; var3 < this.fK.size(); var3++) {
-            if (((Player)this.fK.get(var3)).fT() == 1) {
-               return (Player)this.fK.get(var3);
+         for (int var3 = 0; var3 < this.awayPlayersOnField.size(); var3++) {
+            if (((Player)this.awayPlayersOnField.get(var3)).fT() == 1) {
+               return (Player)this.awayPlayersOnField.get(var3);
             }
          }
       }
@@ -1467,16 +1467,16 @@ public class Match implements Serializable {
       return null;
    }
 
-   public void hF() {
-      this.fB = 0;
-      this.fC = 0;
+   public void recalculateScoreFromEvents() {
+      this.homeGoals = 0;
+      this.awayGoals = 0;
 
-      for (int var1 = 0; var1 < this.fN.size(); var1++) {
-         if (((MatchEvent)this.fN.get(var1)).getType() == 1) {
-            if (((MatchEvent)this.fN.get(var1)).getClub() == this.fz) {
-               this.fB++;
-            } else if (((MatchEvent)this.fN.get(var1)).getClub() == this.fA) {
-               this.fC++;
+      for (int var1 = 0; var1 < this.events.size(); var1++) {
+         if (((MatchEvent)this.events.get(var1)).getType() == 1) {
+            if (((MatchEvent)this.events.get(var1)).getClub() == this.homeClub) {
+               this.homeGoals++;
+            } else if (((MatchEvent)this.events.get(var1)).getClub() == this.awayClub) {
+               this.awayGoals++;
             }
          }
       }
@@ -1484,22 +1484,22 @@ public class Match implements Serializable {
 
    public String hG() {
       String var1 = "";
-      if (this.fx != null) {
-         var1 = this.fx.is();
+      if (this.competition != null) {
+         var1 = this.competition.is();
       }
 
-      if (this.fw != null) {
-         var1 = var1 + " - " + this.fw.io();
+      if (this.competitionStage != null) {
+         var1 = var1 + " - " + this.competitionStage.io();
       }
 
-      if (this.fx != null && this.fx.b() == 9 && this.fw != null && this.fw instanceof LeagueStage && ((LeagueStage)this.fw).ze() == 7701) {
+      if (this.competition != null && this.competition.b() == 9 && this.competitionStage != null && this.competitionStage instanceof LeagueStage && ((LeagueStage)this.competitionStage).ze() == 7701) {
          var1 = "Torneio Repescagem";
       }
 
-      if (this.fx != null && this.fx.b() == 1 && this.fw != null && this.fw instanceof KnockoutStage) {
-         if (((KnockoutStage)this.fw).zf() == 1099) {
+      if (this.competition != null && this.competition.b() == 1 && this.competitionStage != null && this.competitionStage instanceof KnockoutStage) {
+         if (((KnockoutStage)this.competitionStage).zf() == 1099) {
             var1 = "Mata-Mata Ascenso - " + var1;
-         } else if (((KnockoutStage)this.fw).zf() == 1098) {
+         } else if (((KnockoutStage)this.competitionStage).zf() == 1098) {
             var1 = "Playoff Rebaixamento - " + var1;
          }
       }
@@ -1509,13 +1509,13 @@ public class Match implements Serializable {
 
    public String hH() {
       String var1 = "";
-      if (this.fx != null) {
-         var1 = this.fx.getNome();
+      if (this.competition != null) {
+         var1 = this.competition.getNome();
       }
 
       String var2 = "";
-      if (this.fw != null) {
-         var2 = " - " + this.fw.io();
+      if (this.competitionStage != null) {
+         var2 = " - " + this.competitionStage.io();
       }
 
       return var1 + var2;
@@ -1524,12 +1524,12 @@ public class Match implements Serializable {
    public String hI() {
       String var1 = "";
       String var2 = "";
-      if (this.fx != null) {
-         var1 = this.fx.getNome();
+      if (this.competition != null) {
+         var1 = this.competition.getNome();
       }
 
-      if (this.fw != null) {
-         var2 = " - " + this.fw.io();
+      if (this.competitionStage != null) {
+         var2 = " - " + this.competitionStage.io();
       }
 
       return var1 + var2;
@@ -1537,12 +1537,12 @@ public class Match implements Serializable {
 
    public String[] hJ() {
       String[] var1 = new String[]{"", ""};
-      if (this.fw != null) {
-         var1[1] = this.fw.io();
+      if (this.competitionStage != null) {
+         var1[1] = this.competitionStage.io();
       }
 
-      if (this.fx != null) {
-         var1[0] = this.fx.is();
+      if (this.competition != null) {
+         var1[0] = this.competition.is();
       }
 
       return var1;
@@ -1564,8 +1564,8 @@ public class Match implements Serializable {
       this.gh = i;
    }
 
-   public int hM() {
-      return this.fy;
+   public int getScheduleIndex() {
+      return this.scheduleIndex;
    }
 
    public int hN() {
@@ -1636,28 +1636,28 @@ public class Match implements Serializable {
          + ")";
    }
 
-   public MatchEngine hW() {
-      return this.go;
+   public MatchEngine getMatchEngine() {
+      return this.matchEngine;
    }
 
    public void a(MatchEngine c0746) {
-      this.go = c0746;
+      this.matchEngine = c0746;
    }
 
    public boolean hX() {
-      return this.fx != null && this.fx.b() == 5 || this.fx.b() == 7;
+      return this.competition != null && this.competition.b() == 5 || this.competition.b() == 7;
    }
 
    public int[] hY() {
       return this.fX;
    }
 
-   public int[] hZ() {
-      return this.fZ;
+   public int[] getShotsOnTarget() {
+      return this.shotsOnTarget;
    }
 
-   public int[] ia() {
-      return this.ga;
+   public int[] getShotsOffTarget() {
+      return this.shotsOffTarget;
    }
 
    public boolean e() {
@@ -1674,13 +1674,13 @@ public class Match implements Serializable {
 
    public boolean ic() {
       boolean var1 = false;
-      if (this.fz.jY() != null && this.fA.jY() != null) {
+      if (this.homeClub.jY() != null && this.awayClub.jY() != null) {
          for (int var2 = 0; var2 < GameConstants.pe.length; var2++) {
-            if (this.fz.jY().equals(GameConstants.pe[var2][0]) && this.fA.jY().equals(GameConstants.pe[var2][1])) {
+            if (this.homeClub.jY().equals(GameConstants.pe[var2][0]) && this.awayClub.jY().equals(GameConstants.pe[var2][1])) {
                return true;
             }
 
-            if (this.fA.jY().equals(GameConstants.pe[var2][0]) && this.fz.jY().equals(GameConstants.pe[var2][1])) {
+            if (this.awayClub.jY().equals(GameConstants.pe[var2][0]) && this.homeClub.jY().equals(GameConstants.pe[var2][1])) {
                return true;
             }
          }
@@ -1702,19 +1702,19 @@ public class Match implements Serializable {
    }
 
    public String ig() {
-      return this.fB + " x " + this.fC;
+      return this.homeGoals + " x " + this.awayGoals;
    }
 
    public String ih() {
-      return " " + this.fB + "x" + this.fC + " ";
+      return " " + this.homeGoals + "x" + this.awayGoals + " ";
    }
 
    public String ii() {
-      return " " + this.fB + "x" + this.fC + " " + "(" + this.gi[0] + "x" + this.gi[1] + ")";
+      return " " + this.homeGoals + "x" + this.awayGoals + " " + "(" + this.gi[0] + "x" + this.gi[1] + ")";
    }
 
    public String t(boolean bl) {
-      return !bl ? " " + this.fB + "x" + this.fC + " " : " " + this.fC + "x" + this.fB + " ";
+      return !bl ? " " + this.homeGoals + "x" + this.awayGoals + " " : " " + this.awayGoals + "x" + this.homeGoals + " ";
    }
 
    public String u(boolean bl) {

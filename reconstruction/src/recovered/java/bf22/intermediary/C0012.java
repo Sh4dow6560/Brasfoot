@@ -105,16 +105,16 @@ public class C0012 extends JPanel {
 
       for (int var2 = 0; var2 < GamePersistence.careerState.getScheduleDays().size(); var2++) {
          for (int var3 = 0; var3 < ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().size(); var3++) {
-            if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).hc() == this.uk
-               || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).hd() == this.uk) {
+            if (((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).getHomeClub() == this.uk
+               || ((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3)).getAwayClub() == this.uk) {
                this.vK.add((Match)((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(var2)).h().get(var3));
             }
          }
       }
 
       for (int var4 = 0; var4 < this.vK.size(); var4++) {
-         if (!this.u.contains(((Match)this.vK.get(var4)).hy())) {
-            this.u.add(((Match)this.vK.get(var4)).hy());
+         if (!this.u.contains(((Match)this.vK.get(var4)).getCompetition())) {
+            this.u.add(((Match)this.vK.get(var4)).getCompetition());
          }
       }
 
@@ -137,7 +137,7 @@ public class C0012 extends JPanel {
          Competition var2 = (Competition)this.va.getSelectedItem();
 
          for (int var3 = 0; var3 < this.vK.size(); var3++) {
-            if (((Match)this.vK.get(var3)).hy() == var2) {
+            if (((Match)this.vK.get(var3)).getCompetition() == var2) {
                this.vL.add((Match)this.vK.get(var3));
             }
          }

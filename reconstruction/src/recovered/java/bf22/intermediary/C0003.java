@@ -39,11 +39,11 @@ public class C0003 extends JPanel {
    public C0003(JDialog jDialog, Club club, Match c0675) {
       this.ub = jDialog;
       this.uk = club;
-      if (this.uk == c0675.hc()) {
-         this.vp.addAll(c0675.hp());
+      if (this.uk == c0675.getHomeClub()) {
+         this.vp.addAll(c0675.getHomePlayersOnField());
          this.dF = 1;
       } else {
-         this.vp.addAll(c0675.hq());
+         this.vp.addAll(c0675.getAwayPlayersOnField());
          this.dF = 2;
       }
 
