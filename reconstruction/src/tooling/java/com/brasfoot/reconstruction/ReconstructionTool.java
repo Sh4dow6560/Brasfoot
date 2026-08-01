@@ -30,6 +30,8 @@ public final class ReconstructionTool {
       case "promote-candidate-batch" -> new CandidatePromotionService(context).promote();
       case "apply-semantic-source-mappings" ->
           new SemanticSourceMigrationService(context).migrate();
+      case "apply-semantic-member-mappings" ->
+          new SemanticMemberSourceMigrationService(context).migrate();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();

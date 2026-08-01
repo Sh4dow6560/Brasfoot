@@ -122,7 +122,7 @@ public class C0200 extends JPanel {
 
    private void pY() {
       SavedGameInfo var1 = null;
-      var1 = GamePersistence.af(this.GN);
+      var1 = GamePersistence.loadCareerInfo(this.GN);
       this.yA.setText("");
       this.Fr.setText("");
       if (var1 != null) {

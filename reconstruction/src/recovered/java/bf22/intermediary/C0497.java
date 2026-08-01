@@ -15,7 +15,7 @@ class C0497 implements ListSelectionListener {
    public void valueChanged(ListSelectionEvent listSelectionEvent) {
       if (!listSelectionEvent.getValueIsAdjusting() && C0493.d(this.ME).getSelectedRow() >= 0) {
          int var2 = C0493.d(this.ME).convertRowIndexToModel(C0493.d(this.ME).getSelectedRow());
-         C0493.a(this.ME, (Coach)GamePersistence.SR.M().get(var2));
+         C0493.a(this.ME, (Coach)GamePersistence.careerState.M().get(var2));
       }
    }
 }

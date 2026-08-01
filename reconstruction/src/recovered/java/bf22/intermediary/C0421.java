@@ -12,8 +12,8 @@ class C0421 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setJogaEstadual(C0419.e(this.MA).isSelected());
-      GamePersistence.vM().setJogaEstadual(C0419.e(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setJogaEstadual(C0419.e(this.MA).isSelected());
+      GamePersistence.getOptions().setJogaEstadual(C0419.e(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

@@ -12,6 +12,6 @@ class C0972 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.V();
+      GamePersistence.careerState.V();
    }
 }

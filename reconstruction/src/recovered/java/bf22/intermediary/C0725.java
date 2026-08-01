@@ -62,9 +62,9 @@ public class C0725 {
       var2 = a(var2, var1);
       int var3 = C0670.eX();
       if (var2 == var3) {
-         GamePersistence.ey(new Random().nextInt(300) + 150);
+         GamePersistence.setRegistrationScore(new Random().nextInt(300) + 150);
       } else {
-         GamePersistence.ey(new Random().nextInt(50) + 30);
+         GamePersistence.setRegistrationScore(new Random().nextInt(50) + 30);
       }
    }
 
@@ -78,11 +78,11 @@ public class C0725 {
       long var0 = 0L;
       long var2 = 0L;
       new GamePersistence();
-      GamePersistence.SR.bs = false;
+      GamePersistence.careerState.bs = false;
       new C0971().wT();
-      GamePersistence.vH();
+      GamePersistence.preloadSoundFiles();
       C0734.dd();
-      GamePersistence.SR.bi();
+      GamePersistence.careerState.bi();
    }
 
    public static void mi() {
@@ -108,45 +108,45 @@ public class C0725 {
    }
 
    private static void dk() {
-      GamePersistence.SR.a(new AfcChampionsLeague());
-      GamePersistence.SR.aL().yq();
+      GamePersistence.careerState.a(new AfcChampionsLeague());
+      GamePersistence.careerState.aL().yq();
    }
 
    private static void dl() {
-      GamePersistence.SR.a(new OfcChampionsLeague());
-      GamePersistence.SR.aQ().yq();
+      GamePersistence.careerState.a(new OfcChampionsLeague());
+      GamePersistence.careerState.aQ().yq();
    }
 
    private static void dm() {
-      GamePersistence.SR.a(new ConcacafChampionsLeague());
-      GamePersistence.SR.aP().yq();
+      GamePersistence.careerState.a(new ConcacafChampionsLeague());
+      GamePersistence.careerState.aP().yq();
    }
 
    private static void dn() {
-      GamePersistence.SR.a(new CafChampionsLeague());
-      GamePersistence.SR.aO().yq();
+      GamePersistence.careerState.a(new CafChampionsLeague());
+      GamePersistence.careerState.aO().yq();
    }
 
    private static void method_kw_do() {
-      GamePersistence.SR.a(new CopaSudamericana());
-      GamePersistence.SR.aH().yq();
+      GamePersistence.careerState.a(new CopaSudamericana());
+      GamePersistence.careerState.aH().yq();
    }
 
    private static void dp() {
-      GamePersistence.SR.a(new UefaEuropaLeague());
-      GamePersistence.SR.aK().yq();
+      GamePersistence.careerState.a(new UefaEuropaLeague());
+      GamePersistence.careerState.aK().yq();
    }
 
    private static void dq() {
-      GamePersistence.SR.a(new UefaChampionsLeague());
-      GamePersistence.SR.aI().setNome(C0679.getString("ligaC"));
-      GamePersistence.SR.aI().yq();
+      GamePersistence.careerState.a(new UefaChampionsLeague());
+      GamePersistence.careerState.aI().setNome(C0679.getString("ligaC"));
+      GamePersistence.careerState.aI().yq();
    }
 
    private static void dr() {
-      GamePersistence.SR.a(new CopaLibertadores());
-      GamePersistence.SR.aF().setNome(C0679.getString("lib"));
-      GamePersistence.SR.aF().yq();
+      GamePersistence.careerState.a(new CopaLibertadores());
+      GamePersistence.careerState.aF().setNome(C0679.getString("lib"));
+      GamePersistence.careerState.aF().yq();
    }
 
    public static void u() {
@@ -160,9 +160,9 @@ public class C0725 {
                "Amistoso C:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var2))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var2))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var2))).a().get(7)]
                   + " "
                   + var1.get(var2)
             );
@@ -177,9 +177,9 @@ public class C0725 {
                "Amistoso S:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var26))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var26))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var26))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var26))).a().get(7)]
                   + " "
                   + var1.get(var26)
             );
@@ -194,9 +194,9 @@ public class C0725 {
                "Regional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var27))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var27))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var27))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var27))).a().get(7)]
                   + " "
                   + var1.get(var27)
             );
@@ -211,9 +211,9 @@ public class C0725 {
                "Estadual:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var28))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var28))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var28))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var28))).a().get(7)]
                   + " "
                   + var1.get(var28)
             );
@@ -229,9 +229,9 @@ public class C0725 {
                "Nacional:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var29))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var29))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var29))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var29))).a().get(7)]
                   + " "
                   + var1.get(var29)
             );
@@ -247,9 +247,9 @@ public class C0725 {
                "Int1:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var30))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var30))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var30))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var30))).a().get(7)]
                   + " "
                   + var1.get(var30)
             );
@@ -265,9 +265,9 @@ public class C0725 {
                "Copa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var31))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var31))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var31))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var31))).a().get(7)]
                   + " "
                   + var1.get(var31)
             );
@@ -283,9 +283,9 @@ public class C0725 {
                "Selecoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var32))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var32))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var32))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var32))).a().get(7)]
                   + " "
                   + var1.get(var32)
             );
@@ -301,9 +301,9 @@ public class C0725 {
                "INT2:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var33))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var33))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var33))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var33))).a().get(7)]
                   + " "
                   + var1.get(var33)
             );
@@ -319,9 +319,9 @@ public class C0725 {
                "Recopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var34))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var34))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var34))).a().get(7)]
                   + " "
                   + var1.get(var34)
             );
@@ -337,9 +337,9 @@ public class C0725 {
                "Mundial:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var35))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var35))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var35))).a().get(7)]
                   + " "
                   + var1.get(var35)
             );
@@ -355,9 +355,9 @@ public class C0725 {
                "Elimin:"
                   + ++var0
                   + ") "
-                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var36))).f()
+                  + ((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).f()
                   + " "
-                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var36))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.careerState.R().get((Integer)var1.get(var36))).a().get(7)]
                   + " "
                   + var1.get(var36)
             );

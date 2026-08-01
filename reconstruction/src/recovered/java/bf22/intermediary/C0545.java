@@ -77,16 +77,16 @@ public class C0545 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
-      this.ve.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
+      this.ve.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
    }
 
    private void dw(int i) {
       this.KG.clear();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.aG().size(); var2++) {
-         if (((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jo() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var2)).gg() == i && ((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jc() != 135) {
-            this.KG.add(((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jo());
+      for (int var2 = 0; var2 < GamePersistence.careerState.aG().size(); var2++) {
+         if (((CountryCompetitions)GamePersistence.careerState.aG().get(var2)).jo() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var2)).gg() == i && ((CountryCompetitions)GamePersistence.careerState.aG().get(var2)).jc() != 135) {
+            this.KG.add(((CountryCompetitions)GamePersistence.careerState.aG().get(var2)).jo());
          }
       }
 

@@ -28,7 +28,7 @@ public class C0757 extends JLayeredPane {
                var4 = "Improvisado como " + GameConstants.rH[GameConstants.sE[var3][0]];
             }
 
-            if (!GamePersistence.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.careerState.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)C0132.oa().get(var3)).x().getNome()
                   + "(F:"
@@ -101,7 +101,7 @@ public class C0757 extends JLayeredPane {
          }
 
          if (var7 >= 1 && ((C0795)C0132.oa().get(var7)).x() != null) {
-            if (!GamePersistence.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.careerState.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)C0132.oa().get(var7)).x().getNome()
                   + "<br><b>Posicão original:</b>"

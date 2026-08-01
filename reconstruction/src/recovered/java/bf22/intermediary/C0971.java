@@ -114,11 +114,11 @@ public class C0971 {
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 0; var4 <= 7; var4++) {
-         var3.add((Club)GamePersistence.SR.P().get(var4));
+         var3.add((Club)GamePersistence.careerState.P().get(var4));
       }
 
-      if (GamePersistence.SR.yn() != null) {
-         GamePersistence.SR.yn().a(var3, 0, var1, var2, false);
+      if (GamePersistence.careerState.yn() != null) {
+         GamePersistence.careerState.yn().a(var3, 0, var1, var2, false);
       }
    }
 
@@ -177,11 +177,11 @@ public class C0971 {
    }
 
    private void K(Club club) {
-      if (GamePersistence.SR.bs() != null) {
-         GamePersistence.SR.bs().setClubName(club.ka().dS());
-         GamePersistence.SR.bs().setManagerName(club.getNome());
-         GamePersistence.SR.bs().setSeasonYear(GamePersistence.SR.H() + GamePersistence.SR.iU());
-         GamePersistence.SR.bs().setNextMatch("");
+      if (GamePersistence.careerState.bs() != null) {
+         GamePersistence.careerState.bs().setClubName(club.ka().dS());
+         GamePersistence.careerState.bs().setManagerName(club.getNome());
+         GamePersistence.careerState.bs().setSeasonYear(GamePersistence.careerState.H() + GamePersistence.careerState.iU());
+         GamePersistence.careerState.bs().setNextMatch("");
       }
    }
 

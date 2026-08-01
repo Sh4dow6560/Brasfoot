@@ -14,8 +14,8 @@ public class C0804 extends JPanel {
    public C0804(String string) {
       this.mJ();
       this.uF.setText(string);
-      if (GamePersistence.vM().getCorTema() == 2) {
-         this.uF.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      if (GamePersistence.getOptions().getCorTema() == 2) {
+         this.uF.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       }
    }
 

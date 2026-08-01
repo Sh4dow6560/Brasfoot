@@ -45,7 +45,7 @@ public class OceaniaWorldCupQualifiers extends Competition implements Serializab
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 0; var4 < var2.length; var4++) {
-         CountryCompetitions var5 = GamePersistence.SR.s(var2[var4]);
+         CountryCompetitions var5 = GamePersistence.careerState.s(var2[var4]);
          var3.add(var5.jo());
          var5.z(true);
       }
@@ -68,8 +68,8 @@ public class OceaniaWorldCupQualifiers extends Competition implements Serializab
       this.agb = var9;
       var9.setNome(this.getNome());
       var9.fb(9500);
-      GamePersistence.afQ.L(var1);
-      GamePersistence.afQ.L(this.YF);
+      GamePersistence.coachJobMarket.L(var1);
+      GamePersistence.coachJobMarket.L(this.YF);
    }
 
    public void yt() {
@@ -110,7 +110,7 @@ public class OceaniaWorldCupQualifiers extends Competition implements Serializab
    }
 
    public void p(ArrayList arrayList, ArrayList arrayList2) {
-      GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)arrayList.get(0)).getPais()));
+      GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)arrayList.get(0)).getPais()));
       this.agf = (Club)arrayList2.get(0);
    }
 
@@ -145,7 +145,7 @@ public class OceaniaWorldCupQualifiers extends Competition implements Serializab
       var1.add(new C0830(var3, "Fase de Grupos"));
       CompetitionStage[] var4 = new CompetitionStage[]{this.afT};
       var1.add(new C0830(var4, "Fase Final"));
-      CompetitionStage[] var5 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
+      CompetitionStage[] var5 = new CompetitionStage[]{GamePersistence.careerState.bQ().Bo()};
       var1.add(new C0830(var5, "Torneio Repescagem"));
       return var1;
    }

@@ -79,7 +79,7 @@ public class ConcacafGoldCup extends Competition implements Serializable {
          LeagueStage var6 = new LeagueStage(var5, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var6;
          var6.setNome(this.getNome());
-         GamePersistence.afQ.L(this.YF);
+         GamePersistence.coachJobMarket.L(this.YF);
       }
    }
 
@@ -136,7 +136,7 @@ public class ConcacafGoldCup extends Competition implements Serializable {
       int var1 = this.YH - 1;
       var1 %= 10;
       int[] var2 = new int[]{131, 68, 38, 51, 53, 131, 68, 139, 131, 68};
-      return var1 >= 0 && var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 >= 0 && var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static ArrayList yc() {

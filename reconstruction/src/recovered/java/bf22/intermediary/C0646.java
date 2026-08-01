@@ -15,7 +15,7 @@ public class C0646 extends AbstractTableModel {
       this.vp = arrayList;
       Collections.sort(arrayList, KZ);
       this.Nt = new String[]{"P", "Nome", "F", "E", "Caract."};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.Nt = new String[]{"P", "Nome", "Fin", "E", "Caracter."};
       }
    }

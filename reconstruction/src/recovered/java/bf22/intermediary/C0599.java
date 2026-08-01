@@ -35,8 +35,8 @@ public class C0599 extends DefaultTableCellRenderer {
             this.setIcon(var7.tR().hc().kU());
          } else if (j == 2) {
             this.setHorizontalAlignment(0);
-            if (var7.ei() && GamePersistence.SR.isUsaCorPlacar()) {
-               int var8 = GamePersistence.SR.getCorPlacar();
+            if (var7.ei() && GamePersistence.careerState.isUsaCorPlacar()) {
+               int var8 = GamePersistence.careerState.getCorPlacar();
                int[] var9 = GameConstants.oY[var8];
                this.setBackground(new Color(var9[0], var9[1], var9[2]));
             } else {
@@ -47,8 +47,8 @@ public class C0599 extends DefaultTableCellRenderer {
             this.setText(Integer.toString(var7.tT()));
          } else if (j == 3) {
             this.setHorizontalAlignment(0);
-            if (var7.ei() && GamePersistence.SR.isUsaCorPlacar()) {
-               int var10 = GamePersistence.SR.getCorPlacar();
+            if (var7.ei() && GamePersistence.careerState.isUsaCorPlacar()) {
+               int var10 = GamePersistence.careerState.getCorPlacar();
                int[] var12 = GameConstants.oY[var10];
                this.setBackground(new Color(var12[0], var12[1], var12[2]));
             } else {
@@ -66,7 +66,7 @@ public class C0599 extends DefaultTableCellRenderer {
          } else if (j == 5) {
             this.setHorizontalAlignment(2);
             if (var7.tV() != null) {
-               if (var7.tV().et() == 0 && GamePersistence.SR.isNegritoCasa()) {
+               if (var7.tV().et() == 0 && GamePersistence.careerState.isNegritoCasa()) {
                   super.setFont(new Font("Tahoma", 1, 11));
                }
 

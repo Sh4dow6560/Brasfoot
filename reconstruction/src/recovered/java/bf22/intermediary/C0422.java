@@ -12,8 +12,8 @@ class C0422 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setJogaRegionais(C0419.f(this.MA).isSelected());
-      GamePersistence.vM().setJogaRegionais(C0419.f(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setJogaRegionais(C0419.f(this.MA).isSelected());
+      GamePersistence.getOptions().setJogaRegionais(C0419.f(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

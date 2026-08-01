@@ -28,7 +28,7 @@ class C0976 implements ActionListener {
          if (false) {
             throw new FileNotFoundException();
          }
-         GamePersistence.ae("teste20_" + var3);
+         GamePersistence.saveCareer("teste20_" + var3);
       } catch (FileNotFoundException var6) {
          var6.printStackTrace();
       }

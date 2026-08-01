@@ -65,13 +65,13 @@ public class C0350 extends JPanel {
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
       if (this.w == 0) {
-         var1.addAll(GamePersistence.afQ.Ap());
+         var1.addAll(GamePersistence.coachJobMarket.Ap());
          if (var1.size() == 0) {
-            GamePersistence.afQ.zj();
-            var1.addAll(GamePersistence.afQ.Ap());
+            GamePersistence.coachJobMarket.zj();
+            var1.addAll(GamePersistence.coachJobMarket.Ap());
          }
       } else {
-         var1.addAll(GamePersistence.afQ.Aq());
+         var1.addAll(GamePersistence.coachJobMarket.Aq());
       }
 
       ArrayList var3 = new ArrayList();
@@ -163,9 +163,9 @@ public class C0350 extends JPanel {
             }
          }
       } else {
-         for (int var11 = 0; var11 < GamePersistence.SR.N().size(); var11++) {
-            int var12 = ((CountryCompetitions)GamePersistence.SR.N().get(var11)).eb().size();
-            int var8 = ((CountryCompetitions)GamePersistence.SR.N().get(var11)).jc();
+         for (int var11 = 0; var11 < GamePersistence.careerState.N().size(); var11++) {
+            int var12 = ((CountryCompetitions)GamePersistence.careerState.N().get(var11)).eb().size();
+            int var8 = ((CountryCompetitions)GamePersistence.careerState.N().get(var11)).jc();
 
             for (int var9 = 0; var9 < var12; var9++) {
                for (int var10 = 0; var10 < arrayList2.size(); var10++) {
@@ -223,7 +223,7 @@ public class C0350 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void Az() {
@@ -233,13 +233,13 @@ public class C0350 extends JPanel {
                this.Es.fg().kE();
             }
 
-            GamePersistence.SR.a(this.Em, this.Em.ka(), this.Es);
+            GamePersistence.careerState.a(this.Em, this.Em.ka(), this.Es);
             C0272.aQ(true);
             this.ub.dispose();
-            GamePersistence.SR.g(true);
-            GamePersistence.SR.ap();
+            GamePersistence.careerState.g(true);
+            GamePersistence.careerState.ap();
          } else {
-            CountryCompetitions var1 = GamePersistence.SR.s(this.Em.getPais());
+            CountryCompetitions var1 = GamePersistence.careerState.s(this.Em.getPais());
             if (var1 != null && this.Es != null) {
                var1.g(this.Es);
                C0272.aR(true);

@@ -12,8 +12,8 @@ class C0423 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setSalarioMensal(C0419.g(this.MA).isSelected());
-      GamePersistence.vM().setSalarioMensal(C0419.g(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setSalarioMensal(C0419.g(this.MA).isSelected());
+      GamePersistence.getOptions().setSalarioMensal(C0419.g(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

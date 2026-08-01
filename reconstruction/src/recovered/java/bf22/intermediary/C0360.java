@@ -70,7 +70,7 @@ public class C0360 extends JPanel {
    }
 
    private void AP() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       if (this.w == 0) {
          this.ug.setText("Convites para ser técnico");
          this.Ki.setText("Assumir time");
@@ -128,10 +128,10 @@ public class C0360 extends JPanel {
             this.Es.fg().kE();
          }
 
-         GamePersistence.SR.a(this.Em, this.Em.ka(), this.Es);
+         GamePersistence.careerState.a(this.Em, this.Em.ka(), this.Es);
          this.ub.dispose();
       } else {
-         CountryCompetitions var1 = GamePersistence.SR.s(this.Em.getPais());
+         CountryCompetitions var1 = GamePersistence.careerState.s(this.Em.getPais());
          if (var1 != null && this.Es != null) {
             var1.g(this.Es);
          } else {
@@ -191,7 +191,7 @@ public class C0360 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{22, 22, 55, 140, 22, 22, 50, 50, 55, 30, 0, 0};
       int[] var3 = new int[]{20, 15, 20, 130, 20, 22, 22, 22, 22, 22, 22, 22, 50, 50, 50, 20, 30, 0, 0};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = var3;
          this.zj.getColumnModel().getColumn(18).setMinWidth(0);
          this.zj.getColumnModel().getColumn(18).setMaxWidth(0);
@@ -233,7 +233,7 @@ public class C0360 extends JPanel {
       var6.setComparator(2, C1007.cL);
       var6.setComparator(3, C1007.abk);
       var6.setComparator(4, C1007.aba);
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          var6.setComparator(5, C1007.aaJ);
          var6.setComparator(6, C1007.aaZ);
          var6.setComparator(7, C1007.aaW);

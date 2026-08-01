@@ -23,8 +23,10 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 79 classes possuem nomes semanticos; o nucleo inclui carreira,
-  persistencia, transferencias, todas as competicoes principais, partidas e
-  motor de simulacao.
-- Proxima fase: ampliar nomes de membros e testes funcionais antes de implementar
-  novas mecanicas.
+- Legibilidade: 79 classes e 135 membros mapeados possuem nomes validos ou
+  semanticos. A API central de persistencia agora expoe nomes diretos para
+  estado da carreira, opcoes, salvar, carregar, backups e sons.
+- Migracao: nomes de membros estaticos podem ser aplicados de forma
+  transacional nas 1.032 fontes, com backup e verificacao de referencias.
+- Proxima fase: nomear calendario e a API interna da carreira, ampliando os
+  testes funcionais antes de implementar novas mecanicas.

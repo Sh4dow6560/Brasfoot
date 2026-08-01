@@ -25,12 +25,12 @@ public class SouthAmericanRecopa extends Competition implements Serializable {
       this.aac = null;
       Club var1 = null;
       Club var2 = null;
-      if (GamePersistence.SR.aF() != null) {
-         var1 = GamePersistence.SR.aF().yz();
+      if (GamePersistence.careerState.aF() != null) {
+         var1 = GamePersistence.careerState.aF().yz();
       }
 
-      if (GamePersistence.SR.aH() != null) {
-         var2 = GamePersistence.SR.aH().yz();
+      if (GamePersistence.careerState.aH() != null) {
+         var2 = GamePersistence.careerState.aH().yz();
       }
 
       boolean[] var3 = new boolean[]{true, true, true, true, true, true, true};

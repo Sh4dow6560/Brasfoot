@@ -32,9 +32,9 @@ public class C0227 extends JPanel {
    public C0227(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      this.FD.setSelected(GamePersistence.SR.isJogaIntano1());
-      this.CS.setSelected(GamePersistence.SR.isGruposIntPadrao());
-      boolean[] var2 = GamePersistence.SR.getVerJint();
+      this.FD.setSelected(GamePersistence.careerState.isJogaIntano1());
+      this.CS.setSelected(GamePersistence.careerState.isGruposIntPadrao());
+      boolean[] var2 = GamePersistence.careerState.getVerJint();
       this.Fv.setSelected(var2[0]);
       this.Fw.setSelected(var2[1]);
       this.FB.setSelected(var2[2]);
@@ -60,13 +60,13 @@ public class C0227 extends JPanel {
       };
 
       for (int var2 = 0; var2 < var1.length; var2++) {
-         GamePersistence.vM().setVerJint(var1[var2], var2);
+         GamePersistence.getOptions().setVerJint(var1[var2], var2);
       }
 
-      GamePersistence.SR.setGruposIntPadrao(this.CS.isSelected());
-      GamePersistence.vM().setJogaIntano1(this.FD.isSelected());
-      GamePersistence.vM().setGruposIntPadrao(this.CS.isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setGruposIntPadrao(this.CS.isSelected());
+      GamePersistence.getOptions().setJogaIntano1(this.FD.isSelected());
+      GamePersistence.getOptions().setGruposIntPadrao(this.CS.isSelected());
+      GamePersistence.saveOptions();
       this.ub.dispose();
    }
 

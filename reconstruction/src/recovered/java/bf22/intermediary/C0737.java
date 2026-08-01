@@ -27,15 +27,15 @@ public abstract class C0737 {
       boolean var0 = false;
       int var1 = -1;
       int var2 = -1;
-      boolean[] var3 = GamePersistence.SR.getVerJint();
+      boolean[] var3 = GamePersistence.careerState.getVerJint();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.S().size(); var4++) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
          if (var1 == -1) {
-            var1 = ((Match)GamePersistence.SR.S().get(var4)).hy().b();
-            var2 = ((Match)GamePersistence.SR.S().get(var4)).hy().el();
+            var1 = ((Match)GamePersistence.careerState.S().get(var4)).hy().b();
+            var2 = ((Match)GamePersistence.careerState.S().get(var4)).hy().el();
          }
 
-         if (((Match)GamePersistence.SR.S().get(var4)).hc().jZ() || ((Match)GamePersistence.SR.S().get(var4)).hd().jZ()) {
+         if (((Match)GamePersistence.careerState.S().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var4)).hd().jZ()) {
             var0 = true;
             break;
          }
@@ -46,7 +46,7 @@ public abstract class C0737 {
             return false;
          }
 
-         int var5 = GamePersistence.SR.ae(var1, var2);
+         int var5 = GamePersistence.careerState.ae(var1, var2);
          if (var5 < var3.length) {
             return var3[var5];
          }
@@ -58,10 +58,10 @@ public abstract class C0737 {
    public static boolean b(Competition c0713) {
       int var1 = c0713.b();
       int var2 = c0713.gg();
-      boolean[] var3 = GamePersistence.SR.getVerJint();
+      boolean[] var3 = GamePersistence.careerState.getVerJint();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.S().size(); var4++) {
-         if (((Match)GamePersistence.SR.S().get(var4)).hy() == c0713 && (((Match)GamePersistence.SR.S().get(var4)).hc().jZ() || ((Match)GamePersistence.SR.S().get(var4)).hd().jZ())) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
+         if (((Match)GamePersistence.careerState.S().get(var4)).hy() == c0713 && (((Match)GamePersistence.careerState.S().get(var4)).hc().jZ() || ((Match)GamePersistence.careerState.S().get(var4)).hd().jZ())) {
             return true;
          }
       }
@@ -70,7 +70,7 @@ public abstract class C0737 {
          return false;
       }
 
-      int var5 = GamePersistence.SR.ae(var1, var2);
+      int var5 = GamePersistence.careerState.ae(var1, var2);
       return var5 < var3.length ? var3[var5] : true;
    }
 
@@ -80,9 +80,9 @@ public abstract class C0737 {
       cV = -1;
       cW = null;
       cP.clear();
-      cP.addAll(((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).t());
+      cP.addAll(((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t());
       if (cP.size() > 0) {
-         if (GamePersistence.SR.bs) {
+         if (GamePersistence.careerState.bs) {
             cR = MainWindow.aY(4);
          }
 
@@ -169,9 +169,9 @@ public abstract class C0737 {
    }
 
    public static void dD() {
-      for (int var0 = 0; var0 < GamePersistence.SR.bV().length; var0++) {
+      for (int var0 = 0; var0 < GamePersistence.careerState.bV().length; var0++) {
          for (int var1 = 0; var1 < cP.size(); var1++) {
-            if (cP.get(var1) == GamePersistence.SR.bV()[var0] && !cQ.contains(cP.get(var1))) {
+            if (cP.get(var1) == GamePersistence.careerState.bV()[var0] && !cQ.contains(cP.get(var1))) {
                cQ.add((Competition)cP.get(var1));
             }
          }
@@ -182,10 +182,10 @@ public abstract class C0737 {
 
    public static void dE() {
       cQ.clear();
-      if (GamePersistence.SR.isVerEstaduaisAgrupados()) {
-         for (int var0 = 0; var0 < GamePersistence.SR.aE().size(); var0++) {
+      if (GamePersistence.careerState.isVerEstaduaisAgrupados()) {
+         for (int var0 = 0; var0 < GamePersistence.careerState.aE().size(); var0++) {
             for (int var1 = 0; var1 < cP.size(); var1++) {
-               if (((Competition)cP.get(var1)).ir() == GamePersistence.SR.aE().get(var0)) {
+               if (((Competition)cP.get(var1)).ir() == GamePersistence.careerState.aE().get(var0)) {
                   cQ.add((Competition)cP.get(var1));
                }
             }
@@ -193,13 +193,13 @@ public abstract class C0737 {
 
          ((C0208)cR).Y(cQ);
       } else {
-         for (int var5 = 0; var5 < GamePersistence.SR.aE().size(); var5++) {
-            if (((C0741)GamePersistence.SR.aE().get(var5)).ei() && ((C0741)GamePersistence.SR.aE().get(var5)).ej()) {
+         for (int var5 = 0; var5 < GamePersistence.careerState.aE().size(); var5++) {
+            if (((C0741)GamePersistence.careerState.aE().get(var5)).ei() && ((C0741)GamePersistence.careerState.aE().get(var5)).ej()) {
                cQ.clear();
-               cU = ((C0741)GamePersistence.SR.aE().get(var5)).getEstado();
+               cU = ((C0741)GamePersistence.careerState.aE().get(var5)).getEstado();
 
                for (int var7 = 0; var7 < cP.size(); var7++) {
-                  if (((Competition)cP.get(var7)).ir() == GamePersistence.SR.aE().get(var5)) {
+                  if (((Competition)cP.get(var7)).ir() == GamePersistence.careerState.aE().get(var5)) {
                      cQ.add((Competition)cP.get(var7));
                   }
                }
@@ -214,18 +214,18 @@ public abstract class C0737 {
          }
 
          if (cQ.size() == 0) {
-            int[] var6 = new int[]{GamePersistence.SR.by(), 25, 18, 22, 17, 10};
+            int[] var6 = new int[]{GamePersistence.careerState.by(), 25, 18, 22, 17, 10};
             boolean var9 = false;
 
             for (int var2 = 0; var2 < var6.length; var2++) {
-               for (int var3 = GamePersistence.SR.aE().size() - 1; var3 >= 0; var3--) {
-                  if (((C0741)GamePersistence.SR.aE().get(var3)).getEstado() == var6[var2] && ((C0741)GamePersistence.SR.aE().get(var3)).ej()) {
-                     cU = ((C0741)GamePersistence.SR.aE().get(var3)).getEstado();
+               for (int var3 = GamePersistence.careerState.aE().size() - 1; var3 >= 0; var3--) {
+                  if (((C0741)GamePersistence.careerState.aE().get(var3)).getEstado() == var6[var2] && ((C0741)GamePersistence.careerState.aE().get(var3)).ej()) {
+                     cU = ((C0741)GamePersistence.careerState.aE().get(var3)).getEstado();
                      var9 = true;
                      cQ.clear();
 
                      for (int var4 = 0; var4 < cP.size(); var4++) {
-                        if (((Competition)cP.get(var4)).ir() == GamePersistence.SR.aE().get(var3)) {
+                        if (((Competition)cP.get(var4)).ir() == GamePersistence.careerState.aE().get(var3)) {
                            cQ.add((Competition)cP.get(var4));
                         }
                      }
@@ -253,9 +253,9 @@ public abstract class C0737 {
       boolean var0 = false;
       cQ.clear();
       if (var0) {
-         for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
             for (int var2 = 0; var2 < cP.size(); var2++) {
-               if (((Competition)cP.get(var2)).iq() == GamePersistence.SR.N().get(var1)) {
+               if (((Competition)cP.get(var2)).iq() == GamePersistence.careerState.N().get(var1)) {
                   cQ.add((Competition)cP.get(var2));
                }
             }
@@ -265,9 +265,9 @@ public abstract class C0737 {
       }
 
       if (!var0) {
-         for (int var5 = 0; var5 < GamePersistence.SR.N().size(); var5++) {
+         for (int var5 = 0; var5 < GamePersistence.careerState.N().size(); var5++) {
             boolean var7 = false;
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var5)).ju() && ((CountryCompetitions)GamePersistence.SR.N().get(var5)).jv()) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var5)).ju() && ((CountryCompetitions)GamePersistence.careerState.N().get(var5)).jv()) {
                var7 = true;
             }
 
@@ -276,7 +276,7 @@ public abstract class C0737 {
 
                for (int var3 = 0; var3 < cP.size(); var3++) {
                   cW = (Competition)cP.get(var3);
-                  if (cP.get(var3) == ((CountryCompetitions)GamePersistence.SR.N().get(var5)).jq()) {
+                  if (cP.get(var3) == ((CountryCompetitions)GamePersistence.careerState.N().get(var5)).jq()) {
                      cQ.add((Competition)cP.get(var3));
                   }
                }
@@ -291,17 +291,17 @@ public abstract class C0737 {
          }
 
          if (cQ.size() == 0) {
-            int var6 = GamePersistence.SR.bA();
+            int var6 = GamePersistence.careerState.bA();
             boolean var8 = false;
 
-            for (int var11 = GamePersistence.SR.N().size() - 1; var11 >= 0; var11--) {
-               if (((CountryCompetitions)GamePersistence.SR.N().get(var11)).jc() == var6 && ((CountryCompetitions)GamePersistence.SR.N().get(var11)).jv()) {
+            for (int var11 = GamePersistence.careerState.N().size() - 1; var11 >= 0; var11--) {
+               if (((CountryCompetitions)GamePersistence.careerState.N().get(var11)).jc() == var6 && ((CountryCompetitions)GamePersistence.careerState.N().get(var11)).jv()) {
                   var8 = true;
                   cQ.clear();
 
                   for (int var4 = 0; var4 < cP.size(); var4++) {
                      cW = (Competition)cP.get(var4);
-                     if (cP.get(var4) == ((CountryCompetitions)GamePersistence.SR.N().get(var11)).jq()) {
+                     if (cP.get(var4) == ((CountryCompetitions)GamePersistence.careerState.N().get(var11)).jq()) {
                         cQ.add((Competition)cP.get(var4));
                      }
                   }
@@ -322,15 +322,15 @@ public abstract class C0737 {
    }
 
    public static boolean dG() {
-      for (int var0 = 0; var0 < ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().size(); var0++) {
+      for (int var0 = 0; var0 < ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().size(); var0++) {
          LeagueStage var1 = null;
          Competition var2 = null;
-         if (((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0) instanceof LeagueStage) {
-            var1 = (LeagueStage)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0);
-         } else if (((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0) instanceof KnockoutStage) {
-            var1 = (LeagueStage)((KnockoutStage)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0)).zy();
+         if (((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0) instanceof LeagueStage) {
+            var1 = (LeagueStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0);
+         } else if (((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0) instanceof KnockoutStage) {
+            var1 = (LeagueStage)((KnockoutStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0)).zy();
             if (var1 == null) {
-               var2 = ((KnockoutStage)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).j().get(var0)).yT();
+               var2 = ((KnockoutStage)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).j().get(var0)).yT();
                if (var2 instanceof NationalLeague) {
                   var1 = ((NationalLeague)var2).yi();
                }
@@ -390,17 +390,17 @@ public abstract class C0737 {
    public static boolean dH() {
       boolean var0 = false;
 
-      for (int var1 = 0; var1 < GamePersistence.SR.bV().length; var1++) {
-         if (GamePersistence.SR.bV()[var1] != null) {
-            for (int var2 = 0; var2 < GamePersistence.SR.M().size(); var2++) {
-               Club var3 = ((Coach)GamePersistence.SR.M().get(var2)).fg();
+      for (int var1 = 0; var1 < GamePersistence.careerState.bV().length; var1++) {
+         if (GamePersistence.careerState.bV()[var1] != null) {
+            for (int var2 = 0; var2 < GamePersistence.careerState.M().size(); var2++) {
+               Club var3 = ((Coach)GamePersistence.careerState.M().get(var2)).fg();
                if (var3 != null && var3.getPais() == 29 && d(var3.getEstado(), var1)) {
                   var0 = true;
                } else if (var3 == null
-                  && !GamePersistence.SR.isIgnoraEstadual()
-                  && ((Coach)GamePersistence.SR.M().get(var2)).lF() != null
-                  && ((Coach)GamePersistence.SR.M().get(var2)).lF().getPais() == 29
-                  && d(((Coach)GamePersistence.SR.M().get(var2)).lF().getEstado(), var1)) {
+                  && !GamePersistence.careerState.isIgnoraEstadual()
+                  && ((Coach)GamePersistence.careerState.M().get(var2)).lF() != null
+                  && ((Coach)GamePersistence.careerState.M().get(var2)).lF().getPais() == 29
+                  && d(((Coach)GamePersistence.careerState.M().get(var2)).lF().getEstado(), var1)) {
                   var0 = true;
                }
             }
@@ -414,16 +414,16 @@ public abstract class C0737 {
       boolean var1 = false;
       boolean var2 = true;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.M().size(); var3++) {
-         Club var4 = ((Coach)GamePersistence.SR.M().get(var3)).fg();
+      for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
+         Club var4 = ((Coach)GamePersistence.careerState.M().get(var3)).fg();
          if (var4 != null && var4.getPais() == 29) {
             var1 = true;
             if (var4.getEstado() != 18) {
                var2 = false;
             }
-         } else if (var4 == null && ((Coach)GamePersistence.SR.M().get(var3)).lF() != null && ((Coach)GamePersistence.SR.M().get(var3)).lF().getPais() == 29) {
+         } else if (var4 == null && ((Coach)GamePersistence.careerState.M().get(var3)).lF() != null && ((Coach)GamePersistence.careerState.M().get(var3)).lF().getPais() == 29) {
             var1 = true;
-            if (((Coach)GamePersistence.SR.M().get(var3)).lF().getEstado() != 18) {
+            if (((Coach)GamePersistence.careerState.M().get(var3)).lF().getEstado() != 18) {
                var2 = false;
             }
          }
@@ -436,9 +436,9 @@ public abstract class C0737 {
       boolean var0 = false;
       cQ.clear();
       if (var0) {
-         for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
             for (int var2 = 0; var2 < cP.size(); var2++) {
-               if (((Competition)cP.get(var2)).iq() == GamePersistence.SR.N().get(var1)) {
+               if (((Competition)cP.get(var2)).iq() == GamePersistence.careerState.N().get(var1)) {
                   cQ.add((Competition)cP.get(var2));
                }
             }
@@ -448,18 +448,18 @@ public abstract class C0737 {
       }
 
       if (!var0) {
-         for (int var6 = 0; var6 < GamePersistence.SR.N().size(); var6++) {
+         for (int var6 = 0; var6 < GamePersistence.careerState.N().size(); var6++) {
             boolean var8 = false;
-            if ((((CountryCompetitions)GamePersistence.SR.N().get(var6)).ei() || ((CountryCompetitions)GamePersistence.SR.N().get(var6)).jr()) && ((CountryCompetitions)GamePersistence.SR.N().get(var6)).ej()) {
+            if ((((CountryCompetitions)GamePersistence.careerState.N().get(var6)).ei() || ((CountryCompetitions)GamePersistence.careerState.N().get(var6)).jr()) && ((CountryCompetitions)GamePersistence.careerState.N().get(var6)).ej()) {
                var8 = true;
             }
 
             if (var8) {
-               cU = ((CountryCompetitions)GamePersistence.SR.N().get(var6)).jc();
+               cU = ((CountryCompetitions)GamePersistence.careerState.N().get(var6)).jc();
                cQ.clear();
 
                for (int var3 = 0; var3 < cP.size(); var3++) {
-                  if (((Competition)cP.get(var3)).iq() == GamePersistence.SR.N().get(var6)) {
+                  if (((Competition)cP.get(var3)).iq() == GamePersistence.careerState.N().get(var6)) {
                      cQ.add((Competition)cP.get(var3));
                   }
                }
@@ -474,18 +474,18 @@ public abstract class C0737 {
          }
 
          if (cQ.size() == 0) {
-            int[] var7 = new int[]{GamePersistence.SR.bz()};
+            int[] var7 = new int[]{GamePersistence.careerState.bz()};
             boolean var9 = false;
 
             for (int var11 = 0; var11 < var7.length; var11++) {
-               for (int var4 = GamePersistence.SR.N().size() - 1; var4 >= 0; var4--) {
-                  if (((CountryCompetitions)GamePersistence.SR.N().get(var4)).jc() == var7[var11] && ((CountryCompetitions)GamePersistence.SR.N().get(var4)).ej()) {
-                     cU = ((CountryCompetitions)GamePersistence.SR.N().get(var4)).jc();
+               for (int var4 = GamePersistence.careerState.N().size() - 1; var4 >= 0; var4--) {
+                  if (((CountryCompetitions)GamePersistence.careerState.N().get(var4)).jc() == var7[var11] && ((CountryCompetitions)GamePersistence.careerState.N().get(var4)).ej()) {
+                     cU = ((CountryCompetitions)GamePersistence.careerState.N().get(var4)).jc();
                      var9 = true;
                      cQ.clear();
 
                      for (int var5 = 0; var5 < cP.size(); var5++) {
-                        if (((Competition)cP.get(var5)).iq() == GamePersistence.SR.N().get(var4)) {
+                        if (((Competition)cP.get(var5)).iq() == GamePersistence.careerState.N().get(var4)) {
                            cQ.add((Competition)cP.get(var5));
                         }
                      }
@@ -517,7 +517,7 @@ public abstract class C0737 {
       } else {
          ((C0208)cR).GO = null;
          cR = null;
-         GamePersistence.SR.at();
+         GamePersistence.careerState.at();
       }
    }
 

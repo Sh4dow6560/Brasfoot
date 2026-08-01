@@ -75,7 +75,7 @@ public class AsianCup extends Competition implements Serializable {
          LeagueStage var6 = new LeagueStage(var5, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var6;
          var6.setNome(this.getNome());
-         GamePersistence.afQ.L(this.YF);
+         GamePersistence.coachJobMarket.L(this.YF);
       }
    }
 
@@ -127,7 +127,7 @@ public class AsianCup extends Competition implements Serializable {
       int var1 = this.YH - 1;
       var1 %= 10;
       int[] var2 = new int[]{43, 107, 59, 14, 98, 174, 39, 49, 99, 199};
-      return var1 >= 0 && var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 >= 0 && var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static ArrayList yc() {

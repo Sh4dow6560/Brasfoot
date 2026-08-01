@@ -68,7 +68,7 @@ public class C0419 extends JPanel {
    public C0419(JFrame jFrame) {
       this.Br = jFrame;
       this.mJ();
-      if (GamePersistence.SR.bF.size() > 0) {
+      if (GamePersistence.careerState.bF.size() > 0) {
          this.sn();
       }
 
@@ -89,7 +89,7 @@ public class C0419 extends JPanel {
    }
 
    private void sm() {
-      if (!GamePersistence.vL()) {
+      if (!GamePersistence.isRegisteredVersion()) {
          this.Mi.setSelected(false);
          this.Mj.setSelected(false);
          this.Mh.setSelected(false);
@@ -101,7 +101,7 @@ public class C0419 extends JPanel {
          this.Mk.setEnabled(false);
          this.Mc.setEnabled(false);
          this.Mb.setEnabled(false);
-         GamePersistence.SR.setJogaRegionais(false);
+         GamePersistence.careerState.setJogaRegionais(false);
       } else {
          this.ug.setVisible(false);
       }
@@ -127,12 +127,12 @@ public class C0419 extends JPanel {
       this.JG.setRowSelectionAllowed(true);
       this.JG.setSelectionBackground(Color.YELLOW);
       this.JG.setFillsViewportHeight(true);
-      if (GamePersistence.SR.bF.size() > 0) {
+      if (GamePersistence.careerState.bF.size() > 0) {
          this.JG.setRowSelectionInterval(0, 0);
 
-         for (int var2 = 0; var2 < GamePersistence.SR.bF.size(); var2++) {
-            if (((C0681)GamePersistence.SR.bF.get(var2)).getPais() == 29) {
-               ((C0681)GamePersistence.SR.bF.get(var2)).v(true);
+         for (int var2 = 0; var2 < GamePersistence.careerState.bF.size(); var2++) {
+            if (((C0681)GamePersistence.careerState.bF.get(var2)).getPais() == 29) {
+               ((C0681)GamePersistence.careerState.bF.get(var2)).v(true);
                this.JG.setRowSelectionInterval(var2, var2);
                break;
             }
@@ -166,17 +166,17 @@ public class C0419 extends JPanel {
    private void oq() {
       this.Bw.setCursor(new Cursor(3));
       if (this.afA.getSelectedIndex() == 1) {
-         GamePersistence.SR.I(2023);
+         GamePersistence.careerState.I(2023);
          GameConstants.f("anoinicio", 1);
       } else {
-         GamePersistence.SR.I(2022);
+         GamePersistence.careerState.I(2022);
          GameConstants.f("anoinicio", 0);
       }
 
-      GamePersistence.SR.setJogaEstadual(this.Mi.isSelected());
-      GamePersistence.SR.setJogaIntClubes(this.Mj.isSelected());
-      GamePersistence.SR.setJogaSelecoesAll(this.Mh.isSelected());
-      if (GamePersistence.SR.bj()) {
+      GamePersistence.careerState.setJogaEstadual(this.Mi.isSelected());
+      GamePersistence.careerState.setJogaIntClubes(this.Mj.isSelected());
+      GamePersistence.careerState.setJogaSelecoesAll(this.Mh.isSelected());
+      if (GamePersistence.careerState.bj()) {
          C0734.dg();
          MainWindow.aY(1);
       } else {
@@ -191,19 +191,19 @@ public class C0419 extends JPanel {
       this.Mb.addActionListener(new C0484(this));
       this.Mc.addActionListener(new C0485(this));
       this.Me.addActionListener(new C0486(this));
-      this.Mj.setSelected(GamePersistence.SR.isJogaIntClubes());
+      this.Mj.setSelected(GamePersistence.careerState.isJogaIntClubes());
       this.Mj.addActionListener(new C0487(this));
-      this.Mh.setSelected(GamePersistence.SR.isJogaSelecoesAll());
+      this.Mh.setSelected(GamePersistence.careerState.isJogaSelecoesAll());
       this.Mh.addActionListener(new C0488(this));
-      this.Mi.setSelected(GamePersistence.SR.isJogaEstadual());
+      this.Mi.setSelected(GamePersistence.careerState.isJogaEstadual());
       this.Mi.addActionListener(new C0421(this));
-      this.Mk.setSelected(GamePersistence.SR.isJogaRegionais());
+      this.Mk.setSelected(GamePersistence.careerState.isJogaRegionais());
       this.Mk.addActionListener(new C0422(this));
       this.Mm.add(this.Mw);
       this.Mm.add(this.Mx);
       this.Ml.add(this.Mv);
       this.Ml.add(this.Mu);
-      if (GamePersistence.SR.isSalarioMensal()) {
+      if (GamePersistence.careerState.isSalarioMensal()) {
          this.Mw.setSelected(true);
          this.Mx.setSelected(false);
       } else {
@@ -213,7 +213,7 @@ public class C0419 extends JPanel {
 
       this.Mw.addActionListener(new C0423(this));
       this.Mx.addActionListener(new C0424(this));
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.Mv.setSelected(true);
          this.Mu.setSelected(false);
       } else {
@@ -221,7 +221,7 @@ public class C0419 extends JPanel {
          this.Mu.setSelected(true);
       }
 
-      this.afz.setSelected(GamePersistence.SR.isUsarGruposReaisCopa());
+      this.afz.setSelected(GamePersistence.careerState.isUsarGruposReaisCopa());
       this.afz.addActionListener(new C0478(this));
       this.Mv.addActionListener(new C0479(this));
       this.Mu.addActionListener(new C0480(this));
@@ -273,7 +273,7 @@ public class C0419 extends JPanel {
       if (this.Mz.getSelectedRow() >= 0) {
          this.Mb.setCursor(new Cursor(3));
          int var1 = this.Mz.getSelectedRow();
-         int var2 = GamePersistence.SR.bE[this.Mz.getSelectedRow()];
+         int var2 = GamePersistence.careerState.bE[this.Mz.getSelectedRow()];
          JDialog var3 = new JDialog(this.Br);
          C0182 var4 = new C0182(var1, var2, var3);
          var3.add(var4);
@@ -291,8 +291,8 @@ public class C0419 extends JPanel {
    public void st() {
       if (this.JG.getSelectedRow() >= 0) {
          this.Md.setCursor(new Cursor(3));
-         int var1 = ((C0681)GamePersistence.SR.bF.get(this.JG.getSelectedRow())).getPais();
-         int var2 = ((C0681)GamePersistence.SR.bF.get(this.JG.getSelectedRow())).iB();
+         int var1 = ((C0681)GamePersistence.careerState.bF.get(this.JG.getSelectedRow())).getPais();
+         int var2 = ((C0681)GamePersistence.careerState.bF.get(this.JG.getSelectedRow())).iB();
          JDialog var3 = new JDialog(this.Br);
          C0193 var4 = new C0193(var1, var2, var3);
          var3.add(var4);

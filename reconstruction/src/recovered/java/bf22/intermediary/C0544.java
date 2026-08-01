@@ -12,7 +12,7 @@ class C0544 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setIgnoraEstadual(C0294.o(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setIgnoraEstadual(C0294.o(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

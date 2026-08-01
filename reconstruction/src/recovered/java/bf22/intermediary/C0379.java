@@ -38,7 +38,7 @@ public class C0379 extends JPanel {
       this.vf.setIcon(c0667.cu().kU());
       this.mV();
       this.vq.addActionListener(new C0380(this));
-      if (GamePersistence.SR.bD()) {
+      if (GamePersistence.careerState.bD()) {
          this.oR();
       }
    }

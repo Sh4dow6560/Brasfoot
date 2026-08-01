@@ -43,7 +43,7 @@ public class WorldCup extends Competition implements Serializable {
    }
 
    public void ya() {
-      if (GamePersistence.SR.H() > 1) {
+      if (GamePersistence.careerState.H() > 1) {
          this.Bu();
       } else {
          this.YE.clear();
@@ -52,20 +52,20 @@ public class WorldCup extends Competition implements Serializable {
          boolean var1 = false;
          int[] var2 = new int[]{13, 4, 5, 4, 3, 0};
          int[] var3 = new int[6];
-         if (GamePersistence.SR.H() == 1) {
+         if (GamePersistence.careerState.H() == 1) {
             var3 = var2;
          }
 
          this.YH++;
          this.YG = this.eY(0);
-         if (GamePersistence.SR.H() == 1 && GamePersistence.SR.isUsarGruposReaisCopa()) {
+         if (GamePersistence.careerState.H() == 1 && GamePersistence.careerState.isUsarGruposReaisCopa()) {
             var1 = true;
             int[] var9 = new int[]{
                39, 60, 169, 85, 97, 98, 68, 145, 11, 9, 131, 152, 72, 14, 54, 190, 65, 51, 3, 107, 21, 38, 129, 52, 29, 171, 180, 36, 154, 75, 195, 49
             };
 
             for (int var13 = 0; var13 < 32; var13++) {
-               this.YE.add(GamePersistence.SR.s(var9[var13]));
+               this.YE.add(GamePersistence.careerState.s(var9[var13]));
             }
          } else {
             if (this.YG != null && this.YG.jl()) {
@@ -135,7 +135,7 @@ public class WorldCup extends Competition implements Serializable {
             LeagueStage var8 = new LeagueStage(var7, this.YF, 0, null, null, null, 7, null, false, null, true, this);
             this.YD = var8;
             var8.setNome(this.getNome());
-            GamePersistence.afQ.L(this.YF);
+            GamePersistence.coachJobMarket.L(this.YF);
          }
 
          this.YM.clear();
@@ -299,7 +299,7 @@ public class WorldCup extends Competition implements Serializable {
       int var2 = this.YH + i - 1;
       var2 %= 10;
       int[] var3 = new int[]{39, 131, 65, 11, 104, 97, 43, 3, 29, 162};
-      return var2 >= 0 && var2 < var3.length ? GamePersistence.SR.s(var3[var2]) : null;
+      return var2 >= 0 && var2 < var3.length ? GamePersistence.careerState.s(var3[var2]) : null;
    }
 
    @Override

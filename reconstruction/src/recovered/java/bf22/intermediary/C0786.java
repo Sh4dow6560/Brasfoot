@@ -33,7 +33,7 @@ public class C0786 {
    }
 
    public String uD() {
-      return Integer.toString(this.ae + GamePersistence.SR.iU());
+      return Integer.toString(this.ae + GamePersistence.careerState.iU());
    }
 
    public void k(int i) {

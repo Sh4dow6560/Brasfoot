@@ -194,7 +194,7 @@ public class Match implements Serializable {
 
       if (c0678 != null) {
          if (c0678.b() == 9) {
-            CountryCompetitions var8 = GamePersistence.SR.s(this.fz.getPais());
+            CountryCompetitions var8 = GamePersistence.careerState.s(this.fz.getPais());
             if (var8 != null) {
                this.dH = var8.C(false);
             }
@@ -212,9 +212,9 @@ public class Match implements Serializable {
          }
       }
 
-      ((C0693)GamePersistence.SR.R().get(j)).a(this);
-      ((C0693)GamePersistence.SR.R().get(j)).a(c0678);
-      ((C0693)GamePersistence.SR.R().get(j)).a(c0713);
+      ((C0693)GamePersistence.careerState.R().get(j)).a(this);
+      ((C0693)GamePersistence.careerState.R().get(j)).a(c0678);
+      ((C0693)GamePersistence.careerState.R().get(j)).a(c0713);
       if (this.fx.b() == 5 || this.fx.b() == 15) {
          this.dH = null;
       }
@@ -335,7 +335,7 @@ public class Match implements Serializable {
 
    public static void he() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).h();
+      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
       Competition var1 = null;
       int var2 = 0;
 
@@ -343,11 +343,11 @@ public class Match implements Serializable {
          ((Match)var0.get(var3)).o(((Match)var0.get(var3)).hG());
          if (((Match)var0.get(var3)).hy() != null) {
             if (((Match)var0.get(var3)).hy().b() == 15) {
-               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).hy(), var2, true, GamePersistence.SR.yn().Bt());
+               ((Match)var0.get(var3)).a(((Match)var0.get(var3)).hy(), var2, true, GamePersistence.careerState.yn().Bt());
             }
 
             boolean var4 = false;
-            if (((Match)var0.get(var3)).hy().b() == 14 && ((Match)var0.get(var3)).ht() == GamePersistence.SR.sq().BF()) {
+            if (((Match)var0.get(var3)).hy().b() == 14 && ((Match)var0.get(var3)).ht() == GamePersistence.careerState.sq().BF()) {
                var4 = true;
             }
 
@@ -365,7 +365,7 @@ public class Match implements Serializable {
                && ((Match)var0.get(var3)).ht() != null
                && ((Match)var0.get(var3)).ht() instanceof LeagueStage
                && ((LeagueStage)((Match)var0.get(var3)).ht()).ze() == 7701) {
-               CountryCompetitions var5 = GamePersistence.SR.aY().eY(2);
+               CountryCompetitions var5 = GamePersistence.careerState.aY().eY(2);
                String var6 = "";
                if (var5 != null) {
                   var6 = var5.jf();
@@ -394,9 +394,9 @@ public class Match implements Serializable {
 
       C0686 var2 = null;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.bd().size(); var3++) {
-         if (((C0686)GamePersistence.SR.bd().get(var3)).a(this.fz, this.fA)) {
-            var2 = (C0686)GamePersistence.SR.bd().get(var3);
+      for (int var3 = 0; var3 < GamePersistence.careerState.bd().size(); var3++) {
+         if (((C0686)GamePersistence.careerState.bd().get(var3)).a(this.fz, this.fA)) {
+            var2 = (C0686)GamePersistence.careerState.bd().get(var3);
          }
       }
 

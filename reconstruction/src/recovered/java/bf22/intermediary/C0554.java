@@ -70,23 +70,23 @@ public class C0554 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mO() {
-      if (!GamePersistence.SR.isJogaEstadual()) {
+      if (!GamePersistence.careerState.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.careerState.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaIntClubes()) {
+      if (!GamePersistence.careerState.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -150,21 +150,21 @@ public class C0554 extends JPanel {
    private void mR() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.O().size(); var2++) {
-         if (((Player)GamePersistence.SR.O().get(var2)).gy() > 0) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.O().size(); var2++) {
+         if (((Player)GamePersistence.careerState.O().get(var2)).gy() > 0) {
             var1.add(
                new C0721(
-                  ((Player)GamePersistence.SR.O().get(var2)).getNome(),
-                  ((Player)GamePersistence.SR.O().get(var2)).fg(),
-                  ((Player)GamePersistence.SR.O().get(var2)).gy(),
-                  ((Player)GamePersistence.SR.O().get(var2)).gz()
+                  ((Player)GamePersistence.careerState.O().get(var2)).getNome(),
+                  ((Player)GamePersistence.careerState.O().get(var2)).fg(),
+                  ((Player)GamePersistence.careerState.O().get(var2)).gy(),
+                  ((Player)GamePersistence.careerState.O().get(var2)).gz()
                )
             );
          }
       }
 
-      for (int var3 = 0; var3 < GamePersistence.SR.bJ().size(); var3++) {
-         var1.add(new C0721(((C0719)GamePersistence.SR.bJ().get(var3)).getN(), null, ((C0719)GamePersistence.SR.bJ().get(var3)).v(), ((C0719)GamePersistence.SR.bJ().get(var3)).w()));
+      for (int var3 = 0; var3 < GamePersistence.careerState.bJ().size(); var3++) {
+         var1.add(new C0721(((C0719)GamePersistence.careerState.bJ().get(var3)).getN(), null, ((C0719)GamePersistence.careerState.bJ().get(var3)).v(), ((C0719)GamePersistence.careerState.bJ().get(var3)).w()));
       }
 
       Collections.sort(var1, uV);

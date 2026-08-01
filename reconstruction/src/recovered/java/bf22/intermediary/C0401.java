@@ -46,8 +46,8 @@ public class C0401 extends JPanel {
          this.GD.setVisible(false);
          int var4 = 0;
 
-         for (int var5 = 0; var5 < GamePersistence.SR.bn().size(); var5++) {
-            this.LB.add((CoachChangeRecord)GamePersistence.SR.bn().get(var5));
+         for (int var5 = 0; var5 < GamePersistence.careerState.bn().size(); var5++) {
+            this.LB.add((CoachChangeRecord)GamePersistence.careerState.bn().get(var5));
             if (++var4 == 100) {
                break;
             }
@@ -61,7 +61,7 @@ public class C0401 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mQ() {
@@ -75,19 +75,19 @@ public class C0401 extends JPanel {
       this.uK.clear();
       int var1 = 0;
       if (this.GD.getSelectedIndex() == 0) {
-         for (int var2 = GamePersistence.SR.bo().size() - 1; var2 >= 0; var2--) {
-            if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var2)).x() != null) {
-               this.uK.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var2));
+         for (int var2 = GamePersistence.careerState.bo().size() - 1; var2 >= 0; var2--) {
+            if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).x() != null) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
                if (++var1 == 200) {
                   break;
                }
             }
          }
       } else {
-         for (int var3 = GamePersistence.SR.bo().size() - 1; var3 >= 0; var3--) {
-            if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).x() != null
-               && (((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).lZ() == this.uk.lk() || ((PlayerTransferRecord)GamePersistence.SR.bo().get(var3)).ma() == this.uk.lk())) {
-               this.uK.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var3));
+         for (int var3 = GamePersistence.careerState.bo().size() - 1; var3 >= 0; var3--) {
+            if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).x() != null
+               && (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).lZ() == this.uk.lk() || ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).ma() == this.uk.lk())) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3));
             }
          }
       }

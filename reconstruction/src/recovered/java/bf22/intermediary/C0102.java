@@ -68,15 +68,15 @@ public class C0102 extends JPanel {
       JLabel[] var3 = new JLabel[]{this.BH, this.BI, this.BJ, this.BK};
       this.Bv = var3;
 
-      for (int var4 = 0; var4 < GamePersistence.SR.N().size(); var4++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var4)).jp());
+      for (int var4 = 0; var4 < GamePersistence.careerState.N().size(); var4++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var4)).jp());
       }
 
       C0037 var8 = new C0037();
       var8.setPreferredSize(new Dimension(10, 25));
       this.ue.setRenderer(var8);
       this.ue.setMaximumRowCount(12);
-      this.Bs = (CountryCompetitions)GamePersistence.SR.N().get(0);
+      this.Bs = (CountryCompetitions)GamePersistence.careerState.N().get(0);
 
       for (int var5 = 0; var5 < C0696.jz(); var5++) {
          this.BD.addItem(((CountryInfo)C0732.cY().get(var5)).getNome());
@@ -104,7 +104,7 @@ public class C0102 extends JPanel {
       this.Bu[3].addActionListener(new C0161(this));
       this.Bw.addActionListener(new C0162(this));
       this.Bx.addActionListener(new C0163(this));
-      if (GamePersistence.vL()) {
+      if (GamePersistence.isRegisteredVersion()) {
          this.ug.setText("");
       } else {
          this.By.setSelected(false);
@@ -143,7 +143,7 @@ public class C0102 extends JPanel {
    }
 
    private void om() {
-      if (!GamePersistence.vL()) {
+      if (!GamePersistence.isRegisteredVersion()) {
          JOptionPane.showMessageDialog(null, "Somente na versão registrada é possível jogarcom mais de um técnico humano.", "Técnicos humanos", 2);
       } else {
          String var1 = this.oo();
@@ -190,19 +190,19 @@ public class C0102 extends JPanel {
 
    public void AB() {
       this.Bw.setCursor(new Cursor(3));
-      GamePersistence.SR.az();
-      GamePersistence.SR.V();
+      GamePersistence.careerState.az();
+      GamePersistence.careerState.V();
    }
 
    public void oq() {
       String var1 = this.oo();
-      GamePersistence.SR.i(true);
+      GamePersistence.careerState.i(true);
       if (count >= 100000) {
          if (var1 == null) {
             this.or();
          }
 
-         if (GamePersistence.SR.isJogaRegionais()) {
+         if (GamePersistence.careerState.isJogaRegionais()) {
             C0734.dh();
          }
 
@@ -210,7 +210,7 @@ public class C0102 extends JPanel {
       } else if (var1 == null) {
          this.or();
          this.Bw.setCursor(new Cursor(3));
-         if (GamePersistence.SR.isJogaRegionais()) {
+         if (GamePersistence.careerState.isJogaRegionais()) {
             C0734.dh();
          }
 
@@ -229,7 +229,7 @@ public class C0102 extends JPanel {
    }
 
    public void os() {
-      this.Bs = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
+      this.Bs = (CountryCompetitions)GamePersistence.careerState.N().get(this.ue.getSelectedIndex());
       this.ot();
    }
 
@@ -259,7 +259,7 @@ public class C0102 extends JPanel {
          this.cX(var2);
       }
 
-      if (GamePersistence.vL()) {
+      if (GamePersistence.isRegisteredVersion()) {
          if (this.Bu[0].getItemCount() > 0) {
             this.cW(0);
          } else if (this.Bu[1].getItemCount() > 0) {
@@ -308,7 +308,7 @@ public class C0102 extends JPanel {
       Collections.sort(((NationalLeague)this.Bs.eb().get(i)).yi().yK(), C1007.VS);
       int var2 = 0;
       boolean var3 = true;
-      if (i == 3 && this.Bs.jc() == 29 && GamePersistence.SR.isJogaEstadual() && GamePersistence.SR.bk()) {
+      if (i == 3 && this.Bs.jc() == 29 && GamePersistence.careerState.isJogaEstadual() && GamePersistence.careerState.bk()) {
          var3 = false;
       }
 

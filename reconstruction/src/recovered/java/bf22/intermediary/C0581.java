@@ -9,7 +9,7 @@ public class C0581 extends AbstractTableModel {
    private static ArrayList ds;
 
    public C0581() {
-      ds = GamePersistence.SR.bF;
+      ds = GamePersistence.careerState.bF;
       this.Nt = new String[]{"Jogar", "País", "Times"};
    }
 

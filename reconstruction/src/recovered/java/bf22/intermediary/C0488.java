@@ -12,8 +12,8 @@ class C0488 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setJogaSelecoesAll(C0419.d(this.MA).isSelected());
-      GamePersistence.vM().setJogaSelecoesAll(C0419.d(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setJogaSelecoesAll(C0419.d(this.MA).isSelected());
+      GamePersistence.getOptions().setJogaSelecoesAll(C0419.d(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

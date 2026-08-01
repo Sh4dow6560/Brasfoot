@@ -78,19 +78,19 @@ public class NationalCup extends Competition implements Serializable {
       var4.addAll(arrayList);
       if (this.afU.size() < 12) {
          this.afU.clear();
-         if (GamePersistence.SR.isJogaIntClubes() && GamePersistence.SR.aF() != null) {
-            if (GamePersistence.SR.aF().yy() != null) {
-               for (int var5 = 0; var5 < GamePersistence.SR.aF().yy().size(); var5++) {
-                  if (((Club)GamePersistence.SR.aF().yy().get(var5)).getPais() == 29) {
-                     this.afU.add((Club)GamePersistence.SR.aF().yy().get(var5));
+         if (GamePersistence.careerState.isJogaIntClubes() && GamePersistence.careerState.aF() != null) {
+            if (GamePersistence.careerState.aF().yy() != null) {
+               for (int var5 = 0; var5 < GamePersistence.careerState.aF().yy().size(); var5++) {
+                  if (((Club)GamePersistence.careerState.aF().yy().get(var5)).getPais() == 29) {
+                     this.afU.add((Club)GamePersistence.careerState.aF().yy().get(var5));
                   }
                }
             }
 
-            if (GamePersistence.SR.aF().yB() != null) {
-               for (int var13 = 0; var13 < GamePersistence.SR.aF().yB().size(); var13++) {
-                  if (((Club)GamePersistence.SR.aF().yB().get(var13)).getPais() == 29) {
-                     this.afU.add((Club)GamePersistence.SR.aF().yB().get(var13));
+            if (GamePersistence.careerState.aF().yB() != null) {
+               for (int var13 = 0; var13 < GamePersistence.careerState.aF().yB().size(); var13++) {
+                  if (((Club)GamePersistence.careerState.aF().yB().get(var13)).getPais() == 29) {
+                     this.afU.add((Club)GamePersistence.careerState.aF().yB().get(var13));
                   }
                }
             }
@@ -280,17 +280,17 @@ public class NationalCup extends Competition implements Serializable {
    }
 
    private void Bg() {
-      if (GamePersistence.SR.isJogaRegionais()) {
+      if (GamePersistence.careerState.isJogaRegionais()) {
          Object var1 = null;
          Object var2 = null;
-         if (GamePersistence.SR.bV()[2] != null) {
-            var1 = GamePersistence.SR.bV()[2].cS();
+         if (GamePersistence.careerState.bV()[2] != null) {
+            var1 = GamePersistence.careerState.bV()[2].cS();
             this.afU.remove(var1);
             this.afU.add(0, var1);
          }
 
-         if (GamePersistence.SR.bV()[3] != null) {
-            var2 = GamePersistence.SR.bV()[3].cS();
+         if (GamePersistence.careerState.bV()[3] != null) {
+            var2 = GamePersistence.careerState.bV()[3].cS();
             this.afU.remove(var2);
             this.afU.add(0, var2);
          }
@@ -311,9 +311,9 @@ public class NationalCup extends Competition implements Serializable {
             var1 = var1 + var3;
          }
 
-         for (int var4 = 0; var4 < GamePersistence.SR.M().size(); var4++) {
-            if (((Coach)GamePersistence.SR.M().get(var4)).fg() != null && ((Coach)GamePersistence.SR.M().get(var4)).fg().getPais() == 29) {
-               new C0799((Coach)GamePersistence.SR.M().get(var4), 23, 75, "", var1);
+         for (int var4 = 0; var4 < GamePersistence.careerState.M().size(); var4++) {
+            if (((Coach)GamePersistence.careerState.M().get(var4)).fg() != null && ((Coach)GamePersistence.careerState.M().get(var4)).fg().getPais() == 29) {
+               new C0799((Coach)GamePersistence.careerState.M().get(var4), 23, 75, "", var1);
             }
          }
       }
@@ -362,7 +362,7 @@ public class NationalCup extends Competition implements Serializable {
 
    @Override
    public String[] b(CompetitionStage c0678) {
-      return this.YI.zf() == 2029 && GamePersistence.vM().isNovoFormatoCopa() ? GameConstants.pt : this.YI.zB();
+      return this.YI.zf() == 2029 && GamePersistence.getOptions().isNovoFormatoCopa() ? GameConstants.pt : this.YI.zB();
    }
 
    @Override

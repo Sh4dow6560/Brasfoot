@@ -24,14 +24,14 @@ public abstract class AiSquadManager {
    }
 
    public static void jP() {
-      for (int var0 = 0; var0 < GamePersistence.SR.aG().size(); var0++) {
-         if (((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn() != null) {
-            if (!((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().jZ()) {
-               ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).z(false);
+      for (int var0 = 0; var0 < GamePersistence.careerState.aG().size(); var0++) {
+         if (((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn() != null) {
+            if (!((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().jZ()) {
+               ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).z(false);
             } else {
-               for (int var1 = 2; var1 < ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().size(); var1++) {
-                  if (((Player)((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().get(var1)).fg() == null) {
-                     ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().remove(((Player)((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().get(var1)).fg());
+               for (int var1 = 2; var1 < ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().kc().size(); var1++) {
+                  if (((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().kc().get(var1)).fg() == null) {
+                     ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().kc().remove(((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().kc().get(var1)).fg());
                   }
                }
             }
@@ -40,49 +40,49 @@ public abstract class AiSquadManager {
    }
 
    public static void jQ() {
-      GamePersistence.SR.bn().clear();
+      GamePersistence.careerState.bn().clear();
 
-      for (int var0 = 0; var0 < GamePersistence.SR.L().size(); var0++) {
-         if (((Coach)GamePersistence.SR.L().get(var0)).fg() != null) {
-            ((Coach)GamePersistence.SR.L().get(var0)).lS();
+      for (int var0 = 0; var0 < GamePersistence.careerState.L().size(); var0++) {
+         if (((Coach)GamePersistence.careerState.L().get(var0)).fg() != null) {
+            ((Coach)GamePersistence.careerState.L().get(var0)).lS();
          }
       }
 
       Coach var4 = null;
 
-      for (int var1 = 0; var1 < GamePersistence.SR.L().size(); var1++) {
-         if (((Coach)GamePersistence.SR.L().get(var1)).fg() != null && !((Coach)GamePersistence.SR.L().get(var1)).jZ() && ((Coach)GamePersistence.SR.L().get(var1)).lR() >= 1) {
-            var4 = (Coach)GamePersistence.SR.L().get(var1);
+      for (int var1 = 0; var1 < GamePersistence.careerState.L().size(); var1++) {
+         if (((Coach)GamePersistence.careerState.L().get(var1)).fg() != null && !((Coach)GamePersistence.careerState.L().get(var1)).jZ() && ((Coach)GamePersistence.careerState.L().get(var1)).lR() >= 1) {
+            var4 = (Coach)GamePersistence.careerState.L().get(var1);
             int var2 = 0;
 
             for (int var3 = var4.lO().size() - 1; var3 >= 0; var3--) {
-               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.SR.H() - 1) {
+               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.careerState.H() - 1) {
                   var2 = (int)(((C0728)var4.lO().get(var3)).cm() * 100.0F / ((C0728)var4.lO().get(var3)).w());
                   break;
                }
             }
 
             if (new Random().nextInt(90) + 1 > var2) {
-               ((Coach)GamePersistence.SR.L().get(var1)).fg().kE();
+               ((Coach)GamePersistence.careerState.L().get(var1)).fg().kE();
             }
          }
       }
    }
 
    public static void jR() {
-      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
-         if (!((Club)GamePersistence.SR.P().get(var0)).jZ()) {
-            ((Club)GamePersistence.SR.P().get(var0)).ku();
+      for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
+         if (!((Club)GamePersistence.careerState.P().get(var0)).jZ()) {
+            ((Club)GamePersistence.careerState.P().get(var0)).ku();
          }
       }
    }
 
    public static void jS() {
-      for (int var0 = 0; var0 < GamePersistence.SR.N().size(); var0++) {
-         for (int var1 = 0; var1 < ((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().size(); var1++) {
-            for (int var2 = 0; var2 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
-               if (!((Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).jZ()) {
-                  a((Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
+      for (int var0 = 0; var0 < GamePersistence.careerState.N().size(); var0++) {
+         for (int var1 = 0; var1 < ((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().size(); var1++) {
+            for (int var2 = 0; var2 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
+               if (!((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).jZ()) {
+                  a((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
                }
             }
          }
@@ -101,23 +101,23 @@ public abstract class AiSquadManager {
       boolean var0 = false;
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
          var0 = false;
-         if (!((Club)GamePersistence.SR.P().get(var2)).jZ()) {
-            if (((Club)GamePersistence.SR.P().get(var2)).gg() != 0 && ((Club)GamePersistence.SR.P().get(var2)).getReputacao() < 5) {
+         if (!((Club)GamePersistence.careerState.P().get(var2)).jZ()) {
+            if (((Club)GamePersistence.careerState.P().get(var2)).gg() != 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 5) {
                var0 = true;
-            } else if (((Club)GamePersistence.SR.P().get(var2)).gg() == 0 && ((Club)GamePersistence.SR.P().get(var2)).getReputacao() < 4) {
+            } else if (((Club)GamePersistence.careerState.P().get(var2)).gg() == 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 4) {
                var0 = true;
             }
          }
 
          if (var0) {
-            for (int var3 = 0; var3 < ((Club)GamePersistence.SR.P().get(var2)).kc().size(); var3++) {
-               if (((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).fi() > 50
-                  && ((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).getIdade() < 31
-                  && ((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).ff()
+            for (int var3 = 0; var3 < ((Club)GamePersistence.careerState.P().get(var2)).kc().size(); var3++) {
+               if (((Player)((Club)GamePersistence.careerState.P().get(var2)).kc().get(var3)).fi() > 50
+                  && ((Player)((Club)GamePersistence.careerState.P().get(var2)).kc().get(var3)).getIdade() < 31
+                  && ((Player)((Club)GamePersistence.careerState.P().get(var2)).kc().get(var3)).ff()
                   && new Random().nextInt(100) > 25) {
-                  var1.add((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3));
+                  var1.add((Player)((Club)GamePersistence.careerState.P().get(var2)).kc().get(var3));
                }
             }
          }
@@ -141,9 +141,9 @@ public abstract class AiSquadManager {
    }
 
    private static void jU() {
-      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
-         if (!((Club)GamePersistence.SR.P().get(var0)).kn() && !((Club)GamePersistence.SR.P().get(var0)).jZ()) {
-            a((Club)GamePersistence.SR.P().get(var0), var0, false);
+      for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
+         if (!((Club)GamePersistence.careerState.P().get(var0)).kn() && !((Club)GamePersistence.careerState.P().get(var0)).jZ()) {
+            a((Club)GamePersistence.careerState.P().get(var0), var0, false);
          }
       }
    }

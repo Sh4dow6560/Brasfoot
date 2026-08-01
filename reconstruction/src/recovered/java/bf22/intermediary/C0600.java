@@ -24,8 +24,8 @@ public class C0600 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       Player var7 = (Player)object;
-      if (GamePersistence.SR.isUsaCoresLista()) {
-         Color[] var8 = GamePersistence.SR.getCoresLista();
+      if (GamePersistence.careerState.isUsaCoresLista()) {
+         Color[] var8 = GamePersistence.careerState.getCoresLista();
          if (!bl) {
             super.setBackground(var8[var7.getPosicao()]);
          }
@@ -90,7 +90,7 @@ public class C0600 extends DefaultTableCellRenderer {
          this.setText(GameConstants.rK[var7.getLado()]);
       }
 
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          if (j == 5) {
             this.setText(Integer.toString(var7.fi()));
          } else {

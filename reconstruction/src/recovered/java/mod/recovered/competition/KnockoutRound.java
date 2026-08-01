@@ -333,7 +333,7 @@ public class KnockoutRound implements Serializable {
             this.a(var34, ((Match)this.aai.get(var12)).hd().ka(), 2);
             this.V(((Match)this.aai.get(var12)).hc());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
-               GamePersistence.SR.aY().a(this.aae.yT(), GamePersistence.SR.s(((Match)this.aai.get(var12)).hc().getPais()));
+               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).hc().getPais()));
             }
          } else {
             this.aak.add(((Match)this.aai.get(var12)).hd());
@@ -347,7 +347,7 @@ public class KnockoutRound implements Serializable {
             this.a(var35, ((Match)this.aai.get(var12)).hd().ka(), 1);
             this.V(((Match)this.aai.get(var12)).hd());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
-               GamePersistence.SR.aY().a(this.aae.yT(), GamePersistence.SR.s(((Match)this.aai.get(var12)).hd().getPais()));
+               GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).hd().getPais()));
             }
          }
       }
@@ -361,57 +361,57 @@ public class KnockoutRound implements Serializable {
             if (this.aae.zf() == 1068) {
                ((NationalLeague)this.aae.yT()).n(this.aak, this.aal);
             } else if (this.aae.zf() == 9502) {
-               GamePersistence.SR.bS().p(this.aak, this.aal);
+               GamePersistence.careerState.bS().p(this.aak, this.aal);
             } else if (this.aae.zf() == 9401) {
-               GamePersistence.SR.bR().ay(this.aak);
+               GamePersistence.careerState.bR().ay(this.aak);
             } else if (this.aae.zf() == 9200) {
-               GamePersistence.SR.bM().aw(this.aak);
+               GamePersistence.careerState.bM().aw(this.aak);
             } else if (this.aae.zf() == 9202) {
-               GamePersistence.SR.bM().p(this.aak, this.aal);
+               GamePersistence.careerState.bM().p(this.aak, this.aal);
             } else if (this.aae.zf() == 9300) {
-               GamePersistence.SR.bQ().aw(this.aak);
+               GamePersistence.careerState.bQ().aw(this.aak);
             } else if (this.aae.zf() == 9002) {
-               GamePersistence.SR.bL().az(this.aak);
+               GamePersistence.careerState.bL().az(this.aak);
             } else if (this.aae.zf() == 9303) {
-               GamePersistence.SR.bQ().ax(this.aak);
+               GamePersistence.careerState.bQ().ax(this.aak);
             } else if (this.aae.zf() == 4000) {
-               GamePersistence.SR.aI().aj(this.aak);
+               GamePersistence.careerState.aI().aj(this.aak);
             } else if (this.aae.zf() == 4001) {
-               GamePersistence.SR.aI().g(this.aak, this.aal);
+               GamePersistence.careerState.aI().g(this.aak, this.aal);
             } else if (this.aae.zf() == 4002) {
-               GamePersistence.SR.aI().h(this.aak, this.aal);
+               GamePersistence.careerState.aI().h(this.aak, this.aal);
             } else if (this.aae.zf() == 4003) {
-               GamePersistence.SR.aI().j(this.aak, this.aal);
+               GamePersistence.careerState.aI().j(this.aak, this.aal);
             } else if (this.aae.zf() == 4004) {
-               GamePersistence.SR.aI().k(this.aak, this.aal);
+               GamePersistence.careerState.aI().k(this.aak, this.aal);
             } else if (this.aae.zf() == 6001) {
-               GamePersistence.SR.aK().g(this.aak, this.aal);
+               GamePersistence.careerState.aK().g(this.aak, this.aal);
             } else if (this.aae.zf() == 6002) {
-               GamePersistence.SR.aK().m(this.aak, this.aal);
+               GamePersistence.careerState.aK().m(this.aak, this.aal);
             } else if (this.aae.zf() == 6006) {
-               GamePersistence.SR.aK().l(this.aak, this.aal);
+               GamePersistence.careerState.aK().l(this.aak, this.aal);
             } else if (this.aae.zf() == 6004) {
-               GamePersistence.SR.aK().m(this.aak, this.aal);
+               GamePersistence.careerState.aK().m(this.aak, this.aal);
             } else if (this.aae.zf() == 4101) {
-               GamePersistence.SR.aF().g(this.aak, this.aal);
+               GamePersistence.careerState.aF().g(this.aak, this.aal);
             } else if (this.aae.zf() == 4102) {
-               GamePersistence.SR.aF().h(this.aak, this.aal);
+               GamePersistence.careerState.aF().h(this.aak, this.aal);
             } else if (this.aae.zf() == 4103) {
-               GamePersistence.SR.aF().i(this.aak, this.aal);
+               GamePersistence.careerState.aF().i(this.aak, this.aal);
             } else if (this.aae.zf() == 12001) {
-               GamePersistence.SR.mj().g(this.aak, this.aal);
+               GamePersistence.careerState.mj().g(this.aak, this.aal);
             } else if (this.aae.zf() == 12002) {
-               GamePersistence.SR.mj().h(this.aak, this.aal);
+               GamePersistence.careerState.mj().h(this.aak, this.aal);
             } else if (this.aae.zf() == 12003) {
-               GamePersistence.SR.mj().j(this.aak, this.aal);
+               GamePersistence.careerState.mj().j(this.aak, this.aal);
             } else if (this.aae.zf() == 12004) {
-               GamePersistence.SR.mj().m(this.aak, this.aal);
+               GamePersistence.careerState.mj().m(this.aak, this.aal);
             } else if (this.aae.zf() == 12006) {
-               GamePersistence.SR.mj().l(this.aak, this.aal);
+               GamePersistence.careerState.mj().l(this.aak, this.aal);
             } else if (this.aae.zf() == 6100) {
-               GamePersistence.SR.aH().o(this.aak, this.aal);
+               GamePersistence.careerState.aH().o(this.aak, this.aal);
             } else if (this.aae.zf() == 14006) {
-               GamePersistence.SR.sq().aA(this.aal);
+               GamePersistence.careerState.sq().aA(this.aal);
             } else if (this.aae.zf() == 2029 && this.var0 != 2729) {
                NationalCup var33 = (NationalCup)this.aae.yT();
                if (this.var0 == 2129) {
@@ -429,7 +429,7 @@ public class KnockoutRound implements Serializable {
                }
             } else if (this.aae.zf() != 1802 && this.aae.zf() != 1803) {
                if (this.aae.zf() == 150) {
-                  GamePersistence.SR.aR().al(this.aak);
+                  GamePersistence.careerState.aR().al(this.aak);
                } else if (bl) {
                   Competition var32 = this.aae.yT();
                   CompetitionStage var36 = this.aae.zy();

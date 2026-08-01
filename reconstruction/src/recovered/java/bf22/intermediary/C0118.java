@@ -36,7 +36,7 @@ public class C0118 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void mH() {

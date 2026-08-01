@@ -10,7 +10,7 @@ public final class C0938 {
       CountryCompetitions var4 = null;
 
       for (int var5 = 0; var5 < arrayList.size(); var5++) {
-         var4 = (CountryCompetitions)GamePersistence.SR.aG().get(((C0793)arrayList.get(var5)).uW());
+         var4 = (CountryCompetitions)GamePersistence.careerState.aG().get(((C0793)arrayList.get(var5)).uW());
          if (((C0793)arrayList.get(var5)).uY()) {
             bl = true;
          }
@@ -58,8 +58,8 @@ public final class C0938 {
       }
 
       if (i == 1 && j == 1) {
-         Club var13 = GamePersistence.SR.aF().cS();
-         Club var11 = GamePersistence.SR.aH().cS();
+         Club var13 = GamePersistence.careerState.aF().cS();
+         Club var11 = GamePersistence.careerState.aH().cS();
          if (var13 != null && var13 == var11 && k == var13.getPais()) {
             var6++;
          }

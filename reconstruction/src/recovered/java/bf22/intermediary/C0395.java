@@ -63,7 +63,7 @@ public class C0395 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void s(Player player) {
@@ -191,7 +191,7 @@ public class C0395 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 45, 120, 120, 20, 20, 50, 50, 45, 35, 25, 20, 20};
       int[] var3 = new int[]{20, 50, 110, 100, 20, 20, 20, 20, 20, 20, 20, 20, 50, 50, 45, 35, 25, 15, 15};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -218,7 +218,7 @@ public class C0395 extends JPanel {
       var5.setComparator(2, C1007.abk);
       var5.setComparator(3, C1007.abl);
       var5.setComparator(4, C1007.aba);
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          var5.setComparator(5, C1007.aaJ);
          var5.setComparator(6, C1007.aaZ);
          var5.setComparator(7, C1007.aaW);

@@ -12,7 +12,7 @@ class C0482 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.bi();
+      GamePersistence.careerState.bi();
       C0419.a(this.MA).addNotify();
    }
 }

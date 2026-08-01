@@ -47,7 +47,7 @@ public class C0640 extends DefaultTableCellRenderer {
          this.setText(GameConstants.rK[var7.getLado()]);
       }
 
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          if (j == 5) {
             this.setText(Integer.toString(var7.fi()));
          } else if (j == 6) {

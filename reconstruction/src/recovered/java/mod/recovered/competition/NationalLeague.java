@@ -141,7 +141,7 @@ public class NationalLeague extends Competition implements Serializable {
       int[] var2 = new int[]{0, 1, 2, 2, 5, 6, 6, 3, 3, 4, 4};
       int var3 = this.yi().zk();
       C0706 var4 = new C0706();
-      var4.k(GamePersistence.SR.H());
+      var4.k(GamePersistence.careerState.H());
 
       for (int var5 = 0; var5 < var2.length; var5++) {
          for (int var6 = 0; var6 < this.ZW.size(); var6++) {
@@ -262,7 +262,7 @@ public class NationalLeague extends Competition implements Serializable {
 
    public boolean BM() {
       if (this.nRebaixados > 0 && this.nRebaixados != this.rebaixadosDireto) {
-         if (this.divisao == 4 && this.KR != null && this.KR.jc() == 29 && GamePersistence.SR.bk()) {
+         if (this.divisao == 4 && this.KR != null && this.KR.jc() == 29 && GamePersistence.careerState.bk()) {
             this.setRebaixadosDireto(this.nRebaixados);
             return false;
          } else {

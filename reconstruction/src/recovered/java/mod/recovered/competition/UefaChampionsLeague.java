@@ -135,7 +135,7 @@ public class UefaChampionsLeague extends Competition implements Serializable {
    }
 
    public void yq() {
-      if (GamePersistence.SR.H() == 3) {
+      if (GamePersistence.careerState.H() == 3) {
          this.Bd();
       }
 
@@ -153,8 +153,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
       this.YR = null;
       this.ZB = null;
       Club var2 = null;
-      if (GamePersistence.SR.aK() != null) {
-         var2 = GamePersistence.SR.aK().BA();
+      if (GamePersistence.careerState.aK() != null) {
+         var2 = GamePersistence.careerState.aK().BA();
       }
 
       if (this.YT == null) {
@@ -181,7 +181,7 @@ public class UefaChampionsLeague extends Competition implements Serializable {
       }
 
       C0938.a(this.YV, this.YF, var3, false);
-      if (GamePersistence.SR.H() > 1 && var2 != null) {
+      if (GamePersistence.careerState.H() > 1 && var2 != null) {
          var3.add(var2);
       }
 
@@ -222,8 +222,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
          }
       }
 
-      GamePersistence.SR.mj().zo().addAll(var2);
-      GamePersistence.SR.mj().b(var2, 0);
+      GamePersistence.careerState.mj().zo().addAll(var2);
+      GamePersistence.careerState.mj().b(var2, 0);
       ArrayList var9 = new ArrayList();
       ArrayList var4 = new ArrayList();
       ArrayList var5 = new ArrayList();
@@ -265,8 +265,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
       ArrayList var8 = new ArrayList();
       ArrayList var4 = new ArrayList();
       ArrayList var5 = new ArrayList();
-      GamePersistence.SR.mj().zo().addAll(arrayList2);
-      GamePersistence.SR.mj().b(arrayList2, 0);
+      GamePersistence.careerState.mj().zo().addAll(arrayList2);
+      GamePersistence.careerState.mj().b(arrayList2, 0);
 
       for (int var6 = 10; var6 <= 14; var6++) {
          var8.add((Club)this.YS.get(var6));
@@ -309,8 +309,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
       ArrayList var13 = new ArrayList();
       var13.addAll(var11);
       var13.addAll(var4);
-      GamePersistence.SR.aK().b(var13, 0);
-      GamePersistence.SR.aK().aj(var13);
+      GamePersistence.careerState.aK().b(var13, 0);
+      GamePersistence.careerState.aK().aj(var13);
       ArrayList var6 = new ArrayList();
       ArrayList var7 = new ArrayList();
       ArrayList var8 = new ArrayList();
@@ -347,8 +347,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4003);
       }
 
-      GamePersistence.SR.aK().zo().addAll(arrayList2);
-      GamePersistence.SR.aK().b(arrayList2, 0);
+      GamePersistence.careerState.aK().zo().addAll(arrayList2);
+      GamePersistence.careerState.aK().b(arrayList2, 0);
       ArrayList var8 = new ArrayList();
       ArrayList var4 = new ArrayList();
       ArrayList var5 = new ArrayList();
@@ -381,8 +381,8 @@ public class UefaChampionsLeague extends Competition implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4004);
       }
 
-      GamePersistence.SR.aK().zo().addAll(arrayList2);
-      GamePersistence.SR.aK().b(arrayList2, 0);
+      GamePersistence.careerState.aK().zo().addAll(arrayList2);
+      GamePersistence.careerState.aK().b(arrayList2, 0);
       this.YD = null;
       ArrayList var11 = new ArrayList();
       if (this.YF.size() == 26) {
@@ -464,7 +464,7 @@ public class UefaChampionsLeague extends Competition implements Serializable {
          var4.add((Club)((C0673)this.YD.yQ().get(var5)).gR().get(2));
       }
 
-      GamePersistence.SR.aK().b(var4, 1);
+      GamePersistence.careerState.aK().b(var4, 1);
       Collections.shuffle(var1);
       Collections.shuffle(var2);
       C0797[] var8 = new C0797[8];
@@ -536,14 +536,14 @@ public class UefaChampionsLeague extends Competition implements Serializable {
 
    @Override
    public CountryCompetitions mF() {
-      int var1 = GamePersistence.SR.H() - 1;
+      int var1 = GamePersistence.careerState.H() - 1;
       var1 %= 10;
       int[] var2 = new int[]{192, 162, 3, 104, 154, 97, 72, 152, 65, 52};
-      return var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = GamePersistence.SR.H() - 1;
+      int var0 = GamePersistence.careerState.H() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Istambul", "São Petersburgo", "Munique", "Roma", "Lisboa", "Londres", "Paris", "Varsóvia", "Madrid", "Zagreb"};

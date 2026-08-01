@@ -54,7 +54,7 @@ public class C0498 extends JPanel {
       }
 
       if (this.vt == null) {
-         this.vt = (CountryCompetitions)GamePersistence.SR.N().get(0);
+         this.vt = (CountryCompetitions)GamePersistence.careerState.N().get(0);
       }
 
       if (this.vu == null) {
@@ -71,9 +71,9 @@ public class C0498 extends JPanel {
    public void mW() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
-         if (this.vt == GamePersistence.SR.N().get(var2)) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var2)).jp());
+         if (this.vt == GamePersistence.careerState.N().get(var2)) {
             var1 = var2;
          }
       }
@@ -92,8 +92,8 @@ public class C0498 extends JPanel {
             this.MG.addItem(Integer.toString(var5 + 1) + " ª rodada");
          }
       } else {
-         for (int var6 = 0; var6 < GamePersistence.SR.H(); var6++) {
-            this.MG.addItem(Integer.toString(var6 + GamePersistence.SR.op()));
+         for (int var6 = 0; var6 < GamePersistence.careerState.H(); var6++) {
+            this.MG.addItem(Integer.toString(var6 + GamePersistence.careerState.op()));
          }
       }
 
@@ -108,8 +108,8 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (GamePersistence.SR.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(GamePersistence.SR.H() - 1);
+      } else if (GamePersistence.careerState.H() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.careerState.H() - 1);
       }
    }
 
@@ -182,13 +182,13 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (GamePersistence.SR.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(GamePersistence.SR.H() - 1);
+      } else if (GamePersistence.careerState.H() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.careerState.H() - 1);
       }
    }
 
    private void mU() {
-      this.vt = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
+      this.vt = (CountryCompetitions)GamePersistence.careerState.N().get(this.ue.getSelectedIndex());
       this.vv.removeAllItems();
 
       for (int var1 = 0; var1 < this.vt.eb().size(); var1++) {

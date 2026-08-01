@@ -15,10 +15,10 @@ public class C0676 implements Serializable {
 
    public C0676(Match c0675, double d) {
       this.Z = d;
-      this.fy = GamePersistence.SR.J();
+      this.fy = GamePersistence.careerState.J();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.S().size(); var4++) {
-         if (GamePersistence.SR.S().get(var4) == c0675) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.S().size(); var4++) {
+         if (GamePersistence.careerState.S().get(var4) == c0675) {
             this.gx = var4;
             break;
          }

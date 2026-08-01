@@ -160,12 +160,12 @@ public class C0065 extends JPanel {
       this.wR.setForeground(new Color(255, 255, 255));
       this.vd.setBackground(new Color(35, 28, 14));
       this.vd.setOpaque(true);
-      this.vf.setText("Classificação e jogos - " + Integer.toString(GamePersistence.SR.H() + GamePersistence.SR.iU()));
+      this.vf.setText("Classificação e jogos - " + Integer.toString(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mQ() {
@@ -177,19 +177,19 @@ public class C0065 extends JPanel {
    }
 
    private void mO() {
-      if (!GamePersistence.SR.isJogaEstadual()) {
+      if (!GamePersistence.careerState.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.careerState.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaIntClubes()) {
+      if (!GamePersistence.careerState.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -335,10 +335,10 @@ public class C0065 extends JPanel {
       this.wv = i;
       this.vV.clear();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.R().size(); var4++) {
-         for (int var5 = 0; var5 < ((C0693)GamePersistence.SR.R().get(var4)).t().size(); var5++) {
-            if (((C0693)GamePersistence.SR.R().get(var4)).t().get(var5) == c0713) {
-               this.vV.add((C0693)GamePersistence.SR.R().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.R().size(); var4++) {
+         for (int var5 = 0; var5 < ((C0693)GamePersistence.careerState.R().get(var4)).t().size(); var5++) {
+            if (((C0693)GamePersistence.careerState.R().get(var4)).t().get(var5) == c0713) {
+               this.vV.add((C0693)GamePersistence.careerState.R().get(var4));
                break;
             }
          }
@@ -440,12 +440,12 @@ public class C0065 extends JPanel {
          this.vY = this.vW.yY();
       }
 
-      if (this.vX instanceof ConcacafWorldCupQualifiers && GamePersistence.SR.bQ() != null && GamePersistence.SR.bQ().yd().yY() != null) {
-         this.vY = GamePersistence.SR.bQ().yd().yY();
+      if (this.vX instanceof ConcacafWorldCupQualifiers && GamePersistence.careerState.bQ() != null && GamePersistence.careerState.bQ().yd().yY() != null) {
+         this.vY = GamePersistence.careerState.bQ().yd().yY();
       }
 
-      if (this.vX instanceof OceaniaWorldCupQualifiers && GamePersistence.SR.bK() != null && GamePersistence.SR.bK().yd().yY() != null) {
-         this.vY = GamePersistence.SR.bK().yd().yY();
+      if (this.vX instanceof OceaniaWorldCupQualifiers && GamePersistence.careerState.bK() != null && GamePersistence.careerState.bK().yd().yY() != null) {
+         this.vY = GamePersistence.careerState.bK().yd().yY();
       }
 
       this.wa = 1;
@@ -826,7 +826,7 @@ public class C0065 extends JPanel {
 
       if (this.vX != null && this.vX.b() == 2 && this.vX instanceof NationalCup) {
          CountryCompetitions var18 = ((NationalCup)this.vX).yg();
-         if (var18.jc() == 29 && GamePersistence.vM().isNovoFormatoCopa() && (var18.jq() == null || var18.jq().yf() == null)) {
+         if (var18.jc() == 29 && GamePersistence.getOptions().isNovoFormatoCopa() && (var18.jq() == null || var18.jq().yf() == null)) {
             this.vT.clear();
             C0809 var19 = new C0809();
             var19.ai(true);
@@ -1174,29 +1174,29 @@ public class C0065 extends JPanel {
          }
       }
 
-      if (c0955.b() == 1 && GamePersistence.SR.isJogaIntClubes()) {
+      if (c0955.b() == 1 && GamePersistence.careerState.isJogaIntClubes()) {
          if (c0955.vl().gg() == 1) {
-            Club var12 = GamePersistence.SR.aF().cS();
+            Club var12 = GamePersistence.careerState.aF().cS();
             if (var12 != null) {
                var4.add(var12);
             }
 
-            Club var32 = GamePersistence.SR.aH().cS();
+            Club var32 = GamePersistence.careerState.aH().cS();
             if (var32 != null) {
                var4.add(var32);
             }
          } else if (c0955.vl().gg() == 0) {
-            Club var13 = GamePersistence.SR.aI().cS();
+            Club var13 = GamePersistence.careerState.aI().cS();
             if (var13 != null) {
                var4.add(var13);
             }
 
-            Club var33 = GamePersistence.SR.aK().cS();
+            Club var33 = GamePersistence.careerState.aK().cS();
             if (var33 != null) {
                var4.add(var33);
             }
          } else if (c0955.vl().gg() == 2) {
-            Club var14 = GamePersistence.SR.aO().cS();
+            Club var14 = GamePersistence.careerState.aO().cS();
             if (var14 != null) {
                var4.add(var14);
             }
@@ -1206,17 +1206,17 @@ public class C0065 extends JPanel {
                var4.add(var34);
             }
          } else if (c0955.vl().gg() == 3) {
-            Club var15 = GamePersistence.SR.aL().cS();
+            Club var15 = GamePersistence.careerState.aL().cS();
             if (var15 != null) {
                var4.add(var15);
             }
          } else if (c0955.vl().gg() == 5) {
-            Club var16 = GamePersistence.SR.aQ().cS();
+            Club var16 = GamePersistence.careerState.aQ().cS();
             if (var16 != null) {
                var4.add(var16);
             }
          } else if (c0955.vl().gg() == 4) {
-            Club var17 = GamePersistence.SR.aP().cS();
+            Club var17 = GamePersistence.careerState.aP().cS();
             if (var17 != null) {
                var4.add(var17);
             }
@@ -1230,7 +1230,7 @@ public class C0065 extends JPanel {
          }
       }
 
-      if (c0955.getDivisao() == 1 && c0955.b() == 1 && GamePersistence.SR.isJogaIntClubes()) {
+      if (c0955.getDivisao() == 1 && c0955.b() == 1 && GamePersistence.careerState.isJogaIntClubes()) {
          int[] var19 = new int[3];
 
          for (int var35 = 0; var35 < c0955.yK().size(); var35++) {
@@ -1315,7 +1315,7 @@ public class C0065 extends JPanel {
 
    private boolean k(LeagueStage c0955) {
       if (c0955.b() == 1 || c0955.b() == 3) {
-         if (c0955.b() == 1 && c0955.iq().jc() == 29 && GamePersistence.SR.bk() && c0955.getDivisao() == 4) {
+         if (c0955.b() == 1 && c0955.iq().jc() == 29 && GamePersistence.careerState.bk() && c0955.getDivisao() == 4) {
             return false;
          }
 
@@ -1451,70 +1451,70 @@ public class C0065 extends JPanel {
       this.wS.removeAllItems();
       if (this.vX instanceof CafChampionsLeague) {
          this.wA = true;
-         this.a(GamePersistence.SR.aO().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aO().yd(), null, null, true, false);
       } else if (this.vX instanceof AfcChampionsLeague) {
          this.wA = true;
-         this.a(GamePersistence.SR.aL().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aL().yd(), null, null, true, false);
       } else if (this.vX instanceof UefaChampionsLeague) {
          this.wA = true;
          this.wJ = true;
-         this.a(GamePersistence.SR.aI().yd(), null, GamePersistence.SR.aI().yC(), true, true);
+         this.a(GamePersistence.careerState.aI().yd(), null, GamePersistence.careerState.aI().yC(), true, true);
       } else if (this.vX instanceof CopaLibertadores) {
          this.wA = true;
          this.wJ = true;
-         this.a(GamePersistence.SR.aF().yd(), null, GamePersistence.SR.aF().yC(), true, true);
+         this.a(GamePersistence.careerState.aF().yd(), null, GamePersistence.careerState.aF().yC(), true, true);
       } else if (this.vX instanceof ConcacafChampionsLeague) {
          this.wA = true;
-         this.a(GamePersistence.SR.aP().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aP().yd(), null, null, true, false);
       } else if (this.vX instanceof OfcChampionsLeague) {
          this.wA = true;
-         this.a(GamePersistence.SR.aQ().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aQ().yd(), null, null, true, false);
       } else if (this.vX instanceof UefaEuropaLeague) {
          this.wA = true;
-         this.a(GamePersistence.SR.aK().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aK().yd(), null, null, true, false);
       } else if (this.vX instanceof ClubWorldCup) {
-         this.a(null, GamePersistence.SR.aR().zE(), GamePersistence.SR.aR().zD(), true, true);
+         this.a(null, GamePersistence.careerState.aR().zE(), GamePersistence.careerState.aR().zD(), true, true);
       } else if (this.vX instanceof WorldCup) {
          this.wA = true;
-         this.a(GamePersistence.SR.aY().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aY().yd(), null, null, true, false);
       } else if (this.vX instanceof EuropeanChampionship) {
          this.wA = true;
-         this.a(GamePersistence.SR.ba().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.ba().yd(), null, null, true, false);
       } else if (this.vX instanceof CopaAmerica) {
          this.wA = true;
-         this.a(GamePersistence.SR.aZ().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.aZ().yd(), null, null, true, false);
       } else if (this.vX instanceof AfricaCupOfNations) {
          this.wA = true;
-         this.a(GamePersistence.SR.be().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.be().yd(), null, null, true, false);
       } else if (this.vX instanceof AsianCup) {
          this.wA = true;
-         this.a(GamePersistence.SR.bf().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bf().yd(), null, null, true, false);
       } else if (this.vX instanceof ConcacafGoldCup) {
          this.wA = true;
-         this.a(GamePersistence.SR.bg().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bg().yd(), null, null, true, false);
       } else if (this.vX instanceof OfcNationsCup) {
          this.wA = true;
-         this.a(GamePersistence.SR.bX().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bX().yd(), null, null, true, false);
       } else if (this.vX instanceof RegionalCup) {
          this.a(((RegionalCup)this.vX).yd(), null, null, true, false);
       } else if (this.vX instanceof OceaniaWorldCupQualifiers) {
          this.wA = true;
-         this.a(GamePersistence.SR.bS().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bS().yd(), null, null, true, false);
       } else if (this.vX instanceof SouthAmericaWorldCupQualifiers) {
          this.wA = true;
-         this.a(GamePersistence.SR.bK().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bK().yd(), null, null, true, false);
       } else if (this.vX instanceof AfricaWorldCupQualifiers) {
          this.wA = true;
-         this.a(GamePersistence.SR.bM().yd(), null, null, false, false);
+         this.a(GamePersistence.careerState.bM().yd(), null, null, false, false);
       } else if (this.vX instanceof AsiaWorldCupQualifiers) {
          this.wA = true;
-         this.a(GamePersistence.SR.bQ().yd(), null, null, true, false);
+         this.a(GamePersistence.careerState.bQ().yd(), null, null, true, false);
       } else if (this.vX instanceof NationalCup) {
          this.a(null, ((NationalCup)this.vX).yf(), null, true, false);
       } else if (this.vX instanceof EuropeanSuperCup) {
-         this.a(null, GamePersistence.SR.aW().zS(), null, true, false);
+         this.a(null, GamePersistence.careerState.aW().zS(), null, true, false);
       } else if (this.vX instanceof SouthAmericanRecopa) {
-         this.a(null, GamePersistence.SR.aV().zS(), null, true, false);
+         this.a(null, GamePersistence.careerState.aV().zS(), null, true, false);
       } else if (this.vX instanceof NationalLeague || this.vX instanceof StateChampionship) {
          LeagueStage var2 = null;
          if (this.vX instanceof NationalLeague) {

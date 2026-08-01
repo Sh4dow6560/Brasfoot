@@ -71,7 +71,7 @@ public class EuropeanChampionship extends Competition implements Serializable {
          LeagueStage var6 = new LeagueStage(var5, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var6;
          var6.setNome(this.getNome());
-         GamePersistence.afQ.L(this.YF);
+         GamePersistence.coachJobMarket.L(this.YF);
       }
    }
 
@@ -125,7 +125,7 @@ public class EuropeanChampionship extends Competition implements Serializable {
       if (var1 == 0) {
          return null;
       } else {
-         return var1 >= 0 && var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+         return var1 >= 0 && var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
       }
    }
 

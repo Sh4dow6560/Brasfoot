@@ -74,7 +74,7 @@ public class UefaEuropaLeague extends Competition implements Serializable {
    }
 
    public void yq() {
-      if (GamePersistence.SR.H() == 3) {
+      if (GamePersistence.careerState.H() == 3) {
          this.Bd();
       }
 
@@ -90,9 +90,9 @@ public class UefaEuropaLeague extends Competition implements Serializable {
       this.YQ = null;
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
-      var2.addAll(GamePersistence.SR.aI().yy());
-      var2.addAll(GamePersistence.SR.aI().yE());
-      if (GamePersistence.SR.H() > 1 && this.ago != null && !GamePersistence.SR.aI().yy().contains(this.ago) && !GamePersistence.SR.aI().yE().contains(this.ago)) {
+      var2.addAll(GamePersistence.careerState.aI().yy());
+      var2.addAll(GamePersistence.careerState.aI().yE());
+      if (GamePersistence.careerState.H() > 1 && this.ago != null && !GamePersistence.careerState.aI().yy().contains(this.ago) && !GamePersistence.careerState.aI().yE().contains(this.ago)) {
          this.YF.add(this.ago);
          var2.add(this.ago);
       } else {
@@ -152,8 +152,8 @@ public class UefaEuropaLeague extends Competition implements Serializable {
       ArrayList var4 = new ArrayList();
       ArrayList var5 = new ArrayList();
       ArrayList var6 = new ArrayList();
-      GamePersistence.SR.mj().zo().addAll(arrayList2);
-      GamePersistence.SR.mj().b(arrayList2, 0);
+      GamePersistence.careerState.mj().zo().addAll(arrayList2);
+      GamePersistence.careerState.mj().b(arrayList2, 0);
 
       for (int var7 = 0; var7 <= 6; var7++) {
          var11.add((Club)this.YS.get(var7));
@@ -204,8 +204,8 @@ public class UefaEuropaLeague extends Competition implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 6004);
       }
 
-      GamePersistence.SR.mj().zo().addAll(arrayList2);
-      GamePersistence.SR.mj().b(arrayList2, 0);
+      GamePersistence.careerState.mj().zo().addAll(arrayList2);
+      GamePersistence.careerState.mj().b(arrayList2, 0);
       ArrayList var13 = new ArrayList();
 
       for (int var4 = 6; var4 <= 15; var4++) {
@@ -294,8 +294,8 @@ public class UefaEuropaLeague extends Competition implements Serializable {
          var1.add((Club)((C0673)this.YD.yQ().get(var4)).gR().get(1));
       }
 
-      for (int var7 = 0; var7 < GamePersistence.SR.aI().yd().yQ().size(); var7++) {
-         var2.add((Club)((C0673)GamePersistence.SR.aI().yd().yQ().get(var7)).gR().get(2));
+      for (int var7 = 0; var7 < GamePersistence.careerState.aI().yd().yQ().size(); var7++) {
+         var2.add((Club)((C0673)GamePersistence.careerState.aI().yd().yQ().get(var7)).gR().get(2));
       }
 
       Collections.shuffle(var1);
@@ -390,14 +390,14 @@ public class UefaEuropaLeague extends Competition implements Serializable {
 
    @Override
    public CountryCompetitions mF() {
-      int var1 = GamePersistence.SR.H() - 1;
+      int var1 = GamePersistence.careerState.H() - 1;
       var1 %= 10;
       int[] var2 = new int[]{152, 65, 52, 31, 21, 154, 3, 72, 162, 97};
-      return var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = GamePersistence.SR.H() - 1;
+      int var0 = GamePersistence.careerState.H() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Gdansk", "Sevilla", "Zagreb", "Sofia", "Bruxelas", "Porto", "Frankfurt", "Lyon", "Moscou", "Liverpool"};

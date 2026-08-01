@@ -28,7 +28,7 @@ public class C0582 extends AbstractTableModel {
 
       Collections.sort(this.vp, C1007.abe);
       this.Nt = new String[]{"", "P", "", "Nome", "L", "F", "Energia", "Salário", "Passe", "G", "Car.", "Idade", "GC", "A", "NM"};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.Nt = new String[]{
             "", "P", "", "Nome", "L", "Gol", "Des", "Arm", "Fin", "Vel", "Tec", "Pas", "Energia", "Salário", "Valor", "G", "Car.", "Idade", "GC", "A", "NM"
          };

@@ -75,9 +75,9 @@ public class C0475 extends JPanel {
       this.Nd = new ArrayList();
       this.Ne = new ArrayList();
 
-      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
-         if (GamePersistence.SR.aN().get(var1) != this.uz.fg() && ((Club)GamePersistence.SR.aN().get(var1)).kb() > this.Nc.lY()) {
-            this.Nd.add((Club)GamePersistence.SR.aN().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
+         if (GamePersistence.careerState.aN().get(var1) != this.uz.fg() && ((Club)GamePersistence.careerState.aN().get(var1)).kb() > this.Nc.lY()) {
+            this.Nd.add((Club)GamePersistence.careerState.aN().get(var1));
          }
       }
 
@@ -103,7 +103,7 @@ public class C0475 extends JPanel {
       }
 
       String var3 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.fi()) + "&nbsp;&nbsp;&nbsp;";
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var3 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;<b>Gol:</b>"
             + Integer.toString(this.uz.gK())
             + " <b>Des:</b>"

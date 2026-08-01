@@ -47,7 +47,7 @@ public class ConcacafWorldCupQualifiers extends Competition implements Serializa
       ArrayList var4 = new ArrayList();
 
       for (int var5 = 0; var5 < var3.length; var5++) {
-         CountryCompetitions var6 = GamePersistence.SR.s(var3[var5]);
+         CountryCompetitions var6 = GamePersistence.careerState.s(var3[var5]);
          var4.add(var6.jo());
          var6.z(true);
       }
@@ -105,8 +105,8 @@ public class ConcacafWorldCupQualifiers extends Competition implements Serializa
       this.agb = var11;
       var11.setNome(this.getNome());
       var11.fb(9400);
-      GamePersistence.afQ.L(var2);
-      GamePersistence.afQ.L(this.agc);
+      GamePersistence.coachJobMarket.L(var2);
+      GamePersistence.coachJobMarket.L(this.agc);
    }
 
    public void Bp() {
@@ -135,15 +135,15 @@ public class ConcacafWorldCupQualifiers extends Competition implements Serializa
 
    public void Bm() {
       for (int var1 = 0; var1 < 6; var1++) {
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)this.afX.yK().get(var1)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)this.afX.yK().get(var1)).getPais()));
       }
 
       this.afW = (Club)this.afX.yK().get(6);
-      GamePersistence.SR.bQ().X((Club)this.afX.yK().get(7));
+      GamePersistence.careerState.bQ().X((Club)this.afX.yK().get(7));
    }
 
    public void Y(Club club) {
-      GamePersistence.SR.aY().a(this, GamePersistence.SR.s(club.getPais()));
+      GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(club.getPais()));
    }
 
    @Override
@@ -169,7 +169,7 @@ public class ConcacafWorldCupQualifiers extends Competition implements Serializa
       var1.add(new C0830(var3, "Fase Intermediária"));
       CompetitionStage[] var4 = new CompetitionStage[]{this.afX};
       var1.add(new C0830(var4, "Fase Final"));
-      CompetitionStage[] var5 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
+      CompetitionStage[] var5 = new CompetitionStage[]{GamePersistence.careerState.bQ().Bo()};
       var1.add(new C0830(var5, "Torneio Repescagem"));
       return var1;
    }

@@ -30,7 +30,7 @@ public class C0796 {
          this.RS = c0727.ci();
          this.V = c0727.y();
       } else {
-         this.RT = GamePersistence.SR.o(i);
+         this.RT = GamePersistence.careerState.o(i);
          this.Or = true;
       }
    }

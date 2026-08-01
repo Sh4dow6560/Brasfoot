@@ -37,19 +37,19 @@ public class C0686 implements Serializable {
          if (k > l) {
             this.gZ++;
             this.hb = m;
-            this.hc = GamePersistence.SR.H();
+            this.hc = GamePersistence.careerState.H();
             this.hd = k;
             this.he = l;
          } else {
             this.ha++;
             this.hf = m;
-            this.hg = GamePersistence.SR.H();
+            this.hg = GamePersistence.careerState.H();
             this.hh = k;
             this.hi = l;
          }
       }
 
-      GamePersistence.SR.bd().add(this);
+      GamePersistence.careerState.bd().add(this);
    }
 
    public void a(int i, int j, int k, int l) {
@@ -66,7 +66,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hc = GamePersistence.SR.H();
+            this.hc = GamePersistence.careerState.H();
             this.hb = l;
             this.hd = j;
             this.he = k;
@@ -81,7 +81,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hg = GamePersistence.SR.H();
+            this.hg = GamePersistence.careerState.H();
             this.hf = l;
             this.hh = j;
             this.hi = k;
@@ -166,9 +166,9 @@ public class C0686 implements Serializable {
 
    public Club y(Club club) {
       if (this.gV == club.lk()) {
-         return GamePersistence.SR.x(this.gW);
+         return GamePersistence.careerState.x(this.gW);
       } else {
-         return this.gW == club.lk() ? GamePersistence.SR.x(this.gV) : null;
+         return this.gW == club.lk() ? GamePersistence.careerState.x(this.gV) : null;
       }
    }
 
@@ -226,7 +226,7 @@ public class C0686 implements Serializable {
    public String[] iP() {
       String[] var1 = new String[]{"", ""};
       if (this.hb >= 0) {
-         var1[0] = String.valueOf(GamePersistence.SR.iU() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
+         var1[0] = String.valueOf(GamePersistence.careerState.iU() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
          var1[1] = "(" + GameConstants.tz[this.hb] + ")";
       }
 
@@ -236,7 +236,7 @@ public class C0686 implements Serializable {
    public String[] iQ() {
       String[] var1 = new String[]{"", ""};
       if (this.hf >= 0) {
-         var1[0] = String.valueOf(GamePersistence.SR.iU() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
+         var1[0] = String.valueOf(GamePersistence.careerState.iU() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
          var1[1] = "(" + GameConstants.tz[this.hf] + ")";
       }
 
@@ -249,10 +249,10 @@ public class C0686 implements Serializable {
          var2 = GameConstants.tz[this.hb];
       }
 
-      Club var3 = GamePersistence.SR.x(this.gV);
+      Club var3 = GamePersistence.careerState.x(this.gV);
       int var4 = this.hb;
       if (i == 2) {
-         var3 = GamePersistence.SR.x(this.gW);
+         var3 = GamePersistence.careerState.x(this.gW);
          if (this.hf >= 0) {
             var2 = GameConstants.tz[this.hf];
          }

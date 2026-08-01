@@ -94,9 +94,9 @@ public class PlayerTransferRecord implements Serializable {
       if (this.ei >= 0) {
          ArrayList var1 = null;
          if (this.ej == 1) {
-            var1 = GamePersistence.SR.O();
+            var1 = GamePersistence.careerState.O();
          } else if (this.ej == 2) {
-            var1 = GamePersistence.SR.Q();
+            var1 = GamePersistence.careerState.Q();
          }
 
          if (var1 != null) {

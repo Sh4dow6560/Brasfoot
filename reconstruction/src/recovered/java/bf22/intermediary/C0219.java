@@ -63,7 +63,7 @@ public class C0219 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void py() {
@@ -85,16 +85,16 @@ public class C0219 extends JPanel {
    }
 
    private void pA() {
-      this.d(GamePersistence.SR.aY(), 7);
-      this.d(GamePersistence.SR.sq(), 0);
-      this.d(GamePersistence.SR.ym(), 4);
-      this.d(GamePersistence.SR.ba(), 0);
-      this.d(GamePersistence.SR.aZ(), 1);
-      this.d(GamePersistence.SR.be(), 2);
-      this.d(GamePersistence.SR.bf(), 3);
-      this.d(GamePersistence.SR.bg(), 4);
-      this.d(GamePersistence.SR.bX(), 5);
-      this.d(GamePersistence.SR.yl(), 7);
+      this.d(GamePersistence.careerState.aY(), 7);
+      this.d(GamePersistence.careerState.sq(), 0);
+      this.d(GamePersistence.careerState.ym(), 4);
+      this.d(GamePersistence.careerState.ba(), 0);
+      this.d(GamePersistence.careerState.aZ(), 1);
+      this.d(GamePersistence.careerState.be(), 2);
+      this.d(GamePersistence.careerState.bf(), 3);
+      this.d(GamePersistence.careerState.bg(), 4);
+      this.d(GamePersistence.careerState.bX(), 5);
+      this.d(GamePersistence.careerState.yl(), 7);
       this.a(5, -1, this.Eu);
       this.a(4, -1, this.Eu);
       this.a(6, -1, this.Eu);
@@ -120,7 +120,7 @@ public class C0219 extends JPanel {
       this.b(3, 3, this.Ew);
       this.b(3, 4, this.Ew);
       String var1 = "Estaduais e regionais";
-      if (!GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.isJogaRegionais()) {
          var1 = "Estaduais";
       }
 
@@ -145,7 +145,7 @@ public class C0219 extends JPanel {
       for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.cT().get(var7)).b() == i) {
             var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = GamePersistence.SR.x(((C0708)this.Es.cT().get(var7)).ct());
+            var5 = GamePersistence.careerState.x(((C0708)this.Es.cT().get(var7)).ct());
             var6 = ((C0708)this.Es.cT().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
@@ -160,7 +160,7 @@ public class C0219 extends JPanel {
       for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.cT().get(var7)).b() == i && ((C0708)this.Es.cT().get(var7)).el() == j) {
             var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = GamePersistence.SR.x(((C0708)this.Es.cT().get(var7)).ct());
+            var5 = GamePersistence.careerState.x(((C0708)this.Es.cT().get(var7)).ct());
             var6 = ((C0708)this.Es.cT().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }

@@ -12,8 +12,8 @@ class C0479 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setHabilidadeIndividual(C0419.i(this.MA).isSelected());
-      GamePersistence.vM().setHabilidadeIndividual(C0419.i(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setHabilidadeIndividual(C0419.i(this.MA).isSelected());
+      GamePersistence.getOptions().setHabilidadeIndividual(C0419.i(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

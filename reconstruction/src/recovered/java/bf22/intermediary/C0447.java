@@ -37,7 +37,7 @@ public class C0447 extends JPanel {
    public C0447(JDialog jDialog, Club club) {
       this.uk = club;
       this.ub = jDialog;
-      this.Lu = GamePersistence.SR.s(club.getPais());
+      this.Lu = GamePersistence.careerState.s(club.getPais());
       this.mJ();
       if (club != null) {
          this.ug.setIcon(club.x(30, 30));
@@ -52,7 +52,7 @@ public class C0447 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       this.ut.setBorder(BorderFactory.createEmptyBorder());
    }
 
@@ -80,7 +80,7 @@ public class C0447 extends JPanel {
             var4 = var4 + " (" + Integer.toString(k) + "ª div.)";
          }
       } else if (i == 4 || i == 6 || i == 12) {
-         var5 = GamePersistence.SR.c(i, j);
+         var5 = GamePersistence.careerState.c(i, j);
       } else if (i == 10) {
          var4 = GameConstants.pY[j];
       } else if (i == 7) {
@@ -110,7 +110,7 @@ public class C0447 extends JPanel {
          var3 = new C0805(0, null, this);
       }
 
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var3, new C0775(0, this.xh, 690, 25));
       this.Lw.add(var3);
       this.xh = this.xh + 26 + var4;
@@ -132,10 +132,10 @@ public class C0447 extends JPanel {
       ArrayList var1 = new ArrayList();
       int var2 = this.uk.lk();
 
-      for (int var3 = 0; var3 < GamePersistence.SR.L().size(); var3++) {
-         for (int var4 = 0; var4 < ((Coach)GamePersistence.SR.L().get(var3)).lO().size(); var4++) {
-            if (((C0728)((Coach)GamePersistence.SR.L().get(var3)).lO().get(var4)).ct() == var2) {
-               var1.add(new C0449(this, ((C0728)((Coach)GamePersistence.SR.L().get(var3)).lO().get(var4)).H(), ((Coach)GamePersistence.SR.L().get(var3)).dS()));
+      for (int var3 = 0; var3 < GamePersistence.careerState.L().size(); var3++) {
+         for (int var4 = 0; var4 < ((Coach)GamePersistence.careerState.L().get(var3)).lO().size(); var4++) {
+            if (((C0728)((Coach)GamePersistence.careerState.L().get(var3)).lO().get(var4)).ct() == var2) {
+               var1.add(new C0449(this, ((C0728)((Coach)GamePersistence.careerState.L().get(var3)).lO().get(var4)).H(), ((Coach)GamePersistence.careerState.L().get(var3)).dS()));
             }
          }
       }

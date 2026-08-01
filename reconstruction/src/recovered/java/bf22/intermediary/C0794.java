@@ -20,8 +20,8 @@ public class C0794 {
       this.oq = i;
       int var5 = 0;
       if (!bl2) {
-         for (int var6 = 0; var6 < GamePersistence.SR.aN().size(); var6++) {
-            if (GamePersistence.SR.aN().get(var6) != player.fg() && ((Club)GamePersistence.SR.aN().get(var6)).kb() >= i) {
+         for (int var6 = 0; var6 < GamePersistence.careerState.aN().size(); var6++) {
+            if (GamePersistence.careerState.aN().get(var6) != player.fg() && ((Club)GamePersistence.careerState.aN().get(var6)).kb() >= i) {
                var5++;
             }
          }

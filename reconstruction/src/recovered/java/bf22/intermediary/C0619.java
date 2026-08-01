@@ -32,7 +32,7 @@ public class C0619 extends DefaultTableCellRenderer {
             }
          } else if (j == 0) {
             this.setHorizontalAlignment(0);
-            this.setText(Integer.toString(var7.H() + GamePersistence.SR.iU()));
+            this.setText(Integer.toString(var7.H() + GamePersistence.careerState.iU()));
          } else if (j == 1) {
             this.setIcon(var7.ce().kU());
             this.setText(var7.ce().getNome());

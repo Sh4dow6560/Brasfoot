@@ -66,9 +66,9 @@ public class C0238 extends JPanel {
       this.mH();
       this.index = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.aN().size(); var2++) {
-         if (((Club)GamePersistence.SR.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.SR.aN().get(var2)).kw() < 35) {
-            this.FX.add((Club)GamePersistence.SR.aN().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
+         if (((Club)GamePersistence.careerState.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
+            this.FX.add((Club)GamePersistence.careerState.aN().get(var2));
          }
       }
 
@@ -97,9 +97,9 @@ public class C0238 extends JPanel {
       this.mH();
       this.index = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.aN().size(); var2++) {
-         if (((Club)GamePersistence.SR.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.SR.aN().get(var2)).kw() < 35) {
-            this.FX.add((Club)GamePersistence.SR.aN().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
+         if (((Club)GamePersistence.careerState.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
+            this.FX.add((Club)GamePersistence.careerState.aN().get(var2));
          }
       }
 
@@ -143,12 +143,12 @@ public class C0238 extends JPanel {
       int[] var4 = new int[6];
       var4 = var2.gw();
       String var5 = "";
-      if (var2.fP() && var2.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
+      if (var2.fP() && var2.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
          var5 = "Fim contusão: " + C0693.a(var2.fo());
       }
 
       String var6 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(var2.fi()) + "&nbsp;&nbsp;&nbsp;";
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var6 = "<html>\n<body><p style=\\\"padding:5; font-size:13\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;<b>Gol:</b>"
             + Integer.toString(var2.gK())
             + " <b>Des:</b> "
@@ -333,7 +333,7 @@ public class C0238 extends JPanel {
    }
 
    private void nx() {
-      GamePersistence.SR.ax();
+      GamePersistence.careerState.ax();
    }
 
    private void mJ() {

@@ -47,9 +47,9 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
       ArrayList var2 = new ArrayList();
       ArrayList var3 = new ArrayList();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.aG().size(); var4++) {
-         if (((CountryCompetitions)GamePersistence.SR.aG().get(var4)).jo() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var4)).gg() == 3) {
-            var1.add((CountryCompetitions)GamePersistence.SR.aG().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.aG().size(); var4++) {
+         if (((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).jo() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).gg() == 3) {
+            var1.add((CountryCompetitions)GamePersistence.careerState.aG().get(var4));
          }
       }
 
@@ -80,19 +80,19 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
       }
 
       for (int var13 = 0; var13 < this.YF.size(); var13++) {
-         GamePersistence.SR.s(((Club)this.YF.get(var13)).getPais()).z(true);
+         GamePersistence.careerState.s(((Club)this.YF.get(var13)).getPais()).z(true);
       }
 
       for (int var14 = 0; var14 < var3.size(); var14++) {
-         GamePersistence.SR.s(((Club)var3.get(var14)).getPais()).z(true);
+         GamePersistence.careerState.s(((Club)var3.get(var14)).getPais()).z(true);
       }
 
       boolean[] var15 = new boolean[]{true, true, true, true, true, true, true};
       this.YJ = new KnockoutStage(null, var3.size(), this.b(), 1, var15, this, 9300);
       KnockoutRound var7 = new KnockoutRound();
       var7.a(this.YJ, var3, 0, var15[0], 0, 0, this.b(), false);
-      GamePersistence.afQ.L(var3);
-      GamePersistence.afQ.L(this.YF);
+      GamePersistence.coachJobMarket.L(var3);
+      GamePersistence.coachJobMarket.L(this.YF);
    }
 
    public void aw(ArrayList arrayList) {
@@ -210,10 +210,10 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
 
    public void Bm() {
       for (int var1 = 0; var1 < this.afX.yQ().size(); var1++) {
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(0)).getPais()));
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(1)).getPais()));
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(2)).getPais()));
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(3)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(0)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(1)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(2)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)((C0673)this.afX.yQ().get(var1)).gR().get(3)).getPais()));
       }
 
       ArrayList var4 = new ArrayList();
@@ -227,12 +227,12 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
 
    public void ax(ArrayList arrayList) {
       ArrayList var2 = new ArrayList();
-      var2.add(GamePersistence.SR.bK().Br());
+      var2.add(GamePersistence.careerState.bK().Br());
       var2.add((Club)arrayList.get(0));
-      var2.add(GamePersistence.SR.bR().Bl());
+      var2.add(GamePersistence.careerState.bR().Bl());
       var2.add(this.aga);
-      var2.add(GamePersistence.SR.bM().Bl());
-      var2.add(GamePersistence.SR.bS().Br());
+      var2.add(GamePersistence.careerState.bM().Bl());
+      var2.add(GamePersistence.careerState.bS().Br());
       LeagueLoadOptions var3 = new LeagueLoadOptions();
       var3.nTimes = 6;
       var3.doisTurnos = false;
@@ -244,7 +244,7 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
 
    public void Bn() {
       for (int var1 = 0; var1 <= 1; var1++) {
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)this.Bo().yK().get(var1)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)this.Bo().yK().get(var1)).getPais()));
       }
    }
 
@@ -305,7 +305,7 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
          var1.add(new C0830(null, "Pré-repescagem"));
       }
 
-      CompetitionStage[] var6 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
+      CompetitionStage[] var6 = new CompetitionStage[]{GamePersistence.careerState.bQ().Bo()};
       var1.add(new C0830(var6, "Repescagem"));
       return var1;
    }

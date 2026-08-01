@@ -53,8 +53,8 @@ public class C0164 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
-      this.vd.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
+      this.vd.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
    }
 
    private void mH() {

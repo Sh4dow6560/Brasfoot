@@ -31,7 +31,7 @@ public class C0051 extends JPanel {
    public C0051(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      Color[] var2 = GamePersistence.SR.getCoresLista();
+      Color[] var2 = GamePersistence.careerState.getCoresLista();
       JLabel[] var3 = new JLabel[]{this.zo, this.zp, this.zq, this.zr, this.zs};
 
       for (int var4 = 0; var4 < var3.length; var4++) {
@@ -69,9 +69,9 @@ public class C0051 extends JPanel {
          var2[var3] = var1[var3].getBackground();
       }
 
-      GamePersistence.SR.setCoresLista(var2);
-      GamePersistence.vM().setCoresLista(var2);
-      GamePersistence.vJ();
+      GamePersistence.careerState.setCoresLista(var2);
+      GamePersistence.getOptions().setCoresLista(var2);
+      GamePersistence.saveOptions();
    }
 
    private void a(Object object) {

@@ -12,7 +12,7 @@ class C0204 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.c(C0200.d(this.GR), false);
+      GamePersistence.loadCareer(C0200.d(this.GR), false);
       C0200.a(this.GR).dispose();
    }
 }

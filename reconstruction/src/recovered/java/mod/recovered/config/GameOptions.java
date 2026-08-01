@@ -125,12 +125,12 @@ public class GameOptions implements Serializable {
 
   public void setVerJint(boolean value, int index) {
     verJint[index] = value;
-    GamePersistence.SR.setVerJint(value, index);
+    GamePersistence.careerState.setVerJint(value, index);
   }
 
   public void setVerJint(boolean[] value) {
     verJint = value;
-    GamePersistence.SR.setVerJint(value);
+    GamePersistence.careerState.setVerJint(value);
   }
 
   public static long getSerialversionuid() {
@@ -151,7 +151,7 @@ public class GameOptions implements Serializable {
 
   public void setNegritoCasa(boolean value) {
     negritoCasa = value;
-    GamePersistence.SR.setNegritoCasa(value);
+    GamePersistence.careerState.setNegritoCasa(value);
   }
 
   public int getAutoSalvar() {
@@ -160,7 +160,7 @@ public class GameOptions implements Serializable {
 
   public void setAutoSalvar(int value) {
     autoSalvar = value;
-    GamePersistence.SR.setAutoSalvar(value);
+    GamePersistence.careerState.setAutoSalvar(value);
   }
 
   public int getVelocidade() {
@@ -169,7 +169,7 @@ public class GameOptions implements Serializable {
 
   public void setVelocidade(int value) {
     velocidade = value;
-    GamePersistence.SR.setVelocidade(value);
+    GamePersistence.careerState.setVelocidade(value);
   }
 
   public int getVelocidadeNH() {
@@ -178,7 +178,7 @@ public class GameOptions implements Serializable {
 
   public void setVelocidadeNH(int value) {
     velocidadeNH = value;
-    GamePersistence.SR.setVelocidadeNH(value);
+    GamePersistence.careerState.setVelocidadeNH(value);
   }
 
   public int getAvisoTerminoContrato() {
@@ -187,7 +187,7 @@ public class GameOptions implements Serializable {
 
   public void setAvisoTerminoContrato(int value) {
     avisoTerminoContrato = value;
-    GamePersistence.SR.setAvisoTerminoContrato(value);
+    GamePersistence.careerState.setAvisoTerminoContrato(value);
   }
 
   public int getVerDecisaoPenNaoHumano() {
@@ -196,7 +196,7 @@ public class GameOptions implements Serializable {
 
   public void setVerDecisaoPenNaoHumano(int value) {
     verDecisaoPenNaoHumano = value;
-    GamePersistence.SR.setVerDecisaoPenNaoHumano(value);
+    GamePersistence.careerState.setVerDecisaoPenNaoHumano(value);
   }
 
   public int getVerMudancaTecnicos() {
@@ -205,7 +205,7 @@ public class GameOptions implements Serializable {
 
   public void setVerMudancaTecnicos(int value) {
     verMudancaTecnicos = value;
-    GamePersistence.SR.setVerMudancaTecnicos(value);
+    GamePersistence.careerState.setVerMudancaTecnicos(value);
   }
 
   public int getVerJanelaSubs() {
@@ -214,7 +214,7 @@ public class GameOptions implements Serializable {
 
   public void setVerJanelaSubs(int value) {
     verJanelaSubs = value;
-    GamePersistence.SR.setVerJanelaSubs(value);
+    GamePersistence.careerState.setVerJanelaSubs(value);
   }
 
   public boolean isAutoRenovaContrato() {
@@ -223,7 +223,7 @@ public class GameOptions implements Serializable {
 
   public void setAutoRenovaContrato(boolean value) {
     autoRenovaContrato = value;
-    GamePersistence.SR.setAutoRenovaContrato(value);
+    GamePersistence.careerState.setAutoRenovaContrato(value);
   }
 
   public boolean isUsaCorPlacar() {
@@ -232,7 +232,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaCorPlacar(boolean value) {
     usaCorPlacar = value;
-    GamePersistence.SR.setUsaCorPlacar(value);
+    GamePersistence.careerState.setUsaCorPlacar(value);
   }
 
   public int getCorPlacar() {
@@ -241,7 +241,7 @@ public class GameOptions implements Serializable {
 
   public void setCorPlacar(int value) {
     corPlacar = value;
-    GamePersistence.SR.setCorPlacar(value);
+    GamePersistence.careerState.setCorPlacar(value);
   }
 
   public boolean isUsaSons() {
@@ -250,7 +250,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaSons(boolean value) {
     usaSons = value;
-    GamePersistence.SR.setUsaSons(value);
+    GamePersistence.careerState.setUsaSons(value);
   }
 
   public boolean isUsaCoresLista() {
@@ -259,7 +259,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaCoresLista(boolean value) {
     usaCoresLista = value;
-    GamePersistence.SR.setUsaCoresLista(value);
+    GamePersistence.careerState.setUsaCoresLista(value);
   }
 
   public boolean isVerEstaduaisAgrupados() {
@@ -268,7 +268,7 @@ public class GameOptions implements Serializable {
 
   public void setVerEstaduaisAgrupados(boolean value) {
     verEstaduaisAgrupados = value;
-    GamePersistence.SR.setVerEstaduaisAgrupados(value);
+    GamePersistence.careerState.setVerEstaduaisAgrupados(value);
   }
 
   public Color[] getCoresLista() {
@@ -285,7 +285,7 @@ public class GameOptions implements Serializable {
 
   public void setCoresLista(Color[] value) {
     coresLista = value;
-    GamePersistence.SR.setCoresLista(value);
+    GamePersistence.careerState.setCoresLista(value);
   }
 
   public boolean isIgnoraLigas() {
@@ -294,7 +294,7 @@ public class GameOptions implements Serializable {
 
   public void setIgnoraLigas(boolean value) {
     ignoraLigas = value;
-    GamePersistence.SR.setIgnoraLigas(value);
+    GamePersistence.careerState.setIgnoraLigas(value);
   }
 
   public boolean isIgnoraEstadual() {
@@ -303,7 +303,7 @@ public class GameOptions implements Serializable {
 
   public void setIgnoraEstadual(boolean value) {
     ignoraEstadual = value;
-    GamePersistence.SR.setIgnoraEstadual(value);
+    GamePersistence.careerState.setIgnoraEstadual(value);
   }
 
   public boolean isUsarGruposReaisCopa() {
@@ -312,7 +312,7 @@ public class GameOptions implements Serializable {
 
   public void setUsarGruposReaisCopa(boolean value) {
     UsarGruposReaisCopa = value;
-    GamePersistence.SR.setUsarGruposReaisCopa(value);
+    GamePersistence.careerState.setUsarGruposReaisCopa(value);
   }
 
   public boolean[] getJogaRegionaisTodos() {
@@ -361,6 +361,6 @@ public class GameOptions implements Serializable {
 
   public void setVerLeiloes(boolean value) {
     verLeiloes = value;
-    GamePersistence.SR.setVerLeiloes(value);
+    GamePersistence.careerState.setVerLeiloes(value);
   }
 }

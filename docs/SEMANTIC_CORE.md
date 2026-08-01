@@ -13,6 +13,11 @@ chamadas binaras permanecem compativeis.
 | `save/SavedGameInfo` | `est/InfoArquivoSalvoType` | metadados exibidos no carregamento |
 | `manager/CoachJobMarket` | `best/ay` | propostas e mercado de tecnicos |
 
+`GamePersistence` ja possui API fonte legivel: `careerState`,
+`coachJobMarket`, `getOptions`, `saveCareer`, `loadCareer`,
+`loadCareerInfo`, `saveOptions`, `preloadSoundFiles` e `getSoundFile`. Esses
+nomes voltam aos identificadores oficiais somente na montagem final.
+
 ## Competicoes
 
 | Fonte | Classe oficial | Papel |

@@ -39,7 +39,7 @@ public class C0388 extends JFrame {
       this.afx.setCursor(new Cursor(12));
       this.afw.setCursor(new Cursor(12));
       this.mH();
-      if (GamePersistence.vL()) {
+      if (GamePersistence.isRegisteredVersion()) {
          this.rO();
       }
 

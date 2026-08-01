@@ -12,7 +12,7 @@ class C0303 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setAutoRenovaContrato(C0294.g(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setAutoRenovaContrato(C0294.g(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

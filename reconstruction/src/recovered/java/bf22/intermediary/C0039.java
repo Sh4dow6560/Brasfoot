@@ -63,16 +63,16 @@ public class C0039 extends JPanel {
       int var5 = 0;
       int var6 = 0;
       if (!bl) {
-         for (int var7 = 0; var7 < GamePersistence.SR.P().size(); var7++) {
-            this.yr.addItem(((Club)GamePersistence.SR.P().get(var7)).getNome());
-            if (GamePersistence.SR.P().get(var7) == club) {
+         for (int var7 = 0; var7 < GamePersistence.careerState.P().size(); var7++) {
+            this.yr.addItem(((Club)GamePersistence.careerState.P().get(var7)).getNome());
+            if (GamePersistence.careerState.P().get(var7) == club) {
                var5 = var7;
             }
          }
       } else {
          for (int var10 = 0; var10 < C0696.jz(); var10++) {
             int var8 = ((CountryInfo)C0732.cY().get(var10)).getPais();
-            CountryCompetitions var9 = GamePersistence.SR.s(var8);
+            CountryCompetitions var9 = GamePersistence.careerState.s(var8);
             if (var9.jl()) {
                this.yr.addItem(var9.jo());
                this.yl.add(var9.jo());
@@ -96,7 +96,7 @@ public class C0039 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void mH() {
@@ -108,7 +108,7 @@ public class C0039 extends JPanel {
    private void R(boolean bl) {
       if (!bl) {
          if (!this.yp) {
-            this.ym = (Club)GamePersistence.SR.P().get(this.yr.getSelectedIndex());
+            this.ym = (Club)GamePersistence.careerState.P().get(this.yr.getSelectedIndex());
          } else if (this.yl.size() > 0) {
             this.ym = (Club)this.yl.get(this.yr.getSelectedIndex());
          }
@@ -119,8 +119,8 @@ public class C0039 extends JPanel {
       this.yk.clear();
       this.ys.removeAllItems();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.bd().size(); var4++) {
-         var3 = ((C0686)GamePersistence.SR.bd().get(var4)).y(this.ym);
+      for (int var4 = 0; var4 < GamePersistence.careerState.bd().size(); var4++) {
+         var3 = ((C0686)GamePersistence.careerState.bd().get(var4)).y(this.ym);
          if (var3 != null) {
             this.yk.add(var3);
          }
@@ -143,7 +143,7 @@ public class C0039 extends JPanel {
    private void S(boolean bl) {
       if (bl) {
          if (!this.yp) {
-            this.ym = (Club)GamePersistence.SR.P().get(this.yr.getSelectedIndex());
+            this.ym = (Club)GamePersistence.careerState.P().get(this.yr.getSelectedIndex());
          } else {
             this.ym = (Club)this.yl.get(this.yr.getSelectedIndex());
          }
@@ -156,9 +156,9 @@ public class C0039 extends JPanel {
       if (this.ym != this.yn) {
          this.yo = null;
 
-         for (int var2 = 0; var2 < GamePersistence.SR.bd().size(); var2++) {
-            if (((C0686)GamePersistence.SR.bd().get(var2)).a(this.ym, this.yn)) {
-               this.yo = (C0686)GamePersistence.SR.bd().get(var2);
+         for (int var2 = 0; var2 < GamePersistence.careerState.bd().size(); var2++) {
+            if (((C0686)GamePersistence.careerState.bd().get(var2)).a(this.ym, this.yn)) {
+               this.yo = (C0686)GamePersistence.careerState.bd().get(var2);
                break;
             }
          }
@@ -183,13 +183,13 @@ public class C0039 extends JPanel {
 
             this.yj.clear();
 
-            for (int var5 = 0; var5 < GamePersistence.SR.R().size(); var5++) {
-               for (int var6 = 0; var6 < ((C0693)GamePersistence.SR.R().get(var5)).h().size(); var6++) {
-                  if (((Match)((C0693)GamePersistence.SR.R().get(var5)).h().get(var6)).hc() == this.ym
-                        && ((Match)((C0693)GamePersistence.SR.R().get(var5)).h().get(var6)).hd() == this.yn
-                     || ((Match)((C0693)GamePersistence.SR.R().get(var5)).h().get(var6)).hd() == this.ym
-                        && ((Match)((C0693)GamePersistence.SR.R().get(var5)).h().get(var6)).hc() == this.yn) {
-                     this.yj.add((Match)((C0693)GamePersistence.SR.R().get(var5)).h().get(var6));
+            for (int var5 = 0; var5 < GamePersistence.careerState.R().size(); var5++) {
+               for (int var6 = 0; var6 < ((C0693)GamePersistence.careerState.R().get(var5)).h().size(); var6++) {
+                  if (((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hc() == this.ym
+                        && ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hd() == this.yn
+                     || ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hd() == this.ym
+                        && ((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6)).hc() == this.yn) {
+                     this.yj.add((Match)((C0693)GamePersistence.careerState.R().get(var5)).h().get(var6));
                   }
                }
             }

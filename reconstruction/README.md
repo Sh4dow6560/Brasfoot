@@ -68,3 +68,8 @@ Ao adicionar nomes de classes em `config/semantic-names.json`, execute
 `applySemanticSourceMappings` antes de qualquer tarefa que gere novamente os
 mapeamentos. O pipeline bloqueia a ordem incorreta para proteger as fontes
 revisadas.
+
+Ao adicionar nomes de campos ou metodos estaticos, execute
+`applySemanticMemberMappings` antes de `generateMappings`. A tarefa atualiza
+as referencias nas 1.032 fontes, valida a migracao e mantem uma copia de
+seguranca transacional em `build/generated`.

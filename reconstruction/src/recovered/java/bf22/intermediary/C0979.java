@@ -14,6 +14,6 @@ class C0979 implements ActionListener {
    public void actionPerformed(ActionEvent actionEvent) {
       C0734.dg();
       C0734.dh();
-      GamePersistence.SR.az();
+      GamePersistence.careerState.az();
    }
 }

@@ -234,6 +234,7 @@ registerToolTask("promoteCandidateBatch", "promote-candidate-batch") {
 }
 
 registerToolTask("applySemanticSourceMappings", "apply-semantic-source-mappings")
+registerToolTask("applySemanticMemberMappings", "apply-semantic-member-mappings")
 
 tasks.register("compileRecovered") {
     group = "reconstruction"

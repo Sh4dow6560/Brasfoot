@@ -26,22 +26,22 @@ public class C0318 extends JPanel {
    public C0318(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      boolean[] var2 = GamePersistence.SR.getJogaRegionaisTodos();
-      var2 = GamePersistence.SR.getJogaRegionaisTodos();
+      boolean[] var2 = GamePersistence.careerState.getJogaRegionaisTodos();
+      var2 = GamePersistence.careerState.getJogaRegionaisTodos();
       this.JJ.setSelected(var2[0]);
       this.JK.setSelected(var2[1]);
       this.JL.setSelected(var2[2]);
       this.JM.setSelected(var2[3]);
-      this.JI.setSelected(GamePersistence.vM().isConviteRegionais());
+      this.JI.setSelected(GamePersistence.getOptions().isConviteRegionais());
       this.Fu.addActionListener(new C0372(this));
    }
 
    public void nH() {
       boolean[] var1 = new boolean[]{this.JJ.isSelected(), this.JK.isSelected(), this.JL.isSelected(), this.JM.isSelected()};
-      GamePersistence.SR.setJogaRegionaisTodos(var1);
-      GamePersistence.vM().setJogaRegionaisTodos(var1);
-      GamePersistence.vM().setConviteRegionais(this.JI.isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setJogaRegionaisTodos(var1);
+      GamePersistence.getOptions().setJogaRegionaisTodos(var1);
+      GamePersistence.getOptions().setConviteRegionais(this.JI.isSelected());
+      GamePersistence.saveOptions();
       this.ub.dispose();
    }
 

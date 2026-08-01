@@ -39,7 +39,7 @@ public class C0182 extends JPanel {
       this.dr = i;
       this.ub = jDialog;
       this.mJ();
-      this.CS.setSelected(GamePersistence.SR.isUsaGrupoPadraoEstadual());
+      this.CS.setSelected(GamePersistence.careerState.isUsaGrupoPadraoEstadual());
       this.CS.addActionListener(new C0183(this));
       this.vb.addActionListener(new C0184(this));
       this.vc.setVisible(false);

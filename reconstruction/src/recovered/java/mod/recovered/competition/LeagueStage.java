@@ -269,7 +269,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          }
       }
 
-      if ((this.b() != 7 || GamePersistence.SR.H() != 1) && !this.jogosDentroGrupo) {
+      if ((this.b() != 7 || GamePersistence.careerState.H() != 1) && !this.jogosDentroGrupo) {
          this.a(this.Zb, this.doisTurnos, true, this.Za);
       }
    }
@@ -412,7 +412,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    private void yN() {
       for (int var1 = 0; var1 < this.yQ().size(); var1++) {
-         GamePersistence.SR.aY().a(this.YY, GamePersistence.SR.s(((Club)((C0673)this.yQ().get(var1)).gR().get(0)).getPais()));
+         GamePersistence.careerState.aY().a(this.YY, GamePersistence.careerState.s(((Club)((C0673)this.yQ().get(var1)).gR().get(0)).getPais()));
       }
 
       ArrayList var4 = new ArrayList();
@@ -657,7 +657,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public void pO() {
       new ArrayList();
-      ArrayList var1 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).h();
+      ArrayList var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          if (((Match)var1.get(var2)).ht() == this) {
@@ -675,7 +675,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
       this.Zf++;
       if (this.b() == 1 && this.Zd == 0 && this.Zf == this.zk()) {
-         GamePersistence.afQ.zj();
+         GamePersistence.coachJobMarket.zj();
          AiSquadManager.b(this);
       }
 
@@ -691,46 +691,46 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          }
 
          if (this.var0 == 14001) {
-            GamePersistence.SR.sq().yt();
+            GamePersistence.careerState.sq().yt();
          } else if (this.var0 == 14401) {
-            GamePersistence.SR.ym().yt();
+            GamePersistence.careerState.ym().yt();
          } else if (this.var0 == 14003) {
-            GamePersistence.SR.sq().BB();
+            GamePersistence.careerState.sq().BB();
          } else if (this.var0 != 14002 && this.var0 != 14004 && this.var0 != 14402 && this.var0 != 14403) {
             if (this.var0 == 4005) {
-               GamePersistence.SR.aI().yt();
+               GamePersistence.careerState.aI().yt();
             } else if (this.var0 == 6005) {
-               GamePersistence.SR.aK().Be();
+               GamePersistence.careerState.aK().Be();
             } else if (this.var0 == 4104) {
-               GamePersistence.SR.aF().yt();
+               GamePersistence.careerState.aF().yt();
             } else if (this.var0 == 12005) {
-               GamePersistence.SR.mj().Be();
+               GamePersistence.careerState.mj().Be();
             } else if (this.var0 == 6105) {
-               GamePersistence.SR.aH().yt();
+               GamePersistence.careerState.aH().yt();
             } else if (this.var0 == 7700) {
-               GamePersistence.SR.aY().yt();
+               GamePersistence.careerState.aY().yt();
             } else if (this.var0 == 7701) {
-               GamePersistence.SR.bQ().Bn();
+               GamePersistence.careerState.bQ().Bn();
             } else if (this.var0 == 9001) {
-               GamePersistence.SR.bL().Bk();
+               GamePersistence.careerState.bL().Bk();
             } else if (this.var0 == 9400) {
-               GamePersistence.SR.bR().Bp();
+               GamePersistence.careerState.bR().Bp();
             } else if (this.var0 == 9402) {
-               GamePersistence.SR.bR().Bm();
+               GamePersistence.careerState.bR().Bm();
             } else if (this.var0 == 9500) {
-               GamePersistence.SR.bS().Bq();
+               GamePersistence.careerState.bS().Bq();
             } else if (this.var0 == 9501) {
-               GamePersistence.SR.bS().yt();
+               GamePersistence.careerState.bS().yt();
             } else if (this.var0 == 9100) {
-               GamePersistence.SR.bK().Bm();
+               GamePersistence.careerState.bK().Bm();
             } else if (this.Zd == 0 && this.var0 == 90) {
                this.yN();
             } else if (this.var0 == 9201) {
-               GamePersistence.SR.bM().Bk();
+               GamePersistence.careerState.bM().Bk();
             } else if (this.var0 == 9301) {
-               GamePersistence.SR.bQ().yt();
+               GamePersistence.careerState.bQ().yt();
             } else if (this.var0 == 9302) {
-               GamePersistence.SR.bQ().Bm();
+               GamePersistence.careerState.bQ().Bm();
             } else if (this.Zd > 0 && this.melhoresTerceiros) {
                this.yO();
             } else if (this.Zd > 0) {
@@ -794,7 +794,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       Club[] var1 = new Club[2];
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.SR.H()) {
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.H()) {
             var1[0] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
             var1[1] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).cf();
             return var1;
@@ -808,7 +808,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       Object var1 = null;
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.SR.H()) {
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.careerState.H()) {
             return ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
          }
       }
@@ -1199,8 +1199,8 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       if (this.Zc == null) {
          for (int var4 = 0; var4 < this.Zb.size(); var4++) {
             ((Club)this.Zb.get(var4)).a(var1, var4 + 1, -1);
-            if (var2 && ((Club)this.Zb.get(var4)).getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
-               GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var4), var4 + 1));
+            if (var2 && ((Club)this.Zb.get(var4)).getDivisao() == 0 && GamePersistence.careerState.bx() != null && this.YZ != null) {
+               GamePersistence.careerState.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var4), var4 + 1));
             }
          }
       } else {
@@ -1222,8 +1222,8 @@ public class LeagueStage extends CompetitionStage implements Serializable {
                if (!var3.contains(var8)) {
                   var3.add(var8);
                   var8.a(var1, var5, var10);
-                  if (var2 && var8.getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
-                     GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var8, var5));
+                  if (var2 && var8.getDivisao() == 0 && GamePersistence.careerState.bx() != null && this.YZ != null) {
+                     GamePersistence.careerState.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var8, var5));
                   }
 
                   var5++;
@@ -1232,8 +1232,8 @@ public class LeagueStage extends CompetitionStage implements Serializable {
                if (!var3.contains(var9)) {
                   var3.add(var9);
                   var9.a(var1, var5, var10);
-                  if (var2 && var9.getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
-                     GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var9, var5));
+                  if (var2 && var9.getDivisao() == 0 && GamePersistence.careerState.bx() != null && this.YZ != null) {
+                     GamePersistence.careerState.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var9, var5));
                   }
 
                   var5++;
@@ -1252,7 +1252,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
                ((Club)this.Zb.get(var11)).a(var1, var5, var12);
                if (var2 && ((Club)this.Zb.get(var11)).getDivisao() == 0 && this.YZ != null) {
-                  GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var11), var5));
+                  GamePersistence.careerState.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var11), var5));
                }
 
                var5++;
@@ -1444,35 +1444,35 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       if (this.RT != null) {
          if (this.RT.gg() == 1) {
             if (i == 1) {
-               return GamePersistence.SR.aF().cS();
+               return GamePersistence.careerState.aF().cS();
             }
 
             if (i == 2) {
-               return GamePersistence.SR.aH().cS();
+               return GamePersistence.careerState.aH().cS();
             }
          } else if (this.RT.gg() == 0) {
             if (i == 1) {
-               return GamePersistence.SR.aI().cS();
+               return GamePersistence.careerState.aI().cS();
             }
 
             if (i == 2) {
-               return GamePersistence.SR.aK().cS();
+               return GamePersistence.careerState.aK().cS();
             }
          } else {
             if (this.RT.gg() == 2) {
-               return GamePersistence.SR.aO().cS();
+               return GamePersistence.careerState.aO().cS();
             }
 
             if (this.RT.gg() == 3) {
-               return GamePersistence.SR.aL().cS();
+               return GamePersistence.careerState.aL().cS();
             }
 
             if (this.RT.gg() == 4) {
-               return GamePersistence.SR.aP().cS();
+               return GamePersistence.careerState.aP().cS();
             }
 
             if (this.RT.gg() == 5) {
-               return GamePersistence.SR.aQ().cS();
+               return GamePersistence.careerState.aQ().cS();
             }
          }
       }

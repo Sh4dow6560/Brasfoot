@@ -40,15 +40,15 @@ public class ConcacafNationsLeague extends Competition implements Serializable {
          int[] var3 = new int[]{166, 153, 221, 165, 56, 13, 90, 213, 222, 223, 211, 6, 94};
 
          for (int var4 = 0; var4 < var1.length; var4++) {
-            this.agt.add(GamePersistence.SR.s(var1[var4]).jo());
+            this.agt.add(GamePersistence.careerState.s(var1[var4]).jo());
          }
 
          for (int var5 = 0; var5 < var2.length; var5++) {
-            this.agu.add(GamePersistence.SR.s(var2[var5]).jo());
+            this.agu.add(GamePersistence.careerState.s(var2[var5]).jo());
          }
 
          for (int var6 = 0; var6 < var3.length; var6++) {
-            this.agv.add(GamePersistence.SR.s(var3[var6]).jo());
+            this.agv.add(GamePersistence.careerState.s(var3[var6]).jo());
          }
       }
 
@@ -60,14 +60,14 @@ public class ConcacafNationsLeague extends Competition implements Serializable {
       this.agr = this.e(this.agv, 14403);
       this.agy = -1;
       this.YH++;
-      GamePersistence.afQ.L(this.agt);
-      GamePersistence.afQ.L(this.agu);
-      GamePersistence.afQ.L(this.agv);
+      GamePersistence.coachJobMarket.L(this.agt);
+      GamePersistence.coachJobMarket.L(this.agu);
+      GamePersistence.coachJobMarket.L(this.agv);
    }
 
    private LeagueStage e(ArrayList arrayList, int i) {
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
-         GamePersistence.SR.s(((Club)arrayList.get(var3)).getPais()).z(false);
+         GamePersistence.careerState.s(((Club)arrayList.get(var3)).getPais()).z(false);
       }
 
       boolean[] var6 = new boolean[7];

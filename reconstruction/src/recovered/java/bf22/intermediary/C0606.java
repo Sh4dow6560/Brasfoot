@@ -20,7 +20,7 @@ public class C0606 extends DefaultTableCellRenderer {
       if (var7 != null && var7.tR() != null && var7.tR().hc() != null && var7.tR().hd() != null) {
          if (j == 0) {
             if (var7.tR() != null) {
-               this.setText(((C0693)GamePersistence.SR.R().get(var7.tR().hM())).f());
+               this.setText(((C0693)GamePersistence.careerState.R().get(var7.tR().hM())).f());
             }
          } else if (j == 1) {
             super.setHorizontalTextPosition(4);

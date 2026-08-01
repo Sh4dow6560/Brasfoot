@@ -27,7 +27,7 @@ public class C0539 extends JPanel {
       this.ub = jDialog;
       this.mJ();
       this.mH();
-      if (GamePersistence.vL()) {
+      if (GamePersistence.isRegisteredVersion()) {
          this.vx.setVisible(false);
       }
    }

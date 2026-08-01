@@ -56,7 +56,7 @@ public class C0679 {
       String var2;
       try {
          while ((var2 = var1.readLine()) != null) {
-            GamePersistence.SR.aX().add(var2);
+            GamePersistence.careerState.aX().add(var2);
          }
       } catch (IOException var4) {
          var4.printStackTrace();

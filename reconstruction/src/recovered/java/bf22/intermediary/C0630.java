@@ -19,7 +19,7 @@ public class C0630 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       Player var7 = (Player)object;
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          if (j == 0) {
             this.setHorizontalAlignment(0);
             this.setText(GameConstants.rI[var7.getPosicao()]);

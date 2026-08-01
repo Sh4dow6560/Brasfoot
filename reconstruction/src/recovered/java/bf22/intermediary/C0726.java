@@ -43,7 +43,7 @@ public class C0726 {
       var9.setSize(532, 300);
       var9.setLocationRelativeTo(null);
       var9.setVisible(true);
-      GamePersistence.vH();
+      GamePersistence.preloadSoundFiles();
       ml();
    }
 
@@ -69,11 +69,11 @@ public class C0726 {
          String var4 = System.getProperty("sun.arch.data.model");
          int var5 = Integer.parseInt(var4);
          int var6 = var0.getInt("vSave", var5);
-         GamePersistence.SU = var6;
+         GamePersistence.saveFormatVersion = var6;
          if (var2 == var3) {
-            GamePersistence.ey(new Random().nextInt(1080) + 1920);
+            GamePersistence.setRegistrationScore(new Random().nextInt(1080) + 1920);
          } else {
-            GamePersistence.ey(new Random().nextInt(800) + 600);
+            GamePersistence.setRegistrationScore(new Random().nextInt(800) + 600);
          }
       }
    }

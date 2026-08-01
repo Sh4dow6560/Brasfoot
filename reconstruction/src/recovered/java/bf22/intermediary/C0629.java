@@ -20,7 +20,7 @@ public class C0629 extends DefaultTableCellRenderer {
       Match var7 = (Match)object;
       if (object != null) {
          if (j == 0) {
-            this.setText(((C0693)GamePersistence.SR.R().get(var7.hM())).f());
+            this.setText(((C0693)GamePersistence.careerState.R().get(var7.hM())).f());
          } else if (j == 1) {
             this.setHorizontalAlignment(2);
             this.setText(var7.hc().getNome());

@@ -24,7 +24,7 @@ public class C0758 extends JLayeredPane {
                var6 = "--";
             }
 
-            if (!GamePersistence.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.careerState.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)C0132.oa().get(var3)).x().getNome()
                   + "(F:"

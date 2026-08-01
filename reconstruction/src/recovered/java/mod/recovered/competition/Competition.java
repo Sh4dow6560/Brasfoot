@@ -68,7 +68,7 @@ public abstract class Competition implements Serializable {
       Object var1 = null;
 
       for (int var2 = 0; var2 < this.mn().size(); var2++) {
-         if (((CompetitionSeasonResult)this.mn().get(var2)).H() == GamePersistence.SR.H()) {
+         if (((CompetitionSeasonResult)this.mn().get(var2)).H() == GamePersistence.careerState.H()) {
             return ((CompetitionSeasonResult)this.mn().get(var2)).ce();
          }
       }
@@ -90,7 +90,7 @@ public abstract class Competition implements Serializable {
 
    public CompetitionSeasonResult mo() {
       for (int var1 = 0; var1 < this.mn().size(); var1++) {
-         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.SR.H()) {
+         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.H()) {
             return (CompetitionSeasonResult)this.mn().get(var1);
          }
       }
@@ -100,7 +100,7 @@ public abstract class Competition implements Serializable {
 
    public CompetitionSeasonResult mp() {
       for (int var1 = 0; var1 < this.mn().size(); var1++) {
-         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.SR.H() - 1) {
+         if (((CompetitionSeasonResult)this.mn().get(var1)).H() == GamePersistence.careerState.H() - 1) {
             return (CompetitionSeasonResult)this.mn().get(var1);
          }
       }
@@ -187,22 +187,22 @@ public abstract class Competition implements Serializable {
       ArrayList var3 = new ArrayList();
       boolean var4 = false;
 
-      for (int var5 = 0; var5 < GamePersistence.SR.R().size(); var5++) {
-         for (int var6 = 0; var6 < ((C0693)GamePersistence.SR.R().get(var5)).t().size(); var6++) {
-            if (i == 3 && j == 1 && ((Competition)((C0693)GamePersistence.SR.R().get(var5)).t().get(var6)).b() == 9) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.R().size(); var5++) {
+         for (int var6 = 0; var6 < ((C0693)GamePersistence.careerState.R().get(var5)).t().size(); var6++) {
+            if (i == 3 && j == 1 && ((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)).b() == 9) {
                var4 = true;
             } else {
                var4 = false;
             }
 
-            if (!var4 && !var3.contains(((C0693)GamePersistence.SR.R().get(var5)).t().get(var6)) && ((Competition)((C0693)GamePersistence.SR.R().get(var5)).t().get(var6)).cw(i)) {
-               var3.add((Competition)((C0693)GamePersistence.SR.R().get(var5)).t().get(var6));
+            if (!var4 && !var3.contains(((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)) && ((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6)).cw(i)) {
+               var3.add((Competition)((C0693)GamePersistence.careerState.R().get(var5)).t().get(var6));
             }
          }
       }
 
       if (i == 4) {
-         RegionalCup[] var10 = GamePersistence.SR.bV();
+         RegionalCup[] var10 = GamePersistence.careerState.bV();
 
          for (int var12 = 0; var12 < var10.length; var12++) {
             if (var10[var12] != null) {
@@ -211,8 +211,8 @@ public abstract class Competition implements Serializable {
          }
       }
 
-      if (GamePersistence.SR.bk() && i == 0) {
-         CountryCompetitions var11 = GamePersistence.SR.o(29);
+      if (GamePersistence.careerState.bk() && i == 0) {
+         CountryCompetitions var11 = GamePersistence.careerState.o(29);
          Object var13 = null;
          int var7 = 0;
 
@@ -250,63 +250,63 @@ public abstract class Competition implements Serializable {
       }
 
       if (i == 3 && bl) {
-         if (GamePersistence.SR.aY() != null && !var3.contains(GamePersistence.SR.aY())) {
-            var3.add(GamePersistence.SR.aY());
+         if (GamePersistence.careerState.aY() != null && !var3.contains(GamePersistence.careerState.aY())) {
+            var3.add(GamePersistence.careerState.aY());
          }
 
-         if (GamePersistence.SR.ba() != null && !var3.contains(GamePersistence.SR.ba())) {
-            var3.add(GamePersistence.SR.ba());
+         if (GamePersistence.careerState.ba() != null && !var3.contains(GamePersistence.careerState.ba())) {
+            var3.add(GamePersistence.careerState.ba());
          }
 
-         if (GamePersistence.SR.aZ() != null && !var3.contains(GamePersistence.SR.aZ())) {
-            var3.add(GamePersistence.SR.aZ());
+         if (GamePersistence.careerState.aZ() != null && !var3.contains(GamePersistence.careerState.aZ())) {
+            var3.add(GamePersistence.careerState.aZ());
          }
 
-         if (GamePersistence.SR.be() != null && !var3.contains(GamePersistence.SR.be())) {
-            var3.add(GamePersistence.SR.be());
+         if (GamePersistence.careerState.be() != null && !var3.contains(GamePersistence.careerState.be())) {
+            var3.add(GamePersistence.careerState.be());
          }
 
-         if (GamePersistence.SR.bf() != null && !var3.contains(GamePersistence.SR.bf())) {
-            var3.add(GamePersistence.SR.bf());
+         if (GamePersistence.careerState.bf() != null && !var3.contains(GamePersistence.careerState.bf())) {
+            var3.add(GamePersistence.careerState.bf());
          }
 
-         if (GamePersistence.SR.bg() != null && !var3.contains(GamePersistence.SR.bg())) {
-            var3.add(GamePersistence.SR.bg());
+         if (GamePersistence.careerState.bg() != null && !var3.contains(GamePersistence.careerState.bg())) {
+            var3.add(GamePersistence.careerState.bg());
          }
 
-         if (GamePersistence.SR.bX() != null && !var3.contains(GamePersistence.SR.bX())) {
-            var3.add(GamePersistence.SR.bX());
+         if (GamePersistence.careerState.bX() != null && !var3.contains(GamePersistence.careerState.bX())) {
+            var3.add(GamePersistence.careerState.bX());
          }
 
-         if (GamePersistence.SR.yl() != null && !var3.contains(GamePersistence.SR.yl())) {
-            var3.add(GamePersistence.SR.yl());
+         if (GamePersistence.careerState.yl() != null && !var3.contains(GamePersistence.careerState.yl())) {
+            var3.add(GamePersistence.careerState.yl());
          }
 
-         if (GamePersistence.SR.sq() != null && !var3.contains(GamePersistence.SR.sq())) {
-            var3.add(GamePersistence.SR.sq());
+         if (GamePersistence.careerState.sq() != null && !var3.contains(GamePersistence.careerState.sq())) {
+            var3.add(GamePersistence.careerState.sq());
          }
 
-         if (GamePersistence.SR.ym() != null && !var3.contains(GamePersistence.SR.ym())) {
-            var3.add(GamePersistence.SR.ym());
+         if (GamePersistence.careerState.ym() != null && !var3.contains(GamePersistence.careerState.ym())) {
+            var3.add(GamePersistence.careerState.ym());
          }
       }
 
       if (i == 1 && bl) {
-         if (GamePersistence.SR.aR() != null && !var3.contains(GamePersistence.SR.aR())) {
-            var3.add(GamePersistence.SR.aR());
+         if (GamePersistence.careerState.aR() != null && !var3.contains(GamePersistence.careerState.aR())) {
+            var3.add(GamePersistence.careerState.aR());
          }
 
-         if (GamePersistence.SR.aW() != null && !var3.contains(GamePersistence.SR.aW())) {
-            var3.add(GamePersistence.SR.aW());
+         if (GamePersistence.careerState.aW() != null && !var3.contains(GamePersistence.careerState.aW())) {
+            var3.add(GamePersistence.careerState.aW());
          }
 
-         if (GamePersistence.SR.aV() != null && !var3.contains(GamePersistence.SR.aV())) {
-            var3.add(GamePersistence.SR.aV());
+         if (GamePersistence.careerState.aV() != null && !var3.contains(GamePersistence.careerState.aV())) {
+            var3.add(GamePersistence.careerState.aV());
          }
       }
 
-      if (i == 1 && GamePersistence.SR.aK() != null && !var3.contains(GamePersistence.SR.aK())) {
-         var3.add(GamePersistence.SR.aK());
+      if (i == 1 && GamePersistence.careerState.aK() != null && !var3.contains(GamePersistence.careerState.aK())) {
+         var3.add(GamePersistence.careerState.aK());
       }
 
       return var3;
@@ -322,7 +322,7 @@ public abstract class Competition implements Serializable {
             return true;
          }
 
-         if (!GamePersistence.SR.isJogaIntClubes() && this.tR == 15) {
+         if (!GamePersistence.careerState.isJogaIntClubes() && this.tR == 15) {
             return true;
          }
       } else if (i == 1) {
@@ -410,21 +410,21 @@ public abstract class Competition implements Serializable {
       Club var7 = null;
       ArrayList var8 = new ArrayList();
 
-      for (int var9 = 0; var9 < GamePersistence.SR.R().size(); var9++) {
-         if (((C0693)GamePersistence.SR.R().get(var9)).e() && ((C0693)GamePersistence.SR.R().get(var9)).h().size() > 0) {
-            for (int var10 = 0; var10 < ((C0693)GamePersistence.SR.R().get(var9)).h().size(); var10++) {
-               if (((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hy() == this) {
+      for (int var9 = 0; var9 < GamePersistence.careerState.R().size(); var9++) {
+         if (((C0693)GamePersistence.careerState.R().get(var9)).e() && ((C0693)GamePersistence.careerState.R().get(var9)).h().size() > 0) {
+            for (int var10 = 0; var10 < ((C0693)GamePersistence.careerState.R().get(var9)).h().size(); var10++) {
+               if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hy() == this) {
                   var3++;
-                  var4 += ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hu();
-                  var4 += ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hw();
-                  if (((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hw() >= var6) {
-                     var5 = (Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10);
-                     var6 = ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hw();
+                  var4 += ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu();
+                  var4 += ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw();
+                  if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() >= var6) {
+                     var5 = (Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10);
+                     var6 = ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw();
                   }
 
-                  if (((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hu() >= var6) {
-                     var5 = (Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10);
-                     var6 = ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.SR.R().get(var9)).h().get(var10)).hu();
+                  if (((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu() >= var6) {
+                     var5 = (Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10);
+                     var6 = ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hw() - ((Match)((C0693)GamePersistence.careerState.R().get(var9)).h().get(var10)).hu();
                   }
                }
             }
@@ -439,7 +439,7 @@ public abstract class Competition implements Serializable {
          var7 = this.cS();
       } else {
          for (int var13 = 0; var13 < this.mn().size(); var13++) {
-            if (((CompetitionSeasonResult)this.mn().get(var13)).H() == GamePersistence.SR.H() - 1) {
+            if (((CompetitionSeasonResult)this.mn().get(var13)).H() == GamePersistence.careerState.H() - 1) {
                var7 = ((CompetitionSeasonResult)this.mn().get(var13)).ce();
                break;
             }
@@ -473,10 +473,10 @@ public abstract class Competition implements Serializable {
    public void mz() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.O().size(); var2++) {
-         C0674 var3 = ((Player)GamePersistence.SR.O().get(var2)).g(this);
+      for (int var2 = 0; var2 < GamePersistence.careerState.O().size(); var2++) {
+         C0674 var3 = ((Player)GamePersistence.careerState.O().get(var2)).g(this);
          if (var3 != null && var3.F() > 5.0) {
-            var1.add(new C0690((Player)GamePersistence.SR.O().get(var2), var3.F(), var3.gZ()));
+            var1.add(new C0690((Player)GamePersistence.careerState.O().get(var2), var3.F(), var3.gZ()));
          }
       }
 

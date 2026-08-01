@@ -35,7 +35,7 @@ public class C0703 implements Serializable {
    }
 
    public C0703(Competition c0713, Club club, int i) {
-      this.ae = GamePersistence.SR.H();
+      this.ae = GamePersistence.careerState.H();
       this.w = c0713.b();
       this.dz = i;
       if (c0713 instanceof NationalLeague) {
@@ -116,7 +116,7 @@ public class C0703 implements Serializable {
          if (c0692 != null) {
             if (c0692.jq() != null && c0692.jq().yf() != null) {
                var7.addAll(Arrays.asList(c0692.jq().b((CompetitionStage)null)));
-            } else if (c0692.jc() == 29 && GamePersistence.vM().isNovoFormatoCopa()) {
+            } else if (c0692.jc() == 29 && GamePersistence.getOptions().isNovoFormatoCopa()) {
                var7.addAll(Arrays.asList(GameConstants.pt));
             } else if (c0692.jq() != null) {
                var7.addAll(Arrays.asList(c0692.jq().yh()));
@@ -285,7 +285,7 @@ public class C0703 implements Serializable {
             return Integer.toString(this.lu()) + " º";
          }
 
-         if (this.ae < GamePersistence.SR.H()) {
+         if (this.ae < GamePersistence.careerState.H()) {
             if (this.w == 1) {
                this.nR = true;
                return "1ª fase";

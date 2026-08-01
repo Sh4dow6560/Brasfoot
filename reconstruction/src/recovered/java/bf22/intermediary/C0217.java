@@ -45,7 +45,7 @@ public class C0217 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public int[] pt() {
@@ -57,7 +57,7 @@ public class C0217 extends JPanel {
    }
 
    public static void pu() {
-      GamePersistence.ey(1920);
+      GamePersistence.setRegistrationScore(1920);
    }
 
    public static void pv() {
@@ -144,7 +144,7 @@ public class C0217 extends JPanel {
          if (var4 == 1) {
             int var11 = -1;
             if (c0708.ct() >= 0) {
-               var11 = GamePersistence.SR.x(c0708.ct()).getPais();
+               var11 = GamePersistence.careerState.x(c0708.ct()).getPais();
             }
 
             String var14 = var2[1][0] + "_" + C0696.valueOf("P" + Integer.toString(var11)).jA();
@@ -155,7 +155,7 @@ public class C0217 extends JPanel {
       } else if (var3 == 2) {
          int var10 = -1;
          if (c0708.ct() >= 0) {
-            var10 = GamePersistence.SR.x(c0708.ct()).getPais();
+            var10 = GamePersistence.careerState.x(c0708.ct()).getPais();
          }
 
          String var13 = var2[2][0] + "_" + C0696.valueOf("P" + Integer.toString(var10)).jA();
@@ -163,7 +163,7 @@ public class C0217 extends JPanel {
       } else if (var3 == 11) {
          int var9 = -1;
          if (c0708.ct() >= 0) {
-            var9 = GamePersistence.SR.x(c0708.ct()).getPais();
+            var9 = GamePersistence.careerState.x(c0708.ct()).getPais();
          }
 
          String var12 = var2[11][0] + "_" + C0696.valueOf("P" + Integer.toString(var9)).jA();
@@ -172,7 +172,7 @@ public class C0217 extends JPanel {
          if (var4 == 1) {
             int var8 = -1;
             if (c0708.ct() >= 0) {
-               var8 = GamePersistence.SR.x(c0708.ct()).getEstado();
+               var8 = GamePersistence.careerState.x(c0708.ct()).getEstado();
             }
 
             String var7 = "tr_estadual_" + GameConstants.rX[var8];

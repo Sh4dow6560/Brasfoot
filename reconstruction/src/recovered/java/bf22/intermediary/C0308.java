@@ -12,8 +12,8 @@ class C0308 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setUsaCoresLista(C0294.k(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setUsaCoresLista(C0294.k(this.JH).isSelected());
+      GamePersistence.saveOptions();
       if (C0294.l(this.JH) != null) {
          C0294.l(this.JH).addNotify();
       }

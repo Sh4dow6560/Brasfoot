@@ -19,7 +19,7 @@ public class FriendlyMatches extends Competition implements Serializable {
 
    public static boolean d(Club club, int i) {
       new ArrayList();
-      ArrayList var2 = ((C0693)GamePersistence.SR.R().get(i)).h();
+      ArrayList var2 = ((C0693)GamePersistence.careerState.R().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
          if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
@@ -35,7 +35,7 @@ public class FriendlyMatches extends Competition implements Serializable {
       ArrayList var2 = C0693.b(100);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)GamePersistence.SR.R().get((Integer)var2.get(var3))).a().after(GamePersistence.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((C0693)GamePersistence.careerState.R().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.bb()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }
@@ -48,7 +48,7 @@ public class FriendlyMatches extends Competition implements Serializable {
       ArrayList var2 = C0693.b(200);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)GamePersistence.SR.R().get((Integer)var2.get(var3))).a().after(GamePersistence.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((C0693)GamePersistence.careerState.R().get((Integer)var2.get(var3))).a().after(GamePersistence.careerState.bb()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }
@@ -120,7 +120,7 @@ public class FriendlyMatches extends Competition implements Serializable {
          var5 = club;
       }
 
-      new Match(null, 0, var4, var5, j, GamePersistence.SR.bv(), var4.ev());
+      new Match(null, 0, var4, var5, j, GamePersistence.careerState.bv(), var4.ev());
    }
 
    public static int xY() {

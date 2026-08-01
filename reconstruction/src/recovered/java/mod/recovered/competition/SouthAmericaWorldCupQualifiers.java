@@ -73,12 +73,12 @@ public class SouthAmericaWorldCupQualifiers extends Competition implements Seria
          var7.setNome(this.getNome());
       }
 
-      GamePersistence.afQ.L(this.YF);
+      GamePersistence.coachJobMarket.L(this.YF);
    }
 
    public void Bm() {
       for (int var1 = 0; var1 <= 5; var1++) {
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)this.YD.yK().get(var1)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)this.YD.yK().get(var1)).getPais()));
       }
 
       this.agf = (Club)this.YD.yK().get(6);
@@ -98,8 +98,8 @@ public class SouthAmericaWorldCupQualifiers extends Competition implements Seria
    @Override
    public CompetitionStage[] mB() {
       CompetitionStage[] var1 = new CompetitionStage[]{this.YD};
-      if (GamePersistence.SR.bQ().Bo() != null) {
-         CompetitionStage[] var2 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
+      if (GamePersistence.careerState.bQ().Bo() != null) {
+         CompetitionStage[] var2 = new CompetitionStage[]{GamePersistence.careerState.bQ().Bo()};
          var1 = var2;
       }
 
@@ -111,7 +111,7 @@ public class SouthAmericaWorldCupQualifiers extends Competition implements Seria
       ArrayList var1 = new ArrayList();
       CompetitionStage[] var2 = new CompetitionStage[]{this.YD};
       var1.add(new C0830(var2, "Fase de Grupos"));
-      CompetitionStage[] var3 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
+      CompetitionStage[] var3 = new CompetitionStage[]{GamePersistence.careerState.bQ().Bo()};
       var1.add(new C0830(var3, "Torneio Repescagem"));
       return var1;
    }

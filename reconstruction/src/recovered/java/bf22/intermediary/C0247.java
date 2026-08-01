@@ -12,7 +12,7 @@ class C0247 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          C0272.a(this.Iz, 2);
       } else {
          C0272.a(this.Iz, 1);

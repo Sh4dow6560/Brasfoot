@@ -13,7 +13,7 @@ public class C0577 extends AbstractTableModel {
 
    @Override
    public int getRowCount() {
-      return GamePersistence.SR.bE.length;
+      return GamePersistence.careerState.bE.length;
    }
 
    @Override
@@ -21,7 +21,7 @@ public class C0577 extends AbstractTableModel {
       if (j == 0) {
          return i;
       } else {
-         return j == 1 ? GamePersistence.SR.bE[i] : null;
+         return j == 1 ? GamePersistence.careerState.bE[i] : null;
       }
    }
 

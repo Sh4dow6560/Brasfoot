@@ -23,7 +23,7 @@ public class NationalSuperCup extends Competition implements Serializable {
 
    public NationalSuperCup(int i) {
       this.pais = i;
-      CountryCompetitions var2 = GamePersistence.SR.o(this.pais);
+      CountryCompetitions var2 = GamePersistence.careerState.o(this.pais);
       this.setNome("Supercopa - " + var2.jf());
       this.F(11, i);
    }
@@ -31,10 +31,10 @@ public class NationalSuperCup extends Competition implements Serializable {
    public void Ab() {
       Club var1 = null;
       Club var2 = null;
-      CountryCompetitions var3 = GamePersistence.SR.o(this.pais);
+      CountryCompetitions var3 = GamePersistence.careerState.o(this.pais);
       if (var3 != null && var3.eb() != null && var3.eb().size() > 0) {
-         var1 = ((NationalLeague)var3.eb().get(0)).cv(GamePersistence.SR.H() - 1);
-         Club[] var4 = var3.bk(GamePersistence.SR.H() - 1);
+         var1 = ((NationalLeague)var3.eb().get(0)).cv(GamePersistence.careerState.H() - 1);
+         Club[] var4 = var3.bk(GamePersistence.careerState.H() - 1);
          if (var4 != null) {
             if (var1 != var4[0]) {
                var2 = var4[0];

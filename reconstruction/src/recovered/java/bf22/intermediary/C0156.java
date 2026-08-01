@@ -45,17 +45,17 @@ public class C0156 extends JPanel {
       this.pp();
       this.pq();
       this.po();
-      this.ug.setText("Finanças - " + String.valueOf(GamePersistence.SR.H() + GamePersistence.SR.iU()));
+      this.ug.setText("Finanças - " + String.valueOf(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void po() {
       String var1 = "Total de salários por mês: ";
-      if (!GamePersistence.SR.isSalarioMensal()) {
+      if (!GamePersistence.careerState.isSalarioMensal()) {
          var1 = "Total de salários por semana: ";
       }
 

@@ -12,7 +12,7 @@ class C0302 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setVerLeiloes(C0294.f(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setVerLeiloes(C0294.f(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

@@ -19,7 +19,7 @@ public class C0728 implements Serializable {
    }
 
    public C0728(Club club) {
-      this.ae = GamePersistence.SR.H();
+      this.ae = GamePersistence.careerState.H();
       if (club != null) {
          this.bW = club.lk();
       }
@@ -28,17 +28,17 @@ public class C0728 implements Serializable {
    public String ck() {
       Object var1 = null;
       if (var1 == null) {
-         for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
-            if (((Club)GamePersistence.SR.P().get(var2)).lk() == this.bW) {
-               return ((Club)GamePersistence.SR.P().get(var2)).getNome();
+         for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
+            if (((Club)GamePersistence.careerState.P().get(var2)).lk() == this.bW) {
+               return ((Club)GamePersistence.careerState.P().get(var2)).getNome();
             }
          }
       }
 
       if (var1 == null) {
-         for (int var3 = 0; var3 < GamePersistence.SR.aG().size(); var3++) {
-            if (((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn().lk() == this.bW) {
-               return ((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn().getNome();
+         for (int var3 = 0; var3 < GamePersistence.careerState.aG().size(); var3++) {
+            if (((CountryCompetitions)GamePersistence.careerState.aG().get(var3)).jn() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var3)).jn().lk() == this.bW) {
+               return ((CountryCompetitions)GamePersistence.careerState.aG().get(var3)).jn().getNome();
             }
          }
       }

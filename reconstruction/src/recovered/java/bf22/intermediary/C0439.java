@@ -12,6 +12,6 @@ class C0439 extends TimerTask {
    @Override
    public void run() {
       C0435.ph().cancel();
-      GamePersistence.SR.ax();
+      GamePersistence.careerState.ax();
    }
 }

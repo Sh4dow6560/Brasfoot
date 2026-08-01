@@ -25,7 +25,7 @@ public class C0759 extends JLayeredPane {
                var4 = "Improvisado como " + GameConstants.rH[GameConstants.sE[var3][0]];
             }
 
-            if (!GamePersistence.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.careerState.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)this.Qp.get(var3)).x().getNome()
                   + " (F:"

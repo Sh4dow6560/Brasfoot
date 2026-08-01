@@ -12,6 +12,6 @@ class C0085 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.f(C0132.j(this.Bq).isSelected());
+      GamePersistence.careerState.f(C0132.j(this.Bq).isSelected());
    }
 }

@@ -131,7 +131,7 @@ public class C0132 extends JPanel {
 
       this.mJ();
       this.Bf.setMaximumRowCount(14);
-      this.Be.setSelected(GamePersistence.SR.bm());
+      this.Be.setSelected(GamePersistence.careerState.bm());
       ImageIcon var5 = new ImageIcon(this.getClass().getResource("/aicons/alpha.png"));
       this.Ay = new JLabel();
       this.Ay.setIcon(var5);
@@ -644,12 +644,12 @@ public class C0132 extends JPanel {
       }
 
       this.zu.I(true);
-      if (GamePersistence.SR.getAutoSalvar() > 0) {
+      if (GamePersistence.careerState.getAutoSalvar() > 0) {
          MainWindow.iF().rt();
       }
 
       this.ub.dispose();
-      GamePersistence.SR.ap();
+      GamePersistence.careerState.ap();
    }
 
    public void oj() {

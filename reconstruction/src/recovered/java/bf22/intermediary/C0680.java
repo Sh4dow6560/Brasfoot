@@ -20,7 +20,7 @@ public class C0680 {
 
    private void ix() {
       ArrayList var1 = new ArrayList();
-      var1.addAll(GamePersistence.SR.P());
+      var1.addAll(GamePersistence.careerState.P());
       Collections.shuffle(var1);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {

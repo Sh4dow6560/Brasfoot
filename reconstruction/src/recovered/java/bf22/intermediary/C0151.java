@@ -59,10 +59,10 @@ public class C0151 extends JPanel {
       this.Br = jFrame;
       this.mJ();
       this.DN.setVisible(false);
-      GamePersistence.SR.isJogaIntClubes();
+      GamePersistence.careerState.isJogaIntClubes();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
+      for (int var2 = 0; var2 < GamePersistence.careerState.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var2)).jp());
       }
 
       C0037 var3 = new C0037();
@@ -73,15 +73,15 @@ public class C0151 extends JPanel {
       this.mH();
       this.ue.setSelectedIndex(0);
       this.pk();
-      if (GamePersistence.SR.isJogaEstadual() || GamePersistence.SR.isJogaRegionais()) {
+      if (GamePersistence.careerState.isJogaEstadual() || GamePersistence.careerState.isJogaRegionais()) {
          this.pj();
       }
 
-      if (GamePersistence.SR.isJogaIntClubes()) {
+      if (GamePersistence.careerState.isJogaIntClubes()) {
          this.pi();
       }
 
-      if (GamePersistence.SR.bD()) {
+      if (GamePersistence.careerState.bD()) {
          this.oR();
       }
 
@@ -89,11 +89,11 @@ public class C0151 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void pi() {
-      Competition[] var1 = GamePersistence.SR.bB();
+      Competition[] var1 = GamePersistence.careerState.bB();
 
       for (int var2 = 0; var2 < var1.length; var2++) {
          if (var1[var2] != null) {
@@ -110,22 +110,22 @@ public class C0151 extends JPanel {
 
    private void pj() {
       this.DL.clear();
-      if (GamePersistence.SR.isJogaRegionais()) {
-         for (int var1 = 0; var1 < GamePersistence.SR.bV().length; var1++) {
-            if (GamePersistence.SR.bV()[var1] != null) {
+      if (GamePersistence.careerState.isJogaRegionais()) {
+         for (int var1 = 0; var1 < GamePersistence.careerState.bV().length; var1++) {
+            if (GamePersistence.careerState.bV()[var1] != null) {
                int var2 = 100 + var1;
                String var3 = GameConstants.pY[var1];
-               this.a(this.DL, GamePersistence.SR.bV()[var1].mo(), var3, var2);
+               this.a(this.DL, GamePersistence.careerState.bV()[var1].mo(), var3, var2);
             }
          }
       }
 
-      if (GamePersistence.SR.isJogaEstadual()) {
-         for (int var5 = 0; var5 < GamePersistence.SR.aE().size(); var5++) {
-            for (int var6 = 0; var6 < ((C0741)GamePersistence.SR.aE().get(var5)).eb().size(); var6++) {
-               int var7 = ((C0741)GamePersistence.SR.aE().get(var5)).getEstado();
-               String var4 = ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).is();
-               this.a(this.DL, ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
+      if (GamePersistence.careerState.isJogaEstadual()) {
+         for (int var5 = 0; var5 < GamePersistence.careerState.aE().size(); var5++) {
+            for (int var6 = 0; var6 < ((C0741)GamePersistence.careerState.aE().get(var5)).eb().size(); var6++) {
+               int var7 = ((C0741)GamePersistence.careerState.aE().get(var5)).getEstado();
+               String var4 = ((StateChampionship)((C0741)GamePersistence.careerState.aE().get(var5)).eb().get(var6)).is();
+               this.a(this.DL, ((StateChampionship)((C0741)GamePersistence.careerState.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
             }
          }
       }
@@ -135,7 +135,7 @@ public class C0151 extends JPanel {
 
    private void pk() {
       this.DJ.clear();
-      this.DM = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
+      this.DM = (CountryCompetitions)GamePersistence.careerState.N().get(this.ue.getSelectedIndex());
 
       for (int var1 = 0; var1 < this.DM.eb().size(); var1++) {
          this.a(this.DJ, ((NationalLeague)this.DM.eb().get(var1)).mo(), ((NationalLeague)this.DM.eb().get(var1)).is(), -1);
@@ -198,15 +198,15 @@ public class C0151 extends JPanel {
       int var0 = -1;
       var0 = JOptionPane.showConfirmDialog(null, "Deseja marcar amistosos?", "Amistosos de início de temporada", 0);
       if (var0 == 0) {
-         for (int var1 = 0; var1 < GamePersistence.SR.M().size(); var1++) {
-            if (((Coach)GamePersistence.SR.M().get(var1)).fg() != null) {
-               MainWindow.w(((Coach)GamePersistence.SR.M().get(var1)).fg());
+         for (int var1 = 0; var1 < GamePersistence.careerState.M().size(); var1++) {
+            if (((Coach)GamePersistence.careerState.M().get(var1)).fg() != null) {
+               MainWindow.w(((Coach)GamePersistence.careerState.M().get(var1)).fg());
             }
          }
 
-         for (int var3 = 0; var3 < GamePersistence.SR.M().size(); var3++) {
-            if (((Coach)GamePersistence.SR.M().get(var3)).jo() != null) {
-               MainWindow.x(((Coach)GamePersistence.SR.M().get(var3)).jo());
+         for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
+            if (((Coach)GamePersistence.careerState.M().get(var3)).jo() != null) {
+               MainWindow.x(((Coach)GamePersistence.careerState.M().get(var3)).jo());
             }
          }
       }
@@ -218,8 +218,8 @@ public class C0151 extends JPanel {
       if (var0 == 0) {
          MainWindow.aY(10);
       } else {
-         GamePersistence.SR.az();
-         GamePersistence.SR.V();
+         GamePersistence.careerState.az();
+         GamePersistence.careerState.V();
       }
    }
 
@@ -229,11 +229,11 @@ public class C0151 extends JPanel {
 
    public void pn() {
       this.DO.setCursor(new Cursor(3));
-      if (GamePersistence.SR.getAutoSalvar() == 3) {
-         GamePersistence.SR.j(true);
+      if (GamePersistence.careerState.getAutoSalvar() == 3) {
+         GamePersistence.careerState.j(true);
       }
 
-      GamePersistence.SR.V();
+      GamePersistence.careerState.V();
    }
 
    private void a(JTable jTable, ArrayList arrayList) {

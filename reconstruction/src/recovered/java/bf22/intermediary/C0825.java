@@ -18,14 +18,14 @@ public class C0825 implements Serializable {
    public C0825(Player player, Club club) {
       this.U = player;
       this.Pn = club;
-      GamePersistence.SR.bt().add(this);
+      GamePersistence.careerState.bt().add(this);
       long var3 = 366L;
       var3 *= 86400000L;
-      this.Pm = GamePersistence.SR.bc() + var3;
+      this.Pm = GamePersistence.careerState.bc() + var3;
    }
 
    public boolean tM() {
-      return this.Pm < GamePersistence.SR.bc();
+      return this.Pm < GamePersistence.careerState.bc();
    }
 
    public boolean tN() {

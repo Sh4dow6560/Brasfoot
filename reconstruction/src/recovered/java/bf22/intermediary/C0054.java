@@ -341,10 +341,10 @@ public class C0054 extends JPanel {
          this.wm.setVisible(false);
       }
 
-      for (int var18 = 0; var18 < GamePersistence.SR.R().size(); var18++) {
-         for (int var21 = 0; var21 < ((C0693)GamePersistence.SR.R().get(var18)).t().size(); var21++) {
-            if (((C0693)GamePersistence.SR.R().get(var18)).t().get(var21) == this.vX) {
-               this.vV.add((C0693)GamePersistence.SR.R().get(var18));
+      for (int var18 = 0; var18 < GamePersistence.careerState.R().size(); var18++) {
+         for (int var21 = 0; var21 < ((C0693)GamePersistence.careerState.R().get(var18)).t().size(); var21++) {
+            if (((C0693)GamePersistence.careerState.R().get(var18)).t().get(var21) == this.vX) {
+               this.vV.add((C0693)GamePersistence.careerState.R().get(var18));
                break;
             }
          }
@@ -478,15 +478,15 @@ public class C0054 extends JPanel {
    }
 
    private void mO() {
-      if (!GamePersistence.SR.isJogaEstadual()) {
+      if (!GamePersistence.careerState.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.careerState.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaIntClubes()) {
+      if (!GamePersistence.careerState.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }

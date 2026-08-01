@@ -12,7 +12,7 @@ class C0309 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setVerEstaduaisAgrupados(C0294.m(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setVerEstaduaisAgrupados(C0294.m(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

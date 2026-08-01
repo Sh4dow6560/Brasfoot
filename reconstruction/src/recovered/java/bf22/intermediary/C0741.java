@@ -42,16 +42,16 @@ public class C0741 implements Serializable {
 
    public C0741(int i) {
       this.dr = i;
-      GamePersistence.SR.aE().add(this);
+      GamePersistence.careerState.aE().add(this);
       this.dY();
    }
 
    private void dY() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
-         if (((Club)GamePersistence.SR.P().get(var2)).getPais() == 29 && ((Club)GamePersistence.SR.P().get(var2)).getEstado() == this.dr) {
-            var1.add((Club)GamePersistence.SR.P().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
+         if (((Club)GamePersistence.careerState.P().get(var2)).getPais() == 29 && ((Club)GamePersistence.careerState.P().get(var2)).getEstado() == this.dr) {
+            var1.add((Club)GamePersistence.careerState.P().get(var2));
          }
       }
 
@@ -107,7 +107,7 @@ public class C0741 implements Serializable {
 
             var7.clear();
             ArrayList var11 = new ArrayList();
-            if (var9.var0 == 7 && var8 == 1 && this.dr == 25 && GamePersistence.SR.isUsaGrupoPadraoEstadual()) {
+            if (var9.var0 == 7 && var8 == 1 && this.dr == 25 && GamePersistence.careerState.isUsaGrupoPadraoEstadual()) {
                var11 = z(var1);
             }
 
@@ -164,9 +164,9 @@ public class C0741 implements Serializable {
       int[] var0 = new int[27];
       int var1 = -1;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
-         if (((Club)GamePersistence.SR.P().get(var2)).getPais() == 29) {
-            var1 = ((Club)GamePersistence.SR.P().get(var2)).getEstado();
+      for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
+         if (((Club)GamePersistence.careerState.P().get(var2)).getPais() == 29) {
+            var1 = ((Club)GamePersistence.careerState.P().get(var2)).getEstado();
             if (var1 >= 0 && var1 <= 26) {
                var0[var1]++;
             }
@@ -384,7 +384,7 @@ public class C0741 implements Serializable {
    public static ArrayList eh() {
       short var0 = 128;
       ArrayList var1 = new ArrayList();
-      Collections.sort(GamePersistence.SR.bx(), dx);
+      Collections.sort(GamePersistence.careerState.bx(), dx);
       int var2 = 0;
       a(GameConstants.sb, var1);
       a(GameConstants.sc, var1);
@@ -432,9 +432,9 @@ public class C0741 implements Serializable {
 
    public static void a(int[] is, ArrayList arrayList) {
       for (int var2 = 0; var2 < is.length; var2++) {
-         for (int var3 = 0; var3 < GamePersistence.SR.bx().size(); var3++) {
-            if (((C0779)GamePersistence.SR.bx().get(var3)).getEstado() == is[var2] && !arrayList.contains(((C0779)GamePersistence.SR.bx().get(var3)).vD())) {
-               arrayList.add(((C0779)GamePersistence.SR.bx().get(var3)).vD());
+         for (int var3 = 0; var3 < GamePersistence.careerState.bx().size(); var3++) {
+            if (((C0779)GamePersistence.careerState.bx().get(var3)).getEstado() == is[var2] && !arrayList.contains(((C0779)GamePersistence.careerState.bx().get(var3)).vD())) {
+               arrayList.add(((C0779)GamePersistence.careerState.bx().get(var3)).vD());
                break;
             }
          }
@@ -443,13 +443,13 @@ public class C0741 implements Serializable {
 
    public static ArrayList Q(int i) {
       ArrayList var1 = new ArrayList();
-      Collections.sort(GamePersistence.SR.bx(), dx);
+      Collections.sort(GamePersistence.careerState.bx(), dx);
       ArrayList var2 = new ArrayList();
-      if (GamePersistence.SR.bY().size() > 0) {
-         for (int var3 = 0; var3 < GamePersistence.SR.bY().size(); var3++) {
-            if (((Club)GamePersistence.SR.bY().get(var3)).getDivisao() == 0 && !((Club)GamePersistence.SR.bY().get(var3)).ko()) {
-               var1.add((Club)GamePersistence.SR.bY().get(var3));
-               var2.add((Club)GamePersistence.SR.bY().get(var3));
+      if (GamePersistence.careerState.bY().size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.careerState.bY().size(); var3++) {
+            if (((Club)GamePersistence.careerState.bY().get(var3)).getDivisao() == 0 && !((Club)GamePersistence.careerState.bY().get(var3)).ko()) {
+               var1.add((Club)GamePersistence.careerState.bY().get(var3));
+               var2.add((Club)GamePersistence.careerState.bY().get(var3));
             }
          }
       }
@@ -476,7 +476,7 @@ public class C0741 implements Serializable {
       a(GameConstants.se, var1);
       var6 = var1.size();
       if (var6 < i) {
-         CountryCompetitions var4 = GamePersistence.SR.o(29);
+         CountryCompetitions var4 = GamePersistence.careerState.o(29);
          if (var4 != null) {
             for (int var5 = 0; var5 < var4.jg().size(); var5++) {
                if (var6 < i && ((Club)var4.jg().get(var5)).getDivisao() == 0 && !var1.contains(var4.jg().get(var5))) {
@@ -542,8 +542,8 @@ public class C0741 implements Serializable {
    }
 
    public boolean ej() {
-      for (int var1 = 0; var1 < GamePersistence.SR.S().size(); var1++) {
-         if (this.ds.contains(((Match)GamePersistence.SR.S().get(var1)).hy())) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.S().size(); var1++) {
+         if (this.ds.contains(((Match)GamePersistence.careerState.S().get(var1)).hy())) {
             return true;
          }
       }

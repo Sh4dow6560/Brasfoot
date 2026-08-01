@@ -138,7 +138,7 @@ public class C0818 extends JPanel {
       }
 
       String var7 = "";
-      if (player.fP() && player.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
+      if (player.fP() && player.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
          var7 = "Fim contusão: " + C0693.a(player.fo());
       }
 
@@ -175,7 +175,7 @@ public class C0818 extends JPanel {
       this.uF.setText(player.getNome());
       this.OT.setText(GameConstants.rH[player.getPosicao()] + " - Lado " + GameConstants.rL[player.getLado()] + " - " + Integer.toString(player.getIdade()) + " anos");
       this.OM.setText("F:" + Integer.toString(player.fi()));
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.OM.setVisible(false);
       }
 

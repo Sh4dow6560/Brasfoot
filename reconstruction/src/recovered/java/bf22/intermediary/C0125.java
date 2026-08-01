@@ -71,7 +71,7 @@ public class C0125 extends JPanel {
    public void nS() {
       this.nt();
       this.nU();
-      ArrayList var1 = GamePersistence.SR.e(this.Af);
+      ArrayList var1 = GamePersistence.careerState.e(this.Af);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          this.Ai.add((C0825)var1.get(var2));
@@ -85,7 +85,7 @@ public class C0125 extends JPanel {
    public void nT() {
       this.nR();
       this.nV();
-      ArrayList var1 = GamePersistence.SR.f(this.Af);
+      ArrayList var1 = GamePersistence.careerState.f(this.Af);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
          this.Aj.add((C0825)var1.get(var2));
@@ -98,7 +98,7 @@ public class C0125 extends JPanel {
 
    private void nU() {
       C0754 var1 = new C0754(2, this, null);
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var1, new C0775(0, this.xh, 690, 36));
       this.xh += 36;
    }
@@ -112,7 +112,7 @@ public class C0125 extends JPanel {
 
    private void nV() {
       C0754 var1 = new C0754(3, this, null);
-      this.Ah.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.Ah.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.Ah.add(var1, new C0775(0, this.Ak, 690, 36));
       this.Ak += 36;
    }
@@ -124,7 +124,7 @@ public class C0125 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       this.ut.setBorder(BorderFactory.createEmptyBorder());
       this.wi.setBorder(BorderFactory.createEmptyBorder());
    }
@@ -136,7 +136,7 @@ public class C0125 extends JPanel {
    public void a(C0825 c0825, int i) {
       if (c0825.tN()) {
          Ag = true;
-         GamePersistence.SR.d(c0825.x());
+         GamePersistence.careerState.d(c0825.x());
          if (i == 1) {
             this.nS();
          } else {

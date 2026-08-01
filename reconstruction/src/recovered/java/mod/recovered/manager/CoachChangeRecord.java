@@ -56,7 +56,7 @@ public class CoachChangeRecord implements Serializable {
 
    public String dR() {
       if (this.dl == null && this.bW >= 0) {
-         Club var1 = GamePersistence.SR.x(this.bW);
+         Club var1 = GamePersistence.careerState.x(this.bW);
          if (var1 != null) {
             this.dl = var1.getNome();
          }

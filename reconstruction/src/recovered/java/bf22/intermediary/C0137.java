@@ -139,7 +139,7 @@ public class C0137 extends JPanel {
       this.oP();
       this.oc();
       this.mY();
-      if (GamePersistence.SR.bD()) {
+      if (GamePersistence.careerState.bD()) {
          this.oR();
       }
 

@@ -12,7 +12,7 @@ class C0310 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setIgnoraLigas(C0294.n(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setIgnoraLigas(C0294.n(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

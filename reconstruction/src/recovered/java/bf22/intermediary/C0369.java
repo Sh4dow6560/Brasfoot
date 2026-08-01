@@ -94,15 +94,15 @@ public class C0369 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mQ() {
       this.ue.addItem("Internacional");
 
-      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jp());
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc() == this.vk) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jp());
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jc() == this.vk) {
             this.vl = var1 + 1;
          }
       }
@@ -124,29 +124,29 @@ public class C0369 extends JPanel {
       int var3 = -1;
       this.KC.clear();
       if (var1 >= 0) {
-         if (var1 < GamePersistence.SR.N().size() && var1 >= 0) {
-            var2 = ((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc();
+         if (var1 < GamePersistence.careerState.N().size() && var1 >= 0) {
+            var2 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jc();
          }
 
-         for (int var4 = 0; var4 < GamePersistence.SR.L().size(); var4++) {
+         for (int var4 = 0; var4 < GamePersistence.careerState.L().size(); var4++) {
             var3 = (byte)-1;
-            if (((Coach)GamePersistence.SR.L().get(var4)).fg() != null) {
-               var3 = ((Coach)GamePersistence.SR.L().get(var4)).fg().getPais();
+            if (((Coach)GamePersistence.careerState.L().get(var4)).fg() != null) {
+               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).fg().getPais();
             } else {
-               var3 = ((Coach)GamePersistence.SR.L().get(var4)).bz();
+               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).bz();
             }
 
             if (var3 == var2) {
-               this.KC.add((Coach)GamePersistence.SR.L().get(var4));
-               if (GamePersistence.SR.L().get(var4) == this.KA) {
+               this.KC.add((Coach)GamePersistence.careerState.L().get(var4));
+               if (GamePersistence.careerState.L().get(var4) == this.KA) {
                   this.KB = this.KC.size() - 1;
                }
             }
          }
       } else {
-         for (int var7 = 0; var7 < GamePersistence.SR.L().size(); var7++) {
-            this.KC.add((Coach)GamePersistence.SR.L().get(var7));
-            if (GamePersistence.SR.L().get(var7) == this.KA) {
+         for (int var7 = 0; var7 < GamePersistence.careerState.L().size(); var7++) {
+            this.KC.add((Coach)GamePersistence.careerState.L().get(var7));
+            if (GamePersistence.careerState.L().get(var7) == this.KA) {
                this.KB = this.KC.size() - 1;
             }
          }

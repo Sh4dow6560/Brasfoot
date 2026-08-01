@@ -25,11 +25,14 @@
   competicoes concretas nacionais e internacionais.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
+- `applySemanticMemberMappings` migra membros estaticos e todas as suas
+  referencias de forma transacional. O primeiro lote tornou legiveis os 7
+  campos e 14 metodos centrais de `GamePersistence`.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica de membros, calendario e transferencias.
+1. Nomeacao semantica da API de carreira, calendario e transferencias.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

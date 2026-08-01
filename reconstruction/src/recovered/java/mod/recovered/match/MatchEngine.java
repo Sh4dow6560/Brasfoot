@@ -162,13 +162,13 @@ public class MatchEngine {
       this.TD = c0675.hX();
       if (c0675.hp().size() == 0) {
          System.out.println("erro escala: " + c0675.hc().getNome());
-         GamePersistence.SR.bN = true;
+         GamePersistence.careerState.bN = true;
          Club.a(c0675.hc(), c0675, 1, -1, true);
       }
 
       if (c0675.hq().size() == 0) {
          System.out.println("erro escala: " + c0675.hd().getNome());
-         GamePersistence.SR.bN = true;
+         GamePersistence.careerState.bN = true;
          Club.a(c0675.hd(), c0675, 1, -1, true);
       }
 
@@ -370,7 +370,7 @@ public class MatchEngine {
 
    public double B(Player player) {
       int var2 = player.fi();
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = 0;
          if (player.fT() == 1) {
             var2 += (int)Math.round(player.gK() * 0.6);
@@ -593,9 +593,9 @@ public class MatchEngine {
    public double a(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (GamePersistence.SR.H() >= 5) {
+      if (GamePersistence.careerState.H() >= 5) {
          var7 = 11;
-      } else if (GamePersistence.SR.H() >= 9) {
+      } else if (GamePersistence.careerState.H() >= 9) {
          var7 = 12;
       }
 
@@ -606,7 +606,7 @@ public class MatchEngine {
    public double b(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (GamePersistence.SR.H() >= 5) {
+      if (GamePersistence.careerState.H() >= 5) {
          var7 = 10;
       }
 

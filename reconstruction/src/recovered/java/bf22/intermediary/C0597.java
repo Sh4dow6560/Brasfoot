@@ -28,7 +28,7 @@ public class C0597 extends DefaultTableCellRenderer {
 
          if (j == 0 && !var7.tt()) {
             this.setHorizontalAlignment(2);
-            this.setText(Integer.toString(var7.H() + GamePersistence.SR.iU()));
+            this.setText(Integer.toString(var7.H() + GamePersistence.careerState.iU()));
          } else if (j == 1 && !var7.tt()) {
             this.setHorizontalAlignment(2);
             this.setText(var7.tZ());
@@ -37,7 +37,7 @@ public class C0597 extends DefaultTableCellRenderer {
             this.setText(var7.uG());
          } else if (j == 2 && var7.tt()) {
             this.setHorizontalAlignment(4);
-            this.setText("Total em " + Integer.toString(var7.H() + GamePersistence.SR.iU()) + ":");
+            this.setText("Total em " + Integer.toString(var7.H() + GamePersistence.careerState.iU()) + ":");
          } else if (j == 3) {
             this.setText(Integer.toString(var7.w()));
          } else if (j == 4) {

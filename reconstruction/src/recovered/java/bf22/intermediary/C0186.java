@@ -62,15 +62,15 @@ public class C0186 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
-      this.uv.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
+      this.uv.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
    }
 
    private void mK() {
       this.un = FriendlyMatches.M(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
-         this.up.addItem(((C0693)GamePersistence.SR.R().get((Integer)this.un.get(var1))).f());
+         this.up.addItem(((C0693)GamePersistence.careerState.R().get((Integer)this.un.get(var1))).f());
       }
    }
 
@@ -81,7 +81,7 @@ public class C0186 extends JPanel {
 
    public static boolean d(Club club, int i) {
       new ArrayList();
-      ArrayList var2 = ((C0693)GamePersistence.SR.R().get(i)).h();
+      ArrayList var2 = ((C0693)GamePersistence.careerState.R().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
          if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
@@ -103,7 +103,7 @@ public class C0186 extends JPanel {
          JOptionPane.showMessageDialog(this.ub, "Amistoso marcado.", "Amistoso", 2);
          FriendlyMatches.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
          if (!this.uk.jZ()) {
-            CountryCompetitions var1 = GamePersistence.SR.s(this.uk.getPais());
+            CountryCompetitions var1 = GamePersistence.careerState.s(this.uk.getPais());
             var1.z(false);
          }
 
@@ -125,7 +125,7 @@ public class C0186 extends JPanel {
 
       for (int var1 = 0; var1 < C0696.jz(); var1++) {
          int var2 = ((CountryInfo)C0732.cY().get(var1)).getPais();
-         CountryCompetitions var3 = GamePersistence.SR.s(var2);
+         CountryCompetitions var3 = GamePersistence.careerState.s(var2);
          if (var3.jl() && var3.jo() != this.ul) {
             this.um.add(var3.jo());
          }

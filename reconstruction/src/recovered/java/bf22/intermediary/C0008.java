@@ -52,7 +52,7 @@ public class C0008 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mK() {
@@ -70,9 +70,9 @@ public class C0008 extends JPanel {
    public void mW() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
-         if (this.vt == GamePersistence.SR.N().get(var2)) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var2)).jp());
+         if (this.vt == GamePersistence.careerState.N().get(var2)) {
             var1 = var2;
          }
       }
@@ -96,7 +96,7 @@ public class C0008 extends JPanel {
    }
 
    private void mU() {
-      this.vt = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
+      this.vt = (CountryCompetitions)GamePersistence.careerState.N().get(this.ue.getSelectedIndex());
       this.vv.removeAllItems();
 
       for (int var1 = 0; var1 < this.vt.eb().size(); var1++) {

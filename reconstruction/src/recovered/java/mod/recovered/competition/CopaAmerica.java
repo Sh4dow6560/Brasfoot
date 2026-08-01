@@ -75,7 +75,7 @@ public class CopaAmerica extends Competition implements Serializable {
          LeagueStage var7 = new LeagueStage(var6, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var7;
          var7.setNome(this.getNome());
-         GamePersistence.afQ.L(this.YF);
+         GamePersistence.coachJobMarket.L(this.YF);
       }
    }
 
@@ -136,7 +136,7 @@ public class CopaAmerica extends Competition implements Serializable {
       int var1 = this.YH - 1;
       var1 %= 10;
       int[] var2 = new int[]{11, 60, 46, 29, 195, 150, 26, 198, 42, 151};
-      return var1 >= 0 && var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 >= 0 && var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public LeagueStage yd() {

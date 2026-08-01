@@ -45,7 +45,7 @@ public class TransferNegotiation {
 
       if (j == 0) {
          if (this.ck != null && this.ck.kn()) {
-            this.cn.add(GamePersistence.SR.o(var6));
+            this.cn.add(GamePersistence.careerState.o(var6));
          }
 
          boolean var7 = false;
@@ -58,27 +58,27 @@ public class TransferNegotiation {
          }
 
          if (this.cq == 0 || var7) {
-            for (int var8 = 0; var8 < GamePersistence.SR.N().size(); var8++) {
-               if (((CountryCompetitions)GamePersistence.SR.N().get(var8)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var8))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var8));
+            for (int var8 = 0; var8 < GamePersistence.careerState.N().size(); var8++) {
+               if (((CountryCompetitions)GamePersistence.careerState.N().get(var8)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var8))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var8));
                }
             }
          }
 
-         for (int var11 = 0; var11 < GamePersistence.SR.N().size(); var11++) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var11)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var11))) {
-               this.co.add((CountryCompetitions)GamePersistence.SR.N().get(var11));
+         for (int var11 = 0; var11 < GamePersistence.careerState.N().size(); var11++) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var11)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var11))) {
+               this.co.add((CountryCompetitions)GamePersistence.careerState.N().get(var11));
             }
          }
 
-         for (int var12 = 0; var12 < GamePersistence.SR.N().size(); var12++) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var12)).gg() == 0) {
-               this.cp.add((CountryCompetitions)GamePersistence.SR.N().get(var12));
+         for (int var12 = 0; var12 < GamePersistence.careerState.N().size(); var12++) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var12)).gg() == 0) {
+               this.cp.add((CountryCompetitions)GamePersistence.careerState.N().get(var12));
             }
          }
       } else if (j == 1) {
          if (this.ck != null && this.ck.kn()) {
-            this.cn.add(GamePersistence.SR.o(var6));
+            this.cn.add(GamePersistence.careerState.o(var6));
          }
 
          boolean var9 = false;
@@ -91,76 +91,76 @@ public class TransferNegotiation {
          }
 
          if (this.cq == 0 || var9) {
-            for (int var13 = 0; var13 < GamePersistence.SR.N().size(); var13++) {
-               if (((CountryCompetitions)GamePersistence.SR.N().get(var13)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var13))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var13));
+            for (int var13 = 0; var13 < GamePersistence.careerState.N().size(); var13++) {
+               if (((CountryCompetitions)GamePersistence.careerState.N().get(var13)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var13))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var13));
                }
             }
          }
 
          if (this.cq == 1) {
-            for (int var14 = 0; var14 < GamePersistence.SR.N().size(); var14++) {
-               if (((CountryCompetitions)GamePersistence.SR.N().get(var14)).gg() != 5 && !this.cn.contains(GamePersistence.SR.N().get(var14))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var14));
+            for (int var14 = 0; var14 < GamePersistence.careerState.N().size(); var14++) {
+               if (((CountryCompetitions)GamePersistence.careerState.N().get(var14)).gg() != 5 && !this.cn.contains(GamePersistence.careerState.N().get(var14))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var14));
                }
             }
          }
 
          if (this.cq == 2) {
-            for (int var15 = 0; var15 < GamePersistence.SR.N().size(); var15++) {
-               if ((((CountryCompetitions)GamePersistence.SR.N().get(var15)).gg() == 0 || ((CountryCompetitions)GamePersistence.SR.N().get(var15)).gg() == 3) && !this.cn.contains(GamePersistence.SR.N().get(var15))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var15));
+            for (int var15 = 0; var15 < GamePersistence.careerState.N().size(); var15++) {
+               if ((((CountryCompetitions)GamePersistence.careerState.N().get(var15)).gg() == 0 || ((CountryCompetitions)GamePersistence.careerState.N().get(var15)).gg() == 3) && !this.cn.contains(GamePersistence.careerState.N().get(var15))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var15));
                }
             }
          }
 
          if (this.cq == 3) {
-            for (int var16 = 0; var16 < GamePersistence.SR.N().size(); var16++) {
-               if ((((CountryCompetitions)GamePersistence.SR.N().get(var16)).gg() == 3 || ((CountryCompetitions)GamePersistence.SR.N().get(var16)).gg() == 0) && !this.cn.contains(GamePersistence.SR.N().get(var16))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var16));
+            for (int var16 = 0; var16 < GamePersistence.careerState.N().size(); var16++) {
+               if ((((CountryCompetitions)GamePersistence.careerState.N().get(var16)).gg() == 3 || ((CountryCompetitions)GamePersistence.careerState.N().get(var16)).gg() == 0) && !this.cn.contains(GamePersistence.careerState.N().get(var16))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var16));
                }
             }
          }
 
          if (this.ck.getPais() != 131 && this.ck.getPais() != 68) {
             if (this.cq == 4) {
-               for (int var18 = 0; var18 < GamePersistence.SR.N().size(); var18++) {
-                  if (((CountryCompetitions)GamePersistence.SR.N().get(var18)).gg() == 4 && !this.cn.contains(GamePersistence.SR.N().get(var18))) {
-                     this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var18));
+               for (int var18 = 0; var18 < GamePersistence.careerState.N().size(); var18++) {
+                  if (((CountryCompetitions)GamePersistence.careerState.N().get(var18)).gg() == 4 && !this.cn.contains(GamePersistence.careerState.N().get(var18))) {
+                     this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var18));
                   }
                }
             }
          } else {
-            for (int var17 = 0; var17 < GamePersistence.SR.N().size(); var17++) {
-               if (((CountryCompetitions)GamePersistence.SR.N().get(var17)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var17))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var17));
+            for (int var17 = 0; var17 < GamePersistence.careerState.N().size(); var17++) {
+               if (((CountryCompetitions)GamePersistence.careerState.N().get(var17)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var17))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var17));
                }
             }
          }
 
          if (this.cq == 5) {
-            for (int var19 = 0; var19 < GamePersistence.SR.N().size(); var19++) {
-               if ((((CountryCompetitions)GamePersistence.SR.N().get(var19)).gg() == 5 || ((CountryCompetitions)GamePersistence.SR.N().get(var19)).gg() == 3) && !this.cn.contains(GamePersistence.SR.N().get(var19))) {
-                  this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var19));
+            for (int var19 = 0; var19 < GamePersistence.careerState.N().size(); var19++) {
+               if ((((CountryCompetitions)GamePersistence.careerState.N().get(var19)).gg() == 5 || ((CountryCompetitions)GamePersistence.careerState.N().get(var19)).gg() == 3) && !this.cn.contains(GamePersistence.careerState.N().get(var19))) {
+                  this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var19));
                }
             }
          }
 
-         for (int var20 = 0; var20 < GamePersistence.SR.N().size(); var20++) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var20)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var20))) {
-               this.co.add((CountryCompetitions)GamePersistence.SR.N().get(var20));
+         for (int var20 = 0; var20 < GamePersistence.careerState.N().size(); var20++) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var20)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var20))) {
+               this.co.add((CountryCompetitions)GamePersistence.careerState.N().get(var20));
             }
          }
 
-         for (int var21 = 0; var21 < GamePersistence.SR.N().size(); var21++) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var21)).gg() == 0) {
-               this.cp.add((CountryCompetitions)GamePersistence.SR.N().get(var21));
+         for (int var21 = 0; var21 < GamePersistence.careerState.N().size(); var21++) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var21)).gg() == 0) {
+               this.cp.add((CountryCompetitions)GamePersistence.careerState.N().get(var21));
             }
          }
       } else if (j == 2) {
-         for (int var10 = 0; var10 < GamePersistence.SR.N().size(); var10++) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var10)).gg() == 0 && !this.cn.contains(GamePersistence.SR.N().get(var10))) {
-               this.cn.add((CountryCompetitions)GamePersistence.SR.N().get(var10));
+         for (int var10 = 0; var10 < GamePersistence.careerState.N().size(); var10++) {
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var10)).gg() == 0 && !this.cn.contains(GamePersistence.careerState.N().get(var10))) {
+               this.cn.add((CountryCompetitions)GamePersistence.careerState.N().get(var10));
             }
          }
       }
@@ -215,7 +215,7 @@ public class TransferNegotiation {
          var3 = this.cH();
       }
 
-      if (this.cl == null && GamePersistence.SR.H() > 2 && this.cj && this.ci < this.U.fk()) {
+      if (this.cl == null && GamePersistence.careerState.H() > 2 && this.cj && this.ci < this.U.fk()) {
          var3 = this.cJ();
       }
 
@@ -231,13 +231,13 @@ public class TransferNegotiation {
       Club var1 = null;
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
-         if (!((Club)GamePersistence.SR.P().get(var3)).kn()
-            && GamePersistence.SR.P().get(var3) != this.U.fg()
-            && !((Club)GamePersistence.SR.P().get(var3)).jZ()
-            && ((Club)GamePersistence.SR.P().get(var3)).kc().size() < this.cx
-            && ((Club)GamePersistence.SR.P().get(var3)).lk() != this.U.fA()) {
-            var2.add((Club)GamePersistence.SR.P().get(var3));
+      for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
+         if (!((Club)GamePersistence.careerState.P().get(var3)).kn()
+            && GamePersistence.careerState.P().get(var3) != this.U.fg()
+            && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
+            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < this.cx
+            && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
+            var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
       }
 
@@ -298,13 +298,13 @@ public class TransferNegotiation {
       Club var1 = null;
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
-         if (((Club)GamePersistence.SR.P().get(var3)).getReputacao() >= 4
-            && GamePersistence.SR.P().get(var3) != this.U.fg()
-            && !((Club)GamePersistence.SR.P().get(var3)).jZ()
-            && ((Club)GamePersistence.SR.P().get(var3)).kc().size() < this.cx
-            && ((Club)GamePersistence.SR.P().get(var3)).lk() != this.U.fA()) {
-            var2.add((Club)GamePersistence.SR.P().get(var3));
+      for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
+         if (((Club)GamePersistence.careerState.P().get(var3)).getReputacao() >= 4
+            && GamePersistence.careerState.P().get(var3) != this.U.fg()
+            && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
+            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < this.cx
+            && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
+            var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
       }
 
@@ -331,12 +331,12 @@ public class TransferNegotiation {
       Club var1 = null;
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
-         if (GamePersistence.SR.P().get(var3) != this.U.fg()
-            && !((Club)GamePersistence.SR.P().get(var3)).jZ()
-            && ((Club)GamePersistence.SR.P().get(var3)).kc().size() < 35
-            && ((Club)GamePersistence.SR.P().get(var3)).lk() != this.U.fA()) {
-            var2.add((Club)GamePersistence.SR.P().get(var3));
+      for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
+         if (GamePersistence.careerState.P().get(var3) != this.U.fg()
+            && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
+            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < 35
+            && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
+            var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
       }
 
@@ -512,8 +512,8 @@ public class TransferNegotiation {
          byte var2 = 4;
          int var3 = 0;
 
-         for (int var4 = 0; var4 < GamePersistence.SR.bt().size(); var4++) {
-            if (((C0825)GamePersistence.SR.bt().get(var4)).x().fg() != null && ((C0825)GamePersistence.SR.bt().get(var4)).x().fg() == club) {
+         for (int var4 = 0; var4 < GamePersistence.careerState.bt().size(); var4++) {
+            if (((C0825)GamePersistence.careerState.bt().get(var4)).x().fg() != null && ((C0825)GamePersistence.careerState.bt().get(var4)).x().fg() == club) {
                var3++;
             }
          }
@@ -695,7 +695,7 @@ public class TransferNegotiation {
       Player var6 = null;
       ArrayList var7 = new ArrayList();
       if (club.kn()) {
-         var5 = GamePersistence.SR.o(club.getPais());
+         var5 = GamePersistence.careerState.o(club.getPais());
          if (var5 != null) {
             for (int var8 = 0; var8 < var5.jg().size(); var8++) {
                if (!((Club)var5.jg().get(var8)).jZ()
@@ -716,13 +716,13 @@ public class TransferNegotiation {
             var3 = 0;
          }
 
-         for (int var13 = 0; var13 < GamePersistence.SR.P().size(); var13++) {
-            if (!((Club)GamePersistence.SR.P().get(var13)).jZ()
-               && GamePersistence.SR.P().get(var13) != club
-               && ((Club)GamePersistence.SR.P().get(var13)).gg() == club.gg()
-               && var3 <= ((Club)GamePersistence.SR.P().get(var13)).getReputacao()
-               && var4 >= ((Club)GamePersistence.SR.P().get(var13)).getReputacao()) {
-               var7.add((Club)GamePersistence.SR.P().get(var13));
+         for (int var13 = 0; var13 < GamePersistence.careerState.P().size(); var13++) {
+            if (!((Club)GamePersistence.careerState.P().get(var13)).jZ()
+               && GamePersistence.careerState.P().get(var13) != club
+               && ((Club)GamePersistence.careerState.P().get(var13)).gg() == club.gg()
+               && var3 <= ((Club)GamePersistence.careerState.P().get(var13)).getReputacao()
+               && var4 >= ((Club)GamePersistence.careerState.P().get(var13)).getReputacao()) {
+               var7.add((Club)GamePersistence.careerState.P().get(var13));
             }
          }
 

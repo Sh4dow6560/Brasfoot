@@ -12,7 +12,7 @@ class C0307 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setNegritoCasa(C0294.j(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setNegritoCasa(C0294.j(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

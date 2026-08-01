@@ -12,7 +12,7 @@ class C0305 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.vM().setUsaSons(C0294.i(this.JH).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setUsaSons(C0294.i(this.JH).isSelected());
+      GamePersistence.saveOptions();
    }
 }

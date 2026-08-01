@@ -16,7 +16,7 @@ public class C0719 implements Serializable {
       this.n = string;
       this.g = i;
       this.T = j;
-      GamePersistence.SR.bJ().add(this);
+      GamePersistence.careerState.bJ().add(this);
    }
 
    public int v() {

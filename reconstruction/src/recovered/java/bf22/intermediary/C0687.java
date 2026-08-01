@@ -63,14 +63,14 @@ public class C0687 {
 
             var3.setFileRef(string2);
             if (var3.isValid()) {
-               if (var3.getPais() >= 0 && var3.getPais() < GamePersistence.SR.bD.length) {
-                  GamePersistence.SR.bD[var3.getPais()]++;
+               if (var3.getPais() >= 0 && var3.getPais() < GamePersistence.careerState.bD.length) {
+                  GamePersistence.careerState.bD[var3.getPais()]++;
                   if (var3.getPais() == 29) {
-                     GamePersistence.SR.bE[var3.getEstado()]++;
+                     GamePersistence.careerState.bE[var3.getEstado()]++;
                   }
                }
 
-               GamePersistence.SR.bC.add(var3);
+               GamePersistence.careerState.bC.add(var3);
             }
          }
       } catch (Exception var8) {

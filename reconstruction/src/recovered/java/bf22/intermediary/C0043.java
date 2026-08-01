@@ -65,7 +65,7 @@ public class C0043 extends JPanel {
       this.hy = club;
       this.pais = club.getPais();
       this.yQ = bl;
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          this.yR = 4;
       }
 
@@ -98,7 +98,7 @@ public class C0043 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mK() {
@@ -109,9 +109,9 @@ public class C0043 extends JPanel {
       int var1 = 0;
       int var2 = 0;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
-         if (((Player)GamePersistence.SR.O().get(var3)).getPais() == this.pais) {
-            if (((Player)GamePersistence.SR.O().get(var3)).getPosicao() == 0) {
+      for (int var3 = 0; var3 < GamePersistence.careerState.O().size(); var3++) {
+         if (((Player)GamePersistence.careerState.O().get(var3)).getPais() == this.pais) {
+            if (((Player)GamePersistence.careerState.O().get(var3)).getPosicao() == 0) {
                var2++;
             } else {
                var1++;
@@ -119,9 +119,9 @@ public class C0043 extends JPanel {
          }
       }
 
-      for (int var4 = 0; var4 < GamePersistence.SR.bN().size(); var4++) {
-         if (((Player)GamePersistence.SR.bN().get(var4)).getPais() == this.pais) {
-            if (((Player)GamePersistence.SR.bN().get(var4)).getPosicao() == 0) {
+      for (int var4 = 0; var4 < GamePersistence.careerState.bN().size(); var4++) {
+         if (((Player)GamePersistence.careerState.bN().get(var4)).getPais() == this.pais) {
+            if (((Player)GamePersistence.careerState.bN().get(var4)).getPosicao() == 0) {
                var2++;
             } else {
                var1++;
@@ -133,7 +133,7 @@ public class C0043 extends JPanel {
    }
 
    private void nx() {
-      CountryCompetitions var1 = GamePersistence.SR.s(this.pais);
+      CountryCompetitions var1 = GamePersistence.careerState.s(this.pais);
       var1.jj();
       if (!var1.jl()) {
          this.yM = 1;
@@ -166,7 +166,7 @@ public class C0043 extends JPanel {
    }
 
    private void nz() {
-      CountryCompetitions var1 = GamePersistence.SR.s(this.pais);
+      CountryCompetitions var1 = GamePersistence.careerState.s(this.pais);
       var1.z(false);
       this.nF();
       this.uK.clear();
@@ -323,7 +323,7 @@ public class C0043 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 120, 100, 20, 25, 55, 25};
       int[] var3 = new int[]{20, 90, 85, 25, 25, 25, 25, 25, 25, 25, 25, 50, 20};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -349,7 +349,7 @@ public class C0043 extends JPanel {
       var5.setComparator(1, C1007.abk);
       var5.setComparator(2, C1007.abl);
       var5.setComparator(3, C1007.aba);
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          var5.setComparator(4, C1007.aaJ);
          var5.setComparator(6, C1007.VU);
       } else {
@@ -369,7 +369,7 @@ public class C0043 extends JPanel {
       this.zk.setModel(var1);
       int[] var2 = new int[]{25, 120, 120, 20, 20, 45, 25};
       int[] var3 = new int[]{20, 90, 90, 20};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = var3;
       }
 

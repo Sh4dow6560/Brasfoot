@@ -198,37 +198,37 @@ public class CareerState implements Serializable {
    private String[] bP = new String[]{"#949449", "#B3B364", "#C0C081", "#D1D1A3", "#DEDE9E"};
 
    public CareerState() {
-      if (GamePersistence.vM() != null) {
-         this.setVerJint(GamePersistence.vM().getVerJint());
-         this.setJogaIntano1(GamePersistence.vM().isJogaIntano1());
-         this.setGruposIntPadrao(GamePersistence.vM().isGruposIntPadrao());
-         this.setJogaIntClubes(GamePersistence.vM().isJogaIntClubes());
-         this.setJogaSelecoesAll(GamePersistence.vM().isJogaSelecoesAll());
-         this.setJogaEstadual(GamePersistence.vM().isJogaEstadual());
-         this.setJogaRegionais(GamePersistence.vM().isJogaRegionais());
-         this.setSalarioMensal(GamePersistence.vM().isSalarioMensal());
-         this.setHabilidadeIndividual(GamePersistence.vM().isHabilidadeIndividual());
-         this.setIgnoraEstadual(GamePersistence.vM().isIgnoraEstadual());
-         this.setUsaGrupoPadraoEstadual(GamePersistence.vM().isUsaGrupoPadraoEstadual());
-         this.setAutoSalvar(GamePersistence.vM().getAutoSalvar());
-         this.setVelocidade(GamePersistence.vM().getVelocidade());
-         this.setVelocidadeNH(GamePersistence.vM().getVelocidadeNH());
-         this.setVerDecisaoPenNaoHumano(GamePersistence.vM().getVerDecisaoPenNaoHumano());
-         this.setVerMudancaTecnicos(GamePersistence.vM().getVerMudancaTecnicos());
-         this.setVerJanelaSubs(GamePersistence.vM().getVerJanelaSubs());
-         this.setAvisoTerminoContrato(GamePersistence.vM().getAvisoTerminoContrato());
-         this.setIgnoraLigas(GamePersistence.vM().isIgnoraLigas());
-         this.setAutoRenovaContrato(GamePersistence.vM().isAutoRenovaContrato());
-         this.setUsaCorPlacar(GamePersistence.vM().isUsaCorPlacar());
-         this.setCorPlacar(GamePersistence.vM().getCorPlacar());
-         this.setUsaSons(GamePersistence.vM().isUsaSons());
-         this.setUsaCoresLista(GamePersistence.vM().isUsaCoresLista());
-         this.setCoresLista(GamePersistence.vM().getCoresLista());
-         this.setNegritoCasa(GamePersistence.vM().isNegritoCasa());
-         this.setVerEstaduaisAgrupados(GamePersistence.vM().isVerEstaduaisAgrupados());
-         this.setUsarGruposReaisCopa(GamePersistence.vM().isUsarGruposReaisCopa());
-         this.setJogaRegionaisTodos(GamePersistence.vM().getJogaRegionaisTodos());
-         this.setVerLeiloes(GamePersistence.vM().isVerLeiloes());
+      if (GamePersistence.getOptions() != null) {
+         this.setVerJint(GamePersistence.getOptions().getVerJint());
+         this.setJogaIntano1(GamePersistence.getOptions().isJogaIntano1());
+         this.setGruposIntPadrao(GamePersistence.getOptions().isGruposIntPadrao());
+         this.setJogaIntClubes(GamePersistence.getOptions().isJogaIntClubes());
+         this.setJogaSelecoesAll(GamePersistence.getOptions().isJogaSelecoesAll());
+         this.setJogaEstadual(GamePersistence.getOptions().isJogaEstadual());
+         this.setJogaRegionais(GamePersistence.getOptions().isJogaRegionais());
+         this.setSalarioMensal(GamePersistence.getOptions().isSalarioMensal());
+         this.setHabilidadeIndividual(GamePersistence.getOptions().isHabilidadeIndividual());
+         this.setIgnoraEstadual(GamePersistence.getOptions().isIgnoraEstadual());
+         this.setUsaGrupoPadraoEstadual(GamePersistence.getOptions().isUsaGrupoPadraoEstadual());
+         this.setAutoSalvar(GamePersistence.getOptions().getAutoSalvar());
+         this.setVelocidade(GamePersistence.getOptions().getVelocidade());
+         this.setVelocidadeNH(GamePersistence.getOptions().getVelocidadeNH());
+         this.setVerDecisaoPenNaoHumano(GamePersistence.getOptions().getVerDecisaoPenNaoHumano());
+         this.setVerMudancaTecnicos(GamePersistence.getOptions().getVerMudancaTecnicos());
+         this.setVerJanelaSubs(GamePersistence.getOptions().getVerJanelaSubs());
+         this.setAvisoTerminoContrato(GamePersistence.getOptions().getAvisoTerminoContrato());
+         this.setIgnoraLigas(GamePersistence.getOptions().isIgnoraLigas());
+         this.setAutoRenovaContrato(GamePersistence.getOptions().isAutoRenovaContrato());
+         this.setUsaCorPlacar(GamePersistence.getOptions().isUsaCorPlacar());
+         this.setCorPlacar(GamePersistence.getOptions().getCorPlacar());
+         this.setUsaSons(GamePersistence.getOptions().isUsaSons());
+         this.setUsaCoresLista(GamePersistence.getOptions().isUsaCoresLista());
+         this.setCoresLista(GamePersistence.getOptions().getCoresLista());
+         this.setNegritoCasa(GamePersistence.getOptions().isNegritoCasa());
+         this.setVerEstaduaisAgrupados(GamePersistence.getOptions().isVerEstaduaisAgrupados());
+         this.setUsarGruposReaisCopa(GamePersistence.getOptions().isUsarGruposReaisCopa());
+         this.setJogaRegionaisTodos(GamePersistence.getOptions().getJogaRegionaisTodos());
+         this.setVerLeiloes(GamePersistence.getOptions().isVerLeiloes());
       }
 
       this.G();
@@ -363,33 +363,33 @@ public class CareerState implements Serializable {
    }
 
    public int iU() {
-      return GamePersistence.SR.op() - 1;
+      return GamePersistence.careerState.op() - 1;
    }
 
    private void W() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.SR.bo().size(); var2++) {
-         if (((PlayerTransferRecord)GamePersistence.SR.bo().get(var2)).getY() + 10 < this.iU()) {
-            var1.add((PlayerTransferRecord)GamePersistence.SR.bo().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.careerState.bo().size(); var2++) {
+         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getY() + 10 < this.iU()) {
+            var1.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
          }
       }
 
       for (int var3 = 0; var3 < var1.size(); var3++) {
-         GamePersistence.SR.bo().remove(var1.get(var3));
+         GamePersistence.careerState.bo().remove(var1.get(var3));
       }
    }
 
    public boolean X() {
-      return GamePersistence.SR.isJogaRegionais();
+      return GamePersistence.careerState.isJogaRegionais();
    }
 
    private void Y() {
       CountryCompetitions var1 = null;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var2)).jc() == 29) {
-            var1 = (CountryCompetitions)GamePersistence.SR.N().get(var2);
+      for (int var2 = 0; var2 < GamePersistence.careerState.N().size(); var2++) {
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var2)).jc() == 29) {
+            var1 = (CountryCompetitions)GamePersistence.careerState.N().get(var2);
          }
       }
 
@@ -400,16 +400,16 @@ public class CareerState implements Serializable {
 
    private void Z() {
       if (this.ar != null && this.ar.size() != 0) {
-         for (int var6 = 0; var6 < GamePersistence.SR.bW().size(); var6++) {
-            ((NationalSuperCup)GamePersistence.SR.bW().get(var6)).Ab();
-            ((NationalSuperCup)GamePersistence.SR.bW().get(var6)).mw();
+         for (int var6 = 0; var6 < GamePersistence.careerState.bW().size(); var6++) {
+            ((NationalSuperCup)GamePersistence.careerState.bW().get(var6)).Ab();
+            ((NationalSuperCup)GamePersistence.careerState.bW().get(var6)).mw();
          }
       } else {
-         for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
             Object var2 = null;
             Object var3 = null;
-            var2 = ((CountryCompetitions)GamePersistence.SR.N().get(var1)).jq().cv(GamePersistence.SR.H() - 1);
-            Club[] var4 = ((CountryCompetitions)GamePersistence.SR.N().get(var1)).bk(GamePersistence.SR.H() - 1);
+            var2 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jq().cv(GamePersistence.careerState.H() - 1);
+            Club[] var4 = ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).bk(GamePersistence.careerState.H() - 1);
             if (var4 != null) {
                if (var2 != var4[0]) {
                   var3 = var4[0];
@@ -418,16 +418,16 @@ public class CareerState implements Serializable {
                }
             }
 
-            NationalSuperCup var5 = new NationalSuperCup(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc());
-            GamePersistence.SR.ar.add(var5);
+            NationalSuperCup var5 = new NationalSuperCup(((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jc());
+            GamePersistence.careerState.ar.add(var5);
             var5.Ab();
          }
       }
    }
 
    private void aa() {
-      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
-         ((Club)GamePersistence.SR.aN().get(var1)).kI();
+      for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
+         ((Club)GamePersistence.careerState.aN().get(var1)).kI();
       }
 
       if (this.jogaIntClubes) {
@@ -449,11 +449,11 @@ public class CareerState implements Serializable {
       this.Z();
       this.am();
       this.ak();
-      if (GamePersistence.SR.jogaRegionais) {
+      if (GamePersistence.careerState.jogaRegionais) {
          this.aj();
       }
 
-      if (GamePersistence.SR.bk() || GamePersistence.SR.X()) {
+      if (GamePersistence.careerState.bk() || GamePersistence.careerState.X()) {
          int var3 = C0693.e(1);
          if (var3 > 0) {
             C0693.b(var3, 4, 1);
@@ -462,24 +462,24 @@ public class CareerState implements Serializable {
 
       C0693.q();
       this.af();
-      if (GamePersistence.SR.H() >= 5) {
+      if (GamePersistence.careerState.H() >= 5) {
          this.W();
       }
 
-      GamePersistence.afQ.zi();
-      GamePersistence.afQ.zj();
+      GamePersistence.coachJobMarket.zi();
+      GamePersistence.coachJobMarket.zj();
       AiSquadManager.jO();
       AiSquadManager.jQ();
-      if (GamePersistence.SR.isJogaSelecoesAll()) {
+      if (GamePersistence.careerState.isJogaSelecoesAll()) {
          this.ac();
       }
 
-      GamePersistence.SR.yn().xZ();
+      GamePersistence.careerState.yn().xZ();
       this.yn().clear();
       boolean var4 = false;
-      if (this.bs && !GamePersistence.SR.bD()) {
-         for (int var2 = 0; var2 < GamePersistence.SR.M().size(); var2++) {
-            if (((Coach)GamePersistence.SR.M().get(var2)).fg() != null) {
+      if (this.bs && !GamePersistence.careerState.bD()) {
+         for (int var2 = 0; var2 < GamePersistence.careerState.M().size(); var2++) {
+            if (((Coach)GamePersistence.careerState.M().get(var2)).fg() != null) {
                var4 = true;
                break;
             }
@@ -490,7 +490,7 @@ public class CareerState implements Serializable {
          }
       }
 
-      if (GamePersistence.SR.yL()) {
+      if (GamePersistence.careerState.yL()) {
          this.iY();
       }
 
@@ -498,7 +498,7 @@ public class CareerState implements Serializable {
       if (var4) {
          C0151.AC();
       } else {
-         GamePersistence.SR.az();
+         GamePersistence.careerState.az();
          this.V();
       }
    }
@@ -520,11 +520,11 @@ public class CareerState implements Serializable {
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 0; var4 <= 7; var4++) {
-         var3.add((Club)GamePersistence.SR.P().get(var4));
+         var3.add((Club)GamePersistence.careerState.P().get(var4));
       }
 
-      if (GamePersistence.SR.yn() != null) {
-         GamePersistence.SR.yn().a(var3, 0, var1, var2, false);
+      if (GamePersistence.careerState.yn() != null) {
+         GamePersistence.careerState.yn().a(var3, 0, var1, var2, false);
       }
    }
 
@@ -533,12 +533,12 @@ public class CareerState implements Serializable {
       Object var3 = null;
       int var4 = 0;
 
-      for (int var5 = 0; var5 < GamePersistence.SR.O().size(); var5++) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.O().size(); var5++) {
          var4 = 0;
-         var3 = (Player)GamePersistence.SR.O().get(var5);
+         var3 = (Player)GamePersistence.careerState.O().get(var5);
 
-         for (int var6 = 0; var6 < GamePersistence.SR.P().size(); var6++) {
-            var2 = (Club)GamePersistence.SR.P().get(var6);
+         for (int var6 = 0; var6 < GamePersistence.careerState.P().size(); var6++) {
+            var2 = (Club)GamePersistence.careerState.P().get(var6);
 
             for (int var7 = 0; var7 < var2.kc().size(); var7++) {
                if (((Player)var2.kc().get(var7)).equals(var3)) {
@@ -554,12 +554,12 @@ public class CareerState implements Serializable {
       Object var3 = null;
       boolean var4 = false;
 
-      for (int var5 = 0; var5 < GamePersistence.SR.O().size(); var5++) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.O().size(); var5++) {
          var4 = false;
-         var3 = (Player)GamePersistence.SR.O().get(var5);
+         var3 = (Player)GamePersistence.careerState.O().get(var5);
 
-         for (int var6 = 0; var6 < GamePersistence.SR.P().size(); var6++) {
-            Collections.frequency(((Club)GamePersistence.SR.P().get(var6)).kc(), var3);
+         for (int var6 = 0; var6 < GamePersistence.careerState.P().size(); var6++) {
+            Collections.frequency(((Club)GamePersistence.careerState.P().get(var6)).kc(), var3);
          }
       }
    }
@@ -616,7 +616,7 @@ public class CareerState implements Serializable {
    }
 
    public void ac() {
-      GamePersistence.SR.ad();
+      GamePersistence.careerState.ad();
       if (this.aK != null) {
          this.aK.xZ();
          this.aK.mw();
@@ -912,8 +912,8 @@ public class CareerState implements Serializable {
    }
 
    public void ae() {
-      for (int var1 = 0; var1 < GamePersistence.SR.aG().size(); var1++) {
-         ((CountryCompetitions)GamePersistence.SR.aG().get(var1)).jy();
+      for (int var1 = 0; var1 < GamePersistence.careerState.aG().size(); var1++) {
+         ((CountryCompetitions)GamePersistence.careerState.aG().get(var1)).jy();
       }
 
       this.aP().yq();
@@ -936,11 +936,11 @@ public class CareerState implements Serializable {
       this.aK().mw();
       this.mj().mw();
       this.aR().mw();
-      if (GamePersistence.SR.aW() != null) {
+      if (GamePersistence.careerState.aW() != null) {
          this.aW().mw();
       }
 
-      if (GamePersistence.SR.aV() != null) {
+      if (GamePersistence.careerState.aV() != null) {
          this.aV().mw();
       }
 
@@ -981,28 +981,28 @@ public class CareerState implements Serializable {
          C0693.b(var3, 1, 0);
       }
 
-      if (GamePersistence.SR.aV() != null) {
-         GamePersistence.SR.aV().zR();
+      if (GamePersistence.careerState.aV() != null) {
+         GamePersistence.careerState.aV().zR();
       } else {
          SouthAmericanRecopa var2 = new SouthAmericanRecopa();
-         GamePersistence.SR.a(var2);
+         GamePersistence.careerState.a(var2);
          var2.zR();
       }
 
-      if (GamePersistence.SR.aW() != null) {
-         GamePersistence.SR.aW().zR();
+      if (GamePersistence.careerState.aW() != null) {
+         GamePersistence.careerState.aW().zR();
       } else {
          EuropeanSuperCup var4 = new EuropeanSuperCup();
-         GamePersistence.SR.a(var4);
+         GamePersistence.careerState.a(var4);
          var4.zR();
       }
 
-      if (GamePersistence.SR.aV() != null) {
-         GamePersistence.SR.aV().mw();
+      if (GamePersistence.careerState.aV() != null) {
+         GamePersistence.careerState.aV().mw();
       }
 
-      if (GamePersistence.SR.aW() != null) {
-         GamePersistence.SR.aW().mw();
+      if (GamePersistence.careerState.aW() != null) {
+         GamePersistence.careerState.aW().mw();
       }
    }
 
@@ -1011,12 +1011,12 @@ public class CareerState implements Serializable {
       Object var3 = null;
       boolean var4 = false;
 
-      for (int var5 = 0; var5 < GamePersistence.SR.Q().size(); var5++) {
+      for (int var5 = 0; var5 < GamePersistence.careerState.Q().size(); var5++) {
          var4 = false;
-         var3 = (Player)GamePersistence.SR.Q().get(var5);
+         var3 = (Player)GamePersistence.careerState.Q().get(var5);
 
-         for (int var6 = 0; var6 < GamePersistence.SR.P().size(); var6++) {
-            Collections.frequency(((Club)GamePersistence.SR.P().get(var6)).ky(), var3);
+         for (int var6 = 0; var6 < GamePersistence.careerState.P().size(); var6++) {
+            Collections.frequency(((Club)GamePersistence.careerState.P().get(var6)).ky(), var3);
          }
       }
    }
@@ -1065,9 +1065,9 @@ public class CareerState implements Serializable {
       this.bA.clear();
       this.bB.clear();
 
-      for (int var8 = 0; var8 < GamePersistence.SR.O().size(); var8++) {
-         ((Player)GamePersistence.SR.O().get(var8)).fK();
-         ((Player)GamePersistence.SR.O().get(var8)).fJ();
+      for (int var8 = 0; var8 < GamePersistence.careerState.O().size(); var8++) {
+         ((Player)GamePersistence.careerState.O().get(var8)).fK();
+         ((Player)GamePersistence.careerState.O().get(var8)).fJ();
       }
    }
 
@@ -1138,8 +1138,8 @@ public class CareerState implements Serializable {
          }
       }
 
-      for (int var2 = 0; var2 < GamePersistence.SR.aN().size(); var2++) {
-         ((Club)GamePersistence.SR.aN().get(var2)).kG();
+      for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
+         ((Club)GamePersistence.careerState.aN().get(var2)).kG();
       }
    }
 
@@ -1151,26 +1151,26 @@ public class CareerState implements Serializable {
       }
 
       this.as.clear();
-      this.r(GamePersistence.SR.op() + (this.ae - 1));
+      this.r(GamePersistence.careerState.op() + (this.ae - 1));
       C0693.g();
    }
 
    private void ai() {
-      if (GamePersistence.SR.aK() != null && GamePersistence.SR.aI() != null) {
-         Club var1 = GamePersistence.SR.aK().cS();
-         GamePersistence.SR.aI().T(var1);
-         GamePersistence.SR.aK().N(var1);
+      if (GamePersistence.careerState.aK() != null && GamePersistence.careerState.aI() != null) {
+         Club var1 = GamePersistence.careerState.aK().cS();
+         GamePersistence.careerState.aI().T(var1);
+         GamePersistence.careerState.aK().N(var1);
       }
 
-      if (GamePersistence.SR.aF() != null && GamePersistence.SR.aH() != null) {
-         Club var2 = GamePersistence.SR.aH().cS();
-         GamePersistence.SR.aF().O(var2);
-         GamePersistence.SR.aH().N(var2);
+      if (GamePersistence.careerState.aF() != null && GamePersistence.careerState.aH() != null) {
+         Club var2 = GamePersistence.careerState.aH().cS();
+         GamePersistence.careerState.aF().O(var2);
+         GamePersistence.careerState.aH().N(var2);
       }
 
-      if (GamePersistence.SR.aK() != null && GamePersistence.SR.mj() != null) {
-         Club var3 = GamePersistence.SR.mj().cS();
-         GamePersistence.SR.aK().ab(var3);
+      if (GamePersistence.careerState.aK() != null && GamePersistence.careerState.mj() != null) {
+         Club var3 = GamePersistence.careerState.mj().cS();
+         GamePersistence.careerState.aK().ab(var3);
       }
    }
 
@@ -1202,71 +1202,71 @@ public class CareerState implements Serializable {
    }
 
    private void ak() {
-      for (int var1 = 0; var1 < GamePersistence.SR.aE().size(); var1++) {
-         ((C0741)GamePersistence.SR.aE().get(var1)).ee();
+      for (int var1 = 0; var1 < GamePersistence.careerState.aE().size(); var1++) {
+         ((C0741)GamePersistence.careerState.aE().get(var1)).ee();
       }
 
-      for (int var3 = 0; var3 < GamePersistence.SR.aE().size(); var3++) {
-         for (int var2 = 0; var2 < ((C0741)GamePersistence.SR.aE().get(var3)).eb().size(); var2++) {
-            ((StateChampionship)((C0741)GamePersistence.SR.aE().get(var3)).eb().get(var2)).yi().aN(false);
+      for (int var3 = 0; var3 < GamePersistence.careerState.aE().size(); var3++) {
+         for (int var2 = 0; var2 < ((C0741)GamePersistence.careerState.aE().get(var3)).eb().size(); var2++) {
+            ((StateChampionship)((C0741)GamePersistence.careerState.aE().get(var3)).eb().get(var2)).yi().aN(false);
          }
       }
    }
 
    public void al() {
-      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
-         for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.SR.N().get(var1)).eb().size(); var2++) {
-            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var1)).eb().get(var2)).fi(var2);
+      for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
+         for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).eb().size(); var2++) {
+            ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var1)).eb().get(var2)).fi(var2);
          }
       }
 
-      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
-         ((Player)GamePersistence.SR.O().get(var3)).ay(0);
+      for (int var3 = 0; var3 < GamePersistence.careerState.O().size(); var3++) {
+         ((Player)GamePersistence.careerState.O().get(var3)).ay(0);
       }
 
-      for (int var4 = 0; var4 < GamePersistence.SR.N().size(); var4++) {
-         for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().size(); var5++) {
-            ((Player)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var4)).eb().get(0)).zM().get(var5)).fd();
+      for (int var4 = 0; var4 < GamePersistence.careerState.N().size(); var4++) {
+         for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var4)).eb().get(0)).zM().size(); var5++) {
+            ((Player)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var4)).eb().get(0)).zM().get(var5)).fd();
          }
       }
    }
 
    private void am() {
-      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
-         ((CountryCompetitions)GamePersistence.SR.N().get(var1)).ee();
-         ((CountryCompetitions)GamePersistence.SR.N().get(var1)).jq().mw();
+      for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
+         ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).ee();
+         ((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jq().mw();
       }
 
-      for (int var6 = 0; var6 < GamePersistence.SR.N().size(); var6++) {
-         for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().size(); var2++) {
-            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).yi().aN(false);
-            ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var6)).eb().get(var2)).aT(false);
+      for (int var6 = 0; var6 < GamePersistence.careerState.N().size(); var6++) {
+         for (int var2 = 0; var2 < ((CountryCompetitions)GamePersistence.careerState.N().get(var6)).eb().size(); var2++) {
+            ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var6)).eb().get(var2)).yi().aN(false);
+            ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var6)).eb().get(var2)).aT(false);
          }
       }
 
-      for (int var7 = 0; var7 < GamePersistence.SR.N().size(); var7++) {
+      for (int var7 = 0; var7 < GamePersistence.careerState.N().size(); var7++) {
          boolean var8 = true;
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var7)).jc() == 29 && GamePersistence.SR.bk()) {
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var7)).jc() == 29 && GamePersistence.careerState.bk()) {
             var8 = false;
-         } else if (((CountryCompetitions)GamePersistence.SR.N().get(var7)).jc() == 29 && GamePersistence.SR.X()) {
+         } else if (((CountryCompetitions)GamePersistence.careerState.N().get(var7)).jc() == 29 && GamePersistence.careerState.X()) {
             var8 = false;
          }
 
          if (!var8) {
-            if (((CountryCompetitions)GamePersistence.SR.N().get(var7)).jc() == 29) {
-               ((CountryCompetitions)GamePersistence.SR.N().get(var7)).a((NationalCup)null);
+            if (((CountryCompetitions)GamePersistence.careerState.N().get(var7)).jc() == 29) {
+               ((CountryCompetitions)GamePersistence.careerState.N().get(var7)).a((NationalCup)null);
             }
          } else {
             ArrayList var3 = new ArrayList();
 
-            for (int var4 = 0; var4 < ((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().size(); var4++) {
-               for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().size(); var5++) {
-                  var3.add((Club)((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var7)).eb().get(var4)).yi().yK().get(var5));
+            for (int var4 = 0; var4 < ((CountryCompetitions)GamePersistence.careerState.N().get(var7)).eb().size(); var4++) {
+               for (int var5 = 0; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var7)).eb().get(var4)).yi().yK().size(); var5++) {
+                  var3.add((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var7)).eb().get(var4)).yi().yK().get(var5));
                }
             }
 
             ArrayList var9 = new ArrayList();
-            var9.addAll(((CountryCompetitions)GamePersistence.SR.N().get(var7)).jg());
+            var9.addAll(((CountryCompetitions)GamePersistence.careerState.N().get(var7)).jg());
             Collections.sort(var9, C1007.cN);
 
             for (int var10 = 0; var10 < var9.size(); var10++) {
@@ -1275,14 +1275,14 @@ public class CareerState implements Serializable {
                }
             }
 
-            ((CountryCompetitions)GamePersistence.SR.N().get(var7)).a(var3, false, "atualizaLigasNacionais");
+            ((CountryCompetitions)GamePersistence.careerState.N().get(var7)).a(var3, false, "atualizaLigasNacionais");
          }
       }
    }
 
    public static void an() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.af)).j();
+      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.af)).j();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (var0.get(var1) instanceof LeagueStage && ((CompetitionStage)var0.get(var1)).b() == 1 && ((LeagueStage)var0.get(var1)).vl() != null) {
@@ -1292,20 +1292,20 @@ public class CareerState implements Serializable {
    }
 
    public int ao() {
-      return ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).t().size() > 0 ? ((Competition)((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).t().get(0)).b() : -1;
+      return ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t().size() > 0 ? ((Competition)((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).t().get(0)).b() : -1;
    }
 
    public void ap() {
       this.bH = false;
-      if (GamePersistence.SR.bD() && GamePersistence.SR.H() == 10) {
-         GamePersistence.SR.h(false);
+      if (GamePersistence.careerState.bD() && GamePersistence.careerState.H() == 10) {
+         GamePersistence.careerState.h(false);
       }
 
       if (ay()) {
          if (this.bs) {
             MainWindow.aY(2);
             if (!this.bL) {
-               if (GamePersistence.SR.autoSalvar == 1) {
+               if (GamePersistence.careerState.autoSalvar == 1) {
                   if (this.bJ >= 3) {
                      try {
                         new java.io.ByteArrayInputStream(new byte[0]).close();
@@ -1318,14 +1318,14 @@ public class CareerState implements Serializable {
                   } else {
                      this.bJ++;
                   }
-               } else if (GamePersistence.SR.autoSalvar == 2) {
+               } else if (GamePersistence.careerState.autoSalvar == 2) {
                   try {
                      new java.io.ByteArrayInputStream(new byte[0]).close();
                         MainWindow.iF().ru();
                   } catch (IOException var3) {
                      var3.printStackTrace();
                   }
-               } else if (GamePersistence.SR.autoSalvar == 3 && this.bF()) {
+               } else if (GamePersistence.careerState.autoSalvar == 3 && this.bF()) {
                   this.bM = false;
 
                   try {
@@ -1346,7 +1346,7 @@ public class CareerState implements Serializable {
             }
          }
       } else {
-         if (GamePersistence.SR.isIgnoraLigas() && this.ao() == 1 && !C0737.dG() && !this.bI) {
+         if (GamePersistence.careerState.isIgnoraLigas() && this.ao() == 1 && !C0737.dG() && !this.bI) {
             this.bH = true;
          }
 
@@ -1354,17 +1354,17 @@ public class CareerState implements Serializable {
             this.bI = false;
          }
 
-         if (GamePersistence.SR.isIgnoraEstadual() && this.ao() == 3) {
+         if (GamePersistence.careerState.isIgnoraEstadual() && this.ao() == 3) {
             if (!C0737.J(3)) {
                this.bH = true;
             }
-         } else if (GamePersistence.SR.isIgnoraEstadual() && this.ao() == 10 && !C0737.J(10)) {
+         } else if (GamePersistence.careerState.isIgnoraEstadual() && this.ao() == 10 && !C0737.J(10)) {
             this.bH = true;
          }
 
          if (!this.bH && this.ao() == 10 && this.aq() && !C0737.dH()) {
             this.bH = true;
-         } else if (!this.bH && this.ao() == 10 && !this.ar() && GamePersistence.vM().getRegionaisSemHumanos() == 0) {
+         } else if (!this.bH && this.ao() == 10 && !this.ar() && GamePersistence.getOptions().getRegionaisSemHumanos() == 0) {
             this.bH = true;
          }
 
@@ -1385,8 +1385,8 @@ public class CareerState implements Serializable {
    private boolean aq() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.aZ.length; var2++) {
-         if (GamePersistence.SR.aZ[var2] != null) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.aZ.length; var2++) {
+         if (GamePersistence.careerState.aZ[var2] != null) {
             var1++;
          }
       }
@@ -1395,15 +1395,15 @@ public class CareerState implements Serializable {
    }
 
    private boolean ar() {
-      for (int var1 = 0; var1 < GamePersistence.SR.M().size(); var1++) {
-         if (GamePersistence.SR.M().get(var1) != null) {
-            Club var2 = ((Coach)GamePersistence.SR.M().get(var1)).fg();
+      for (int var1 = 0; var1 < GamePersistence.careerState.M().size(); var1++) {
+         if (GamePersistence.careerState.M().get(var1) != null) {
+            Club var2 = ((Coach)GamePersistence.careerState.M().get(var1)).fg();
             if (var2 != null) {
-               for (int var3 = 0; var3 < GamePersistence.SR.aZ.length; var3++) {
-                  if (GamePersistence.SR.aZ[var3] != null
-                     && GamePersistence.SR.aZ[var3].yd() != null
-                     && GamePersistence.SR.aZ[var3].yd().yK() != null
-                     && GamePersistence.SR.aZ[var3].yd().yK().contains(var2)) {
+               for (int var3 = 0; var3 < GamePersistence.careerState.aZ.length; var3++) {
+                  if (GamePersistence.careerState.aZ[var3] != null
+                     && GamePersistence.careerState.aZ[var3].yd() != null
+                     && GamePersistence.careerState.aZ[var3].yd().yK() != null
+                     && GamePersistence.careerState.aZ[var3].yd().yK().contains(var2)) {
                      return true;
                   }
                }
@@ -1416,8 +1416,8 @@ public class CareerState implements Serializable {
 
    public void as() {
       new ArrayList();
-      ArrayList var1 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).h();
-      int var2 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).b();
+      ArrayList var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).h();
+      int var2 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).b();
 
       for (int var3 = 0; var3 < var1.size(); var3++) {
          ((Match)var1.get(var3)).a(true);
@@ -1430,17 +1430,17 @@ public class CareerState implements Serializable {
          ((Match)var1.get(var3)).a(null);
       }
 
-      for (int var6 = 0; var6 < GamePersistence.SR.O().size(); var6++) {
-         ((Player)GamePersistence.SR.O().get(var6)).fr();
+      for (int var6 = 0; var6 < GamePersistence.careerState.O().size(); var6++) {
+         ((Player)GamePersistence.careerState.O().get(var6)).fr();
       }
 
-      for (int var7 = 0; var7 < GamePersistence.SR.Q().size(); var7++) {
-         ((Player)GamePersistence.SR.Q().get(var7)).ai(100);
+      for (int var7 = 0; var7 < GamePersistence.careerState.Q().size(); var7++) {
+         ((Player)GamePersistence.careerState.Q().get(var7)).ai(100);
       }
 
       if (var2 == 7 || var2 == 9) {
-         for (int var8 = 0; var8 < GamePersistence.SR.aG().size(); var8++) {
-            Club var4 = ((CountryCompetitions)GamePersistence.SR.aG().get(var8)).jn();
+         for (int var8 = 0; var8 < GamePersistence.careerState.aG().size(); var8++) {
+            Club var4 = ((CountryCompetitions)GamePersistence.careerState.aG().get(var8)).jn();
             if (var4 != null) {
                for (int var5 = 0; var5 < var4.kc().size(); var5++) {
                   if (((Player)var4.kc().get(var5)).fg() == null) {
@@ -1451,7 +1451,7 @@ public class CareerState implements Serializable {
          }
       }
 
-      Collections.sort(GamePersistence.SR.L(), bO);
+      Collections.sort(GamePersistence.careerState.L(), bO);
    }
 
    public void at() {
@@ -1470,8 +1470,8 @@ public class CareerState implements Serializable {
 
    private void au() {
       ArrayList var1 = new ArrayList();
-      if (this.av != null && GamePersistence.SR.av.size() > 0) {
-         for (int var2 = 0; var2 < GamePersistence.SR.av.size(); var2++) {
+      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
+         for (int var2 = 0; var2 < GamePersistence.careerState.av.size(); var2++) {
             if (((C0825)this.av.get(var2)).tM()) {
                boolean var3 = false;
                Coach var4 = null;
@@ -1481,7 +1481,7 @@ public class CareerState implements Serializable {
                }
 
                if (((C0825)this.av.get(var2)).tN()) {
-                  var1.add((C0825)GamePersistence.SR.av.get(var2));
+                  var1.add((C0825)GamePersistence.careerState.av.get(var2));
                   if (((C0825)this.av.get(var2)).tP() != null && ((C0825)this.av.get(var2)).tP().jZ()) {
                      new C0799(((C0825)this.av.get(var2)).tP().ka(), 29, 83, "", ((C0825)this.av.get(var2)).x().getNome());
                   } else if (var3) {
@@ -1497,16 +1497,16 @@ public class CareerState implements Serializable {
 
       if (var1.size() > 0) {
          for (int var5 = 0; var5 < var1.size(); var5++) {
-            GamePersistence.SR.av.remove(var1.get(var5));
+            GamePersistence.careerState.av.remove(var1.get(var5));
          }
       }
    }
 
    public void d(Player player) {
       int var2 = -1;
-      if (this.av != null && GamePersistence.SR.av.size() > 0) {
-         for (int var3 = 0; var3 < GamePersistence.SR.av.size(); var3++) {
-            if (((C0825)GamePersistence.SR.av.get(var3)).x() == player) {
+      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.careerState.av.size(); var3++) {
+            if (((C0825)GamePersistence.careerState.av.get(var3)).x() == player) {
                var2 = var3;
                break;
             }
@@ -1514,15 +1514,15 @@ public class CareerState implements Serializable {
       }
 
       if (var2 >= 0) {
-         GamePersistence.SR.av.remove(var2);
+         GamePersistence.careerState.av.remove(var2);
       }
    }
 
    private void av() {
-      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
-         for (int var2 = 0; var2 < ((Club)GamePersistence.SR.aN().get(var1)).kc().size(); var2++) {
-            if (((Player)((Club)GamePersistence.SR.aN().get(var1)).kc().get(var2)).ft()) {
-               new C0794((Player)((Club)GamePersistence.SR.aN().get(var1)).kc().get(var2), ((Player)((Club)GamePersistence.SR.aN().get(var1)).kc().get(var2)).fl(), true, true);
+      for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
+         for (int var2 = 0; var2 < ((Club)GamePersistence.careerState.aN().get(var1)).kc().size(); var2++) {
+            if (((Player)((Club)GamePersistence.careerState.aN().get(var1)).kc().get(var2)).ft()) {
+               new C0794((Player)((Club)GamePersistence.careerState.aN().get(var1)).kc().get(var2), ((Player)((Club)GamePersistence.careerState.aN().get(var1)).kc().get(var2)).fl(), true, true);
             }
          }
       }
@@ -1530,30 +1530,30 @@ public class CareerState implements Serializable {
 
    private void aw() {
       ArrayList var1 = new ArrayList();
-      if (this.aw != null && GamePersistence.SR.aw.size() > 0) {
-         for (int var2 = 0; var2 < GamePersistence.SR.aw.size(); var2++) {
-            if (((C0668)GamePersistence.SR.aw.get(var2)).ew().before(GamePersistence.SR.bb())) {
-               ((C0668)GamePersistence.SR.aw.get(var2)).ex();
-               var1.add((C0668)GamePersistence.SR.aw.get(var2));
+      if (this.aw != null && GamePersistence.careerState.aw.size() > 0) {
+         for (int var2 = 0; var2 < GamePersistence.careerState.aw.size(); var2++) {
+            if (((C0668)GamePersistence.careerState.aw.get(var2)).ew().before(GamePersistence.careerState.bb())) {
+               ((C0668)GamePersistence.careerState.aw.get(var2)).ex();
+               var1.add((C0668)GamePersistence.careerState.aw.get(var2));
             }
          }
       }
 
       if (var1.size() > 0) {
          for (int var3 = 0; var3 < var1.size(); var3++) {
-            GamePersistence.SR.aw.remove(var1.get(var3));
+            GamePersistence.careerState.aw.remove(var1.get(var3));
          }
       }
    }
 
    public void ax() {
-      int var1 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).i();
+      int var1 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).i();
       if (var1 == 1 || var1 == 3) {
          this.n(var1);
       }
 
       int var2 = this.az();
-      if (this.av != null && GamePersistence.SR.av.size() > 0) {
+      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
          this.au();
       }
 
@@ -1561,7 +1561,7 @@ public class CareerState implements Serializable {
          this.av();
       }
 
-      if (this.aw != null && GamePersistence.SR.aw.size() > 0) {
+      if (this.aw != null && GamePersistence.careerState.aw.size() > 0) {
          this.aw();
       }
 
@@ -1572,11 +1572,11 @@ public class CareerState implements Serializable {
 
       if (this.bs) {
          if (this.bk) {
-            GamePersistence.afQ.zw();
+            GamePersistence.coachJobMarket.zw();
             this.al();
             MainWindow.aY(6);
          } else {
-            GamePersistence.SR.ap();
+            GamePersistence.careerState.ap();
          }
       } else if (this.bk) {
          this.al();
@@ -1585,7 +1585,7 @@ public class CareerState implements Serializable {
 
    private static boolean ay() {
       new ArrayList();
-      ArrayList var0 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.af)).h();
+      ArrayList var0 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.af)).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (((Match)var0.get(var1)).hc().jZ() && !((Match)var0.get(var1)).hc().kf()) {
@@ -1612,9 +1612,9 @@ public class CareerState implements Serializable {
    }
 
    public int az() {
-      for (int var1 = GamePersistence.SR.af; var1 < GamePersistence.SR.R().size(); var1++) {
-         if (!((C0693)GamePersistence.SR.R().get(var1)).e() && ((C0693)GamePersistence.SR.R().get(var1)).b() > 0 && ((C0693)GamePersistence.SR.R().get(var1)).h().size() > 0) {
-            GamePersistence.SR.l(var1);
+      for (int var1 = GamePersistence.careerState.af; var1 < GamePersistence.careerState.R().size(); var1++) {
+         if (!((C0693)GamePersistence.careerState.R().get(var1)).e() && ((C0693)GamePersistence.careerState.R().get(var1)).b() > 0 && ((C0693)GamePersistence.careerState.R().get(var1)).h().size() > 0) {
+            GamePersistence.careerState.l(var1);
             return var1;
          }
       }
@@ -1650,8 +1650,8 @@ public class CareerState implements Serializable {
    private void n(int i) {
       for (int var3 = 0; var3 < this.am.size(); var3++) {
          if (((Coach)this.am.get(var3)).jZ() && ((Coach)this.am.get(var3)).fg() == null) {
-            ArrayList var2 = GamePersistence.afQ.b((Coach)this.am.get(var3), false);
-            if (!GamePersistence.SR.bD() && var2 != null && var2.size() > 0) {
+            ArrayList var2 = GamePersistence.coachJobMarket.b((Coach)this.am.get(var3), false);
+            if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                MainWindow.a(var2, (Coach)this.am.get(var3), 0);
             }
          }
@@ -1668,7 +1668,7 @@ public class CareerState implements Serializable {
          }
       }
 
-      if (var5.size() > 0 && GamePersistence.SR.bs && !GamePersistence.SR.bD() && GamePersistence.SR.getVerMudancaTecnicos() == 1) {
+      if (var5.size() > 0 && GamePersistence.careerState.bs && !GamePersistence.careerState.bD() && GamePersistence.careerState.getVerMudancaTecnicos() == 1) {
          MainWindow.K(var5);
       }
 
@@ -1822,7 +1822,7 @@ public class CareerState implements Serializable {
    }
 
    public ClubWorldCup aR() {
-      if (this.aA == null && GamePersistence.SR.isJogaIntClubes()) {
+      if (this.aA == null && GamePersistence.careerState.isJogaIntClubes()) {
          this.aA = new ClubWorldCup();
       }
 
@@ -1844,10 +1844,10 @@ public class CareerState implements Serializable {
       while (var2.get(1) == i) {
          C0693 var7 = new C0693();
          var7.a(var2.get(1), var2.get(2), var2.get(5));
-         GamePersistence.SR.a(var7);
+         GamePersistence.careerState.a(var7);
          if (var2.get(2) == 0 && var2.get(7) == 1) {
             if (++var4 == 1) {
-               GamePersistence.SR.l(var6);
+               GamePersistence.careerState.l(var6);
             }
          }
 
@@ -1892,7 +1892,7 @@ public class CareerState implements Serializable {
    }
 
    public void aT() {
-      if (GamePersistence.SR.isHabilidadeIndividual() && GamePersistence.SR.bO() == 3) {
+      if (GamePersistence.careerState.isHabilidadeIndividual() && GamePersistence.careerState.bO() == 3) {
          for (int var1 = 0; var1 < this.aj.size(); var1++) {
             ((Club)this.aj.get(var1)).lj();
          }
@@ -1906,11 +1906,11 @@ public class CareerState implements Serializable {
          ((Player)this.ah.get(var3)).fY();
       }
 
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
-         if (GamePersistence.SR.bO() == 3) {
-            GamePersistence.SR.A(0);
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
+         if (GamePersistence.careerState.bO() == 3) {
+            GamePersistence.careerState.A(0);
          } else {
-            GamePersistence.SR.bP();
+            GamePersistence.careerState.bP();
          }
       }
    }
@@ -2400,8 +2400,8 @@ public class CareerState implements Serializable {
 
    public int bA() {
       byte var1 = -1;
-      if (GamePersistence.SR.M().size() > 0) {
-         Coach var2 = (Coach)GamePersistence.SR.M().get(0);
+      if (GamePersistence.careerState.M().size() > 0) {
+         Coach var2 = (Coach)GamePersistence.careerState.M().get(0);
          return var2.fg() != null ? var2.fg().getPais() : var2.bz();
       } else {
          return var1;
@@ -2555,16 +2555,16 @@ public class CareerState implements Serializable {
    public Club x(int i) {
       Object var2 = null;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
-         if (((Club)GamePersistence.SR.P().get(var3)).lk() == i) {
-            return (Club)GamePersistence.SR.P().get(var3);
+      for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
+         if (((Club)GamePersistence.careerState.P().get(var3)).lk() == i) {
+            return (Club)GamePersistence.careerState.P().get(var3);
          }
       }
 
       if (var2 == null) {
-         for (int var4 = 0; var4 < GamePersistence.SR.aG().size(); var4++) {
-            if (((CountryCompetitions)GamePersistence.SR.aG().get(var4)).jn() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var4)).jn().lk() == i) {
-               return ((CountryCompetitions)GamePersistence.SR.aG().get(var4)).jn();
+         for (int var4 = 0; var4 < GamePersistence.careerState.aG().size(); var4++) {
+            if (((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).jn() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).jn().lk() == i) {
+               return ((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).jn();
             }
          }
       }
@@ -2575,9 +2575,9 @@ public class CareerState implements Serializable {
    public Coach y(int i) {
       Object var2 = null;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.L().size(); var3++) {
-         if (((Coach)GamePersistence.SR.L().get(var3)).lT() == i) {
-            return (Coach)GamePersistence.SR.L().get(var3);
+      for (int var3 = 0; var3 < GamePersistence.careerState.L().size(); var3++) {
+         if (((Coach)GamePersistence.careerState.L().get(var3)).lT() == i) {
+            return (Coach)GamePersistence.careerState.L().get(var3);
          }
       }
 
@@ -2587,17 +2587,17 @@ public class CareerState implements Serializable {
    public static String z(int i) {
       Club var1 = null;
 
-      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
-         if (((Club)GamePersistence.SR.P().get(var2)).lk() == i) {
-            var1 = (Club)GamePersistence.SR.P().get(var2);
+      for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
+         if (((Club)GamePersistence.careerState.P().get(var2)).lk() == i) {
+            var1 = (Club)GamePersistence.careerState.P().get(var2);
             return var1.getNome();
          }
       }
 
       if (var1 == null) {
-         for (int var5 = 0; var5 < GamePersistence.SR.aG().size(); var5++) {
-            if (((CountryCompetitions)GamePersistence.SR.aG().get(var5)).jn() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var5)).jn().lk() == i) {
-               var1 = ((CountryCompetitions)GamePersistence.SR.aG().get(var5)).jn();
+         for (int var5 = 0; var5 < GamePersistence.careerState.aG().size(); var5++) {
+            if (((CountryCompetitions)GamePersistence.careerState.aG().get(var5)).jn() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var5)).jn().lk() == i) {
+               var1 = ((CountryCompetitions)GamePersistence.careerState.aG().get(var5)).jn();
                return var1.getNome();
             }
          }

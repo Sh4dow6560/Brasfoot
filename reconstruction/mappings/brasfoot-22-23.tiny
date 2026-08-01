@@ -778,6 +778,27 @@ c	best/x	bf22/intermediary/C0742	bf22/intermediary/C0742
 c	best/y	bf22/intermediary/C0743	bf22/intermediary/C0743
 c	best/z	bf22/intermediary/C0744	bf22/intermediary/C0744
 c	c/a	bf22/intermediary/C0745	mod/recovered/save/GamePersistence
+	f	Ljava/io/PrintWriter;	SQ	SQ	logWriter
+	f	Lbest/f;	SR	SR	careerState
+	f	Lest/Options;	SS	SS	options
+	f	I	ST	ST	registrationScore
+	f	I	SU	SU	saveFormatVersion
+	f	[Ljava/io/File;	SV	SV	soundFiles
+	f	Lbest/ay;	afQ	afQ	coachJobMarket
+	m	(Lbest/f;)V	a	a	setCareerState
+	m	(Ljava/lang/String;)V	ad	ad	saveCareerInfo
+	m	(Ljava/lang/String;)V	ae	ae	saveCareer
+	m	(Ljava/lang/String;)Lest/InfoArquivoSalvoType;	af	af	loadCareerInfo
+	m	(Ljava/lang/String;)Lest/InfoArquivoSalvoType;	ag	ag	loadLegacyCareerInfo
+	m	(Ljava/lang/String;Z)Z	c	c	loadCareer
+	m	(I)Ljava/io/File;	dj	dj	getSoundFile
+	m	(I)V	ey	ey	setRegistrationScore
+	m	()V	vH	vH	preloadSoundFiles
+	m	()V	vI	vI	loadOptions
+	m	()V	vJ	vJ	saveOptions
+	m	()V	vK	vK	showInvalidSaveMessage
+	m	()Z	vL	vL	isRegisteredVersion
+	m	()Lest/Options;	vM	vM	getOptions
 c	c/b	bf22/intermediary/C0746	mod/recovered/match/MatchEngine
 c	components/A	bf22/intermediary/C0747	bf22/intermediary/C0747
 c	components/B	bf22/intermediary/C0748	bf22/intermediary/C0748

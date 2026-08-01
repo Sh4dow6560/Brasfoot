@@ -57,20 +57,20 @@ public class C0221 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void pD() {
-      CountryCompetitions var1 = GamePersistence.SR.o(29);
+      CountryCompetitions var1 = GamePersistence.careerState.o(29);
       this.zY.q((Competition)var1.eb().get(0));
       this.zY.q((Competition)var1.eb().get(1));
       this.zY.q((Competition)var1.eb().get(2));
       this.zY.q((Competition)var1.eb().get(3));
       C0741 var2 = null;
 
-      for (int var3 = 0; var3 < GamePersistence.SR.aE().size(); var3++) {
-         if (((C0741)GamePersistence.SR.aE().get(var3)).eb().size() > 1) {
-            var2 = (C0741)GamePersistence.SR.aE().get(var3);
+      for (int var3 = 0; var3 < GamePersistence.careerState.aE().size(); var3++) {
+         if (((C0741)GamePersistence.careerState.aE().get(var3)).eb().size() > 1) {
+            var2 = (C0741)GamePersistence.careerState.aE().get(var3);
             break;
          }
       }
@@ -143,7 +143,7 @@ public class C0221 extends JPanel {
       for (int var7 = this.zY.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.zY.cT().get(var7)).b() == i && ((C0708)this.zY.cT().get(var7)).H() != var6) {
             var3++;
-            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.SR.iU());
+            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.iU());
             var4 = ((C0708)this.zY.cT().get(var7)).gS();
             var6 = ((C0708)this.zY.cT().get(var7)).H();
          }
@@ -164,7 +164,7 @@ public class C0221 extends JPanel {
       for (int var7 = this.zY.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.zY.cT().get(var7)).b() == i && ((C0708)this.zY.cT().get(var7)).el() == j && ((C0708)this.zY.cT().get(var7)).H() != var6) {
             var3++;
-            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.SR.iU());
+            var5.add(((C0708)this.zY.cT().get(var7)).H() + GamePersistence.careerState.iU());
             var4 = ((C0708)this.zY.cT().get(var7)).gS();
             var6 = ((C0708)this.zY.cT().get(var7)).H();
          }

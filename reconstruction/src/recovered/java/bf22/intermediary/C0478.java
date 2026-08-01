@@ -12,8 +12,8 @@ class C0478 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
-      GamePersistence.vM().setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
+      GamePersistence.getOptions().setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
+      GamePersistence.saveOptions();
    }
 }

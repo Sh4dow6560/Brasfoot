@@ -25,12 +25,12 @@ public class EuropeanSuperCup extends Competition implements Serializable {
       this.aac = null;
       Club var1 = null;
       Club var2 = null;
-      if (GamePersistence.SR.aI() != null) {
-         var1 = GamePersistence.SR.aI().yz();
+      if (GamePersistence.careerState.aI() != null) {
+         var1 = GamePersistence.careerState.aI().yz();
       }
 
-      if (GamePersistence.SR.aK() != null) {
-         var2 = GamePersistence.SR.aK().yz();
+      if (GamePersistence.careerState.aK() != null) {
+         var2 = GamePersistence.careerState.aK().yz();
       }
 
       boolean[] var3 = new boolean[]{true, true, true, true, true, true, true};

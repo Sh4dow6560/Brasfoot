@@ -12,8 +12,8 @@ class C0183 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      GamePersistence.SR.setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
-      GamePersistence.vM().setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
-      GamePersistence.vJ();
+      GamePersistence.careerState.setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
+      GamePersistence.getOptions().setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
+      GamePersistence.saveOptions();
    }
 }

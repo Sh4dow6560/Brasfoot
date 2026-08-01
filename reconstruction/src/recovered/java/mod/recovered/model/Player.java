@@ -129,7 +129,7 @@ public class Player implements Serializable {
    public Player(int i) {
       this.pais = i;
       this.dm = au(i);
-      GamePersistence.SR.bN().add(this);
+      GamePersistence.careerState.bN().add(this);
    }
 
    public Player(C0689 c0689, Club club) {
@@ -220,7 +220,7 @@ public class Player implements Serializable {
    public Club fg() {
       Club var1 = this.eo;
       if (var1 == null && this.bW >= 0) {
-         var1 = GamePersistence.SR.x(this.bW);
+         var1 = GamePersistence.careerState.x(this.bW);
          this.eo = var1;
          return var1;
       } else {
@@ -706,7 +706,7 @@ public class Player implements Serializable {
 
          this.a(new Random().nextInt(30) + 210, true);
          this.ad(var4);
-         if (GamePersistence.SR.isHabilidadeIndividual()) {
+         if (GamePersistence.careerState.isHabilidadeIndividual()) {
             this.j(var7, var8);
          }
 
@@ -1065,7 +1065,7 @@ public class Player implements Serializable {
          var1 = (int)Math.round(var1 * 0.1);
       }
 
-      if (GamePersistence.SR.isSalarioMensal()) {
+      if (GamePersistence.careerState.isSalarioMensal()) {
          this.et = var1 * 4;
       } else {
          this.et = var1;
@@ -1152,14 +1152,14 @@ public class Player implements Serializable {
       var1 = var3 * var4;
       if (this.fb) {
          var1 = (int)Math.round(var1 * 0.03) * this.es;
-      } else if (this.ff > 0 && GamePersistence.SR.H() == this.ff) {
+      } else if (this.ff > 0 && GamePersistence.careerState.H() == this.ff) {
          var1 = (int)Math.round(var1 * 0.18);
          if (var1 > this.fl() && this.fl() > 0) {
             var1 = this.fl();
          }
-      } else if (this.ff > 0 && GamePersistence.SR.H() - 1 == this.ff) {
+      } else if (this.ff > 0 && GamePersistence.careerState.H() - 1 == this.ff) {
          var1 = (int)Math.round(var1 * 0.35);
-      } else if (this.ff > 0 && GamePersistence.SR.H() - 2 == this.ff) {
+      } else if (this.ff > 0 && GamePersistence.careerState.H() - 2 == this.ff) {
          var1 = (int)Math.round(var1 * 0.65);
       }
 
@@ -1216,7 +1216,7 @@ public class Player implements Serializable {
          var5 = false;
       }
 
-      return !bl && this.fg() != null && this.fg().jZ() && this.eJ < GamePersistence.SR.bb().getTime().getTime() ? false : var5;
+      return !bl && this.fg() != null && this.fg().jZ() && this.eJ < GamePersistence.careerState.bb().getTime().getTime() ? false : var5;
    }
 
    public boolean d(Match c0675) {
@@ -1237,12 +1237,12 @@ public class Player implements Serializable {
    }
 
    public boolean fP() {
-      return this.eI > 0L && this.eI > GamePersistence.SR.bb().getTimeInMillis();
+      return this.eI > 0L && this.eI > GamePersistence.careerState.bb().getTimeInMillis();
    }
 
    public String fQ() {
       String var1 = "contrato vencido";
-      return this.eJ > GamePersistence.SR.bb().getTime().getTime() ? C0693.a(this.eJ) : var1;
+      return this.eJ > GamePersistence.careerState.bb().getTime().getTime() ? C0693.a(this.eJ) : var1;
    }
 
    public int a(Date date, Date date2) {
@@ -1259,7 +1259,7 @@ public class Player implements Serializable {
    }
 
    public int fR() {
-      return this.a(GamePersistence.SR.bb().getTime().getTime(), this.eJ);
+      return this.a(GamePersistence.careerState.bb().getTime().getTime(), this.eJ);
    }
 
    public ImageIcon fS() {
@@ -1368,7 +1368,7 @@ public class Player implements Serializable {
    private void e(double d) {
       boolean var3 = true;
       int var4 = 0;
-      if (GamePersistence.SR.bO() == 3) {
+      if (GamePersistence.careerState.bO() == 3) {
          var3 = false;
       }
 
@@ -1387,7 +1387,7 @@ public class Player implements Serializable {
    private void f(double d) {
       int var3 = this.fg().bQ(this.getPosicao());
       boolean var4 = true;
-      if (GamePersistence.SR.bO() == 3) {
+      if (GamePersistence.careerState.bO() == 3) {
          var4 = false;
       }
 
@@ -1647,7 +1647,7 @@ public class Player implements Serializable {
          var6 = 0.01;
       }
 
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.f(var6);
       }
 
@@ -1814,7 +1814,7 @@ public class Player implements Serializable {
          }
 
          this.eM += var7;
-         if (GamePersistence.SR.isHabilidadeIndividual()) {
+         if (GamePersistence.careerState.isHabilidadeIndividual()) {
             this.e(var7);
          }
 
@@ -2100,11 +2100,11 @@ public class Player implements Serializable {
       var6.kc().remove(this);
       this.gr().clear();
       this.gH().clear();
-      if (GamePersistence.SR.H() < 2 && this.fh > 0) {
+      if (GamePersistence.careerState.H() < 2 && this.fh > 0) {
          new C0719(this.getNome(), this.gy(), this.gz());
-      } else if (GamePersistence.SR.H() < 10 && this.fh > 10) {
+      } else if (GamePersistence.careerState.H() < 10 && this.fh > 10) {
          new C0719(this.getNome(), this.gy(), this.gz());
-      } else if (GamePersistence.SR.H() < 20 && this.fh > 30) {
+      } else if (GamePersistence.careerState.H() < 20 && this.fh > 30) {
          new C0719(this.getNome(), this.gy(), this.gz());
       } else if (this.fh > 50) {
          new C0719(this.getNome(), this.gy(), this.gz());
@@ -2119,9 +2119,9 @@ public class Player implements Serializable {
 
       this.n(null);
       if (bl) {
-         GamePersistence.SR.bz.add(this);
+         GamePersistence.careerState.bz.add(this);
       } else {
-         GamePersistence.SR.O().remove(this);
+         GamePersistence.careerState.O().remove(this);
       }
 
       if (!var16) {
@@ -2134,7 +2134,7 @@ public class Player implements Serializable {
 
       if (var4) {
          Coach var18 = new Coach(this.dm);
-         GamePersistence.SR.a(var18);
+         GamePersistence.careerState.a(var18);
          var18.b(this.fg(), this);
       }
 
@@ -2178,9 +2178,9 @@ public class Player implements Serializable {
          C0689 var7 = new C0689();
          var6 = new Player(var7, club);
          if (boolean_) {
-            GamePersistence.SR.bA.add(var6);
+            GamePersistence.careerState.bA.add(var6);
          } else {
-            GamePersistence.SR.Q().add(var6);
+            GamePersistence.careerState.Q().add(var6);
          }
 
          if (!club.ky().contains(club)) {
@@ -2386,7 +2386,7 @@ public class Player implements Serializable {
    }
 
    public static String av(int i) {
-      if (GamePersistence.SR.aX().size() == 0) {
+      if (GamePersistence.careerState.aX().size() == 0) {
          return null;
       }
 
@@ -2506,8 +2506,8 @@ public class Player implements Serializable {
       }
 
       int var6 = new Random().nextInt(var4) + var3;
-      if (var6 < GamePersistence.SR.aX().size()) {
-         var5 = (String)GamePersistence.SR.aX().get(var6);
+      if (var6 < GamePersistence.careerState.aX().size()) {
+         var5 = (String)GamePersistence.careerState.aX().get(var6);
       }
 
       return var5;
@@ -2569,7 +2569,7 @@ public class Player implements Serializable {
    public C0729 o(Club club) {
       if (this.eT != null) {
          for (int var2 = 0; var2 < this.eT.size(); var2++) {
-            if (((C0729)this.eT.get(var2)).ct() == club.lk() && ((C0729)this.eT.get(var2)).H() == GamePersistence.SR.H()) {
+            if (((C0729)this.eT.get(var2)).ct() == club.lk() && ((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.H()) {
                return (C0729)this.eT.get(var2);
             }
          }
@@ -2639,7 +2639,7 @@ public class Player implements Serializable {
       }
 
       if (var2 > 0) {
-         long var6 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime();
+         long var6 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime();
          long var8 = var2;
          var8 *= 86400000L;
          this.eI = var6 + var8;
@@ -2653,7 +2653,7 @@ public class Player implements Serializable {
          return false;
       }
 
-      if (c0713 != null && c0713 != GamePersistence.SR.bv()) {
+      if (c0713 != null && c0713 != GamePersistence.careerState.bv()) {
          C0674 var4 = this.h(c0713);
          if (i == 2) {
             var4.cz();
@@ -3076,7 +3076,7 @@ public class Player implements Serializable {
    }
 
    public void a(long l, boolean bl) {
-      long var4 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime();
+      long var4 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime();
       if (!bl) {
          var4 = this.eJ;
       }
@@ -3104,7 +3104,7 @@ public class Player implements Serializable {
       this.eY = false;
       var3.v(i, 1);
       club.w(i, 1);
-      Calendar var4 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a();
+      Calendar var4 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a();
       PlayerTransferRecord var5 = new PlayerTransferRecord();
       var5.a(this);
       var5.f(var4.get(5), var4.get(2), var4.get(1));
@@ -3112,7 +3112,7 @@ public class Player implements Serializable {
       var5.cr(club.lk());
       var5.cq(i);
       this.ag(i);
-      GamePersistence.SR.bo().add(var5);
+      GamePersistence.careerState.bo().add(var5);
       var3.ky().remove(this);
       club.ky().add(this);
       this.fk = null;
@@ -3135,7 +3135,7 @@ public class Player implements Serializable {
             this.eW = false;
          }
 
-         Calendar var7 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a();
+         Calendar var7 = ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a();
          int var8 = 0;
          if (!bl2 && !bl3) {
             if (bl && this.eJ > 0L && var7 != null) {
@@ -3199,7 +3199,7 @@ public class Player implements Serializable {
          var12.cs(var6.lk());
          var12.cr(club.lk());
          var12.cq(i);
-         GamePersistence.SR.bo().add(var12);
+         GamePersistence.careerState.bo().add(var12);
          var6.kc().remove(this);
          if (var6.kc().contains(this)) {
             var6.kc().remove(this);
@@ -3303,7 +3303,7 @@ public class Player implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.eT.size(); var2++) {
-         if (((C0729)this.eT.get(var2)).H() == GamePersistence.SR.H()) {
+         if (((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.H()) {
             var1 += ((C0729)this.eT.get(var2)).cD();
          }
       }
@@ -3315,7 +3315,7 @@ public class Player implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.eT.size(); var2++) {
-         if (((C0729)this.eT.get(var2)).H() == GamePersistence.SR.H()) {
+         if (((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.H()) {
             var1 += ((C0729)this.eT.get(var2)).y();
          }
       }
@@ -3327,7 +3327,7 @@ public class Player implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.eT.size(); var2++) {
-         if (((C0729)this.eT.get(var2)).H() == GamePersistence.SR.H()) {
+         if (((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.H()) {
             var1 += ((C0729)this.eT.get(var2)).w();
          }
       }

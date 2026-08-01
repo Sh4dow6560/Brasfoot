@@ -25,7 +25,7 @@ public class C0616 extends DefaultTableCellRenderer {
          this.setHorizontalAlignment(2);
          this.setText(var7.getNome());
       } else if (j == 2) {
-         if (!GamePersistence.SR.isHabilidadeIndividual()) {
+         if (!GamePersistence.careerState.isHabilidadeIndividual()) {
             this.setText(Integer.toString(var7.fi()));
          } else {
             this.setText(Integer.toString(var7.gP()));

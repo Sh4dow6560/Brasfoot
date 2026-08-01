@@ -57,7 +57,7 @@ public abstract class C0677 {
       }
 
       player.ad(var8);
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          byte var9 = 1;
          if (club.kn()) {
             switch (club.getDivisao()) {
@@ -98,7 +98,7 @@ public abstract class C0677 {
       }
 
       player.h(false);
-      player.ar(GamePersistence.SR.H());
+      player.ar(GamePersistence.careerState.H());
       player.d(0.0);
       player.a(180L, true);
       player.fK();
@@ -123,21 +123,21 @@ public abstract class C0677 {
       club.ky().remove(player);
       club.ky().remove(player);
       if (bl) {
-         GamePersistence.SR.bA.remove(player);
+         GamePersistence.careerState.bA.remove(player);
       }
 
       if (!club.kc().contains(player)) {
          club.kc().add(player);
       }
 
-      if (!GamePersistence.SR.O().contains(player)) {
-         GamePersistence.SR.O().add(player);
+      if (!GamePersistence.careerState.O().contains(player)) {
+         GamePersistence.careerState.O().add(player);
       }
 
       if (bl) {
-         GamePersistence.SR.bB.add(player);
+         GamePersistence.careerState.bB.add(player);
       } else {
-         GamePersistence.SR.Q().remove(player);
+         GamePersistence.careerState.Q().remove(player);
       }
 
       player.b((JProgressBar)null);
@@ -199,10 +199,10 @@ public abstract class C0677 {
       var3 = var3 - 5 + new Random().nextInt(8);
       player.ad(var3);
       player.h(false);
-      player.ar(GamePersistence.SR.H());
+      player.ar(GamePersistence.careerState.H());
       player.d(0.0);
       player.a(180L, true);
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          int var9 = 1;
          byte var4 = 1;
          if (i <= 15) {

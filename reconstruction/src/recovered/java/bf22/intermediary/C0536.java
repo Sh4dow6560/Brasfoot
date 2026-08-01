@@ -46,7 +46,7 @@ public class C0536 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
    }
 
    public void mH() {
@@ -79,12 +79,12 @@ public class C0536 extends JPanel {
 
       var2 = this.uz.gw();
       String var3 = "";
-      if (this.uz.fP() && this.uz.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
+      if (this.uz.fP() && this.uz.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
          var3 = "Fim contusão: " + C0693.a(this.uz.fo());
       }
 
       String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.fi()) + "&nbsp;&nbsp;&nbsp;";
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\"><b>Gol:</b>"
             + Integer.toString(this.uz.gK())
             + " <b>Des:</b>"

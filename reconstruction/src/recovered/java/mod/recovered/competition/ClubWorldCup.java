@@ -38,37 +38,37 @@ public class ClubWorldCup extends Competition implements Serializable {
       this.ZR = null;
       this.ZS = null;
       this.ZT = null;
-      if (GamePersistence.SR.aI() != null) {
-         this.ZO = GamePersistence.SR.aI().cS();
-         GamePersistence.SR.aI().N(this.ZO);
+      if (GamePersistence.careerState.aI() != null) {
+         this.ZO = GamePersistence.careerState.aI().cS();
+         GamePersistence.careerState.aI().N(this.ZO);
       }
 
-      if (GamePersistence.SR.aF() != null) {
-         this.ZP = GamePersistence.SR.aF().cS();
-         GamePersistence.SR.aF().N(this.ZP);
+      if (GamePersistence.careerState.aF() != null) {
+         this.ZP = GamePersistence.careerState.aF().cS();
+         GamePersistence.careerState.aF().N(this.ZP);
          if (this.ZP != null && this.ZP.getPais() == 131) {
-            this.ZP = GamePersistence.SR.aF().yx();
+            this.ZP = GamePersistence.careerState.aF().yx();
          }
       }
 
-      if (GamePersistence.SR.aO() != null) {
-         this.ZQ = GamePersistence.SR.aO().cS();
-         GamePersistence.SR.aO().N(this.ZQ);
+      if (GamePersistence.careerState.aO() != null) {
+         this.ZQ = GamePersistence.careerState.aO().cS();
+         GamePersistence.careerState.aO().N(this.ZQ);
       }
 
-      if (GamePersistence.SR.aL() != null) {
-         this.ZR = GamePersistence.SR.aL().cS();
-         GamePersistence.SR.aL().N(this.ZR);
+      if (GamePersistence.careerState.aL() != null) {
+         this.ZR = GamePersistence.careerState.aL().cS();
+         GamePersistence.careerState.aL().N(this.ZR);
       }
 
-      if (GamePersistence.SR.aQ() != null) {
-         this.ZS = GamePersistence.SR.aQ().cS();
-         GamePersistence.SR.aQ().N(this.ZS);
+      if (GamePersistence.careerState.aQ() != null) {
+         this.ZS = GamePersistence.careerState.aQ().cS();
+         GamePersistence.careerState.aQ().N(this.ZS);
       }
 
-      if (GamePersistence.SR.aP() != null) {
-         this.ZT = GamePersistence.SR.aP().cS();
-         GamePersistence.SR.aP().N(this.ZT);
+      if (GamePersistence.careerState.aP() != null) {
+         this.ZT = GamePersistence.careerState.aP().cS();
+         GamePersistence.careerState.aP().N(this.ZT);
       }
 
       if (this.ZO != null && this.ZP != null && this.ZQ != null && this.ZR != null && this.ZS != null && this.ZT != null) {

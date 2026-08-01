@@ -45,7 +45,7 @@ public class C0450 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void mY() {
@@ -65,7 +65,7 @@ public class C0450 extends JPanel {
          if (false) {
             throw new FileNotFoundException();
          }
-         GamePersistence.ae(GamePersistence.SR.br());
+         GamePersistence.saveCareer(GamePersistence.careerState.br());
       } catch (FileNotFoundException var2) {
          var2.printStackTrace();
       }

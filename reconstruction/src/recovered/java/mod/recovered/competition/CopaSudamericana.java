@@ -67,8 +67,8 @@ public class CopaSudamericana extends Competition implements Serializable {
       this.YS.clear();
       this.aao.clear();
       ArrayList var1 = new ArrayList();
-      var1.addAll(GamePersistence.SR.aF().yy());
-      var1.addAll(GamePersistence.SR.aF().yE());
+      var1.addAll(GamePersistence.careerState.aF().yy());
+      var1.addAll(GamePersistence.careerState.aF().yE());
       C0938.a(this.YV, this.YF, var1, false);
       C0938.a(this.YW, this.YS, var1, false);
       if (this.YF.size() < 12) {
@@ -166,8 +166,8 @@ public class CopaSudamericana extends Competition implements Serializable {
          var1.add((Club)((C0673)this.YD.yQ().get(var5)).gR().get(0));
       }
 
-      for (int var8 = 0; var8 < GamePersistence.SR.aF().yd().yQ().size(); var8++) {
-         var2.add((Club)((C0673)GamePersistence.SR.aF().yd().yQ().get(var8)).gR().get(2));
+      for (int var8 = 0; var8 < GamePersistence.careerState.aF().yd().yQ().size(); var8++) {
+         var2.add((Club)((C0673)GamePersistence.careerState.aF().yd().yQ().get(var8)).gR().get(2));
       }
 
       Collections.shuffle(var1);
@@ -220,14 +220,14 @@ public class CopaSudamericana extends Competition implements Serializable {
 
    @Override
    public CountryCompetitions mF() {
-      int var1 = GamePersistence.SR.H() - 1;
+      int var1 = GamePersistence.careerState.H() - 1;
       var1 %= 10;
       int[] var2 = new int[]{11, 29, 150, 42, 46, 151, 195, 26, 198, 60};
-      return var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
+      return var1 < var2.length ? GamePersistence.careerState.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = GamePersistence.SR.H() - 1;
+      int var0 = GamePersistence.careerState.H() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Assunção", "Lima", "São Paulo", "Caracas", "Quito", "Medellín", "La Paz", "Montevidéu", "Santiago", "Córdoba"};

@@ -64,7 +64,7 @@ public class C0018 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void mH() {
@@ -72,19 +72,19 @@ public class C0018 extends JPanel {
    }
 
    private void mO() {
-      if (!GamePersistence.SR.isJogaEstadual()) {
+      if (!GamePersistence.careerState.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.careerState.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaIntClubes()) {
+      if (!GamePersistence.careerState.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -112,8 +112,8 @@ public class C0018 extends JPanel {
    private void cB(int i) {
       this.cA(i);
       this.cS = Competition.a(i, true, 1);
-      if (i == 0 && GamePersistence.SR.bW() != null && GamePersistence.SR.bW().size() > 0) {
-         this.cS.add((Competition)GamePersistence.SR.bW().get(0));
+      if (i == 0 && GamePersistence.careerState.bW() != null && GamePersistence.careerState.bW().size() > 0) {
+         this.cS.add((Competition)GamePersistence.careerState.bW().get(0));
       }
 
       this.va.removeAllItems();
@@ -143,9 +143,9 @@ public class C0018 extends JPanel {
       this.ue.setPreferredSize(new Dimension(10, 25));
       this.ue.setRenderer(var2);
       this.ue.setMaximumRowCount(24);
-      if (GamePersistence.SR.bW().size() > 0) {
-         for (int var3 = 0; var3 < GamePersistence.SR.bW().size(); var3++) {
-            this.ue.addItem(GamePersistence.SR.bW().get(var3));
+      if (GamePersistence.careerState.bW().size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.careerState.bW().size(); var3++) {
+            this.ue.addItem(GamePersistence.careerState.bW().get(var3));
          }
       }
 

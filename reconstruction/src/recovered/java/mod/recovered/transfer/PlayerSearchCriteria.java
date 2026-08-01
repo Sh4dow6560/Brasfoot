@@ -58,21 +58,21 @@ public class PlayerSearchCriteria {
       if (this.ml >= 0) {
          this.mS.clear();
 
-         for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
-            this.mS.add(((CountryCompetitions)GamePersistence.SR.N().get(var3)).jc());
+         for (int var3 = 0; var3 < GamePersistence.careerState.N().size(); var3++) {
+            this.mS.add(((CountryCompetitions)GamePersistence.careerState.N().get(var3)).jc());
          }
       }
 
-      for (int var4 = 0; var4 < GamePersistence.SR.O().size(); var4++) {
-         if (this.i((Player)GamePersistence.SR.O().get(var4))) {
-            var2.add((Player)GamePersistence.SR.O().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.O().size(); var4++) {
+         if (this.i((Player)GamePersistence.careerState.O().get(var4))) {
+            var2.add((Player)GamePersistence.careerState.O().get(var4));
          }
       }
 
       if (bl) {
-         for (int var5 = 0; var5 < GamePersistence.SR.bN().size(); var5++) {
-            if (this.i((Player)GamePersistence.SR.bN().get(var5))) {
-               var2.add((Player)GamePersistence.SR.bN().get(var5));
+         for (int var5 = 0; var5 < GamePersistence.careerState.bN().size(); var5++) {
+            if (this.i((Player)GamePersistence.careerState.bN().get(var5))) {
+               var2.add((Player)GamePersistence.careerState.bN().get(var5));
             }
          }
       }

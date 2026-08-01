@@ -43,9 +43,9 @@ public class AfricaWorldCupQualifiers extends Competition implements Serializabl
       ArrayList var2 = new ArrayList();
       ArrayList var3 = new ArrayList();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.aG().size(); var4++) {
-         if (((CountryCompetitions)GamePersistence.SR.aG().get(var4)).jo() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var4)).gg() == 2) {
-            var1.add((CountryCompetitions)GamePersistence.SR.aG().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.aG().size(); var4++) {
+         if (((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).jo() != null && ((CountryCompetitions)GamePersistence.careerState.aG().get(var4)).gg() == 2) {
+            var1.add((CountryCompetitions)GamePersistence.careerState.aG().get(var4));
          }
       }
 
@@ -76,19 +76,19 @@ public class AfricaWorldCupQualifiers extends Competition implements Serializabl
       }
 
       for (int var13 = 0; var13 < this.YF.size(); var13++) {
-         GamePersistence.SR.s(((Club)this.YF.get(var13)).getPais()).z(true);
+         GamePersistence.careerState.s(((Club)this.YF.get(var13)).getPais()).z(true);
       }
 
       for (int var14 = 0; var14 < var3.size(); var14++) {
-         GamePersistence.SR.s(((Club)var3.get(var14)).getPais()).z(true);
+         GamePersistence.careerState.s(((Club)var3.get(var14)).getPais()).z(true);
       }
 
       boolean[] var15 = new boolean[]{true, true, true, true, true, true, true};
       this.YJ = new KnockoutStage(null, var3.size(), this.b(), 1, var15, this, 9200);
       KnockoutRound var7 = new KnockoutRound();
       var7.a(this.YJ, var3, 0, var15[0], 0, 0, this.b(), false);
-      GamePersistence.afQ.L(var3);
-      GamePersistence.afQ.L(this.YF);
+      GamePersistence.coachJobMarket.L(var3);
+      GamePersistence.coachJobMarket.L(this.YF);
    }
 
    public void Bk() {
@@ -124,7 +124,7 @@ public class AfricaWorldCupQualifiers extends Competition implements Serializabl
       this.afW = (Club)arrayList2.get(0);
 
       for (int var5 = 0; var5 < var3.size(); var5++) {
-         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)var3.get(var5)).getPais()));
+         GamePersistence.careerState.aY().a(this, GamePersistence.careerState.s(((Club)var3.get(var5)).getPais()));
       }
    }
 

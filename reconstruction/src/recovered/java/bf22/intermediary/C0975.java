@@ -15,10 +15,10 @@ class C0975 implements ActionListener {
       int var2 = 0;
       int var3 = 1;
       C0971.a(this.Xb);
-      GamePersistence.SR.aO(true);
+      GamePersistence.careerState.aO(true);
 
-      for (; GamePersistence.SR.H() < 1 || !((C0693)GamePersistence.SR.R().get(342)).e() && !GamePersistence.SR.bN; GamePersistence.SR.V()) {
-         var2 = GamePersistence.SR.H();
+      for (; GamePersistence.careerState.H() < 1 || !((C0693)GamePersistence.careerState.R().get(342)).e() && !GamePersistence.careerState.bN; GamePersistence.careerState.V()) {
+         var2 = GamePersistence.careerState.H();
          if (var3 != var2) {
             var3 = var2;
             System.out.println("ano: " + Integer.toString(var2));

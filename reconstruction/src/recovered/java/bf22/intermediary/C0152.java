@@ -12,6 +12,6 @@ class C0152 extends TimerTask {
    @Override
    public void run() {
       C0151.ph().cancel();
-      GamePersistence.SR.V();
+      GamePersistence.careerState.V();
    }
 }

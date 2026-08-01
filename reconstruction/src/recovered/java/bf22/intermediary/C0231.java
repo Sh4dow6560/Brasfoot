@@ -77,7 +77,7 @@ public class C0231 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void z(Player player) {
@@ -179,7 +179,7 @@ public class C0231 extends JPanel {
          if (var1 == 0) {
             this.FL.n(null);
             this.zu.ky().remove(this.FL);
-            GamePersistence.SR.Q().remove(this.FL);
+            GamePersistence.careerState.Q().remove(this.FL);
             ((C0579)this.FR.getModel()).fireTableDataChanged();
             this.FR.addNotify();
             if (this.FR.getRowCount() > 0) {

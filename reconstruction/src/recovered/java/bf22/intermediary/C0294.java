@@ -90,7 +90,7 @@ public class C0294 extends JPanel {
    public C0294(JDialog jDialog, JTable jTable) {
       this.ub = jDialog;
       this.IG = jTable;
-      if (GamePersistence.vL()) {
+      if (GamePersistence.isRegisteredVersion()) {
          this.IJ = 5;
          this.IK = 5;
       }
@@ -106,8 +106,8 @@ public class C0294 extends JPanel {
    }
 
    private void AO() {
-      for (int var1 = 0; var1 < GamePersistence.SR.getVerJint().length; var1++) {
-         if (GamePersistence.SR.getVerJint()[var1]) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.getVerJint().length; var1++) {
+         if (GamePersistence.careerState.getVerJint()[var1]) {
             this.afm.add(this.fy(var1));
          } else {
             this.afn.add(this.fy(var1));
@@ -130,16 +130,16 @@ public class C0294 extends JPanel {
       if (var2 != null && i == 0) {
          this.afm.remove(var2);
          this.afn.add(var2);
-         GamePersistence.vM().setVerJint(false, var2.getIndex());
+         GamePersistence.getOptions().setVerJint(false, var2.getIndex());
       } else if (var2 != null) {
          this.afm.add(var2);
          this.afn.remove(var2);
-         GamePersistence.vM().setVerJint(true, var2.getIndex());
+         GamePersistence.getOptions().setVerJint(true, var2.getIndex());
       }
 
       this.afq.addNotify();
       this.afr.addNotify();
-      GamePersistence.vJ();
+      GamePersistence.saveOptions();
    }
 
    public C0780 fy(int i) {
@@ -235,9 +235,9 @@ public class C0294 extends JPanel {
 
    private void rG() {
       if (this.IS.isSelected()) {
-         GamePersistence.vM().setRegionaisSemHumanos(0);
+         GamePersistence.getOptions().setRegionaisSemHumanos(0);
       } else {
-         GamePersistence.vM().setRegionaisSemHumanos(1);
+         GamePersistence.getOptions().setRegionaisSemHumanos(1);
       }
    }
 
@@ -298,8 +298,8 @@ public class C0294 extends JPanel {
 
    private void mK() {
       JComboBox[] var1 = new JComboBox[]{this.Jk, this.Jp, this.Jq, this.Ji, this.Jo, this.Jm, this.IW};
-      boolean[] var2 = GamePersistence.SR.getVerJint();
-      if (GamePersistence.vM().getRegionaisSemHumanos() == 0) {
+      boolean[] var2 = GamePersistence.careerState.getVerJint();
+      if (GamePersistence.getOptions().getRegionaisSemHumanos() == 0) {
          this.IS.setSelected(true);
       } else {
          this.IS.setSelected(false);
@@ -320,9 +320,9 @@ public class C0294 extends JPanel {
          var1[var3].addActionListener(new C0315(this));
       }
 
-      var1[0].setSelectedIndex(GamePersistence.SR.getAutoSalvar());
-      int var5 = GamePersistence.SR.getVelocidade();
-      int var6 = GamePersistence.SR.getVelocidadeNH();
+      var1[0].setSelectedIndex(GamePersistence.careerState.getAutoSalvar());
+      int var5 = GamePersistence.careerState.getVelocidade();
+      int var6 = GamePersistence.careerState.getVelocidadeNH();
       if (var5 > this.IJ) {
          var5 = this.IJ;
       }
@@ -333,21 +333,21 @@ public class C0294 extends JPanel {
 
       var1[1].setSelectedIndex(var5);
       var1[2].setSelectedIndex(var6);
-      var1[3].setSelectedIndex(GamePersistence.SR.getVerDecisaoPenNaoHumano());
-      var1[4].setSelectedIndex(GamePersistence.SR.getVerMudancaTecnicos());
-      var1[5].setSelectedIndex(GamePersistence.SR.getVerJanelaSubs());
-      var1[6].setSelectedIndex(GamePersistence.SR.getAvisoTerminoContrato());
-      this.IL.setSelected(GamePersistence.SR.isVerLeiloes());
-      this.IN.setSelected(GamePersistence.SR.isAutoRenovaContrato());
-      this.IO.setSelected(GamePersistence.SR.isUsaCorPlacar());
-      this.IV.setSelected(GamePersistence.SR.isUsaSons());
-      this.IU.setSelected(GamePersistence.SR.isNegritoCasa());
-      this.IP.setSelected(GamePersistence.SR.isUsaCoresLista());
-      this.IQ.setSelected(GamePersistence.SR.isVerEstaduaisAgrupados());
-      this.IT.setSelected(GamePersistence.SR.isIgnoraLigas());
-      this.IR.setSelected(GamePersistence.SR.isIgnoraEstadual());
-      this.du(GamePersistence.SR.getCorPlacar());
-      this.setCorTema(GamePersistence.vM().getCorTema());
+      var1[3].setSelectedIndex(GamePersistence.careerState.getVerDecisaoPenNaoHumano());
+      var1[4].setSelectedIndex(GamePersistence.careerState.getVerMudancaTecnicos());
+      var1[5].setSelectedIndex(GamePersistence.careerState.getVerJanelaSubs());
+      var1[6].setSelectedIndex(GamePersistence.careerState.getAvisoTerminoContrato());
+      this.IL.setSelected(GamePersistence.careerState.isVerLeiloes());
+      this.IN.setSelected(GamePersistence.careerState.isAutoRenovaContrato());
+      this.IO.setSelected(GamePersistence.careerState.isUsaCorPlacar());
+      this.IV.setSelected(GamePersistence.careerState.isUsaSons());
+      this.IU.setSelected(GamePersistence.careerState.isNegritoCasa());
+      this.IP.setSelected(GamePersistence.careerState.isUsaCoresLista());
+      this.IQ.setSelected(GamePersistence.careerState.isVerEstaduaisAgrupados());
+      this.IT.setSelected(GamePersistence.careerState.isIgnoraLigas());
+      this.IR.setSelected(GamePersistence.careerState.isIgnoraEstadual());
+      this.du(GamePersistence.careerState.getCorPlacar());
+      this.setCorTema(GamePersistence.getOptions().getCorTema());
       this.Ef.addMouseListener(new C0316(this));
       this.Eg.addMouseListener(new C0317(this));
       this.Eh.addMouseListener(new C0296(this));
@@ -368,20 +368,20 @@ public class C0294 extends JPanel {
    }
 
    private void db(int i) {
-      GamePersistence.vM().setCorPlacar(i);
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setCorPlacar(i);
+      GamePersistence.saveOptions();
       this.du(i);
    }
 
    private void dt(int i) {
-      GamePersistence.vM().setCorTema(i);
-      GamePersistence.vJ();
+      GamePersistence.getOptions().setCorTema(i);
+      GamePersistence.saveOptions();
       this.setCorTema(i);
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    private void rH() {
@@ -420,27 +420,27 @@ public class C0294 extends JPanel {
    private void c(Object object) {
       JComboBox var2 = (JComboBox)object;
       if ("comb0".equals(var2.getName())) {
-         GamePersistence.vM().setAutoSalvar(var2.getSelectedIndex());
+         GamePersistence.getOptions().setAutoSalvar(var2.getSelectedIndex());
       } else if ("comb1".equals(var2.getName())) {
-         GamePersistence.vM().setVelocidade(var2.getSelectedIndex());
+         GamePersistence.getOptions().setVelocidade(var2.getSelectedIndex());
       } else if ("comb2".equals(var2.getName())) {
-         GamePersistence.vM().setVelocidadeNH(var2.getSelectedIndex());
+         GamePersistence.getOptions().setVelocidadeNH(var2.getSelectedIndex());
       } else if ("comb3".equals(var2.getName())) {
-         GamePersistence.vM().setVerDecisaoPenNaoHumano(var2.getSelectedIndex());
+         GamePersistence.getOptions().setVerDecisaoPenNaoHumano(var2.getSelectedIndex());
       } else if ("comb4".equals(var2.getName())) {
-         GamePersistence.vM().setVerMudancaTecnicos(var2.getSelectedIndex());
+         GamePersistence.getOptions().setVerMudancaTecnicos(var2.getSelectedIndex());
       } else if ("comb5".equals(var2.getName())) {
-         GamePersistence.vM().setVerJanelaSubs(var2.getSelectedIndex());
+         GamePersistence.getOptions().setVerJanelaSubs(var2.getSelectedIndex());
       } else if ("comb6".equals(var2.getName())) {
-         GamePersistence.vM().setAvisoTerminoContrato(var2.getSelectedIndex());
+         GamePersistence.getOptions().setAvisoTerminoContrato(var2.getSelectedIndex());
       }
 
-      GamePersistence.vJ();
+      GamePersistence.saveOptions();
    }
 
    private void nH() {
       JComboBox[] var10000 = new JComboBox[]{this.Jk, this.Jp, this.Jq, this.Ji, this.Jo, this.Jm, this.IW};
-      GamePersistence.vJ();
+      GamePersistence.saveOptions();
    }
 
    private void mJ() {

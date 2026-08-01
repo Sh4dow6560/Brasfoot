@@ -157,7 +157,7 @@ public class C0078 extends JPanel {
          } else if (this.wU.b() == 10) {
             var3 = 4;
          } else if (this.wU.b() == 15) {
-            if (GamePersistence.SR.isJogaIntClubes()) {
+            if (GamePersistence.careerState.isJogaIntClubes()) {
                var3 = 1;
             } else {
                var3 = 0;
@@ -167,22 +167,22 @@ public class C0078 extends JPanel {
 
       this.mH();
       this.cM(var3);
-      this.xN.setText(Integer.toString(GamePersistence.SR.H() + GamePersistence.SR.iU()));
+      this.xN.setText(Integer.toString(GamePersistence.careerState.H() + GamePersistence.careerState.iU()));
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
-      this.xI.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
+      this.xI.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       this.xI.setForeground(Color.WHITE);
       this.ut.setBorder(BorderFactory.createEmptyBorder());
-      if (GamePersistence.vM().getCorTema() == 2) {
-         this.us.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.uh.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.ur.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.vy.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.vx.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.vz.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.vA.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      if (GamePersistence.getOptions().getCorTema() == 2) {
+         this.us.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.uh.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.ur.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.vy.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.vx.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.vz.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.vA.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       }
 
       this.xH.setBackground(Color.LIGHT_GRAY);
@@ -558,7 +558,7 @@ public class C0078 extends JPanel {
          this.s(c0955);
       } else {
          this.n(c0955);
-         if (GamePersistence.SR.isJogaIntClubes() && this.wU.b() == 1) {
+         if (GamePersistence.careerState.isJogaIntClubes() && this.wU.b() == 1) {
             this.m(c0955);
          }
       }
@@ -585,7 +585,7 @@ public class C0078 extends JPanel {
          var3 = 1;
          var4 = 2;
          var5 = 2;
-         if (GamePersistence.SR.bL().el() == 70) {
+         if (GamePersistence.careerState.bL().el() == 70) {
             var2 = 2;
             var3 = 0;
             var4 = 8;
@@ -964,7 +964,7 @@ public class C0078 extends JPanel {
       }
 
       C0801 var2 = new C0801(c0810);
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh, 470, 25));
       this.xh += 26;
    }
@@ -982,7 +982,7 @@ public class C0078 extends JPanel {
          var5 = 30;
       }
 
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var3, new C0775(0, this.xh, 470, var5));
       this.xh = this.xh + var5 + 1;
    }
@@ -994,7 +994,7 @@ public class C0078 extends JPanel {
          var3 = 0;
       }
 
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh + var3, 470, 25));
       this.xh = this.xh + 26 + var3;
    }
@@ -1006,7 +1006,7 @@ public class C0078 extends JPanel {
          this.xh += 20;
       }
 
-      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh, 470, 25));
       this.xh += 26;
    }
@@ -1061,10 +1061,10 @@ public class C0078 extends JPanel {
          ArrayList var2 = new ArrayList();
          int var3 = 0;
 
-         for (int var4 = 0; var4 < GamePersistence.SR.R().size(); var4++) {
-            for (int var5 = 0; var5 < ((C0693)GamePersistence.SR.R().get(var4)).j().size(); var5++) {
-               if (((C0693)GamePersistence.SR.R().get(var4)).j().get(var5) == this.wV) {
-                  var2.add((C0693)GamePersistence.SR.R().get(var4));
+         for (int var4 = 0; var4 < GamePersistence.careerState.R().size(); var4++) {
+            for (int var5 = 0; var5 < ((C0693)GamePersistence.careerState.R().get(var4)).j().size(); var5++) {
+               if (((C0693)GamePersistence.careerState.R().get(var4)).j().get(var5) == this.wV) {
+                  var2.add((C0693)GamePersistence.careerState.R().get(var4));
                   break;
                }
             }
@@ -1166,14 +1166,14 @@ public class C0078 extends JPanel {
       if (i == 1) {
          this.yg.setVisible(false);
          this.ye.setVisible(true);
-         this.xI.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.xI.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
          this.xI.setForeground(Color.WHITE);
          this.xH.setBackground(Color.LIGHT_GRAY);
          this.xH.setForeground(Color.BLACK);
       } else {
          this.yg.setVisible(true);
          this.ye.setVisible(false);
-         this.xH.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.xH.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
          this.xH.setForeground(Color.WHITE);
          this.xI.setBackground(Color.LIGHT_GRAY);
          this.xI.setForeground(Color.BLACK);
@@ -1195,19 +1195,19 @@ public class C0078 extends JPanel {
    }
 
    private void mO() {
-      if (!GamePersistence.SR.isJogaEstadual()) {
+      if (!GamePersistence.careerState.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.isJogaRegionais()) {
          this.xy.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.careerState.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!GamePersistence.SR.isJogaIntClubes()) {
+      if (!GamePersistence.careerState.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }

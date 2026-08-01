@@ -47,9 +47,9 @@ public class C0193 extends JPanel {
       this.vf.setText(var5);
       this.vf.setIcon(var4);
 
-      for (int var6 = 0; var6 < GamePersistence.SR.bG.size(); var6++) {
-         if (((NationalLeagueConfig)GamePersistence.SR.bG.get(var6)).getPais() == i) {
-            this.du.add((NationalLeagueConfig)GamePersistence.SR.bG.get(var6));
+      for (int var6 = 0; var6 < GamePersistence.careerState.bG.size(); var6++) {
+         if (((NationalLeagueConfig)GamePersistence.careerState.bG.get(var6)).getPais() == i) {
+            this.du.add((NationalLeagueConfig)GamePersistence.careerState.bG.get(var6));
          }
       }
 
@@ -76,7 +76,7 @@ public class C0193 extends JPanel {
             var12.setDivisao(var10);
             var12.setFormula(0);
             var12.setNome2(CountryInfo.br(i));
-            GamePersistence.SR.bG.add(var12);
+            GamePersistence.careerState.bG.add(var12);
             this.Go[var10] = var12;
             var12.setRebaixadosDireto(4);
             var12.setVagasSobemPeloMataMata(0);
@@ -94,7 +94,7 @@ public class C0193 extends JPanel {
          this.Gp.setVisible(false);
       } else {
          this.Gp.setVisible(true);
-         if (GamePersistence.vM().isNovoFormatoCopa()) {
+         if (GamePersistence.getOptions().isNovoFormatoCopa()) {
             this.Gp.setSelected(true);
          } else {
             this.Gp.setSelected(false);
@@ -115,8 +115,8 @@ public class C0193 extends JPanel {
       this.Gt.nH();
       C0734.a(this.Go, this.pais);
       if (this.pais == 29) {
-         GamePersistence.vM().setNovoFormatoCopa(this.Gp.isSelected());
-         GamePersistence.vJ();
+         GamePersistence.getOptions().setNovoFormatoCopa(this.Gp.isSelected());
+         GamePersistence.saveOptions();
       }
 
       this.ub.dispose();

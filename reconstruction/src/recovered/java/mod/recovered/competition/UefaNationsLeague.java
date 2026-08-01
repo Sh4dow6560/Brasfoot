@@ -44,19 +44,19 @@ public class UefaNationsLeague extends Competition implements Serializable {
          int[] var4 = new int[]{66, 134, 118, 128, 216, 164, 4};
 
          for (int var5 = 0; var5 < var1.length; var5++) {
-            this.agt.add(GamePersistence.SR.s(var1[var5]).jo());
+            this.agt.add(GamePersistence.careerState.s(var1[var5]).jo());
          }
 
          for (int var6 = 0; var6 < var2.length; var6++) {
-            this.agu.add(GamePersistence.SR.s(var2[var6]).jo());
+            this.agu.add(GamePersistence.careerState.s(var2[var6]).jo());
          }
 
          for (int var7 = 0; var7 < var3.length; var7++) {
-            this.agv.add(GamePersistence.SR.s(var3[var7]).jo());
+            this.agv.add(GamePersistence.careerState.s(var3[var7]).jo());
          }
 
          for (int var8 = 0; var8 < var4.length; var8++) {
-            this.agw.add(GamePersistence.SR.s(var4[var8]).jo());
+            this.agw.add(GamePersistence.careerState.s(var4[var8]).jo());
          }
       }
 
@@ -70,10 +70,10 @@ public class UefaNationsLeague extends Competition implements Serializable {
       this.ags = this.e(this.agw, 14004);
       this.agy = -1;
       this.YH++;
-      GamePersistence.afQ.L(this.agt);
-      GamePersistence.afQ.L(this.agu);
-      GamePersistence.afQ.L(this.agv);
-      GamePersistence.afQ.L(this.agw);
+      GamePersistence.coachJobMarket.L(this.agt);
+      GamePersistence.coachJobMarket.L(this.agu);
+      GamePersistence.coachJobMarket.L(this.agv);
+      GamePersistence.coachJobMarket.L(this.agw);
    }
 
    private LeagueStage e(ArrayList arrayList, int i) {
@@ -82,7 +82,7 @@ public class UefaNationsLeague extends Competition implements Serializable {
       }
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
-         GamePersistence.SR.s(((Club)arrayList.get(var3)).getPais()).z(false);
+         GamePersistence.careerState.s(((Club)arrayList.get(var3)).getPais()).z(false);
       }
 
       boolean[] var6 = new boolean[7];

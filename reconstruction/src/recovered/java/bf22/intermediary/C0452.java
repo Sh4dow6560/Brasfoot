@@ -119,10 +119,10 @@ public class C0452 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
-      this.wf.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-      this.wh.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-      this.ve.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
+      this.wf.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+      this.wh.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+      this.ve.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
    }
 
    private void mY() {
@@ -227,7 +227,7 @@ public class C0452 extends JPanel {
    }
 
    private void sA() {
-      if (!GamePersistence.vL()) {
+      if (!GamePersistence.isRegisteredVersion()) {
          JOptionPane.showMessageDialog(this.ub, "Apenas na versão registrada é possível fazer oferta em qualquer jogador.", "Oferta", 2);
       } else if (TransferNegotiation.d(this.sE(), this.ul)) {
          if (this.sE().fg() == this.ul) {
@@ -339,9 +339,9 @@ public class C0452 extends JPanel {
       this.uw.getSelectionModel().setSelectionMode(1);
       this.uw.addTreeSelectionListener(new C0457(this));
 
-      for (int var1 = 0; var1 < GamePersistence.SR.P().size(); var1++) {
-         if (!((Club)GamePersistence.SR.P().get(var1)).kn()) {
-            this.um.add((Club)GamePersistence.SR.P().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.careerState.P().size(); var1++) {
+         if (!((Club)GamePersistence.careerState.P().get(var1)).kn()) {
+            this.um.add((Club)GamePersistence.careerState.P().get(var1));
             Collections.sort(this.um, C1007.VS);
          }
       }
@@ -366,13 +366,13 @@ public class C0452 extends JPanel {
       DefaultMutableTreeNode var3 = null;
       MutableTreeNode var4 = null;
 
-      for (int var5 = 0; var5 < GamePersistence.SR.N().size(); var5++) {
-         var2 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).jp());
+      for (int var5 = 0; var5 < GamePersistence.careerState.N().size(); var5++) {
+         var2 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.careerState.N().get(var5)).jp());
          defaultMutableTreeNode.add(var2);
 
-         for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
-            if (((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               String var7 = ((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome();
+         for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.careerState.N().get(var5)).eb().size(); var6++) {
+            if (((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               String var7 = ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var5)).eb().get(var6)).getNome();
                if (var7.length() > 39) {
                   var7 = var7.substring(0, 39) + "...";
                }
@@ -380,7 +380,7 @@ public class C0452 extends JPanel {
                var3 = new DefaultMutableTreeNode(var7);
                var2.add(var3);
                ArrayList var8 = new ArrayList();
-               var8.addAll(((NationalLeague)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK());
+               var8.addAll(((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var5)).eb().get(var6)).yi().yK());
                Collections.sort(var8, C1007.VS);
 
                for (int var9 = 0; var9 < var8.size(); var9++) {
@@ -390,11 +390,11 @@ public class C0452 extends JPanel {
             }
          }
 
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size() > 0) {
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var5)).ek().size() > 0) {
             var3 = new DefaultMutableTreeNode("Regionais");
             var2.add(var3);
             ArrayList var18 = new ArrayList();
-            var18.addAll(((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek());
+            var18.addAll(((CountryCompetitions)GamePersistence.careerState.N().get(var5)).ek());
             Collections.sort(var18, C1007.VS);
 
             for (int var19 = 0; var19 < var18.size(); var19++) {
@@ -431,12 +431,12 @@ public class C0452 extends JPanel {
          this.MO.setIcon(var2);
          var1 = this.yK.gw();
          String var3 = "";
-         if (this.yK.fP() && this.yK.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
+         if (this.yK.fP() && this.yK.fo() > ((C0693)GamePersistence.careerState.R().get(GamePersistence.careerState.J())).a().getTime().getTime()) {
             var3 = "Fim contusão: " + C0693.a(this.yK.fo());
          }
 
          String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.fi()) + "&nbsp;&nbsp;&nbsp;";
-         if (GamePersistence.SR.isHabilidadeIndividual()) {
+         if (GamePersistence.careerState.isHabilidadeIndividual()) {
             var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;";
          }
 
@@ -507,7 +507,7 @@ public class C0452 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 20, 45, 120, 20, 20, 50, 50, 45, 35, 25, 25, 20, 20};
       int[] var3 = new int[]{20, 20, 20, 110, 20, 25, 25, 25, 25, 25, 25, 25, 50, 50, 60, 45, 25, 22, 20, 20};
-      if (GamePersistence.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -533,7 +533,7 @@ public class C0452 extends JPanel {
       var5.setComparator(2, C1007.cL);
       var5.setComparator(3, C1007.abk);
       var5.setComparator(4, C1007.aba);
-      if (!GamePersistence.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          var5.setComparator(5, C1007.aaJ);
          var5.setComparator(6, C1007.aaZ);
          var5.setComparator(7, C1007.aaW);

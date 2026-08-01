@@ -23,58 +23,58 @@ import mod.recovered.config.GameOptions;
 import mod.recovered.save.SavedGameInfo;
 
 public class GamePersistence {
-   static PrintWriter SQ;
-   public static CareerState SR = null;
-   public static CoachJobMarket afQ = null;
-   private static GameOptions SS = null;
-   private static int ST = 0;
-   public static int SU = 64;
-   private static final File[] SV = new File[7];
+   static PrintWriter logWriter;
+   public static CareerState careerState = null;
+   public static CoachJobMarket coachJobMarket = null;
+   private static GameOptions options = null;
+   private static int registrationScore = 0;
+   public static int saveFormatVersion = 64;
+   private static final File[] soundFiles = new File[7];
 
    public GamePersistence() {
-      vI();
-      if (SS == null) {
-         SS = new GameOptions();
+      loadOptions();
+      if (options == null) {
+         options = new GameOptions();
       }
 
-      SR = new CareerState();
-      afQ = new CoachJobMarket();
+      careerState = new CareerState();
+      coachJobMarket = new CoachJobMarket();
    }
 
-   public static void vH() {
+   public static void preloadSoundFiles() {
       String[] var0 = new String[]{"intervalo", "fimjogo", "gol1", "goladv", "penalty", "expulsao", "contusao"};
 
       for (int var1 = 0; var1 < var0.length; var1++) {
          File var2 = new File(System.getProperty("user.dir") + "/sons/" + var0[var1] + ".wav");
          if (var2.exists() && !var2.isDirectory()) {
-            SV[var1] = var2;
+            soundFiles[var1] = var2;
          }
       }
    }
 
-   public static File dj(int i) {
+   public static File getSoundFile(int i) {
       String[] var1 = new String[]{"intervalo", "fimjogo", "gol1", "goladv", "penalty", "expulsao", "contusao"};
-      if (SV[i] == null) {
+      if (soundFiles[i] == null) {
          File var2 = new File(System.getProperty("user.dir") + "/sons/" + var1[i] + ".wav");
          if (var2.exists() && !var2.isDirectory()) {
-            SV[i] = var2;
+            soundFiles[i] = var2;
             return var2;
          } else {
-            return SV[i];
+            return soundFiles[i];
          }
       } else {
-         return SV[i];
+         return soundFiles[i];
       }
    }
 
-   public static void ad(String string) {
+   public static void saveCareerInfo(String string) {
       C0990.Ag();
       C0990.Ai();
       if (string != null) {
          try {
             FileOutputStream var1 = new FileOutputStream(System.getProperty("user.dir") + "/sav/" + string + ".info");
             ObjectOutputStream var2 = new ObjectOutputStream(var1);
-            var2.writeObject(SR.bs());
+            var2.writeObject(careerState.bs());
             var2.flush();
             var2.close();
             var1.close();
@@ -84,7 +84,7 @@ public class GamePersistence {
       }
    }
 
-   public static void ae(String string) {
+   public static void saveCareer(String string) {
       if (string != null) {
          boolean var1 = false;
          C0990.Ag();
@@ -93,7 +93,7 @@ public class GamePersistence {
          try {
             FileOutputStream var2 = new FileOutputStream(System.getProperty("user.dir") + "/sav/" + string + ".info");
             ObjectOutputStream var3 = new ObjectOutputStream(var2);
-            var3.writeObject(SR.bs());
+            var3.writeObject(careerState.bs());
             var3.flush();
             var3.close();
             var2.close();
@@ -106,8 +106,8 @@ public class GamePersistence {
             var12.setRegistrationRequired(false);
             FileOutputStream var14 = new FileOutputStream(System.getProperty("user.dir") + "/sav/" + string + ".s22");
             Output var4 = new Output(var14);
-            var12.writeClassAndObject(var4, SR);
-            var12.writeClassAndObject(var4, afQ);
+            var12.writeClassAndObject(var4, careerState);
+            var12.writeClassAndObject(var4, coachJobMarket);
             var4.close();
             var1 = true;
          } catch (Exception var10) {
@@ -132,10 +132,10 @@ public class GamePersistence {
       }
    }
 
-   public static boolean c(String string, boolean bl) {
-      vI();
-      if (SS == null) {
-         SS = new GameOptions();
+   public static boolean loadCareer(String string, boolean bl) {
+      loadOptions();
+      if (options == null) {
+         options = new GameOptions();
       }
 
       String var2 = ".s22";
@@ -148,15 +148,15 @@ public class GamePersistence {
          try {
             Input var4 = new Input(new FileInputStream(System.getProperty("user.dir") + "/sav/" + string + var2));
             var3.setRegistrationRequired(false);
-            SR = (CareerState)var3.readClassAndObject(var4);
-            afQ = (CoachJobMarket)var3.readClassAndObject(var4);
+            careerState = (CareerState)var3.readClassAndObject(var4);
+            coachJobMarket = (CoachJobMarket)var3.readClassAndObject(var4);
             var4.close();
          } catch (Exception var6) {
             var6.printStackTrace();
             if (!bl) {
-               c(string, true);
+               loadCareer(string, true);
             } else {
-               vK();
+               showInvalidSaveMessage();
             }
 
             return false;
@@ -167,13 +167,13 @@ public class GamePersistence {
          C0990.Ah();
          C0990.Af();
          C0990.Aj();
-         SR.bs = true;
-         SR.G();
+         careerState.bs = true;
+         careerState.G();
          new C0679(false);
-         SR.i(true);
+         careerState.i(true);
          new MainWindow(false);
-         SR.cb();
-         SR.ap();
+         careerState.cb();
+         careerState.ap();
          if (C0732.dc() != null) {
             C0732.dc().dispose();
          }
@@ -182,13 +182,13 @@ public class GamePersistence {
       return true;
    }
 
-   public static void vI() {
+   public static void loadOptions() {
       File var0 = new File(System.getProperty("user.dir") + "/options.bcf");
       if (var0.exists() && !var0.isDirectory()) {
          try {
             FileInputStream var1 = new FileInputStream(System.getProperty("user.dir") + "/options.bcf");
             ObjectInputStream var2 = new ObjectInputStream(var1);
-            SS = (GameOptions)var2.readObject();
+            options = (GameOptions)var2.readObject();
             var2.close();
             var1.close();
          } catch (IOException var3) {
@@ -199,15 +199,15 @@ public class GamePersistence {
             return;
          }
       } else {
-         SS = new GameOptions();
+         options = new GameOptions();
       }
    }
 
-   public static void vJ() {
+   public static void saveOptions() {
       try {
          FileOutputStream var0 = new FileOutputStream(System.getProperty("user.dir") + "/options.bcf");
          ObjectOutputStream var1 = new ObjectOutputStream(var0);
-         var1.writeObject(SS);
+         var1.writeObject(options);
          var1.close();
          var0.close();
       } catch (IOException var2) {
@@ -215,7 +215,7 @@ public class GamePersistence {
       }
    }
 
-   public static SavedGameInfo af(String string) {
+   public static SavedGameInfo loadCareerInfo(String string) {
       SavedGameInfo var1 = null;
       if (string != null) {
          try {
@@ -236,7 +236,7 @@ public class GamePersistence {
       return var1;
    }
 
-   public static SavedGameInfo ag(String string) {
+   public static SavedGameInfo loadLegacyCareerInfo(String string) {
       SavedGameInfo var1 = null;
       if (string != null) {
          try {
@@ -257,27 +257,27 @@ public class GamePersistence {
       return var1;
    }
 
-   public static void vK() {
+   public static void showInvalidSaveMessage() {
       JOptionPane.showMessageDialog(null, "Arquivo inválido: save corrompido ou é de uma versão/build anterior.", "Arquivo inválido", 0);
    }
 
-   public static boolean vL() {
-      return ST >= 1920;
+   public static boolean isRegisteredVersion() {
+      return registrationScore >= 1920;
    }
 
-   public static GameOptions vM() {
-      if (SS == null) {
-         SS = new GameOptions();
+   public static GameOptions getOptions() {
+      if (options == null) {
+         options = new GameOptions();
       }
 
-      return SS;
+      return options;
    }
 
-   public static void ey(int i) {
-      ST = i;
+   public static void setRegistrationScore(int i) {
+      registrationScore = i;
    }
 
-   public static void a(CareerState c0723) {
-      SR = c0723;
+   public static void setCareerState(CareerState c0723) {
+      careerState = c0723;
    }
 }

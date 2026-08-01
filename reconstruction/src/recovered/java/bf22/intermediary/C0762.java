@@ -107,19 +107,19 @@ public class C0762 extends JPanel {
       if (this.w != 1 && this.w != 4) {
          this.uj();
       } else {
-         this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.QC.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-         this.QB.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.QC.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+         this.QB.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       }
    }
 
    private void uj() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
-      this.QC.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
+      this.QC.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       C0781[] var1 = new C0781[]{this.QN, this.QL, this.QQ, this.QM, this.QK, this.QP, this.QO};
 
       for (int var2 = 0; var2 < var1.length; var2++) {
-         var1[var2].setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         var1[var2].setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 2));
       }
    }
 
@@ -204,8 +204,8 @@ public class C0762 extends JPanel {
 
       this.Qu.addItem(this.pU);
 
-      for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
-         this.Qu.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var3)).jp());
+      for (int var3 = 0; var3 < GamePersistence.careerState.N().size(); var3++) {
+         this.Qu.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var3)).jp());
       }
 
       C0037 var10 = new C0037();

@@ -64,7 +64,7 @@ public class C0427 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.getOptions().getCorTema(), 1));
    }
 
    public void mH() {
@@ -79,9 +79,9 @@ public class C0427 extends JPanel {
    private void mQ() {
       this.ue.addItem("Internacional");
 
-      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
-         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jp());
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc() == this.vk) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.N().size(); var1++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jp());
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var1)).jc() == this.vk) {
             this.vl = var1 + 1;
          }
       }
@@ -107,16 +107,16 @@ public class C0427 extends JPanel {
       int var2 = this.ue.getSelectedIndex() - 1;
       this.KG.clear();
       if (var2 >= 0) {
-         this.vl = ((CountryCompetitions)GamePersistence.SR.N().get(var2)).jc();
+         this.vl = ((CountryCompetitions)GamePersistence.careerState.N().get(var2)).jc();
 
-         for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
-            if (((Club)GamePersistence.SR.P().get(var3)).getPais() == this.vl) {
-               this.KG.add((Club)GamePersistence.SR.P().get(var3));
+         for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
+            if (((Club)GamePersistence.careerState.P().get(var3)).getPais() == this.vl) {
+               this.KG.add((Club)GamePersistence.careerState.P().get(var3));
             }
          }
       } else {
-         for (int var5 = 0; var5 < GamePersistence.SR.P().size(); var5++) {
-            this.KG.add((Club)GamePersistence.SR.P().get(var5));
+         for (int var5 = 0; var5 < GamePersistence.careerState.P().size(); var5++) {
+            this.KG.add((Club)GamePersistence.careerState.P().get(var5));
          }
       }
 
@@ -176,7 +176,7 @@ public class C0427 extends JPanel {
    }
 
    private boolean dy(int i) {
-      if (i == 3 && !GamePersistence.SR.isJogaEstadual()) {
+      if (i == 3 && !GamePersistence.careerState.isJogaEstadual()) {
          return false;
       }
 
@@ -185,7 +185,7 @@ public class C0427 extends JPanel {
       }
 
       if (i == 4 || i == 6 || i == 5 || i == 8 || i == 12) {
-         if (!GamePersistence.SR.isJogaIntClubes()) {
+         if (!GamePersistence.careerState.isJogaIntClubes()) {
             return false;
          }
 

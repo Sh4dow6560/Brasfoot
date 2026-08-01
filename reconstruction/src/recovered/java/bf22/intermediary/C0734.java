@@ -36,61 +36,61 @@ public abstract class C0734 {
    private static int cO = 0;
 
    public static void dd() {
-      if (GamePersistence.SR.aG().size() == 0) {
+      if (GamePersistence.careerState.aG().size() == 0) {
          de();
       }
 
-      GamePersistence.SR.bC = new ArrayList();
-      GamePersistence.SR.bD = new int[C0696.jz()];
-      GamePersistence.SR.bE = new int[GameConstants.rX.length];
+      GamePersistence.careerState.bC = new ArrayList();
+      GamePersistence.careerState.bD = new int[C0696.jz()];
+      GamePersistence.careerState.bE = new int[GameConstants.rX.length];
       C0687.w(false);
-      Collections.sort(GamePersistence.SR.bC, cN);
-      GamePersistence.SR.bF = new ArrayList();
+      Collections.sort(GamePersistence.careerState.bC, cN);
+      GamePersistence.careerState.bF = new ArrayList();
       byte var0 = 10;
 
-      for (int var1 = 0; var1 < GamePersistence.SR.bD.length; var1++) {
+      for (int var1 = 0; var1 < GamePersistence.careerState.bD.length; var1++) {
          if (var1 != 3 && var1 != 11 && var1 != 97 && var1 != 104 && var1 != 72) {
             var0 = 10;
          } else {
             var0 = 16;
          }
 
-         if (GamePersistence.SR.bD[var1] >= var0) {
+         if (GamePersistence.careerState.bD[var1] >= var0) {
             C0681 var2 = new C0681();
             var2.setPais(var1);
-            var2.aX(GamePersistence.SR.bD[var1]);
+            var2.aX(GamePersistence.careerState.bD[var1]);
             var2.v(false);
-            GamePersistence.SR.bF.add(var2);
+            GamePersistence.careerState.bF.add(var2);
          }
       }
 
-      GamePersistence.SR.bG = new ArrayList();
+      GamePersistence.careerState.bG = new ArrayList();
       ds();
    }
 
    public static void de() {
-      GamePersistence.SR.aG().clear();
+      GamePersistence.careerState.aG().clear();
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
          CountryCompetitions var1 = new CountryCompetitions(var0);
-         GamePersistence.SR.aG().add(var1);
+         GamePersistence.careerState.aG().add(var1);
       }
    }
 
    public static void w(ArrayList arrayList) {
       for (int var1 = 0; var1 < arrayList.size(); var1++) {
          if (((C0681)arrayList.get(var1)).iC()) {
-            CountryCompetitions var2 = (CountryCompetitions)GamePersistence.SR.aG().get(((C0681)arrayList.get(var1)).getPais());
+            CountryCompetitions var2 = (CountryCompetitions)GamePersistence.careerState.aG().get(((C0681)arrayList.get(var1)).getPais());
             var2.Ar();
-            GamePersistence.SR.a(var2);
+            GamePersistence.careerState.a(var2);
          }
       }
    }
 
    public static void df() {
-      for (int var0 = 0; var0 < GamePersistence.SR.N().size(); var0++) {
-         if (((CountryCompetitions)GamePersistence.SR.N().get(var0)).jc() == 29) {
-            ((CountryCompetitions)GamePersistence.SR.N().get(var0)).ja();
+      for (int var0 = 0; var0 < GamePersistence.careerState.N().size(); var0++) {
+         if (((CountryCompetitions)GamePersistence.careerState.N().get(var0)).jc() == 29) {
+            ((CountryCompetitions)GamePersistence.careerState.N().get(var0)).ja();
          }
       }
    }
@@ -101,37 +101,37 @@ public abstract class C0734 {
       boolean var3 = false;
       int[] var4 = new int[C0696.jz()];
 
-      for (int var5 = 0; var5 < GamePersistence.SR.bC.size(); var5++) {
-         var2 = ((C0915)GamePersistence.SR.bC.get(var5)).getPais();
+      for (int var5 = 0; var5 < GamePersistence.careerState.bC.size(); var5++) {
+         var2 = ((C0915)GamePersistence.careerState.bC.get(var5)).getPais();
          if (var2 != null) {
-            if (GamePersistence.SR.t(var2)) {
+            if (GamePersistence.careerState.t(var2)) {
                var3 = true;
             } else {
                var3 = false;
             }
 
-            if (var4[((C0915)GamePersistence.SR.bC.get(var5)).getPais()] < var1 || var3) {
-               new Club((C0915)GamePersistence.SR.bC.get(var5));
-               var4[((C0915)GamePersistence.SR.bC.get(var5)).getPais()]++;
+            if (var4[((C0915)GamePersistence.careerState.bC.get(var5)).getPais()] < var1 || var3) {
+               new Club((C0915)GamePersistence.careerState.bC.get(var5));
+               var4[((C0915)GamePersistence.careerState.bC.get(var5)).getPais()]++;
             }
          }
       }
    }
 
    public static void dg() {
-      x(GamePersistence.SR.bF);
+      x(GamePersistence.careerState.bF);
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
-         CountryCompetitions var1 = (CountryCompetitions)GamePersistence.SR.aG().get(var0);
+         CountryCompetitions var1 = (CountryCompetitions)GamePersistence.careerState.aG().get(var0);
          var1.iT();
       }
 
-      GamePersistence.SR.cb();
-      GamePersistence.SR.r(GamePersistence.SR.op());
+      GamePersistence.careerState.cb();
+      GamePersistence.careerState.r(GamePersistence.careerState.op());
       C0693.g();
       C0693.u();
-      w(GamePersistence.SR.bF);
-      if (GamePersistence.SR.bk() || GamePersistence.SR.X()) {
+      w(GamePersistence.careerState.bF);
+      if (GamePersistence.careerState.bk() || GamePersistence.careerState.X()) {
          int var2 = C0693.e(1);
          if (var2 > 0) {
             C0693.b(var2, 4, 1);
@@ -142,31 +142,31 @@ public abstract class C0734 {
       new C0679(false);
       dj();
 
-      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
-         ((Player)GamePersistence.SR.O().get(var3)).fh();
+      for (int var3 = 0; var3 < GamePersistence.careerState.O().size(); var3++) {
+         ((Player)GamePersistence.careerState.O().get(var3)).fh();
       }
 
-      for (int var4 = 0; var4 < GamePersistence.SR.Q().size(); var4++) {
-         ((Player)GamePersistence.SR.Q().get(var4)).fh();
+      for (int var4 = 0; var4 < GamePersistence.careerState.Q().size(); var4++) {
+         ((Player)GamePersistence.careerState.Q().get(var4)).fh();
       }
 
-      for (int var5 = 0; var5 < GamePersistence.SR.L().size(); var5++) {
-         ((Coach)GamePersistence.SR.L().get(var5)).fh();
+      for (int var5 = 0; var5 < GamePersistence.careerState.L().size(); var5++) {
+         ((Coach)GamePersistence.careerState.L().get(var5)).fh();
       }
 
-      GamePersistence.SR.aU();
-      GamePersistence.SR.c(false);
-      if (GamePersistence.SR.op() == 2023) {
-         GamePersistence.SR.rU();
+      GamePersistence.careerState.aU();
+      GamePersistence.careerState.c(false);
+      if (GamePersistence.careerState.op() == 2023) {
+         GamePersistence.careerState.rU();
       }
 
-      GamePersistence.afQ.zj();
-      if (GamePersistence.SR.isJogaSelecoesAll()) {
-         GamePersistence.SR.ab();
-         GamePersistence.SR.ac();
+      GamePersistence.coachJobMarket.zj();
+      if (GamePersistence.careerState.isJogaSelecoesAll()) {
+         GamePersistence.careerState.ab();
+         GamePersistence.careerState.ac();
       }
 
-      if (GamePersistence.SR.isJogaIntClubes()) {
+      if (GamePersistence.careerState.isJogaIntClubes()) {
          dm();
          dr();
          dq();
@@ -183,11 +183,11 @@ public abstract class C0734 {
          yM();
       }
 
-      if (!GamePersistence.SR.bk() && !GamePersistence.SR.isJogaRegionais()) {
+      if (!GamePersistence.careerState.bk() && !GamePersistence.careerState.isJogaRegionais()) {
          df();
       }
 
-      Collections.sort(GamePersistence.SR.P(), C1007.VS);
+      Collections.sort(GamePersistence.careerState.P(), C1007.VS);
    }
 
    public static void dh() {
@@ -224,9 +224,9 @@ public abstract class C0734 {
       };
       Integer[][] var3 = new Integer[][]{{18, 25}, {10, 17, 22, 23}, {1, 4, 5, 9, 14, 15, 16, 19, 24}, {0, 2, 3, 6, 7, 8, 11, 12, 13, 20, 21, 26}};
 
-      for (int var4 = 0; var4 < GamePersistence.SR.P().size(); var4++) {
-         if (((Club)GamePersistence.SR.P().get(var4)).getPais() == 29) {
-            int var5 = ((Club)GamePersistence.SR.P().get(var4)).getEstado();
+      for (int var4 = 0; var4 < GamePersistence.careerState.P().size(); var4++) {
+         if (((Club)GamePersistence.careerState.P().get(var4)).getPais() == 29) {
+            int var5 = ((Club)GamePersistence.careerState.P().get(var4)).getEstado();
             if (Arrays.asList(var3[0]).contains(var5)) {
                var1[0]++;
             } else if (Arrays.asList(var3[1]).contains(var5)) {
@@ -241,25 +241,25 @@ public abstract class C0734 {
 
       new ArrayList();
       ArrayList var7 = di();
-      boolean[] var8 = GamePersistence.SR.getJogaRegionaisTodos();
+      boolean[] var8 = GamePersistence.careerState.getJogaRegionaisTodos();
 
       for (int var6 = 0; var6 < 4; var6++) {
          if (var8[var6] && var1[var6] >= 16) {
-            GamePersistence.SR.a(new RegionalCup(var6, var7), var6);
+            GamePersistence.careerState.a(new RegionalCup(var6, var7), var6);
             var0 = true;
          }
       }
 
-      GamePersistence.SR.setJogaRegionais(var0);
+      GamePersistence.careerState.setJogaRegionais(var0);
    }
 
    public static ArrayList di() {
       ArrayList var0 = new ArrayList();
       ArrayList var1 = new ArrayList();
-      CountryCompetitions var2 = GamePersistence.SR.o(29);
+      CountryCompetitions var2 = GamePersistence.careerState.o(29);
       if (var2 != null) {
-         if (GamePersistence.vM().isConviteRegionais() && GamePersistence.SR.aN().size() == 1 && ((Club)GamePersistence.SR.aN().get(0)).getPais() == 29) {
-            var0.add((Club)GamePersistence.SR.aN().get(0));
+         if (GamePersistence.getOptions().isConviteRegionais() && GamePersistence.careerState.aN().size() == 1 && ((Club)GamePersistence.careerState.aN().get(0)).getPais() == 29) {
+            var0.add((Club)GamePersistence.careerState.aN().get(0));
          }
 
          for (int var3 = 0; var3 < var2.eb().size(); var3++) {
@@ -270,17 +270,17 @@ public abstract class C0734 {
             }
          }
 
-         if (GamePersistence.SR.H() > 1 && GamePersistence.SR.bx().size() > 0 && GamePersistence.SR.bk() && var2.eb().size() == 4) {
-            for (int var5 = 0; var5 < GamePersistence.SR.bx().size(); var5++) {
-               if (!var0.contains(var0.add(((C0779)GamePersistence.SR.bx().get(var5)).vD()))) {
-                  var0.add(((C0779)GamePersistence.SR.bx().get(var5)).vD());
+         if (GamePersistence.careerState.H() > 1 && GamePersistence.careerState.bx().size() > 0 && GamePersistence.careerState.bk() && var2.eb().size() == 4) {
+            for (int var5 = 0; var5 < GamePersistence.careerState.bx().size(); var5++) {
+               if (!var0.contains(var0.add(((C0779)GamePersistence.careerState.bx().get(var5)).vD()))) {
+                  var0.add(((C0779)GamePersistence.careerState.bx().get(var5)).vD());
                }
             }
          }
 
-         for (int var6 = 0; var6 < GamePersistence.SR.P().size(); var6++) {
-            if (((Club)GamePersistence.SR.P().get(var6)).getPais() == 29 && !var0.contains(GamePersistence.SR.P().get(var6)) && !var1.contains(GamePersistence.SR.P().get(var6))) {
-               var1.add((Club)GamePersistence.SR.P().get(var6));
+         for (int var6 = 0; var6 < GamePersistence.careerState.P().size(); var6++) {
+            if (((Club)GamePersistence.careerState.P().get(var6)).getPais() == 29 && !var0.contains(GamePersistence.careerState.P().get(var6)) && !var1.contains(GamePersistence.careerState.P().get(var6))) {
+               var1.add((Club)GamePersistence.careerState.P().get(var6));
             }
          }
 
@@ -292,63 +292,63 @@ public abstract class C0734 {
    }
 
    private static void dj() {
-      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
-         ((Club)GamePersistence.SR.P().get(var0)).bX(var0);
+      for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
+         ((Club)GamePersistence.careerState.P().get(var0)).bX(var0);
       }
 
-      GamePersistence.SR.w(GamePersistence.SR.P().size());
+      GamePersistence.careerState.w(GamePersistence.careerState.P().size());
    }
 
    private static void dk() {
-      GamePersistence.SR.a(new AfcChampionsLeague());
-      GamePersistence.SR.aL().yq();
+      GamePersistence.careerState.a(new AfcChampionsLeague());
+      GamePersistence.careerState.aL().yq();
    }
 
    private static void dl() {
-      GamePersistence.SR.a(new OfcChampionsLeague());
-      GamePersistence.SR.aQ().yq();
+      GamePersistence.careerState.a(new OfcChampionsLeague());
+      GamePersistence.careerState.aQ().yq();
    }
 
    private static void dm() {
-      GamePersistence.SR.a(new ConcacafChampionsLeague());
-      GamePersistence.SR.aP().yq();
+      GamePersistence.careerState.a(new ConcacafChampionsLeague());
+      GamePersistence.careerState.aP().yq();
    }
 
    private static void dn() {
-      GamePersistence.SR.a(new CafChampionsLeague());
-      GamePersistence.SR.aO().yq();
+      GamePersistence.careerState.a(new CafChampionsLeague());
+      GamePersistence.careerState.aO().yq();
    }
 
    private static void method_kw_do() {
-      GamePersistence.SR.a(new CopaSudamericana());
-      GamePersistence.SR.aH().yq();
+      GamePersistence.careerState.a(new CopaSudamericana());
+      GamePersistence.careerState.aH().yq();
    }
 
    private static void dp() {
-      GamePersistence.SR.a(new UefaEuropaLeague());
-      GamePersistence.SR.aK().yq();
+      GamePersistence.careerState.a(new UefaEuropaLeague());
+      GamePersistence.careerState.aK().yq();
    }
 
    private static void yM() {
-      GamePersistence.SR.a(new UefaConferenceLeague());
-      GamePersistence.SR.mj().yq();
-      GamePersistence.SR.mj().setNome("Conference League");
+      GamePersistence.careerState.a(new UefaConferenceLeague());
+      GamePersistence.careerState.mj().yq();
+      GamePersistence.careerState.mj().setNome("Conference League");
    }
 
    private static void dq() {
-      GamePersistence.SR.a(new UefaChampionsLeague());
-      GamePersistence.SR.aI().setNome(C0679.getString("ligaC"));
-      GamePersistence.SR.aI().yq();
+      GamePersistence.careerState.a(new UefaChampionsLeague());
+      GamePersistence.careerState.aI().setNome(C0679.getString("ligaC"));
+      GamePersistence.careerState.aI().yq();
    }
 
    private static void dr() {
-      GamePersistence.SR.a(new CopaLibertadores());
-      GamePersistence.SR.aF().setNome(C0679.getString("lib"));
-      GamePersistence.SR.aF().yq();
+      GamePersistence.careerState.a(new CopaLibertadores());
+      GamePersistence.careerState.aF().setNome(C0679.getString("lib"));
+      GamePersistence.careerState.aF().yq();
    }
 
    public static void ds() {
-      GamePersistence.SR.bG.clear();
+      GamePersistence.careerState.bG.clear();
       File var0 = new File(System.getProperty("user.dir") + "/conf_ligas_nacionais");
       File[] var1 = var0.listFiles(new C0736());
       if (var1 != null) {
@@ -379,7 +379,7 @@ public abstract class C0734 {
 
    public static void a(NationalLeagueConfigs nationalLeagueConfigs) {
       for (int var1 = 0; var1 < nationalLeagueConfigs.leagues.size(); var1++) {
-         GamePersistence.SR.bG.add((NationalLeagueConfig)nationalLeagueConfigs.leagues.get(var1));
+         GamePersistence.careerState.bG.add((NationalLeagueConfig)nationalLeagueConfigs.leagues.get(var1));
       }
    }
 
@@ -392,17 +392,17 @@ public abstract class C0734 {
 
       ArrayList var8 = new ArrayList();
 
-      for (int var4 = 0; var4 < GamePersistence.SR.bG.size(); var4++) {
-         if (((NationalLeagueConfig)GamePersistence.SR.bG.get(var4)).getPais() == i) {
-            var8.add((NationalLeagueConfig)GamePersistence.SR.bG.get(var4));
+      for (int var4 = 0; var4 < GamePersistence.careerState.bG.size(); var4++) {
+         if (((NationalLeagueConfig)GamePersistence.careerState.bG.get(var4)).getPais() == i) {
+            var8.add((NationalLeagueConfig)GamePersistence.careerState.bG.get(var4));
          }
       }
 
       for (int var9 = 0; var9 < var8.size(); var9++) {
-         GamePersistence.SR.bG.remove(var8.get(var9));
+         GamePersistence.careerState.bG.remove(var8.get(var9));
       }
 
-      GamePersistence.SR.bG.addAll(var2.leagues);
+      GamePersistence.careerState.bG.addAll(var2.leagues);
       String var10 = C0696.valueOf("P" + Integer.toString(i)).jA() + ".cfg";
 
       try {
@@ -428,7 +428,7 @@ public abstract class C0734 {
 
       var3.setPais(j);
       var3.setDivisao(k);
-      GamePersistence.SR.bG.add(var3);
+      GamePersistence.careerState.bG.add(var3);
    }
 
    public static boolean dt() {

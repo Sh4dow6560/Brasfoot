@@ -23,7 +23,7 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public CompetitionSeasonResult(Competition c0713, CompetitionStage c0678, Club club, Club club2) {
-      this.ae = GamePersistence.SR.H();
+      this.ae = GamePersistence.careerState.H();
       if (club != null) {
          this.bQ = club.lk();
       }
@@ -79,11 +79,11 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public Club ce() {
-      return this.bQ >= 0 ? GamePersistence.SR.x(this.bQ) : null;
+      return this.bQ >= 0 ? GamePersistence.careerState.x(this.bQ) : null;
    }
 
    public Club cf() {
-      return this.bR >= 0 ? GamePersistence.SR.x(this.bR) : null;
+      return this.bR >= 0 ? GamePersistence.careerState.x(this.bR) : null;
    }
 
    public String cg() {
@@ -91,7 +91,7 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public Club ch() {
-      return this.bT >= 0 ? GamePersistence.SR.x(this.bT) : null;
+      return this.bT >= 0 ? GamePersistence.careerState.x(this.bT) : null;
    }
 
    public int y() {
@@ -99,10 +99,10 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public Coach ci() {
-      return this.bU == -1 ? null : GamePersistence.SR.y(this.bU);
+      return this.bU == -1 ? null : GamePersistence.careerState.y(this.bU);
    }
 
    public Coach cj() {
-      return this.bV == -1 ? null : GamePersistence.SR.y(this.bV);
+      return this.bV == -1 ? null : GamePersistence.careerState.y(this.bV);
    }
 }
