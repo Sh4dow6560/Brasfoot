@@ -1,0 +1,16 @@
+package bf22.intermediary;
+
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+
+class C0894 extends AbstractAction {
+   final bf22.intermediary.C0893 Ut;
+   C0894(C0893 c0893) {
+      this.Ut = c0893;
+   }
+
+   @Override
+   public void actionPerformed(ActionEvent actionEvent) {
+      C0893.a(this.Ut);
+   }
+}

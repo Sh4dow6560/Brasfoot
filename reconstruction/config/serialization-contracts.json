@@ -105,7 +105,7 @@
     },
     {
       "officialName": "best/C",
-      "namedName": "bf22/intermediary/C0669",
+      "namedName": "mod/recovered/finance/ClubFinances",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -234,7 +234,7 @@
     },
     {
       "officialName": "best/F",
-      "namedName": "bf22/intermediary/C0672",
+      "namedName": "mod/recovered/model/Player",
       "role": "player",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1151,7 +1151,7 @@
     },
     {
       "officialName": "best/ah",
-      "namedName": "bf22/intermediary/C0701",
+      "namedName": "mod/recovered/model/Club",
       "role": "club",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1521,7 +1521,7 @@
     },
     {
       "officialName": "best/al",
-      "namedName": "bf22/intermediary/C0705",
+      "namedName": "mod/recovered/model/Coach",
       "role": "coach",
       "direct": true,
       "superName": "java/lang/Object",
@@ -2799,7 +2799,7 @@
     },
     {
       "officialName": "best/v",
-      "namedName": "bf22/intermediary/C0740",
+      "namedName": "mod/recovered/model/Stadium",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",

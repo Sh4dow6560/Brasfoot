@@ -29,6 +29,7 @@ final class RemapService {
   void remapRecoveredToOfficial(Path output) throws IOException {
     Path namedInput = context.buildDir().resolve("work/recovered/recovered-named.jar");
     ZipSupport.jarDirectory(context.recoveredClassesDir(), namedInput);
+    new SyntheticMemberService(context).markConfiguredMethods(namedInput);
     remap(namedInput, output, "named", "official", context.namedGameJar(), false);
   }
 

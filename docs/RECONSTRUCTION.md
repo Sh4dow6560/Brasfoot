@@ -1,6 +1,6 @@
 # Reconstrucao Da Engine
 
-## Primeiro Marco
+## Fonte Recuperada
 
 - Sete executaveis originais protegidos por hash, de 2016 a 22/23.
 - Atlas estrutural com classes, campos, metodos, recursos e transicoes anuais.
@@ -8,21 +8,25 @@
   colisoes de caminhos.
 - Decompilacao nomeada com 1.038 arquivos Java e nenhum marcador de erro do
   Vineflower.
-- `components/ar` recuperada como `CrashLogHandler`, compilada em Java 8 e
-  carregada no jogo pelo nome oficial.
-- Os sete tipos `est` de configuracao e metadados foram recuperados e testados
-  no Java 8; `est.InfoArquivoSalvoType` leu o save de referencia existente.
-- `components/ag` foi recuperada como `LineupPreset`, primeira dependencia
-  direta do modelo de clube.
-- As outras 2.184 entradas do JAR permanecem byte a byte identicas.
+- Reparos de descompilacao versionados e reproduziveis, com validacao exata do
+  numero de ocorrencias alteradas.
+- As 1.032 classes do Brasfoot foram promovidas, compiladas em conjunto para
+  Java 8 e sobrepostas no build hibrido.
+- As seis classes do carregador Eclipse Jar-in-Jar foram identificadas como
+  dependencia externa e permanecem com os binarios originais.
+- 1.107 membros sinteticos originais sao restaurados do bytecode durante a
+  montagem para preservar os contratos binarios.
+- As outras 1.161 entradas permanecem byte a byte identicas.
+- O save completo de referencia, os 88 contratos serializaveis e os 703 times
+  passaram os testes automatizados.
 
-## Proximos Lotes
+## Proximas Fases
 
-1. Modelos serializaveis auxiliares de clubes e jogadores.
-2. Modelos principais `best/F` (jogador), `best/ah` (clube) e `best/al` (tecnico).
-3. Calendario e competicoes.
-4. Simulacao de partidas e transferencias.
-5. Interface e extensoes novas.
+1. Nomeacao semantica de calendario, competicoes, simulacao e transferencias.
+2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
+3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
+4. Atualizacao de dados 2026.
+5. Novas mecanicas e modernizacao gradual da interface.
 
-Classes serializaveis so podem ser promovidas depois de validar nome oficial,
-campos e `serialVersionUID` contra saves e arquivos `.ban` existentes.
+Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
+de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

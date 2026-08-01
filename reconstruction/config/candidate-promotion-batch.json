@@ -1,0 +1,7 @@
+{
+  "allCompileClean": true,
+  "excludedPrefixes": [
+    "org/eclipse/jdt/"
+  ],
+  "classes": []
+}

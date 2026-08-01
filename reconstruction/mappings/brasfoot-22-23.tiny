@@ -370,6 +370,7 @@ c	a/gV	bf22/intermediary/C0367	bf22/intermediary/C0367
 c	a/gW	bf22/intermediary/C0368	bf22/intermediary/C0368
 c	a/gX	bf22/intermediary/C0369	bf22/intermediary/C0369
 c	a/gY	bf22/intermediary/C0370	bf22/intermediary/C0370
+	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	a/gZ	bf22/intermediary/C0371	bf22/intermediary/C0371
 c	a/ga	bf22/intermediary/C0372	bf22/intermediary/C0372
 c	a/gb	bf22/intermediary/C0373	bf22/intermediary/C0373
@@ -428,7 +429,9 @@ c	a/ha	bf22/intermediary/C0425	bf22/intermediary/C0425
 c	a/hb	bf22/intermediary/C0426	bf22/intermediary/C0426
 c	a/hc	bf22/intermediary/C0427	bf22/intermediary/C0427
 c	a/hd	bf22/intermediary/C0428	bf22/intermediary/C0428
+	m	(Lcomponents/ae;Lcomponents/ae;)I	a	a	compare
 c	a/he	bf22/intermediary/C0429	bf22/intermediary/C0429
+	m	(Lcomponents/ae;Lcomponents/ae;)I	a	a	compare
 c	a/hf	bf22/intermediary/C0430	bf22/intermediary/C0430
 c	a/hg	bf22/intermediary/C0431	bf22/intermediary/C0431
 c	a/hh	bf22/intermediary/C0432	bf22/intermediary/C0432
@@ -436,6 +439,7 @@ c	a/hi	bf22/intermediary/C0433	bf22/intermediary/C0433
 c	a/hj	bf22/intermediary/C0434	bf22/intermediary/C0434
 c	a/hk	bf22/intermediary/C0435	bf22/intermediary/C0435
 c	a/hl	bf22/intermediary/C0436	bf22/intermediary/C0436
+	m	(Lcomponents/i;Lcomponents/i;)I	a	a	compare
 c	a/hm	bf22/intermediary/C0437	bf22/intermediary/C0437
 c	a/hn	bf22/intermediary/C0438	bf22/intermediary/C0438
 c	a/ho	bf22/intermediary/C0439	bf22/intermediary/C0439
@@ -453,6 +457,7 @@ c	a/hz	bf22/intermediary/C0450	bf22/intermediary/C0450
 c	a/i	bf22/intermediary/C0451	bf22/intermediary/C0451
 c	a/iA	bf22/intermediary/C0452	bf22/intermediary/C0452
 c	a/iB	bf22/intermediary/C0453	bf22/intermediary/C0453
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	a/iC	bf22/intermediary/C0454	bf22/intermediary/C0454
 c	a/iD	bf22/intermediary/C0455	bf22/intermediary/C0455
 c	a/iE	bf22/intermediary/C0456	bf22/intermediary/C0456
@@ -546,7 +551,9 @@ c	a/jt	bf22/intermediary/C0543	bf22/intermediary/C0543
 c	a/ju	bf22/intermediary/C0544	bf22/intermediary/C0544
 c	a/jv	bf22/intermediary/C0545	bf22/intermediary/C0545
 c	a/jw	bf22/intermediary/C0546	bf22/intermediary/C0546
+	m	(Lcomponents/ae;Lcomponents/ae;)I	a	a	compare
 c	a/jx	bf22/intermediary/C0547	bf22/intermediary/C0547
+	m	(Lcomponents/ae;Lcomponents/ae;)I	a	a	compare
 c	a/jy	bf22/intermediary/C0548	bf22/intermediary/C0548
 c	a/jz	bf22/intermediary/C0549	bf22/intermediary/C0549
 c	a/k	bf22/intermediary/C0550	bf22/intermediary/C0550
@@ -555,6 +562,7 @@ c	a/m	bf22/intermediary/C0552	bf22/intermediary/C0552
 c	a/n	bf22/intermediary/C0553	bf22/intermediary/C0553
 c	a/o	bf22/intermediary/C0554	bf22/intermediary/C0554
 c	a/p	bf22/intermediary/C0555	bf22/intermediary/C0555
+	m	(Lbest/d;Lbest/d;)I	a	a	compare
 c	a/q	bf22/intermediary/C0556	bf22/intermediary/C0556
 c	a/r	bf22/intermediary/C0557	bf22/intermediary/C0557
 c	a/s	bf22/intermediary/C0558	bf22/intermediary/C0558
@@ -565,11 +573,14 @@ c	a/w	bf22/intermediary/C0562	bf22/intermediary/C0562
 c	a/x	bf22/intermediary/C0563	bf22/intermediary/C0563
 c	a/y	bf22/intermediary/C0564	bf22/intermediary/C0564
 c	a/z	bf22/intermediary/C0565	bf22/intermediary/C0565
+	m	(Lbest/d;Lbest/d;)I	a	a	compare
 c	b/A	bf22/intermediary/C0566	bf22/intermediary/C0566
 c	b/B	bf22/intermediary/C0567	bf22/intermediary/C0567
 c	b/C	bf22/intermediary/C0568	bf22/intermediary/C0568
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/D	bf22/intermediary/C0569	bf22/intermediary/C0569
 c	b/E	bf22/intermediary/C0570	bf22/intermediary/C0570
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/F	bf22/intermediary/C0571	bf22/intermediary/C0571
 c	b/G	bf22/intermediary/C0572	bf22/intermediary/C0572
 c	b/H	bf22/intermediary/C0573	bf22/intermediary/C0573
@@ -580,13 +591,16 @@ c	b/L	bf22/intermediary/C0577	bf22/intermediary/C0577
 c	b/M	bf22/intermediary/C0578	bf22/intermediary/C0578
 c	b/N	bf22/intermediary/C0579	bf22/intermediary/C0579
 c	b/O	bf22/intermediary/C0580	bf22/intermediary/C0580
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/P	bf22/intermediary/C0581	bf22/intermediary/C0581
 c	b/Q	bf22/intermediary/C0582	bf22/intermediary/C0582
 c	b/R	bf22/intermediary/C0583	bf22/intermediary/C0583
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/S	bf22/intermediary/C0584	bf22/intermediary/C0584
 c	b/T	bf22/intermediary/C0585	bf22/intermediary/C0585
 c	b/U	bf22/intermediary/C0586	bf22/intermediary/C0586
 c	b/V	bf22/intermediary/C0587	bf22/intermediary/C0587
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/W	bf22/intermediary/C0588	bf22/intermediary/C0588
 c	b/X	bf22/intermediary/C0589	bf22/intermediary/C0589
 c	b/Y	bf22/intermediary/C0590	bf22/intermediary/C0590
@@ -647,6 +661,7 @@ c	b/d	bf22/intermediary/C0644	bf22/intermediary/C0644
 c	b/e	bf22/intermediary/C0645	bf22/intermediary/C0645
 c	b/f	bf22/intermediary/C0646	bf22/intermediary/C0646
 c	b/g	bf22/intermediary/C0647	bf22/intermediary/C0647
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/h	bf22/intermediary/C0648	bf22/intermediary/C0648
 c	b/i	bf22/intermediary/C0649	bf22/intermediary/C0649
 c	b/j	bf22/intermediary/C0650	bf22/intermediary/C0650
@@ -658,6 +673,7 @@ c	b/o	bf22/intermediary/C0655	bf22/intermediary/C0655
 c	b/p	bf22/intermediary/C0656	bf22/intermediary/C0656
 c	b/q	bf22/intermediary/C0657	bf22/intermediary/C0657
 c	b/r	bf22/intermediary/C0658	bf22/intermediary/C0658
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	b/s	bf22/intermediary/C0659	bf22/intermediary/C0659
 c	b/t	bf22/intermediary/C0660	bf22/intermediary/C0660
 c	b/u	bf22/intermediary/C0661	bf22/intermediary/C0661
@@ -668,10 +684,10 @@ c	b/y	bf22/intermediary/C0665	bf22/intermediary/C0665
 c	b/z	bf22/intermediary/C0666	bf22/intermediary/C0666
 c	best/A	bf22/intermediary/C0667	bf22/intermediary/C0667
 c	best/B	bf22/intermediary/C0668	bf22/intermediary/C0668
-c	best/C	bf22/intermediary/C0669	bf22/intermediary/C0669
+c	best/C	bf22/intermediary/C0669	mod/recovered/finance/ClubFinances
 c	best/D	bf22/intermediary/C0670	bf22/intermediary/C0670
 c	best/E	bf22/intermediary/C0671	bf22/intermediary/C0671
-c	best/F	bf22/intermediary/C0672	bf22/intermediary/C0672
+c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
 c	best/I	bf22/intermediary/C0675	bf22/intermediary/C0675
@@ -695,18 +711,21 @@ c	best/Y	bf22/intermediary/C0691	bf22/intermediary/C0691
 c	best/Z	bf22/intermediary/C0692	bf22/intermediary/C0692
 c	best/a	bf22/intermediary/C0693	bf22/intermediary/C0693
 c	best/aa	bf22/intermediary/C0694	bf22/intermediary/C0694
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/ab	bf22/intermediary/C0695	bf22/intermediary/C0695
+	m	(Lbest/Z;Lbest/Z;)I	a	a	compare
 c	best/ac	bf22/intermediary/C0696	bf22/intermediary/C0696
 	f	Lbest/ac;	if	field_kw_if	field_kw_if
 c	best/ad	bf22/intermediary/C0697	bf22/intermediary/C0697
 c	best/ae	bf22/intermediary/C0698	bf22/intermediary/C0698
 c	best/af	bf22/intermediary/C0699	bf22/intermediary/C0699
 c	best/ag	bf22/intermediary/C0700	bf22/intermediary/C0700
-c	best/ah	bf22/intermediary/C0701	bf22/intermediary/C0701
-c	best/ai	bf22/intermediary/C0702	bf22/intermediary/C0702
+c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
+c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/aj	bf22/intermediary/C0703	bf22/intermediary/C0703
 c	best/ak	bf22/intermediary/C0704	bf22/intermediary/C0704
-c	best/al	bf22/intermediary/C0705	bf22/intermediary/C0705
+c	best/al	bf22/intermediary/C0705	mod/recovered/model/Coach
 c	best/am	bf22/intermediary/C0706	bf22/intermediary/C0706
 c	best/an	bf22/intermediary/C0707	bf22/intermediary/C0707
 c	best/ao	bf22/intermediary/C0708	bf22/intermediary/C0708
@@ -717,9 +736,13 @@ c	best/ar	bf22/intermediary/C0711	bf22/intermediary/C0711
 c	best/as	bf22/intermediary/C0712	bf22/intermediary/C0712
 c	best/at	bf22/intermediary/C0713	bf22/intermediary/C0713
 c	best/au	bf22/intermediary/C0714	bf22/intermediary/C0714
+	m	(Lbest/c;Lbest/c;)I	a	a	compare
 c	best/av	bf22/intermediary/C0715	bf22/intermediary/C0715
+	m	(Lbest/X;Lbest/X;)I	a	a	compare
 c	best/aw	bf22/intermediary/C0716	bf22/intermediary/C0716
+	m	(Lbest/e;Lbest/e;)I	a	a	compare
 c	best/ax	bf22/intermediary/C0717	bf22/intermediary/C0717
+	m	(Lbest/an;Lbest/an;)I	a	a	compare
 c	best/ay	bf22/intermediary/C0718	bf22/intermediary/C0718
 c	best/b	bf22/intermediary/C0719	bf22/intermediary/C0719
 c	best/c	bf22/intermediary/C0720	bf22/intermediary/C0720
@@ -727,6 +750,7 @@ c	best/d	bf22/intermediary/C0721	bf22/intermediary/C0721
 c	best/e	bf22/intermediary/C0722	bf22/intermediary/C0722
 c	best/f	bf22/intermediary/C0723	bf22/intermediary/C0723
 c	best/g	bf22/intermediary/C0724	bf22/intermediary/C0724
+	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725
 	m	()V	do	method_kw_do	method_kw_do
 c	best/h2	bf22/intermediary/C0726	bf22/intermediary/C0726
@@ -737,17 +761,20 @@ c	best/l	bf22/intermediary/C0730	bf22/intermediary/C0730
 c	best/m	bf22/intermediary/C0731	bf22/intermediary/C0731
 c	best/n	bf22/intermediary/C0732	bf22/intermediary/C0732
 c	best/o	bf22/intermediary/C0733	bf22/intermediary/C0733
+	m	(Lbest/ad;Lbest/ad;)I	a	a	compare
 c	best/p	bf22/intermediary/C0734	bf22/intermediary/C0734
 	m	()V	do	method_kw_do	method_kw_do
 c	best/q	bf22/intermediary/C0735	bf22/intermediary/C0735
+	m	(Le/t;Le/t;)I	a	a	compare
 c	best/r	bf22/intermediary/C0736	bf22/intermediary/C0736
 c	best/s	bf22/intermediary/C0737	bf22/intermediary/C0737
 c	best/t	bf22/intermediary/C0738	bf22/intermediary/C0738
 c	best/u	bf22/intermediary/C0739	bf22/intermediary/C0739
-c	best/v	bf22/intermediary/C0740	bf22/intermediary/C0740
+c	best/v	bf22/intermediary/C0740	mod/recovered/model/Stadium
 	f	[I	do	field_kw_do	field_kw_do
 c	best/w	bf22/intermediary/C0741	bf22/intermediary/C0741
 c	best/x	bf22/intermediary/C0742	bf22/intermediary/C0742
+	m	(Lcomponents/aD;Lcomponents/aD;)I	a	a	compare
 c	best/y	bf22/intermediary/C0743	bf22/intermediary/C0743
 c	best/z	bf22/intermediary/C0744	bf22/intermediary/C0744
 c	c/a	bf22/intermediary/C0745	bf22/intermediary/C0745
@@ -876,10 +903,13 @@ c	d/V	bf22/intermediary/C0853	bf22/intermediary/C0853
 c	d/W	bf22/intermediary/C0854	bf22/intermediary/C0854
 c	d/X	bf22/intermediary/C0855	bf22/intermediary/C0855
 c	d/Y	bf22/intermediary/C0856	bf22/intermediary/C0856
+	m	(Ljava/lang/Integer;Ljava/lang/Integer;)I	a	a	compare
 c	d/Z	bf22/intermediary/C0857	bf22/intermediary/C0857
 c	d/a	bf22/intermediary/C0858	bf22/intermediary/C0858
 c	d/aA	bf22/intermediary/C0859	bf22/intermediary/C0859
+	m	(Le/t;Le/t;)I	a	a	compare
 c	d/aB	bf22/intermediary/C0860	bf22/intermediary/C0860
+	m	(Le/t;Le/t;)I	a	a	compare
 c	d/aC	bf22/intermediary/C0861	bf22/intermediary/C0861
 c	d/aD	bf22/intermediary/C0862	bf22/intermediary/C0862
 c	d/aa	bf22/intermediary/C0863	bf22/intermediary/C0863
@@ -899,15 +929,21 @@ c	d/an	bf22/intermediary/C0876	bf22/intermediary/C0876
 c	d/ao	bf22/intermediary/C0877	bf22/intermediary/C0877
 c	d/ap	bf22/intermediary/C0878	bf22/intermediary/C0878
 c	d/aq	bf22/intermediary/C0879	bf22/intermediary/C0879
+	m	(Le/g;Le/g;)I	a	a	compare
 c	d/ar	bf22/intermediary/C0880	bf22/intermediary/C0880
+	m	(Le/g;Le/g;)I	a	a	compare
 c	d/as	bf22/intermediary/C0881	bf22/intermediary/C0881
+	m	(Le/g;Le/g;)I	a	a	compare
 c	d/at	bf22/intermediary/C0882	bf22/intermediary/C0882
+	m	(Le/g;Le/g;)I	a	a	compare
 c	d/au	bf22/intermediary/C0883	bf22/intermediary/C0883
+	m	(Le/g;Le/g;)I	a	a	compare
 c	d/av	bf22/intermediary/C0884	bf22/intermediary/C0884
 c	d/aw	bf22/intermediary/C0885	bf22/intermediary/C0885
 c	d/ax	bf22/intermediary/C0886	bf22/intermediary/C0886
 c	d/ay	bf22/intermediary/C0887	bf22/intermediary/C0887
 c	d/az	bf22/intermediary/C0888	bf22/intermediary/C0888
+	m	(Le/t;Le/t;)I	a	a	compare
 c	d/b	bf22/intermediary/C0889	bf22/intermediary/C0889
 c	d/c	bf22/intermediary/C0890	bf22/intermediary/C0890
 c	d/d	bf22/intermediary/C0891	bf22/intermediary/C0891
@@ -922,6 +958,7 @@ c	d/l	bf22/intermediary/C0899	bf22/intermediary/C0899
 c	d/m	bf22/intermediary/C0900	bf22/intermediary/C0900
 c	d/n	bf22/intermediary/C0901	bf22/intermediary/C0901
 c	d/o	bf22/intermediary/C0902	bf22/intermediary/C0902
+	m	(Ljava/lang/Integer;Ljava/lang/Integer;)I	a	a	compare
 c	d/p	bf22/intermediary/C0903	bf22/intermediary/C0903
 c	d/q	bf22/intermediary/C0904	bf22/intermediary/C0904
 c	d/r	bf22/intermediary/C0905	bf22/intermediary/C0905
@@ -959,6 +996,7 @@ c	est/Options	bf22/intermediary/C0922	mod/recovered/config/GameOptions
 c	f/A	bf22/intermediary/C0923	bf22/intermediary/C0923
 c	f/B	bf22/intermediary/C0924	bf22/intermediary/C0924
 c	f/C	bf22/intermediary/C0925	bf22/intermediary/C0925
+	m	(Lbest/Y;Lbest/Y;)I	a	a	compare
 c	f/D	bf22/intermediary/C0926	bf22/intermediary/C0926
 c	f/E	bf22/intermediary/C0927	bf22/intermediary/C0927
 c	f/F	bf22/intermediary/C0928	bf22/intermediary/C0928
@@ -1025,47 +1063,88 @@ c	forms/y	bf22/intermediary/C0988	bf22/intermediary/C0988
 c	g/a	bf22/intermediary/C0989	bf22/intermediary/C0989
 c	g/b	bf22/intermediary/C0990	bf22/intermediary/C0990
 c	h/A	bf22/intermediary/C0991	bf22/intermediary/C0991
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/B	bf22/intermediary/C0992	bf22/intermediary/C0992
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/C	bf22/intermediary/C0993	bf22/intermediary/C0993
+	m	(Lf/s;Lf/s;)I	a	a	compare
 c	h/D	bf22/intermediary/C0994	bf22/intermediary/C0994
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/E	bf22/intermediary/C0995	bf22/intermediary/C0995
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/F	bf22/intermediary/C0996	bf22/intermediary/C0996
+	m	(Lbest/at;Lbest/at;)I	a	a	compare
 c	h/G	bf22/intermediary/C0997	bf22/intermediary/C0997
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/H	bf22/intermediary/C0998	bf22/intermediary/C0998
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/I	bf22/intermediary/C0999	bf22/intermediary/C0999
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/J	bf22/intermediary/C1000	bf22/intermediary/C1000
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/K	bf22/intermediary/C1001	bf22/intermediary/C1001
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/L	bf22/intermediary/C1002	bf22/intermediary/C1002
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/M	bf22/intermediary/C1003	bf22/intermediary/C1003
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/N	bf22/intermediary/C1004	bf22/intermediary/C1004
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/O	bf22/intermediary/C1005	bf22/intermediary/C1005
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/P	bf22/intermediary/C1006	bf22/intermediary/C1006
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/a	bf22/intermediary/C1007	bf22/intermediary/C1007
 c	h/b	bf22/intermediary/C1008	bf22/intermediary/C1008
+	m	(Le/t;Le/t;)I	a	a	compare
 c	h/c	bf22/intermediary/C1009	bf22/intermediary/C1009
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/d	bf22/intermediary/C1010	bf22/intermediary/C1010
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/e	bf22/intermediary/C1011	bf22/intermediary/C1011
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/f	bf22/intermediary/C1012	bf22/intermediary/C1012
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/g	bf22/intermediary/C1013	bf22/intermediary/C1013
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/h	bf22/intermediary/C1014	bf22/intermediary/C1014
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/i	bf22/intermediary/C1015	bf22/intermediary/C1015
+	m	(Lbest/v;Lbest/v;)I	a	a	compare
 c	h/j	bf22/intermediary/C1016	bf22/intermediary/C1016
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/k	bf22/intermediary/C1017	bf22/intermediary/C1017
+	m	(Lbest/ah;Lbest/ah;)I	c	c	compare
 c	h/l	bf22/intermediary/C1018	bf22/intermediary/C1018
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/m	bf22/intermediary/C1019	bf22/intermediary/C1019
+	m	(Le/t;Le/t;)I	a	a	compare
 c	h/n	bf22/intermediary/C1020	bf22/intermediary/C1020
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/o	bf22/intermediary/C1021	bf22/intermediary/C1021
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/p	bf22/intermediary/C1022	bf22/intermediary/C1022
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/q	bf22/intermediary/C1023	bf22/intermediary/C1023
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/r	bf22/intermediary/C1024	bf22/intermediary/C1024
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/s	bf22/intermediary/C1025	bf22/intermediary/C1025
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/t	bf22/intermediary/C1026	bf22/intermediary/C1026
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/u	bf22/intermediary/C1027	bf22/intermediary/C1027
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/v	bf22/intermediary/C1028	bf22/intermediary/C1028
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/w	bf22/intermediary/C1029	bf22/intermediary/C1029
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/x	bf22/intermediary/C1030	bf22/intermediary/C1030
+	m	(Le/t;Le/t;)I	a	a	compare
 c	h/y	bf22/intermediary/C1031	bf22/intermediary/C1031
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	h/z	bf22/intermediary/C1032	bf22/intermediary/C1032
+	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	org/eclipse/jdt/internal/jarinjarloader/JarRsrcLoader	bf22/intermediary/C1033	bf22/intermediary/C1033
 c	org/eclipse/jdt/internal/jarinjarloader/a	bf22/intermediary/C1034	bf22/intermediary/C1034
 c	org/eclipse/jdt/internal/jarinjarloader/b	bf22/intermediary/C1035	bf22/intermediary/C1035

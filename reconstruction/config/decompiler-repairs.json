@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "repairs": [
+    {
+      "officialClass": "best/f",
+      "replacements": [
+        {
+          "search": ".p(null);",
+          "replacement": ".p((C0955)null);",
+          "expectedOccurrences": 6
+        },
+        {
+          "search": "C0685.iF().ru();",
+          "replacement": "new java.io.ByteArrayInputStream(new byte[0]).close();\n                        C0685.iF().ru();",
+          "expectedOccurrences": 3
+        }
+      ]
+    },
+    {
+      "officialClass": "f/G",
+      "replacements": [
+        {
+          "search": "(boolean)0",
+          "replacement": "0",
+          "expectedOccurrences": 5
+        }
+      ]
+    },
+    {
+      "officialClass": "a/hz",
+      "replacements": [
+        {
+          "search": "C0745.ae(C0745.SR.br());",
+          "replacement": "if (false) {\n            throw new FileNotFoundException();\n         }\n         C0745.ae(C0745.SR.br());",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "best/P",
+      "replacements": [
+        {
+          "search": "public static void a(String string, String string2) {",
+          "replacement": "public static void a(String string, String string2) throws ParserConfigurationException, SAXException, IOException {",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "best/ag",
+      "replacements": [
+        {"search":"var4[var8.get(var10)]","replacement":"var4[(Integer)var8.get(var10)]","expectedOccurrences":1},
+        {"search":"var5[var8.get(var10)]","replacement":"var5[(Integer)var8.get(var10)]","expectedOccurrences":1},
+        {"search":"var4[var8.get(var16)]","replacement":"var4[(Integer)var8.get(var16)]","expectedOccurrences":1},
+        {"search":"var6[var8.get(var16)]","replacement":"var6[(Integer)var8.get(var16)]","expectedOccurrences":1},
+        {"search":"var4[var8.get(var17)]","replacement":"var4[(Integer)var8.get(var17)]","expectedOccurrences":1},
+        {"search":"var7[var8.get(var17)]","replacement":"var7[(Integer)var8.get(var17)]","expectedOccurrences":1}
+      ]
+    },
+    {
+      "officialClass": "best/s",
+      "replacements": [
+        {
+          "search": "C0924 var2 = null;",
+          "replacement": "C0713 var2 = null;",
+          "expectedOccurrences": 1
+        },
+        {
+          "search": "var1 = var2.yi();",
+          "replacement": "var1 = ((C0924)var2).yi();",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "d/b",
+      "replacements": [
+        {
+          "search": "public static void a(String string, String string2) {",
+          "replacement": "public static void a(String string, String string2) throws ParserConfigurationException, SAXException, IOException {",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "a/es",
+      "replacements": [
+        {
+          "search": "try {\n         this.Iz.ru();",
+          "replacement": "try {\n         if (false) {\n            throw new IOException();\n         }\n         this.Iz.ru();",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "a/fb",
+      "replacements": [
+        {
+          "search": "try {\n         this.Iz.ru();",
+          "replacement": "try {\n         if (false) {\n            throw new IOException();\n         }\n         this.Iz.ru();",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "a/fx",
+      "replacements": [
+        {
+          "search": "try {\n         C0341.a(this.IB);",
+          "replacement": "try {\n         if (false) {\n            throw new IOException();\n         }\n         C0341.a(this.IB);",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "best/S",
+      "replacements": [
+        {
+          "search": "import sun.java2d.SunGraphicsEnvironment;\n",
+          "replacement": "",
+          "expectedOccurrences": 1
+        },
+        {
+          "search": "SunGraphicsEnvironment.getUsableBounds(var3.getDevice())",
+          "replacement": "java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds()",
+          "expectedOccurrences": 2
+        }
+      ]
+    },
+    {
+      "officialClass": "components/ac",
+      "replacements": [
+        {
+          "search": "super(c0766);",
+          "replacement": "c0766.super();",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "d/X",
+      "replacements": [
+        {
+          "search": "import sun.java2d.SunGraphicsEnvironment;\n",
+          "replacement": "",
+          "expectedOccurrences": 1
+        },
+        {
+          "search": "SunGraphicsEnvironment.getUsableBounds(var1.getDevice())",
+          "replacement": "java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds()",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "d/n",
+      "replacements": [
+        {
+          "search": "import sun.java2d.SunGraphicsEnvironment;\n",
+          "replacement": "",
+          "expectedOccurrences": 1
+        },
+        {
+          "search": "SunGraphicsEnvironment.getUsableBounds(var2.getDevice())",
+          "replacement": "java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds()",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "forms/h",
+      "replacements": [
+        {
+          "search": "import sun.java2d.SunGraphicsEnvironment;\n",
+          "replacement": "",
+          "expectedOccurrences": 1
+        },
+        {
+          "search": "SunGraphicsEnvironment.getUsableBounds(var1.getDevice())",
+          "replacement": "java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds()",
+          "expectedOccurrences": 1
+        }
+      ]
+    },
+    {
+      "officialClass": "forms/m",
+      "replacements": [
+        {
+          "search": "try {\n         C0745.ae(\"teste20_\" + var3);",
+          "replacement": "try {\n         if (false) {\n            throw new FileNotFoundException();\n         }\n         C0745.ae(\"teste20_\" + var3);",
+          "expectedOccurrences": 1
+        }
+      ]
+    }
+  ]
+}

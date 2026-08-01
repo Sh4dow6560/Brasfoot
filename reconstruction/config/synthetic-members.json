@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "classes": [
+    {"namedClass":"bf22/intermediary/C0567","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0569","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0579","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0582","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0586","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0657","methods":[{"name":"vG","descriptor":"()I"}]},
+    {"namedClass":"bf22/intermediary/C0878","methods":[
+      {"name":"vG","descriptor":"()I"},
+      {"name":"xi","descriptor":"()I"},
+      {"name":"xj","descriptor":"()I"},
+      {"name":"xk","descriptor":"()I"}
+    ]},
+    {"namedClass":"bf22/intermediary/C0887","methods":[
+      {"name":"vG","descriptor":"()I"},
+      {"name":"xi","descriptor":"()I"},
+      {"name":"xj","descriptor":"()I"}
+    ]}
+  ]
+}

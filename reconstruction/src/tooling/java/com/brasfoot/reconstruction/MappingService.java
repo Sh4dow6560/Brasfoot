@@ -20,6 +20,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 
 final class MappingService {
   private final ProjectContext context;
@@ -38,6 +40,7 @@ final class MappingService {
     for (MethodSemanticName item : semantic.methods()) {
       semanticMethods.put(methodKey(item.owner(), item.name(), item.descriptor()), item);
     }
+    addComparatorMethodMappings(target, semanticMethods);
     Map<String, FieldSemanticName> semanticFields = new HashMap<>();
     for (FieldSemanticName item : semantic.fields()) {
       semanticFields.put(fieldKey(item.owner(), item.name(), item.descriptor()), item);
@@ -205,6 +208,44 @@ final class MappingService {
       }
       addUnique(exact, value, namespace);
       addUnique(folded, value.toLowerCase(Locale.ROOT), "case-insensitive " + namespace);
+    }
+  }
+
+  private void addComparatorMethodMappings(
+      ArchiveData target, Map<String, MethodSemanticName> semanticMethods) {
+    for (ClassInfo classInfo : target.classes().values()) {
+      if (!classInfo.interfaces().contains("java/util/Comparator")) {
+        continue;
+      }
+      List<MemberInfo> candidates = classInfo.members().stream()
+          .filter(member -> "method".equals(member.kind()))
+          .filter(member -> (member.access() & (Opcodes.ACC_STATIC | Opcodes.ACC_SYNTHETIC)) == 0)
+          .filter(member -> {
+            Type method = Type.getMethodType(member.descriptor());
+            Type[] arguments = method.getArgumentTypes();
+            if (!method.getReturnType().equals(Type.INT_TYPE)
+                || arguments.length != 2
+                || !arguments[0].equals(arguments[1])) {
+              return false;
+            }
+            int sort = arguments[0].getSort();
+            return (sort == Type.OBJECT || sort == Type.ARRAY)
+                && !arguments[0].equals(Type.getType(Object.class));
+          })
+          .toList();
+      if (candidates.size() != 1) {
+        throw new IllegalStateException("Expected one typed Comparator method in "
+            + classInfo.name() + ", got " + candidates.size());
+      }
+      MemberInfo method = candidates.get(0);
+      MethodSemanticName mapping = new MethodSemanticName(
+          classInfo.name(), method.name(), method.descriptor(), "compare");
+      String key = methodKey(classInfo.name(), method.name(), method.descriptor());
+      MethodSemanticName previous = semanticMethods.putIfAbsent(key, mapping);
+      if (previous != null && !"compare".equals(previous.named())) {
+        throw new IllegalStateException("Comparator method has conflicting semantic mapping: "
+            + key);
+      }
     }
   }
 

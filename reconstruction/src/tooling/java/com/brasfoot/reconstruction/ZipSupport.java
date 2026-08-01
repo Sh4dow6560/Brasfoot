@@ -168,7 +168,7 @@ final class ZipSupport {
     Files.walkFileTree(normalizedTarget, new SimpleFileVisitor<>() {
       @Override
       public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
-        Files.delete(file);
+        Files.deleteIfExists(file);
         return FileVisitResult.CONTINUE;
       }
 
@@ -178,7 +178,7 @@ final class ZipSupport {
         if (exception != null) {
           throw exception;
         }
-        Files.delete(directory);
+        Files.deleteIfExists(directory);
         return FileVisitResult.CONTINUE;
       }
     });

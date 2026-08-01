@@ -1,5 +1,11 @@
 {
   "classes": {
+    "best/C": "mod/recovered/finance/ClubFinances",
+    "best/F": "mod/recovered/model/Player",
+    "best/ah": "mod/recovered/model/Club",
+    "best/ai": "mod/recovered/model/ClubPlayerComparator",
+    "best/al": "mod/recovered/model/Coach",
+    "best/v": "mod/recovered/model/Stadium",
     "components/ar": "mod/recovered/CrashLogHandler",
     "components/ag": "mod/recovered/team/LineupPreset",
     "est/ArrayLigaEType": "mod/recovered/config/StateLeagueConfigs",
@@ -22,6 +28,7 @@
     {"owner":"est/InfoArquivoSalvoType","name":"i","descriptor":"Ljava/lang/String;","named":"nextMatch"}
   ],
   "methods": [
+    {"owner":"best/ai","name":"a","descriptor":"(Lbest/F;Lbest/F;)I","named":"compare"},
     {"owner":"components/ag","name":"getNome","descriptor":"()Ljava/lang/String;","named":"getName"},
     {"owner":"components/ag","name":"setNome","descriptor":"(Ljava/lang/String;)V","named":"setName"},
     {"owner":"components/ag","name":"uH","descriptor":"()Ljava/util/ArrayList;","named":"getPlayers"},

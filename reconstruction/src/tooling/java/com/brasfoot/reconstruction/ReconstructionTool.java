@@ -22,6 +22,12 @@ public final class ReconstructionTool {
       case "capture-reference-save" -> new SaveFixtureService(context).capture();
       case "verify-reference-save" -> new SaveFixtureService(context).verify();
       case "build-serialization-atlas" -> new SerializationAtlasService(context).build();
+      case "repair-decompiled-sources" -> new DecompiledSourceRepairService(context).repair();
+      case "prepare-recovered-sources" -> new RecoveredSourcePreparationService(context).prepare();
+      case "build-synthetic-compile-classpath" ->
+          new SyntheticCompileClasspathService(context).build();
+      case "analyze-candidate-compilation" -> new CandidateCompileService(context).analyze();
+      case "promote-candidate-batch" -> new CandidatePromotionService(context).promote();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();
@@ -31,6 +37,7 @@ public final class ReconstructionTool {
       case "static-smoke" -> new SmokeService(context).staticSmoke();
       case "runtime-smoke" -> new SmokeService(context).runtimeSmoke();
       case "save-compatibility" -> new SaveCompatibilityService(context).verify();
+      case "full-save-compatibility" -> new FullSaveCompatibilityService(context).verify();
       case "run-hybrid" -> new SmokeService(context).runHybrid();
       default -> throw new IllegalArgumentException("Unknown command: " + command);
     }

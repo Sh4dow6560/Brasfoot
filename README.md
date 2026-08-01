@@ -35,6 +35,7 @@ O executavel original nao precisa ser alterado para a primeira fase.
 
 ## Reconstrucao Da Engine
 
-O pipeline de recuperacao incremental fica em `reconstruction/`. Ele gera uma
-copia hibrida jogavel sem modificar `C:\Brasfoot22-23` e mantem executaveis e
-codigo bruto decompilado fora do Git. Consulte `reconstruction/README.md`.
+O pipeline fica em `reconstruction/`. As 1.032 classes pertencentes ao Brasfoot
+22/23 ja foram recuperadas em fonte, recompiladas para Java 8 e validadas em uma
+copia jogavel sem modificar `C:\Brasfoot22-23`. Executaveis, saves e codigo
+bruto decompilado permanecem fora do Git. Consulte `reconstruction/README.md`.

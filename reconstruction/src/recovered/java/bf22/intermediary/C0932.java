@@ -1,0 +1,711 @@
+package bf22.intermediary;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+import mod.recovered.config.LeagueLoadOptions;
+import mod.recovered.model.Club;
+
+public class C0932 extends C0713 implements Serializable {
+   private static final long serialVersionUID = 1L;
+   private C0962 YP = null;
+   private C0962 YQ = null;
+   private C0962 YR = null;
+   private C0962 ZB = null;
+   private C0955 YD = null;
+   private C0962 afT = null;
+   private ArrayList YF = new ArrayList();
+   private ArrayList YS = new ArrayList();
+   private ArrayList ZE = new ArrayList();
+   private Club ZA = null;
+   private ArrayList YV = new ArrayList();
+   private ArrayList YW = new ArrayList();
+
+   public C0932() {
+      this.F(12, 0);
+      this.yp();
+   }
+
+   private void yo() {
+   }
+
+   private void yp() {
+      this.YW.add(new C0793("fra", 72, 1));
+      this.YW.add(new C0793("ing", 97, 1));
+      this.YW.add(new C0793("esp", 65, 1));
+      this.YW.add(new C0793("ita", 104, 1));
+      this.YW.add(new C0793("ale", 3, 1));
+      this.YW.add(new C0793("cro", 52, 1, true));
+      this.YW.add(new C0793("sui", 180, 1, true));
+      this.YW.add(new C0793("gre", 78, 1, true));
+      this.YW.add(new C0793("hol", 85, 1));
+      this.YW.add(new C0793("bel", 21, 1));
+      this.YW.add(new C0793("aut", 15, 1));
+      this.YW.add(new C0793("esc", 62, 1));
+      this.YW.add(new C0793("ucr", 193, 1));
+      this.YW.add(new C0793("por", 154, 1));
+      this.YW.add(new C0793("isr", 103, 1, true));
+      this.YW.add(new C0793("nor", 142, 1, true));
+      this.YW.add(new C0793("sue", 179, 1));
+      this.YW.add(new C0793("bul", 31, 1, true));
+      this.YW.add(new C0793("rom", 160, 1, true));
+      this.YW.add(new C0793("aze", 16, 1, true));
+      this.YW.add(new C0793("caz", 40, 1, true));
+      this.YW.add(new C0793("hun", 88, 1, true));
+      this.YW.add(new C0793("belarus", 25, 1, true));
+      this.YW.add(new C0793("pol", 152, 1, true));
+      this.YW.add(new C0793("esl", 64, 1, true));
+      this.YW.add(new C0793("esk", 63, 1, true));
+      this.YW.add(new C0793("lie", 118, 1));
+      this.YW.add(new C0793("lit", 119, 1, true));
+      this.YW.add(new C0793("lux", 120, 1, true));
+      this.YW.add(new C0793("bos", 27, 1, true));
+      this.YW.add(new C0793("irl", 100, 1, true));
+      this.YW.add(new C0793("mac", 122, 1, true));
+      this.YW.add(new C0793("arm", 12, 1, true));
+      this.YW.add(new C0793("let", 114, 1, true));
+      this.YW.add(new C0793("alb", 2, 1, true));
+      this.YW.add(new C0793("serv", 171, 1));
+      this.YW.add(new C0793("cze", 159, 1));
+      this.YW.add(new C0793("cro", 52, 1));
+      this.YW.add(new C0793("sui", 180, 1));
+      this.YW.add(new C0793("gre", 78, 1));
+      this.YW.add(new C0793("isr", 103, 1));
+      this.YW.add(new C0793("nor", 142, 1));
+      this.YW.add(new C0793("sue", 179, 1));
+      this.YW.add(new C0793("bul", 31, 1));
+      this.YW.add(new C0793("rom", 160, 1));
+      this.YW.add(new C0793("aze", 16, 1));
+      this.YW.add(new C0793("caz", 40, 1));
+      this.YW.add(new C0793("hun", 88, 1));
+      this.YW.add(new C0793("belarus", 25, 1));
+      this.YW.add(new C0793("tu", 192, 1));
+      this.YW.add(new C0793("din", 54, 1));
+      this.YW.add(new C0793("chipre", 44, 1));
+      this.YW.add(new C0793("serv", 171, 1));
+      this.YW.add(new C0793("cze", 159, 1));
+      this.YW.add(new C0793("cro", 52, 1));
+      this.YW.add(new C0793("sui", 180, 1));
+      this.YW.add(new C0793("gre", 78, 1));
+      this.YW.add(new C0793("isr", 103, 1));
+      this.YW.add(new C0793("nor", 142, 1));
+      this.YW.add(new C0793("sue", 179, 1));
+      this.YW.add(new C0793("bul", 31, 1));
+      this.YW.add(new C0793("rom", 160, 1));
+      this.YW.add(new C0793("aze", 16, 1));
+      this.YW.add(new C0793("caz", 40, 1));
+      this.YW.add(new C0793("hun", 88, 1));
+      this.YW.add(new C0793("hol", 85, 1));
+      this.YW.add(new C0793("bel", 21, 1));
+      this.YW.add(new C0793("aut", 15, 1));
+      this.YW.add(new C0793("esc", 62, 1));
+      this.YW.add(new C0793("ucr", 193, 1));
+      this.YW.add(new C0793("tu", 192, 1));
+      this.YW.add(new C0793("din", 54, 1));
+      this.YW.add(new C0793("chipre", 44, 1));
+      this.YW.add(new C0793("por", 154, 1));
+      this.YW.add(new C0793("irlN", 101, 1, true));
+      this.YW.add(new C0793("geo", 76, 1, true));
+      this.YW.add(new C0793("fin", 70, 1, true));
+      this.YW.add(new C0793("mol", 134, 1, true));
+      this.YW.add(new C0793("mlt", 128, 1, true));
+      this.YW.add(new C0793("ifaroe", 92, 1, true));
+      this.YW.add(new C0793("kos", 110, 1, true));
+      this.YW.add(new C0793("gib", 216, 1, true));
+      this.YW.add(new C0793("mnt", 105, 1, true));
+      this.YW.add(new C0793("wal", 145, 1, true));
+      this.YW.add(new C0793("isl", 102, 1, true));
+      this.YW.add(new C0793("est", 66, 1, true));
+      this.YW.add(new C0793("andorra", 4, 1, true));
+      this.YW.add(new C0793("san m", 164, 1, true));
+      this.YW.add(new C0793("pol", 152, 1));
+      this.YW.add(new C0793("esl", 64, 1));
+      this.YW.add(new C0793("esk", 63, 1));
+      this.YW.add(new C0793("lit", 119, 1));
+      this.YW.add(new C0793("lux", 120, 1));
+      this.YW.add(new C0793("bos", 27, 1));
+      this.YW.add(new C0793("irl", 100, 1));
+      this.YW.add(new C0793("mac", 122, 1));
+      this.YW.add(new C0793("arm", 12, 1));
+      this.YW.add(new C0793("let", 114, 1));
+      this.YW.add(new C0793("alb", 2, 1));
+      this.YW.add(new C0793("irlN", 101, 1));
+      this.YW.add(new C0793("geo", 76, 1));
+      this.YW.add(new C0793("fin", 70, 1));
+      this.YW.add(new C0793("mol", 134, 1));
+      this.YW.add(new C0793("mlt", 128, 1));
+      this.YW.add(new C0793("ifaroe", 92, 1));
+      this.YW.add(new C0793("kos", 110, 1));
+      this.YW.add(new C0793("gib", 216, 1));
+      this.YW.add(new C0793("mnt", 105, 1));
+      this.YW.add(new C0793("wal", 145, 1));
+      this.YW.add(new C0793("isl", 102, 1));
+      this.YW.add(new C0793("est", 66, 1));
+      this.YW.add(new C0793("andorra", 4, 1));
+      this.YW.add(new C0793("san m", 164, 1));
+      this.YW.add(new C0793("belarus", 25, 1));
+      this.YW.add(new C0793("pol", 152, 1));
+      this.YW.add(new C0793("esl", 64, 1));
+      this.YW.add(new C0793("esk", 63, 1));
+      this.YW.add(new C0793("lit", 119, 1));
+      this.YW.add(new C0793("lux", 120, 1));
+      this.YW.add(new C0793("bos", 27, 1));
+      this.YW.add(new C0793("irl", 100, 1));
+      this.YW.add(new C0793("mac", 122, 1));
+      this.YW.add(new C0793("arm", 12, 1));
+      this.YW.add(new C0793("let", 114, 1));
+      this.YW.add(new C0793("alb", 2, 1));
+      this.YW.add(new C0793("irlN", 101, 1));
+      this.YW.add(new C0793("geo", 76, 1));
+      this.YW.add(new C0793("fin", 70, 1));
+      this.YW.add(new C0793("mol", 134, 1));
+      this.YW.add(new C0793("mlt", 128, 1));
+      this.YW.add(new C0793("ifaroe", 92, 1));
+      this.YW.add(new C0793("kos", 110, 1));
+      this.YW.add(new C0793("gib", 216, 1));
+      this.YW.add(new C0793("mnt", 105, 1));
+   }
+
+   public void a(int i, C0792 c0792) {
+      C0938.a(0, 3, this.YV, this.YW, i, c0792);
+   }
+
+   private void Bd() {
+      ((C0793)this.YW.get(40)).fE(162);
+      ((C0793)this.YW.get(87)).fE(162);
+   }
+
+   public void yq() {
+      if (C0745.SR.H() == 3) {
+         this.Bd();
+      }
+
+      if (this.YD != null) {
+         this.YD.aN(true);
+      }
+
+      this.YF.clear();
+      this.YS.clear();
+      this.ZE.clear();
+      this.YD = null;
+      this.YP = null;
+      this.YQ = null;
+      this.YR = null;
+      this.ZB = null;
+      ArrayList var1 = new ArrayList();
+      var1.addAll(C0745.SR.aI().yy());
+      var1.addAll(C0745.SR.aI().yE());
+      var1.addAll(C0745.SR.aK().yy());
+      var1.addAll(C0745.SR.aK().yE());
+      C0938.a(this.YW, this.YS, var1, false);
+      if (this.YS.size() < 134) {
+         C0938.a(this.YS, this.YW, 134, var1);
+      }
+
+      Collections.sort(this.YF, C1007.abm);
+      if (this.YS.size() == 134) {
+         ArrayList var2 = new ArrayList();
+
+         for (int var3 = 74; var3 <= 133; var3++) {
+            var2.add((Club)this.YS.get(var3));
+         }
+
+         Collections.shuffle(var2);
+         boolean[] var5 = new boolean[]{true, false, false, false, false, false, false};
+         this.YP = new C0962(null, 60, this.b(), 1, var5, this, 12001);
+         C0929 var4 = new C0929();
+         var4.a(this.YP, var2, 0, var5[0], 0, 0, this.b(), false);
+      } else {
+         System.out.println("erro Conference League():" + this.YS.size());
+      }
+   }
+
+   public void g(ArrayList arrayList, ArrayList arrayList2) {
+      for (int var3 = 0; var3 < arrayList2.size(); var3++) {
+         ((Club)arrayList2.get(var3)).a(this, -1, 12001);
+      }
+
+      ArrayList var13 = new ArrayList();
+      ArrayList var4 = new ArrayList();
+      ArrayList var5 = new ArrayList();
+      ArrayList var6 = new ArrayList();
+      ArrayList var7 = new ArrayList();
+
+      for (int var8 = 0; var8 <= 7; var8++) {
+         var13.add((Club)this.ZE.get(var8));
+      }
+
+      for (int var14 = 8; var14 <= 15; var14++) {
+         var4.add((Club)this.ZE.get(var14));
+      }
+
+      for (int var15 = 14; var15 <= 58; var15++) {
+         var5.add((Club)this.YS.get(var15));
+      }
+
+      for (int var16 = 59; var16 <= 73; var16++) {
+         var6.add((Club)this.YS.get(var16));
+      }
+
+      var6.addAll(arrayList);
+      Collections.shuffle(var13);
+      Collections.shuffle(var4);
+      Collections.shuffle(var5);
+      Collections.shuffle(var6);
+      Random var17 = new Random();
+      C0797[] var9 = new C0797[8];
+
+      for (int var10 = 0; var10 <= 7; var10++) {
+         var9[var10] = new C0797();
+      }
+
+      for (int var18 = 0; var18 <= 7; var18++) {
+         if (var17.nextBoolean()) {
+            var9[var18].e(var13, var4);
+         } else {
+            var9[var18].e(var4, var13);
+         }
+      }
+
+      C0797[] var19 = new C0797[45];
+
+      for (int var11 = 0; var11 <= 44; var11++) {
+         var19[var11] = new C0797();
+      }
+
+      for (int var20 = 0; var20 <= 44; var20++) {
+         if (var17.nextBoolean()) {
+            var19[var20].e(var5, var6);
+         } else {
+            var19[var20].e(var6, var5);
+         }
+      }
+
+      for (int var21 = 0; var21 <= 7; var21++) {
+         var7.addAll(var9[var21].cZ());
+      }
+
+      for (int var22 = 0; var22 <= 44; var22++) {
+         var7.addAll(var19[var22].cZ());
+      }
+
+      boolean[] var23 = new boolean[]{true, false, false, false, false, false, false};
+      this.YQ = new C0962(null, var7.size(), this.b(), 1, var23, this, 12002);
+      C0929 var12 = new C0929();
+      var12.a(this.YQ, var7, 0, var23[0], 0, 0, this.b(), false);
+   }
+
+   public void h(ArrayList arrayList, ArrayList arrayList2) {
+      for (int var3 = 0; var3 < arrayList2.size(); var3++) {
+         ((Club)arrayList2.get(var3)).a(this, -1, 12002);
+      }
+
+      ArrayList var13 = new ArrayList();
+      ArrayList var4 = new ArrayList();
+      ArrayList var5 = new ArrayList();
+      ArrayList var6 = new ArrayList();
+      ArrayList var7 = new ArrayList();
+
+      for (int var8 = 0; var8 <= 4; var8++) {
+         var13.add((Club)arrayList.get(var8));
+      }
+
+      for (int var14 = 5; var14 <= 7; var14++) {
+         var4.add((Club)arrayList.get(var14));
+      }
+
+      var4.add((Club)this.ZE.get(16));
+      var4.add((Club)this.ZE.get(17));
+
+      for (int var15 = 5; var15 <= 13; var15++) {
+         var5.add((Club)this.YS.get(var15));
+      }
+
+      for (int var16 = 8; var16 <= 25; var16++) {
+         var5.add((Club)arrayList.get(var16));
+      }
+
+      for (int var17 = 26; var17 <= 52; var17++) {
+         var6.add((Club)arrayList.get(var17));
+      }
+
+      Collections.shuffle(var13);
+      Collections.shuffle(var4);
+      Collections.shuffle(var5);
+      Collections.shuffle(var6);
+      Random var18 = new Random();
+      C0797[] var9 = new C0797[5];
+
+      for (int var10 = 0; var10 <= 4; var10++) {
+         var9[var10] = new C0797();
+      }
+
+      for (int var19 = 0; var19 <= 4; var19++) {
+         if (var18.nextBoolean()) {
+            var9[var19].e(var13, var4);
+         } else {
+            var9[var19].e(var4, var13);
+         }
+      }
+
+      C0797[] var20 = new C0797[27];
+
+      for (int var11 = 0; var11 <= 26; var11++) {
+         var20[var11] = new C0797();
+      }
+
+      for (int var21 = 0; var21 <= 26; var21++) {
+         if (var18.nextBoolean()) {
+            var20[var21].e(var5, var6);
+         } else {
+            var20[var21].e(var6, var5);
+         }
+      }
+
+      for (int var22 = 0; var22 <= 4; var22++) {
+         var7.addAll(var9[var22].cZ());
+      }
+
+      for (int var23 = 0; var23 <= 26; var23++) {
+         var7.addAll(var20[var23].cZ());
+      }
+
+      boolean[] var24 = new boolean[]{true, false, false, false, false, false, false};
+      this.YR = new C0962(null, var7.size(), this.b(), 1, var24, this, 12003);
+      C0929 var12 = new C0929();
+      var12.a(this.YR, var7, 0, var24[0], 0, 0, this.b(), false);
+   }
+
+   public void j(ArrayList arrayList, ArrayList arrayList2) {
+      for (int var3 = 0; var3 < arrayList2.size(); var3++) {
+         ((Club)arrayList2.get(var3)).a(this, -1, 12003);
+      }
+
+      ArrayList var13 = new ArrayList();
+      ArrayList var4 = new ArrayList();
+      ArrayList var5 = new ArrayList();
+      ArrayList var6 = new ArrayList();
+      ArrayList var7 = new ArrayList();
+
+      for (int var8 = 0; var8 <= 4; var8++) {
+         var13.add((Club)arrayList.get(var8));
+      }
+
+      for (int var14 = 18; var14 <= 22; var14++) {
+         var4.add((Club)this.ZE.get(var14));
+      }
+
+      for (int var15 = 0; var15 <= 4; var15++) {
+         var5.add((Club)this.YS.get(var15));
+      }
+
+      for (int var16 = 5; var16 <= 16; var16++) {
+         var5.add((Club)arrayList.get(var16));
+      }
+
+      for (int var17 = 17; var17 <= 31; var17++) {
+         var6.add((Club)arrayList.get(var17));
+      }
+
+      for (int var18 = 23; var18 <= 24; var18++) {
+         var6.add((Club)this.ZE.get(var18));
+      }
+
+      Collections.shuffle(var13);
+      Collections.shuffle(var4);
+      Collections.shuffle(var5);
+      Collections.shuffle(var6);
+      Random var19 = new Random();
+      C0797[] var9 = new C0797[5];
+
+      for (int var10 = 0; var10 <= 4; var10++) {
+         var9[var10] = new C0797();
+      }
+
+      for (int var20 = 0; var20 <= 4; var20++) {
+         if (var19.nextBoolean()) {
+            var9[var20].e(var13, var4);
+         } else {
+            var9[var20].e(var4, var13);
+         }
+      }
+
+      C0797[] var21 = new C0797[17];
+
+      for (int var11 = 0; var11 <= 16; var11++) {
+         var21[var11] = new C0797();
+      }
+
+      for (int var22 = 0; var22 <= 16; var22++) {
+         if (var19.nextBoolean()) {
+            var21[var22].e(var5, var6);
+         } else {
+            var21[var22].e(var6, var5);
+         }
+      }
+
+      for (int var23 = 0; var23 <= 4; var23++) {
+         var7.addAll(var9[var23].cZ());
+      }
+
+      for (int var24 = 0; var24 <= 16; var24++) {
+         var7.addAll(var21[var24].cZ());
+      }
+
+      boolean[] var25 = new boolean[]{true, false, false, false, false, false, false};
+      this.ZB = new C0962(null, var7.size(), this.b(), 1, var25, this, 12004);
+      C0929 var12 = new C0929();
+      var12.a(this.ZB, var7, 0, var25[0], 0, 0, this.b(), false);
+   }
+
+   public void m(ArrayList arrayList, ArrayList arrayList2) {
+      for (int var3 = 0; var3 < arrayList2.size(); var3++) {
+         ((Club)arrayList2.get(var3)).a(this, -1, 12004);
+      }
+
+      ArrayList var13 = new ArrayList();
+
+      for (int var4 = 25; var4 <= 34; var4++) {
+         var13.add((Club)this.ZE.get(var4));
+      }
+
+      var13.addAll(arrayList);
+
+      for (int var14 = 0; var14 < this.YF.size(); var14++) {
+         var13.add((Club)this.YF.get(var14));
+      }
+
+      Collections.sort(var13, C1007.abm);
+      ArrayList var15 = new ArrayList();
+      ArrayList var5 = new ArrayList();
+      ArrayList var6 = new ArrayList();
+      ArrayList var7 = new ArrayList();
+
+      for (int var8 = 0; var8 <= 7; var8++) {
+         var15.add((Club)var13.get(var8));
+      }
+
+      for (int var16 = 8; var16 <= 15; var16++) {
+         var5.add((Club)var13.get(var16));
+      }
+
+      for (int var17 = 16; var17 <= 23; var17++) {
+         var6.add((Club)var13.get(var17));
+      }
+
+      for (int var18 = 24; var18 <= 31; var18++) {
+         var7.add((Club)var13.get(var18));
+      }
+
+      Collections.shuffle(var15);
+      Collections.shuffle(var5);
+      Collections.shuffle(var6);
+      Collections.shuffle(var7);
+      C0797[] var19 = new C0797[8];
+
+      for (int var9 = 0; var9 <= 7; var9++) {
+         var19[var9] = new C0797();
+      }
+
+      for (int var20 = 0; var20 <= 7; var20++) {
+         var19[var20].a(var15, var5, var6, var7);
+      }
+
+      var19[0].a(var19);
+      ArrayList var21 = new ArrayList();
+
+      for (int var10 = 0; var10 <= 7; var10++) {
+         var21.addAll(var19[var10].cZ());
+      }
+
+      if (var21.size() == 32) {
+         boolean[] var22 = new boolean[]{true, true, true, true, false, false, false};
+         LeagueLoadOptions var11 = new LeagueLoadOptions();
+         var11.nTimes = 32;
+         var11.nGrupos = 8;
+         var11.numeroTimesMataMata = 2;
+         var11.doisTurnos = true;
+         var11.pulaDuasDatas = false;
+         var11.duasVoltasMataMata = var22;
+         C0955 var12 = new C0955(var11, var21, 0, null, null, null, 12, null, false, null, true, this);
+         var12.fb(12005);
+         this.YD = var12;
+         var12.setNome(this.getNome());
+      }
+   }
+
+   public void Be() {
+      ArrayList var1 = new ArrayList();
+      ArrayList var2 = new ArrayList();
+      ArrayList var3 = new ArrayList();
+
+      for (int var4 = 0; var4 < this.YD.yQ().size(); var4++) {
+         var1.add((Club)((C0673)this.YD.yQ().get(var4)).gR().get(1));
+      }
+
+      for (int var7 = 0; var7 < C0745.SR.aK().yd().yQ().size(); var7++) {
+         var2.add((Club)((C0673)C0745.SR.aK().yd().yQ().get(var7)).gR().get(2));
+      }
+
+      Collections.shuffle(var1);
+      Collections.shuffle(var2);
+      C0797[] var8 = new C0797[8];
+
+      for (int var5 = 0; var5 <= 7; var5++) {
+         var8[var5] = new C0797();
+      }
+
+      for (int var9 = 0; var9 <= 7; var9++) {
+         var8[var9].e(var1, var2);
+      }
+
+      var8[0].a(var8);
+
+      for (int var10 = 0; var10 <= 7; var10++) {
+         var3.addAll(var8[var10].cZ());
+      }
+
+      boolean[] var11 = new boolean[]{true, true, true, false, false, false, false};
+      this.YD.c(new C0962(this.YD, var3.size(), this.b(), 1, var11, this, 12006));
+      C0929 var6 = new C0929();
+      var6.a(this.YD.yY(), var3, 0, var11[0], 0, 0, this.b(), false);
+   }
+
+   public void l(ArrayList arrayList, ArrayList arrayList2) {
+      for (int var3 = 0; var3 < arrayList2.size(); var3++) {
+         ((Club)arrayList2.get(var3)).a(this, -1, 12006);
+      }
+
+      ArrayList var9 = new ArrayList();
+      ArrayList var4 = new ArrayList();
+      ArrayList var5 = new ArrayList();
+
+      for (int var6 = 0; var6 < this.YD.yQ().size(); var6++) {
+         var9.add((Club)((C0673)this.YD.yQ().get(var6)).gR().get(0));
+      }
+
+      for (int var10 = 0; var10 < arrayList.size(); var10++) {
+         var4.add((Club)arrayList.get(var10));
+      }
+
+      Collections.shuffle(var9);
+      Collections.shuffle(var4);
+      C0797[] var11 = new C0797[8];
+
+      for (int var7 = 0; var7 <= 7; var7++) {
+         var11[var7] = new C0797();
+      }
+
+      for (int var12 = 0; var12 <= 7; var12++) {
+         var11[var12].e(var9, var4);
+      }
+
+      var11[0].a(var11);
+
+      for (int var13 = 0; var13 <= 7; var13++) {
+         var5.addAll(var11[var13].cZ());
+      }
+
+      boolean[] var14 = new boolean[]{true, true, true, false, false, false, false};
+      this.afT = new C0962(null, var5.size(), this.b(), 0, var14, this, -1);
+      C0929 var8 = new C0929();
+      var8.a(this.afT, var5, 0, var14[0], 0, 0, this.b(), false);
+   }
+
+   public void b(ArrayList arrayList, int i) {
+      for (int var3 = 0; var3 < arrayList.size(); var3++) {
+         if (((Club)arrayList.get(var3)).jZ()) {
+            if (i == 0) {
+               new C0799(((Club)arrayList.get(var3)).ka(), 35, 90, "", "");
+            } else {
+               new C0799(((Club)arrayList.get(var3)).ka(), 35, 90, "", "");
+            }
+         }
+      }
+   }
+
+   @Override
+   public void mr() {
+      this.YD.f(this.afT);
+   }
+
+   @Override
+   public C0692 mF() {
+      int var1 = C0745.SR.H() - 1;
+      var1 %= 10;
+      int[] var2 = new int[]{152, 65, 52, 31, 21, 154, 3, 72, 162, 97};
+      return var1 < var2.length ? C0745.SR.s(var2[var1]) : null;
+   }
+
+   public static String yD() {
+      int var0 = C0745.SR.H() - 1;
+      var0 %= 10;
+      String var1 = "";
+      String[] var2 = new String[]{"Gdansk", "Sevilla", "Zagreb", "Sofia", "Bruxelas", "Porto", "Frankfurt", "Lyon", "Moscou", "Liverpool"};
+      return var2[var0];
+   }
+
+   @Override
+   public C0678[] mB() {
+      C0678[] var1 = new C0678[]{this.YD};
+      if (this.YD == null) {
+         C0678[] var2 = new C0678[]{this.YP, this.YQ, this.YR, this.ZB};
+         var1 = var2;
+      } else if (this.YD.yY() != null) {
+         C0678[] var3 = new C0678[]{this.YD.yY(), this.afT};
+         var1 = var3;
+      }
+
+      return var1;
+   }
+
+   @Override
+   public ArrayList mC() {
+      ArrayList var1 = new ArrayList();
+      C0678[] var2 = new C0678[]{this.YP, this.YQ, this.YR, this.ZB};
+      var1.add(new C0830(var2, "Fase Preliminar"));
+      C0678[] var3 = new C0678[]{this.YD};
+      var1.add(new C0830(var3, "Fase de Grupos"));
+      if (this.YD != null && this.YD.yY() != null) {
+         C0678[] var4 = new C0678[]{this.YD.yY(), this.afT};
+         var1.add(new C0830(var4, "Fase Final"));
+      } else {
+         var1.add(new C0830(null, "Fase Final"));
+      }
+
+      return var1;
+   }
+
+   @Override
+   public String[] b(C0678 c0678) {
+      if (c0678 == this.YP) {
+         return C0710.abZ;
+      } else if (c0678 == this.YQ) {
+         return C0710.aca;
+      } else if (c0678 == this.YR) {
+         return C0710.acb;
+      } else if (c0678 == this.ZB) {
+         return C0710.acc;
+      } else {
+         return this.YD != null && c0678 == this.YD.yY() ? C0710.abY : C0710.pA;
+      }
+   }
+
+   @Override
+   public String[] mA() {
+      String[] var1 = new String[]{"", ""};
+      var1[0] = "tr_conference";
+      var1[1] = this.getNome();
+      return var1;
+   }
+
+   public ArrayList zo() {
+      return this.ZE;
+   }
+
+   @Override
+   public boolean cz(int i) {
+      return this.afT != null && this.afT.zq() == i;
+   }
+}

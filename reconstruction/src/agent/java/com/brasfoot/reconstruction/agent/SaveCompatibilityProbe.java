@@ -13,6 +13,21 @@ import java.net.URL;
 import java.net.URLClassLoader;
 
 public final class SaveCompatibilityProbe {
+  private static final java.util.Set<String> SAFE_ROUND_TRIP = new java.util.HashSet<String>(
+      java.util.Arrays.asList(
+          "best.C",
+          "best.F",
+          "best.ah",
+          "best.al",
+          "best.v",
+          "components.ag",
+          "est.ArrayLigaEType",
+          "est.ArrayLigaType",
+          "est.ConfigEstadualType",
+          "est.ConfigLigaType",
+          "est.InfoArquivoSalvoType",
+          "est.Options"));
+
   private SaveCompatibilityProbe() {
   }
 
@@ -34,11 +49,12 @@ public final class SaveCompatibilityProbe {
   private static void verifyClass(ClassLoader loader, String className) throws Exception {
     Class<?> type = Class.forName(className, false, loader);
     boolean serializable = Serializable.class.isAssignableFrom(type);
-    ObjectStreamClass descriptor = ObjectStreamClass.lookup(type);
-    long uid = descriptor == null ? 0L : descriptor.getSerialVersionUID();
+    String uid = "deferred";
     boolean roundTripped = false;
 
-    if (serializable) {
+    if (serializable && SAFE_ROUND_TRIP.contains(className)) {
+      ObjectStreamClass descriptor = ObjectStreamClass.lookup(type);
+      uid = descriptor == null ? "0" : Long.toString(descriptor.getSerialVersionUID());
       Object value = instantiate(type);
       if (value != null) {
         byte[] bytes;

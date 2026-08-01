@@ -1,0 +1,112 @@
+package bf22.intermediary;
+
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import mod.recovered.finance.ClubFinances;
+import mod.recovered.model.Player;
+
+public class C0607 extends DefaultTableCellRenderer {
+   @Override
+   public Component getTableCellRendererComponent(JTable jTable, Object object, boolean bl, boolean bl2, int i, int j) {
+      super.getTableCellRendererComponent(jTable, object, bl, bl2, i, j);
+      this.setBorder(noFocusBorder);
+      super.setForeground(Color.BLACK);
+      this.setHorizontalAlignment(2);
+      this.setIcon(null);
+      this.setText("");
+      Player var7 = (Player)object;
+      if (var7 != null) {
+         if (j == 0) {
+            this.setHorizontalAlignment(0);
+            this.setText(C0710.rI[var7.getPosicao()]);
+         }
+
+         if (j == 1) {
+            this.setHorizontalAlignment(2);
+            this.setIcon(var7.fS());
+         } else if (j == 2) {
+            this.setHorizontalAlignment(2);
+            String var8 = C0696.valueOf("P" + var7.getPais()).jA();
+            this.setText(var8);
+            ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aflags/" + var7.getPais() + ".png"));
+            this.setIcon(var9);
+         }
+
+         if (j == 3) {
+            this.setHorizontalAlignment(2);
+            this.setText(var7.getNome());
+            if (var7.gm()) {
+               this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrelared.png")));
+            } else if (var7.ff()) {
+               this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrela.png")));
+            }
+         }
+
+         if (j == 4) {
+            this.setHorizontalAlignment(0);
+            this.setText(C0710.rK[var7.getLado()]);
+         }
+
+         if (!C0745.SR.isHabilidadeIndividual()) {
+            if (j == 5) {
+               this.setText(Integer.toString(var7.fi()));
+            } else if (j == 6) {
+               this.setText(ClubFinances.a(var7.fj(), 0));
+            } else if (j == 7) {
+               this.setText(ClubFinances.a(var7.fk(), 0));
+            } else if (j == 8) {
+               this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+            } else if (j == 9) {
+               this.setText(Integer.toString(var7.gy()));
+            } else if (j == 10) {
+               this.setText(Integer.toString(var7.gs()));
+            } else if (j == 11) {
+               this.setText(Integer.toString(var7.getIdade()));
+            } else if (j == 12) {
+               if (var7.ft()) {
+                  this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
+               }
+            } else if (j == 13 && var7.fz()) {
+               this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
+            }
+         } else if (j == 5) {
+            this.setText(Integer.toString(var7.gK()));
+         } else if (j == 6) {
+            this.setText(Integer.toString(var7.gN()));
+         } else if (j == 7) {
+            this.setText(Integer.toString(var7.gO()));
+         } else if (j == 8) {
+            this.setText(Integer.toString(var7.gP()));
+         } else if (j == 9) {
+            this.setText(Integer.toString(var7.gJ()));
+         } else if (j == 10) {
+            this.setText(Integer.toString(var7.gL()));
+         } else if (j == 11) {
+            this.setText(Integer.toString(var7.gM()));
+         } else if (j == 12) {
+            this.setText(ClubFinances.a(var7.fj(), 0));
+         } else if (j == 13) {
+            this.setText(ClubFinances.a(var7.fk(), 0));
+         } else if (j == 14) {
+            this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+         } else if (j == 15) {
+            this.setText(Integer.toString(var7.gy()));
+         } else if (j == 16) {
+            this.setText(Integer.toString(var7.gs()));
+         } else if (j == 17) {
+            this.setText(Integer.toString(var7.getIdade()));
+         } else if (j == 18) {
+            if (var7.ft()) {
+               this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
+            }
+         } else if (j == 19 && var7.fz()) {
+            this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
+         }
+      }
+
+      return this;
+   }
+}

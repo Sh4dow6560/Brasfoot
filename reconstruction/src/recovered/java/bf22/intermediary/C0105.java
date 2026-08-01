@@ -1,0 +1,16 @@
+package bf22.intermediary;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class C0105 implements ActionListener {
+   final bf22.intermediary.C0102 BP;
+   C0105(C0102 c0102) {
+      this.BP = c0102;
+   }
+
+   @Override
+   public void actionPerformed(ActionEvent actionEvent) {
+      this.BP.cW(0);
+   }
+}

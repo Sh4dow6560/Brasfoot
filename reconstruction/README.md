@@ -20,6 +20,9 @@ Esse arquivo, executaveis, decompilacoes e builds nao entram no Git.
 .\gradlew.bat buildSerializationAtlas
 .\gradlew.bat generateMappings
 .\gradlew.bat decompileGame
+.\gradlew.bat analyzeCandidateCompilation
+.\gradlew.bat promoteCandidateBatch
+.\gradlew.bat compileAllDecompiled
 .\gradlew.bat compileRecovered
 .\gradlew.bat assembleHybrid
 .\gradlew.bat smokeTest
@@ -31,6 +34,7 @@ Depois de validar uma carreira pela interface, preserve-a como referencia:
 .\gradlew.bat captureReferenceSave
 .\gradlew.bat verifyReferenceSave
 .\gradlew.bat saveCompatibilityTest
+.\gradlew.bat fullSaveCompatibilityTest
 ```
 
 O build jogavel fica em `C:\Brasfoot22-23_modkit\build\Brasfoot22-23_hybrid`.
@@ -41,9 +45,10 @@ Para abrir manualmente:
 ```
 
 O teste automatizado confirma integridade, inicializacao no Java 8 e o
-carregamento da classe recuperada. Antes de promover codigo de simulacao ou
-persistencia, execute tambem uma carreira com dez partidas e valide salvar e
-carregar pela interface.
+carregamento das classes recuperadas. O build atual recompila as 1.032 classes
+do Brasfoot; apenas as seis classes externas do carregador Eclipse permanecem
+em binario. Antes de alterar simulacao ou persistencia, execute tambem uma
+carreira com dez partidas e valide salvar e carregar pela interface.
 
 `buildSerializationAtlas` gera o contrato de todas as classes serializaveis.
 `saveCompatibilityTest` carrega os tipos recuperados no Java 8, executa
@@ -55,5 +60,6 @@ round-trip e desserializa o `reference.info` preservado.
 - `intermediary`: identificadores legais, estaveis e sem colisoes no Windows.
 - `named`: nomes semanticos usados pelo codigo recuperado.
 
-Somente fontes revisadas entram em `src/recovered`. A decompilacao bruta e
-regenerada em `build/generated/decompiled`.
+As fontes promovidas entram em `src/recovered`. A decompilacao bruta e
+regenerada em `build/generated/decompiled`; os reparos deterministas ficam em
+`config/decompiler-repairs.json`.
