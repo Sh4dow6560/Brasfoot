@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -74,7 +76,7 @@ public class C0231 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void z(Player player) {
@@ -176,7 +178,7 @@ public class C0231 extends JPanel {
          if (var1 == 0) {
             this.FL.n(null);
             this.zu.ky().remove(this.FL);
-            C0745.SR.Q().remove(this.FL);
+            GamePersistence.SR.Q().remove(this.FL);
             ((C0579)this.FR.getModel()).fireTableDataChanged();
             this.FR.addNotify();
             if (this.FR.getRowCount() > 0) {

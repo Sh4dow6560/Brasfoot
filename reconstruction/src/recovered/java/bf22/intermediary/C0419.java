@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -65,7 +68,7 @@ public class C0419 extends JPanel {
    public C0419(JFrame jFrame) {
       this.Br = jFrame;
       this.mJ();
-      if (C0745.SR.bF.size() > 0) {
+      if (GamePersistence.SR.bF.size() > 0) {
          this.sn();
       }
 
@@ -78,7 +81,7 @@ public class C0419 extends JPanel {
    private void mQ() {
       this.afA.addItem("2022");
       this.afA.addItem("2023");
-      if (C0710.am("anoinicio") == 1) {
+      if (GameConstants.am("anoinicio") == 1) {
          this.afA.setSelectedIndex(1);
       } else {
          this.afA.setSelectedIndex(0);
@@ -86,7 +89,7 @@ public class C0419 extends JPanel {
    }
 
    private void sm() {
-      if (!C0745.vL()) {
+      if (!GamePersistence.vL()) {
          this.Mi.setSelected(false);
          this.Mj.setSelected(false);
          this.Mh.setSelected(false);
@@ -98,7 +101,7 @@ public class C0419 extends JPanel {
          this.Mk.setEnabled(false);
          this.Mc.setEnabled(false);
          this.Mb.setEnabled(false);
-         C0745.SR.setJogaRegionais(false);
+         GamePersistence.SR.setJogaRegionais(false);
       } else {
          this.ug.setVisible(false);
       }
@@ -124,12 +127,12 @@ public class C0419 extends JPanel {
       this.JG.setRowSelectionAllowed(true);
       this.JG.setSelectionBackground(Color.YELLOW);
       this.JG.setFillsViewportHeight(true);
-      if (C0745.SR.bF.size() > 0) {
+      if (GamePersistence.SR.bF.size() > 0) {
          this.JG.setRowSelectionInterval(0, 0);
 
-         for (int var2 = 0; var2 < C0745.SR.bF.size(); var2++) {
-            if (((C0681)C0745.SR.bF.get(var2)).getPais() == 29) {
-               ((C0681)C0745.SR.bF.get(var2)).v(true);
+         for (int var2 = 0; var2 < GamePersistence.SR.bF.size(); var2++) {
+            if (((C0681)GamePersistence.SR.bF.get(var2)).getPais() == 29) {
+               ((C0681)GamePersistence.SR.bF.get(var2)).v(true);
                this.JG.setRowSelectionInterval(var2, var2);
                break;
             }
@@ -163,19 +166,19 @@ public class C0419 extends JPanel {
    private void oq() {
       this.Bw.setCursor(new Cursor(3));
       if (this.afA.getSelectedIndex() == 1) {
-         C0745.SR.I(2023);
-         C0710.f("anoinicio", 1);
+         GamePersistence.SR.I(2023);
+         GameConstants.f("anoinicio", 1);
       } else {
-         C0745.SR.I(2022);
-         C0710.f("anoinicio", 0);
+         GamePersistence.SR.I(2022);
+         GameConstants.f("anoinicio", 0);
       }
 
-      C0745.SR.setJogaEstadual(this.Mi.isSelected());
-      C0745.SR.setJogaIntClubes(this.Mj.isSelected());
-      C0745.SR.setJogaSelecoesAll(this.Mh.isSelected());
-      if (C0745.SR.bj()) {
+      GamePersistence.SR.setJogaEstadual(this.Mi.isSelected());
+      GamePersistence.SR.setJogaIntClubes(this.Mj.isSelected());
+      GamePersistence.SR.setJogaSelecoesAll(this.Mh.isSelected());
+      if (GamePersistence.SR.bj()) {
          C0734.dg();
-         C0685.aY(1);
+         MainWindow.aY(1);
       } else {
          JOptionPane.showMessageDialog(null, "Selecione pelo menos uma liga", "", 0);
       }
@@ -188,19 +191,19 @@ public class C0419 extends JPanel {
       this.Mb.addActionListener(new C0484(this));
       this.Mc.addActionListener(new C0485(this));
       this.Me.addActionListener(new C0486(this));
-      this.Mj.setSelected(C0745.SR.isJogaIntClubes());
+      this.Mj.setSelected(GamePersistence.SR.isJogaIntClubes());
       this.Mj.addActionListener(new C0487(this));
-      this.Mh.setSelected(C0745.SR.isJogaSelecoesAll());
+      this.Mh.setSelected(GamePersistence.SR.isJogaSelecoesAll());
       this.Mh.addActionListener(new C0488(this));
-      this.Mi.setSelected(C0745.SR.isJogaEstadual());
+      this.Mi.setSelected(GamePersistence.SR.isJogaEstadual());
       this.Mi.addActionListener(new C0421(this));
-      this.Mk.setSelected(C0745.SR.isJogaRegionais());
+      this.Mk.setSelected(GamePersistence.SR.isJogaRegionais());
       this.Mk.addActionListener(new C0422(this));
       this.Mm.add(this.Mw);
       this.Mm.add(this.Mx);
       this.Ml.add(this.Mv);
       this.Ml.add(this.Mu);
-      if (C0745.SR.isSalarioMensal()) {
+      if (GamePersistence.SR.isSalarioMensal()) {
          this.Mw.setSelected(true);
          this.Mx.setSelected(false);
       } else {
@@ -210,7 +213,7 @@ public class C0419 extends JPanel {
 
       this.Mw.addActionListener(new C0423(this));
       this.Mx.addActionListener(new C0424(this));
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          this.Mv.setSelected(true);
          this.Mu.setSelected(false);
       } else {
@@ -218,7 +221,7 @@ public class C0419 extends JPanel {
          this.Mu.setSelected(true);
       }
 
-      this.afz.setSelected(C0745.SR.isUsarGruposReaisCopa());
+      this.afz.setSelected(GamePersistence.SR.isUsarGruposReaisCopa());
       this.afz.addActionListener(new C0478(this));
       this.Mv.addActionListener(new C0479(this));
       this.Mu.addActionListener(new C0480(this));
@@ -231,11 +234,11 @@ public class C0419 extends JPanel {
       var1.setSize(529, 321);
       var1.setLocationRelativeTo(null);
       var1.setVisible(true);
-      C0685.db().setVisible(false);
+      MainWindow.db().setVisible(false);
    }
 
    public void rv() {
-      C0685.a(null);
+      MainWindow.a(null);
    }
 
    public void AS() {
@@ -270,7 +273,7 @@ public class C0419 extends JPanel {
       if (this.Mz.getSelectedRow() >= 0) {
          this.Mb.setCursor(new Cursor(3));
          int var1 = this.Mz.getSelectedRow();
-         int var2 = C0745.SR.bE[this.Mz.getSelectedRow()];
+         int var2 = GamePersistence.SR.bE[this.Mz.getSelectedRow()];
          JDialog var3 = new JDialog(this.Br);
          C0182 var4 = new C0182(var1, var2, var3);
          var3.add(var4);
@@ -288,8 +291,8 @@ public class C0419 extends JPanel {
    public void st() {
       if (this.JG.getSelectedRow() >= 0) {
          this.Md.setCursor(new Cursor(3));
-         int var1 = ((C0681)C0745.SR.bF.get(this.JG.getSelectedRow())).getPais();
-         int var2 = ((C0681)C0745.SR.bF.get(this.JG.getSelectedRow())).iB();
+         int var1 = ((C0681)GamePersistence.SR.bF.get(this.JG.getSelectedRow())).getPais();
+         int var2 = ((C0681)GamePersistence.SR.bF.get(this.JG.getSelectedRow())).iB();
          JDialog var3 = new JDialog(this.Br);
          C0193 var4 = new C0193(var1, var2, var3);
          var3.add(var4);

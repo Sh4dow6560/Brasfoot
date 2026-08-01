@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -23,7 +24,7 @@ public class C0594 extends DefaultTableCellRenderer {
             this.setIcon(var7.fg().kU());
          } else if (j == 2) {
             if (var7.b() == 0) {
-               this.setText(C0710.pZ[var7.uy()]);
+               this.setText(GameConstants.pZ[var7.uy()]);
             } else if (var7.b() == 1) {
                this.setHorizontalAlignment(0);
                this.setText("(" + Integer.toString(var7.uy()) + "/" + Integer.toString(var7.uz()) + "/" + Integer.toString(var7.uA()) + ")");

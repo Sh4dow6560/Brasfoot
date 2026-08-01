@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -73,16 +77,16 @@ public class C0545 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.ve.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.ve.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
    }
 
    private void dw(int i) {
       this.KG.clear();
 
-      for (int var2 = 0; var2 < C0745.SR.aG().size(); var2++) {
-         if (((C0692)C0745.SR.aG().get(var2)).jo() != null && ((C0692)C0745.SR.aG().get(var2)).gg() == i && ((C0692)C0745.SR.aG().get(var2)).jc() != 135) {
-            this.KG.add(((C0692)C0745.SR.aG().get(var2)).jo());
+      for (int var2 = 0; var2 < GamePersistence.SR.aG().size(); var2++) {
+         if (((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jo() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var2)).gg() == i && ((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jc() != 135) {
+            this.KG.add(((CountryCompetitions)GamePersistence.SR.aG().get(var2)).jo());
          }
       }
 
@@ -139,7 +143,7 @@ public class C0545 extends JPanel {
 
    private void rw() {
       this.Ie.setCursor(new Cursor(3));
-      C0685.v(this.uk);
+      MainWindow.v(this.uk);
       this.Ie.setCursor(new Cursor(12));
    }
 

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -167,8 +168,8 @@ public class C0901 extends JFrame {
    private void mW() {
       this.Nq.removeAllItems();
 
-      for (int var1 = 0; var1 < C0710.rH.length; var1++) {
-         this.Nq.addItem(C0710.rH[var1]);
+      for (int var1 = 0; var1 < GameConstants.rH.length; var1++) {
+         this.Nq.addItem(GameConstants.rH[var1]);
       }
 
       this.Nq.setSelectedIndex(0);
@@ -589,7 +590,7 @@ public class C0901 extends JFrame {
       this.Gk.setForeground(var1);
       this.Gk.setText(this.Uu.getNome());
       this.MR.setForeground(var1);
-      this.MR.setText(C0710.pZ[this.Uu.getReputacao()]);
+      this.MR.setText(GameConstants.pZ[this.Uu.getReputacao()]);
       ImageIcon var3 = new ImageIcon(this.getClass().getResource("/aflags/" + Integer.toString(this.Uu.getPais()) + ".png"));
       this.Vc.setIcon(var3);
       this.MQ.setForeground(var1);
@@ -599,7 +600,7 @@ public class C0901 extends JFrame {
          this.MM.setVisible(true);
          this.UX.setVisible(true);
          this.MM.setForeground(var1);
-         String var5 = C0710.rY[this.Uu.getEstado()];
+         String var5 = GameConstants.rY[this.Uu.getEstado()];
          this.MM.setText(var5);
          ImageIcon var6 = new ImageIcon(this.getClass().getResource("/aesticons/" + Integer.toString(this.Uu.getEstado()) + ".png"));
          this.UX.setIcon(var6);

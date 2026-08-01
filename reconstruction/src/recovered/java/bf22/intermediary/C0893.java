@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -317,7 +319,7 @@ public class C0893 extends JPanel {
       this.Qw.setMaximumRowCount(10);
 
       for (int var1 = 0; var1 < C0696.jz(); var1++) {
-         this.ue.addItem(((C0697)C0732.cY().get(var1)).getNome());
+         this.ue.addItem(((CountryInfo)C0732.cY().get(var1)).getNome());
       }
 
       C0858 var3 = new C0858();
@@ -330,8 +332,8 @@ public class C0893 extends JPanel {
          this.ue.setSelectedIndex(C0732.G(C0732.da().wI().getPais()));
       }
 
-      for (int var2 = 0; var2 < C0710.rH.length; var2++) {
-         this.Nq.addItem(C0710.rH[var2]);
+      for (int var2 = 0; var2 < GameConstants.rH.length; var2++) {
+         this.Nq.addItem(GameConstants.rH[var2]);
       }
 
       if (!this.Ud) {
@@ -342,8 +344,8 @@ public class C0893 extends JPanel {
 
       this.Nq.addActionListener(new C0897(this));
 
-      for (int var4 = 0; var4 < C0710.rK.length; var4++) {
-         this.Qx.addItem(C0710.rK[var4]);
+      for (int var4 = 0; var4 < GameConstants.rK.length; var4++) {
+         this.Qx.addItem(GameConstants.rK[var4]);
       }
 
       if (!this.Ud) {
@@ -352,8 +354,8 @@ public class C0893 extends JPanel {
 
       if (this.Nq.getSelectedIndex() == 0) {
          for (int var5 = 0; var5 <= 3; var5++) {
-            this.Qv.addItem(C0710.qM[var5]);
-            this.Qw.addItem(C0710.qM[var5]);
+            this.Qv.addItem(GameConstants.qM[var5]);
+            this.Qw.addItem(GameConstants.qM[var5]);
          }
 
          if (!this.Ud) {
@@ -361,9 +363,9 @@ public class C0893 extends JPanel {
             this.Qw.setSelectedIndex(this.Ub.getCr2());
          }
       } else {
-         for (int var6 = 4; var6 < C0710.qM.length; var6++) {
-            this.Qv.addItem(C0710.qM[var6]);
-            this.Qw.addItem(C0710.qM[var6]);
+         for (int var6 = 4; var6 < GameConstants.qM.length; var6++) {
+            this.Qv.addItem(GameConstants.qM[var6]);
+            this.Qw.addItem(GameConstants.qM[var6]);
          }
 
          if (!this.Ud) {

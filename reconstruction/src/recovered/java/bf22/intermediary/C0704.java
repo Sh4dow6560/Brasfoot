@@ -1,11 +1,12 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.LeagueStage;
 import java.io.Serializable;
 import mod.recovered.model.Club;
 
 public class C0704 implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 nS = null;
+   private LeagueStage nS = null;
    private int nT = 0;
    private int T = 0;
    private int bX = 0;
@@ -25,7 +26,7 @@ public class C0704 implements Serializable {
       this.nL = 0;
    }
 
-   public C0704(Club club, C0955 c0955) {
+   public C0704(Club club, LeagueStage c0955) {
       this.nS = c0955;
    }
 
@@ -42,11 +43,11 @@ public class C0704 implements Serializable {
       return new int[]{this.nT, this.T, this.bX, this.T - (this.bX + this.d), this.d, this.nK, this.nL, this.nK - this.nL};
    }
 
-   public C0955 lC() {
+   public LeagueStage lC() {
       return this.nS;
    }
 
-   public void f(C0955 c0955) {
+   public void f(LeagueStage c0955) {
       this.nS = c0955;
    }
 

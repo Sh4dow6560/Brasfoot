@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import mod.recovered.model.Club;
 
@@ -17,7 +19,7 @@ public class C0728 implements Serializable {
    }
 
    public C0728(Club club) {
-      this.ae = C0745.SR.H();
+      this.ae = GamePersistence.SR.H();
       if (club != null) {
          this.bW = club.lk();
       }
@@ -26,17 +28,17 @@ public class C0728 implements Serializable {
    public String ck() {
       Object var1 = null;
       if (var1 == null) {
-         for (int var2 = 0; var2 < C0745.SR.P().size(); var2++) {
-            if (((Club)C0745.SR.P().get(var2)).lk() == this.bW) {
-               return ((Club)C0745.SR.P().get(var2)).getNome();
+         for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
+            if (((Club)GamePersistence.SR.P().get(var2)).lk() == this.bW) {
+               return ((Club)GamePersistence.SR.P().get(var2)).getNome();
             }
          }
       }
 
       if (var1 == null) {
-         for (int var3 = 0; var3 < C0745.SR.aG().size(); var3++) {
-            if (((C0692)C0745.SR.aG().get(var3)).jn() != null && ((C0692)C0745.SR.aG().get(var3)).jn().lk() == this.bW) {
-               return ((C0692)C0745.SR.aG().get(var3)).jn().getNome();
+         for (int var3 = 0; var3 < GamePersistence.SR.aG().size(); var3++) {
+            if (((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn() != null && ((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn().lk() == this.bW) {
+               return ((CountryCompetitions)GamePersistence.SR.aG().get(var3)).jn().getNome();
             }
          }
       }

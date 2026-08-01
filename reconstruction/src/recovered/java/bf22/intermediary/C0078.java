@@ -1,5 +1,14 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionPlayerStats;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -34,11 +43,11 @@ public class C0078 extends JPanel {
    private ImageIcon uT = new ImageIcon(this.getClass().getResource("/aiconsb/b3s.png"));
    private ImageIcon uU = new ImageIcon(this.getClass().getResource("/aiconsb/b4s.png"));
    private JDialog ub;
-   private C0713 wU = null;
-   private C0678 wV = null;
-   private C0678[] wW = null;
-   private C0678 wX = null;
-   private C0713 wY = null;
+   private Competition wU = null;
+   private CompetitionStage wV = null;
+   private CompetitionStage[] wW = null;
+   private CompetitionStage wX = null;
+   private Competition wY = null;
    private ArrayList cS = new ArrayList();
    private ArrayList vU = new ArrayList();
    boolean wA = false;
@@ -126,7 +135,7 @@ public class C0078 extends JPanel {
    private JTable wp;
    private JTable vN;
 
-   public C0078(JDialog jDialog, C0713 c0713) {
+   public C0078(JDialog jDialog, Competition c0713) {
       this.ub = jDialog;
       this.wU = c0713;
       this.mJ();
@@ -146,7 +155,7 @@ public class C0078 extends JPanel {
          } else if (this.wU.b() == 10) {
             var3 = 4;
          } else if (this.wU.b() == 15) {
-            if (C0745.SR.isJogaIntClubes()) {
+            if (GamePersistence.SR.isJogaIntClubes()) {
                var3 = 1;
             } else {
                var3 = 0;
@@ -156,29 +165,29 @@ public class C0078 extends JPanel {
 
       this.mH();
       this.cM(var3);
-      this.xN.setText(Integer.toString(C0745.SR.H() + C0745.SR.iU()));
+      this.xN.setText(Integer.toString(GamePersistence.SR.H() + GamePersistence.SR.iU()));
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.xI.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.xI.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       this.xI.setForeground(Color.WHITE);
       this.ut.setBorder(BorderFactory.createEmptyBorder());
-      if (C0745.vM().getCorTema() == 2) {
-         this.us.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.uh.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.ur.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.vy.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.vx.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.vz.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.vA.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      if (GamePersistence.vM().getCorTema() == 2) {
+         this.us.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.uh.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.ur.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.vy.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.vx.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.vz.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.vA.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       }
 
       this.xH.setBackground(Color.LIGHT_GRAY);
    }
 
    private void cM(int i) {
-      this.cS = C0713.a(i, false, 0);
+      this.cS = Competition.a(i, false, 0);
       if (this.cS.size() > 0) {
          this.cA(i);
          this.va.removeAllItems();
@@ -201,7 +210,7 @@ public class C0078 extends JPanel {
 
    private void cC(int i) {
       if (this.cS.size() > 0) {
-         this.wU = (C0713)this.va.getSelectedItem();
+         this.wU = (Competition)this.va.getSelectedItem();
       }
 
       if (this.wU != null && this.wU != this.wY) {
@@ -246,10 +255,10 @@ public class C0078 extends JPanel {
             this.nt();
             this.cO(1);
             this.wX = this.wV;
-            if (!(this.wV instanceof C0962)) {
-               if (this.wV instanceof C0955) {
-                  if (((C0955)this.wV).yK().size() > 0) {
-                     this.i((C0955)this.wV);
+            if (!(this.wV instanceof KnockoutStage)) {
+               if (this.wV instanceof LeagueStage) {
+                  if (((LeagueStage)this.wV).yK().size() > 0) {
+                     this.i((LeagueStage)this.wV);
                      this.xH.setVisible(true);
                   } else {
                      this.nn();
@@ -259,12 +268,12 @@ public class C0078 extends JPanel {
                if (this.wW.length > 1) {
                   for (int var1 = this.wW.length - 1; var1 > 0; var1--) {
                      if (this.wW[var1] != null) {
-                        this.a((C0962)this.wW[var1]);
+                        this.a((KnockoutStage)this.wW[var1]);
                      }
                   }
                }
 
-               this.a((C0962)this.wV);
+               this.a((KnockoutStage)this.wV);
                this.xH.setVisible(false);
             }
 
@@ -323,22 +332,22 @@ public class C0078 extends JPanel {
       for (int var12 = 0; var12 < this.wU.ms().size(); var12++) {
          this.wU.mv();
          String var9 = "";
-         if (((C0720)this.wU.ms().get(var12)).x().fg() != null) {
-            if (C0710.fs(this.wU.b())) {
-               var9 = C0696.bl(((C0720)this.wU.ms().get(var12)).x().getPais());
-               ImageIcon var10 = new ImageIcon(this.getClass().getResource("/aflags/" + ((C0720)this.wU.ms().get(var12)).x().getPais() + ".png"));
+         if (((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg() != null) {
+            if (GameConstants.fs(this.wU.b())) {
+               var9 = C0696.bl(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getPais());
+               ImageIcon var10 = new ImageIcon(this.getClass().getResource("/aflags/" + ((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getPais() + ".png"));
                var2[var12].setIcon(var10);
             } else {
-               var9 = ((C0720)this.wU.ms().get(var12)).x().fg().getNome();
-               var2[var12].setIcon(((C0720)this.wU.ms().get(var12)).x().fg().kU());
+               var9 = ((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg().getNome();
+               var2[var12].setIcon(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg().kU());
             }
          } else {
             var2[var12].setIcon(null);
          }
 
-         var2[var12].setText(((C0720)this.wU.ms().get(var12)).x().getNome() + " (" + var9 + ")");
-         var3[var12].setText(Integer.toString(((C0720)this.wU.ms().get(var12)).A()));
-         var4[var12].setText(Integer.toString(((C0720)this.wU.ms().get(var12)).y()));
+         var2[var12].setText(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getNome() + " (" + var9 + ")");
+         var3[var12].setText(Integer.toString(((CompetitionPlayerStats)this.wU.ms().get(var12)).A()));
+         var4[var12].setText(Integer.toString(((CompetitionPlayerStats)this.wU.ms().get(var12)).y()));
          if (++var1 == 5) {
             break;
          }
@@ -396,7 +405,7 @@ public class C0078 extends JPanel {
 
    private void nq() {
       String[] var1 = this.wU.mA();
-      ImageIcon var2 = C0710.a(C0710.x(var1[0]), 40, 55);
+      ImageIcon var2 = GameConstants.a(GameConstants.x(var1[0]), 40, 55);
       this.xJ.setIcon(var2);
    }
 
@@ -407,7 +416,7 @@ public class C0078 extends JPanel {
       if (this.wU.mD() != null && this.wU.mD().size() > 0) {
          for (int var4 = 0; var4 < this.wU.mD().size(); var4++) {
             String var5 = "";
-            if (C0710.fs(this.wU.b())) {
+            if (GameConstants.fs(this.wU.b())) {
                var5 = C0696.bl(((C0690)this.wU.mD().get(var4)).x().getPais());
                ImageIcon var6 = new ImageIcon(this.getClass().getResource("/aflags/" + ((C0690)this.wU.mD().get(var4)).x().getPais() + ".png"));
                var1[var4].setIcon(var6);
@@ -419,7 +428,7 @@ public class C0078 extends JPanel {
             }
 
             var1[var4]
-               .setText(C0710.rI[((C0690)this.wU.mD().get(var4)).x().getPosicao()] + " - " + ((C0690)this.wU.mD().get(var4)).x().getNome() + " (" + var5 + ")");
+               .setText(GameConstants.rI[((C0690)this.wU.mD().get(var4)).x().getPosicao()] + " - " + ((C0690)this.wU.mD().get(var4)).x().getNome() + " (" + var5 + ")");
             var2[var4].setText(Integer.toString(((C0690)this.wU.mD().get(var4)).A()));
             var3[var4].setText(((C0690)this.wU.mD().get(var4)).cE());
          }
@@ -439,7 +448,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void a(C0962 c0962) {
+   private void a(KnockoutStage c0962) {
       String[] var2 = this.wU.b(c0962);
       if (var2 == null) {
          var2 = c0962.zB();
@@ -453,19 +462,19 @@ public class C0078 extends JPanel {
             this.z(var2[var3]);
          }
 
-         for (int var4 = 0; var4 < ((C0929)c0962.zp().get(var3)).zW().size(); var4++) {
+         for (int var4 = 0; var4 < ((KnockoutRound)c0962.zp().get(var3)).zW().size(); var4++) {
             C0809 var5 = new C0809();
-            var5.l((C0675)((C0929)c0962.zp().get(var3)).zW().get(var4));
-            if (((C0929)c0962.zp().get(var3)).hO()) {
-               var5.m((C0675)((C0929)c0962.zp().get(var3)).zX().get(var4));
+            var5.l((Match)((KnockoutRound)c0962.zp().get(var3)).zW().get(var4));
+            if (((KnockoutRound)c0962.zp().get(var3)).hO()) {
+               var5.m((Match)((KnockoutRound)c0962.zp().get(var3)).zX().get(var4));
             }
 
-            this.a(var5, ((C0929)c0962.zp().get(var3)).zY());
+            this.a(var5, ((KnockoutRound)c0962.zp().get(var3)).zY());
          }
       }
    }
 
-   private void i(C0955 c0955) {
+   private void i(LeagueStage c0955) {
       this.vU.clear();
       if (c0955.yK().size() > 0) {
          this.j(c0955);
@@ -534,7 +543,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void j(C0955 c0955) {
+   private void j(LeagueStage c0955) {
       this.xd.clear();
       this.xe.clear();
       this.xf.clear();
@@ -547,13 +556,13 @@ public class C0078 extends JPanel {
          this.s(c0955);
       } else {
          this.n(c0955);
-         if (C0745.SR.isJogaIntClubes() && this.wU.b() == 1) {
+         if (GamePersistence.SR.isJogaIntClubes() && this.wU.b() == 1) {
             this.m(c0955);
          }
       }
    }
 
-   private void s(C0955 c0955) {
+   private void s(LeagueStage c0955) {
       for (int var2 = 0; var2 < c0955.yQ().size(); var2++) {
          this.wK.add((Club)((C0673)c0955.yQ().get(var2)).gR().get(0));
          if (c0955.ze() == 14003) {
@@ -562,7 +571,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void l(C0955 c0955) {
+   private void l(LeagueStage c0955) {
       byte var2 = 0;
       byte var3 = 0;
       byte var4 = 0;
@@ -574,7 +583,7 @@ public class C0078 extends JPanel {
          var3 = 1;
          var4 = 2;
          var5 = 2;
-         if (C0745.SR.bL().el() == 70) {
+         if (GamePersistence.SR.bL().el() == 70) {
             var2 = 2;
             var3 = 0;
             var4 = 8;
@@ -650,7 +659,7 @@ public class C0078 extends JPanel {
             var12.add((Club)((C0673)c0955.yQ().get(var15)).gR().get(var5));
          }
 
-         C0955.r(c0955);
+         LeagueStage.r(c0955);
          Collections.sort(var12, C1007.abn);
 
          for (int var16 = 0; var16 < var4; var16++) {
@@ -659,7 +668,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void m(C0955 c0955) {
+   private void m(LeagueStage c0955) {
       int var2 = c0955.yX();
       if (c0955.ze() == 1022) {
          var2 = 2;
@@ -800,7 +809,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void n(C0955 c0955) {
+   private void n(LeagueStage c0955) {
       int var2 = c0955.yX();
       if (c0955.ze() == 1022) {
          var2 = 1;
@@ -873,7 +882,7 @@ public class C0078 extends JPanel {
             }
          }
 
-         C0955.r(c0955);
+         LeagueStage.r(c0955);
          Collections.sort(var7, C1007.abn);
 
          for (int var13 = 0; var13 < 6; var13++) {
@@ -882,7 +891,7 @@ public class C0078 extends JPanel {
       }
    }
 
-   private void o(C0955 c0955) {
+   private void o(LeagueStage c0955) {
       this.xc.clear();
       if (c0955.b() == 14) {
          if (c0955.ze() == 14001 || c0955.ze() == 14002) {
@@ -953,7 +962,7 @@ public class C0078 extends JPanel {
       }
 
       C0801 var2 = new C0801(c0810);
-      this.xb.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh, 470, 25));
       this.xh += 26;
    }
@@ -971,7 +980,7 @@ public class C0078 extends JPanel {
          var5 = 30;
       }
 
-      this.xb.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       this.xb.add(var3, new C0775(0, this.xh, 470, var5));
       this.xh = this.xh + var5 + 1;
    }
@@ -983,7 +992,7 @@ public class C0078 extends JPanel {
          var3 = 0;
       }
 
-      this.xb.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh + var3, 470, 25));
       this.xh = this.xh + 26 + var3;
    }
@@ -995,12 +1004,12 @@ public class C0078 extends JPanel {
          this.xh += 20;
       }
 
-      this.xb.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       this.xb.add(var2, new C0775(0, this.xh, 470, 25));
       this.xh += 26;
    }
 
-   private void a(C0955 c0955, String string, boolean bl, int i) {
+   private void a(LeagueStage c0955, String string, boolean bl, int i) {
       int[] var5 = new int[8];
       int[] var6 = new int[8];
       String var7 = "";
@@ -1045,15 +1054,15 @@ public class C0078 extends JPanel {
    }
 
    private void nu() {
-      if (this.vU.size() == 0 && this.wV instanceof C0955) {
-         String var1 = Integer.toString(((C0955)this.wV).zb() - 1) + " ª Rodada";
+      if (this.vU.size() == 0 && this.wV instanceof LeagueStage) {
+         String var1 = Integer.toString(((LeagueStage)this.wV).zb() - 1) + " ª Rodada";
          ArrayList var2 = new ArrayList();
          int var3 = 0;
 
-         for (int var4 = 0; var4 < C0745.SR.R().size(); var4++) {
-            for (int var5 = 0; var5 < ((C0693)C0745.SR.R().get(var4)).j().size(); var5++) {
-               if (((C0693)C0745.SR.R().get(var4)).j().get(var5) == this.wV) {
-                  var2.add((C0693)C0745.SR.R().get(var4));
+         for (int var4 = 0; var4 < GamePersistence.SR.R().size(); var4++) {
+            for (int var5 = 0; var5 < ((C0693)GamePersistence.SR.R().get(var4)).j().size(); var5++) {
+               if (((C0693)GamePersistence.SR.R().get(var4)).j().get(var5) == this.wV) {
+                  var2.add((C0693)GamePersistence.SR.R().get(var4));
                   break;
                }
             }
@@ -1067,9 +1076,9 @@ public class C0078 extends JPanel {
             var3 = 0;
 
             for (int var6 = 0; var6 < ((C0693)var2.get(var8)).h().size(); var6++) {
-               if (((C0675)((C0693)var2.get(var8)).h().get(var6)).ht() == this.wV) {
+               if (((Match)((C0693)var2.get(var8)).h().get(var6)).ht() == this.wV) {
                   C0828 var7 = new C0828();
-                  var7.n((C0675)((C0693)var2.get(var8)).h().get(var6));
+                  var7.n((Match)((C0693)var2.get(var8)).h().get(var6));
                   this.vU.add(var7);
                   var3++;
                }
@@ -1155,14 +1164,14 @@ public class C0078 extends JPanel {
       if (i == 1) {
          this.yg.setVisible(false);
          this.ye.setVisible(true);
-         this.xI.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+         this.xI.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
          this.xI.setForeground(Color.WHITE);
          this.xH.setBackground(Color.LIGHT_GRAY);
          this.xH.setForeground(Color.BLACK);
       } else {
          this.yg.setVisible(true);
          this.ye.setVisible(false);
-         this.xH.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+         this.xH.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
          this.xH.setForeground(Color.WHITE);
          this.xI.setBackground(Color.LIGHT_GRAY);
          this.xI.setForeground(Color.BLACK);
@@ -1184,19 +1193,19 @@ public class C0078 extends JPanel {
    }
 
    private void mO() {
-      if (!C0745.SR.isJogaEstadual()) {
+      if (!GamePersistence.SR.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.isJogaRegionais()) {
          this.xy.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.SR.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaIntClubes()) {
+      if (!GamePersistence.SR.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }

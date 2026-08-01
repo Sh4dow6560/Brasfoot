@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -45,9 +47,9 @@ public class C0193 extends JPanel {
       this.vf.setText(var5);
       this.vf.setIcon(var4);
 
-      for (int var6 = 0; var6 < C0745.SR.bG.size(); var6++) {
-         if (((NationalLeagueConfig)C0745.SR.bG.get(var6)).getPais() == i) {
-            this.du.add((NationalLeagueConfig)C0745.SR.bG.get(var6));
+      for (int var6 = 0; var6 < GamePersistence.SR.bG.size(); var6++) {
+         if (((NationalLeagueConfig)GamePersistence.SR.bG.get(var6)).getPais() == i) {
+            this.du.add((NationalLeagueConfig)GamePersistence.SR.bG.get(var6));
          }
       }
 
@@ -73,8 +75,8 @@ public class C0193 extends JPanel {
             var12.setPais(i);
             var12.setDivisao(var10);
             var12.setFormula(0);
-            var12.setNome2(C0697.br(i));
-            C0745.SR.bG.add(var12);
+            var12.setNome2(CountryInfo.br(i));
+            GamePersistence.SR.bG.add(var12);
             this.Go[var10] = var12;
             var12.setRebaixadosDireto(4);
             var12.setVagasSobemPeloMataMata(0);
@@ -92,7 +94,7 @@ public class C0193 extends JPanel {
          this.Gp.setVisible(false);
       } else {
          this.Gp.setVisible(true);
-         if (C0745.vM().isNovoFormatoCopa()) {
+         if (GamePersistence.vM().isNovoFormatoCopa()) {
             this.Gp.setSelected(true);
          } else {
             this.Gp.setSelected(false);
@@ -113,8 +115,8 @@ public class C0193 extends JPanel {
       this.Gt.nH();
       C0734.a(this.Go, this.pais);
       if (this.pais == 29) {
-         C0745.vM().setNovoFormatoCopa(this.Gp.isSelected());
-         C0745.vJ();
+         GamePersistence.vM().setNovoFormatoCopa(this.Gp.isSelected());
+         GamePersistence.vJ();
       }
 
       this.ub.dispose();

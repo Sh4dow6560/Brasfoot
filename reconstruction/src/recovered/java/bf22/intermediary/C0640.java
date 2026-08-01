@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -20,7 +22,7 @@ public class C0640 extends DefaultTableCellRenderer {
       Player var7 = (Player)object;
       if (j == 0) {
          this.setHorizontalAlignment(0);
-         this.setText(C0710.rI[var7.getPosicao()]);
+         this.setText(GameConstants.rI[var7.getPosicao()]);
       } else if (j == 1) {
          this.setHorizontalAlignment(2);
          String var8 = C0696.valueOf("P" + var7.getPais()).jA();
@@ -42,10 +44,10 @@ public class C0640 extends DefaultTableCellRenderer {
          }
       } else if (j == 4) {
          this.setHorizontalAlignment(0);
-         this.setText(C0710.rK[var7.getLado()]);
+         this.setText(GameConstants.rK[var7.getLado()]);
       }
 
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          if (j == 5) {
             this.setText(Integer.toString(var7.fi()));
          } else if (j == 6) {
@@ -53,7 +55,7 @@ public class C0640 extends DefaultTableCellRenderer {
          } else if (j == 7) {
             this.setText(ClubFinances.a(var7.fk(), 0));
          } else if (j == 8) {
-            this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+            this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 9) {
             this.setText(Integer.toString(var7.gy()));
          } else if (j == 10) {
@@ -84,7 +86,7 @@ public class C0640 extends DefaultTableCellRenderer {
       } else if (j == 13) {
          this.setText(ClubFinances.a(var7.fk(), 0));
       } else if (j == 14) {
-         this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+         this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
       } else if (j == 15) {
          this.setText(Integer.toString(var7.gy()));
       } else if (j == 16) {

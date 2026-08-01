@@ -1,6 +1,6 @@
 package mod.recovered.config;
 
-import bf22.intermediary.C0745;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.io.Serializable;
 
@@ -125,12 +125,12 @@ public class GameOptions implements Serializable {
 
   public void setVerJint(boolean value, int index) {
     verJint[index] = value;
-    C0745.SR.setVerJint(value, index);
+    GamePersistence.SR.setVerJint(value, index);
   }
 
   public void setVerJint(boolean[] value) {
     verJint = value;
-    C0745.SR.setVerJint(value);
+    GamePersistence.SR.setVerJint(value);
   }
 
   public static long getSerialversionuid() {
@@ -151,7 +151,7 @@ public class GameOptions implements Serializable {
 
   public void setNegritoCasa(boolean value) {
     negritoCasa = value;
-    C0745.SR.setNegritoCasa(value);
+    GamePersistence.SR.setNegritoCasa(value);
   }
 
   public int getAutoSalvar() {
@@ -160,7 +160,7 @@ public class GameOptions implements Serializable {
 
   public void setAutoSalvar(int value) {
     autoSalvar = value;
-    C0745.SR.setAutoSalvar(value);
+    GamePersistence.SR.setAutoSalvar(value);
   }
 
   public int getVelocidade() {
@@ -169,7 +169,7 @@ public class GameOptions implements Serializable {
 
   public void setVelocidade(int value) {
     velocidade = value;
-    C0745.SR.setVelocidade(value);
+    GamePersistence.SR.setVelocidade(value);
   }
 
   public int getVelocidadeNH() {
@@ -178,7 +178,7 @@ public class GameOptions implements Serializable {
 
   public void setVelocidadeNH(int value) {
     velocidadeNH = value;
-    C0745.SR.setVelocidadeNH(value);
+    GamePersistence.SR.setVelocidadeNH(value);
   }
 
   public int getAvisoTerminoContrato() {
@@ -187,7 +187,7 @@ public class GameOptions implements Serializable {
 
   public void setAvisoTerminoContrato(int value) {
     avisoTerminoContrato = value;
-    C0745.SR.setAvisoTerminoContrato(value);
+    GamePersistence.SR.setAvisoTerminoContrato(value);
   }
 
   public int getVerDecisaoPenNaoHumano() {
@@ -196,7 +196,7 @@ public class GameOptions implements Serializable {
 
   public void setVerDecisaoPenNaoHumano(int value) {
     verDecisaoPenNaoHumano = value;
-    C0745.SR.setVerDecisaoPenNaoHumano(value);
+    GamePersistence.SR.setVerDecisaoPenNaoHumano(value);
   }
 
   public int getVerMudancaTecnicos() {
@@ -205,7 +205,7 @@ public class GameOptions implements Serializable {
 
   public void setVerMudancaTecnicos(int value) {
     verMudancaTecnicos = value;
-    C0745.SR.setVerMudancaTecnicos(value);
+    GamePersistence.SR.setVerMudancaTecnicos(value);
   }
 
   public int getVerJanelaSubs() {
@@ -214,7 +214,7 @@ public class GameOptions implements Serializable {
 
   public void setVerJanelaSubs(int value) {
     verJanelaSubs = value;
-    C0745.SR.setVerJanelaSubs(value);
+    GamePersistence.SR.setVerJanelaSubs(value);
   }
 
   public boolean isAutoRenovaContrato() {
@@ -223,7 +223,7 @@ public class GameOptions implements Serializable {
 
   public void setAutoRenovaContrato(boolean value) {
     autoRenovaContrato = value;
-    C0745.SR.setAutoRenovaContrato(value);
+    GamePersistence.SR.setAutoRenovaContrato(value);
   }
 
   public boolean isUsaCorPlacar() {
@@ -232,7 +232,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaCorPlacar(boolean value) {
     usaCorPlacar = value;
-    C0745.SR.setUsaCorPlacar(value);
+    GamePersistence.SR.setUsaCorPlacar(value);
   }
 
   public int getCorPlacar() {
@@ -241,7 +241,7 @@ public class GameOptions implements Serializable {
 
   public void setCorPlacar(int value) {
     corPlacar = value;
-    C0745.SR.setCorPlacar(value);
+    GamePersistence.SR.setCorPlacar(value);
   }
 
   public boolean isUsaSons() {
@@ -250,7 +250,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaSons(boolean value) {
     usaSons = value;
-    C0745.SR.setUsaSons(value);
+    GamePersistence.SR.setUsaSons(value);
   }
 
   public boolean isUsaCoresLista() {
@@ -259,7 +259,7 @@ public class GameOptions implements Serializable {
 
   public void setUsaCoresLista(boolean value) {
     usaCoresLista = value;
-    C0745.SR.setUsaCoresLista(value);
+    GamePersistence.SR.setUsaCoresLista(value);
   }
 
   public boolean isVerEstaduaisAgrupados() {
@@ -268,7 +268,7 @@ public class GameOptions implements Serializable {
 
   public void setVerEstaduaisAgrupados(boolean value) {
     verEstaduaisAgrupados = value;
-    C0745.SR.setVerEstaduaisAgrupados(value);
+    GamePersistence.SR.setVerEstaduaisAgrupados(value);
   }
 
   public Color[] getCoresLista() {
@@ -285,7 +285,7 @@ public class GameOptions implements Serializable {
 
   public void setCoresLista(Color[] value) {
     coresLista = value;
-    C0745.SR.setCoresLista(value);
+    GamePersistence.SR.setCoresLista(value);
   }
 
   public boolean isIgnoraLigas() {
@@ -294,7 +294,7 @@ public class GameOptions implements Serializable {
 
   public void setIgnoraLigas(boolean value) {
     ignoraLigas = value;
-    C0745.SR.setIgnoraLigas(value);
+    GamePersistence.SR.setIgnoraLigas(value);
   }
 
   public boolean isIgnoraEstadual() {
@@ -303,7 +303,7 @@ public class GameOptions implements Serializable {
 
   public void setIgnoraEstadual(boolean value) {
     ignoraEstadual = value;
-    C0745.SR.setIgnoraEstadual(value);
+    GamePersistence.SR.setIgnoraEstadual(value);
   }
 
   public boolean isUsarGruposReaisCopa() {
@@ -312,7 +312,7 @@ public class GameOptions implements Serializable {
 
   public void setUsarGruposReaisCopa(boolean value) {
     UsarGruposReaisCopa = value;
-    C0745.SR.setUsarGruposReaisCopa(value);
+    GamePersistence.SR.setUsarGruposReaisCopa(value);
   }
 
   public boolean[] getJogaRegionaisTodos() {
@@ -361,6 +361,6 @@ public class GameOptions implements Serializable {
 
   public void setVerLeiloes(boolean value) {
     verLeiloes = value;
-    C0745.SR.setVerLeiloes(value);
+    GamePersistence.SR.setVerLeiloes(value);
   }
 }

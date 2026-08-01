@@ -1,9 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.LeagueStage;
 import java.util.Comparator;
 
-class C0993 implements Comparator<C0955> {
-   public int compare(C0955 c0955, C0955 c09552) {
+class C0993 implements Comparator<LeagueStage> {
+   public int compare(LeagueStage c0955, LeagueStage c09552) {
       int var3 = c0955.getDivisao();
       int var4 = c09552.getDivisao();
       int var5 = c0955.ze();

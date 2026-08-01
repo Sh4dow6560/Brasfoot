@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -56,15 +61,15 @@ public class C0186 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.uv.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.uv.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
    }
 
    private void mK() {
       this.un = C0937.M(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
-         this.up.addItem(((C0693)C0745.SR.R().get((Integer)this.un.get(var1))).f());
+         this.up.addItem(((C0693)GamePersistence.SR.R().get((Integer)this.un.get(var1))).f());
       }
    }
 
@@ -75,10 +80,10 @@ public class C0186 extends JPanel {
 
    public static boolean d(Club club, int i) {
       new ArrayList();
-      ArrayList var2 = ((C0693)C0745.SR.R().get(i)).h();
+      ArrayList var2 = ((C0693)GamePersistence.SR.R().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0675)var2.get(var3)).hc() == club || ((C0675)var2.get(var3)).hd() == club) {
+         if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
             return true;
          }
       }
@@ -97,7 +102,7 @@ public class C0186 extends JPanel {
          JOptionPane.showMessageDialog(this.ub, "Amistoso marcado.", "Amistoso", 2);
          C0937.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
          if (!this.uk.jZ()) {
-            C0692 var1 = C0745.SR.s(this.uk.getPais());
+            CountryCompetitions var1 = GamePersistence.SR.s(this.uk.getPais());
             var1.z(false);
          }
 
@@ -118,8 +123,8 @@ public class C0186 extends JPanel {
       this.uw.addTreeSelectionListener(new C0345(this));
 
       for (int var1 = 0; var1 < C0696.jz(); var1++) {
-         int var2 = ((C0697)C0732.cY().get(var1)).getPais();
-         C0692 var3 = C0745.SR.s(var2);
+         int var2 = ((CountryInfo)C0732.cY().get(var1)).getPais();
+         CountryCompetitions var3 = GamePersistence.SR.s(var2);
          if (var3.jl() && var3.jo() != this.ul) {
             this.um.add(var3.jo());
          }

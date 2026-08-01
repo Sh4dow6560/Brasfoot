@@ -1,5 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -31,10 +39,10 @@ public class C0065 extends JPanel {
    private ArrayList wr = new ArrayList();
    private ArrayList ws = new ArrayList();
    private ArrayList wt = new ArrayList();
-   private C0955 vW = null;
-   private C0713 vX = null;
-   private C0962 vY = null;
-   private C0962 wu = null;
+   private LeagueStage vW = null;
+   private Competition vX = null;
+   private KnockoutStage vY = null;
+   private KnockoutStage wu = null;
    private ImageIcon uL = new ImageIcon(this.getClass().getResource("/aiconsb/b0.png"));
    private ImageIcon uM = new ImageIcon(this.getClass().getResource("/aiconsb/b1.png"));
    private ImageIcon uN = new ImageIcon(this.getClass().getResource("/aiconsb/b2.png"));
@@ -48,7 +56,7 @@ public class C0065 extends JPanel {
    private int wv = -1;
    private int wa = -1;
    private int ww = -1;
-   private C0713 wb = null;
+   private Competition wb = null;
    boolean wx = false;
    boolean wy = false;
    boolean wz = false;
@@ -87,7 +95,7 @@ public class C0065 extends JPanel {
    private JTable vN;
    private JComboBox wS;
 
-   public C0065(JDialog jDialog, int i, C0713 c0713) {
+   public C0065(JDialog jDialog, int i, Competition c0713) {
       this.ub = jDialog;
       this.wb = c0713;
       this.mJ();
@@ -124,12 +132,12 @@ public class C0065 extends JPanel {
       this.wR.setForeground(new Color(255, 255, 255));
       this.vd.setBackground(new Color(35, 28, 14));
       this.vd.setOpaque(true);
-      this.vf.setText("Classificação e jogos - " + Integer.toString(C0745.SR.H() + C0745.SR.iU()));
+      this.vf.setText("Classificação e jogos - " + Integer.toString(GamePersistence.SR.H() + GamePersistence.SR.iU()));
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mQ() {
@@ -141,19 +149,19 @@ public class C0065 extends JPanel {
    }
 
    private void mO() {
-      if (!C0745.SR.isJogaEstadual()) {
+      if (!GamePersistence.SR.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.SR.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaIntClubes()) {
+      if (!GamePersistence.SR.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -183,7 +191,7 @@ public class C0065 extends JPanel {
       this.wE = false;
       this.wD = false;
       this.cA(i);
-      this.cS = C0713.a(i, false, 0);
+      this.cS = Competition.a(i, false, 0);
       this.va.removeAllItems();
       if (i == 2) {
          Collections.sort(this.cS, C1007.abj);
@@ -281,7 +289,7 @@ public class C0065 extends JPanel {
       }
    }
 
-   private boolean a(int i, C0955 c0955, C0713 c0713) {
+   private boolean a(int i, LeagueStage c0955, Competition c0713) {
       if (c0955 == null) {
          c0955 = this.vW;
       }
@@ -299,10 +307,10 @@ public class C0065 extends JPanel {
       this.wv = i;
       this.vV.clear();
 
-      for (int var4 = 0; var4 < C0745.SR.R().size(); var4++) {
-         for (int var5 = 0; var5 < ((C0693)C0745.SR.R().get(var4)).t().size(); var5++) {
-            if (((C0693)C0745.SR.R().get(var4)).t().get(var5) == c0713) {
-               this.vV.add((C0693)C0745.SR.R().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.SR.R().size(); var4++) {
+         for (int var5 = 0; var5 < ((C0693)GamePersistence.SR.R().get(var4)).t().size(); var5++) {
+            if (((C0693)GamePersistence.SR.R().get(var4)).t().get(var5) == c0713) {
+               this.vV.add((C0693)GamePersistence.SR.R().get(var4));
                break;
             }
          }
@@ -326,16 +334,16 @@ public class C0065 extends JPanel {
 
       try {
          for (int var9 = 0; var9 < ((C0693)this.vV.get(i)).h().size(); var9++) {
-            if (((C0675)((C0693)this.vV.get(i)).h().get(var9)).ht() == c0955) {
+            if (((Match)((C0693)this.vV.get(i)).h().get(var9)).ht() == c0955) {
                C0828 var11 = new C0828();
                var11.ao(true);
                this.vU.add(var11);
                C0828 var6 = new C0828();
-               var6.n((C0675)((C0693)this.vV.get(i)).h().get(var9));
+               var6.n((Match)((C0693)this.vV.get(i)).h().get(var9));
                var6.ah(true);
                this.vU.add(var6);
                C0828 var7 = new C0828();
-               var7.n((C0675)((C0693)this.vV.get(i)).h().get(var9));
+               var7.n((Match)((C0693)this.vV.get(i)).h().get(var9));
                this.vU.add(var7);
             }
          }
@@ -385,11 +393,11 @@ public class C0065 extends JPanel {
       this.nc();
       this.nl();
       if (this.cS.size() > 0) {
-         this.u((C0713)this.va.getSelectedItem());
+         this.u((Competition)this.va.getSelectedItem());
       }
    }
 
-   private void a(C0955 c0955, C0962 c0962, C0962 c09622, boolean bl, boolean bl2) {
+   private void a(LeagueStage c0955, KnockoutStage c0962, KnockoutStage c09622, boolean bl, boolean bl2) {
       this.vY = c0962;
       this.vW = c0955;
       this.wu = c09622;
@@ -404,12 +412,12 @@ public class C0065 extends JPanel {
          this.vY = this.vW.yY();
       }
 
-      if (this.vX instanceof C0947 && C0745.SR.bQ() != null && C0745.SR.bQ().yd().yY() != null) {
-         this.vY = C0745.SR.bQ().yd().yY();
+      if (this.vX instanceof C0947 && GamePersistence.SR.bQ() != null && GamePersistence.SR.bQ().yd().yY() != null) {
+         this.vY = GamePersistence.SR.bQ().yd().yY();
       }
 
-      if (this.vX instanceof C0949 && C0745.SR.bK() != null && C0745.SR.bK().yd().yY() != null) {
-         this.vY = C0745.SR.bK().yd().yY();
+      if (this.vX instanceof C0949 && GamePersistence.SR.bK() != null && GamePersistence.SR.bK().yd().yY() != null) {
+         this.vY = GamePersistence.SR.bK().yd().yY();
       }
 
       this.wa = 1;
@@ -470,11 +478,11 @@ public class C0065 extends JPanel {
          int[] var1 = new int[]{64, 32, 16, 8, 4, 2, 1};
          int[] var2 = new int[]{40, 20, 10, 5, 8, 4, 2, 1};
          int var3 = 0;
-         String[] var4 = C0710.ps;
-         String[] var5 = C0710.pu;
+         String[] var4 = GameConstants.ps;
+         String[] var5 = GameConstants.pu;
          if (this.vY != null && this.vY.zf() == 29) {
-            var4 = C0710.pt;
-            var5 = C0710.pv;
+            var4 = GameConstants.pt;
+            var5 = GameConstants.pv;
             var1 = var2;
          }
 
@@ -789,8 +797,8 @@ public class C0065 extends JPanel {
       }
 
       if (this.vX != null && this.vX.b() == 2 && this.vX instanceof C0942) {
-         C0692 var18 = ((C0942)this.vX).yg();
-         if (var18.jc() == 29 && C0745.vM().isNovoFormatoCopa() && (var18.jq() == null || var18.jq().yf() == null)) {
+         CountryCompetitions var18 = ((C0942)this.vX).yg();
+         if (var18.jc() == 29 && GamePersistence.vM().isNovoFormatoCopa() && (var18.jq() == null || var18.jq().yf() == null)) {
             this.vT.clear();
             C0809 var19 = new C0809();
             var19.ai(true);
@@ -844,7 +852,7 @@ public class C0065 extends JPanel {
       }
    }
 
-   private void a(C0962 c0962, C0962 c09622) {
+   private void a(KnockoutStage c0962, KnockoutStage c09622) {
       this.wi.setVisible(false);
       this.Q(false);
       if (this.wB) {
@@ -902,18 +910,18 @@ public class C0065 extends JPanel {
       }
 
       for (int var5 = 0; var5 < 2; var5++) {
-         C0962 var6 = c0962;
+         KnockoutStage var6 = c0962;
          if (var5 == 1) {
             var6 = c09622;
          }
 
          if (var6 != null && this.ww < var6.zp().size()) {
-            for (int var7 = 0; var7 < ((C0929)var6.zp().get(this.ww)).zW().size(); var7++) {
+            for (int var7 = 0; var7 < ((KnockoutRound)var6.zp().get(this.ww)).zW().size(); var7++) {
                C0809 var8 = new C0809();
                var8.ai(true);
                this.vT.add(var8);
                C0809 var9 = new C0809();
-               var9.l((C0675)((C0929)var6.zp().get(this.ww)).zW().get(var7));
+               var9.l((Match)((KnockoutRound)var6.zp().get(this.ww)).zW().get(var7));
                var9.ah(true);
                var9.E(var3 + Integer.toString(var7 + 1));
                if (var4 && var7 == 0) {
@@ -922,7 +930,7 @@ public class C0065 extends JPanel {
                   var9.E("Decisão 3º lugar");
                }
 
-               if (((C0929)var6.zp().get(this.ww)).zW().size() == 1) {
+               if (((KnockoutRound)var6.zp().get(this.ww)).zW().size() == 1) {
                   var9.E(var3);
                }
 
@@ -943,11 +951,11 @@ public class C0065 extends JPanel {
 
                this.vT.add(var9);
                C0809 var11 = new C0809();
-               var11.l((C0675)((C0929)var6.zp().get(this.ww)).zW().get(var7));
+               var11.l((Match)((KnockoutRound)var6.zp().get(this.ww)).zW().get(var7));
                this.vT.add(var11);
-               if (((C0929)var6.zp().get(this.ww)).hO()) {
-                  var9.m((C0675)((C0929)var6.zp().get(this.ww)).zX().get(var7));
-                  var11.m((C0675)((C0929)var6.zp().get(this.ww)).zX().get(var7));
+               if (((KnockoutRound)var6.zp().get(this.ww)).hO()) {
+                  var9.m((Match)((KnockoutRound)var6.zp().get(this.ww)).zX().get(var7));
+                  var11.m((Match)((KnockoutRound)var6.zp().get(this.ww)).zX().get(var7));
                }
             }
          }
@@ -956,7 +964,7 @@ public class C0065 extends JPanel {
       this.nk();
    }
 
-   private void i(C0955 c0955) {
+   private void i(LeagueStage c0955) {
       this.wi.setVisible(true);
       this.Q(true);
       this.wm.setText("1ª fase");
@@ -1010,7 +1018,7 @@ public class C0065 extends JPanel {
       this.wp.addNotify();
    }
 
-   private void j(C0955 c0955) {
+   private void j(LeagueStage c0955) {
       this.wK.clear();
       ArrayList var2 = new ArrayList();
       ArrayList var3 = new ArrayList();
@@ -1078,7 +1086,7 @@ public class C0065 extends JPanel {
                      var28.add((Club)((C0673)c0955.yQ().get(var42)).gR().get(2));
                   }
 
-                  C0955.r(this.vW);
+                  LeagueStage.r(this.vW);
                   Collections.sort(var28, C1007.abn);
 
                   for (int var43 = 0; var43 < 8; var43++) {
@@ -1091,7 +1099,7 @@ public class C0065 extends JPanel {
                      var27.add((Club)((C0673)c0955.yQ().get(var40)).gR().get(1));
                   }
 
-                  C0955.r(this.vW);
+                  LeagueStage.r(this.vW);
                   Collections.sort(var27, C1007.abn);
 
                   for (int var41 = 0; var41 < 15; var41++) {
@@ -1138,29 +1146,29 @@ public class C0065 extends JPanel {
          }
       }
 
-      if (c0955.b() == 1 && C0745.SR.isJogaIntClubes()) {
+      if (c0955.b() == 1 && GamePersistence.SR.isJogaIntClubes()) {
          if (c0955.vl().gg() == 1) {
-            Club var12 = C0745.SR.aF().cS();
+            Club var12 = GamePersistence.SR.aF().cS();
             if (var12 != null) {
                var4.add(var12);
             }
 
-            Club var32 = C0745.SR.aH().cS();
+            Club var32 = GamePersistence.SR.aH().cS();
             if (var32 != null) {
                var4.add(var32);
             }
          } else if (c0955.vl().gg() == 0) {
-            Club var13 = C0745.SR.aI().cS();
+            Club var13 = GamePersistence.SR.aI().cS();
             if (var13 != null) {
                var4.add(var13);
             }
 
-            Club var33 = C0745.SR.aK().cS();
+            Club var33 = GamePersistence.SR.aK().cS();
             if (var33 != null) {
                var4.add(var33);
             }
          } else if (c0955.vl().gg() == 2) {
-            Club var14 = C0745.SR.aO().cS();
+            Club var14 = GamePersistence.SR.aO().cS();
             if (var14 != null) {
                var4.add(var14);
             }
@@ -1170,17 +1178,17 @@ public class C0065 extends JPanel {
                var4.add(var34);
             }
          } else if (c0955.vl().gg() == 3) {
-            Club var15 = C0745.SR.aL().cS();
+            Club var15 = GamePersistence.SR.aL().cS();
             if (var15 != null) {
                var4.add(var15);
             }
          } else if (c0955.vl().gg() == 5) {
-            Club var16 = C0745.SR.aQ().cS();
+            Club var16 = GamePersistence.SR.aQ().cS();
             if (var16 != null) {
                var4.add(var16);
             }
          } else if (c0955.vl().gg() == 4) {
-            Club var17 = C0745.SR.aP().cS();
+            Club var17 = GamePersistence.SR.aP().cS();
             if (var17 != null) {
                var4.add(var17);
             }
@@ -1194,7 +1202,7 @@ public class C0065 extends JPanel {
          }
       }
 
-      if (c0955.getDivisao() == 1 && c0955.b() == 1 && C0745.SR.isJogaIntClubes()) {
+      if (c0955.getDivisao() == 1 && c0955.b() == 1 && GamePersistence.SR.isJogaIntClubes()) {
          int[] var19 = new int[3];
 
          for (int var35 = 0; var35 < c0955.yK().size(); var35++) {
@@ -1230,7 +1238,7 @@ public class C0065 extends JPanel {
             var20.add((Club)((C0673)c0955.yQ().get(var38)).gR().get(1));
          }
 
-         C0955.r(this.vW);
+         LeagueStage.r(this.vW);
          Collections.sort(var20, C1007.abn);
 
          for (int var39 = 0; var39 < 8; var39++) {
@@ -1277,9 +1285,9 @@ public class C0065 extends JPanel {
       }
    }
 
-   private boolean k(C0955 c0955) {
+   private boolean k(LeagueStage c0955) {
       if (c0955.b() == 1 || c0955.b() == 3) {
-         if (c0955.b() == 1 && c0955.iq().jc() == 29 && C0745.SR.bk() && c0955.getDivisao() == 4) {
+         if (c0955.b() == 1 && c0955.iq().jc() == 29 && GamePersistence.SR.bk() && c0955.getDivisao() == 4) {
             return false;
          }
 
@@ -1350,7 +1358,7 @@ public class C0065 extends JPanel {
       return true;
    }
 
-   private void a(C0955 c0955, String string, boolean bl, int i) {
+   private void a(LeagueStage c0955, String string, boolean bl, int i) {
       int[] var5 = new int[8];
       int[] var6 = new int[8];
       String var7 = "";
@@ -1404,7 +1412,7 @@ public class C0065 extends JPanel {
       this.wS.addActionListener(new C0069(this));
    }
 
-   private void u(C0713 c0713) {
+   private void u(Competition c0713) {
       this.vX = c0713;
       this.wA = false;
       this.wB = false;
@@ -1415,72 +1423,72 @@ public class C0065 extends JPanel {
       this.wS.removeAllItems();
       if (this.vX instanceof C0956) {
          this.wA = true;
-         this.a(C0745.SR.aO().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aO().yd(), null, null, true, false);
       } else if (this.vX instanceof C0957) {
          this.wA = true;
-         this.a(C0745.SR.aL().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aL().yd(), null, null, true, false);
       } else if (this.vX instanceof C0958) {
          this.wA = true;
          this.wJ = true;
-         this.a(C0745.SR.aI().yd(), null, C0745.SR.aI().yC(), true, true);
+         this.a(GamePersistence.SR.aI().yd(), null, GamePersistence.SR.aI().yC(), true, true);
       } else if (this.vX instanceof C0954) {
          this.wA = true;
          this.wJ = true;
-         this.a(C0745.SR.aF().yd(), null, C0745.SR.aF().yC(), true, true);
+         this.a(GamePersistence.SR.aF().yd(), null, GamePersistence.SR.aF().yC(), true, true);
       } else if (this.vX instanceof C0959) {
          this.wA = true;
-         this.a(C0745.SR.aP().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aP().yd(), null, null, true, false);
       } else if (this.vX instanceof C0961) {
          this.wA = true;
-         this.a(C0745.SR.aQ().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aQ().yd(), null, null, true, false);
       } else if (this.vX instanceof C0960) {
          this.wA = true;
-         this.a(C0745.SR.aK().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aK().yd(), null, null, true, false);
       } else if (this.vX instanceof C0923) {
-         this.a(null, C0745.SR.aR().zE(), C0745.SR.aR().zD(), true, true);
+         this.a(null, GamePersistence.SR.aR().zE(), GamePersistence.SR.aR().zD(), true, true);
       } else if (this.vX instanceof C0953) {
          this.wA = true;
-         this.a(C0745.SR.aY().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aY().yd(), null, null, true, false);
       } else if (this.vX instanceof C0952) {
          this.wA = true;
-         this.a(C0745.SR.ba().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.ba().yd(), null, null, true, false);
       } else if (this.vX instanceof C0940) {
          this.wA = true;
-         this.a(C0745.SR.aZ().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.aZ().yd(), null, null, true, false);
       } else if (this.vX instanceof C0939) {
          this.wA = true;
-         this.a(C0745.SR.be().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.be().yd(), null, null, true, false);
       } else if (this.vX instanceof C0941) {
          this.wA = true;
-         this.a(C0745.SR.bf().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bf().yd(), null, null, true, false);
       } else if (this.vX instanceof C0944) {
          this.wA = true;
-         this.a(C0745.SR.bg().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bg().yd(), null, null, true, false);
       } else if (this.vX instanceof C0943) {
          this.wA = true;
-         this.a(C0745.SR.bX().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bX().yd(), null, null, true, false);
       } else if (this.vX instanceof C0928) {
          this.a(((C0928)this.vX).yd(), null, null, true, false);
       } else if (this.vX instanceof C0949) {
          this.wA = true;
-         this.a(C0745.SR.bS().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bS().yd(), null, null, true, false);
       } else if (this.vX instanceof C0950) {
          this.wA = true;
-         this.a(C0745.SR.bK().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bK().yd(), null, null, true, false);
       } else if (this.vX instanceof C0945) {
          this.wA = true;
-         this.a(C0745.SR.bM().yd(), null, null, false, false);
+         this.a(GamePersistence.SR.bM().yd(), null, null, false, false);
       } else if (this.vX instanceof C0946) {
          this.wA = true;
-         this.a(C0745.SR.bQ().yd(), null, null, true, false);
+         this.a(GamePersistence.SR.bQ().yd(), null, null, true, false);
       } else if (this.vX instanceof C0942) {
          this.a(null, ((C0942)this.vX).yf(), null, true, false);
       } else if (this.vX instanceof C0926) {
-         this.a(null, C0745.SR.aW().zS(), null, true, false);
+         this.a(null, GamePersistence.SR.aW().zS(), null, true, false);
       } else if (this.vX instanceof C0927) {
-         this.a(null, C0745.SR.aV().zS(), null, true, false);
+         this.a(null, GamePersistence.SR.aV().zS(), null, true, false);
       } else if (this.vX instanceof C0924 || this.vX instanceof C0951) {
-         C0955 var2 = null;
+         LeagueStage var2 = null;
          if (this.vX instanceof C0924) {
             var2 = ((C0924)this.vX).yi();
          } else if (this.vX instanceof C0951) {

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -17,7 +18,7 @@ public class C0605 extends DefaultTableCellRenderer {
       C0728 var7 = (C0728)object;
       if (var7 != null) {
          if (j == 0) {
-            this.setText(Integer.toString(var7.H() + C0745.SR.iU()));
+            this.setText(Integer.toString(var7.H() + GamePersistence.SR.iU()));
          } else if (j == 1) {
             this.setText(var7.ck());
          } else if (j == 2) {

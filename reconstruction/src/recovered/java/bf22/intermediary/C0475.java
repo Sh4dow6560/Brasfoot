@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -73,9 +75,9 @@ public class C0475 extends JPanel {
       this.Nd = new ArrayList();
       this.Ne = new ArrayList();
 
-      for (int var1 = 0; var1 < C0745.SR.aN().size(); var1++) {
-         if (C0745.SR.aN().get(var1) != this.uz.fg() && ((Club)C0745.SR.aN().get(var1)).kb() > this.Nc.lY()) {
-            this.Nd.add((Club)C0745.SR.aN().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
+         if (GamePersistence.SR.aN().get(var1) != this.uz.fg() && ((Club)GamePersistence.SR.aN().get(var1)).kb() > this.Nc.lY()) {
+            this.Nd.add((Club)GamePersistence.SR.aN().get(var1));
          }
       }
 
@@ -89,7 +91,7 @@ public class C0475 extends JPanel {
 
    private void mK() {
       int[] var1 = new int[6];
-      this.MO.setText("<html><b>" + this.uz.getNome() + " - " + C0710.rI[this.uz.getPosicao()] + "</b></html>");
+      this.MO.setText("<html><b>" + this.uz.getNome() + " - " + GameConstants.rI[this.uz.getPosicao()] + "</b></html>");
       this.MO.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png")));
       this.Nh.setText(ClubFinances.c(this.uz.fl()));
       this.zO.setText(this.uz.fg().getNome());
@@ -101,7 +103,7 @@ public class C0475 extends JPanel {
       }
 
       String var3 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.fi()) + "&nbsp;&nbsp;&nbsp;";
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var3 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;<b>Gol:</b>"
             + Integer.toString(this.uz.gK())
             + " <b>Des:</b>"
@@ -141,9 +143,9 @@ public class C0475 extends JPanel {
          + ClubFinances.c(this.uz.fj())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
-         + C0710.qM[this.uz.getCr1()]
+         + GameConstants.qM[this.uz.getCr1()]
          + "/"
-         + C0710.qM[this.uz.getCr2()]
+         + GameConstants.qM[this.uz.getCr2()]
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b></b>&nbsp; <br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"

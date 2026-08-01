@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -48,7 +49,7 @@ public class C0625 extends JLabel implements ListCellRenderer {
          this.setText(var8);
          this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/ic_ligas.png")));
       } else if (object != null) {
-         C0713 var6 = (C0713)object;
+         Competition var6 = (Competition)object;
          String var7 = var6.getNome();
          this.setText(var7);
          this.setIcon(var6.es());

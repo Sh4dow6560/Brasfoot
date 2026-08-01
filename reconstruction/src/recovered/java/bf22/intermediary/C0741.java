@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -36,16 +41,16 @@ public class C0741 implements Serializable {
 
    public C0741(int i) {
       this.dr = i;
-      C0745.SR.aE().add(this);
+      GamePersistence.SR.aE().add(this);
       this.dY();
    }
 
    private void dY() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0745.SR.P().size(); var2++) {
-         if (((Club)C0745.SR.P().get(var2)).getPais() == 29 && ((Club)C0745.SR.P().get(var2)).getEstado() == this.dr) {
-            var1.add((Club)C0745.SR.P().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
+         if (((Club)GamePersistence.SR.P().get(var2)).getPais() == 29 && ((Club)GamePersistence.SR.P().get(var2)).getEstado() == this.dr) {
+            var1.add((Club)GamePersistence.SR.P().get(var2));
          }
       }
 
@@ -67,15 +72,15 @@ public class C0741 implements Serializable {
             int var10 = 0;
             if (var16 == null) {
                var3 = true;
-            } else if (C0710.sL[var16.getFormula()][0] > var4) {
+            } else if (GameConstants.sL[var16.getFormula()][0] > var4) {
                var3 = true;
             }
 
             if (!var3) {
-               var9.nTimes = C0710.sL[var16.getFormula()][0];
-               var9.nGrupos = C0710.sL[var16.getFormula()][1];
-               var9.numeroTimesMataMata = C0710.sL[var16.getFormula()][2];
-               if (C0710.sL[var16.getFormula()][3] == 1) {
+               var9.nTimes = GameConstants.sL[var16.getFormula()][0];
+               var9.nGrupos = GameConstants.sL[var16.getFormula()][1];
+               var9.numeroTimesMataMata = GameConstants.sL[var16.getFormula()][2];
+               if (GameConstants.sL[var16.getFormula()][3] == 1) {
                   var9.doisTurnos = true;
                } else {
                   var9.doisTurnos = false;
@@ -83,7 +88,7 @@ public class C0741 implements Serializable {
 
                var9.duasVoltasMataMata = var16.getFinaisIdaVoltaFormatado();
                var16.getFormula();
-               var10 = C0710.sL[var16.getFormula()][4];
+               var10 = GameConstants.sL[var16.getFormula()][4];
                var9.desempateEstadual = var16.getDesempate();
                if (var16.getFormula() == 7 || var16.getFormula() == 10) {
                   var9.jogosDentroGrupo = false;
@@ -101,7 +106,7 @@ public class C0741 implements Serializable {
 
             var7.clear();
             ArrayList var11 = new ArrayList();
-            if (var9.var0 == 7 && var8 == 1 && this.dr == 25 && C0745.SR.isUsaGrupoPadraoEstadual()) {
+            if (var9.var0 == 7 && var8 == 1 && this.dr == 25 && GamePersistence.SR.isUsaGrupoPadraoEstadual()) {
                var11 = z(var1);
             }
 
@@ -121,10 +126,10 @@ public class C0741 implements Serializable {
                }
             }
 
-            C0955 var24 = null;
+            LeagueStage var24 = null;
             C0951 var14 = new C0951(this, this.ds.size() + 1);
             var14.setnRebaixados(var10);
-            var24 = new C0955(var9, var7, 0, null, null, null, 3, this, var5, null, var6, var14);
+            var24 = new LeagueStage(var9, var7, 0, null, null, null, 3, this, var5, null, var6, var14);
             this.ds.add(var14);
             var14.q(var24);
 
@@ -142,9 +147,9 @@ public class C0741 implements Serializable {
    private static ArrayList z(ArrayList arrayList) {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0710.sO.length; var2++) {
+      for (int var2 = 0; var2 < GameConstants.sO.length; var2++) {
          for (int var3 = 0; var3 < arrayList.size(); var3++) {
-            if (((Club)arrayList.get(var3)).jY().equals(C0710.sO[var2]) && ((Club)arrayList.get(var3)).getEstado() == 25) {
+            if (((Club)arrayList.get(var3)).jY().equals(GameConstants.sO[var2]) && ((Club)arrayList.get(var3)).getEstado() == 25) {
                var1.add((Club)arrayList.get(var3));
             }
          }
@@ -158,9 +163,9 @@ public class C0741 implements Serializable {
       int[] var0 = new int[27];
       int var1 = -1;
 
-      for (int var2 = 0; var2 < C0745.SR.P().size(); var2++) {
-         if (((Club)C0745.SR.P().get(var2)).getPais() == 29) {
-            var1 = ((Club)C0745.SR.P().get(var2)).getEstado();
+      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
+         if (((Club)GamePersistence.SR.P().get(var2)).getPais() == 29) {
+            var1 = ((Club)GamePersistence.SR.P().get(var2)).getEstado();
             if (var1 >= 0 && var1 <= 26) {
                var0[var1]++;
             }
@@ -228,7 +233,7 @@ public class C0741 implements Serializable {
    }
 
    public String ea() {
-      return C0710.rZ[this.dr];
+      return GameConstants.rZ[this.dr];
    }
 
    public ArrayList eb() {
@@ -326,7 +331,7 @@ public class C0741 implements Serializable {
       }
 
       try {
-         FileOutputStream var5 = new FileOutputStream(System.getProperty("user.dir") + "/conf_estadual/" + C0710.rX[i] + ".ces");
+         FileOutputStream var5 = new FileOutputStream(System.getProperty("user.dir") + "/conf_estadual/" + GameConstants.rX[i] + ".ces");
          ObjectOutputStream var3 = new ObjectOutputStream(var5);
          var3.writeObject(var1);
          var3.close();
@@ -378,47 +383,47 @@ public class C0741 implements Serializable {
    public static ArrayList eh() {
       short var0 = 128;
       ArrayList var1 = new ArrayList();
-      Collections.sort(C0745.SR.bx(), dx);
+      Collections.sort(GamePersistence.SR.bx(), dx);
       int var2 = 0;
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.se, var1);
-      a(C0710.sf, var1);
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.se, var1);
+      a(GameConstants.sf, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
       var2 = var1.size();
       if (var2 < var0) {
-         a(C0710.se, var1);
-         a(C0710.sf, var1);
-         a(C0710.sb, var1);
-         a(C0710.sc, var1);
-         a(C0710.sd, var1);
+         a(GameConstants.se, var1);
+         a(GameConstants.sf, var1);
+         a(GameConstants.sb, var1);
+         a(GameConstants.sc, var1);
+         a(GameConstants.sd, var1);
       }
 
       if (var2 < var0) {
-         a(C0710.se, var1);
-         a(C0710.sf, var1);
-         a(C0710.sb, var1);
-         a(C0710.sc, var1);
-         a(C0710.sd, var1);
-         a(C0710.se, var1);
-         a(C0710.sf, var1);
-         a(C0710.sb, var1);
-         a(C0710.sc, var1);
-         a(C0710.sd, var1);
-         a(C0710.se, var1);
-         a(C0710.sf, var1);
-         a(C0710.sb, var1);
-         a(C0710.sc, var1);
-         a(C0710.sd, var1);
+         a(GameConstants.se, var1);
+         a(GameConstants.sf, var1);
+         a(GameConstants.sb, var1);
+         a(GameConstants.sc, var1);
+         a(GameConstants.sd, var1);
+         a(GameConstants.se, var1);
+         a(GameConstants.sf, var1);
+         a(GameConstants.sb, var1);
+         a(GameConstants.sc, var1);
+         a(GameConstants.sd, var1);
+         a(GameConstants.se, var1);
+         a(GameConstants.sf, var1);
+         a(GameConstants.sb, var1);
+         a(GameConstants.sc, var1);
+         a(GameConstants.sd, var1);
       }
 
       return var1;
@@ -426,9 +431,9 @@ public class C0741 implements Serializable {
 
    public static void a(int[] is, ArrayList arrayList) {
       for (int var2 = 0; var2 < is.length; var2++) {
-         for (int var3 = 0; var3 < C0745.SR.bx().size(); var3++) {
-            if (((C0779)C0745.SR.bx().get(var3)).getEstado() == is[var2] && !arrayList.contains(((C0779)C0745.SR.bx().get(var3)).vD())) {
-               arrayList.add(((C0779)C0745.SR.bx().get(var3)).vD());
+         for (int var3 = 0; var3 < GamePersistence.SR.bx().size(); var3++) {
+            if (((C0779)GamePersistence.SR.bx().get(var3)).getEstado() == is[var2] && !arrayList.contains(((C0779)GamePersistence.SR.bx().get(var3)).vD())) {
+               arrayList.add(((C0779)GamePersistence.SR.bx().get(var3)).vD());
                break;
             }
          }
@@ -437,40 +442,40 @@ public class C0741 implements Serializable {
 
    public static ArrayList Q(int i) {
       ArrayList var1 = new ArrayList();
-      Collections.sort(C0745.SR.bx(), dx);
+      Collections.sort(GamePersistence.SR.bx(), dx);
       ArrayList var2 = new ArrayList();
-      if (C0745.SR.bY().size() > 0) {
-         for (int var3 = 0; var3 < C0745.SR.bY().size(); var3++) {
-            if (((Club)C0745.SR.bY().get(var3)).getDivisao() == 0 && !((Club)C0745.SR.bY().get(var3)).ko()) {
-               var1.add((Club)C0745.SR.bY().get(var3));
-               var2.add((Club)C0745.SR.bY().get(var3));
+      if (GamePersistence.SR.bY().size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.SR.bY().size(); var3++) {
+            if (((Club)GamePersistence.SR.bY().get(var3)).getDivisao() == 0 && !((Club)GamePersistence.SR.bY().get(var3)).ko()) {
+               var1.add((Club)GamePersistence.SR.bY().get(var3));
+               var2.add((Club)GamePersistence.SR.bY().get(var3));
             }
          }
       }
 
       int var6 = 0;
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.se, var1);
-      a(C0710.sf, var1);
-      a(C0710.sb, var1);
-      a(C0710.sb, var1);
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.se, var1);
-      a(C0710.sb, var1);
-      a(C0710.sb, var1);
-      a(C0710.sb, var1);
-      a(C0710.sc, var1);
-      a(C0710.sc, var1);
-      a(C0710.sd, var1);
-      a(C0710.se, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.se, var1);
+      a(GameConstants.sf, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.se, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sb, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sc, var1);
+      a(GameConstants.sd, var1);
+      a(GameConstants.se, var1);
       var6 = var1.size();
       if (var6 < i) {
-         C0692 var4 = C0745.SR.o(29);
+         CountryCompetitions var4 = GamePersistence.SR.o(29);
          if (var4 != null) {
             for (int var5 = 0; var5 < var4.jg().size(); var5++) {
                if (var6 < i && ((Club)var4.jg().get(var5)).getDivisao() == 0 && !var1.contains(var4.jg().get(var5))) {
@@ -536,8 +541,8 @@ public class C0741 implements Serializable {
    }
 
    public boolean ej() {
-      for (int var1 = 0; var1 < C0745.SR.S().size(); var1++) {
-         if (this.ds.contains(((C0675)C0745.SR.S().get(var1)).hy())) {
+      for (int var1 = 0; var1 < GamePersistence.SR.S().size(); var1++) {
+         if (this.ds.contains(((Match)GamePersistence.SR.S().get(var1)).hy())) {
             return true;
          }
       }

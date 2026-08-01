@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -34,8 +35,8 @@ public class C0593 extends DefaultTableCellRenderer {
          } else if (j == 3) {
             if (this.w == 0) {
                this.setText(Integer.toString(var7.lI()));
-            } else if (var7.getReputacao() < C0710.pZ.length) {
-               this.setText(C0710.pZ[var7.getReputacao()]);
+            } else if (var7.getReputacao() < GameConstants.pZ.length) {
+               this.setText(GameConstants.pZ[var7.getReputacao()]);
             }
          } else if (j == 4 && this.w == 0) {
             this.setText(Integer.toString(var7.cr()));

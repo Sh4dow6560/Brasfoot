@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -37,12 +39,12 @@ public class C0182 extends JPanel {
       this.dr = i;
       this.ub = jDialog;
       this.mJ();
-      this.CS.setSelected(C0745.SR.isUsaGrupoPadraoEstadual());
+      this.CS.setSelected(GamePersistence.SR.isUsaGrupoPadraoEstadual());
       this.CS.addActionListener(new C0183(this));
       this.vb.addActionListener(new C0184(this));
       this.vc.setVisible(false);
       this.gF = j;
-      String var4 = "Campeonato " + C0710.rZ[i] + " - " + Integer.toString(this.gF) + " times";
+      String var4 = "Campeonato " + GameConstants.rZ[i] + " - " + Integer.toString(this.gF) + " times";
       ImageIcon var5 = new ImageIcon(this.getClass().getResource("/aesticons/" + i + ".png"));
       this.vf.setText(var4);
       this.vf.setIcon(var5);

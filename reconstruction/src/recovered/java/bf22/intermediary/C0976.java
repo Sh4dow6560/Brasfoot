@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -27,7 +28,7 @@ class C0976 implements ActionListener {
          if (false) {
             throw new FileNotFoundException();
          }
-         C0745.ae("teste20_" + var3);
+         GamePersistence.ae("teste20_" + var3);
       } catch (FileNotFoundException var6) {
          var6.printStackTrace();
       }

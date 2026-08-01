@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
@@ -121,7 +122,7 @@ public class C0200 extends JPanel {
 
    private void pY() {
       SavedGameInfo var1 = null;
-      var1 = C0745.af(this.GN);
+      var1 = GamePersistence.af(this.GN);
       this.yA.setText("");
       this.Fr.setText("");
       if (var1 != null) {

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -16,7 +18,7 @@ import javax.swing.plaf.basic.BasicSliderUI;
 import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 
 class C0766 extends BasicSliderUI {
-   private Color QY = C0710.E(C0745.vM().getCorTema(), 3);
+   private Color QY = GameConstants.E(GamePersistence.vM().getCorTema(), 3);
    private Rectangle QZ;
    private boolean Ra;
    private transient boolean Rb;
@@ -162,9 +164,9 @@ class C0766 extends BasicSliderUI {
       Shape var6 = this.P(var3 - 1, var4 - 1);
       var5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       var5.translate(var2.x, var2.y);
-      var5.setColor(C0710.E(C0745.vM().getCorTema(), 3));
+      var5.setColor(GameConstants.E(GamePersistence.vM().getCorTema(), 3));
       var5.fill(var6);
-      var5.setColor(C0710.E(C0745.vM().getCorTema(), 3));
+      var5.setColor(GameConstants.E(GamePersistence.vM().getCorTema(), 3));
       var5.draw(var6);
       var5.dispose();
    }
@@ -177,9 +179,9 @@ class C0766 extends BasicSliderUI {
       Shape var6 = this.P(var3 - 1, var4 - 1);
       var5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       var5.translate(var2.x, var2.y);
-      var5.setColor(C0710.E(C0745.vM().getCorTema(), 3));
+      var5.setColor(GameConstants.E(GamePersistence.vM().getCorTema(), 3));
       var5.fill(var6);
-      var5.setColor(C0710.E(C0745.vM().getCorTema(), 3));
+      var5.setColor(GameConstants.E(GamePersistence.vM().getCorTema(), 3));
       var5.draw(var6);
       var5.dispose();
    }

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -15,7 +16,7 @@ public class C0638 extends DefaultTableCellRenderer {
       this.setHorizontalAlignment(2);
       this.setIcon(null);
       this.setText("");
-      C0692 var7 = (C0692)object;
+      CountryCompetitions var7 = (CountryCompetitions)object;
       if (j == 0) {
          try {
             ImageIcon var8;

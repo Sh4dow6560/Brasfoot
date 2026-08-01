@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.game.CareerState;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Player;
@@ -80,20 +82,20 @@ public class C0709 implements Serializable {
    }
 
    public String mc() {
-      return C0723.z(this.oo);
+      return CareerState.z(this.oo);
    }
 
    public String md() {
-      return C0723.z(this.op);
+      return CareerState.z(this.op);
    }
 
    public void me() {
       if (this.ei >= 0) {
          ArrayList var1 = null;
          if (this.ej == 1) {
-            var1 = C0745.SR.O();
+            var1 = GamePersistence.SR.O();
          } else if (this.ej == 2) {
-            var1 = C0745.SR.Q();
+            var1 = GamePersistence.SR.Q();
          }
 
          if (var1 != null) {

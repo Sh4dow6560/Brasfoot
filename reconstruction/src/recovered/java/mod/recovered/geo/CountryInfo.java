@@ -1,8 +1,9 @@
-package bf22.intermediary;
+package mod.recovered.geo;
 
+import bf22.intermediary.*;
 import javax.swing.ImageIcon;
 
-public class C0697 {
+public class CountryInfo {
    private String nome;
    private String lZ;
    private int pais;

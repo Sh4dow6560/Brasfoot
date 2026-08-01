@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
@@ -64,7 +65,7 @@ public class C0213 extends JPanel {
       var1.setSize(529, 321);
       var1.setLocationRelativeTo(null);
       var1.setVisible(true);
-      C0685.db().setVisible(false);
+      MainWindow.db().setVisible(false);
    }
 
    private boolean ps() {

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +12,8 @@ class C0183 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      C0745.SR.setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
-      C0745.vM().setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
-      C0745.vJ();
+      GamePersistence.SR.setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
+      GamePersistence.vM().setUsaGrupoPadraoEstadual(C0182.a(this.CX).isSelected());
+      GamePersistence.vJ();
    }
 }

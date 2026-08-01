@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -64,9 +66,9 @@ public class C0238 extends JPanel {
       this.mH();
       this.index = 0;
 
-      for (int var2 = 0; var2 < C0745.SR.aN().size(); var2++) {
-         if (((Club)C0745.SR.aN().get(var2)).kb() > 0L && ((Club)C0745.SR.aN().get(var2)).kw() < 35) {
-            this.FX.add((Club)C0745.SR.aN().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.SR.aN().size(); var2++) {
+         if (((Club)GamePersistence.SR.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.SR.aN().get(var2)).kw() < 35) {
+            this.FX.add((Club)GamePersistence.SR.aN().get(var2));
          }
       }
 
@@ -95,9 +97,9 @@ public class C0238 extends JPanel {
       this.mH();
       this.index = 0;
 
-      for (int var2 = 0; var2 < C0745.SR.aN().size(); var2++) {
-         if (((Club)C0745.SR.aN().get(var2)).kb() > 0L && ((Club)C0745.SR.aN().get(var2)).kw() < 35) {
-            this.FX.add((Club)C0745.SR.aN().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.SR.aN().size(); var2++) {
+         if (((Club)GamePersistence.SR.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.SR.aN().get(var2)).kw() < 35) {
+            this.FX.add((Club)GamePersistence.SR.aN().get(var2));
          }
       }
 
@@ -126,7 +128,7 @@ public class C0238 extends JPanel {
       } else {
          this.uh.setVisible(true);
          this.uh
-            .setText("Próximo leilão: " + C0710.rI[((C0680)FY.get(this.index + 1)).iA().getPosicao()] + " - " + ((C0680)FY.get(this.index + 1)).iA().getNome());
+            .setText("Próximo leilão: " + GameConstants.rI[((C0680)FY.get(this.index + 1)).iA().getPosicao()] + " - " + ((C0680)FY.get(this.index + 1)).iA().getNome());
       }
 
       Player var2 = c0680.iA();
@@ -134,19 +136,19 @@ public class C0238 extends JPanel {
       this.Gi.setText("Lance mínimo: " + ClubFinances.c(this.FW));
       this.Gk.setText(var2.fg().getNome() + " está leiloando o jogador:");
       this.Fq.setIcon(c0680.iA().fg().kP());
-      this.Gj.setText(" " + C0710.rI[c0680.iA().getPosicao()] + "(" + C0710.rK[c0680.iA().getLado()] + ") - " + c0680.iA().getNome());
+      this.Gj.setText(" " + GameConstants.rI[c0680.iA().getPosicao()] + "(" + GameConstants.rK[c0680.iA().getLado()] + ") - " + c0680.iA().getNome());
       ImageIcon var3 = new ImageIcon(this.getClass().getResource("/aflags/" + c0680.iA().getPais() + ".png"));
       this.Gm.setIcon(var3);
       this.Gm.setText(C0696.bl(c0680.iA().getPais()));
       int[] var4 = new int[6];
       var4 = var2.gw();
       String var5 = "";
-      if (var2.fP() && var2.fo() > ((C0693)C0745.SR.R().get(C0745.SR.J())).a().getTime().getTime()) {
+      if (var2.fP() && var2.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
          var5 = "Fim contusão: " + C0693.a(var2.fo());
       }
 
       String var6 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(var2.fi()) + "&nbsp;&nbsp;&nbsp;";
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var6 = "<html>\n<body><p style=\\\"padding:5; font-size:13\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;<b>Gol:</b>"
             + Integer.toString(var2.gK())
             + " <b>Des:</b> "
@@ -183,9 +185,9 @@ public class C0238 extends JPanel {
          + ClubFinances.c(var2.fj())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>Características :"
-         + C0710.qM[var2.getCr1()]
+         + GameConstants.qM[var2.getCr1()]
          + "/"
-         + C0710.qM[var2.getCr2()]
+         + GameConstants.qM[var2.getCr2()]
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b></b>&nbsp; <br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
@@ -331,7 +333,7 @@ public class C0238 extends JPanel {
    }
 
    private void nx() {
-      C0745.SR.ax();
+      GamePersistence.SR.ax();
    }
 
    private void mJ() {

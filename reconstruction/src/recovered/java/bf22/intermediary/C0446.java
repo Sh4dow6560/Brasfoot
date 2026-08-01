@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.ui.MainWindow;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,7 @@ class C0446 implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
       C0435.d(this.Lt).setCursor(new Cursor(3));
-      C0685.a(null);
+      MainWindow.a(null);
       C0435.d(this.Lt).setCursor(new Cursor(12));
    }
 }

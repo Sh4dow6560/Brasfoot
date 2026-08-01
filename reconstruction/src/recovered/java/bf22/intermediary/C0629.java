@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -15,10 +17,10 @@ public class C0629 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       super.setHorizontalTextPosition(11);
-      C0675 var7 = (C0675)object;
+      Match var7 = (Match)object;
       if (object != null) {
          if (j == 0) {
-            this.setText(((C0693)C0745.SR.R().get(var7.hM())).f());
+            this.setText(((C0693)GamePersistence.SR.R().get(var7.hM())).f());
          } else if (j == 1) {
             this.setHorizontalAlignment(2);
             this.setText(var7.hc().getNome());

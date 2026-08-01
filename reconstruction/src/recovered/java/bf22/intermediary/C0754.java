@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -26,7 +28,7 @@ public class C0754 extends JPanel {
       this.w = i;
       if (i == 1) {
          this.mJ();
-         this.uF.setText(C0710.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
+         this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
          this.Qn.setText(C0693.a(c0825.tO()));
          if (c0825.tP() != null) {
             this.zO.setText(c0825.tP().getNome());
@@ -37,7 +39,7 @@ public class C0754 extends JPanel {
       } else if (i == 4) {
          this.ui();
          this.mJ();
-         this.uF.setText(C0710.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
+         this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
          this.Qn.setText(C0693.a(c0825.tO()));
          if (c0825.x().fg() != null) {
             this.zO.setText(c0825.x().fg().getNome());
@@ -60,7 +62,7 @@ public class C0754 extends JPanel {
 
    private void uh() {
       this.setCursor(new Cursor(3));
-      C0685.a(this.Qk.x(), null);
+      MainWindow.a(this.Qk.x(), null);
       this.setCursor(new Cursor(12));
    }
 

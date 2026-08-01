@@ -1,14 +1,17 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.LeagueStage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.config.LeagueLoadOptions;
 import mod.recovered.model.Club;
 
-public class C0957 extends C0713 implements Serializable {
+public class C0957 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 YD = null;
+   private LeagueStage YD = null;
    private ArrayList YF = new ArrayList();
    private Club ZA = null;
    private ArrayList YV = new ArrayList();
@@ -129,7 +132,7 @@ public class C0957 extends C0713 implements Serializable {
          var7.doisTurnos = true;
          var7.pulaDuasDatas = true;
          var7.var0 = 1403;
-         C0955 var6 = new C0955(var7, var3, 0, null, null, null, 4, null, false, null, true, this);
+         LeagueStage var6 = new LeagueStage(var7, var3, 0, null, null, null, 4, null, false, null, true, this);
          this.YD = var6;
          var6.setNome(this.getNome());
       } else {
@@ -149,7 +152,7 @@ public class C0957 extends C0713 implements Serializable {
       this.ZA = club;
    }
 
-   public C0955 yd() {
+   public LeagueStage yd() {
       return this.YD;
    }
 
@@ -159,10 +162,10 @@ public class C0957 extends C0713 implements Serializable {
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.YD};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.YD};
       if (this.YD.yZ()) {
-         C0678[] var2 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var2 = new CompetitionStage[]{this.YD.yY()};
          var1 = var2;
       }
 
@@ -172,9 +175,9 @@ public class C0957 extends C0713 implements Serializable {
    @Override
    public ArrayList mC() {
       ArrayList var1 = new ArrayList();
-      C0678[] var2 = new C0678[]{this.YD};
+      CompetitionStage[] var2 = new CompetitionStage[]{this.YD};
       var1.add(new C0830(var2, "Fase de Grupos"));
-      C0678[] var3 = new C0678[]{this.YD.yY()};
+      CompetitionStage[] var3 = new CompetitionStage[]{this.YD.yY()};
       var1.add(new C0830(var3, "Fase Final"));
       return var1;
    }

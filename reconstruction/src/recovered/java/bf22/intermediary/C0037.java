@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.geo.CountryInfo;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -25,8 +26,8 @@ public class C0037 extends JLabel implements ListCellRenderer {
             var7 = "Internacional";
             var8 = new ImageIcon(this.getClass().getResource("/aicons/worldflag.png"));
          } else if (!object.equals("Qualquer")) {
-            var8 = ((C0697)C0732.cY().get(C0732.h(var6))).jD();
-            var7 = ((C0697)C0732.cY().get(C0732.h(var6))).getNome();
+            var8 = ((CountryInfo)C0732.cY().get(C0732.h(var6))).jD();
+            var7 = ((CountryInfo)C0732.cY().get(C0732.h(var6))).getNome();
          } else {
             var7 = "Qualquer";
          }

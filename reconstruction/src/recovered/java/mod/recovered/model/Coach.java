@@ -1,16 +1,16 @@
 package mod.recovered.model;
 
-import bf22.intermediary.C0675;
-import bf22.intermediary.C0692;
+import mod.recovered.match.Match;
+import mod.recovered.competition.CountryCompetitions;
 import bf22.intermediary.C0693;
 import bf22.intermediary.C0708;
-import bf22.intermediary.C0710;
-import bf22.intermediary.C0713;
+import mod.recovered.core.GameConstants;
+import mod.recovered.competition.Competition;
 import bf22.intermediary.C0728;
 import bf22.intermediary.C0739;
-import bf22.intermediary.C0745;
+import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0799;
-import bf22.intermediary.C0955;
+import mod.recovered.competition.LeagueStage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,7 +49,7 @@ public class Coach implements Serializable {
 
    public Coach(String string) {
       this.dm = string;
-      this.nU = C0745.SR.bU();
+      this.nU = GamePersistence.SR.bU();
    }
 
    public Boolean jZ() {
@@ -63,7 +63,7 @@ public class Coach implements Serializable {
    public Club fg() {
       Club var1 = this.nV;
       if (var1 == null && this.bW >= 0) {
-         var1 = C0745.SR.x(this.bW);
+         var1 = GamePersistence.SR.x(this.bW);
          this.nV = var1;
          return var1;
       } else {
@@ -91,7 +91,7 @@ public class Coach implements Serializable {
    public Club lF() {
       Club var1 = this.nW;
       if (var1 == null && this.nX >= 0) {
-         var1 = C0745.SR.x(this.nX);
+         var1 = GamePersistence.SR.x(this.nX);
          this.nW = var1;
          return var1;
       } else {
@@ -127,7 +127,7 @@ public class Coach implements Serializable {
    public C0728 C(Club club) {
       for (int var2 = 0; var2 < this.ob.size(); var2++) {
          try {
-            if (((C0728)this.ob.get(var2)).ct() == club.lk() && ((C0728)this.ob.get(var2)).H() == C0745.SR.H()) {
+            if (((C0728)this.ob.get(var2)).ct() == club.lk() && ((C0728)this.ob.get(var2)).H() == GamePersistence.SR.H()) {
                return (C0728)this.ob.get(var2);
             }
          } catch (Exception var4) {
@@ -157,7 +157,7 @@ public class Coach implements Serializable {
       }
    }
 
-   public void a(C0675 c0675, boolean bl, int i) {
+   public void a(Match c0675, boolean bl, int i) {
       int var4 = 0;
       int var5 = 0;
       boolean var6 = false;
@@ -424,7 +424,7 @@ public class Coach implements Serializable {
       this.bZ++;
    }
 
-   public void e(C0675 c0675) {
+   public void e(Match c0675) {
       int var2 = 0;
       int var3 = 0;
       boolean var4 = false;
@@ -609,7 +609,7 @@ public class Coach implements Serializable {
       this.nc = i;
    }
 
-   public void g(C0955 c0955) {
+   public void g(LeagueStage c0955) {
    }
 
    public int bz() {
@@ -640,31 +640,31 @@ public class Coach implements Serializable {
          this.setReputacao(club.getReputacao());
       }
 
-      this.ci(C0745.SR.H());
+      this.ci(GamePersistence.SR.H());
    }
 
    public void i(Coach coach) {
       C0739 var2 = new C0739();
       var2.c(this);
       var2.d(coach);
-      Calendar var3 = ((C0693)C0745.SR.R().get(C0745.SR.J())).a();
+      Calendar var3 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a();
       var2.a().set(var3.get(1), var3.get(2), var3.get(5));
       if (this.fg() != null) {
          var2.C(this.fg().lk());
       }
 
-      C0745.SR.bn().add(var2);
+      GamePersistence.SR.bn().add(var2);
       this.lN();
       if (this.jZ()) {
          if (this.fg().getPais() == 29) {
-            C0745.SR.u(this.fg().getEstado());
+            GamePersistence.SR.u(this.fg().getEstado());
          }
 
-         C0745.SR.v(this.fg().getPais());
+         GamePersistence.SR.v(this.fg().getPais());
          this.fg().k(false);
          this.fg().lg();
          this.fg().M(true);
-         C0745.SR.aN().remove(this.fg());
+         GamePersistence.SR.aN().remove(this.fg());
          this.T(null);
       }
 
@@ -685,7 +685,7 @@ public class Coach implements Serializable {
       club.lg();
       if (this.jZ()) {
          club.k(true);
-         C0745.SR.aN().add(club);
+         GamePersistence.SR.aN().add(club);
          club.ks();
          new C0799(this, 0, 74, club.getNome(), "");
          if (club.ev() != null) {
@@ -706,7 +706,7 @@ public class Coach implements Serializable {
       return this.ob;
    }
 
-   public void b(C0713 c0713, int i, int j) {
+   public void b(Competition c0713, int i, int j) {
       int var4 = c0713.b();
       int[][] var5 = new int[][]{
          new int[11],
@@ -752,7 +752,7 @@ public class Coach implements Serializable {
       }
 
       if (i == 1) {
-         if (C0710.fs(var4)) {
+         if (GameConstants.fs(var4)) {
             this.D(this.hy);
          } else {
             this.D(this.fg());
@@ -768,11 +768,11 @@ public class Coach implements Serializable {
       }
    }
 
-   private void q(C0713 c0713) {
+   private void q(Competition c0713) {
       int var2 = c0713.b();
       int var3 = -1;
       C0708 var4 = new C0708();
-      var4.k(C0745.SR.H());
+      var4.k(GamePersistence.SR.H());
       if (var2 == 7) {
          if (this.jo() != null) {
             var4.C(this.jo().lk());
@@ -860,29 +860,29 @@ public class Coach implements Serializable {
    }
 
    public void lP() {
-      C0745.SR.bu().add(this);
-      C0745.SR.M().remove(this);
-      C0745.SR.L().remove(this);
+      GamePersistence.SR.bu().add(this);
+      GamePersistence.SR.M().remove(this);
+      GamePersistence.SR.L().remove(this);
    }
 
    public static void c(String string, int i) {
       Coach var2 = new Coach(string);
       var2.cg(i);
       var2.setReputacao(3);
-      if (!C0745.SR.bD()) {
+      if (!GamePersistence.SR.bD()) {
          var2.k(true);
       }
 
-      C0692 var3 = C0745.SR.o(i);
+      CountryCompetitions var3 = GamePersistence.SR.o(i);
       if (var3 == null) {
-         var3 = (C0692)C0745.SR.N().get(0);
+         var3 = (CountryCompetitions)GamePersistence.SR.N().get(0);
       }
 
       var2.v(var3.jc());
       var2.ch(var3.eb().size() - 1);
-      C0745.SR.a(var2);
-      if (!C0745.SR.bD()) {
-         C0745.SR.M().add(var2);
+      GamePersistence.SR.a(var2);
+      if (!GamePersistence.SR.bD()) {
+         GamePersistence.SR.M().add(var2);
       }
    }
 

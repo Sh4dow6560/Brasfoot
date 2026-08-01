@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -12,7 +14,7 @@ public class C0599 extends DefaultTableCellRenderer {
       super.getTableCellRendererComponent(jTable, object, bl, bl2, i, j);
       this.setBorder(noFocusBorder);
       this.setForeground(Color.white);
-      this.setBackground(C0710.ot);
+      this.setBackground(GameConstants.ot);
       this.setHorizontalAlignment(0);
       this.setIcon(null);
       this.setText("");
@@ -33,9 +35,9 @@ public class C0599 extends DefaultTableCellRenderer {
             this.setIcon(var7.tR().hc().kU());
          } else if (j == 2) {
             this.setHorizontalAlignment(0);
-            if (var7.ei() && C0745.SR.isUsaCorPlacar()) {
-               int var8 = C0745.SR.getCorPlacar();
-               int[] var9 = C0710.oY[var8];
+            if (var7.ei() && GamePersistence.SR.isUsaCorPlacar()) {
+               int var8 = GamePersistence.SR.getCorPlacar();
+               int[] var9 = GameConstants.oY[var8];
                this.setBackground(new Color(var9[0], var9[1], var9[2]));
             } else {
                this.setBackground(new Color(84, 127, 59));
@@ -45,9 +47,9 @@ public class C0599 extends DefaultTableCellRenderer {
             this.setText(Integer.toString(var7.tT()));
          } else if (j == 3) {
             this.setHorizontalAlignment(0);
-            if (var7.ei() && C0745.SR.isUsaCorPlacar()) {
-               int var10 = C0745.SR.getCorPlacar();
-               int[] var12 = C0710.oY[var10];
+            if (var7.ei() && GamePersistence.SR.isUsaCorPlacar()) {
+               int var10 = GamePersistence.SR.getCorPlacar();
+               int[] var12 = GameConstants.oY[var10];
                this.setBackground(new Color(var12[0], var12[1], var12[2]));
             } else {
                this.setBackground(new Color(84, 127, 59));
@@ -64,7 +66,7 @@ public class C0599 extends DefaultTableCellRenderer {
          } else if (j == 5) {
             this.setHorizontalAlignment(2);
             if (var7.tV() != null) {
-               if (var7.tV().et() == 0 && C0745.SR.isNegritoCasa()) {
+               if (var7.tV().et() == 0 && GamePersistence.SR.isNegritoCasa()) {
                   super.setFont(new Font("Tahoma", 1, 11));
                }
 
@@ -84,7 +86,7 @@ public class C0599 extends DefaultTableCellRenderer {
             }
          }
       } else if (j == 0 && var7.tS() != "") {
-         this.setBackground(C0710.ou);
+         this.setBackground(GameConstants.ou);
          this.setHorizontalAlignment(2);
          this.setText(var7.tS());
       }

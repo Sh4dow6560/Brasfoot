@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -24,8 +25,8 @@ public class C0180 extends JPanel {
       this.mJ();
       this.CM.setMaximumRowCount(12);
 
-      for (int var3 = 0; var3 < C0710.sN.length; var3++) {
-         this.CM.addItem(C0710.sN[var3]);
+      for (int var3 = 0; var3 < GameConstants.sN.length; var3++) {
+         this.CM.addItem(GameConstants.sN[var3]);
       }
 
       this.CM.addActionListener(new C0181(this));
@@ -61,11 +62,11 @@ public class C0180 extends JPanel {
          this.CI.setSelected(false);
       }
 
-      this.a(this.CH.getFormula(), C0710.sL[this.CH.getFormula()][2], this.CH);
+      this.a(this.CH.getFormula(), GameConstants.sL[this.CH.getFormula()][2], this.CH);
    }
 
    private void da(int i) {
-      this.a(i, C0710.sL[i][2], null);
+      this.a(i, GameConstants.sL[i][2], null);
    }
 
    private void a(int i, int j, StateLeagueConfig stateLeagueConfig) {

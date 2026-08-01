@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class C0379 extends JPanel {
       this.vf.setIcon(c0667.cu().kU());
       this.mV();
       this.vq.addActionListener(new C0380(this));
-      if (C0745.SR.bD()) {
+      if (GamePersistence.SR.bD()) {
          this.oR();
       }
    }

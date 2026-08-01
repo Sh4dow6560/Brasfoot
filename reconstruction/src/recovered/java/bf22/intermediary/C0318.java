@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -25,22 +26,22 @@ public class C0318 extends JPanel {
    public C0318(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      boolean[] var2 = C0745.SR.getJogaRegionaisTodos();
-      var2 = C0745.SR.getJogaRegionaisTodos();
+      boolean[] var2 = GamePersistence.SR.getJogaRegionaisTodos();
+      var2 = GamePersistence.SR.getJogaRegionaisTodos();
       this.JJ.setSelected(var2[0]);
       this.JK.setSelected(var2[1]);
       this.JL.setSelected(var2[2]);
       this.JM.setSelected(var2[3]);
-      this.JI.setSelected(C0745.vM().isConviteRegionais());
+      this.JI.setSelected(GamePersistence.vM().isConviteRegionais());
       this.Fu.addActionListener(new C0372(this));
    }
 
    public void nH() {
       boolean[] var1 = new boolean[]{this.JJ.isSelected(), this.JK.isSelected(), this.JL.isSelected(), this.JM.isSelected()};
-      C0745.SR.setJogaRegionaisTodos(var1);
-      C0745.vM().setJogaRegionaisTodos(var1);
-      C0745.vM().setConviteRegionais(this.JI.isSelected());
-      C0745.vJ();
+      GamePersistence.SR.setJogaRegionaisTodos(var1);
+      GamePersistence.vM().setJogaRegionaisTodos(var1);
+      GamePersistence.vM().setConviteRegionais(this.JI.isSelected());
+      GamePersistence.vJ();
       this.ub.dispose();
    }
 

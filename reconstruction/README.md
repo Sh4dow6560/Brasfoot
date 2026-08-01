@@ -63,3 +63,8 @@ round-trip e desserializa o `reference.info` preservado.
 As fontes promovidas entram em `src/recovered`. A decompilacao bruta e
 regenerada em `build/generated/decompiled`; os reparos deterministas ficam em
 `config/decompiler-repairs.json`.
+
+Ao adicionar nomes de classes em `config/semantic-names.json`, execute
+`applySemanticSourceMappings` antes de qualquer tarefa que gere novamente os
+mapeamentos. O pipeline bloqueia a ordem incorreta para proteger as fontes
+revisadas.

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,10 +15,10 @@ class C0975 implements ActionListener {
       int var2 = 0;
       int var3 = 1;
       C0971.a(this.Xb);
-      C0745.SR.aO(true);
+      GamePersistence.SR.aO(true);
 
-      for (; C0745.SR.H() < 1 || !((C0693)C0745.SR.R().get(342)).e() && !C0745.SR.bN; C0745.SR.V()) {
-         var2 = C0745.SR.H();
+      for (; GamePersistence.SR.H() < 1 || !((C0693)GamePersistence.SR.R().get(342)).e() && !GamePersistence.SR.bN; GamePersistence.SR.V()) {
+         var2 = GamePersistence.SR.H();
          if (var3 != var2) {
             var3 = var2;
             System.out.println("ano: " + Integer.toString(var2));

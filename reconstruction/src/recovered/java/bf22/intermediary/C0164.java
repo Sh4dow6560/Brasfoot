@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,8 +53,8 @@ public class C0164 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.vd.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.vd.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
    }
 
    private void mH() {

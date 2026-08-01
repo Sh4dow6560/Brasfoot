@@ -1,13 +1,16 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.LeagueStage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.config.LeagueLoadOptions;
 
-public class C0934 extends C0713 implements Serializable {
+public class C0934 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 YD = null;
+   private LeagueStage YD = null;
    private String agn = "";
 
    public C0934() {
@@ -42,16 +45,16 @@ public class C0934 extends C0713 implements Serializable {
          Collections.shuffle(arrayList);
       }
 
-      C0955 var9 = new C0955(var7, arrayList, 0, null, null, null, 15, null, false, null, true, this);
+      LeagueStage var9 = new LeagueStage(var7, arrayList, 0, null, null, null, 15, null, false, null, true, this);
       this.YD = var9;
       var9.setNome(string);
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.YD};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.YD};
       if (this.YD.yZ()) {
-         C0678[] var2 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var2 = new CompetitionStage[]{this.YD.yY()};
          var1 = var2;
       }
 
@@ -67,9 +70,9 @@ public class C0934 extends C0713 implements Serializable {
             var2 = "Fase de Grupos";
          }
 
-         C0678[] var3 = new C0678[]{this.YD};
+         CompetitionStage[] var3 = new CompetitionStage[]{this.YD};
          var1.add(new C0830(var3, var2));
-         C0678[] var4 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var4 = new CompetitionStage[]{this.YD.yY()};
          var1.add(new C0830(var4, "Fase Final"));
          return var1;
       } else {

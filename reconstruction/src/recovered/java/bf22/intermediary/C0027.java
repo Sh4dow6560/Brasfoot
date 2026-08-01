@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -32,7 +35,7 @@ public class C0027 extends JPanel {
       this.mH();
 
       for (int var2 = 0; var2 < C0696.jz(); var2++) {
-         this.ue.addItem(((C0697)C0732.cY().get(var2)).getNome());
+         this.ue.addItem(((CountryInfo)C0732.cY().get(var2)).getNome());
       }
 
       C0037 var3 = new C0037();
@@ -45,7 +48,7 @@ public class C0027 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void mH() {

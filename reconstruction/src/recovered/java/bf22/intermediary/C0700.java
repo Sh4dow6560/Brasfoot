@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -19,14 +22,14 @@ public abstract class C0700 {
    }
 
    public static void jP() {
-      for (int var0 = 0; var0 < C0745.SR.aG().size(); var0++) {
-         if (((C0692)C0745.SR.aG().get(var0)).jn() != null) {
-            if (!((C0692)C0745.SR.aG().get(var0)).jn().jZ()) {
-               ((C0692)C0745.SR.aG().get(var0)).z(false);
+      for (int var0 = 0; var0 < GamePersistence.SR.aG().size(); var0++) {
+         if (((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn() != null) {
+            if (!((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().jZ()) {
+               ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).z(false);
             } else {
-               for (int var1 = 2; var1 < ((C0692)C0745.SR.aG().get(var0)).jn().kc().size(); var1++) {
-                  if (((Player)((C0692)C0745.SR.aG().get(var0)).jn().kc().get(var1)).fg() == null) {
-                     ((C0692)C0745.SR.aG().get(var0)).jn().kc().remove(((Player)((C0692)C0745.SR.aG().get(var0)).jn().kc().get(var1)).fg());
+               for (int var1 = 2; var1 < ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().size(); var1++) {
+                  if (((Player)((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().get(var1)).fg() == null) {
+                     ((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().remove(((Player)((CountryCompetitions)GamePersistence.SR.aG().get(var0)).jn().kc().get(var1)).fg());
                   }
                }
             }
@@ -35,56 +38,56 @@ public abstract class C0700 {
    }
 
    public static void jQ() {
-      C0745.SR.bn().clear();
+      GamePersistence.SR.bn().clear();
 
-      for (int var0 = 0; var0 < C0745.SR.L().size(); var0++) {
-         if (((Coach)C0745.SR.L().get(var0)).fg() != null) {
-            ((Coach)C0745.SR.L().get(var0)).lS();
+      for (int var0 = 0; var0 < GamePersistence.SR.L().size(); var0++) {
+         if (((Coach)GamePersistence.SR.L().get(var0)).fg() != null) {
+            ((Coach)GamePersistence.SR.L().get(var0)).lS();
          }
       }
 
       Coach var4 = null;
 
-      for (int var1 = 0; var1 < C0745.SR.L().size(); var1++) {
-         if (((Coach)C0745.SR.L().get(var1)).fg() != null && !((Coach)C0745.SR.L().get(var1)).jZ() && ((Coach)C0745.SR.L().get(var1)).lR() >= 1) {
-            var4 = (Coach)C0745.SR.L().get(var1);
+      for (int var1 = 0; var1 < GamePersistence.SR.L().size(); var1++) {
+         if (((Coach)GamePersistence.SR.L().get(var1)).fg() != null && !((Coach)GamePersistence.SR.L().get(var1)).jZ() && ((Coach)GamePersistence.SR.L().get(var1)).lR() >= 1) {
+            var4 = (Coach)GamePersistence.SR.L().get(var1);
             int var2 = 0;
 
             for (int var3 = var4.lO().size() - 1; var3 >= 0; var3--) {
-               if (((C0728)var4.lO().get(var3)).H() == C0745.SR.H() - 1) {
+               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.SR.H() - 1) {
                   var2 = (int)(((C0728)var4.lO().get(var3)).cm() * 100.0F / ((C0728)var4.lO().get(var3)).w());
                   break;
                }
             }
 
             if (new Random().nextInt(90) + 1 > var2) {
-               ((Coach)C0745.SR.L().get(var1)).fg().kE();
+               ((Coach)GamePersistence.SR.L().get(var1)).fg().kE();
             }
          }
       }
    }
 
    public static void jR() {
-      for (int var0 = 0; var0 < C0745.SR.P().size(); var0++) {
-         if (!((Club)C0745.SR.P().get(var0)).jZ()) {
-            ((Club)C0745.SR.P().get(var0)).ku();
+      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
+         if (!((Club)GamePersistence.SR.P().get(var0)).jZ()) {
+            ((Club)GamePersistence.SR.P().get(var0)).ku();
          }
       }
    }
 
    public static void jS() {
-      for (int var0 = 0; var0 < C0745.SR.N().size(); var0++) {
-         for (int var1 = 0; var1 < ((C0692)C0745.SR.N().get(var0)).eb().size(); var1++) {
-            for (int var2 = 0; var2 < ((C0924)((C0692)C0745.SR.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
-               if (!((Club)((C0924)((C0692)C0745.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).jZ()) {
-                  a((Club)((C0924)((C0692)C0745.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
+      for (int var0 = 0; var0 < GamePersistence.SR.N().size(); var0++) {
+         for (int var1 = 0; var1 < ((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().size(); var1++) {
+            for (int var2 = 0; var2 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
+               if (!((Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).jZ()) {
+                  a((Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
                }
             }
          }
       }
    }
 
-   public static void b(C0955 c0955) {
+   public static void b(LeagueStage c0955) {
       for (int var1 = 0; var1 < c0955.yK().size(); var1++) {
          if (!((Club)c0955.yK().get(var1)).jZ()) {
             a((Club)c0955.yK().get(var1), var1, true);
@@ -96,23 +99,23 @@ public abstract class C0700 {
       boolean var0 = false;
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0745.SR.P().size(); var2++) {
+      for (int var2 = 0; var2 < GamePersistence.SR.P().size(); var2++) {
          var0 = false;
-         if (!((Club)C0745.SR.P().get(var2)).jZ()) {
-            if (((Club)C0745.SR.P().get(var2)).gg() != 0 && ((Club)C0745.SR.P().get(var2)).getReputacao() < 5) {
+         if (!((Club)GamePersistence.SR.P().get(var2)).jZ()) {
+            if (((Club)GamePersistence.SR.P().get(var2)).gg() != 0 && ((Club)GamePersistence.SR.P().get(var2)).getReputacao() < 5) {
                var0 = true;
-            } else if (((Club)C0745.SR.P().get(var2)).gg() == 0 && ((Club)C0745.SR.P().get(var2)).getReputacao() < 4) {
+            } else if (((Club)GamePersistence.SR.P().get(var2)).gg() == 0 && ((Club)GamePersistence.SR.P().get(var2)).getReputacao() < 4) {
                var0 = true;
             }
          }
 
          if (var0) {
-            for (int var3 = 0; var3 < ((Club)C0745.SR.P().get(var2)).kc().size(); var3++) {
-               if (((Player)((Club)C0745.SR.P().get(var2)).kc().get(var3)).fi() > 50
-                  && ((Player)((Club)C0745.SR.P().get(var2)).kc().get(var3)).getIdade() < 31
-                  && ((Player)((Club)C0745.SR.P().get(var2)).kc().get(var3)).ff()
+            for (int var3 = 0; var3 < ((Club)GamePersistence.SR.P().get(var2)).kc().size(); var3++) {
+               if (((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).fi() > 50
+                  && ((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).getIdade() < 31
+                  && ((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3)).ff()
                   && new Random().nextInt(100) > 25) {
-                  var1.add((Player)((Club)C0745.SR.P().get(var2)).kc().get(var3));
+                  var1.add((Player)((Club)GamePersistence.SR.P().get(var2)).kc().get(var3));
                }
             }
          }
@@ -136,9 +139,9 @@ public abstract class C0700 {
    }
 
    private static void jU() {
-      for (int var0 = 0; var0 < C0745.SR.P().size(); var0++) {
-         if (!((Club)C0745.SR.P().get(var0)).kn() && !((Club)C0745.SR.P().get(var0)).jZ()) {
-            a((Club)C0745.SR.P().get(var0), var0, false);
+      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
+         if (!((Club)GamePersistence.SR.P().get(var0)).kn() && !((Club)GamePersistence.SR.P().get(var0)).jZ()) {
+            a((Club)GamePersistence.SR.P().get(var0), var0, false);
          }
       }
    }

@@ -1,16 +1,17 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 public class C0828 {
-   private C0675 zz = null;
+   private Match zz = null;
    private boolean Om = false;
    private String NG = null;
    private boolean ND = false;
 
-   public C0675 tR() {
+   public Match tR() {
       return this.zz;
    }
 
-   public void n(C0675 c0675) {
+   public void n(Match c0675) {
       this.zz = c0675;
    }
 

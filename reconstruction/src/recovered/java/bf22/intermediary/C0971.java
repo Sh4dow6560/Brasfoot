@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -113,11 +114,11 @@ public class C0971 {
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 0; var4 <= 7; var4++) {
-         var3.add((Club)C0745.SR.P().get(var4));
+         var3.add((Club)GamePersistence.SR.P().get(var4));
       }
 
-      if (C0745.SR.yn() != null) {
-         C0745.SR.yn().a(var3, 0, var1, var2, false);
+      if (GamePersistence.SR.yn() != null) {
+         GamePersistence.SR.yn().a(var3, 0, var1, var2, false);
       }
    }
 
@@ -176,11 +177,11 @@ public class C0971 {
    }
 
    private void K(Club club) {
-      if (C0745.SR.bs() != null) {
-         C0745.SR.bs().setClubName(club.ka().dS());
-         C0745.SR.bs().setManagerName(club.getNome());
-         C0745.SR.bs().setSeasonYear(C0745.SR.H() + C0745.SR.iU());
-         C0745.SR.bs().setNextMatch("");
+      if (GamePersistence.SR.bs() != null) {
+         GamePersistence.SR.bs().setClubName(club.ka().dS());
+         GamePersistence.SR.bs().setManagerName(club.getNome());
+         GamePersistence.SR.bs().setSeasonYear(GamePersistence.SR.H() + GamePersistence.SR.iU());
+         GamePersistence.SR.bs().setNextMatch("");
       }
    }
 

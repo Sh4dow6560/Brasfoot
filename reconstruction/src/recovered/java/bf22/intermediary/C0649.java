@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -30,8 +31,8 @@ public class C0649 extends AbstractTableModel {
       return this.vp.get(i);
    }
 
-   public C0675 es(int i) {
-      return (C0675)this.vp.get(i);
+   public Match es(int i) {
+      return (Match)this.vp.get(i);
    }
 
    @Override

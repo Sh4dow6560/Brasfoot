@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -22,8 +24,8 @@ public class C0600 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       Player var7 = (Player)object;
-      if (C0745.SR.isUsaCoresLista()) {
-         Color[] var8 = C0745.SR.getCoresLista();
+      if (GamePersistence.SR.isUsaCoresLista()) {
+         Color[] var8 = GamePersistence.SR.getCoresLista();
          if (!bl) {
             super.setBackground(var8[var7.getPosicao()]);
          }
@@ -47,7 +49,7 @@ public class C0600 extends DefaultTableCellRenderer {
 
       if (j == 1) {
          this.setHorizontalAlignment(0);
-         this.setText(C0710.rI[var7.getPosicao()]);
+         this.setText(GameConstants.rI[var7.getPosicao()]);
       }
 
       if (j == 2) {
@@ -85,10 +87,10 @@ public class C0600 extends DefaultTableCellRenderer {
 
       if (j == 4) {
          this.setHorizontalAlignment(0);
-         this.setText(C0710.rK[var7.getLado()]);
+         this.setText(GameConstants.rK[var7.getLado()]);
       }
 
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          if (j == 5) {
             this.setText(Integer.toString(var7.fi()));
          } else {
@@ -113,12 +115,12 @@ public class C0600 extends DefaultTableCellRenderer {
             } else if (j == 10) {
                String var10 = "";
                String var9 = "";
-               if (var7.getCr1() < C0710.qN.length) {
-                  var10 = C0710.qN[var7.getCr1()];
+               if (var7.getCr1() < GameConstants.qN.length) {
+                  var10 = GameConstants.qN[var7.getCr1()];
                }
 
-               if (var7.getCr2() < C0710.qN.length) {
-                  var9 = C0710.qN[var7.getCr2()];
+               if (var7.getCr2() < GameConstants.qN.length) {
+                  var9 = GameConstants.qN[var7.getCr2()];
                }
 
                this.setText(var10 + "/" + var9);
@@ -179,7 +181,7 @@ public class C0600 extends DefaultTableCellRenderer {
          } else if (j == 15) {
             this.setText(Integer.toString(var7.gA()));
          } else if (j == 16) {
-            this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+            this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 17) {
             this.setText(Integer.toString(var7.getIdade()));
             if (var7.getIdade() > 32) {

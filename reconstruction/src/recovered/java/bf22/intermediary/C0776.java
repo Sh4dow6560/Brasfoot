@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -24,7 +25,7 @@ public class C0776 extends DefaultTableCellRenderer {
             } else if (var7.getEstado() >= 0) {
                ImageIcon var8 = new ImageIcon(this.getClass().getResource("/aesticons/" + Integer.toString(var7.getEstado()) + ".png"));
                this.setIcon(var8);
-               this.setText(C0710.rX[var7.getEstado()]);
+               this.setText(GameConstants.rX[var7.getEstado()]);
             } else if (!var7.method_kw_to()) {
                if (var7.et() == 1) {
                   ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aeicons/ic_champion.png"));
@@ -43,7 +44,7 @@ public class C0776 extends DefaultTableCellRenderer {
             if (var7.getEstado() >= 100) {
                this.setText(var7.sT());
             } else if (var7.getEstado() >= 0) {
-               this.setText(C0710.rY[var7.getEstado()]);
+               this.setText(GameConstants.rY[var7.getEstado()]);
             } else if (var7.method_kw_to()) {
                this.setText(var7.sT());
                this.setFont(new Font("Tahoma", 1, 11));

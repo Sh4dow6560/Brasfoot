@@ -1,9 +1,10 @@
-package bf22.intermediary;
+package mod.recovered.game;
 
+import bf22.intermediary.*;
 import java.util.Comparator;
 import mod.recovered.model.Coach;
 
-class C0724 implements Comparator<Coach> {
+class CoachPerformanceComparator implements Comparator<Coach> {
    public int compare(Coach coach, Coach coach2) {
       int var3 = coach.lI();
       int var4 = coach2.lI();

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -29,7 +31,7 @@ public class C0051 extends JPanel {
    public C0051(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      Color[] var2 = C0745.SR.getCoresLista();
+      Color[] var2 = GamePersistence.SR.getCoresLista();
       JLabel[] var3 = new JLabel[]{this.zo, this.zp, this.zq, this.zr, this.zs};
 
       for (int var4 = 0; var4 < var3.length; var4++) {
@@ -54,7 +56,7 @@ public class C0051 extends JPanel {
       JLabel[] var1 = new JLabel[]{this.zo, this.zp, this.zq, this.zr, this.zs};
 
       for (int var2 = 0; var2 < var1.length; var2++) {
-         Color var3 = new Color(C0710.oZ[var2][0], C0710.oZ[var2][1], C0710.oZ[var2][2]);
+         Color var3 = new Color(GameConstants.oZ[var2][0], GameConstants.oZ[var2][1], GameConstants.oZ[var2][2]);
          var1[var2].setBackground(var3);
       }
    }
@@ -67,9 +69,9 @@ public class C0051 extends JPanel {
          var2[var3] = var1[var3].getBackground();
       }
 
-      C0745.SR.setCoresLista(var2);
-      C0745.vM().setCoresLista(var2);
-      C0745.vJ();
+      GamePersistence.SR.setCoresLista(var2);
+      GamePersistence.vM().setCoresLista(var2);
+      GamePersistence.vJ();
    }
 
    private void a(Object object) {

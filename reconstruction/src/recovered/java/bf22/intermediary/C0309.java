@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +12,7 @@ class C0309 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      C0745.vM().setVerEstaduaisAgrupados(C0294.m(this.JH).isSelected());
-      C0745.vJ();
+      GamePersistence.vM().setVerEstaduaisAgrupados(C0294.m(this.JH).isSelected());
+      GamePersistence.vJ();
    }
 }

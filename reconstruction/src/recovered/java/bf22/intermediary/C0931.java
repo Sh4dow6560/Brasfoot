@@ -1,12 +1,19 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
-public class C0931 extends C0713 implements Serializable {
+public class C0931 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0962 aac = null;
+   private KnockoutStage aac = null;
    private ArrayList cE = new ArrayList();
    private int pais;
 
@@ -15,7 +22,7 @@ public class C0931 extends C0713 implements Serializable {
 
    public C0931(int i) {
       this.pais = i;
-      C0692 var2 = C0745.SR.o(this.pais);
+      CountryCompetitions var2 = GamePersistence.SR.o(this.pais);
       this.setNome("Supercopa - " + var2.jf());
       this.F(11, i);
    }
@@ -23,10 +30,10 @@ public class C0931 extends C0713 implements Serializable {
    public void Ab() {
       Club var1 = null;
       Club var2 = null;
-      C0692 var3 = C0745.SR.o(this.pais);
+      CountryCompetitions var3 = GamePersistence.SR.o(this.pais);
       if (var3 != null && var3.eb() != null && var3.eb().size() > 0) {
-         var1 = ((C0924)var3.eb().get(0)).cv(C0745.SR.H() - 1);
-         Club[] var4 = var3.bk(C0745.SR.H() - 1);
+         var1 = ((C0924)var3.eb().get(0)).cv(GamePersistence.SR.H() - 1);
+         Club[] var4 = var3.bk(GamePersistence.SR.H() - 1);
          if (var4 != null) {
             if (var1 != var4[0]) {
                var2 = var4[0];
@@ -46,8 +53,8 @@ public class C0931 extends C0713 implements Serializable {
       if (club != null && club2 != null) {
          this.cE.add(club);
          this.cE.add(club2);
-         this.aac = new C0962(null, this.cE.size(), 11, 0, var3, this, -1);
-         C0929 var4 = new C0929();
+         this.aac = new KnockoutStage(null, this.cE.size(), 11, 0, var3, this, -1);
+         KnockoutRound var4 = new KnockoutRound();
          var4.a(this.aac, this.cE, 0, var3[0], 0, 0, 11, false);
       }
    }
@@ -57,7 +64,7 @@ public class C0931 extends C0713 implements Serializable {
       this.aac.z(this);
    }
 
-   public C0962 zS() {
+   public KnockoutStage zS() {
       return this.aac;
    }
 
@@ -66,8 +73,8 @@ public class C0931 extends C0713 implements Serializable {
    }
 
    @Override
-   public C0678[] mB() {
-      return new C0678[]{this.aac};
+   public CompetitionStage[] mB() {
+      return new CompetitionStage[]{this.aac};
    }
 
    @Override
@@ -76,7 +83,7 @@ public class C0931 extends C0713 implements Serializable {
    }
 
    @Override
-   public String[] b(C0678 c0678) {
+   public String[] b(CompetitionStage c0678) {
       return this.aac.zB();
    }
 
@@ -85,7 +92,7 @@ public class C0931 extends C0713 implements Serializable {
       String[] var1 = new String[]{"", ""};
       String var2 = "tr_supercopa_" + C0696.valueOf("P" + Integer.toString(this.pais)).jA();
       String var3 = "tr_supercopa_generico";
-      if (C0710.w(var2)) {
+      if (GameConstants.w(var2)) {
          var1[0] = var2;
       } else {
          var1[0] = var3;

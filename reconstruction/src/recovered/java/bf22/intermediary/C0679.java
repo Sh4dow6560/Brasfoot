@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,7 +56,7 @@ public class C0679 {
       String var2;
       try {
          while ((var2 = var1.readLine()) != null) {
-            C0745.SR.aX().add(var2);
+            GamePersistence.SR.aX().add(var2);
          }
       } catch (IOException var4) {
          var4.printStackTrace();
@@ -65,7 +67,7 @@ public class C0679 {
       String var0 = "E:/Dropbox/JavaProjetos/names/";
 
       for (int var1 = 0; var1 < C0696.jz(); var1++) {
-         String var2 = ((C0697)C0732.cY().get(var1)).jE() + ".txt";
+         String var2 = ((CountryInfo)C0732.cY().get(var1)).jE() + ".txt";
          File var3 = new File(var0 + var2);
 
          try {
@@ -103,7 +105,7 @@ public class C0679 {
       Object var3 = null;
       Object var4 = null;
       int var5 = C0732.G(i);
-      String var6 = ((C0697)C0732.cY().get(var5)).jE();
+      String var6 = ((CountryInfo)C0732.cY().get(var5)).jE();
       String var7 = "/arquivos/names/" + var6 + ".txt";
       String var8 = "/arquivos/surnames/" + var6 + ".txt";
       if (j == 1) {
@@ -210,7 +212,7 @@ public class C0679 {
       String var3 = null;
       ArrayList var4 = null;
       int var5 = C0732.G(i);
-      String var6 = ((C0697)C0732.cY().get(var5)).jE();
+      String var6 = ((CountryInfo)C0732.cY().get(var5)).jE();
       String var7 = "/arquivos/names/" + var6 + ".txt";
       String var8 = "/arquivos/surnames/" + var6 + ".txt";
       var4 = this.a(var7, i, 0);
@@ -268,7 +270,7 @@ public class C0679 {
       String var4 = null;
       ArrayList var5 = null;
       int var6 = C0732.G(i);
-      String var7 = ((C0697)C0732.cY().get(var6)).jE();
+      String var7 = ((CountryInfo)C0732.cY().get(var6)).jE();
       String var8 = "/arquivos/names/" + var7 + ".txt";
       String var9 = "/arquivos/surnames/" + var7 + ".txt";
       var5 = this.a(var8, i, 0);

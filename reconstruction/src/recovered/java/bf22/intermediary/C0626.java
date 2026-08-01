@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -23,7 +26,7 @@ public class C0626 extends JLabel implements ListCellRenderer {
          if (object != null && object instanceof C0741) {
             C0741 var10 = (C0741)object;
             this.setIcon(new ImageIcon(this.getClass().getResource("/aesticons/" + var10.getEstado() + ".png")));
-            String var11 = C0710.rY[var10.getEstado()];
+            String var11 = GameConstants.rY[var10.getEstado()];
             this.setText(var11);
          } else if (object != null && object instanceof C0942) {
             C0942 var9 = (C0942)object;
@@ -34,8 +37,8 @@ public class C0626 extends JLabel implements ListCellRenderer {
             }
 
             this.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + var9.yg().jc() + ".png")));
-         } else if (object != null && object instanceof C0692) {
-            C0692 var8 = (C0692)object;
+         } else if (object != null && object instanceof CountryCompetitions) {
+            CountryCompetitions var8 = (CountryCompetitions)object;
             if (C0435.sf() == 1) {
                this.setText(var8.jf());
             } else {
@@ -44,7 +47,7 @@ public class C0626 extends JLabel implements ListCellRenderer {
 
             this.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + var8.jc() + ".png")));
          } else if (object != null) {
-            C0713 var6 = (C0713)object;
+            Competition var6 = (Competition)object;
             String var7 = var6.getNome();
             this.setText(var7);
             this.setIcon(var6.es());

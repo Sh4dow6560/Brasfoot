@@ -1,5 +1,8 @@
-package bf22.intermediary;
+package mod.recovered.ui;
 
+import bf22.intermediary.*;
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CountryCompetitions;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +20,7 @@ import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
 
-public class C0685 {
+public class MainWindow {
    private static JScrollPane gH;
    private static C0751 gI;
    private static JFrame cC = new JFrame();
@@ -35,7 +38,7 @@ public class C0685 {
    private static int gT = 0;
    private static JDialog gU = null;
 
-   public C0685(boolean bl) {
+   public MainWindow(boolean bl) {
       ImageIcon var2 = new ImageIcon(this.getClass().getResource("/aicons/ball.png"));
       cC.setIconImage(var2.getImage());
       cC.setTitle("Brasfoot");
@@ -177,7 +180,7 @@ public class C0685 {
       return cC;
    }
 
-   public static void a(Club club, C0713 c0713, int i) {
+   public static void a(Club club, Competition c0713, int i) {
       JDialog var3 = new JDialog(cC);
       C0196 var4 = new C0196(var3, club, c0713, i);
       var3.add(var4);
@@ -332,7 +335,7 @@ public class C0685 {
       var1.setVisible(true);
    }
 
-   public static void a(int i, C0713 c0713) {
+   public static void a(int i, Competition c0713) {
       JDialog var2 = new JDialog(cC);
       C0078 var3 = new C0078(var2, c0713);
       var2.add(var3);
@@ -345,7 +348,7 @@ public class C0685 {
       var2.setVisible(true);
    }
 
-   public static void b(int i, C0713 c0713) {
+   public static void b(int i, Competition c0713) {
       JDialog var2 = new JDialog(cC);
       C0065 var3 = new C0065(var2, i, c0713);
       var2.add(var3);
@@ -376,7 +379,7 @@ public class C0685 {
       var1.setVisible(true);
    }
 
-   public static void a(C0924 c0924, C0692 c0692, int i) {
+   public static void a(C0924 c0924, CountryCompetitions c0692, int i) {
       JDialog var3 = new JDialog(cC);
       C0498 var4 = new C0498(var3, c0924, c0692, i);
       var3.add(var4);

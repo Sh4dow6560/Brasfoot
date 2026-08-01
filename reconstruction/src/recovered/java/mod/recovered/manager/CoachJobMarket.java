@@ -1,12 +1,17 @@
-package bf22.intermediary;
+package mod.recovered.manager;
 
+import bf22.intermediary.*;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 
-public class C0718 implements Serializable {
+public class CoachJobMarket implements Serializable {
    private static final long serialVersionUID = 1L;
    private ArrayList Jg = new ArrayList();
    private ArrayList Jh = new ArrayList();
@@ -37,7 +42,7 @@ public class C0718 implements Serializable {
       ArrayList var5 = new ArrayList();
 
       for (int var6 = 0; var6 < this.Jg.size(); var6++) {
-         Club var7 = C0745.SR.s((Integer)this.Jg.get(var6)).jn();
+         Club var7 = GamePersistence.SR.s((Integer)this.Jg.get(var6)).jn();
          if (var7 != null && !var7.jZ()) {
             var3.add(var7);
          }
@@ -112,9 +117,9 @@ public class C0718 implements Serializable {
          int var17 = -1;
          Coach var18 = null;
          byte var20 = 0;
-         if (var20 < C0745.SR.M().size()) {
-            var17 = ((Coach)C0745.SR.M().get(var20)).lE();
-            var18 = (Coach)C0745.SR.M().get(var20);
+         if (var20 < GamePersistence.SR.M().size()) {
+            var17 = ((Coach)GamePersistence.SR.M().get(var20)).lE();
+            var18 = (Coach)GamePersistence.SR.M().get(var20);
          }
 
          if (var17 >= 0) {
@@ -156,15 +161,15 @@ public class C0718 implements Serializable {
       int var1 = 0;
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < C0745.SR.N().size(); var3++) {
-         for (int var4 = 0; var4 < ((C0692)C0745.SR.N().get(var3)).eb().size(); var4++) {
+      for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
+         for (int var4 = 0; var4 < ((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().size(); var4++) {
             var2.clear();
-            if (((C0924)((C0692)C0745.SR.N().get(var3)).eb().get(var4)).yi().yK().size() > 0) {
-               var1 = Math.round(((C0924)((C0692)C0745.SR.N().get(var3)).eb().get(var4)).yi().yK().size() / 2);
+            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() > 0) {
+               var1 = Math.round(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size() / 2);
             }
 
-            for (int var5 = var1; var5 < ((C0924)((C0692)C0745.SR.N().get(var3)).eb().get(var4)).yi().yK().size(); var5++) {
-               var2.add(((Club)((C0924)((C0692)C0745.SR.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).lk());
+            for (int var5 = var1; var5 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().size(); var5++) {
+               var2.add(((Club)((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).lk());
             }
 
             this.M(var2);
@@ -186,8 +191,8 @@ public class C0718 implements Serializable {
 
    public ArrayList b(Coach coach, boolean bl) {
       ArrayList var3 = new ArrayList();
-      C0692 var4 = C0745.SR.o(coach.lE());
-      C0692 var5 = C0745.SR.s(coach.bz());
+      CountryCompetitions var4 = GamePersistence.SR.o(coach.lE());
+      CountryCompetitions var5 = GamePersistence.SR.s(coach.bz());
       if (var5 != null) {
          var5.a(var3, coach, bl, true);
       }
@@ -203,10 +208,10 @@ public class C0718 implements Serializable {
 
       if (var6) {
          ArrayList var7 = new ArrayList();
-         if (C0745.SR.N().size() > 0) {
-            for (int var8 = 0; var8 < C0745.SR.N().size(); var8++) {
-               if (C0745.SR.N().get(var8) != var5 && C0745.SR.N().get(var8) != var4) {
-                  var7.add((C0692)C0745.SR.N().get(var8));
+         if (GamePersistence.SR.N().size() > 0) {
+            for (int var8 = 0; var8 < GamePersistence.SR.N().size(); var8++) {
+               if (GamePersistence.SR.N().get(var8) != var5 && GamePersistence.SR.N().get(var8) != var4) {
+                  var7.add((CountryCompetitions)GamePersistence.SR.N().get(var8));
                }
             }
 
@@ -214,7 +219,7 @@ public class C0718 implements Serializable {
                Collections.shuffle(var7);
 
                for (int var9 = 0; var9 < var7.size(); var9++) {
-                  ((C0692)var7.get(var9)).a(var3, coach, bl, false);
+                  ((CountryCompetitions)var7.get(var9)).a(var3, coach, bl, false);
                   if (var3.size() > 6) {
                      break;
                   }
@@ -227,11 +232,11 @@ public class C0718 implements Serializable {
    }
 
    public void zw() {
-      for (int var2 = 0; var2 < C0745.SR.M().size(); var2++) {
-         if (((Coach)C0745.SR.M().get(var2)).jZ() && ((Coach)C0745.SR.M().get(var2)).fg() != null) {
-            ArrayList var1 = this.b((Coach)C0745.SR.M().get(var2), true);
+      for (int var2 = 0; var2 < GamePersistence.SR.M().size(); var2++) {
+         if (((Coach)GamePersistence.SR.M().get(var2)).jZ() && ((Coach)GamePersistence.SR.M().get(var2)).fg() != null) {
+            ArrayList var1 = this.b((Coach)GamePersistence.SR.M().get(var2), true);
             if (var1 != null && var1.size() > 0) {
-               C0685.a(var1, (Coach)C0745.SR.M().get(var2), 0);
+               MainWindow.a(var1, (Coach)GamePersistence.SR.M().get(var2), 0);
             }
          }
       }
@@ -244,23 +249,23 @@ public class C0718 implements Serializable {
       ArrayList var5 = new ArrayList();
       boolean var6 = false;
       boolean var7 = false;
-      if (C0745.SR.ca() - 1 == C0745.SR.H()) {
+      if (GamePersistence.SR.ca() - 1 == GamePersistence.SR.H()) {
          var7 = true;
-         C0955[] var8 = new C0955[6];
-         if (C0745.SR.bK() != null) {
-            var8[1] = C0745.SR.bK().yd();
+         LeagueStage[] var8 = new LeagueStage[6];
+         if (GamePersistence.SR.bK() != null) {
+            var8[1] = GamePersistence.SR.bK().yd();
          }
 
-         if (C0745.SR.bM() != null) {
-            var8[2] = C0745.SR.bM().yd();
+         if (GamePersistence.SR.bM() != null) {
+            var8[2] = GamePersistence.SR.bM().yd();
          }
 
-         if (C0745.SR.bQ() != null) {
-            var8[3] = C0745.SR.bQ().yd();
+         if (GamePersistence.SR.bQ() != null) {
+            var8[3] = GamePersistence.SR.bQ().yd();
          }
 
-         if (C0745.SR.bS() != null) {
-            var8[5] = C0745.SR.bS().yd();
+         if (GamePersistence.SR.bS() != null) {
+            var8[5] = GamePersistence.SR.bS().yd();
          }
 
          for (int var9 = 0; var9 < var8.length; var9++) {
@@ -274,70 +279,70 @@ public class C0718 implements Serializable {
          }
       }
 
-      if (C0745.SR.aY() != null && C0745.SR.aY().yd() != null) {
-         for (int var17 = 0; var17 < C0745.SR.aY().yd().yK().size(); var17++) {
-            if (!((Club)C0745.SR.aY().yd().yK().get(var17)).jZ()) {
-               var3.add((Club)C0745.SR.aY().yd().yK().get(var17));
+      if (GamePersistence.SR.aY() != null && GamePersistence.SR.aY().yd() != null) {
+         for (int var17 = 0; var17 < GamePersistence.SR.aY().yd().yK().size(); var17++) {
+            if (!((Club)GamePersistence.SR.aY().yd().yK().get(var17)).jZ()) {
+               var3.add((Club)GamePersistence.SR.aY().yd().yK().get(var17));
             }
          }
 
          var6 = true;
       }
 
-      if (C0745.SR.ba() != null && C0745.SR.ba().yd() != null) {
-         for (int var18 = 0; var18 < C0745.SR.ba().yd().yK().size(); var18++) {
-            if (!((Club)C0745.SR.ba().yd().yK().get(var18)).jZ()) {
-               var3.add((Club)C0745.SR.ba().yd().yK().get(var18));
+      if (GamePersistence.SR.ba() != null && GamePersistence.SR.ba().yd() != null) {
+         for (int var18 = 0; var18 < GamePersistence.SR.ba().yd().yK().size(); var18++) {
+            if (!((Club)GamePersistence.SR.ba().yd().yK().get(var18)).jZ()) {
+               var3.add((Club)GamePersistence.SR.ba().yd().yK().get(var18));
             }
          }
 
          var5.add(0);
       }
 
-      if (C0745.SR.aZ() != null && C0745.SR.aZ().yd() != null) {
-         for (int var19 = 0; var19 < C0745.SR.aZ().yd().yK().size(); var19++) {
-            if (!((Club)C0745.SR.aZ().yd().yK().get(var19)).jZ()) {
-               var3.add((Club)C0745.SR.aZ().yd().yK().get(var19));
+      if (GamePersistence.SR.aZ() != null && GamePersistence.SR.aZ().yd() != null) {
+         for (int var19 = 0; var19 < GamePersistence.SR.aZ().yd().yK().size(); var19++) {
+            if (!((Club)GamePersistence.SR.aZ().yd().yK().get(var19)).jZ()) {
+               var3.add((Club)GamePersistence.SR.aZ().yd().yK().get(var19));
             }
          }
 
          var5.add(1);
       }
 
-      if (C0745.SR.be() != null && C0745.SR.be().yd() != null) {
-         for (int var20 = 0; var20 < C0745.SR.be().yd().yK().size(); var20++) {
-            if (!((Club)C0745.SR.be().yd().yK().get(var20)).jZ()) {
-               var3.add((Club)C0745.SR.be().yd().yK().get(var20));
+      if (GamePersistence.SR.be() != null && GamePersistence.SR.be().yd() != null) {
+         for (int var20 = 0; var20 < GamePersistence.SR.be().yd().yK().size(); var20++) {
+            if (!((Club)GamePersistence.SR.be().yd().yK().get(var20)).jZ()) {
+               var3.add((Club)GamePersistence.SR.be().yd().yK().get(var20));
             }
          }
 
          var5.add(2);
       }
 
-      if (C0745.SR.bf() != null && C0745.SR.bf().yd() != null) {
-         for (int var21 = 0; var21 < C0745.SR.bf().yd().yK().size(); var21++) {
-            if (!((Club)C0745.SR.bf().yd().yK().get(var21)).jZ()) {
-               var3.add((Club)C0745.SR.bf().yd().yK().get(var21));
+      if (GamePersistence.SR.bf() != null && GamePersistence.SR.bf().yd() != null) {
+         for (int var21 = 0; var21 < GamePersistence.SR.bf().yd().yK().size(); var21++) {
+            if (!((Club)GamePersistence.SR.bf().yd().yK().get(var21)).jZ()) {
+               var3.add((Club)GamePersistence.SR.bf().yd().yK().get(var21));
             }
          }
 
          var5.add(3);
       }
 
-      if (C0745.SR.bX() != null && C0745.SR.bX().yd() != null) {
-         for (int var22 = 0; var22 < C0745.SR.bX().yd().yK().size(); var22++) {
-            if (!((Club)C0745.SR.bX().yd().yK().get(var22)).jZ()) {
-               var3.add((Club)C0745.SR.bX().yd().yK().get(var22));
+      if (GamePersistence.SR.bX() != null && GamePersistence.SR.bX().yd() != null) {
+         for (int var22 = 0; var22 < GamePersistence.SR.bX().yd().yK().size(); var22++) {
+            if (!((Club)GamePersistence.SR.bX().yd().yK().get(var22)).jZ()) {
+               var3.add((Club)GamePersistence.SR.bX().yd().yK().get(var22));
             }
          }
 
          var5.add(5);
       }
 
-      if (C0745.SR.bg() != null && C0745.SR.bg().yd() != null) {
-         for (int var23 = 0; var23 < C0745.SR.bg().yd().yK().size(); var23++) {
-            if (!((Club)C0745.SR.bg().yd().yK().get(var23)).jZ()) {
-               var3.add((Club)C0745.SR.bg().yd().yK().get(var23));
+      if (GamePersistence.SR.bg() != null && GamePersistence.SR.bg().yd() != null) {
+         for (int var23 = 0; var23 < GamePersistence.SR.bg().yd().yK().size(); var23++) {
+            if (!((Club)GamePersistence.SR.bg().yd().yK().get(var23)).jZ()) {
+               var3.add((Club)GamePersistence.SR.bg().yd().yK().get(var23));
             }
          }
 
@@ -358,7 +363,7 @@ public class C0718 implements Serializable {
             var11 = var26[var28];
             int[] var12 = new int[]{12, 7, 7, 8, 10, 10};
             int[] var13 = new int[6];
-            C0692 var14 = C0745.SR.s(coach.lE());
+            CountryCompetitions var14 = GamePersistence.SR.s(coach.lE());
             int var15 = var14.gg();
             if (coach.fg() != null) {
                if (coach.fg().gg() == 0) {
@@ -456,9 +461,9 @@ public class C0718 implements Serializable {
       int var25 = -1;
       Coach var27 = null;
       byte var29 = 0;
-      if (var29 < C0745.SR.M().size()) {
-         var25 = ((Coach)C0745.SR.M().get(var29)).lE();
-         var27 = (Coach)C0745.SR.M().get(var29);
+      if (var29 < GamePersistence.SR.M().size()) {
+         var25 = ((Coach)GamePersistence.SR.M().get(var29)).lE();
+         var27 = (Coach)GamePersistence.SR.M().get(var29);
       }
 
       if (var25 >= 0) {
@@ -493,7 +498,7 @@ public class C0718 implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < this.Jl.size(); var2++) {
-         Club var3 = C0745.SR.x((Integer)this.Jl.get(var2));
+         Club var3 = GamePersistence.SR.x((Integer)this.Jl.get(var2));
          if (var3 != null && !var3.jZ()) {
             var1.add(var3);
          }
@@ -506,7 +511,7 @@ public class C0718 implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < this.Jh.size(); var2++) {
-         Club var3 = C0745.SR.s((Integer)this.Jh.get(var2)).jn();
+         Club var3 = GamePersistence.SR.s((Integer)this.Jh.get(var2)).jn();
          if (var3 != null && !var3.jZ()) {
             var1.add(var3);
          }

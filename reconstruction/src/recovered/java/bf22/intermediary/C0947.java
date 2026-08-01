@@ -1,17 +1,24 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.config.LeagueLoadOptions;
 import mod.recovered.model.Club;
 
-public class C0947 extends C0713 implements Serializable {
+public class C0947 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 agb = null;
-   private C0955 afX = null;
+   private LeagueStage agb = null;
+   private LeagueStage afX = null;
    private ArrayList agc = new ArrayList();
-   private C0962 agd = null;
+   private KnockoutStage agd = null;
    private Club afW = null;
 
    public C0947() {
@@ -39,7 +46,7 @@ public class C0947 extends C0713 implements Serializable {
       ArrayList var4 = new ArrayList();
 
       for (int var5 = 0; var5 < var3.length; var5++) {
-         C0692 var6 = C0745.SR.s(var3[var5]);
+         CountryCompetitions var6 = GamePersistence.SR.s(var3[var5]);
          var4.add(var6.jo());
          var6.z(true);
       }
@@ -93,12 +100,12 @@ public class C0947 extends C0713 implements Serializable {
       var20.nTimes = 30;
       var20.nGrupos = 6;
       var20.doisTurnos = false;
-      C0955 var11 = new C0955(var20, var2, 0, null, null, null, 9, null, false, null, true, this);
+      LeagueStage var11 = new LeagueStage(var20, var2, 0, null, null, null, 9, null, false, null, true, this);
       this.agb = var11;
       var11.setNome(this.getNome());
       var11.fb(9400);
-      C0745.afQ.L(var2);
-      C0745.afQ.L(this.agc);
+      GamePersistence.afQ.L(var2);
+      GamePersistence.afQ.L(this.agc);
    }
 
    public void Bp() {
@@ -109,8 +116,8 @@ public class C0947 extends C0713 implements Serializable {
       }
 
       boolean[] var4 = new boolean[]{true, true, true, false, false, false, false};
-      this.agd = new C0962(null, var1.size(), this.b(), 1, var4, this, 9401);
-      C0929 var3 = new C0929();
+      this.agd = new KnockoutStage(null, var1.size(), this.b(), 1, var4, this, 9401);
+      KnockoutRound var3 = new KnockoutRound();
       var3.a(this.agd, var1, 0, var4[0], 0, 0, this.b(), false);
    }
 
@@ -119,7 +126,7 @@ public class C0947 extends C0713 implements Serializable {
       LeagueLoadOptions var2 = new LeagueLoadOptions();
       var2.nTimes = 8;
       var2.doisTurnos = true;
-      C0955 var3 = new C0955(var2, this.agc, 0, null, null, null, this.b(), null, false, null, true, this);
+      LeagueStage var3 = new LeagueStage(var2, this.agc, 0, null, null, null, this.b(), null, false, null, true, this);
       var3.fb(9402);
       this.afX = var3;
       var3.setNome(this.getNome());
@@ -127,25 +134,25 @@ public class C0947 extends C0713 implements Serializable {
 
    public void Bm() {
       for (int var1 = 0; var1 < 6; var1++) {
-         C0745.SR.aY().a(this, C0745.SR.s(((Club)this.afX.yK().get(var1)).getPais()));
+         GamePersistence.SR.aY().a(this, GamePersistence.SR.s(((Club)this.afX.yK().get(var1)).getPais()));
       }
 
       this.afW = (Club)this.afX.yK().get(6);
-      C0745.SR.bQ().X((Club)this.afX.yK().get(7));
+      GamePersistence.SR.bQ().X((Club)this.afX.yK().get(7));
    }
 
    public void Y(Club club) {
-      C0745.SR.aY().a(this, C0745.SR.s(club.getPais()));
+      GamePersistence.SR.aY().a(this, GamePersistence.SR.s(club.getPais()));
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.agd};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.agd};
       if (this.agd == null) {
-         C0678[] var2 = new C0678[]{this.agb};
+         CompetitionStage[] var2 = new CompetitionStage[]{this.agb};
          var1 = var2;
       } else if (this.afX != null) {
-         C0678[] var3 = new C0678[]{this.afX};
+         CompetitionStage[] var3 = new CompetitionStage[]{this.afX};
          var1 = var3;
       }
 
@@ -155,13 +162,13 @@ public class C0947 extends C0713 implements Serializable {
    @Override
    public ArrayList mC() {
       ArrayList var1 = new ArrayList();
-      C0678[] var2 = new C0678[]{this.agb};
+      CompetitionStage[] var2 = new CompetitionStage[]{this.agb};
       var1.add(new C0830(var2, "Fase Preliminar"));
-      C0678[] var3 = new C0678[]{this.agd};
+      CompetitionStage[] var3 = new CompetitionStage[]{this.agd};
       var1.add(new C0830(var3, "Fase Intermediária"));
-      C0678[] var4 = new C0678[]{this.afX};
+      CompetitionStage[] var4 = new CompetitionStage[]{this.afX};
       var1.add(new C0830(var4, "Fase Final"));
-      C0678[] var5 = new C0678[]{C0745.SR.bQ().Bo()};
+      CompetitionStage[] var5 = new CompetitionStage[]{GamePersistence.SR.bQ().Bo()};
       var1.add(new C0830(var5, "Torneio Repescagem"));
       return var1;
    }

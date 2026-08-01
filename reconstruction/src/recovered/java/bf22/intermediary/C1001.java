@@ -1,12 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.LeagueStage;
 import java.util.Comparator;
 import mod.recovered.model.Club;
 
 class C1001 implements Comparator<Club> {
    public int compare(Club club, Club club2) {
-      int[] var3 = club.d(C0955.Zl);
-      int[] var4 = club2.d(C0955.Zl);
+      int[] var3 = club.d(LeagueStage.Zl);
+      int[] var4 = club2.d(LeagueStage.Zl);
       int var5 = var3[0];
       int var6 = var4[0];
       int var7 = var3[2];

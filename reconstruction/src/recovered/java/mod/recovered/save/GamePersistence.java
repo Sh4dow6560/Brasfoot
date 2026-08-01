@@ -1,5 +1,9 @@
-package bf22.intermediary;
+package mod.recovered.save;
 
+import bf22.intermediary.*;
+import mod.recovered.game.CareerState;
+import mod.recovered.manager.CoachJobMarket;
+import mod.recovered.ui.MainWindow;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
@@ -18,23 +22,23 @@ import javax.swing.JOptionPane;
 import mod.recovered.config.GameOptions;
 import mod.recovered.save.SavedGameInfo;
 
-public class C0745 {
+public class GamePersistence {
    static PrintWriter SQ;
-   public static C0723 SR = null;
-   public static C0718 afQ = null;
+   public static CareerState SR = null;
+   public static CoachJobMarket afQ = null;
    private static GameOptions SS = null;
    private static int ST = 0;
    public static int SU = 64;
    private static final File[] SV = new File[7];
 
-   public C0745() {
+   public GamePersistence() {
       vI();
       if (SS == null) {
          SS = new GameOptions();
       }
 
-      SR = new C0723();
-      afQ = new C0718();
+      SR = new CareerState();
+      afQ = new CoachJobMarket();
    }
 
    public static void vH() {
@@ -144,8 +148,8 @@ public class C0745 {
          try {
             Input var4 = new Input(new FileInputStream(System.getProperty("user.dir") + "/sav/" + string + var2));
             var3.setRegistrationRequired(false);
-            SR = (C0723)var3.readClassAndObject(var4);
-            afQ = (C0718)var3.readClassAndObject(var4);
+            SR = (CareerState)var3.readClassAndObject(var4);
+            afQ = (CoachJobMarket)var3.readClassAndObject(var4);
             var4.close();
          } catch (Exception var6) {
             var6.printStackTrace();
@@ -167,7 +171,7 @@ public class C0745 {
          SR.G();
          new C0679(false);
          SR.i(true);
-         new C0685(false);
+         new MainWindow(false);
          SR.cb();
          SR.ap();
          if (C0732.dc() != null) {
@@ -273,7 +277,7 @@ public class C0745 {
       ST = i;
    }
 
-   public static void a(C0723 c0723) {
+   public static void a(CareerState c0723) {
       SR = c0723;
    }
 }

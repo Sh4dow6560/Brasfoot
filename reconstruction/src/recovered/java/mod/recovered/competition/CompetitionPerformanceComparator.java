@@ -1,8 +1,9 @@
-package bf22.intermediary;
+package mod.recovered.competition;
 
+import bf22.intermediary.*;
 import java.util.Comparator;
 
-class C0716 implements Comparator<C0722> {
+class CompetitionPerformanceComparator implements Comparator<C0722> {
    public int compare(C0722 c0722, C0722 c07222) {
       double var3 = c0722.F();
       double var5 = c07222.F();

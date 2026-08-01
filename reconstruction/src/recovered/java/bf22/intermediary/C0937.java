@@ -1,10 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
-public class C0937 extends C0713 implements Serializable {
+public class C0937 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
    private static int ci = 0;
 
@@ -15,10 +18,10 @@ public class C0937 extends C0713 implements Serializable {
 
    public static boolean d(Club club, int i) {
       new ArrayList();
-      ArrayList var2 = ((C0693)C0745.SR.R().get(i)).h();
+      ArrayList var2 = ((C0693)GamePersistence.SR.R().get(i)).h();
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0675)var2.get(var3)).hc() == club || ((C0675)var2.get(var3)).hd() == club) {
+         if (((Match)var2.get(var3)).hc() == club || ((Match)var2.get(var3)).hd() == club) {
             return true;
          }
       }
@@ -31,7 +34,7 @@ public class C0937 extends C0713 implements Serializable {
       ArrayList var2 = C0693.b(100);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)C0745.SR.R().get((Integer)var2.get(var3))).a().after(C0745.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((C0693)GamePersistence.SR.R().get((Integer)var2.get(var3))).a().after(GamePersistence.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }
@@ -44,7 +47,7 @@ public class C0937 extends C0713 implements Serializable {
       ArrayList var2 = C0693.b(200);
 
       for (int var3 = 0; var3 < var2.size(); var3++) {
-         if (((C0693)C0745.SR.R().get((Integer)var2.get(var3))).a().after(C0745.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
+         if (((C0693)GamePersistence.SR.R().get((Integer)var2.get(var3))).a().after(GamePersistence.SR.bb()) && !d(club, (Integer)var2.get(var3))) {
             var1.add((Integer)var2.get(var3));
          }
       }
@@ -116,7 +119,7 @@ public class C0937 extends C0713 implements Serializable {
          var5 = club;
       }
 
-      new C0675(null, 0, var4, var5, j, C0745.SR.bv(), var4.ev());
+      new Match(null, 0, var4, var5, j, GamePersistence.SR.bv(), var4.ev());
    }
 
    public static int xY() {

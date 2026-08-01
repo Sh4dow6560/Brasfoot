@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,7 +23,7 @@ public class C0657 extends AbstractTableModel {
    private void eu(int i) {
       Collections.sort(this.vp, KZ);
       this.Nt = new String[]{"", "Nome", "Time", "L", "F", "Car.", "Idade"};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          if (i == 1) {
             this.Nt = new String[]{"", "Nome", "Time", "L", "Gol", "Des", "Arm", "Fin", "Vel", "Tec", "Pas", "Car.", "I"};
          } else {

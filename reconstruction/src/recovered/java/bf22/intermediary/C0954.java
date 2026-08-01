@@ -1,17 +1,25 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.config.LeagueLoadOptions;
 import mod.recovered.model.Club;
 
-public class C0954 extends C0713 implements Serializable {
+public class C0954 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0962 YP = null;
-   private C0962 YQ = null;
-   private C0962 YR = null;
-   private C0955 YD = null;
+   private KnockoutStage YP = null;
+   private KnockoutStage YQ = null;
+   private KnockoutStage YR = null;
+   private LeagueStage YD = null;
    private ArrayList YF = new ArrayList();
    private ArrayList YS = new ArrayList();
    private Club YT = null;
@@ -68,7 +76,7 @@ public class C0954 extends C0713 implements Serializable {
    }
 
    public void yq() {
-      if (C0745.SR.H() == 1 && C0745.SR.isGruposIntPadrao() && this.yv() && this.yu()) {
+      if (GamePersistence.SR.H() == 1 && GamePersistence.SR.isGruposIntPadrao() && this.yv() && this.yu()) {
          this.YX = true;
          this.yr();
       } else {
@@ -81,10 +89,10 @@ public class C0954 extends C0713 implements Serializable {
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < C0710.sP.length; var3++) {
-         for (int var4 = 0; var4 < C0745.SR.P().size(); var4++) {
-            if (((Club)C0745.SR.P().get(var4)).jY().equals(C0710.sP[var3])) {
-               var1.add((Club)C0745.SR.P().get(var4));
+      for (int var3 = 0; var3 < GameConstants.sP.length; var3++) {
+         for (int var4 = 0; var4 < GamePersistence.SR.P().size(); var4++) {
+            if (((Club)GamePersistence.SR.P().get(var4)).jY().equals(GameConstants.sP[var3])) {
+               var1.add((Club)GamePersistence.SR.P().get(var4));
                break;
             }
          }
@@ -92,10 +100,10 @@ public class C0954 extends C0713 implements Serializable {
 
       this.YS.addAll(var1);
 
-      for (int var6 = 0; var6 < C0710.sQ.length; var6++) {
-         for (int var8 = 0; var8 < C0745.SR.P().size(); var8++) {
-            if (((Club)C0745.SR.P().get(var8)).jY().equals(C0710.sQ[var6])) {
-               var2.add((Club)C0745.SR.P().get(var8));
+      for (int var6 = 0; var6 < GameConstants.sQ.length; var6++) {
+         for (int var8 = 0; var8 < GamePersistence.SR.P().size(); var8++) {
+            if (((Club)GamePersistence.SR.P().get(var8)).jY().equals(GameConstants.sQ[var6])) {
+               var2.add((Club)GamePersistence.SR.P().get(var8));
                break;
             }
          }
@@ -109,8 +117,8 @@ public class C0954 extends C0713 implements Serializable {
       }
 
       boolean[] var10 = new boolean[]{true, true, true, false, false, false, false};
-      this.YP = new C0962(null, var7.size(), this.b(), 1, var10, this, 4101);
-      C0929 var5 = new C0929();
+      this.YP = new KnockoutStage(null, var7.size(), this.b(), 1, var10, this, 4101);
+      KnockoutRound var5 = new KnockoutRound();
       var5.a(this.YP, var7, 0, true, 0, 0, this.b(), false);
    }
 
@@ -189,8 +197,8 @@ public class C0954 extends C0713 implements Serializable {
       var2.add((Club)this.YS.get(18));
       var2.add((Club)arrayList.get(2));
       boolean[] var3 = new boolean[]{true, false, false, false, false, false, false};
-      this.YQ = new C0962(null, var2.size(), this.b(), 1, var3, this, 4102);
-      C0929 var4 = new C0929();
+      this.YQ = new KnockoutStage(null, var2.size(), this.b(), 1, var3, this, 4102);
+      KnockoutRound var4 = new KnockoutRound();
       var4.a(this.YQ, var2, 0, true, 0, 0, this.b(), false);
    }
 
@@ -205,8 +213,8 @@ public class C0954 extends C0713 implements Serializable {
       var2.add((Club)arrayList.get(3));
       var2.add((Club)arrayList.get(4));
       boolean[] var3 = new boolean[]{true, false, false, false, false, false, false};
-      this.YR = new C0962(null, var2.size(), this.b(), 1, var3, this, 4103);
-      C0929 var4 = new C0929();
+      this.YR = new KnockoutStage(null, var2.size(), this.b(), 1, var3, this, 4103);
+      KnockoutRound var4 = new KnockoutRound();
       var4.a(this.YR, var2, 0, true, 0, 0, this.b(), false);
    }
 
@@ -215,7 +223,7 @@ public class C0954 extends C0713 implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4101);
       }
 
-      if (C0745.SR.H() == 1 && this.YX) {
+      if (GamePersistence.SR.H() == 1 && this.YX) {
          this.ae(arrayList);
       } else {
          ArrayList var10 = new ArrayList();
@@ -257,8 +265,8 @@ public class C0954 extends C0713 implements Serializable {
          }
 
          boolean[] var16 = new boolean[]{true, false, false, false, false, false, false};
-         this.YQ = new C0962(null, var4.size(), this.b(), 1, var16, this, 4102);
-         C0929 var9 = new C0929();
+         this.YQ = new KnockoutStage(null, var4.size(), this.b(), 1, var16, this, 4102);
+         KnockoutRound var9 = new KnockoutRound();
          var9.a(this.YQ, var4, 0, true, 0, 0, this.b(), false);
       }
    }
@@ -268,14 +276,14 @@ public class C0954 extends C0713 implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4102);
       }
 
-      if (C0745.SR.H() == 1 && this.YX) {
+      if (GamePersistence.SR.H() == 1 && this.YX) {
          this.af(arrayList);
       } else {
          ArrayList var6 = new ArrayList();
          var6.addAll(arrayList);
          boolean[] var4 = new boolean[]{true, false, false, false, false, false, false};
-         this.YR = new C0962(null, var6.size(), this.b(), 1, var4, this, 4103);
-         C0929 var5 = new C0929();
+         this.YR = new KnockoutStage(null, var6.size(), this.b(), 1, var4, this, 4103);
+         KnockoutRound var5 = new KnockoutRound();
          var5.a(this.YR, var6, 0, true, 0, 0, this.b(), false);
       }
    }
@@ -308,7 +316,7 @@ public class C0954 extends C0713 implements Serializable {
       var4.doisTurnos = true;
       var4.pulaDuasDatas = false;
       var4.duasVoltasMataMata = var3;
-      C0955 var5 = new C0955(var4, var2, 0, null, null, null, 4, null, false, null, true, this);
+      LeagueStage var5 = new LeagueStage(var4, var2, 0, null, null, null, 4, null, false, null, true, this);
       var5.fb(4104);
       this.YD = var5;
       var5.setNome(this.getNome());
@@ -319,9 +327,9 @@ public class C0954 extends C0713 implements Serializable {
          ((Club)arrayList2.get(var3)).a(this, -1, 4103);
       }
 
-      C0745.SR.aH().Aa().addAll(arrayList2);
-      C0745.SR.aH().c(arrayList2, 0);
-      if (C0745.SR.H() == 1 && this.YX) {
+      GamePersistence.SR.aH().Aa().addAll(arrayList2);
+      GamePersistence.SR.aH().c(arrayList2, 0);
+      if (GamePersistence.SR.H() == 1 && this.YX) {
          this.ag(arrayList);
       } else {
          ArrayList var13 = new ArrayList();
@@ -383,7 +391,7 @@ public class C0954 extends C0713 implements Serializable {
             var11.doisTurnos = true;
             var11.pulaDuasDatas = false;
             var11.duasVoltasMataMata = var21;
-            C0955 var12 = new C0955(var11, var13, 0, null, null, null, 4, null, false, null, true, this);
+            LeagueStage var12 = new LeagueStage(var11, var13, 0, null, null, null, 4, null, false, null, true, this);
             var12.fb(4104);
             this.YD = var12;
             var12.setNome(this.getNome());
@@ -403,7 +411,7 @@ public class C0954 extends C0713 implements Serializable {
          var4.add((Club)((C0673)this.YD.yQ().get(var5)).gR().get(2));
       }
 
-      C0745.SR.aH().c(var4, 1);
+      GamePersistence.SR.aH().c(var4, 1);
       Collections.shuffle(var1);
       Collections.shuffle(var2);
       C0797[] var8 = new C0797[8];
@@ -421,16 +429,16 @@ public class C0954 extends C0713 implements Serializable {
       }
 
       boolean[] var11 = new boolean[]{true, true, true, false, false, false, false};
-      this.YD.c(new C0962(this.YD, var3.size(), this.b(), 0, var11, this, -1));
-      C0929 var7 = new C0929();
+      this.YD.c(new KnockoutStage(this.YD, var3.size(), this.b(), 0, var11, this, -1));
+      KnockoutRound var7 = new KnockoutRound();
       var7.a(this.YD.yY(), var3, 0, var11[0], 0, 0, this.b(), false);
    }
 
    public boolean ah(ArrayList arrayList) {
       Collections.shuffle(arrayList);
       boolean[] var2 = new boolean[]{true, true, true, false, false, false, false};
-      this.YP = new C0962(null, arrayList.size(), this.b(), 1, var2, this, 4101);
-      C0929 var3 = new C0929();
+      this.YP = new KnockoutStage(null, arrayList.size(), this.b(), 1, var2, this, 4101);
+      KnockoutRound var3 = new KnockoutRound();
       var3.a(this.YP, arrayList, 0, true, 0, 0, this.b(), false);
       return true;
    }
@@ -438,9 +446,9 @@ public class C0954 extends C0713 implements Serializable {
    public boolean yu() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < C0710.sQ.length; var2++) {
-         for (int var3 = 0; var3 < C0745.SR.P().size(); var3++) {
-            if (((Club)C0745.SR.P().get(var3)).jY().equals(C0710.sQ[var2])) {
+      for (int var2 = 0; var2 < GameConstants.sQ.length; var2++) {
+         for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
+            if (((Club)GamePersistence.SR.P().get(var3)).jY().equals(GameConstants.sQ[var2])) {
                var1++;
                break;
             }
@@ -453,9 +461,9 @@ public class C0954 extends C0713 implements Serializable {
    public boolean yv() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < C0710.sP.length; var2++) {
-         for (int var3 = 0; var3 < C0745.SR.P().size(); var3++) {
-            if (((Club)C0745.SR.P().get(var3)).jY().equals(C0710.sP[var2])) {
+      for (int var2 = 0; var2 < GameConstants.sP.length; var2++) {
+         for (int var3 = 0; var3 < GamePersistence.SR.P().size(); var3++) {
+            if (((Club)GamePersistence.SR.P().get(var3)).jY().equals(GameConstants.sP[var2])) {
                var1++;
                break;
             }
@@ -469,11 +477,11 @@ public class C0954 extends C0713 implements Serializable {
       ArrayList var1 = new ArrayList();
       int var2 = 0;
 
-      for (int var3 = 0; var3 < C0710.sQ.length; var3++) {
-         for (int var4 = 0; var4 < C0745.SR.P().size(); var4++) {
-            if (C0710.sQ[var3].length() > 1 && ((Club)C0745.SR.P().get(var4)).jY().equals(C0710.sQ[var3]) && ((Club)C0745.SR.P().get(var4)).gg() == 1) {
+      for (int var3 = 0; var3 < GameConstants.sQ.length; var3++) {
+         for (int var4 = 0; var4 < GamePersistence.SR.P().size(); var4++) {
+            if (GameConstants.sQ[var3].length() > 1 && ((Club)GamePersistence.SR.P().get(var4)).jY().equals(GameConstants.sQ[var3]) && ((Club)GamePersistence.SR.P().get(var4)).gg() == 1) {
                var2++;
-               var1.add((Club)C0745.SR.P().get(var4));
+               var1.add((Club)GamePersistence.SR.P().get(var4));
                break;
             }
          }
@@ -485,9 +493,9 @@ public class C0954 extends C0713 implements Serializable {
    public Club yx() {
       if (this.YD.yY() != null) {
          for (int var1 = this.YD.yY().zp().size() - 1; var1 >= 0; var1--) {
-            for (int var2 = 0; var2 < ((C0929)this.YD.yY().zp().get(var1)).zY().size(); var2++) {
-               if (((Club)((C0929)this.YD.yY().zp().get(var1)).zY().get(var2)).getPais() != 131) {
-                  return (Club)((C0929)this.YD.yY().zp().get(var1)).zY().get(var2);
+            for (int var2 = 0; var2 < ((KnockoutRound)this.YD.yY().zp().get(var1)).zY().size(); var2++) {
+               if (((Club)((KnockoutRound)this.YD.yY().zp().get(var1)).zY().get(var2)).getPais() != 131) {
+                  return (Club)((KnockoutRound)this.YD.yY().zp().get(var1)).zY().get(var2);
                }
             }
          }
@@ -553,24 +561,24 @@ public class C0954 extends C0713 implements Serializable {
       this.YD.za();
    }
 
-   public C0955 yd() {
+   public LeagueStage yd() {
       return this.YD;
    }
 
-   public C0962 yC() {
+   public KnockoutStage yC() {
       return this.YP;
    }
 
    @Override
-   public C0692 mF() {
-      int var1 = C0745.SR.H() - 1;
+   public CountryCompetitions mF() {
+      int var1 = GamePersistence.SR.H() - 1;
       var1 %= 10;
       int[] var2 = new int[]{42, 11, 29, 46, 150, 195, 26, 198, 60, 151};
-      return var1 < var2.length ? C0745.SR.s(var2[var1]) : null;
+      return var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
    }
 
    public static String yD() {
-      int var0 = C0745.SR.H() - 1;
+      int var0 = GamePersistence.SR.H() - 1;
       var0 %= 10;
       String var1 = "";
       String[] var2 = new String[]{"Santiago", "Buenos Aires", "Rio de Janeiro", "Bogotá", "Assunción", "Montevidéu", "La Paz", "Caracas", "Quito", "Lima"};
@@ -578,13 +586,13 @@ public class C0954 extends C0713 implements Serializable {
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.YD};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.YD};
       if (this.YD == null) {
-         C0678[] var2 = new C0678[]{this.YP, this.YQ, this.YR};
+         CompetitionStage[] var2 = new CompetitionStage[]{this.YP, this.YQ, this.YR};
          var1 = var2;
       } else if (this.YD.yZ()) {
-         C0678[] var3 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var3 = new CompetitionStage[]{this.YD.yY()};
          var1 = var3;
       }
 
@@ -594,12 +602,12 @@ public class C0954 extends C0713 implements Serializable {
    @Override
    public ArrayList mC() {
       ArrayList var1 = new ArrayList();
-      C0678[] var2 = new C0678[]{this.YP, this.YQ, this.YR};
+      CompetitionStage[] var2 = new CompetitionStage[]{this.YP, this.YQ, this.YR};
       var1.add(new C0830(var2, "Fase Preliminar"));
-      C0678[] var3 = new C0678[]{this.YD};
+      CompetitionStage[] var3 = new CompetitionStage[]{this.YD};
       var1.add(new C0830(var3, "Fase de Grupos"));
       if (this.YD != null) {
-         C0678[] var4 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var4 = new CompetitionStage[]{this.YD.yY()};
          var1.add(new C0830(var4, "Fase Final"));
       } else {
          var1.add(new C0830(null, "Fase Final"));
@@ -609,13 +617,13 @@ public class C0954 extends C0713 implements Serializable {
    }
 
    @Override
-   public String[] b(C0678 c0678) {
+   public String[] b(CompetitionStage c0678) {
       if (c0678 == this.YP) {
-         return C0710.pR;
+         return GameConstants.pR;
       } else if (c0678 == this.YQ) {
-         return C0710.pS;
+         return GameConstants.pS;
       } else {
-         return c0678 == this.YR ? C0710.pT : C0710.pA;
+         return c0678 == this.YR ? GameConstants.pT : GameConstants.pA;
       }
    }
 

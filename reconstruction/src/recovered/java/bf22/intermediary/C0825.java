@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import mod.recovered.model.Club;
 import mod.recovered.model.Player;
@@ -17,14 +18,14 @@ public class C0825 implements Serializable {
    public C0825(Player player, Club club) {
       this.U = player;
       this.Pn = club;
-      C0745.SR.bt().add(this);
+      GamePersistence.SR.bt().add(this);
       long var3 = 366L;
       var3 *= 86400000L;
-      this.Pm = C0745.SR.bc() + var3;
+      this.Pm = GamePersistence.SR.bc() + var3;
    }
 
    public boolean tM() {
-      return this.Pm < C0745.SR.bc();
+      return this.Pm < GamePersistence.SR.bc();
    }
 
    public boolean tN() {

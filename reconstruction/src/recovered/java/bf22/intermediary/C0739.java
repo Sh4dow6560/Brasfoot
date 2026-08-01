@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -54,7 +55,7 @@ public class C0739 implements Serializable {
 
    public String dR() {
       if (this.dl == null && this.bW >= 0) {
-         Club var1 = C0745.SR.x(this.bW);
+         Club var1 = GamePersistence.SR.x(this.bW);
          if (var1 != null) {
             this.dl = var1.getNome();
          }

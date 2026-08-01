@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionSeasonResult;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -59,7 +63,7 @@ public class C0219 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void py() {
@@ -73,7 +77,7 @@ public class C0219 extends JPanel {
       for (int var1 = 0; var1 < this.Ex.size(); var1++) {
          if (var1 < this.Ey.length) {
             this.Ey[var1].setVisible(true);
-            this.Ey[var1].setIcon(C0710.a(C0710.x((String)this.Ex.get(var1)), 43, 60));
+            this.Ey[var1].setIcon(GameConstants.a(GameConstants.x((String)this.Ex.get(var1)), 43, 60));
          }
 
          this.Et++;
@@ -81,16 +85,16 @@ public class C0219 extends JPanel {
    }
 
    private void pA() {
-      this.d(C0745.SR.aY(), 7);
-      this.d(C0745.SR.sq(), 0);
-      this.d(C0745.SR.ym(), 4);
-      this.d(C0745.SR.ba(), 0);
-      this.d(C0745.SR.aZ(), 1);
-      this.d(C0745.SR.be(), 2);
-      this.d(C0745.SR.bf(), 3);
-      this.d(C0745.SR.bg(), 4);
-      this.d(C0745.SR.bX(), 5);
-      this.d(C0745.SR.yl(), 7);
+      this.d(GamePersistence.SR.aY(), 7);
+      this.d(GamePersistence.SR.sq(), 0);
+      this.d(GamePersistence.SR.ym(), 4);
+      this.d(GamePersistence.SR.ba(), 0);
+      this.d(GamePersistence.SR.aZ(), 1);
+      this.d(GamePersistence.SR.be(), 2);
+      this.d(GamePersistence.SR.bf(), 3);
+      this.d(GamePersistence.SR.bg(), 4);
+      this.d(GamePersistence.SR.bX(), 5);
+      this.d(GamePersistence.SR.yl(), 7);
       this.a(5, -1, this.Eu);
       this.a(4, -1, this.Eu);
       this.a(6, -1, this.Eu);
@@ -116,32 +120,32 @@ public class C0219 extends JPanel {
       this.b(3, 3, this.Ew);
       this.b(3, 4, this.Ew);
       String var1 = "Estaduais e regionais";
-      if (!C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.isJogaRegionais()) {
          var1 = "Estaduais";
       }
 
       this.Ez.a(var1, this.Ew);
    }
 
-   private void d(C0713 c0713, int i) {
+   private void d(Competition c0713, int i) {
       if (c0713 != null) {
          for (int var3 = 0; var3 < c0713.mn().size(); var3++) {
-            if (((C0727)c0713.mn().get(var3)).ci() == this.Es) {
-               this.a(((C0727)c0713.mn().get(var3)).H(), 7, i, c0713, ((C0727)c0713.mn().get(var3)).ce(), this.Eu);
+            if (((CompetitionSeasonResult)c0713.mn().get(var3)).ci() == this.Es) {
+               this.a(((CompetitionSeasonResult)c0713.mn().get(var3)).H(), 7, i, c0713, ((CompetitionSeasonResult)c0713.mn().get(var3)).ce(), this.Eu);
             }
          }
       }
    }
 
    public void a(int i, int j, ArrayList arrayList) {
-      C0713 var4 = null;
+      Competition var4 = null;
       Club var5 = null;
       int var6 = 0;
 
       for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.cT().get(var7)).b() == i) {
             var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = C0745.SR.x(((C0708)this.Es.cT().get(var7)).ct());
+            var5 = GamePersistence.SR.x(((C0708)this.Es.cT().get(var7)).ct());
             var6 = ((C0708)this.Es.cT().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
@@ -149,21 +153,21 @@ public class C0219 extends JPanel {
    }
 
    public void b(int i, int j, ArrayList arrayList) {
-      C0713 var4 = null;
+      Competition var4 = null;
       Club var5 = null;
       int var6 = 0;
 
       for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.cT().get(var7)).b() == i && ((C0708)this.Es.cT().get(var7)).el() == j) {
             var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = C0745.SR.x(((C0708)this.Es.cT().get(var7)).ct());
+            var5 = GamePersistence.SR.x(((C0708)this.Es.cT().get(var7)).ct());
             var6 = ((C0708)this.Es.cT().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
       }
    }
 
-   private void a(int i, int j, int k, C0713 c0713, Club club, ArrayList arrayList) {
+   private void a(int i, int j, int k, Competition c0713, Club club, ArrayList arrayList) {
       String[] var7 = c0713.mA();
       String var8 = var7[0];
       String var9 = var7[1];
@@ -171,7 +175,7 @@ public class C0219 extends JPanel {
       var10.k(i);
       var10.ab(var9);
       var10.k(club);
-      var10.j(C0710.a(C0710.x(var8), 18, 18));
+      var10.j(GameConstants.a(GameConstants.x(var8), 18, 18));
       arrayList.add(var10);
       if (!var8.equals("tr_nacionalgenerico") && !var8.equals("tr_supercopa_generico") && !var8.equals("tr_estadualgenerico") && !this.Ex.contains(var8)) {
          this.Ex.add(var8);

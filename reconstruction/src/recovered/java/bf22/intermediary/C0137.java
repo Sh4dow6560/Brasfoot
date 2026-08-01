@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -135,7 +138,7 @@ public class C0137 extends JPanel {
       this.oP();
       this.oc();
       this.mY();
-      if (C0745.SR.bD()) {
+      if (GamePersistence.SR.bD()) {
          this.oR();
       }
 
@@ -164,8 +167,8 @@ public class C0137 extends JPanel {
    }
 
    private void ob() {
-      if (this.Db.tR().dX() < C0710.pb.length) {
-         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + C0710.pc[this.Db.tR().dX()] + ".png")));
+      if (this.Db.tR().dX() < GameConstants.pb.length) {
+         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + GameConstants.pc[this.Db.tR().dX()] + ".png")));
       }
    }
 
@@ -755,8 +758,8 @@ public class C0137 extends JPanel {
       }
 
       int[] var1 = new int[]{-1, -1};
-      if (this.Db.tR().ht() instanceof C0962 && ((C0962)this.Db.tR().ht()).zr() == 2) {
-         var1 = ((C0962)this.Db.tR().ht()).o(this.Db.tR());
+      if (this.Db.tR().ht() instanceof KnockoutStage && ((KnockoutStage)this.Db.tR().ht()).zr() == 2) {
+         var1 = ((KnockoutStage)this.Db.tR().ht()).o(this.Db.tR());
       }
 
       String[] var2 = new String[]{"", ""};
@@ -788,20 +791,20 @@ public class C0137 extends JPanel {
    }
 
    public void pe() {
-      for (int var1 = 0; var1 < C0710.rC.length; var1++) {
-         this.Do.addItem(C0710.rC[var1]);
+      for (int var1 = 0; var1 < GameConstants.rC.length; var1++) {
+         this.Do.addItem(GameConstants.rC[var1]);
       }
 
       this.Do.setSelectedIndex(this.zu.kj()[1]);
 
-      for (int var2 = 0; var2 < C0710.rE.length; var2++) {
-         this.Dp.addItem(C0710.rE[var2]);
+      for (int var2 = 0; var2 < GameConstants.rE.length; var2++) {
+         this.Dp.addItem(GameConstants.rE[var2]);
       }
 
       this.Dp.setSelectedIndex(this.zu.kj()[2]);
 
-      for (int var3 = 0; var3 < C0710.rD.length; var3++) {
-         this.Dn.addItem(C0710.rD[var3]);
+      for (int var3 = 0; var3 < GameConstants.rD.length; var3++) {
+         this.Dn.addItem(GameConstants.rD[var3]);
       }
 
       this.Dn.setSelectedIndex(this.zu.kj()[3]);
@@ -832,9 +835,9 @@ public class C0137 extends JPanel {
          this.Do.setVisible(false);
          this.Dp.setVisible(false);
          this.Dn.setVisible(false);
-         this.Dt.setText(C0710.rC[this.zu.kj()[1]]);
-         this.Du.setText(C0710.rE[this.zu.kj()[2]]);
-         this.Dr.setText(C0710.rD[this.zu.kj()[3]]);
+         this.Dt.setText(GameConstants.rC[this.zu.kj()[1]]);
+         this.Du.setText(GameConstants.rE[this.zu.kj()[2]]);
+         this.Dr.setText(GameConstants.rD[this.zu.kj()[3]]);
       }
    }
 
@@ -847,7 +850,7 @@ public class C0137 extends JPanel {
          int var4 = C0699.bE(var3);
          String var5 = Integer.toString(var4);
          String var6 = Character.toString(var5.charAt(var5.length() - 3));
-         if (C0710.tG[var3]) {
+         if (GameConstants.tG[var3]) {
             var1 = var1 + Character.toString(var5.charAt(var5.length() - 3));
          }
 

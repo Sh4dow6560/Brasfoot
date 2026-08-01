@@ -1,13 +1,16 @@
-package bf22.intermediary;
+package mod.recovered.competition;
 
+import bf22.intermediary.*;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
-public class C0962 extends C0678 implements Serializable {
+public class KnockoutStage extends CompetitionStage implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 nS = null;
-   private C0713 YY = null;
+   private LeagueStage nS = null;
+   private Competition YY = null;
    private int tR;
    private ArrayList ZF = new ArrayList();
    private int ZG = 0;
@@ -19,10 +22,10 @@ public class C0962 extends C0678 implements Serializable {
    private int Zg = -1;
    boolean ZL = true;
 
-   public C0962() {
+   public KnockoutStage() {
    }
 
-   public C0962(C0955 c0955, int i, int j, int k, boolean[] bls, C0713 c0713, int l) {
+   public KnockoutStage(LeagueStage c0955, int i, int j, int k, boolean[] bls, Competition c0713, int l) {
       this.YY = c0713;
       this.nS = c0955;
       this.tR = j;
@@ -99,7 +102,7 @@ public class C0962 extends C0678 implements Serializable {
    public void pO() {
       this.ZI = this.Zf;
       this.ZJ = this.ZH;
-      boolean var1 = ((C0929)this.zp().get(this.Zf)).hO();
+      boolean var1 = ((KnockoutRound)this.zp().get(this.Zf)).hO();
       if (this.ZH == 1 && !var1) {
          this.zs();
       } else if (this.ZH == 2) {
@@ -117,9 +120,9 @@ public class C0962 extends C0678 implements Serializable {
       } else if (this.Zf == this.ZG) {
          this.zx();
       } else {
-         ((C0929)this.zp().get(this.Zf)).b(false, false);
-         C0929 var1 = new C0929();
-         var1.a(this, ((C0929)this.zp().get(this.Zf)).zY(), this.Zf + 1, this.ZK[this.Zf + 1], 0, 0, this.tR, ((C0929)this.zp().get(this.Zf)).zZ());
+         ((KnockoutRound)this.zp().get(this.Zf)).b(false, false);
+         KnockoutRound var1 = new KnockoutRound();
+         var1.a(this, ((KnockoutRound)this.zp().get(this.Zf)).zY(), this.Zf + 1, this.ZK[this.Zf + 1], 0, 0, this.tR, ((KnockoutRound)this.zp().get(this.Zf)).zZ());
          this.Zf++;
          this.ZH = 1;
       }
@@ -130,23 +133,23 @@ public class C0962 extends C0678 implements Serializable {
       this.ZH = 1;
    }
 
-   public int[] o(C0675 c0675) {
+   public int[] o(Match c0675) {
       int[] var10000 = new int[]{-1, -1};
-      return ((C0929)this.zp().get(this.Zf)).o(c0675);
+      return ((KnockoutRound)this.zp().get(this.Zf)).o(c0675);
    }
 
    public ArrayList zt() {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = this.ZF.size() - 1; var2 >= 0; var2--) {
-         if (((C0929)this.ZF.get(var2)).zW().size() == 2) {
+         if (((KnockoutRound)this.ZF.get(var2)).zW().size() == 2) {
             for (int var3 = 0; var3 <= 1; var3++) {
-               if (!((C0929)this.ZF.get(var2)).zY().contains(((C0675)((C0929)this.ZF.get(var2)).zW().get(var3)).hc())) {
-                  var1.add(((C0675)((C0929)this.ZF.get(var2)).zW().get(var3)).hc());
+               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hc())) {
+                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hc());
                }
 
-               if (!((C0929)this.ZF.get(var2)).zY().contains(((C0675)((C0929)this.ZF.get(var2)).zW().get(var3)).hd())) {
-                  var1.add(((C0675)((C0929)this.ZF.get(var2)).zW().get(var3)).hd());
+               if (!((KnockoutRound)this.ZF.get(var2)).zY().contains(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hd())) {
+                  var1.add(((Match)((KnockoutRound)this.ZF.get(var2)).zW().get(var3)).hd());
                }
             }
          }
@@ -156,30 +159,30 @@ public class C0962 extends C0678 implements Serializable {
    }
 
    public boolean zu() {
-      return ((C0929)this.zp().get(this.Zf)).hO();
+      return ((KnockoutRound)this.zp().get(this.Zf)).hO();
    }
 
    public int BI() {
-      return ((C0929)this.zp().get(this.Zf)).ze();
+      return ((KnockoutRound)this.zp().get(this.Zf)).ze();
    }
 
    public boolean fh(int i) {
-      return i >= 0 && i < this.zp().size() ? ((C0929)this.zp().get(i)).hO() : false;
+      return i >= 0 && i < this.zp().size() ? ((KnockoutRound)this.zp().get(i)).hO() : false;
    }
 
    public boolean zv() {
-      return ((C0929)this.zp().get(this.Zf)).zZ();
+      return ((KnockoutRound)this.zp().get(this.Zf)).zZ();
    }
 
    public void zx() {
-      ((C0929)this.zp().get(this.Zf)).b(this.ZL, true);
+      ((KnockoutRound)this.zp().get(this.Zf)).b(this.ZL, true);
    }
 
-   public C0678 zy() {
+   public CompetitionStage zy() {
       return this.nS;
    }
 
-   public void f(C0955 c0955) {
+   public void f(LeagueStage c0955) {
       this.nS = c0955;
    }
 
@@ -191,12 +194,12 @@ public class C0962 extends C0678 implements Serializable {
       this.Zg = i;
    }
 
-   public C0713 yT() {
+   public Competition yT() {
       return this.YY;
    }
 
    @Override
-   public C0692 iq() {
+   public CountryCompetitions iq() {
       return this.nS != null ? this.nS.iq() : null;
    }
 
@@ -259,13 +262,13 @@ public class C0962 extends C0678 implements Serializable {
    }
 
    public boolean zA() {
-      return this.nS != null && this.tR == 3 && this.nS instanceof C0955 && this.nS.zd() == 1;
+      return this.nS != null && this.tR == 3 && this.nS instanceof LeagueStage && this.nS.zd() == 1;
    }
 
    public boolean U(Club club) {
       for (int var2 = this.zp().size() - 1; var2 >= 0; var2--) {
-         for (int var3 = 0; var3 < ((C0929)this.zp().get(var2)).zW().size(); var3++) {
-            if (((C0675)((C0929)this.zp().get(var2)).zW().get(var3)).hc() == club || ((C0675)((C0929)this.zp().get(var2)).zW().get(var3)).hd() == club) {
+         for (int var3 = 0; var3 < ((KnockoutRound)this.zp().get(var2)).zW().size(); var3++) {
+            if (((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).hc() == club || ((Match)((KnockoutRound)this.zp().get(var2)).zW().get(var3)).hd() == club) {
                return true;
             }
          }
@@ -274,21 +277,21 @@ public class C0962 extends C0678 implements Serializable {
       return false;
    }
 
-   public void z(C0713 c0713) {
+   public void z(Competition c0713) {
       ArrayList var2 = new ArrayList();
       int var3 = 0;
       int var4 = 1;
 
       for (int var5 = this.zp().size() - 1; var5 >= 0; var5--) {
-         for (int var6 = 0; var6 < ((C0929)this.zp().get(var5)).zW().size(); var6++) {
+         for (int var6 = 0; var6 < ((KnockoutRound)this.zp().get(var5)).zW().size(); var6++) {
             Club var7 = null;
             Club var8 = null;
-            if (((C0929)this.zp().get(var5)).zY().contains(((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hc())) {
-               var7 = ((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hc();
-               var8 = ((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hd();
-            } else if (((C0929)this.zp().get(var5)).zY().contains(((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hd())) {
-               var7 = ((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hd();
-               var8 = ((C0675)((C0929)this.zp().get(var5)).zW().get(var6)).hc();
+            if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc())) {
+               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc();
+               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd();
+            } else if (((KnockoutRound)this.zp().get(var5)).zY().contains(((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd())) {
+               var7 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hd();
+               var8 = ((Match)((KnockoutRound)this.zp().get(var5)).zW().get(var6)).hc();
             }
 
             if (!var2.contains(var7)) {
@@ -310,23 +313,23 @@ public class C0962 extends C0678 implements Serializable {
 
    public String[] zB() {
       if (this.zf() == 1068) {
-         return C0710.pX;
+         return GameConstants.pX;
       } else if (this.zf() == 6006) {
-         return C0710.abY;
+         return GameConstants.abY;
       } else if (this.ZG == 6) {
-         return C0710.px;
+         return GameConstants.px;
       } else if (this.ZG == 5) {
-         return C0710.py;
+         return GameConstants.py;
       } else if (this.ZG == 4) {
-         return C0710.pz;
+         return GameConstants.pz;
       } else if (this.ZG == 3) {
-         return C0710.pA;
+         return GameConstants.pA;
       } else if (this.ZG == 2) {
-         return C0710.pB;
+         return GameConstants.pB;
       } else if (this.ZG == 1) {
-         return C0710.pC;
+         return GameConstants.pC;
       } else {
-         return this.ZG == 0 ? C0710.pD : C0710.ps;
+         return this.ZG == 0 ? GameConstants.pD : GameConstants.ps;
       }
    }
 }

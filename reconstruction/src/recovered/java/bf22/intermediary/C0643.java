@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -15,7 +16,7 @@ public class C0643 extends JLabel implements ListCellRenderer {
       }
 
       int var6 = (Integer)object;
-      this.setText(C0710.rX[var6]);
+      this.setText(GameConstants.rX[var6]);
       ImageIcon var7 = new ImageIcon(this.getClass().getResource("/aesticons/" + Integer.toString(var6) + ".png"));
       this.setIcon(var7);
       return this;

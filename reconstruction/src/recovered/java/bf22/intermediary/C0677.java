@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.util.Random;
 import javax.swing.JProgressBar;
 import mod.recovered.model.Club;
@@ -56,7 +57,7 @@ public abstract class C0677 {
       }
 
       player.ad(var8);
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          byte var9 = 1;
          if (club.kn()) {
             switch (club.getDivisao()) {
@@ -97,7 +98,7 @@ public abstract class C0677 {
       }
 
       player.h(false);
-      player.ar(C0745.SR.H());
+      player.ar(GamePersistence.SR.H());
       player.d(0.0);
       player.a(180L, true);
       player.fK();
@@ -122,21 +123,21 @@ public abstract class C0677 {
       club.ky().remove(player);
       club.ky().remove(player);
       if (bl) {
-         C0745.SR.bA.remove(player);
+         GamePersistence.SR.bA.remove(player);
       }
 
       if (!club.kc().contains(player)) {
          club.kc().add(player);
       }
 
-      if (!C0745.SR.O().contains(player)) {
-         C0745.SR.O().add(player);
+      if (!GamePersistence.SR.O().contains(player)) {
+         GamePersistence.SR.O().add(player);
       }
 
       if (bl) {
-         C0745.SR.bB.add(player);
+         GamePersistence.SR.bB.add(player);
       } else {
-         C0745.SR.Q().remove(player);
+         GamePersistence.SR.Q().remove(player);
       }
 
       player.b((JProgressBar)null);
@@ -198,10 +199,10 @@ public abstract class C0677 {
       var3 = var3 - 5 + new Random().nextInt(8);
       player.ad(var3);
       player.h(false);
-      player.ar(C0745.SR.H());
+      player.ar(GamePersistence.SR.H());
       player.d(0.0);
       player.a(180L, true);
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          int var9 = 1;
          byte var4 = 1;
          if (i <= 15) {

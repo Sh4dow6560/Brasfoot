@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -29,7 +33,7 @@ public class C0012 extends JPanel {
    private ArrayList vL = new ArrayList();
    private Club uk = null;
    private ArrayList u = new ArrayList();
-   private static C0675 vM = null;
+   private static Match vM = null;
    private JButton vm;
    private JComboBox va;
    private JScrollPane ut;
@@ -53,7 +57,7 @@ public class C0012 extends JPanel {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.vL.size(); var2++) {
-         if (!((C0675)this.vL.get(var2)).e()) {
+         if (!((Match)this.vL.get(var2)).e()) {
             var1 = var2;
             break;
          }
@@ -74,7 +78,7 @@ public class C0012 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mY() {
@@ -98,18 +102,18 @@ public class C0012 extends JPanel {
       this.va.addActionListener(new C0014(this));
       this.u.clear();
 
-      for (int var2 = 0; var2 < C0745.SR.R().size(); var2++) {
-         for (int var3 = 0; var3 < ((C0693)C0745.SR.R().get(var2)).h().size(); var3++) {
-            if (((C0675)((C0693)C0745.SR.R().get(var2)).h().get(var3)).hc() == this.uk
-               || ((C0675)((C0693)C0745.SR.R().get(var2)).h().get(var3)).hd() == this.uk) {
-               this.vK.add((C0675)((C0693)C0745.SR.R().get(var2)).h().get(var3));
+      for (int var2 = 0; var2 < GamePersistence.SR.R().size(); var2++) {
+         for (int var3 = 0; var3 < ((C0693)GamePersistence.SR.R().get(var2)).h().size(); var3++) {
+            if (((Match)((C0693)GamePersistence.SR.R().get(var2)).h().get(var3)).hc() == this.uk
+               || ((Match)((C0693)GamePersistence.SR.R().get(var2)).h().get(var3)).hd() == this.uk) {
+               this.vK.add((Match)((C0693)GamePersistence.SR.R().get(var2)).h().get(var3));
             }
          }
       }
 
       for (int var4 = 0; var4 < this.vK.size(); var4++) {
-         if (!this.u.contains(((C0675)this.vK.get(var4)).hy())) {
-            this.u.add(((C0675)this.vK.get(var4)).hy());
+         if (!this.u.contains(((Match)this.vK.get(var4)).hy())) {
+            this.u.add(((Match)this.vK.get(var4)).hy());
          }
       }
 
@@ -129,11 +133,11 @@ public class C0012 extends JPanel {
          this.vL.addAll(this.vK);
       } else if (i > 0) {
          this.vL.clear();
-         C0713 var2 = (C0713)this.va.getSelectedItem();
+         Competition var2 = (Competition)this.va.getSelectedItem();
 
          for (int var3 = 0; var3 < this.vK.size(); var3++) {
-            if (((C0675)this.vK.get(var3)).hy() == var2) {
-               this.vL.add((C0675)this.vK.get(var3));
+            if (((Match)this.vK.get(var3)).hy() == var2) {
+               this.vL.add((Match)this.vK.get(var3));
             }
          }
       }
@@ -176,7 +180,7 @@ public class C0012 extends JPanel {
       this.vN.setAutoResizeMode(3);
       this.vN.setRowHeight(20);
       this.vN.setShowGrid(false);
-      this.vN.setDefaultRenderer(C0675.class, new C0618());
+      this.vN.setDefaultRenderer(Match.class, new C0618());
       this.vN.setAutoCreateRowSorter(false);
       this.vN.getTableHeader().setReorderingAllowed(false);
       this.vN.setIntercellSpacing(new Dimension(0, 0));
@@ -192,7 +196,7 @@ public class C0012 extends JPanel {
       this.vN.getSelectionModel().addListSelectionListener(new C0017(this));
    }
 
-   private void f(C0675 c0675) {
+   private void f(Match c0675) {
       vM = c0675;
    }
 

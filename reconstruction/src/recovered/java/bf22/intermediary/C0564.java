@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -46,14 +49,14 @@ public class C0564 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void cD(int i) {
       int var2 = 0;
 
-      for (int var3 = 0; var3 < C0745.SR.N().size(); var3++) {
-         if (((C0692)C0745.SR.N().get(var3)).jc() == i) {
+      for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var3)).jc() == i) {
             var2 = var3 + 1;
             break;
          }
@@ -65,26 +68,26 @@ public class C0564 extends JPanel {
    public void mT() {
       int var1 = this.ue.getSelectedIndex() - 1;
       if (var1 >= 0) {
-         this.vl = ((C0692)C0745.SR.N().get(var1)).jc();
+         this.vl = ((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc();
       } else {
          this.vl = -1;
       }
 
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < C0745.SR.O().size(); var3++) {
+      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
          boolean var4 = false;
          if (this.vl == -1) {
             var4 = true;
-         } else if (((Player)C0745.SR.O().get(var3)).fg() != null && ((Player)C0745.SR.O().get(var3)).fg().getPais() == this.vl) {
+         } else if (((Player)GamePersistence.SR.O().get(var3)).fg() != null && ((Player)GamePersistence.SR.O().get(var3)).fg().getPais() == this.vl) {
             var4 = true;
          }
 
          if (var4) {
-            int var5 = ((Player)C0745.SR.O().get(var3)).gs();
+            int var5 = ((Player)GamePersistence.SR.O().get(var3)).gs();
             if (var5 > 0) {
-               int var6 = ((Player)C0745.SR.O().get(var3)).gu();
-               var2.add(new C0721(((Player)C0745.SR.O().get(var3)).getNome(), ((Player)C0745.SR.O().get(var3)).fg(), var5, var6));
+               int var6 = ((Player)GamePersistence.SR.O().get(var3)).gu();
+               var2.add(new C0721(((Player)GamePersistence.SR.O().get(var3)).getNome(), ((Player)GamePersistence.SR.O().get(var3)).fg(), var5, var6));
             }
          }
       }
@@ -105,9 +108,9 @@ public class C0564 extends JPanel {
    private void mQ() {
       this.ue.addItem("Internacional");
 
-      for (int var1 = 0; var1 < C0745.SR.N().size(); var1++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var1)).jp());
-         if (((C0692)C0745.SR.N().get(var1)).jc() == this.vk) {
+      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jp());
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc() == this.vk) {
             this.vl = var1 + 1;
          }
       }

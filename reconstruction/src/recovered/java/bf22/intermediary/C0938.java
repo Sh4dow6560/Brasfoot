@@ -1,14 +1,16 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
 public final class C0938 {
    public static void a(ArrayList arrayList, ArrayList arrayList2, ArrayList arrayList3, boolean bl) {
-      C0692 var4 = null;
+      CountryCompetitions var4 = null;
 
       for (int var5 = 0; var5 < arrayList.size(); var5++) {
-         var4 = (C0692)C0745.SR.aG().get(((C0793)arrayList.get(var5)).uW());
+         var4 = (CountryCompetitions)GamePersistence.SR.aG().get(((C0793)arrayList.get(var5)).uW());
          if (((C0793)arrayList.get(var5)).uY()) {
             bl = true;
          }
@@ -56,8 +58,8 @@ public final class C0938 {
       }
 
       if (i == 1 && j == 1) {
-         Club var13 = C0745.SR.aF().cS();
-         Club var11 = C0745.SR.aH().cS();
+         Club var13 = GamePersistence.SR.aF().cS();
+         Club var11 = GamePersistence.SR.aH().cS();
          if (var13 != null && var13 == var11 && k == var13.getPais()) {
             var6++;
          }

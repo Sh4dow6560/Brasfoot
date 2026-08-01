@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -31,9 +32,9 @@ public class C0227 extends JPanel {
    public C0227(JDialog jDialog) {
       this.ub = jDialog;
       this.mJ();
-      this.FD.setSelected(C0745.SR.isJogaIntano1());
-      this.CS.setSelected(C0745.SR.isGruposIntPadrao());
-      boolean[] var2 = C0745.SR.getVerJint();
+      this.FD.setSelected(GamePersistence.SR.isJogaIntano1());
+      this.CS.setSelected(GamePersistence.SR.isGruposIntPadrao());
+      boolean[] var2 = GamePersistence.SR.getVerJint();
       this.Fv.setSelected(var2[0]);
       this.Fw.setSelected(var2[1]);
       this.FB.setSelected(var2[2]);
@@ -59,13 +60,13 @@ public class C0227 extends JPanel {
       };
 
       for (int var2 = 0; var2 < var1.length; var2++) {
-         C0745.vM().setVerJint(var1[var2], var2);
+         GamePersistence.vM().setVerJint(var1[var2], var2);
       }
 
-      C0745.SR.setGruposIntPadrao(this.CS.isSelected());
-      C0745.vM().setJogaIntano1(this.FD.isSelected());
-      C0745.vM().setGruposIntPadrao(this.CS.isSelected());
-      C0745.vJ();
+      GamePersistence.SR.setGruposIntPadrao(this.CS.isSelected());
+      GamePersistence.vM().setJogaIntano1(this.FD.isSelected());
+      GamePersistence.vM().setGruposIntPadrao(this.CS.isSelected());
+      GamePersistence.vJ();
       this.ub.dispose();
    }
 

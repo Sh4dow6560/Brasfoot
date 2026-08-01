@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -76,12 +77,12 @@ public class C0229 extends JPanel {
    }
 
    private void ob() {
-      if (this.Db.tR().dX() < C0710.pb.length) {
-         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + C0710.pd[this.Db.tR().dX()] + ".jpg")));
+      if (this.Db.tR().dX() < GameConstants.pb.length) {
+         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().dX()] + ".jpg")));
       }
 
-      if (this.Db.tR().dX() < C0710.pb.length) {
-         this.FH.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + C0710.pd[this.Db.tR().dX()] + ".jpg")));
+      if (this.Db.tR().dX() < GameConstants.pb.length) {
+         this.FH.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().dX()] + ".jpg")));
       }
    }
 

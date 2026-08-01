@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Dimension;
 import javax.swing.JDialog;
 import mod.recovered.model.Club;
@@ -17,8 +19,8 @@ public class C0794 {
       this.oq = i;
       int var5 = 0;
       if (!bl2) {
-         for (int var6 = 0; var6 < C0745.SR.aN().size(); var6++) {
-            if (C0745.SR.aN().get(var6) != player.fg() && ((Club)C0745.SR.aN().get(var6)).kb() >= i) {
+         for (int var6 = 0; var6 < GamePersistence.SR.aN().size(); var6++) {
+            if (GamePersistence.SR.aN().get(var6) != player.fg() && ((Club)GamePersistence.SR.aN().get(var6)).kb() >= i) {
                var5++;
             }
          }
@@ -63,7 +65,7 @@ public class C0794 {
    }
 
    private void vb() {
-      JDialog var1 = new JDialog(C0685.db());
+      JDialog var1 = new JDialog(MainWindow.db());
       C0475 var2 = new C0475(var1, this);
       var1.add(var2);
       var1.setSize(604, 550);

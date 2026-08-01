@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -373,9 +375,9 @@ public class C0795 {
                var8.setFont(new Font("Arial", 1, 11));
                var8.setFont(var8.getFont().deriveFont(11.0F));
                var8.setColor(Color.BLACK);
-               var8.drawString(C0710.rI[((C0795)arrayList.get(var13)).x().getPosicao()], var11, var12 + 39);
+               var8.drawString(GameConstants.rI[((C0795)arrayList.get(var13)).x().getPosicao()], var11, var12 + 39);
                var8.setColor(Color.WHITE);
-               var8.drawString(C0710.rI[((C0795)arrayList.get(var13)).x().getPosicao()], var11, var12 + 38);
+               var8.drawString(GameConstants.rI[((C0795)arrayList.get(var13)).x().getPosicao()], var11, var12 + 38);
                byte var14 = 20;
                byte var15 = 20;
                if (((C0795)arrayList.get(var13)).x().fn() > 0) {
@@ -445,46 +447,46 @@ public class C0795 {
       if (i == 1) {
          String var15 = "";
          if (j >= 1 && j <= 25) {
-            var15 = C0710.rI[C0710.sE[j][0]];
+            var15 = GameConstants.rI[GameConstants.sE[j][0]];
             if (j == 10 || j == 17) {
-               var15 = C0710.rI[3];
+               var15 = GameConstants.rI[3];
             }
 
             if (j >= 11) {
             }
 
-            if (C0710.sE[j][0] != player.getPosicao()) {
+            if (GameConstants.sE[j][0] != player.getPosicao()) {
                var14 = true;
                if ((j == 10 || j == 17) && (player.getPosicao() == 1 || player.getPosicao() == 3)) {
                   var14 = false;
                }
 
                if (var14) {
-                  var15 = var15 + " (" + C0710.rI[player.getPosicao()] + ") ";
+                  var15 = var15 + " (" + GameConstants.rI[player.getPosicao()] + ") ";
                }
             }
          } else {
-            var15 = C0710.rI[player.getPosicao()];
+            var15 = GameConstants.rI[player.getPosicao()];
          }
 
          var15 = var15 + " - ";
-         if (!C0745.SR.isHabilidadeIndividual()) {
+         if (!GamePersistence.SR.isHabilidadeIndividual()) {
             var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + "F:" + Integer.toString(player.fi()) + " E:" + Integer.toString(player.fp()));
          } else {
             var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + " E:" + Integer.toString(player.fp()));
          }
       } else if (i == 2) {
-         if (!C0745.SR.isHabilidadeIndividual()) {
+         if (!GamePersistence.SR.isHabilidadeIndividual()) {
             var13 = new StringTokenizer(
-               player.getNome() + " <br> " + "F:" + Integer.toString(player.fi()) + " E:" + Integer.toString(player.fp()) + " L:" + C0710.rK[player.getLado()]
+               player.getNome() + " <br> " + "F:" + Integer.toString(player.fi()) + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]
             );
          } else {
-            var13 = new StringTokenizer(player.getNome() + " <br> " + " E:" + Integer.toString(player.fp()) + " L:" + C0710.rK[player.getLado()]);
+            var13 = new StringTokenizer(player.getNome() + " <br> " + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]);
          }
       } else if (i == 3) {
          String var25 = "";
          if (j >= 1 && j <= 25) {
-            var25 = C0710.rI[C0710.sE[j][0]];
+            var25 = GameConstants.rI[GameConstants.sE[j][0]];
          }
 
          var13 = new StringTokenizer(var25 + " - " + player.getNome() + " <br> " + string);

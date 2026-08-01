@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class C0003 extends JPanel {
    private JLabel vf;
    private JTable vr;
 
-   public C0003(JDialog jDialog, Club club, C0675 c0675) {
+   public C0003(JDialog jDialog, Club club, Match c0675) {
       this.ub = jDialog;
       this.uk = club;
       if (this.uk == c0675.hc()) {

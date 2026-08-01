@@ -233,6 +233,8 @@ registerToolTask("promoteCandidateBatch", "promote-candidate-batch") {
     dependsOn(analyzeCandidateCompilation)
 }
 
+registerToolTask("applySemanticSourceMappings", "apply-semantic-source-mappings")
+
 tasks.register("compileRecovered") {
     group = "reconstruction"
     dependsOn(tasks.named(recovered.classesTaskName))

@@ -602,7 +602,7 @@
     },
     {
       "officialName": "best/I",
-      "namedName": "bf22/intermediary/C0675",
+      "namedName": "mod/recovered/match/Match",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -889,7 +889,7 @@
     },
     {
       "officialName": "best/L",
-      "namedName": "bf22/intermediary/C0678",
+      "namedName": "mod/recovered/competition/CompetitionStage",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1006,7 +1006,7 @@
     },
     {
       "officialName": "best/Z",
-      "namedName": "bf22/intermediary/C0692",
+      "namedName": "mod/recovered/competition/CountryCompetitions",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1789,7 +1789,7 @@
     },
     {
       "officialName": "best/at",
-      "namedName": "bf22/intermediary/C0713",
+      "namedName": "mod/recovered/competition/Competition",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1845,7 +1845,7 @@
     },
     {
       "officialName": "best/ay",
-      "namedName": "bf22/intermediary/C0718",
+      "namedName": "mod/recovered/manager/CoachJobMarket",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1912,7 +1912,7 @@
     },
     {
       "officialName": "best/c",
-      "namedName": "bf22/intermediary/C0720",
+      "namedName": "mod/recovered/competition/CompetitionPlayerStats",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -1994,7 +1994,7 @@
     },
     {
       "officialName": "best/f",
-      "namedName": "bf22/intermediary/C0723",
+      "namedName": "mod/recovered/game/CareerState",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -2583,7 +2583,7 @@
     },
     {
       "officialName": "best/i",
-      "namedName": "bf22/intermediary/C0727",
+      "namedName": "mod/recovered/competition/CompetitionSeasonResult",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -4137,7 +4137,7 @@
     },
     {
       "officialName": "f/G",
-      "namedName": "bf22/intermediary/C0929",
+      "namedName": "mod/recovered/competition/KnockoutRound",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -5408,7 +5408,7 @@
     },
     {
       "officialName": "f/s",
-      "namedName": "bf22/intermediary/C0955",
+      "namedName": "mod/recovered/competition/LeagueStage",
       "role": "unknown",
       "direct": true,
       "superName": "best/L",
@@ -5962,7 +5962,7 @@
     },
     {
       "officialName": "f/z",
-      "namedName": "bf22/intermediary/C0962",
+      "namedName": "mod/recovered/competition/KnockoutStage",
       "role": "unknown",
       "direct": true,
       "superName": "best/L",

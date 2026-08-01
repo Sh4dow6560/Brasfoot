@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.ui.MainWindow;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -40,7 +42,7 @@ public abstract class C0732 {
 
    public static void cU() {
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
-         C0697 var1 = new C0697();
+         CountryInfo var1 = new CountryInfo();
          var1.setPais(var0);
          var1.setNome(C0696.valueOf("P" + var0).getNome());
          var1.s(f(C0696.valueOf("P" + var0).getNome()));
@@ -99,7 +101,7 @@ public abstract class C0732 {
 
    public static int G(int i) {
       for (int var1 = 0; var1 < cF.size(); var1++) {
-         if (i == ((C0697)cF.get(var1)).getPais()) {
+         if (i == ((CountryInfo)cF.get(var1)).getPais()) {
             return var1;
          }
       }
@@ -109,7 +111,7 @@ public abstract class C0732 {
 
    public static int h(String string) {
       for (int var1 = 0; var1 < cF.size(); var1++) {
-         if (string.equals(((C0697)cF.get(var1)).getNome())) {
+         if (string.equals(((CountryInfo)cF.get(var1)).getNome())) {
             return var1;
          }
       }
@@ -122,11 +124,11 @@ public abstract class C0732 {
    }
 
    public static void cX() {
-      C0685.cX();
+      MainWindow.cX();
    }
 
    public static int H(int i) {
-      return i >= 0 && i < cF.size() ? ((C0697)cF.get(i)).getPais() : 29;
+      return i >= 0 && i < cF.size() ? ((CountryInfo)cF.get(i)).getPais() : 29;
    }
 
    public static ArrayList cY() {

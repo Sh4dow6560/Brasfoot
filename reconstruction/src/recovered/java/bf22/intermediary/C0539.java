@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -26,7 +27,7 @@ public class C0539 extends JPanel {
       this.ub = jDialog;
       this.mJ();
       this.mH();
-      if (C0745.vL()) {
+      if (GamePersistence.vL()) {
          this.vx.setVisible(false);
       }
    }

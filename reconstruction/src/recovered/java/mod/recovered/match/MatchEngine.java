@@ -1,11 +1,14 @@
-package bf22.intermediary;
+package mod.recovered.match;
 
+import bf22.intermediary.*;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Random;
 import mod.recovered.model.Club;
 import mod.recovered.model.Player;
 
-public class C0746 {
+public class MatchEngine {
    private static final double[] SW = new double[]{44.55, 23.86, 7.4};
    private static final double[] SX = new double[]{30.69, 18.35, 12.99};
    private static final double[] SY = new double[]{7.8, 45.78, 53.52};
@@ -117,7 +120,7 @@ public class C0746 {
       {1.0, 1.0, 1.0},
       {1.0, 1.0, 1.0}
    };
-   private C0675 zz = null;
+   private Match zz = null;
    private Club[] TA = null;
    private int TB = 0;
    private int TC = 0;
@@ -151,7 +154,7 @@ public class C0746 {
       return var1 ? 0 : 1;
    }
 
-   public C0746(C0675 c0675) {
+   public MatchEngine(Match c0675) {
       this.zz = c0675;
       Club[] var2 = new Club[]{c0675.hc(), c0675.hd()};
       this.TA = var2;
@@ -159,13 +162,13 @@ public class C0746 {
       this.TD = c0675.hX();
       if (c0675.hp().size() == 0) {
          System.out.println("erro escala: " + c0675.hc().getNome());
-         C0745.SR.bN = true;
+         GamePersistence.SR.bN = true;
          Club.a(c0675.hc(), c0675, 1, -1, true);
       }
 
       if (c0675.hq().size() == 0) {
          System.out.println("erro escala: " + c0675.hd().getNome());
-         C0745.SR.bN = true;
+         GamePersistence.SR.bN = true;
          Club.a(c0675.hd(), c0675, 1, -1, true);
       }
 
@@ -186,7 +189,7 @@ public class C0746 {
       }
    }
 
-   public C0746() {
+   public MatchEngine() {
    }
 
    public C0667 vO() {
@@ -367,7 +370,7 @@ public class C0746 {
 
    public double B(Player player) {
       int var2 = player.fi();
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = 0;
          if (player.fT() == 1) {
             var2 += (int)Math.round(player.gK() * 0.6);
@@ -493,8 +496,8 @@ public class C0746 {
 
    private void eF(int i) {
       this.zz.hY()[i]++;
-      int var2 = C0710.A(this.zz.hY()[0], this.zz.hY()[0] + this.zz.hY()[1]);
-      int var3 = C0710.A(this.zz.hY()[1], this.zz.hY()[0] + this.zz.hY()[1]);
+      int var2 = GameConstants.A(this.zz.hY()[0], this.zz.hY()[0] + this.zz.hY()[1]);
+      int var3 = GameConstants.A(this.zz.hY()[1], this.zz.hY()[0] + this.zz.hY()[1]);
       this.zz.hz()[0] = var2;
       this.zz.hz()[1] = var3;
    }
@@ -590,9 +593,9 @@ public class C0746 {
    public double a(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (C0745.SR.H() >= 5) {
+      if (GamePersistence.SR.H() >= 5) {
          var7 = 11;
-      } else if (C0745.SR.H() >= 9) {
+      } else if (GamePersistence.SR.H() >= 9) {
          var7 = 12;
       }
 
@@ -603,7 +606,7 @@ public class C0746 {
    public double b(double d, double e) {
       double var5 = 0.1;
       byte var7 = 8;
-      if (C0745.SR.H() >= 5) {
+      if (GamePersistence.SR.H() >= 5) {
          var7 = 10;
       }
 

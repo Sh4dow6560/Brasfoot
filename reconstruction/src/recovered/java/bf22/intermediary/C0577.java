@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import javax.swing.table.AbstractTableModel;
 
 public class C0577 extends AbstractTableModel {
@@ -12,7 +13,7 @@ public class C0577 extends AbstractTableModel {
 
    @Override
    public int getRowCount() {
-      return C0745.SR.bE.length;
+      return GamePersistence.SR.bE.length;
    }
 
    @Override
@@ -20,7 +21,7 @@ public class C0577 extends AbstractTableModel {
       if (j == 0) {
          return i;
       } else {
-         return j == 1 ? C0745.SR.bE[i] : null;
+         return j == 1 ? GamePersistence.SR.bE[i] : null;
       }
    }
 

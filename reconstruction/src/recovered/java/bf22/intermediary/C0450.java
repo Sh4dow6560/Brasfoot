@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -43,7 +45,7 @@ public class C0450 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mY() {
@@ -63,7 +65,7 @@ public class C0450 extends JPanel {
          if (false) {
             throw new FileNotFoundException();
          }
-         C0745.ae(C0745.SR.br());
+         GamePersistence.ae(GamePersistence.SR.br());
       } catch (FileNotFoundException var2) {
          var2.printStackTrace();
       }

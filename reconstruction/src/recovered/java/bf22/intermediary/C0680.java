@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.model.Club;
@@ -18,7 +19,7 @@ public class C0680 {
 
    private void ix() {
       ArrayList var1 = new ArrayList();
-      var1.addAll(C0745.SR.P());
+      var1.addAll(GamePersistence.SR.P());
       Collections.shuffle(var1);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {

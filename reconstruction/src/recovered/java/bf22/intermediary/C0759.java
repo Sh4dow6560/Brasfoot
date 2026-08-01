@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -19,11 +21,11 @@ public class C0759 extends JLayeredPane {
          int var3 = C0795.T(mouseEvent.getX(), mouseEvent.getY());
          if (var3 >= 1 && ((C0795)this.Qp.get(var3)).x() != null) {
             String var4 = "";
-            if (var3 <= 25 && C0710.sE[var3][0] != ((C0795)this.Qp.get(var3)).x().getPosicao()) {
-               var4 = "Improvisado como " + C0710.rH[C0710.sE[var3][0]];
+            if (var3 <= 25 && GameConstants.sE[var3][0] != ((C0795)this.Qp.get(var3)).x().getPosicao()) {
+               var4 = "Improvisado como " + GameConstants.rH[GameConstants.sE[var3][0]];
             }
 
-            if (!C0745.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.SR.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)this.Qp.get(var3)).x().getNome()
                   + " (F:"
@@ -32,15 +34,15 @@ public class C0759 extends JLayeredPane {
                   + Integer.toString(((C0795)this.Qp.get(var3)).x().fp())
                   + ")"
                   + "<br><b>Posicão original:</b> "
-                  + C0710.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]
+                  + GameConstants.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]
                   + "<br><b>Lado original:</b> "
-                  + C0710.rK[((C0795)this.Qp.get(var3)).x().getLado()]
+                  + GameConstants.rK[((C0795)this.Qp.get(var3)).x().getLado()]
                   + "<br><b>Idade:</b> "
                   + Integer.toString(((C0795)this.Qp.get(var3)).x().getIdade())
                   + "<br><b>Caract:</b> "
-                  + C0710.qN[((C0795)this.Qp.get(var3)).x().getCr1()]
+                  + GameConstants.qN[((C0795)this.Qp.get(var3)).x().getCr1()]
                   + "/"
-                  + C0710.qN[((C0795)this.Qp.get(var3)).x().getCr2()]
+                  + GameConstants.qN[((C0795)this.Qp.get(var3)).x().getCr2()]
                   + "<br>"
                   + var4
                   + "</html>";
@@ -52,15 +54,15 @@ public class C0759 extends JLayeredPane {
                + Integer.toString(((C0795)this.Qp.get(var3)).x().fp())
                + ")"
                + "<br><b>Posicão original:</b> "
-               + C0710.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]
+               + GameConstants.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]
                + "<br><b>Lado original:</b> "
-               + C0710.rK[((C0795)this.Qp.get(var3)).x().getLado()]
+               + GameConstants.rK[((C0795)this.Qp.get(var3)).x().getLado()]
                + "<br><b>Idade:</b> "
                + Integer.toString(((C0795)this.Qp.get(var3)).x().getIdade())
                + "<br><b>Caract:</b> "
-               + C0710.qN[((C0795)this.Qp.get(var3)).x().getCr1()]
+               + GameConstants.qN[((C0795)this.Qp.get(var3)).x().getCr1()]
                + "/"
-               + C0710.qN[((C0795)this.Qp.get(var3)).x().getCr2()]
+               + GameConstants.qN[((C0795)this.Qp.get(var3)).x().getCr2()]
                + "<br><b>Gol: "
                + Integer.toString(((C0795)this.Qp.get(var3)).x().gK())
                + "<br><b>Des: "

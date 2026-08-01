@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -18,7 +19,7 @@ public class C0595 extends DefaultTableCellRenderer {
       if (var7 != null) {
          if (j == 0) {
             if (var7.fg() != null) {
-               this.setText(C0710.y(var7.b(), var7.fg().getPais()));
+               this.setText(GameConstants.y(var7.b(), var7.fg().getPais()));
             }
          } else if (j == 1) {
             if (var7.uC() == 1) {

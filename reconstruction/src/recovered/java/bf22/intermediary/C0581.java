@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -8,7 +9,7 @@ public class C0581 extends AbstractTableModel {
    private static ArrayList ds;
 
    public C0581() {
-      ds = C0745.SR.bF;
+      ds = GamePersistence.SR.bF;
       this.Nt = new String[]{"Jogar", "País", "Times"};
    }
 

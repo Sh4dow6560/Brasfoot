@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -66,7 +70,7 @@ public class C0360 extends JPanel {
    }
 
    private void AP() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       if (this.w == 0) {
          this.ug.setText("Convites para ser técnico");
          this.Ki.setText("Assumir time");
@@ -99,7 +103,7 @@ public class C0360 extends JPanel {
 
    private void AA() {
       this.aeN.setCursor(new Cursor(3));
-      C0685.a(0, null);
+      MainWindow.a(0, null);
       this.aeN.setCursor(new Cursor(12));
    }
 
@@ -124,10 +128,10 @@ public class C0360 extends JPanel {
             this.Es.fg().kE();
          }
 
-         C0745.SR.a(this.Em, this.Em.ka(), this.Es);
+         GamePersistence.SR.a(this.Em, this.Em.ka(), this.Es);
          this.ub.dispose();
       } else {
-         C0692 var1 = C0745.SR.s(this.Em.getPais());
+         CountryCompetitions var1 = GamePersistence.SR.s(this.Em.getPais());
          if (var1 != null && this.Es != null) {
             var1.g(this.Es);
          } else {
@@ -187,7 +191,7 @@ public class C0360 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{22, 22, 55, 140, 22, 22, 50, 50, 55, 30, 0, 0};
       int[] var3 = new int[]{20, 15, 20, 130, 20, 22, 22, 22, 22, 22, 22, 22, 50, 50, 50, 20, 30, 0, 0};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = var3;
          this.zj.getColumnModel().getColumn(18).setMinWidth(0);
          this.zj.getColumnModel().getColumn(18).setMaxWidth(0);
@@ -229,7 +233,7 @@ public class C0360 extends JPanel {
       var6.setComparator(2, C1007.cL);
       var6.setComparator(3, C1007.abk);
       var6.setComparator(4, C1007.aba);
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          var6.setComparator(5, C1007.aaJ);
          var6.setComparator(6, C1007.aaZ);
          var6.setComparator(7, C1007.aaW);

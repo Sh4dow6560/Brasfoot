@@ -1,7 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 public class C0827 {
-   private C0675 zz;
+   private Match zz;
    private String Pp = "";
    private int Pq = 0;
    private int Pr = 0;
@@ -11,11 +12,11 @@ public class C0827 {
    private String gq = null;
    private static Double Pv = 36.0;
 
-   public C0675 tR() {
+   public Match tR() {
       return this.zz;
    }
 
-   public void n(C0675 c0675) {
+   public void n(Match c0675) {
       this.zz = c0675;
       if (c0675.hc().jZ() || c0675.hd().jZ()) {
          this.Pt = true;

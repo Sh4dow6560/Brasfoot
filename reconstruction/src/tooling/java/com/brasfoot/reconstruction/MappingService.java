@@ -34,6 +34,7 @@ final class MappingService {
   void generate() throws IOException {
     ArchiveData target = archives.analyze(context.input("22-23"));
     SemanticNames semantic = context.semanticNames();
+    validateSemanticSourcesMigrated(semantic);
     Map<String, String> promotions = context.promotions();
     Map<String, String> introduced = introducedVersions();
     Map<String, MethodSemanticName> semanticMethods = new HashMap<>();
@@ -153,6 +154,38 @@ final class MappingService {
 
     System.out.println("Generated reversible mappings for " + officialNames.size()
         + " classes and " + mappedMembers + " members.");
+  }
+
+  private void validateSemanticSourcesMigrated(SemanticNames semantic) throws IOException {
+    Path mappings = context.mappingsFile();
+    if (!Files.isRegularFile(mappings)) {
+      return;
+    }
+    Map<String, String> current = new HashMap<>();
+    for (String line : Files.readAllLines(mappings, StandardCharsets.UTF_8)) {
+      if (line.startsWith("c\t")) {
+        String[] values = line.split("\t", -1);
+        current.put(values[1], values[3]);
+      }
+    }
+    List<String> pending = new ArrayList<>();
+    for (Map.Entry<String, String> entry : semantic.classes().entrySet()) {
+      String currentName = current.get(entry.getKey());
+      if (currentName == null || currentName.equals(entry.getValue())) {
+        continue;
+      }
+      Path currentSource = context.projectDir().resolve(
+          "src/recovered/java/" + currentName + ".java");
+      Path desiredSource = context.projectDir().resolve(
+          "src/recovered/java/" + entry.getValue() + ".java");
+      if (Files.isRegularFile(currentSource) && !Files.isRegularFile(desiredSource)) {
+        pending.add(entry.getKey() + ":" + currentName + "->" + entry.getValue());
+      }
+    }
+    if (!pending.isEmpty()) {
+      throw new IllegalStateException("Semantic source migration required before generating "
+          + "mappings. Run applySemanticSourceMappings. Pending: " + pending);
+    }
   }
 
   void validateExisting() throws IOException {

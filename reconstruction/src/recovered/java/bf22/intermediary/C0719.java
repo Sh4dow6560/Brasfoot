@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 
 public class C0719 implements Serializable {
@@ -15,7 +16,7 @@ public class C0719 implements Serializable {
       this.n = string;
       this.g = i;
       this.T = j;
-      C0745.SR.bJ().add(this);
+      GamePersistence.SR.bJ().add(this);
    }
 
    public int v() {

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -31,7 +32,7 @@ public class C0619 extends DefaultTableCellRenderer {
             }
          } else if (j == 0) {
             this.setHorizontalAlignment(0);
-            this.setText(Integer.toString(var7.H() + C0745.SR.iU()));
+            this.setText(Integer.toString(var7.H() + GamePersistence.SR.iU()));
          } else if (j == 1) {
             this.setIcon(var7.ce().kU());
             this.setText(var7.ce().getNome());

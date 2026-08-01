@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,7 +14,7 @@ import mod.recovered.model.Club;
 
 public class C0196 extends JPanel {
    private JDialog ub = null;
-   private C0713 aeJ = null;
+   private Competition aeJ = null;
    private JLabel ug;
    private JLabel uh;
    private JLabel zM;
@@ -21,7 +23,7 @@ public class C0196 extends JPanel {
    private JLabel uu;
    private JLabel Ow;
 
-   public C0196(JDialog jDialog, Club club, C0713 c0713, int i) {
+   public C0196(JDialog jDialog, Club club, Competition c0713, int i) {
       this.ub = jDialog;
       this.aeJ = c0713;
       this.mJ();
@@ -38,7 +40,7 @@ public class C0196 extends JPanel {
 
    private void nq() {
       String[] var1 = this.aeJ.mA();
-      ImageIcon var2 = C0710.a(C0710.x(var1[0]), 60, 82);
+      ImageIcon var2 = GameConstants.a(GameConstants.x(var1[0]), 60, 82);
       this.Ow.setIcon(var2);
    }
 

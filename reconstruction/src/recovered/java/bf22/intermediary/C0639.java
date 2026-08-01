@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -18,12 +20,12 @@ public class C0639 extends DefaultTableCellRenderer {
       Player var7 = (Player)object;
       if (j == 0) {
          this.setHorizontalAlignment(0);
-         this.setText(C0710.rI[var7.getPosicao()]);
+         this.setText(GameConstants.rI[var7.getPosicao()]);
       } else if (j == 1) {
          this.setHorizontalAlignment(2);
          this.setText(var7.getNome());
       } else if (j == 2) {
-         if (!C0745.SR.isHabilidadeIndividual()) {
+         if (!GamePersistence.SR.isHabilidadeIndividual()) {
             this.setText(Integer.toString(var7.fi()));
          } else {
             this.setText(Integer.toString(var7.gP()));
@@ -34,7 +36,7 @@ public class C0639 extends DefaultTableCellRenderer {
          }
 
          if (j == 4) {
-            this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+            this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          }
       }
 

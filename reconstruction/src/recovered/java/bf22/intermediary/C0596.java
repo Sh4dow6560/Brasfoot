@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -14,7 +15,7 @@ public class C0596 extends DefaultTableCellRenderer {
       super.getTableCellRendererComponent(jTable, object, bl, bl2, i, j);
       this.setBorder(noFocusBorder);
       super.setForeground(Color.WHITE);
-      super.setBackground(C0710.or);
+      super.setBackground(GameConstants.or);
       this.setHorizontalAlignment(2);
       this.setIcon(null);
       this.setText("");
@@ -30,7 +31,7 @@ public class C0596 extends DefaultTableCellRenderer {
             }
 
             if (var7.fb().fT() >= 0) {
-               var8 = C0710.rI[C0710.sE[var7.fb().fT()][0]];
+               var8 = GameConstants.rI[GameConstants.sE[var7.fb().fT()][0]];
             }
 
             this.setText(var8 + " - " + var7.fb().getNome() + var9);
@@ -40,7 +41,7 @@ public class C0596 extends DefaultTableCellRenderer {
 
             if (var7.tq()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aeicons/arrowright.png")));
-               this.setBackground(C0710.os);
+               this.setBackground(GameConstants.os);
             } else if (var7.tr()) {
                this.setHorizontalAlignment(4);
                this.setHorizontalTextPosition(2);

@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -90,15 +94,15 @@ public class C0369 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mQ() {
       this.ue.addItem("Internacional");
 
-      for (int var1 = 0; var1 < C0745.SR.N().size(); var1++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var1)).jp());
-         if (((C0692)C0745.SR.N().get(var1)).jc() == this.vk) {
+      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var1)).jp());
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc() == this.vk) {
             this.vl = var1 + 1;
          }
       }
@@ -120,29 +124,29 @@ public class C0369 extends JPanel {
       int var3 = -1;
       this.KC.clear();
       if (var1 >= 0) {
-         if (var1 < C0745.SR.N().size() && var1 >= 0) {
-            var2 = ((C0692)C0745.SR.N().get(var1)).jc();
+         if (var1 < GamePersistence.SR.N().size() && var1 >= 0) {
+            var2 = ((CountryCompetitions)GamePersistence.SR.N().get(var1)).jc();
          }
 
-         for (int var4 = 0; var4 < C0745.SR.L().size(); var4++) {
+         for (int var4 = 0; var4 < GamePersistence.SR.L().size(); var4++) {
             var3 = (byte)-1;
-            if (((Coach)C0745.SR.L().get(var4)).fg() != null) {
-               var3 = ((Coach)C0745.SR.L().get(var4)).fg().getPais();
+            if (((Coach)GamePersistence.SR.L().get(var4)).fg() != null) {
+               var3 = ((Coach)GamePersistence.SR.L().get(var4)).fg().getPais();
             } else {
-               var3 = ((Coach)C0745.SR.L().get(var4)).bz();
+               var3 = ((Coach)GamePersistence.SR.L().get(var4)).bz();
             }
 
             if (var3 == var2) {
-               this.KC.add((Coach)C0745.SR.L().get(var4));
-               if (C0745.SR.L().get(var4) == this.KA) {
+               this.KC.add((Coach)GamePersistence.SR.L().get(var4));
+               if (GamePersistence.SR.L().get(var4) == this.KA) {
                   this.KB = this.KC.size() - 1;
                }
             }
          }
       } else {
-         for (int var7 = 0; var7 < C0745.SR.L().size(); var7++) {
-            this.KC.add((Coach)C0745.SR.L().get(var7));
-            if (C0745.SR.L().get(var7) == this.KA) {
+         for (int var7 = 0; var7 < GamePersistence.SR.L().size(); var7++) {
+            this.KC.add((Coach)GamePersistence.SR.L().get(var7));
+            if (GamePersistence.SR.L().get(var7) == this.KA) {
                this.KB = this.KC.size() - 1;
             }
          }
@@ -170,7 +174,7 @@ public class C0369 extends JPanel {
 
    private void rw() {
       this.Ie.setCursor(new Cursor(3));
-      C0685.e(this.Es);
+      MainWindow.e(this.Es);
       this.Ie.setCursor(new Cursor(12));
    }
 
@@ -206,8 +210,8 @@ public class C0369 extends JPanel {
       int[] var1 = new int[5];
       if (this.Es != null) {
          String var2 = "";
-         if (this.Es.getReputacao() < C0710.pZ.length) {
-            var2 = C0710.pZ[this.Es.getReputacao()];
+         if (this.Es.getReputacao() < GameConstants.pZ.length) {
+            var2 = GameConstants.pZ[this.Es.getReputacao()];
          }
 
          this.Fs.setText(this.Es.dS() + "       (reputação: " + var2 + ")");

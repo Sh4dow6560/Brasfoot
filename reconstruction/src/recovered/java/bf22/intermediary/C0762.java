@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JButton;
@@ -103,19 +107,19 @@ public class C0762 extends JPanel {
       if (this.w != 1 && this.w != 4) {
          this.uj();
       } else {
-         this.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.QC.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-         this.QB.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+         this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.QC.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+         this.QB.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       }
    }
 
    private void uj() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-      this.QC.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.QC.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       C0781[] var1 = new C0781[]{this.QN, this.QL, this.QQ, this.QM, this.QK, this.QP, this.QO};
 
       for (int var2 = 0; var2 < var1.length; var2++) {
-         var1[var2].setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+         var1[var2].setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       }
    }
 
@@ -149,15 +153,15 @@ public class C0762 extends JPanel {
       };
       this.Nq.addItem(this.pU);
 
-      for (int var2 = 0; var2 < C0710.rH.length; var2++) {
-         this.Nq.addItem(C0710.rH[var2]);
+      for (int var2 = 0; var2 < GameConstants.rH.length; var2++) {
+         this.Nq.addItem(GameConstants.rH[var2]);
       }
 
       this.Nq.setSelectedIndex(0);
       this.Qx.addItem(this.pU);
 
-      for (int var4 = 0; var4 < C0710.rK.length; var4++) {
-         this.Qx.addItem(C0710.rK[var4]);
+      for (int var4 = 0; var4 < GameConstants.rK.length; var4++) {
+         this.Qx.addItem(GameConstants.rK[var4]);
       }
 
       this.Qx.setSelectedIndex(0);
@@ -170,15 +174,15 @@ public class C0762 extends JPanel {
       this.Qy.setSelectedIndex(0);
       this.Qv.addItem(this.pU);
 
-      for (int var6 = 0; var6 < C0710.qM.length; var6++) {
-         this.Qv.addItem(C0710.qM[var6]);
+      for (int var6 = 0; var6 < GameConstants.qM.length; var6++) {
+         this.Qv.addItem(GameConstants.qM[var6]);
       }
 
       this.Qv.setSelectedIndex(0);
       this.Qw.addItem(this.pU);
 
-      for (int var7 = 0; var7 < C0710.qM.length; var7++) {
-         this.Qw.addItem(C0710.qM[var7]);
+      for (int var7 = 0; var7 < GameConstants.qM.length; var7++) {
+         this.Qw.addItem(GameConstants.qM[var7]);
       }
 
       this.Qw.setSelectedIndex(0);
@@ -186,7 +190,7 @@ public class C0762 extends JPanel {
          this.BD.addItem(this.pU);
 
          for (int var8 = 0; var8 < C0696.jz(); var8++) {
-            this.BD.addItem(((C0697)C0732.cY().get(var8)).getNome());
+            this.BD.addItem(((CountryInfo)C0732.cY().get(var8)).getNome());
          }
       }
 
@@ -200,8 +204,8 @@ public class C0762 extends JPanel {
 
       this.Qu.addItem(this.pU);
 
-      for (int var3 = 0; var3 < C0745.SR.N().size(); var3++) {
-         this.Qu.addItem(((C0692)C0745.SR.N().get(var3)).jp());
+      for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
+         this.Qu.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var3)).jp());
       }
 
       C0037 var10 = new C0037();

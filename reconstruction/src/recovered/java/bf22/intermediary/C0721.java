@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CompetitionPlayerStats;
 import mod.recovered.model.Club;
 
 public class C0721 {
@@ -15,7 +16,7 @@ public class C0721 {
       this.T = j;
    }
 
-   public C0721(C0720 c0720) {
+   public C0721(CompetitionPlayerStats c0720) {
       if (c0720.x() != null) {
          this.nome = c0720.x().getNome();
          this.X = c0720.x().fg();

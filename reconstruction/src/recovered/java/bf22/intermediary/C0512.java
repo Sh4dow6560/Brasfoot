@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -60,7 +62,7 @@ public class C0512 extends JPanel {
    private JTree uw;
 
    public C0512(JFrame jFrame) {
-      this.ul = (Club)C0745.SR.aN().get(0);
+      this.ul = (Club)GamePersistence.SR.aN().get(0);
       this.afC.add(this.ul);
       this.mJ();
       this.mW();
@@ -200,28 +202,28 @@ public class C0512 extends JPanel {
          var2 = this.afH.getText();
       }
 
-      if (C0745.SR.yn() != null) {
-         C0745.SR.yn().a(this.afC, this.afG.getSelectedIndex(), var1, var2, this.CS.isSelected());
+      if (GamePersistence.SR.yn() != null) {
+         GamePersistence.SR.yn().a(this.afC, this.afG.getSelectedIndex(), var1, var2, this.CS.isSelected());
       }
 
       this.Bw.setCursor(new Cursor(3));
-      C0745.SR.az();
-      C0745.SR.V();
+      GamePersistence.SR.az();
+      GamePersistence.SR.V();
    }
 
    private void AV() {
       this.Bw.setCursor(new Cursor(3));
-      C0745.SR.az();
-      C0745.SR.V();
+      GamePersistence.SR.az();
+      GamePersistence.SR.V();
    }
 
    private void mM() {
       this.uw.getSelectionModel().setSelectionMode(1);
       this.uw.addTreeSelectionListener(new C0523(this));
 
-      for (int var1 = 0; var1 < C0745.SR.P().size(); var1++) {
-         if (!((Club)C0745.SR.P().get(var1)).kn()) {
-            this.um.add((Club)C0745.SR.P().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.SR.P().size(); var1++) {
+         if (!((Club)GamePersistence.SR.P().get(var1)).kn()) {
+            this.um.add((Club)GamePersistence.SR.P().get(var1));
             Collections.sort(this.um, C1007.VS);
          }
       }
@@ -236,28 +238,28 @@ public class C0512 extends JPanel {
       DefaultMutableTreeNode var3 = null;
       MutableTreeNode var4 = null;
 
-      for (int var5 = 0; var5 < C0745.SR.N().size(); var5++) {
-         var2 = new DefaultMutableTreeNode(((C0692)C0745.SR.N().get(var5)).jp());
+      for (int var5 = 0; var5 < GamePersistence.SR.N().size(); var5++) {
+         var2 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).jp());
          defaultMutableTreeNode.add(var2);
 
-         for (int var6 = 0; var6 < ((C0692)C0745.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               var3 = new DefaultMutableTreeNode(((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).getNome());
+         for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
+            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               var3 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
                var2.add(var3);
 
-               for (int var7 = 0; var7 < ((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
-                  var4 = new DefaultMutableTreeNode(((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
+               for (int var7 = 0; var7 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
+                  var4 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
                   var3.add(var4);
                }
             }
          }
 
-         if (((C0692)C0745.SR.N().get(var5)).ek().size() > 0) {
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size() > 0) {
             var3 = new DefaultMutableTreeNode("Regionais");
             var2.add(var3);
 
-            for (int var16 = 0; var16 < ((C0692)C0745.SR.N().get(var5)).ek().size(); var16++) {
-               var4 = new DefaultMutableTreeNode(((C0692)C0745.SR.N().get(var5)).ek().get(var16));
+            for (int var16 = 0; var16 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size(); var16++) {
+               var4 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().get(var16));
                var3.add(var4);
             }
          }

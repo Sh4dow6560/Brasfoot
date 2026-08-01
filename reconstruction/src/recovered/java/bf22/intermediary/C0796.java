@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CompetitionSeasonResult;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 
@@ -13,10 +16,10 @@ public class C0796 {
    private String RR = "";
    private Coach RS = null;
    private boolean Or;
-   private C0692 RT = null;
+   private CountryCompetitions RT = null;
    private boolean afN = false;
 
-   public C0796(C0727 c0727, int i, int j) {
+   public C0796(CompetitionSeasonResult c0727, int i, int j) {
       this.RN = i;
       if (c0727 != null) {
          this.ae = c0727.H();
@@ -27,7 +30,7 @@ public class C0796 {
          this.RS = c0727.ci();
          this.V = c0727.y();
       } else {
-         this.RT = C0745.SR.o(i);
+         this.RT = GamePersistence.SR.o(i);
          this.Or = true;
       }
    }
@@ -84,11 +87,11 @@ public class C0796 {
       this.RN = i;
    }
 
-   public C0692 vl() {
+   public CountryCompetitions vl() {
       return this.RT;
    }
 
-   public void f(C0692 c0692) {
+   public void f(CountryCompetitions c0692) {
       this.RT = c0692;
    }
 }

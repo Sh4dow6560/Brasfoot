@@ -1,8 +1,8 @@
 package mod.recovered.model;
 
-import bf22.intermediary.C0675;
-import bf22.intermediary.C0710;
-import bf22.intermediary.C0962;
+import mod.recovered.match.Match;
+import mod.recovered.core.GameConstants;
+import mod.recovered.competition.KnockoutStage;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -29,7 +29,7 @@ public class Stadium implements Serializable {
    public Stadium(boolean bl, String string, int i) {
       this.dm = string;
       this.N(i);
-      this.field_kw_do = C0710.qK[1][1];
+      this.field_kw_do = GameConstants.qK[1][1];
    }
 
    private void h(Club club) {
@@ -97,7 +97,7 @@ public class Stadium implements Serializable {
       this.dn[1] = i - (this.dn[0] + this.dn[2] + this.dn[3]);
    }
 
-   public void b(C0675 c0675) {
+   public void b(Match c0675) {
       boolean var2 = false;
       int[] var3 = new int[4];
       int var4 = 0;
@@ -134,7 +134,7 @@ public class Stadium implements Serializable {
       }
 
       double var30 = 0.3;
-      if (c0675.ht() instanceof C0962) {
+      if (c0675.ht() instanceof KnockoutStage) {
          var30 += 0.15;
       }
 
@@ -225,7 +225,7 @@ public class Stadium implements Serializable {
       c0675.aW(var4);
    }
 
-   public static void c(C0675 c0675) {
+   public static void c(Match c0675) {
       c0675.ev().b(c0675);
    }
 
@@ -243,13 +243,13 @@ public class Stadium implements Serializable {
       }
 
       if (i == 1) {
-         var2 = C0710.qK[i][var4];
+         var2 = GameConstants.qK[i][var4];
       } else if (i == 2 || i == 3) {
-         var2 = C0710.qK[i][var5];
+         var2 = GameConstants.qK[i][var5];
       } else if (i == 4 || i == 6 || i == 8) {
-         var2 = C0710.qK[i][var3];
+         var2 = GameConstants.qK[i][var3];
       } else if (i == 5 || i == 7) {
-         var2 = C0710.qK[1][var4];
+         var2 = GameConstants.qK[1][var4];
       }
 
       return var2;

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -43,12 +45,12 @@ public class C0225 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mK() {
       this.Fs.setText(this.Fn.dS());
-      this.yA.setText("A razão foi: " + C0710.sg[this.Fp]);
+      this.yA.setText("A razão foi: " + GameConstants.sg[this.Fp]);
       this.Fq.setIcon(this.uk.kP());
       String var1 = "um interino.";
       if (this.Fo != null) {

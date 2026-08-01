@@ -28,6 +28,8 @@ public final class ReconstructionTool {
           new SyntheticCompileClasspathService(context).build();
       case "analyze-candidate-compilation" -> new CandidateCompileService(context).analyze();
       case "promote-candidate-batch" -> new CandidatePromotionService(context).promote();
+      case "apply-semantic-source-mappings" ->
+          new SemanticSourceMigrationService(context).migrate();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();

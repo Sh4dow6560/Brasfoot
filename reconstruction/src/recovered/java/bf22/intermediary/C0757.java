@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import javax.swing.JLayeredPane;
@@ -22,11 +24,11 @@ public class C0757 extends JLayeredPane {
                var6 = "--";
             }
 
-            if (var3 <= 25 && C0710.sE[var3][0] != ((C0795)C0132.oa().get(var3)).x().getPosicao()) {
-               var4 = "Improvisado como " + C0710.rH[C0710.sE[var3][0]];
+            if (var3 <= 25 && GameConstants.sE[var3][0] != ((C0795)C0132.oa().get(var3)).x().getPosicao()) {
+               var4 = "Improvisado como " + GameConstants.rH[GameConstants.sE[var3][0]];
             }
 
-            if (!C0745.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.SR.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)C0132.oa().get(var3)).x().getNome()
                   + "(F:"
@@ -35,15 +37,15 @@ public class C0757 extends JLayeredPane {
                   + Integer.toString(((C0795)C0132.oa().get(var3)).x().fp())
                   + ")"
                   + "<br><b>Posicão original:</b> "
-                  + C0710.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]
+                  + GameConstants.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]
                   + "<br><b>Lado original:</b> "
-                  + C0710.rK[((C0795)C0132.oa().get(var3)).x().getLado()]
+                  + GameConstants.rK[((C0795)C0132.oa().get(var3)).x().getLado()]
                   + "<br><b>Idade:</b> "
                   + Integer.toString(((C0795)C0132.oa().get(var3)).x().getIdade())
                   + "<br><b>Caract:</b> "
-                  + C0710.qN[((C0795)C0132.oa().get(var3)).x().getCr1()]
+                  + GameConstants.qN[((C0795)C0132.oa().get(var3)).x().getCr1()]
                   + "/"
-                  + C0710.qN[((C0795)C0132.oa().get(var3)).x().getCr2()]
+                  + GameConstants.qN[((C0795)C0132.oa().get(var3)).x().getCr2()]
                   + "<br><b>Nota média</b>: "
                   + var6
                   + "<br>"
@@ -57,15 +59,15 @@ public class C0757 extends JLayeredPane {
                + Integer.toString(((C0795)C0132.oa().get(var3)).x().fp())
                + ")"
                + "<br><b>Posicão original: </b>"
-               + C0710.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]
+               + GameConstants.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]
                + "<br><b>Lado original: </b>"
-               + C0710.rK[((C0795)C0132.oa().get(var3)).x().getLado()]
+               + GameConstants.rK[((C0795)C0132.oa().get(var3)).x().getLado()]
                + "<br><b>Idade: </b>"
                + Integer.toString(((C0795)C0132.oa().get(var3)).x().getIdade())
                + "<br><b>Caract: </b>"
-               + C0710.qN[((C0795)C0132.oa().get(var3)).x().getCr1()]
+               + GameConstants.qN[((C0795)C0132.oa().get(var3)).x().getCr1()]
                + "/"
-               + C0710.qN[((C0795)C0132.oa().get(var3)).x().getCr2()]
+               + GameConstants.qN[((C0795)C0132.oa().get(var3)).x().getCr2()]
                + "<br><b>Gol: "
                + Integer.toString(((C0795)C0132.oa().get(var3)).x().gK())
                + "<br><b>Des: "
@@ -99,19 +101,19 @@ public class C0757 extends JLayeredPane {
          }
 
          if (var7 >= 1 && ((C0795)C0132.oa().get(var7)).x() != null) {
-            if (!C0745.SR.isHabilidadeIndividual()) {
+            if (!GamePersistence.SR.isHabilidadeIndividual()) {
                return "<html>"
                   + ((C0795)C0132.oa().get(var7)).x().getNome()
                   + "<br><b>Posicão original:</b>"
-                  + C0710.rH[((C0795)C0132.oa().get(var7)).x().getPosicao()]
+                  + GameConstants.rH[((C0795)C0132.oa().get(var7)).x().getPosicao()]
                   + "<br><b>Lado original:</b>"
-                  + C0710.rK[((C0795)C0132.oa().get(var7)).x().getLado()]
+                  + GameConstants.rK[((C0795)C0132.oa().get(var7)).x().getLado()]
                   + "<br><b>Idade:</b>"
                   + Integer.toString(((C0795)C0132.oa().get(var7)).x().getIdade())
                   + "<br><b>Caract:</b>"
-                  + C0710.qN[((C0795)C0132.oa().get(var7)).x().getCr1()]
+                  + GameConstants.qN[((C0795)C0132.oa().get(var7)).x().getCr1()]
                   + "/"
-                  + C0710.qN[((C0795)C0132.oa().get(var7)).x().getCr2()]
+                  + GameConstants.qN[((C0795)C0132.oa().get(var7)).x().getCr2()]
                   + "<br><b>Nota média</b>: "
                   + var9
                   + "</html>";
@@ -120,15 +122,15 @@ public class C0757 extends JLayeredPane {
             return "<html>"
                + ((C0795)C0132.oa().get(var7)).x().getNome()
                + "<br><b>Posicão original:</b>"
-               + C0710.rH[((C0795)C0132.oa().get(var7)).x().getPosicao()]
+               + GameConstants.rH[((C0795)C0132.oa().get(var7)).x().getPosicao()]
                + "<br><b>Lado original:</b>"
-               + C0710.rK[((C0795)C0132.oa().get(var7)).x().getLado()]
+               + GameConstants.rK[((C0795)C0132.oa().get(var7)).x().getLado()]
                + "<br><b>Idade:</b>"
                + Integer.toString(((C0795)C0132.oa().get(var7)).x().getIdade())
                + "<br><b>Caract:</b>"
-               + C0710.qN[((C0795)C0132.oa().get(var7)).x().getCr1()]
+               + GameConstants.qN[((C0795)C0132.oa().get(var7)).x().getCr1()]
                + "/"
-               + C0710.qN[((C0795)C0132.oa().get(var7)).x().getCr2()]
+               + GameConstants.qN[((C0795)C0132.oa().get(var7)).x().getCr2()]
                + "<br><b>Gol: "
                + Integer.toString(((C0795)C0132.oa().get(var7)).x().gK())
                + "<br><b>Des:"

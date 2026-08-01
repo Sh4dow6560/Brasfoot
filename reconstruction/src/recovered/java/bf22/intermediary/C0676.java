@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 
 public class C0676 implements Serializable {
@@ -11,12 +13,12 @@ public class C0676 implements Serializable {
    public C0676() {
    }
 
-   public C0676(C0675 c0675, double d) {
+   public C0676(Match c0675, double d) {
       this.Z = d;
-      this.fy = C0745.SR.J();
+      this.fy = GamePersistence.SR.J();
 
-      for (int var4 = 0; var4 < C0745.SR.S().size(); var4++) {
-         if (C0745.SR.S().get(var4) == c0675) {
+      for (int var4 = 0; var4 < GamePersistence.SR.S().size(); var4++) {
+         if (GamePersistence.SR.S().get(var4) == c0675) {
             this.gx = var4;
             break;
          }

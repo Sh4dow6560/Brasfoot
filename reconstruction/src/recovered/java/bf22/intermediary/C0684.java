@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 public class C0684 {
    public static int eT() {
       String var0 = C0670.eW();
@@ -23,7 +24,7 @@ public class C0684 {
          var1 = var1 * 12 + 331216;
 
          for (int var9 = 0; var9 < 45; var9++) {
-            var12 = var8 * '\b' + 342874 + C0710.B(var1, var9);
+            var12 = var8 * '\b' + 342874 + GameConstants.B(var1, var9);
          }
 
          C0670.Y(var12);

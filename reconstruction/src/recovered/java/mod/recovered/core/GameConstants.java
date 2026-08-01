@@ -1,5 +1,6 @@
-package bf22.intermediary;
+package mod.recovered.core;
 
+import bf22.intermediary.*;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -11,7 +12,7 @@ import java.util.prefs.Preferences;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-public final class C0710 {
+public final class GameConstants {
    public static final Color or = new Color(12, 54, 77);
    public static final Color os = new Color(7, 28, 39);
    public static final Color ot = new Color(27, 70, 38);
@@ -984,7 +985,7 @@ public final class C0710 {
    }
 
    public static ImageIcon mf() {
-      return new ImageIcon(C0710.class.getResource("/aicons/trgen.png"));
+      return new ImageIcon(GameConstants.class.getResource("/aicons/trgen.png"));
    }
 
    public static ImageIcon a(ImageIcon imageIcon, int i, int j) {

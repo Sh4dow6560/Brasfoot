@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
@@ -44,7 +45,7 @@ public class C0799 implements Serializable {
       this.RV = j;
       this.RW = string;
       this.RX = string2;
-      this.data = C0745.SR.T();
+      this.data = GamePersistence.SR.T();
       if (coach != null) {
          if (coach.lQ() == null) {
             coach.T(new ArrayList());

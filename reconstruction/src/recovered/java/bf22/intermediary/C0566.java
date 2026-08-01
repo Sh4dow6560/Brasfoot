@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -8,7 +10,7 @@ public class C0566 extends AbstractTableModel {
    private static ArrayList ds;
 
    public C0566() {
-      ds = C0745.SR.N();
+      ds = GamePersistence.SR.N();
       this.Nt = new String[]{"Ver", "País", ""};
    }
 
@@ -39,10 +41,10 @@ public class C0566 extends AbstractTableModel {
 
    public void ex(int i) {
       if (i >= 0) {
-         if (((C0692)ds.get(i)).jr()) {
-            ((C0692)ds.get(i)).B(false);
-         } else if (!((C0692)ds.get(i)).jr()) {
-            ((C0692)ds.get(i)).B(true);
+         if (((CountryCompetitions)ds.get(i)).jr()) {
+            ((CountryCompetitions)ds.get(i)).B(false);
+         } else if (!((CountryCompetitions)ds.get(i)).jr()) {
+            ((CountryCompetitions)ds.get(i)).B(true);
          }
       }
    }

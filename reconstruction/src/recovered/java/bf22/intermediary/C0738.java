@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.LeagueStage;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.model.Club;
@@ -159,7 +160,7 @@ public class C0738 {
       {{13, 11}, {14, 10}, {15, 9}, {16, 8}, {17, 7}, {18, 6}, {19, 5}, {20, 4}, {21, 3}, {22, 2}, {23, 1}, {24, 0}}
    };
 
-   public static Club[][][] a(C0955 c0955, ArrayList arrayList, int i) {
+   public static Club[][][] a(LeagueStage c0955, ArrayList arrayList, int i) {
       Club[] var3 = new Club[arrayList.size()];
       ArrayList var4 = new ArrayList();
 
@@ -381,7 +382,7 @@ public class C0738 {
       return clubs;
    }
 
-   public static Club[][][] a(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] a(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -408,7 +409,7 @@ public class C0738 {
       return var10;
    }
 
-   public static Club[][][] g(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] g(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -435,7 +436,7 @@ public class C0738 {
       return var10;
    }
 
-   public static Club[][][] a(C0955 c0955, ArrayList arrayList, boolean bl) {
+   public static Club[][][] a(LeagueStage c0955, ArrayList arrayList, boolean bl) {
       Club[] var3 = new Club[arrayList.size()];
 
       for (int var4 = 0; var4 < arrayList.size(); var4++) {
@@ -538,7 +539,7 @@ public class C0738 {
       return var10;
    }
 
-   public static Club[][][] b(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] b(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -567,7 +568,7 @@ public class C0738 {
       return var11;
    }
 
-   public static Club[][][] h(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] h(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -596,7 +597,7 @@ public class C0738 {
       return var11;
    }
 
-   public static Club[][][] c(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] c(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -625,7 +626,7 @@ public class C0738 {
       return var11;
    }
 
-   public static Club[][][] d(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] d(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -654,7 +655,7 @@ public class C0738 {
       return var11;
    }
 
-   public static Club[][][] e(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] e(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
@@ -727,7 +728,7 @@ public class C0738 {
       return var14;
    }
 
-   public static Club[][][] f(C0955 c0955, ArrayList arrayList) {
+   public static Club[][][] f(LeagueStage c0955, ArrayList arrayList) {
       Club[] var2 = new Club[arrayList.size()];
 
       for (int var3 = 0; var3 < arrayList.size(); var3++) {

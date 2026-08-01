@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
@@ -7,14 +8,14 @@ public class C0731 {
    private double cy = 0.0;
    private int V;
    private int W;
-   private C0675 cz = null;
+   private Match cz = null;
    private ArrayList cA = new ArrayList();
    private Club cB = null;
 
    public C0731() {
    }
 
-   public C0731(double d, int i, int j, C0675 c0675, Club club, ArrayList arrayList) {
+   public C0731(double d, int i, int j, Match c0675, Club club, ArrayList arrayList) {
       this.cy = d;
       this.V = i;
       this.W = j;
@@ -35,7 +36,7 @@ public class C0731 {
       return this.W;
    }
 
-   public C0675 cR() {
+   public Match cR() {
       return this.cz;
    }
 

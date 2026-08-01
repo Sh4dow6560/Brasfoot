@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -50,7 +51,7 @@ public class C0592 extends DefaultTableCellRenderer {
          this.setText(var8.tc());
       } else if (j == 1) {
          if (var8.fg() != null) {
-            ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aiconsc/" + C0710.pr[var8.td()] + ".png"));
+            ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aiconsc/" + GameConstants.pr[var8.td()] + ".png"));
             this.setIcon(var9);
          }
       } else if (j == 2) {

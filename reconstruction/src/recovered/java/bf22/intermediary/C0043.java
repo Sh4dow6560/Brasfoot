@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -60,7 +64,7 @@ public class C0043 extends JPanel {
       this.hy = club;
       this.pais = club.getPais();
       this.yQ = bl;
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          this.yR = 4;
       }
 
@@ -79,7 +83,7 @@ public class C0043 extends JPanel {
       }
 
       int var4 = C0732.G(this.pais) + 1;
-      this.zi.BD.addItem(((C0697)C0732.cY().get(var4 - 1)).getNome());
+      this.zi.BD.addItem(((CountryInfo)C0732.cY().get(var4 - 1)).getNome());
       if (var4 < this.zi.BD.getItemCount()) {
          this.zi.BD.setSelectedIndex(var4);
       }
@@ -93,7 +97,7 @@ public class C0043 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mK() {
@@ -104,9 +108,9 @@ public class C0043 extends JPanel {
       int var1 = 0;
       int var2 = 0;
 
-      for (int var3 = 0; var3 < C0745.SR.O().size(); var3++) {
-         if (((Player)C0745.SR.O().get(var3)).getPais() == this.pais) {
-            if (((Player)C0745.SR.O().get(var3)).getPosicao() == 0) {
+      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
+         if (((Player)GamePersistence.SR.O().get(var3)).getPais() == this.pais) {
+            if (((Player)GamePersistence.SR.O().get(var3)).getPosicao() == 0) {
                var2++;
             } else {
                var1++;
@@ -114,9 +118,9 @@ public class C0043 extends JPanel {
          }
       }
 
-      for (int var4 = 0; var4 < C0745.SR.bN().size(); var4++) {
-         if (((Player)C0745.SR.bN().get(var4)).getPais() == this.pais) {
-            if (((Player)C0745.SR.bN().get(var4)).getPosicao() == 0) {
+      for (int var4 = 0; var4 < GamePersistence.SR.bN().size(); var4++) {
+         if (((Player)GamePersistence.SR.bN().get(var4)).getPais() == this.pais) {
+            if (((Player)GamePersistence.SR.bN().get(var4)).getPosicao() == 0) {
                var2++;
             } else {
                var1++;
@@ -128,7 +132,7 @@ public class C0043 extends JPanel {
    }
 
    private void nx() {
-      C0692 var1 = C0745.SR.s(this.pais);
+      CountryCompetitions var1 = GamePersistence.SR.s(this.pais);
       var1.jj();
       if (!var1.jl()) {
          this.yM = 1;
@@ -161,7 +165,7 @@ public class C0043 extends JPanel {
    }
 
    private void nz() {
-      C0692 var1 = C0745.SR.s(this.pais);
+      CountryCompetitions var1 = GamePersistence.SR.s(this.pais);
       var1.z(false);
       this.nF();
       this.uK.clear();
@@ -318,7 +322,7 @@ public class C0043 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 120, 100, 20, 25, 55, 25};
       int[] var3 = new int[]{20, 90, 85, 25, 25, 25, 25, 25, 25, 25, 25, 50, 20};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -344,7 +348,7 @@ public class C0043 extends JPanel {
       var5.setComparator(1, C1007.abk);
       var5.setComparator(2, C1007.abl);
       var5.setComparator(3, C1007.aba);
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          var5.setComparator(4, C1007.aaJ);
          var5.setComparator(6, C1007.VU);
       } else {
@@ -364,7 +368,7 @@ public class C0043 extends JPanel {
       this.zk.setModel(var1);
       int[] var2 = new int[]{25, 120, 120, 20, 20, 45, 25};
       int[] var3 = new int[]{20, 90, 90, 20};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = var3;
       }
 

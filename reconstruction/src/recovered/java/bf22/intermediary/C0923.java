@@ -1,14 +1,20 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import mod.recovered.model.Club;
 
-public class C0923 extends C0713 implements Serializable {
+public class C0923 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0962 ZM = null;
-   private C0962 ZN = null;
+   private KnockoutStage ZM = null;
+   private KnockoutStage ZN = null;
    private Club ZO = null;
    private Club ZP = null;
    private Club ZQ = null;
@@ -31,37 +37,37 @@ public class C0923 extends C0713 implements Serializable {
       this.ZR = null;
       this.ZS = null;
       this.ZT = null;
-      if (C0745.SR.aI() != null) {
-         this.ZO = C0745.SR.aI().cS();
-         C0745.SR.aI().N(this.ZO);
+      if (GamePersistence.SR.aI() != null) {
+         this.ZO = GamePersistence.SR.aI().cS();
+         GamePersistence.SR.aI().N(this.ZO);
       }
 
-      if (C0745.SR.aF() != null) {
-         this.ZP = C0745.SR.aF().cS();
-         C0745.SR.aF().N(this.ZP);
+      if (GamePersistence.SR.aF() != null) {
+         this.ZP = GamePersistence.SR.aF().cS();
+         GamePersistence.SR.aF().N(this.ZP);
          if (this.ZP != null && this.ZP.getPais() == 131) {
-            this.ZP = C0745.SR.aF().yx();
+            this.ZP = GamePersistence.SR.aF().yx();
          }
       }
 
-      if (C0745.SR.aO() != null) {
-         this.ZQ = C0745.SR.aO().cS();
-         C0745.SR.aO().N(this.ZQ);
+      if (GamePersistence.SR.aO() != null) {
+         this.ZQ = GamePersistence.SR.aO().cS();
+         GamePersistence.SR.aO().N(this.ZQ);
       }
 
-      if (C0745.SR.aL() != null) {
-         this.ZR = C0745.SR.aL().cS();
-         C0745.SR.aL().N(this.ZR);
+      if (GamePersistence.SR.aL() != null) {
+         this.ZR = GamePersistence.SR.aL().cS();
+         GamePersistence.SR.aL().N(this.ZR);
       }
 
-      if (C0745.SR.aQ() != null) {
-         this.ZS = C0745.SR.aQ().cS();
-         C0745.SR.aQ().N(this.ZS);
+      if (GamePersistence.SR.aQ() != null) {
+         this.ZS = GamePersistence.SR.aQ().cS();
+         GamePersistence.SR.aQ().N(this.ZS);
       }
 
-      if (C0745.SR.aP() != null) {
-         this.ZT = C0745.SR.aP().cS();
-         C0745.SR.aP().N(this.ZT);
+      if (GamePersistence.SR.aP() != null) {
+         this.ZT = GamePersistence.SR.aP().cS();
+         GamePersistence.SR.aP().N(this.ZT);
       }
 
       if (this.ZO != null && this.ZP != null && this.ZQ != null && this.ZR != null && this.ZS != null && this.ZT != null) {
@@ -87,9 +93,9 @@ public class C0923 extends C0713 implements Serializable {
          }
 
          boolean[] var10 = new boolean[7];
-         this.ZM = new C0962(null, var7.size(), this.b(), 1, var10, this, -1);
+         this.ZM = new KnockoutStage(null, var7.size(), this.b(), 1, var10, this, -1);
          this.ZM.fc(150);
-         C0929 var9 = new C0929();
+         KnockoutRound var9 = new KnockoutRound();
          var9.a(this.ZM, var7, 0, false, 0, 0, this.b(), false);
       }
    }
@@ -102,29 +108,29 @@ public class C0923 extends C0713 implements Serializable {
          var2.add(this.ZO);
          var2.add((Club)arrayList.get(1));
          boolean[] var3 = new boolean[7];
-         this.ZN = new C0962(null, var2.size(), this.b(), 0, var3, this, -1);
-         C0929 var4 = new C0929();
+         this.ZN = new KnockoutStage(null, var2.size(), this.b(), 0, var3, this, -1);
+         KnockoutRound var4 = new KnockoutRound();
          var4.a(this.ZN, var2, 0, false, 0, 0, this.b(), false);
       }
    }
 
-   public C0962 zD() {
+   public KnockoutStage zD() {
       return this.ZM;
    }
 
-   public C0962 zE() {
+   public KnockoutStage zE() {
       return this.ZN;
    }
 
    @Override
-   public String[] b(C0678 c0678) {
-      return c0678 == this.ZM ? C0710.pE : C0710.pF;
+   public String[] b(CompetitionStage c0678) {
+      return c0678 == this.ZM ? GameConstants.pE : GameConstants.pF;
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.ZM};
-      C0678[] var2 = new C0678[]{this.ZM, this.ZN};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.ZM};
+      CompetitionStage[] var2 = new CompetitionStage[]{this.ZM, this.ZN};
       return this.ZN == null ? var1 : var2;
    }
 

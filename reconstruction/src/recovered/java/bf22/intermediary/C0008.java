@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -12,7 +15,7 @@ import javax.swing.JPanel;
 
 public class C0008 extends JPanel {
    private JDialog ub;
-   private C0692 vt = null;
+   private CountryCompetitions vt = null;
    private C0924 vu = null;
    private JButton vm;
    private JComboBox vv;
@@ -36,7 +39,7 @@ public class C0008 extends JPanel {
    private C0800 vH;
    private C0800 vI;
 
-   public C0008(JDialog jDialog, C0924 c0924, C0692 c0692) {
+   public C0008(JDialog jDialog, C0924 c0924, CountryCompetitions c0692) {
       this.ub = jDialog;
       this.vu = c0924;
       this.vt = c0692;
@@ -48,7 +51,7 @@ public class C0008 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mK() {
@@ -66,9 +69,9 @@ public class C0008 extends JPanel {
    public void mW() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < C0745.SR.N().size(); var2++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var2)).jp());
-         if (this.vt == C0745.SR.N().get(var2)) {
+      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
+         if (this.vt == GamePersistence.SR.N().get(var2)) {
             var1 = var2;
          }
       }
@@ -92,7 +95,7 @@ public class C0008 extends JPanel {
    }
 
    private void mU() {
-      this.vt = (C0692)C0745.SR.N().get(this.ue.getSelectedIndex());
+      this.vt = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
       this.vv.removeAllItems();
 
       for (int var1 = 0; var1 < this.vt.eb().size(); var1++) {

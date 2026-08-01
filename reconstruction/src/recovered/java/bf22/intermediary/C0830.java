@@ -1,15 +1,16 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CompetitionStage;
 public class C0830 {
-   private C0678[] Pw;
+   private CompetitionStage[] Pw;
    private String Px;
 
-   public C0830(C0678[] c0678s, String string) {
+   public C0830(CompetitionStage[] c0678s, String string) {
       this.Pw = c0678s;
       this.Px = string;
    }
 
-   public C0678[] tY() {
+   public CompetitionStage[] tY() {
       return this.Pw;
    }
 

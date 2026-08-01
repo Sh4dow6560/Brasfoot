@@ -1,12 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
 import java.io.Serializable;
 import mod.recovered.model.Player;
 
 public class C0722 implements Serializable {
    private static final long serialVersionUID = 1L;
    Player U = null;
-   C0713 Y = null;
+   Competition Y = null;
    double Z = 0.0;
    double aa = 0.0;
    double ab = 0.0;
@@ -15,7 +16,7 @@ public class C0722 implements Serializable {
    public C0722() {
    }
 
-   public C0722(C0713 c0713, Player player) {
+   public C0722(Competition c0713, Player player) {
       this.Y = c0713;
       this.U = player;
    }

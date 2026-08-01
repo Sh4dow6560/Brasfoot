@@ -19,10 +19,16 @@
 - As outras 1.161 entradas permanecem byte a byte identicas.
 - O save completo de referencia, os 88 contratos serializaveis e os 703 times
   passaram os testes automatizados.
+- 38 classes ja possuem nomes semanticos. O primeiro nucleo legivel cobre
+  `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
+  `KnockoutStage`, `Match` e `MatchEngine`.
+- `applySemanticSourceMappings` migra referencias e imports de forma
+  deterministica antes de atualizar o mapeamento Tiny.
+- O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica de calendario, competicoes, simulacao e transferencias.
+1. Nomeacao semantica de membros, calendario e transferencias.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

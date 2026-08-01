@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -20,7 +21,7 @@ public class C0620 extends DefaultTableCellRenderer {
       if (var7 != null) {
          if (var7.cC() > 0) {
             if (j == 0) {
-               this.setText(Integer.toString(var7.cC() + C0745.SR.iU()));
+               this.setText(Integer.toString(var7.cC() + GamePersistence.SR.iU()));
             }
 
             if (j == 1) {
@@ -36,7 +37,7 @@ public class C0620 extends DefaultTableCellRenderer {
                   this.setText("Total carreira:");
                }
             } else if (j == 0) {
-               this.setText(Integer.toString(var7.H() + C0745.SR.iU()));
+               this.setText(Integer.toString(var7.H() + GamePersistence.SR.iU()));
             } else if (j == 1) {
                this.setText(var7.ck());
                Club var8 = var7.cu();

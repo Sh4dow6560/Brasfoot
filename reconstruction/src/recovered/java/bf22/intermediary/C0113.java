@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -24,7 +25,7 @@ import mod.recovered.model.Player;
 
 public class C0113 extends JPanel {
    private JDialog ub;
-   private C0675 zz;
+   private Match zz;
    private int[] zA = new int[2];
    private int[] zB = new int[3];
    private Timer zC;
@@ -47,7 +48,7 @@ public class C0113 extends JPanel {
    private JLabel zR;
    private JTable zS;
 
-   public C0113(JDialog jDialog, C0675 c0675) {
+   public C0113(JDialog jDialog, Match c0675) {
       this.ub = jDialog;
       this.zz = c0675;
       this.mJ();

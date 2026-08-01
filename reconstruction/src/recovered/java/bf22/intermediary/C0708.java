@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
 import java.io.Serializable;
 
 public class C0708 implements Serializable {
@@ -8,7 +9,7 @@ public class C0708 implements Serializable {
    private int w = 0;
    private int dz = 0;
    private int bW = -1;
-   private C0713 Y = null;
+   private Competition Y = null;
 
    public int H() {
       return this.ae;
@@ -34,11 +35,11 @@ public class C0708 implements Serializable {
       this.dz = i;
    }
 
-   public C0713 gS() {
+   public Competition gS() {
       return this.Y;
    }
 
-   public void m(C0713 c0713) {
+   public void m(Competition c0713) {
       this.Y = c0713;
    }
 

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -36,7 +37,7 @@ public class C0614 extends DefaultTableCellRenderer {
                   super.setToolTipText(C0696.bl(var7.getPais()));
                   this.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + var7.getPais() + ".png")));
                } else {
-                  this.setText(C0710.aeH[var7.gg()]);
+                  this.setText(GameConstants.aeH[var7.gg()]);
                }
             }
          } else if (this.w == 2) {

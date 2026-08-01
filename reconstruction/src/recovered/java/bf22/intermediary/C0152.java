@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.util.TimerTask;
 
 class C0152 extends TimerTask {
@@ -11,6 +12,6 @@ class C0152 extends TimerTask {
    @Override
    public void run() {
       C0151.ph().cancel();
-      C0745.SR.V();
+      GamePersistence.SR.V();
    }
 }

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,8 +14,8 @@ public class C0804 extends JPanel {
    public C0804(String string) {
       this.mJ();
       this.uF.setText(string);
-      if (C0745.vM().getCorTema() == 2) {
-         this.uF.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      if (GamePersistence.vM().getCorTema() == 2) {
+         this.uF.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       }
    }
 

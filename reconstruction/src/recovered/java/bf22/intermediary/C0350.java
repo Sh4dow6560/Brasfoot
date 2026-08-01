@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -61,13 +65,13 @@ public class C0350 extends JPanel {
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
       if (this.w == 0) {
-         var1.addAll(C0745.afQ.Ap());
+         var1.addAll(GamePersistence.afQ.Ap());
          if (var1.size() == 0) {
-            C0745.afQ.zj();
-            var1.addAll(C0745.afQ.Ap());
+            GamePersistence.afQ.zj();
+            var1.addAll(GamePersistence.afQ.Ap());
          }
       } else {
-         var1.addAll(C0745.afQ.Aq());
+         var1.addAll(GamePersistence.afQ.Aq());
       }
 
       ArrayList var3 = new ArrayList();
@@ -159,9 +163,9 @@ public class C0350 extends JPanel {
             }
          }
       } else {
-         for (int var11 = 0; var11 < C0745.SR.N().size(); var11++) {
-            int var12 = ((C0692)C0745.SR.N().get(var11)).eb().size();
-            int var8 = ((C0692)C0745.SR.N().get(var11)).jc();
+         for (int var11 = 0; var11 < GamePersistence.SR.N().size(); var11++) {
+            int var12 = ((CountryCompetitions)GamePersistence.SR.N().get(var11)).eb().size();
+            int var8 = ((CountryCompetitions)GamePersistence.SR.N().get(var11)).jc();
 
             for (int var9 = 0; var9 < var12; var9++) {
                for (int var10 = 0; var10 < arrayList2.size(); var10++) {
@@ -219,7 +223,7 @@ public class C0350 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void Az() {
@@ -229,13 +233,13 @@ public class C0350 extends JPanel {
                this.Es.fg().kE();
             }
 
-            C0745.SR.a(this.Em, this.Em.ka(), this.Es);
+            GamePersistence.SR.a(this.Em, this.Em.ka(), this.Es);
             C0272.aQ(true);
             this.ub.dispose();
-            C0745.SR.g(true);
-            C0745.SR.ap();
+            GamePersistence.SR.g(true);
+            GamePersistence.SR.ap();
          } else {
-            C0692 var1 = C0745.SR.s(this.Em.getPais());
+            CountryCompetitions var1 = GamePersistence.SR.s(this.Em.getPais());
             if (var1 != null && this.Es != null) {
                var1.g(this.Es);
                C0272.aR(true);
@@ -322,7 +326,7 @@ public class C0350 extends JPanel {
 
    private void AA() {
       this.aeN.setCursor(new Cursor(3));
-      C0685.a(0, null);
+      MainWindow.a(0, null);
       this.aeN.setCursor(new Cursor(12));
    }
 

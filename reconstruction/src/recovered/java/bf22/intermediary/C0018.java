@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionSeasonResult;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -60,7 +64,7 @@ public class C0018 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void mH() {
@@ -68,19 +72,19 @@ public class C0018 extends JPanel {
    }
 
    private void mO() {
-      if (!C0745.SR.isJogaEstadual()) {
+      if (!GamePersistence.SR.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.SR.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaIntClubes()) {
+      if (!GamePersistence.SR.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -107,9 +111,9 @@ public class C0018 extends JPanel {
 
    private void cB(int i) {
       this.cA(i);
-      this.cS = C0713.a(i, true, 1);
-      if (i == 0 && C0745.SR.bW() != null && C0745.SR.bW().size() > 0) {
-         this.cS.add((C0713)C0745.SR.bW().get(0));
+      this.cS = Competition.a(i, true, 1);
+      if (i == 0 && GamePersistence.SR.bW() != null && GamePersistence.SR.bW().size() > 0) {
+         this.cS.add((Competition)GamePersistence.SR.bW().get(0));
       }
 
       this.va.removeAllItems();
@@ -121,12 +125,12 @@ public class C0018 extends JPanel {
 
    private void cC(int i) {
       if (this.cS.size() > 0) {
-         this.r((C0713)this.va.getSelectedItem());
+         this.r((Competition)this.va.getSelectedItem());
       }
    }
 
    private void nb() {
-      this.s((C0713)this.ue.getSelectedItem());
+      this.s((Competition)this.ue.getSelectedItem());
    }
 
    private void mQ() {
@@ -139,16 +143,16 @@ public class C0018 extends JPanel {
       this.ue.setPreferredSize(new Dimension(10, 25));
       this.ue.setRenderer(var2);
       this.ue.setMaximumRowCount(24);
-      if (C0745.SR.bW().size() > 0) {
-         for (int var3 = 0; var3 < C0745.SR.bW().size(); var3++) {
-            this.ue.addItem(C0745.SR.bW().get(var3));
+      if (GamePersistence.SR.bW().size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.SR.bW().size(); var3++) {
+            this.ue.addItem(GamePersistence.SR.bW().get(var3));
          }
       }
 
       this.ue.addActionListener(new C0026(this));
    }
 
-   private void r(C0713 c0713) {
+   private void r(Competition c0713) {
       if (c0713.b() == 11) {
          this.ue.setVisible(true);
          this.ue.setSelectedIndex(0);
@@ -158,14 +162,14 @@ public class C0018 extends JPanel {
       }
    }
 
-   private void s(C0713 c0713) {
+   private void s(Competition c0713) {
       this.vP.clear();
       int var2 = -1;
 
       for (int var3 = c0713.mn().size() - 1; var3 >= 0; var3--) {
-         if (c0713.mn().get(var3) != null && ((C0727)c0713.mn().get(var3)).H() != var2) {
-            this.vP.add(new C0796((C0727)c0713.mn().get(var3), -1, c0713.b()));
-            var2 = ((C0727)c0713.mn().get(var3)).H();
+         if (c0713.mn().get(var3) != null && ((CompetitionSeasonResult)c0713.mn().get(var3)).H() != var2) {
+            this.vP.add(new C0796((CompetitionSeasonResult)c0713.mn().get(var3), -1, c0713.b()));
+            var2 = ((CompetitionSeasonResult)c0713.mn().get(var3)).H();
          }
       }
 

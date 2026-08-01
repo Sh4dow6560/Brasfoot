@@ -690,33 +690,33 @@ c	best/E	bf22/intermediary/C0671	bf22/intermediary/C0671
 c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
-c	best/I	bf22/intermediary/C0675	bf22/intermediary/C0675
+c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	m	()Ljava/util/ArrayList;	if	method_kw_if	method_kw_if
 c	best/J	bf22/intermediary/C0676	bf22/intermediary/C0676
 c	best/K	bf22/intermediary/C0677	bf22/intermediary/C0677
-c	best/L	bf22/intermediary/C0678	bf22/intermediary/C0678
+c	best/L	bf22/intermediary/C0678	mod/recovered/competition/CompetitionStage
 c	best/M	bf22/intermediary/C0679	bf22/intermediary/C0679
 c	best/N	bf22/intermediary/C0680	bf22/intermediary/C0680
 c	best/O	bf22/intermediary/C0681	bf22/intermediary/C0681
 c	best/P	bf22/intermediary/C0682	bf22/intermediary/C0682
 c	best/Q	bf22/intermediary/C0683	bf22/intermediary/C0683
 c	best/R	bf22/intermediary/C0684	bf22/intermediary/C0684
-c	best/S	bf22/intermediary/C0685	bf22/intermediary/C0685
+c	best/S	bf22/intermediary/C0685	mod/recovered/ui/MainWindow
 c	best/T	bf22/intermediary/C0686	bf22/intermediary/C0686
 c	best/U	bf22/intermediary/C0687	bf22/intermediary/C0687
 c	best/V	bf22/intermediary/C0688	bf22/intermediary/C0688
 c	best/W	bf22/intermediary/C0689	bf22/intermediary/C0689
 c	best/X	bf22/intermediary/C0690	bf22/intermediary/C0690
 c	best/Y	bf22/intermediary/C0691	bf22/intermediary/C0691
-c	best/Z	bf22/intermediary/C0692	bf22/intermediary/C0692
+c	best/Z	bf22/intermediary/C0692	mod/recovered/competition/CountryCompetitions
 c	best/a	bf22/intermediary/C0693	bf22/intermediary/C0693
-c	best/aa	bf22/intermediary/C0694	bf22/intermediary/C0694
+c	best/aa	bf22/intermediary/C0694	mod/recovered/competition/CountryPlayerComparator
 	m	(Lbest/F;Lbest/F;)I	a	a	compare
-c	best/ab	bf22/intermediary/C0695	bf22/intermediary/C0695
+c	best/ab	bf22/intermediary/C0695	mod/recovered/competition/CountryRankingComparator
 	m	(Lbest/Z;Lbest/Z;)I	a	a	compare
 c	best/ac	bf22/intermediary/C0696	bf22/intermediary/C0696
 	f	Lbest/ac;	if	field_kw_if	field_kw_if
-c	best/ad	bf22/intermediary/C0697	bf22/intermediary/C0697
+c	best/ad	bf22/intermediary/C0697	mod/recovered/geo/CountryInfo
 c	best/ae	bf22/intermediary/C0698	bf22/intermediary/C0698
 c	best/af	bf22/intermediary/C0699	bf22/intermediary/C0699
 c	best/ag	bf22/intermediary/C0700	bf22/intermediary/C0700
@@ -730,31 +730,31 @@ c	best/am	bf22/intermediary/C0706	bf22/intermediary/C0706
 c	best/an	bf22/intermediary/C0707	bf22/intermediary/C0707
 c	best/ao	bf22/intermediary/C0708	bf22/intermediary/C0708
 c	best/ap	bf22/intermediary/C0709	bf22/intermediary/C0709
-c	best/aq	bf22/intermediary/C0710	bf22/intermediary/C0710
+c	best/aq	bf22/intermediary/C0710	mod/recovered/core/GameConstants
 	f	I	to	field_kw_to	field_kw_to
 c	best/ar	bf22/intermediary/C0711	bf22/intermediary/C0711
 c	best/as	bf22/intermediary/C0712	bf22/intermediary/C0712
-c	best/at	bf22/intermediary/C0713	bf22/intermediary/C0713
-c	best/au	bf22/intermediary/C0714	bf22/intermediary/C0714
+c	best/at	bf22/intermediary/C0713	mod/recovered/competition/Competition
+c	best/au	bf22/intermediary/C0714	mod/recovered/competition/CompetitionPlayerStatsComparator
 	m	(Lbest/c;Lbest/c;)I	a	a	compare
-c	best/av	bf22/intermediary/C0715	bf22/intermediary/C0715
+c	best/av	bf22/intermediary/C0715	mod/recovered/competition/CompetitionRatingComparator
 	m	(Lbest/X;Lbest/X;)I	a	a	compare
-c	best/aw	bf22/intermediary/C0716	bf22/intermediary/C0716
+c	best/aw	bf22/intermediary/C0716	mod/recovered/competition/CompetitionPerformanceComparator
 	m	(Lbest/e;Lbest/e;)I	a	a	compare
-c	best/ax	bf22/intermediary/C0717	bf22/intermediary/C0717
+c	best/ax	bf22/intermediary/C0717	mod/recovered/competition/CompetitionCoachComparator
 	m	(Lbest/an;Lbest/an;)I	a	a	compare
-c	best/ay	bf22/intermediary/C0718	bf22/intermediary/C0718
+c	best/ay	bf22/intermediary/C0718	mod/recovered/manager/CoachJobMarket
 c	best/b	bf22/intermediary/C0719	bf22/intermediary/C0719
-c	best/c	bf22/intermediary/C0720	bf22/intermediary/C0720
+c	best/c	bf22/intermediary/C0720	mod/recovered/competition/CompetitionPlayerStats
 c	best/d	bf22/intermediary/C0721	bf22/intermediary/C0721
 c	best/e	bf22/intermediary/C0722	bf22/intermediary/C0722
-c	best/f	bf22/intermediary/C0723	bf22/intermediary/C0723
-c	best/g	bf22/intermediary/C0724	bf22/intermediary/C0724
+c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
+c	best/g	bf22/intermediary/C0724	mod/recovered/game/CoachPerformanceComparator
 	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725
 	m	()V	do	method_kw_do	method_kw_do
 c	best/h2	bf22/intermediary/C0726	bf22/intermediary/C0726
-c	best/i	bf22/intermediary/C0727	bf22/intermediary/C0727
+c	best/i	bf22/intermediary/C0727	mod/recovered/competition/CompetitionSeasonResult
 c	best/j	bf22/intermediary/C0728	bf22/intermediary/C0728
 c	best/k	bf22/intermediary/C0729	bf22/intermediary/C0729
 c	best/l	bf22/intermediary/C0730	bf22/intermediary/C0730
@@ -777,8 +777,8 @@ c	best/x	bf22/intermediary/C0742	bf22/intermediary/C0742
 	m	(Lcomponents/aD;Lcomponents/aD;)I	a	a	compare
 c	best/y	bf22/intermediary/C0743	bf22/intermediary/C0743
 c	best/z	bf22/intermediary/C0744	bf22/intermediary/C0744
-c	c/a	bf22/intermediary/C0745	bf22/intermediary/C0745
-c	c/b	bf22/intermediary/C0746	bf22/intermediary/C0746
+c	c/a	bf22/intermediary/C0745	mod/recovered/save/GamePersistence
+c	c/b	bf22/intermediary/C0746	mod/recovered/match/MatchEngine
 c	components/A	bf22/intermediary/C0747	bf22/intermediary/C0747
 c	components/B	bf22/intermediary/C0748	bf22/intermediary/C0748
 c	components/C	bf22/intermediary/C0749	bf22/intermediary/C0749
@@ -1000,7 +1000,7 @@ c	f/C	bf22/intermediary/C0925	bf22/intermediary/C0925
 c	f/D	bf22/intermediary/C0926	bf22/intermediary/C0926
 c	f/E	bf22/intermediary/C0927	bf22/intermediary/C0927
 c	f/F	bf22/intermediary/C0928	bf22/intermediary/C0928
-c	f/G	bf22/intermediary/C0929	bf22/intermediary/C0929
+c	f/G	bf22/intermediary/C0929	mod/recovered/competition/KnockoutRound
 c	f/H	bf22/intermediary/C0930	bf22/intermediary/C0930
 c	f/I	bf22/intermediary/C0931	bf22/intermediary/C0931
 c	f/J	bf22/intermediary/C0932	bf22/intermediary/C0932
@@ -1026,14 +1026,14 @@ c	f/o	bf22/intermediary/C0951	bf22/intermediary/C0951
 c	f/p	bf22/intermediary/C0952	bf22/intermediary/C0952
 c	f/q	bf22/intermediary/C0953	bf22/intermediary/C0953
 c	f/r	bf22/intermediary/C0954	bf22/intermediary/C0954
-c	f/s	bf22/intermediary/C0955	bf22/intermediary/C0955
+c	f/s	bf22/intermediary/C0955	mod/recovered/competition/LeagueStage
 c	f/t	bf22/intermediary/C0956	bf22/intermediary/C0956
 c	f/u	bf22/intermediary/C0957	bf22/intermediary/C0957
 c	f/v	bf22/intermediary/C0958	bf22/intermediary/C0958
 c	f/w	bf22/intermediary/C0959	bf22/intermediary/C0959
 c	f/x	bf22/intermediary/C0960	bf22/intermediary/C0960
 c	f/y	bf22/intermediary/C0961	bf22/intermediary/C0961
-c	f/z	bf22/intermediary/C0962	bf22/intermediary/C0962
+c	f/z	bf22/intermediary/C0962	mod/recovered/competition/KnockoutStage
 c	forms/Randoms	bf22/intermediary/C0963	bf22/intermediary/C0963
 c	forms/a	bf22/intermediary/C0964	bf22/intermediary/C0964
 c	forms/b	bf22/intermediary/C0965	bf22/intermediary/C0965

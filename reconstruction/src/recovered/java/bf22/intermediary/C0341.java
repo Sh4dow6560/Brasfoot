@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -58,7 +59,7 @@ public class C0341 extends JPanel {
       if (var3) {
          this.zn.setCursor(new Cursor(3));
          this.ub.setCursor(new Cursor(3));
-         C0745.SR.d(var1);
+         GamePersistence.SR.d(var1);
          this.ub.dispose();
       }
    }

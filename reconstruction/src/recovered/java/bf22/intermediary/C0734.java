@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,61 +25,61 @@ public abstract class C0734 {
    private static int cO = 0;
 
    public static void dd() {
-      if (C0745.SR.aG().size() == 0) {
+      if (GamePersistence.SR.aG().size() == 0) {
          de();
       }
 
-      C0745.SR.bC = new ArrayList();
-      C0745.SR.bD = new int[C0696.jz()];
-      C0745.SR.bE = new int[C0710.rX.length];
+      GamePersistence.SR.bC = new ArrayList();
+      GamePersistence.SR.bD = new int[C0696.jz()];
+      GamePersistence.SR.bE = new int[GameConstants.rX.length];
       C0687.w(false);
-      Collections.sort(C0745.SR.bC, cN);
-      C0745.SR.bF = new ArrayList();
+      Collections.sort(GamePersistence.SR.bC, cN);
+      GamePersistence.SR.bF = new ArrayList();
       byte var0 = 10;
 
-      for (int var1 = 0; var1 < C0745.SR.bD.length; var1++) {
+      for (int var1 = 0; var1 < GamePersistence.SR.bD.length; var1++) {
          if (var1 != 3 && var1 != 11 && var1 != 97 && var1 != 104 && var1 != 72) {
             var0 = 10;
          } else {
             var0 = 16;
          }
 
-         if (C0745.SR.bD[var1] >= var0) {
+         if (GamePersistence.SR.bD[var1] >= var0) {
             C0681 var2 = new C0681();
             var2.setPais(var1);
-            var2.aX(C0745.SR.bD[var1]);
+            var2.aX(GamePersistence.SR.bD[var1]);
             var2.v(false);
-            C0745.SR.bF.add(var2);
+            GamePersistence.SR.bF.add(var2);
          }
       }
 
-      C0745.SR.bG = new ArrayList();
+      GamePersistence.SR.bG = new ArrayList();
       ds();
    }
 
    public static void de() {
-      C0745.SR.aG().clear();
+      GamePersistence.SR.aG().clear();
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
-         C0692 var1 = new C0692(var0);
-         C0745.SR.aG().add(var1);
+         CountryCompetitions var1 = new CountryCompetitions(var0);
+         GamePersistence.SR.aG().add(var1);
       }
    }
 
    public static void w(ArrayList arrayList) {
       for (int var1 = 0; var1 < arrayList.size(); var1++) {
          if (((C0681)arrayList.get(var1)).iC()) {
-            C0692 var2 = (C0692)C0745.SR.aG().get(((C0681)arrayList.get(var1)).getPais());
+            CountryCompetitions var2 = (CountryCompetitions)GamePersistence.SR.aG().get(((C0681)arrayList.get(var1)).getPais());
             var2.Ar();
-            C0745.SR.a(var2);
+            GamePersistence.SR.a(var2);
          }
       }
    }
 
    public static void df() {
-      for (int var0 = 0; var0 < C0745.SR.N().size(); var0++) {
-         if (((C0692)C0745.SR.N().get(var0)).jc() == 29) {
-            ((C0692)C0745.SR.N().get(var0)).ja();
+      for (int var0 = 0; var0 < GamePersistence.SR.N().size(); var0++) {
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var0)).jc() == 29) {
+            ((CountryCompetitions)GamePersistence.SR.N().get(var0)).ja();
          }
       }
    }
@@ -87,37 +90,37 @@ public abstract class C0734 {
       boolean var3 = false;
       int[] var4 = new int[C0696.jz()];
 
-      for (int var5 = 0; var5 < C0745.SR.bC.size(); var5++) {
-         var2 = ((C0915)C0745.SR.bC.get(var5)).getPais();
+      for (int var5 = 0; var5 < GamePersistence.SR.bC.size(); var5++) {
+         var2 = ((C0915)GamePersistence.SR.bC.get(var5)).getPais();
          if (var2 != null) {
-            if (C0745.SR.t(var2)) {
+            if (GamePersistence.SR.t(var2)) {
                var3 = true;
             } else {
                var3 = false;
             }
 
-            if (var4[((C0915)C0745.SR.bC.get(var5)).getPais()] < var1 || var3) {
-               new Club((C0915)C0745.SR.bC.get(var5));
-               var4[((C0915)C0745.SR.bC.get(var5)).getPais()]++;
+            if (var4[((C0915)GamePersistence.SR.bC.get(var5)).getPais()] < var1 || var3) {
+               new Club((C0915)GamePersistence.SR.bC.get(var5));
+               var4[((C0915)GamePersistence.SR.bC.get(var5)).getPais()]++;
             }
          }
       }
    }
 
    public static void dg() {
-      x(C0745.SR.bF);
+      x(GamePersistence.SR.bF);
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
-         C0692 var1 = (C0692)C0745.SR.aG().get(var0);
+         CountryCompetitions var1 = (CountryCompetitions)GamePersistence.SR.aG().get(var0);
          var1.iT();
       }
 
-      C0745.SR.cb();
-      C0745.SR.r(C0745.SR.op());
+      GamePersistence.SR.cb();
+      GamePersistence.SR.r(GamePersistence.SR.op());
       C0693.g();
       C0693.u();
-      w(C0745.SR.bF);
-      if (C0745.SR.bk() || C0745.SR.X()) {
+      w(GamePersistence.SR.bF);
+      if (GamePersistence.SR.bk() || GamePersistence.SR.X()) {
          int var2 = C0693.e(1);
          if (var2 > 0) {
             C0693.b(var2, 4, 1);
@@ -128,31 +131,31 @@ public abstract class C0734 {
       new C0679(false);
       dj();
 
-      for (int var3 = 0; var3 < C0745.SR.O().size(); var3++) {
-         ((Player)C0745.SR.O().get(var3)).fh();
+      for (int var3 = 0; var3 < GamePersistence.SR.O().size(); var3++) {
+         ((Player)GamePersistence.SR.O().get(var3)).fh();
       }
 
-      for (int var4 = 0; var4 < C0745.SR.Q().size(); var4++) {
-         ((Player)C0745.SR.Q().get(var4)).fh();
+      for (int var4 = 0; var4 < GamePersistence.SR.Q().size(); var4++) {
+         ((Player)GamePersistence.SR.Q().get(var4)).fh();
       }
 
-      for (int var5 = 0; var5 < C0745.SR.L().size(); var5++) {
-         ((Coach)C0745.SR.L().get(var5)).fh();
+      for (int var5 = 0; var5 < GamePersistence.SR.L().size(); var5++) {
+         ((Coach)GamePersistence.SR.L().get(var5)).fh();
       }
 
-      C0745.SR.aU();
-      C0745.SR.c(false);
-      if (C0745.SR.op() == 2023) {
-         C0745.SR.rU();
+      GamePersistence.SR.aU();
+      GamePersistence.SR.c(false);
+      if (GamePersistence.SR.op() == 2023) {
+         GamePersistence.SR.rU();
       }
 
-      C0745.afQ.zj();
-      if (C0745.SR.isJogaSelecoesAll()) {
-         C0745.SR.ab();
-         C0745.SR.ac();
+      GamePersistence.afQ.zj();
+      if (GamePersistence.SR.isJogaSelecoesAll()) {
+         GamePersistence.SR.ab();
+         GamePersistence.SR.ac();
       }
 
-      if (C0745.SR.isJogaIntClubes()) {
+      if (GamePersistence.SR.isJogaIntClubes()) {
          dm();
          dr();
          dq();
@@ -169,11 +172,11 @@ public abstract class C0734 {
          yM();
       }
 
-      if (!C0745.SR.bk() && !C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.bk() && !GamePersistence.SR.isJogaRegionais()) {
          df();
       }
 
-      Collections.sort(C0745.SR.P(), C1007.VS);
+      Collections.sort(GamePersistence.SR.P(), C1007.VS);
    }
 
    public static void dh() {
@@ -210,9 +213,9 @@ public abstract class C0734 {
       };
       Integer[][] var3 = new Integer[][]{{18, 25}, {10, 17, 22, 23}, {1, 4, 5, 9, 14, 15, 16, 19, 24}, {0, 2, 3, 6, 7, 8, 11, 12, 13, 20, 21, 26}};
 
-      for (int var4 = 0; var4 < C0745.SR.P().size(); var4++) {
-         if (((Club)C0745.SR.P().get(var4)).getPais() == 29) {
-            int var5 = ((Club)C0745.SR.P().get(var4)).getEstado();
+      for (int var4 = 0; var4 < GamePersistence.SR.P().size(); var4++) {
+         if (((Club)GamePersistence.SR.P().get(var4)).getPais() == 29) {
+            int var5 = ((Club)GamePersistence.SR.P().get(var4)).getEstado();
             if (Arrays.asList(var3[0]).contains(var5)) {
                var1[0]++;
             } else if (Arrays.asList(var3[1]).contains(var5)) {
@@ -227,25 +230,25 @@ public abstract class C0734 {
 
       new ArrayList();
       ArrayList var7 = di();
-      boolean[] var8 = C0745.SR.getJogaRegionaisTodos();
+      boolean[] var8 = GamePersistence.SR.getJogaRegionaisTodos();
 
       for (int var6 = 0; var6 < 4; var6++) {
          if (var8[var6] && var1[var6] >= 16) {
-            C0745.SR.a(new C0928(var6, var7), var6);
+            GamePersistence.SR.a(new C0928(var6, var7), var6);
             var0 = true;
          }
       }
 
-      C0745.SR.setJogaRegionais(var0);
+      GamePersistence.SR.setJogaRegionais(var0);
    }
 
    public static ArrayList di() {
       ArrayList var0 = new ArrayList();
       ArrayList var1 = new ArrayList();
-      C0692 var2 = C0745.SR.o(29);
+      CountryCompetitions var2 = GamePersistence.SR.o(29);
       if (var2 != null) {
-         if (C0745.vM().isConviteRegionais() && C0745.SR.aN().size() == 1 && ((Club)C0745.SR.aN().get(0)).getPais() == 29) {
-            var0.add((Club)C0745.SR.aN().get(0));
+         if (GamePersistence.vM().isConviteRegionais() && GamePersistence.SR.aN().size() == 1 && ((Club)GamePersistence.SR.aN().get(0)).getPais() == 29) {
+            var0.add((Club)GamePersistence.SR.aN().get(0));
          }
 
          for (int var3 = 0; var3 < var2.eb().size(); var3++) {
@@ -256,17 +259,17 @@ public abstract class C0734 {
             }
          }
 
-         if (C0745.SR.H() > 1 && C0745.SR.bx().size() > 0 && C0745.SR.bk() && var2.eb().size() == 4) {
-            for (int var5 = 0; var5 < C0745.SR.bx().size(); var5++) {
-               if (!var0.contains(var0.add(((C0779)C0745.SR.bx().get(var5)).vD()))) {
-                  var0.add(((C0779)C0745.SR.bx().get(var5)).vD());
+         if (GamePersistence.SR.H() > 1 && GamePersistence.SR.bx().size() > 0 && GamePersistence.SR.bk() && var2.eb().size() == 4) {
+            for (int var5 = 0; var5 < GamePersistence.SR.bx().size(); var5++) {
+               if (!var0.contains(var0.add(((C0779)GamePersistence.SR.bx().get(var5)).vD()))) {
+                  var0.add(((C0779)GamePersistence.SR.bx().get(var5)).vD());
                }
             }
          }
 
-         for (int var6 = 0; var6 < C0745.SR.P().size(); var6++) {
-            if (((Club)C0745.SR.P().get(var6)).getPais() == 29 && !var0.contains(C0745.SR.P().get(var6)) && !var1.contains(C0745.SR.P().get(var6))) {
-               var1.add((Club)C0745.SR.P().get(var6));
+         for (int var6 = 0; var6 < GamePersistence.SR.P().size(); var6++) {
+            if (((Club)GamePersistence.SR.P().get(var6)).getPais() == 29 && !var0.contains(GamePersistence.SR.P().get(var6)) && !var1.contains(GamePersistence.SR.P().get(var6))) {
+               var1.add((Club)GamePersistence.SR.P().get(var6));
             }
          }
 
@@ -278,63 +281,63 @@ public abstract class C0734 {
    }
 
    private static void dj() {
-      for (int var0 = 0; var0 < C0745.SR.P().size(); var0++) {
-         ((Club)C0745.SR.P().get(var0)).bX(var0);
+      for (int var0 = 0; var0 < GamePersistence.SR.P().size(); var0++) {
+         ((Club)GamePersistence.SR.P().get(var0)).bX(var0);
       }
 
-      C0745.SR.w(C0745.SR.P().size());
+      GamePersistence.SR.w(GamePersistence.SR.P().size());
    }
 
    private static void dk() {
-      C0745.SR.a(new C0957());
-      C0745.SR.aL().yq();
+      GamePersistence.SR.a(new C0957());
+      GamePersistence.SR.aL().yq();
    }
 
    private static void dl() {
-      C0745.SR.a(new C0961());
-      C0745.SR.aQ().yq();
+      GamePersistence.SR.a(new C0961());
+      GamePersistence.SR.aQ().yq();
    }
 
    private static void dm() {
-      C0745.SR.a(new C0959());
-      C0745.SR.aP().yq();
+      GamePersistence.SR.a(new C0959());
+      GamePersistence.SR.aP().yq();
    }
 
    private static void dn() {
-      C0745.SR.a(new C0956());
-      C0745.SR.aO().yq();
+      GamePersistence.SR.a(new C0956());
+      GamePersistence.SR.aO().yq();
    }
 
    private static void method_kw_do() {
-      C0745.SR.a(new C0930());
-      C0745.SR.aH().yq();
+      GamePersistence.SR.a(new C0930());
+      GamePersistence.SR.aH().yq();
    }
 
    private static void dp() {
-      C0745.SR.a(new C0960());
-      C0745.SR.aK().yq();
+      GamePersistence.SR.a(new C0960());
+      GamePersistence.SR.aK().yq();
    }
 
    private static void yM() {
-      C0745.SR.a(new C0932());
-      C0745.SR.mj().yq();
-      C0745.SR.mj().setNome("Conference League");
+      GamePersistence.SR.a(new C0932());
+      GamePersistence.SR.mj().yq();
+      GamePersistence.SR.mj().setNome("Conference League");
    }
 
    private static void dq() {
-      C0745.SR.a(new C0958());
-      C0745.SR.aI().setNome(C0679.getString("ligaC"));
-      C0745.SR.aI().yq();
+      GamePersistence.SR.a(new C0958());
+      GamePersistence.SR.aI().setNome(C0679.getString("ligaC"));
+      GamePersistence.SR.aI().yq();
    }
 
    private static void dr() {
-      C0745.SR.a(new C0954());
-      C0745.SR.aF().setNome(C0679.getString("lib"));
-      C0745.SR.aF().yq();
+      GamePersistence.SR.a(new C0954());
+      GamePersistence.SR.aF().setNome(C0679.getString("lib"));
+      GamePersistence.SR.aF().yq();
    }
 
    public static void ds() {
-      C0745.SR.bG.clear();
+      GamePersistence.SR.bG.clear();
       File var0 = new File(System.getProperty("user.dir") + "/conf_ligas_nacionais");
       File[] var1 = var0.listFiles(new C0736());
       if (var1 != null) {
@@ -365,7 +368,7 @@ public abstract class C0734 {
 
    public static void a(NationalLeagueConfigs nationalLeagueConfigs) {
       for (int var1 = 0; var1 < nationalLeagueConfigs.leagues.size(); var1++) {
-         C0745.SR.bG.add((NationalLeagueConfig)nationalLeagueConfigs.leagues.get(var1));
+         GamePersistence.SR.bG.add((NationalLeagueConfig)nationalLeagueConfigs.leagues.get(var1));
       }
    }
 
@@ -378,17 +381,17 @@ public abstract class C0734 {
 
       ArrayList var8 = new ArrayList();
 
-      for (int var4 = 0; var4 < C0745.SR.bG.size(); var4++) {
-         if (((NationalLeagueConfig)C0745.SR.bG.get(var4)).getPais() == i) {
-            var8.add((NationalLeagueConfig)C0745.SR.bG.get(var4));
+      for (int var4 = 0; var4 < GamePersistence.SR.bG.size(); var4++) {
+         if (((NationalLeagueConfig)GamePersistence.SR.bG.get(var4)).getPais() == i) {
+            var8.add((NationalLeagueConfig)GamePersistence.SR.bG.get(var4));
          }
       }
 
       for (int var9 = 0; var9 < var8.size(); var9++) {
-         C0745.SR.bG.remove(var8.get(var9));
+         GamePersistence.SR.bG.remove(var8.get(var9));
       }
 
-      C0745.SR.bG.addAll(var2.leagues);
+      GamePersistence.SR.bG.addAll(var2.leagues);
       String var10 = C0696.valueOf("P" + Integer.toString(i)).jA() + ".cfg";
 
       try {
@@ -414,7 +417,7 @@ public abstract class C0734 {
 
       var3.setPais(j);
       var3.setDivisao(k);
-      C0745.SR.bG.add(var3);
+      GamePersistence.SR.bG.add(var3);
    }
 
    public static boolean dt() {

@@ -1,11 +1,14 @@
-package bf22.intermediary;
+package mod.recovered.competition;
 
+import bf22.intermediary.*;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.io.Serializable;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
 
-public class C0727 implements Serializable {
+public class CompetitionSeasonResult implements Serializable {
    private static final long serialVersionUID = 1L;
    private int ae;
    private int bQ = -1;
@@ -16,11 +19,11 @@ public class C0727 implements Serializable {
    private int bU = -1;
    private int bV = -1;
 
-   public C0727() {
+   public CompetitionSeasonResult() {
    }
 
-   public C0727(C0713 c0713, C0678 c0678, Club club, Club club2) {
-      this.ae = C0745.SR.H();
+   public CompetitionSeasonResult(Competition c0713, CompetitionStage c0678, Club club, Club club2) {
+      this.ae = GamePersistence.SR.H();
       if (club != null) {
          this.bQ = club.lk();
       }
@@ -38,7 +41,7 @@ public class C0727 implements Serializable {
       }
 
       int var5 = 0;
-      C0720 var6 = null;
+      CompetitionPlayerStats var6 = null;
       var6 = c0713.mu();
       c0713.mn().add(this);
       if (c0713 != null) {
@@ -63,7 +66,7 @@ public class C0727 implements Serializable {
       }
 
       if (club != null && club.jZ() && c0713 != null) {
-         C0685.a(club, c0713, var5);
+         MainWindow.a(club, c0713, var5);
       }
 
       if (var5 == 1 && c0713 instanceof C0924) {
@@ -76,11 +79,11 @@ public class C0727 implements Serializable {
    }
 
    public Club ce() {
-      return this.bQ >= 0 ? C0745.SR.x(this.bQ) : null;
+      return this.bQ >= 0 ? GamePersistence.SR.x(this.bQ) : null;
    }
 
    public Club cf() {
-      return this.bR >= 0 ? C0745.SR.x(this.bR) : null;
+      return this.bR >= 0 ? GamePersistence.SR.x(this.bR) : null;
    }
 
    public String cg() {
@@ -88,7 +91,7 @@ public class C0727 implements Serializable {
    }
 
    public Club ch() {
-      return this.bT >= 0 ? C0745.SR.x(this.bT) : null;
+      return this.bT >= 0 ? GamePersistence.SR.x(this.bT) : null;
    }
 
    public int y() {
@@ -96,10 +99,10 @@ public class C0727 implements Serializable {
    }
 
    public Coach ci() {
-      return this.bU == -1 ? null : C0745.SR.y(this.bU);
+      return this.bU == -1 ? null : GamePersistence.SR.y(this.bU);
    }
 
    public Coach cj() {
-      return this.bV == -1 ? null : C0745.SR.y(this.bV);
+      return this.bV == -1 ? null : GamePersistence.SR.y(this.bV);
    }
 }

@@ -1,17 +1,22 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import mod.recovered.config.LeagueLoadOptions;
 import mod.recovered.model.Club;
 
-public class C0940 extends C0713 implements Serializable {
+public class C0940 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0955 YD = null;
+   private LeagueStage YD = null;
    private ArrayList YE = new ArrayList();
    private ArrayList YF = new ArrayList();
-   private C0692 YG = null;
+   private CountryCompetitions YG = null;
    private int YH = 0;
 
    public void xZ() {
@@ -40,7 +45,7 @@ public class C0940 extends C0713 implements Serializable {
 
       for (int var3 = 0; var3 <= 1; var3++) {
          if (var1[var3] > 0) {
-            C0692.a(false, var2[var3], var1[var3], this.YE, false, null);
+            CountryCompetitions.a(false, var2[var3], var1[var3], this.YE, false, null);
          }
       }
 
@@ -48,8 +53,8 @@ public class C0940 extends C0713 implements Serializable {
          ArrayList var8 = new ArrayList();
 
          for (int var4 = 0; var4 < this.YE.size(); var4++) {
-            var8.add(((C0692)this.YE.get(var4)).jo());
-            ((C0692)this.YE.get(var4)).z(true);
+            var8.add(((CountryCompetitions)this.YE.get(var4)).jo());
+            ((CountryCompetitions)this.YE.get(var4)).z(true);
          }
 
          Collections.sort(this.YF, C1007.cN);
@@ -66,10 +71,10 @@ public class C0940 extends C0713 implements Serializable {
          var6.numeroTimesMataMata = 4;
          var6.doisTurnos = false;
          var6.duasVoltasMataMata = var10;
-         C0955 var7 = new C0955(var6, this.YF, 0, null, null, null, 7, null, false, null, true, this);
+         LeagueStage var7 = new LeagueStage(var6, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var7;
          var7.setNome(this.getNome());
-         C0745.afQ.L(this.YF);
+         GamePersistence.afQ.L(this.YF);
       }
    }
 
@@ -126,18 +131,18 @@ public class C0940 extends C0713 implements Serializable {
       return var5;
    }
 
-   public C0692 yb() {
+   public CountryCompetitions yb() {
       int var1 = this.YH - 1;
       var1 %= 10;
       int[] var2 = new int[]{11, 60, 46, 29, 195, 150, 26, 198, 42, 151};
-      return var1 >= 0 && var1 < var2.length ? C0745.SR.s(var2[var1]) : null;
+      return var1 >= 0 && var1 < var2.length ? GamePersistence.SR.s(var2[var1]) : null;
    }
 
-   public C0955 yd() {
+   public LeagueStage yd() {
       return this.YD;
    }
 
-   public void p(C0955 c0955) {
+   public void p(LeagueStage c0955) {
       this.YD = c0955;
    }
 
@@ -153,10 +158,10 @@ public class C0940 extends C0713 implements Serializable {
    }
 
    @Override
-   public C0678[] mB() {
-      C0678[] var1 = new C0678[]{this.YD};
+   public CompetitionStage[] mB() {
+      CompetitionStage[] var1 = new CompetitionStage[]{this.YD};
       if (this.YD.yZ()) {
-         C0678[] var2 = new C0678[]{this.YD.yY()};
+         CompetitionStage[] var2 = new CompetitionStage[]{this.YD.yY()};
          var1 = var2;
       }
 
@@ -166,9 +171,9 @@ public class C0940 extends C0713 implements Serializable {
    @Override
    public ArrayList mC() {
       ArrayList var1 = new ArrayList();
-      C0678[] var2 = new C0678[]{this.YD};
+      CompetitionStage[] var2 = new CompetitionStage[]{this.YD};
       var1.add(new C0830(var2, "Fase de Grupos"));
-      C0678[] var3 = new C0678[]{this.YD.yY()};
+      CompetitionStage[] var3 = new CompetitionStage[]{this.YD.yY()};
       var1.add(new C0830(var3, "Fase Final"));
       return var1;
    }

@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -58,7 +62,7 @@ public class C0395 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void s(Player player) {
@@ -93,7 +97,7 @@ public class C0395 extends JPanel {
 
    public void rQ() {
       if (this.zu != null && this.Af != null) {
-         C0685.a(this.zu, this.Af, this.yp);
+         MainWindow.a(this.zu, this.Af, this.yp);
       }
    }
 
@@ -143,7 +147,7 @@ public class C0395 extends JPanel {
       if (this.zi.BD.getSelectedIndex() > 0) {
          String var5 = (String)this.zi.BD.getSelectedItem();
          int var7 = C0732.h(var5);
-         var1.bC(((C0697)C0732.cY().get(var7)).getPais());
+         var1.bC(((CountryInfo)C0732.cY().get(var7)).getPais());
       }
 
       var1.bD(this.zi.Qu.getSelectedIndex() - 1);
@@ -186,7 +190,7 @@ public class C0395 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 45, 120, 120, 20, 20, 50, 50, 45, 35, 25, 20, 20};
       int[] var3 = new int[]{20, 50, 110, 100, 20, 20, 20, 20, 20, 20, 20, 20, 50, 50, 45, 35, 25, 15, 15};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -213,7 +217,7 @@ public class C0395 extends JPanel {
       var5.setComparator(2, C1007.abk);
       var5.setComparator(3, C1007.abl);
       var5.setComparator(4, C1007.aba);
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          var5.setComparator(5, C1007.aaJ);
          var5.setComparator(6, C1007.aaZ);
          var5.setComparator(7, C1007.aaW);

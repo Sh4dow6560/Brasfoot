@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -126,7 +130,7 @@ public class C0818 extends JPanel {
       this.OM.setForeground(this.Oy.qp().kB());
    }
 
-   public void a(Player player, C0675 c0675, C0713 c0713, boolean bl) {
+   public void a(Player player, Match c0675, Competition c0713, boolean bl) {
       String var5 = player.fQ();
       String var6 = "Contrato até:";
       if (player.gl()) {
@@ -134,7 +138,7 @@ public class C0818 extends JPanel {
       }
 
       String var7 = "";
-      if (player.fP() && player.fo() > ((C0693)C0745.SR.R().get(C0745.SR.J())).a().getTime().getTime()) {
+      if (player.fP() && player.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
          var7 = "Fim contusão: " + C0693.a(player.fo());
       }
 
@@ -169,9 +173,9 @@ public class C0818 extends JPanel {
       ImageIcon var11 = new ImageIcon(this.getClass().getResource("/aflags/" + player.getPais() + ".png"));
       this.uF.setIcon(var11);
       this.uF.setText(player.getNome());
-      this.OT.setText(C0710.rH[player.getPosicao()] + " - Lado " + C0710.rL[player.getLado()] + " - " + Integer.toString(player.getIdade()) + " anos");
+      this.OT.setText(GameConstants.rH[player.getPosicao()] + " - Lado " + GameConstants.rL[player.getLado()] + " - " + Integer.toString(player.getIdade()) + " anos");
       this.OM.setText("F:" + Integer.toString(player.fi()));
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          this.OM.setVisible(false);
       }
 

@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionPlayerStats;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -66,23 +70,23 @@ public class C0554 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mO() {
-      if (!C0745.SR.isJogaEstadual()) {
+      if (!GamePersistence.SR.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaRegionais()) {
+      if (!GamePersistence.SR.isJogaRegionais()) {
          this.vi.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.SR.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaIntClubes()) {
+      if (!GamePersistence.SR.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -109,7 +113,7 @@ public class C0554 extends JPanel {
 
    private void cB(int i) {
       this.cA(i);
-      this.cS = C0713.a(i, false, 0);
+      this.cS = Competition.a(i, false, 0);
       this.va.removeAllItems();
 
       for (int var2 = 0; var2 < this.cS.size(); var2++) {
@@ -119,7 +123,7 @@ public class C0554 extends JPanel {
 
    private void cC(int i) {
       if (this.cS.size() > 0) {
-         this.a((C0713)this.va.getSelectedItem(), false);
+         this.a((Competition)this.va.getSelectedItem(), false);
       }
    }
 
@@ -131,12 +135,12 @@ public class C0554 extends JPanel {
       this.va.addActionListener(new C0561(this));
    }
 
-   private void a(C0713 c0713, boolean bl) {
+   private void a(Competition c0713, boolean bl) {
       this.uK.clear();
       c0713.mv();
       if (c0713 != null) {
          for (int var3 = 0; var3 < c0713.ms().size(); var3++) {
-            this.uK.add(new C0721((C0720)c0713.ms().get(var3)));
+            this.uK.add(new C0721((CompetitionPlayerStats)c0713.ms().get(var3)));
          }
       }
 
@@ -146,21 +150,21 @@ public class C0554 extends JPanel {
    private void mR() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0745.SR.O().size(); var2++) {
-         if (((Player)C0745.SR.O().get(var2)).gy() > 0) {
+      for (int var2 = 0; var2 < GamePersistence.SR.O().size(); var2++) {
+         if (((Player)GamePersistence.SR.O().get(var2)).gy() > 0) {
             var1.add(
                new C0721(
-                  ((Player)C0745.SR.O().get(var2)).getNome(),
-                  ((Player)C0745.SR.O().get(var2)).fg(),
-                  ((Player)C0745.SR.O().get(var2)).gy(),
-                  ((Player)C0745.SR.O().get(var2)).gz()
+                  ((Player)GamePersistence.SR.O().get(var2)).getNome(),
+                  ((Player)GamePersistence.SR.O().get(var2)).fg(),
+                  ((Player)GamePersistence.SR.O().get(var2)).gy(),
+                  ((Player)GamePersistence.SR.O().get(var2)).gz()
                )
             );
          }
       }
 
-      for (int var3 = 0; var3 < C0745.SR.bJ().size(); var3++) {
-         var1.add(new C0721(((C0719)C0745.SR.bJ().get(var3)).getN(), null, ((C0719)C0745.SR.bJ().get(var3)).v(), ((C0719)C0745.SR.bJ().get(var3)).w()));
+      for (int var3 = 0; var3 < GamePersistence.SR.bJ().size(); var3++) {
+         var1.add(new C0721(((C0719)GamePersistence.SR.bJ().get(var3)).getN(), null, ((C0719)GamePersistence.SR.bJ().get(var3)).v(), ((C0719)GamePersistence.SR.bJ().get(var3)).w()));
       }
 
       Collections.sort(var1, uV);

@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -22,7 +27,7 @@ import mod.recovered.model.Club;
 
 public class C0102 extends JPanel {
    private JFrame Br;
-   private C0692 Bs;
+   private CountryCompetitions Bs;
    private Club zu;
    private Club Bt;
    private JComboBox[] Bu = null;
@@ -62,18 +67,18 @@ public class C0102 extends JPanel {
       JLabel[] var3 = new JLabel[]{this.BH, this.BI, this.BJ, this.BK};
       this.Bv = var3;
 
-      for (int var4 = 0; var4 < C0745.SR.N().size(); var4++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var4)).jp());
+      for (int var4 = 0; var4 < GamePersistence.SR.N().size(); var4++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var4)).jp());
       }
 
       C0037 var8 = new C0037();
       var8.setPreferredSize(new Dimension(10, 25));
       this.ue.setRenderer(var8);
       this.ue.setMaximumRowCount(12);
-      this.Bs = (C0692)C0745.SR.N().get(0);
+      this.Bs = (CountryCompetitions)GamePersistence.SR.N().get(0);
 
       for (int var5 = 0; var5 < C0696.jz(); var5++) {
-         this.BD.addItem(((C0697)C0732.cY().get(var5)).getNome());
+         this.BD.addItem(((CountryInfo)C0732.cY().get(var5)).getNome());
       }
 
       C0037 var9 = new C0037();
@@ -98,7 +103,7 @@ public class C0102 extends JPanel {
       this.Bu[3].addActionListener(new C0161(this));
       this.Bw.addActionListener(new C0162(this));
       this.Bx.addActionListener(new C0163(this));
-      if (C0745.vL()) {
+      if (GamePersistence.vL()) {
          this.ug.setText("");
       } else {
          this.By.setSelected(false);
@@ -137,7 +142,7 @@ public class C0102 extends JPanel {
    }
 
    private void om() {
-      if (!C0745.vL()) {
+      if (!GamePersistence.vL()) {
          JOptionPane.showMessageDialog(null, "Somente na versão registrada é possível jogarcom mais de um técnico humano.", "Técnicos humanos", 2);
       } else {
          String var1 = this.oo();
@@ -176,7 +181,7 @@ public class C0102 extends JPanel {
       int var1 = -1;
       var1 = JOptionPane.showConfirmDialog(null, "Deseja criar um torneio Amistoso de início de temporada? ", "Torneio Amistoso", 0);
       if (var1 == 0) {
-         C0685.aY(10);
+         MainWindow.aY(10);
       } else {
          this.AB();
       }
@@ -184,19 +189,19 @@ public class C0102 extends JPanel {
 
    public void AB() {
       this.Bw.setCursor(new Cursor(3));
-      C0745.SR.az();
-      C0745.SR.V();
+      GamePersistence.SR.az();
+      GamePersistence.SR.V();
    }
 
    public void oq() {
       String var1 = this.oo();
-      C0745.SR.i(true);
+      GamePersistence.SR.i(true);
       if (count >= 100000) {
          if (var1 == null) {
             this.or();
          }
 
-         if (C0745.SR.isJogaRegionais()) {
+         if (GamePersistence.SR.isJogaRegionais()) {
             C0734.dh();
          }
 
@@ -204,7 +209,7 @@ public class C0102 extends JPanel {
       } else if (var1 == null) {
          this.or();
          this.Bw.setCursor(new Cursor(3));
-         if (C0745.SR.isJogaRegionais()) {
+         if (GamePersistence.SR.isJogaRegionais()) {
             C0734.dh();
          }
 
@@ -223,7 +228,7 @@ public class C0102 extends JPanel {
    }
 
    public void os() {
-      this.Bs = (C0692)C0745.SR.N().get(this.ue.getSelectedIndex());
+      this.Bs = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
       this.ot();
    }
 
@@ -253,7 +258,7 @@ public class C0102 extends JPanel {
          this.cX(var2);
       }
 
-      if (C0745.vL()) {
+      if (GamePersistence.vL()) {
          if (this.Bu[0].getItemCount() > 0) {
             this.cW(0);
          } else if (this.Bu[1].getItemCount() > 0) {
@@ -302,7 +307,7 @@ public class C0102 extends JPanel {
       Collections.sort(((C0924)this.Bs.eb().get(i)).yi().yK(), C1007.VS);
       int var2 = 0;
       boolean var3 = true;
-      if (i == 3 && this.Bs.jc() == 29 && C0745.SR.isJogaEstadual() && C0745.SR.bk()) {
+      if (i == 3 && this.Bs.jc() == 29 && GamePersistence.SR.isJogaEstadual() && GamePersistence.SR.bk()) {
          var3 = false;
       }
 
@@ -361,7 +366,7 @@ public class C0102 extends JPanel {
       this.BM = new JLabel();
       this.BN = new JLabel();
       this.By = new JCheckBox();
-      this.setBackground(C0710.os);
+      this.setBackground(GameConstants.os);
       this.a_.setFont(new Font("Tahoma", 1, 24));
       this.a_.setForeground(new Color(255, 255, 102));
       this.a_.setHorizontalAlignment(0);
@@ -417,7 +422,7 @@ public class C0102 extends JPanel {
       this.BN.setForeground(new Color(255, 255, 255));
       this.BN.setHorizontalAlignment(2);
       this.BN.setText("Time selecionado:");
-      this.By.setBackground(C0710.os);
+      this.By.setBackground(GameConstants.os);
       this.By.setFont(new Font("Tahoma", 0, 14));
       this.By.setForeground(new Color(255, 255, 255));
       this.By.setText("Escolher um time aleatório");

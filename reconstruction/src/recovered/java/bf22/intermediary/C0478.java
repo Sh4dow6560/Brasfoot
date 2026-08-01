@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +12,8 @@ class C0478 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      C0745.SR.setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
-      C0745.vM().setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
-      C0745.vJ();
+      GamePersistence.SR.setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
+      GamePersistence.vM().setUsarGruposReaisCopa(C0419.h(this.MA).isSelected());
+      GamePersistence.vJ();
    }
 }

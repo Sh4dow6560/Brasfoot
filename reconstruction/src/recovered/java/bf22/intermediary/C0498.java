@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,7 +18,7 @@ import mod.recovered.model.Player;
 
 public class C0498 extends JPanel {
    private JDialog ub;
-   private C0692 vt = null;
+   private CountryCompetitions vt = null;
    private C0924 vu = null;
    private int w;
    private JLabel Az = new JLabel();
@@ -32,7 +34,7 @@ public class C0498 extends JPanel {
    private JLabel vf;
    private JLayeredPane MH;
 
-   public C0498(JDialog jDialog, C0924 c0924, C0692 c0692, int i) {
+   public C0498(JDialog jDialog, C0924 c0924, CountryCompetitions c0692, int i) {
       this.ub = jDialog;
       this.vu = c0924;
       this.vt = c0692;
@@ -51,7 +53,7 @@ public class C0498 extends JPanel {
       }
 
       if (this.vt == null) {
-         this.vt = (C0692)C0745.SR.N().get(0);
+         this.vt = (CountryCompetitions)GamePersistence.SR.N().get(0);
       }
 
       if (this.vu == null) {
@@ -68,9 +70,9 @@ public class C0498 extends JPanel {
    public void mW() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < C0745.SR.N().size(); var2++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var2)).jp());
-         if (this.vt == C0745.SR.N().get(var2)) {
+      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
+         if (this.vt == GamePersistence.SR.N().get(var2)) {
             var1 = var2;
          }
       }
@@ -89,8 +91,8 @@ public class C0498 extends JPanel {
             this.MG.addItem(Integer.toString(var5 + 1) + " ª rodada");
          }
       } else {
-         for (int var6 = 0; var6 < C0745.SR.H(); var6++) {
-            this.MG.addItem(Integer.toString(var6 + C0745.SR.op()));
+         for (int var6 = 0; var6 < GamePersistence.SR.H(); var6++) {
+            this.MG.addItem(Integer.toString(var6 + GamePersistence.SR.op()));
          }
       }
 
@@ -105,8 +107,8 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (C0745.SR.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(C0745.SR.H() - 1);
+      } else if (GamePersistence.SR.H() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.SR.H() - 1);
       }
    }
 
@@ -179,13 +181,13 @@ public class C0498 extends JPanel {
          if (this.vu != null && this.vu.yi().zb() - 2 < this.MG.getItemCount()) {
             this.MG.setSelectedIndex(this.vu.yi().zb() - 2);
          }
-      } else if (C0745.SR.H() - 1 < this.MG.getItemCount()) {
-         this.MG.setSelectedIndex(C0745.SR.H() - 1);
+      } else if (GamePersistence.SR.H() - 1 < this.MG.getItemCount()) {
+         this.MG.setSelectedIndex(GamePersistence.SR.H() - 1);
       }
    }
 
    private void mU() {
-      this.vt = (C0692)C0745.SR.N().get(this.ue.getSelectedIndex());
+      this.vt = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
       this.vv.removeAllItems();
 
       for (int var1 = 0; var1 < this.vt.eb().size(); var1++) {

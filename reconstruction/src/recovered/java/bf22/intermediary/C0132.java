@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -37,7 +41,7 @@ public class C0132 extends JPanel {
    private ArrayList AE = new ArrayList();
    private ArrayList AF = new ArrayList();
    private Club zu;
-   private C0675 bv;
+   private Match bv;
    private static C0132 AG;
    private ImageIcon AH = new ImageIcon(this.getClass().getResource("/aicons/camisav.png"));
    private ImageIcon AI = new ImageIcon(this.getClass().getResource("/aicons/camisag.png"));
@@ -105,7 +109,7 @@ public class C0132 extends JPanel {
       jComponent.getActionMap().put("st", new C0081(this));
    }
 
-   public C0132(JDialog jDialog, Club club, C0675 c0675, boolean bl) {
+   public C0132(JDialog jDialog, Club club, Match c0675, boolean bl) {
       this.ub = jDialog;
       this.zu = club;
       this.AV = bl;
@@ -127,7 +131,7 @@ public class C0132 extends JPanel {
 
       this.mJ();
       this.Bf.setMaximumRowCount(14);
-      this.Be.setSelected(C0745.SR.bm());
+      this.Be.setSelected(GamePersistence.SR.bm());
       ImageIcon var5 = new ImageIcon(this.getClass().getResource("/aicons/alpha.png"));
       this.Ay = new JLabel();
       this.Ay.setIcon(var5);
@@ -158,9 +162,9 @@ public class C0132 extends JPanel {
    }
 
    private void ob() {
-      if (this.bv.dX() < C0710.pb.length) {
-         this.Bm.setText(C0710.pb[this.bv.dX()]);
-         this.Bl.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + C0710.pc[this.bv.dX()] + ".png")));
+      if (this.bv.dX() < GameConstants.pb.length) {
+         this.Bm.setText(GameConstants.pb[this.bv.dX()]);
+         this.Bl.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + GameConstants.pc[this.bv.dX()] + ".png")));
       }
    }
 
@@ -182,10 +186,10 @@ public class C0132 extends JPanel {
    }
 
    public void od() {
-      String[] var1 = C0710.rB;
-      String[] var2 = C0710.rC;
-      String[] var3 = C0710.rD;
-      String[] var4 = C0710.rE;
+      String[] var1 = GameConstants.rB;
+      String[] var2 = GameConstants.rC;
+      String[] var3 = GameConstants.rD;
+      String[] var4 = GameConstants.rE;
 
       for (int var5 = 0; var5 < var2.length; var5++) {
          this.Bg.addItem(var2[var5]);
@@ -425,7 +429,7 @@ public class C0132 extends JPanel {
       }
 
       for (int var2 = 0; var2 <= 10; var2++) {
-         ((C0795)this.AE.get(C0710.sJ[4][var2])).ej(var2);
+         ((C0795)this.AE.get(GameConstants.sJ[4][var2])).ej(var2);
       }
 
       for (int var3 = 26; var3 <= 36; var3++) {
@@ -439,7 +443,7 @@ public class C0132 extends JPanel {
       }
 
       for (int var3 = 0; var3 <= 10; var3++) {
-         ((C0795)this.AE.get(C0710.sJ[i][var3])).ej(var3);
+         ((C0795)this.AE.get(GameConstants.sJ[i][var3])).ej(var3);
       }
 
       for (int var4 = 26; var4 <= 36; var4++) {
@@ -511,7 +515,7 @@ public class C0132 extends JPanel {
          Collections.sort(var7, C1007.abh);
 
          for (int var8 = 0; var8 < 11; var8++) {
-            int var4 = C0710.sJ[i][var8];
+            int var4 = GameConstants.sJ[i][var8];
             Player var5 = Club.a(var7, var4, false, false);
             if (var5 != null) {
                ((C0795)this.AE.get(var4)).h(this.AL);
@@ -523,8 +527,8 @@ public class C0132 extends JPanel {
 
          int var9 = 26;
 
-         for (int var11 = 0; var11 < C0710.sI.length; var11++) {
-            Player var14 = Club.a(var7, C0710.sI[var11], true, false);
+         for (int var11 = 0; var11 < GameConstants.sI.length; var11++) {
+            Player var14 = Club.a(var7, GameConstants.sI[var11], true, false);
             if (var14 != null) {
                ((C0795)this.AE.get(var9)).h(this.AL);
                ((C0795)this.AE.get(var9)).a(var14);
@@ -640,12 +644,12 @@ public class C0132 extends JPanel {
       }
 
       this.zu.I(true);
-      if (C0745.SR.getAutoSalvar() > 0) {
-         C0685.iF().rt();
+      if (GamePersistence.SR.getAutoSalvar() > 0) {
+         MainWindow.iF().rt();
       }
 
       this.ub.dispose();
-      C0745.SR.ap();
+      GamePersistence.SR.ap();
    }
 
    public void oj() {

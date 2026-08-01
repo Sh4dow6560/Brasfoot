@@ -1,8 +1,9 @@
-package bf22.intermediary;
+package mod.recovered.competition;
 
+import bf22.intermediary.*;
 import java.io.Serializable;
 
-public class C0678 implements Serializable {
+public class CompetitionStage implements Serializable {
    private static final long serialVersionUID = 1L;
    private String nome = null;
    private int w = 0;
@@ -31,7 +32,7 @@ public class C0678 implements Serializable {
       return -1;
    }
 
-   public C0692 iq() {
+   public CountryCompetitions iq() {
       return null;
    }
 

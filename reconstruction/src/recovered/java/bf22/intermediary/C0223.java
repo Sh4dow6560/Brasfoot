@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -43,7 +45,7 @@ public class C0223 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void mH() {
@@ -99,7 +101,7 @@ public class C0223 extends JPanel {
    public void pI() {
       int[] var1 = new int[6];
       if (this.CY != null) {
-         this.ug.setText(this.CY.getNome() + " (" + C0710.rI[this.CY.getPosicao()] + ")");
+         this.ug.setText(this.CY.getNome() + " (" + GameConstants.rI[this.CY.getPosicao()] + ")");
          ImageIcon var2 = new ImageIcon(this.getClass().getResource("/aflags/" + this.CY.getPais() + ".png"));
          this.ug.setIcon(var2);
          this.Fj.clear();

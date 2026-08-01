@@ -1,5 +1,12 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -30,9 +37,9 @@ public class C0054 extends JPanel {
    private ArrayList vT = new ArrayList();
    private ArrayList vU = new ArrayList();
    private ArrayList vV = new ArrayList();
-   private C0955 vW = null;
-   private C0713 vX = null;
-   private C0962 vY = null;
+   private LeagueStage vW = null;
+   private Competition vX = null;
+   private KnockoutStage vY = null;
    private ImageIcon uL = new ImageIcon(this.getClass().getResource("/aiconsb/b0.png"));
    private ImageIcon uM = new ImageIcon(this.getClass().getResource("/aiconsb/b1.png"));
    private ImageIcon uN = new ImageIcon(this.getClass().getResource("/aiconsb/b2.png"));
@@ -43,7 +50,7 @@ public class C0054 extends JPanel {
    private ImageIcon uT = new ImageIcon(this.getClass().getResource("/aiconsb/b3s.png"));
    private int vZ = -1;
    private int wa = -1;
-   private C0713 wb = null;
+   private Competition wb = null;
    private String wc = "";
    private int wd = 0;
    private JButton uW;
@@ -70,7 +77,7 @@ public class C0054 extends JPanel {
    private JTable wp;
    private JTable vN;
 
-   public void t(C0713 c0713) {
+   public void t(Competition c0713) {
       this.vS.clear();
       this.vV.clear();
       this.vX = c0713;
@@ -109,7 +116,7 @@ public class C0054 extends JPanel {
                var2 = this.vW.yX();
             }
 
-            this.vY = new C0962(this.vW, var2, this.vW.b(), 0, this.vW.getDuasVoltasMataMata(), this.vX, -1);
+            this.vY = new KnockoutStage(this.vW, var2, this.vW.b(), 0, this.vW.getDuasVoltasMataMata(), this.vX, -1);
          }
       }
 
@@ -128,12 +135,12 @@ public class C0054 extends JPanel {
             this.wa = i;
          }
 
-         int var5 = C0710.ps.length - 1 - var17;
+         int var5 = GameConstants.ps.length - 1 - var17;
          int var6 = var5 + this.wa;
          int var7 = 1;
-         String var8 = C0710.pu[var6];
+         String var8 = GameConstants.pu[var6];
          if (var4) {
-            var8 = C0710.pu[0];
+            var8 = GameConstants.pu[0];
          }
 
          if (this.wa < this.vY.zp().size()) {
@@ -142,7 +149,7 @@ public class C0054 extends JPanel {
             int[] var9 = new int[]{64, 32, 16, 8, 4, 2, 1};
             String var10;
             if (var6 >= 1) {
-               var10 = "vencedor " + C0710.pu[var6 - 1];
+               var10 = "vencedor " + GameConstants.pu[var6 - 1];
             } else {
                var10 = "vencedor ";
             }
@@ -176,9 +183,9 @@ public class C0054 extends JPanel {
          }
 
          if (var4) {
-            this.wm.setText(C0710.ps[0]);
+            this.wm.setText(GameConstants.ps[0]);
          } else {
-            this.wm.setText(C0710.ps[var5 + this.wa]);
+            this.wm.setText(GameConstants.ps[var5 + this.wa]);
          }
 
          this.nd();
@@ -196,26 +203,26 @@ public class C0054 extends JPanel {
    }
 
    private void y(String string) {
-      for (int var2 = 0; var2 < ((C0929)this.vY.zp().get(this.wa)).zW().size(); var2++) {
+      for (int var2 = 0; var2 < ((KnockoutRound)this.vY.zp().get(this.wa)).zW().size(); var2++) {
          C0809 var3 = new C0809();
          var3.ai(true);
          this.vT.add(var3);
          C0809 var4 = new C0809();
-         var4.l((C0675)((C0929)this.vY.zp().get(this.wa)).zW().get(var2));
+         var4.l((Match)((KnockoutRound)this.vY.zp().get(this.wa)).zW().get(var2));
          var4.ah(true);
          var4.E(string + Integer.toString(var2 + 1));
          this.vT.add(var4);
          C0809 var5 = new C0809();
-         var5.l((C0675)((C0929)this.vY.zp().get(this.wa)).zW().get(var2));
+         var5.l((Match)((KnockoutRound)this.vY.zp().get(this.wa)).zW().get(var2));
          this.vT.add(var5);
-         if (((C0929)this.vY.zp().get(this.wa)).hO()) {
-            var4.m((C0675)((C0929)this.vY.zp().get(this.wa)).zX().get(var2));
-            var5.m((C0675)((C0929)this.vY.zp().get(this.wa)).zX().get(var2));
+         if (((KnockoutRound)this.vY.zp().get(this.wa)).hO()) {
+            var4.m((Match)((KnockoutRound)this.vY.zp().get(this.wa)).zX().get(var2));
+            var5.m((Match)((KnockoutRound)this.vY.zp().get(this.wa)).zX().get(var2));
          }
       }
    }
 
-   private void h(C0955 c0955) {
+   private void h(LeagueStage c0955) {
       int[] var2 = new int[8];
       int[] var3 = new int[8];
       String var4 = "";
@@ -332,10 +339,10 @@ public class C0054 extends JPanel {
          this.wm.setVisible(false);
       }
 
-      for (int var18 = 0; var18 < C0745.SR.R().size(); var18++) {
-         for (int var21 = 0; var21 < ((C0693)C0745.SR.R().get(var18)).t().size(); var21++) {
-            if (((C0693)C0745.SR.R().get(var18)).t().get(var21) == this.vX) {
-               this.vV.add((C0693)C0745.SR.R().get(var18));
+      for (int var18 = 0; var18 < GamePersistence.SR.R().size(); var18++) {
+         for (int var21 = 0; var21 < ((C0693)GamePersistence.SR.R().get(var18)).t().size(); var21++) {
+            if (((C0693)GamePersistence.SR.R().get(var18)).t().get(var21) == this.vX) {
+               this.vV.add((C0693)GamePersistence.SR.R().get(var18));
                break;
             }
          }
@@ -456,7 +463,7 @@ public class C0054 extends JPanel {
       this.nc();
       this.ne();
       if (this.cS.size() > 0) {
-         this.t((C0713)this.va.getSelectedItem());
+         this.t((Competition)this.va.getSelectedItem());
       }
    }
 
@@ -469,15 +476,15 @@ public class C0054 extends JPanel {
    }
 
    private void mO() {
-      if (!C0745.SR.isJogaEstadual()) {
+      if (!GamePersistence.SR.isJogaEstadual()) {
          this.uW.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaSelecoesAll()) {
+      if (!GamePersistence.SR.isJogaSelecoesAll()) {
          this.uZ.setVisible(false);
       }
 
-      if (!C0745.SR.isJogaIntClubes()) {
+      if (!GamePersistence.SR.isJogaIntClubes()) {
          this.uX.setVisible(false);
       }
    }
@@ -503,7 +510,7 @@ public class C0054 extends JPanel {
 
    private void cB(int i) {
       this.cA(i);
-      this.cS = C0713.a(i, false, 0);
+      this.cS = Competition.a(i, false, 0);
       this.va.removeAllItems();
 
       for (int var2 = 0; var2 < this.cS.size(); var2++) {

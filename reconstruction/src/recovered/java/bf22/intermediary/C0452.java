@@ -1,5 +1,9 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -113,10 +117,10 @@ public class C0452 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.wf.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-      this.wh.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
-      this.ve.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.wf.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.wh.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
+      this.ve.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
    }
 
    private void mY() {
@@ -221,7 +225,7 @@ public class C0452 extends JPanel {
    }
 
    private void sA() {
-      if (!C0745.vL()) {
+      if (!GamePersistence.vL()) {
          JOptionPane.showMessageDialog(this.ub, "Apenas na versão registrada é possível fazer oferta em qualquer jogador.", "Oferta", 2);
       } else if (C0730.d(this.sE(), this.ul)) {
          if (this.sE().fg() == this.ul) {
@@ -252,7 +256,7 @@ public class C0452 extends JPanel {
 
    private void rw() {
       this.Ie.setCursor(new Cursor(3));
-      C0685.v(this.uk);
+      MainWindow.v(this.uk);
       this.Ie.setCursor(new Cursor(12));
    }
 
@@ -333,9 +337,9 @@ public class C0452 extends JPanel {
       this.uw.getSelectionModel().setSelectionMode(1);
       this.uw.addTreeSelectionListener(new C0457(this));
 
-      for (int var1 = 0; var1 < C0745.SR.P().size(); var1++) {
-         if (!((Club)C0745.SR.P().get(var1)).kn()) {
-            this.um.add((Club)C0745.SR.P().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.SR.P().size(); var1++) {
+         if (!((Club)GamePersistence.SR.P().get(var1)).kn()) {
+            this.um.add((Club)GamePersistence.SR.P().get(var1));
             Collections.sort(this.um, C1007.VS);
          }
       }
@@ -360,13 +364,13 @@ public class C0452 extends JPanel {
       DefaultMutableTreeNode var3 = null;
       MutableTreeNode var4 = null;
 
-      for (int var5 = 0; var5 < C0745.SR.N().size(); var5++) {
-         var2 = new DefaultMutableTreeNode(((C0692)C0745.SR.N().get(var5)).jp());
+      for (int var5 = 0; var5 < GamePersistence.SR.N().size(); var5++) {
+         var2 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).jp());
          defaultMutableTreeNode.add(var2);
 
-         for (int var6 = 0; var6 < ((C0692)C0745.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               String var7 = ((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).getNome();
+         for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
+            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               String var7 = ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome();
                if (var7.length() > 39) {
                   var7 = var7.substring(0, 39) + "...";
                }
@@ -374,7 +378,7 @@ public class C0452 extends JPanel {
                var3 = new DefaultMutableTreeNode(var7);
                var2.add(var3);
                ArrayList var8 = new ArrayList();
-               var8.addAll(((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK());
+               var8.addAll(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK());
                Collections.sort(var8, C1007.VS);
 
                for (int var9 = 0; var9 < var8.size(); var9++) {
@@ -384,11 +388,11 @@ public class C0452 extends JPanel {
             }
          }
 
-         if (((C0692)C0745.SR.N().get(var5)).ek().size() > 0) {
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size() > 0) {
             var3 = new DefaultMutableTreeNode("Regionais");
             var2.add(var3);
             ArrayList var18 = new ArrayList();
-            var18.addAll(((C0692)C0745.SR.N().get(var5)).ek());
+            var18.addAll(((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek());
             Collections.sort(var18, C1007.VS);
 
             for (int var19 = 0; var19 < var18.size(); var19++) {
@@ -420,17 +424,17 @@ public class C0452 extends JPanel {
    private void sF() {
       int[] var1 = new int[6];
       if (this.yK != null) {
-         this.MO.setText(this.yK.getNome() + " - " + C0710.rI[this.yK.getPosicao()]);
+         this.MO.setText(this.yK.getNome() + " - " + GameConstants.rI[this.yK.getPosicao()]);
          ImageIcon var2 = new ImageIcon(this.getClass().getResource("/aflags/" + this.yK.getPais() + ".png"));
          this.MO.setIcon(var2);
          var1 = this.yK.gw();
          String var3 = "";
-         if (this.yK.fP() && this.yK.fo() > ((C0693)C0745.SR.R().get(C0745.SR.J())).a().getTime().getTime()) {
+         if (this.yK.fP() && this.yK.fo() > ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).a().getTime().getTime()) {
             var3 = "Fim contusão: " + C0693.a(this.yK.fo());
          }
 
          String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.fi()) + "&nbsp;&nbsp;&nbsp;";
-         if (C0745.SR.isHabilidadeIndividual()) {
+         if (GamePersistence.SR.isHabilidadeIndividual()) {
             var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;";
          }
 
@@ -456,9 +460,9 @@ public class C0452 extends JPanel {
             + ClubFinances.c(this.yK.fj())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
             + "<b>"
-            + C0710.qM[this.yK.getCr1()]
+            + GameConstants.qM[this.yK.getCr1()]
             + "/"
-            + C0710.qM[this.yK.getCr2()]
+            + GameConstants.qM[this.yK.getCr2()]
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
             + "<b></b>&nbsp; <br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
             + "<b>"
@@ -501,7 +505,7 @@ public class C0452 extends JPanel {
       this.zj.setModel(var1);
       int[] var2 = new int[]{20, 20, 45, 120, 20, 20, 50, 50, 45, 35, 25, 25, 20, 20};
       int[] var3 = new int[]{20, 20, 20, 110, 20, 25, 25, 25, 25, 25, 25, 25, 50, 50, 60, 45, 25, 22, 20, 20};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          var2 = var3;
       }
 
@@ -527,7 +531,7 @@ public class C0452 extends JPanel {
       var5.setComparator(2, C1007.cL);
       var5.setComparator(3, C1007.abk);
       var5.setComparator(4, C1007.aba);
-      if (!C0745.SR.isHabilidadeIndividual()) {
+      if (!GamePersistence.SR.isHabilidadeIndividual()) {
          var5.setComparator(5, C1007.aaJ);
          var5.setComparator(6, C1007.aaZ);
          var5.setComparator(7, C1007.aaW);
@@ -604,13 +608,13 @@ public class C0452 extends JPanel {
          this.MS.setText("interino");
       }
 
-      this.MR.setText(C0710.pZ[this.uk.getReputacao()]);
+      this.MR.setText(GameConstants.pZ[this.uk.getReputacao()]);
       this.Fq.setIcon(this.uk.kP());
       this.MQ.setText(C0696.valueOf("P" + this.uk.getPais()).getNome());
       ImageIcon var1 = new ImageIcon(this.getClass().getResource("/aflags/" + this.uk.getPais() + ".png"));
       this.MQ.setIcon(var1);
       if (this.uk.getPais() == 29) {
-         this.MQ.setText(C0696.valueOf("P" + this.uk.getPais()).getNome() + " (" + C0710.rX[this.uk.getEstado()] + ")");
+         this.MQ.setText(C0696.valueOf("P" + this.uk.getPais()).getNome() + " (" + GameConstants.rX[this.uk.getEstado()] + ")");
       } else {
          this.MM.setVisible(false);
       }

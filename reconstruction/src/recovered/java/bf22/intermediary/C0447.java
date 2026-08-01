@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -19,7 +24,7 @@ public class C0447 extends JPanel {
    private JDialog ub;
    private Club uk = null;
    private JPanel xb = null;
-   private C0692 Lu = null;
+   private CountryCompetitions Lu = null;
    private ArrayList Lv = new ArrayList();
    private int xh = 0;
    private int xi = 0;
@@ -32,7 +37,7 @@ public class C0447 extends JPanel {
    public C0447(JDialog jDialog, Club club) {
       this.uk = club;
       this.ub = jDialog;
-      this.Lu = C0745.SR.s(club.getPais());
+      this.Lu = GamePersistence.SR.s(club.getPais());
       this.mJ();
       if (club != null) {
          this.ug.setIcon(club.x(30, 30));
@@ -47,39 +52,39 @@ public class C0447 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
       this.ut.setBorder(BorderFactory.createEmptyBorder());
    }
 
    private String h(int i, int j, int k) {
       String var4 = "";
-      var4 = C0710.tz[i];
-      C0713 var5 = null;
+      var4 = GameConstants.tz[i];
+      Competition var5 = null;
       int var6 = this.uk.getPais();
       if (i == 9) {
          if (j == 70) {
             var4 = "Classificatório Eurocopa";
          } else {
-            var4 = C0710.tz[i];
+            var4 = GameConstants.tz[i];
          }
       } else if (i == 1 && j == 1098) {
-         var4 = C0710.abX[0];
+         var4 = GameConstants.abX[0];
       } else if (i == 1) {
-         var4 = C0697.bu(var6) + " (" + Integer.toString(k) + "ª div.)";
+         var4 = CountryInfo.bu(var6) + " (" + Integer.toString(k) + "ª div.)";
       } else if (i == 2) {
-         var4 = "Copa " + C0697.bq(var6) + " " + C0696.bl(var6);
+         var4 = "Copa " + CountryInfo.bq(var6) + " " + C0696.bl(var6);
       } else if (i == 3) {
-         if (j >= 0 && j < C0710.rZ.length) {
-            var4 = C0710.rZ[j] + " (" + Integer.toString(k) + "ª div.)";
+         if (j >= 0 && j < GameConstants.rZ.length) {
+            var4 = GameConstants.rZ[j] + " (" + Integer.toString(k) + "ª div.)";
          } else {
             var4 = var4 + " (" + Integer.toString(k) + "ª div.)";
          }
       } else if (i == 4 || i == 6 || i == 12) {
-         var5 = C0745.SR.c(i, j);
+         var5 = GamePersistence.SR.c(i, j);
       } else if (i == 10) {
-         var4 = C0710.pY[j];
+         var4 = GameConstants.pY[j];
       } else if (i == 7) {
-         var4 = C0710.aeF[j];
+         var4 = GameConstants.aeF[j];
       }
 
       return var5 != null ? var5.getNome() : var4;
@@ -105,7 +110,7 @@ public class C0447 extends JPanel {
          var3 = new C0805(0, null, this);
       }
 
-      this.xb.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.xb.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
       this.xb.add(var3, new C0775(0, this.xh, 690, 25));
       this.Lw.add(var3);
       this.xh = this.xh + 26 + var4;
@@ -127,10 +132,10 @@ public class C0447 extends JPanel {
       ArrayList var1 = new ArrayList();
       int var2 = this.uk.lk();
 
-      for (int var3 = 0; var3 < C0745.SR.L().size(); var3++) {
-         for (int var4 = 0; var4 < ((Coach)C0745.SR.L().get(var3)).lO().size(); var4++) {
-            if (((C0728)((Coach)C0745.SR.L().get(var3)).lO().get(var4)).ct() == var2) {
-               var1.add(new C0449(this, ((C0728)((Coach)C0745.SR.L().get(var3)).lO().get(var4)).H(), ((Coach)C0745.SR.L().get(var3)).dS()));
+      for (int var3 = 0; var3 < GamePersistence.SR.L().size(); var3++) {
+         for (int var4 = 0; var4 < ((Coach)GamePersistence.SR.L().get(var3)).lO().size(); var4++) {
+            if (((C0728)((Coach)GamePersistence.SR.L().get(var3)).lO().get(var4)).ct() == var2) {
+               var1.add(new C0449(this, ((C0728)((Coach)GamePersistence.SR.L().get(var3)).lO().get(var4)).H(), ((Coach)GamePersistence.SR.L().get(var3)).dS()));
             }
          }
       }

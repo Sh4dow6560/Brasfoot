@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -96,15 +97,15 @@ public class C0878 extends AbstractTableModel implements TableModelListener {
       } else if (j == 2) {
          return var3.getNome();
       } else if (j == 3) {
-         return C0710.rH[var3.getPosicao()];
+         return GameConstants.rH[var3.getPosicao()];
       } else if (j == 4) {
          return Integer.toString(var3.getPais());
       } else if (j == 5) {
          return var3.getIdade();
       } else if (j == 6) {
-         return C0710.qN[var3.getCr1()] + "/" + C0710.qN[var3.getCr2()];
+         return GameConstants.qN[var3.getCr1()] + "/" + GameConstants.qN[var3.getCr2()];
       } else {
-         return j == 7 ? C0710.rK[var3.getLado()] : null;
+         return j == 7 ? GameConstants.rK[var3.getLado()] : null;
       }
    }
 

@@ -1,6 +1,6 @@
 package mod.recovered.config;
 
-import bf22.intermediary.C0710;
+import mod.recovered.core.GameConstants;
 import java.io.Serializable;
 
 public class StateLeagueConfig implements Serializable {
@@ -14,7 +14,7 @@ public class StateLeagueConfig implements Serializable {
   private int[] finaisIdaVolta = new int[]{2, 2, 2};
 
   public int getnTimes() {
-    return C0710.sL[formula][0];
+    return GameConstants.sL[formula][0];
   }
 
   public StateLeagueConfig(int id, int divisao) {
@@ -97,7 +97,7 @@ public class StateLeagueConfig implements Serializable {
   }
 
   public void setFormula(int formula) {
-    this.formula = formula < C0710.sL.length ? formula : 0;
+    this.formula = formula < GameConstants.sL.length ? formula : 0;
   }
 
   public int getnRebaixados() {

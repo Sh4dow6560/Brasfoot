@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -32,17 +34,17 @@ public class C0493 extends JPanel {
       this.mJ();
       this.mH();
       this.mS();
-      this.uh.setText(Integer.toString(C0745.SR.M().size()));
+      this.uh.setText(Integer.toString(GamePersistence.SR.M().size()));
       if (this.MD.getRowCount() > 0) {
          this.MD.setRowSelectionInterval(0, 0);
-         this.Es = (Coach)C0745.SR.M().get(0);
+         this.Es = (Coach)GamePersistence.SR.M().get(0);
       }
 
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    public void mH() {
@@ -52,7 +54,7 @@ public class C0493 extends JPanel {
    }
 
    private void mI() {
-      if (C0745.SR.M().size() < 20) {
+      if (GamePersistence.SR.M().size() < 20) {
          JDialog var1 = new JDialog(this.ub);
          C0027 var2 = new C0027(var1);
          var1.add(var2);
@@ -64,7 +66,7 @@ public class C0493 extends JPanel {
          var1.setUndecorated(true);
          var1.setVisible(true);
          this.MD.addNotify();
-         this.uh.setText(Integer.toString(C0745.SR.M().size()));
+         this.uh.setText(Integer.toString(GamePersistence.SR.M().size()));
       } else {
          JOptionPane.showMessageDialog(this.ub, "Limite de técnicos atingido.", "Adicionar", 2);
       }
@@ -73,7 +75,7 @@ public class C0493 extends JPanel {
    private void nB() {
       if (this.MD.getSelectedRowCount() > 0) {
          int var1 = this.MD.getSelectedRow();
-         this.Es = (Coach)C0745.SR.M().get(var1);
+         this.Es = (Coach)GamePersistence.SR.M().get(var1);
          if (this.Es.fg() != null) {
             JOptionPane.showMessageDialog(this.ub, "Para remover um técnico é necessário antes demiti-lo do time.", "Remover técnico", 2);
          } else {
@@ -87,11 +89,11 @@ public class C0493 extends JPanel {
          }
       }
 
-      this.uh.setText(Integer.toString(C0745.SR.M().size()));
+      this.uh.setText(Integer.toString(GamePersistence.SR.M().size()));
    }
 
    private void mS() {
-      C0584 var1 = new C0584(C0745.SR.M());
+      C0584 var1 = new C0584(GamePersistence.SR.M());
       this.MD.setModel(var1);
       int[] var2 = new int[]{120, 120};
 

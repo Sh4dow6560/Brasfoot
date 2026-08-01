@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +12,8 @@ class C0424 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      C0745.SR.setSalarioMensal(C0419.g(this.MA).isSelected());
-      C0745.vM().setSalarioMensal(C0419.g(this.MA).isSelected());
-      C0745.vJ();
+      GamePersistence.SR.setSalarioMensal(C0419.g(this.MA).isSelected());
+      GamePersistence.vM().setSalarioMensal(C0419.g(this.MA).isSelected());
+      GamePersistence.vJ();
    }
 }

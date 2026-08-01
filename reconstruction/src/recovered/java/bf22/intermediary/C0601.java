@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -23,7 +24,7 @@ public class C0601 extends DefaultTableCellRenderer {
             this.setIcon(var7.fS());
          } else if (j == 1) {
             this.setHorizontalAlignment(0);
-            this.setText(C0710.rI[var7.getPosicao()]);
+            this.setText(GameConstants.rI[var7.getPosicao()]);
          } else if (j == 2) {
             this.setHorizontalAlignment(2);
             String var8 = C0696.valueOf("P" + var7.getPais()).jA();
@@ -39,7 +40,7 @@ public class C0601 extends DefaultTableCellRenderer {
 
          if (j == 5) {
             this.setHorizontalAlignment(0);
-            this.setText(C0710.rK[var7.getLado()]);
+            this.setText(GameConstants.rK[var7.getLado()]);
          } else if (j == 6) {
             return var7.go();
          }
@@ -68,7 +69,7 @@ public class C0601 extends DefaultTableCellRenderer {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/e5.png")));
             }
          } else if (j == 8) {
-            this.setText(C0710.qN[var7.getCr1()] + "/" + C0710.qN[var7.getCr2()]);
+            this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 9) {
             this.setText(ClubFinances.a(var7.fk(), 0));
          } else if (j == 10) {

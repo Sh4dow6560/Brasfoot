@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.geo.CountryInfo;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -359,8 +361,8 @@ public class C0865 extends JPanel {
          this.Vu.setSelectedItem(15);
       }
 
-      for (int var5 = 0; var5 < C0710.pZ.length; var5++) {
-         this.Vv.addItem(C0710.pZ[var5]);
+      for (int var5 = 0; var5 < GameConstants.pZ.length; var5++) {
+         this.Vv.addItem(GameConstants.pZ[var5]);
       }
 
       if (!this.Ud) {
@@ -370,7 +372,7 @@ public class C0865 extends JPanel {
       }
 
       for (int var6 = 0; var6 < C0696.jz(); var6++) {
-         this.Vw.addItem(((C0697)C0732.cY().get(var6)).getNome());
+         this.Vw.addItem(((CountryInfo)C0732.cY().get(var6)).getNome());
       }
 
       C0858 var7 = new C0858();
@@ -379,7 +381,7 @@ public class C0865 extends JPanel {
       this.Vw.setMaximumRowCount(10);
 
       for (int var2 = 0; var2 < C0696.jz(); var2++) {
-         this.ue.addItem(((C0697)C0732.cY().get(var2)).getNome());
+         this.ue.addItem(((CountryInfo)C0732.cY().get(var2)).getNome());
       }
 
       if (!this.Ud) {
@@ -403,7 +405,7 @@ public class C0865 extends JPanel {
       this.Vt.setRenderer(var3);
       this.Vt.setMaximumRowCount(10);
 
-      for (int var4 = 0; var4 < C0710.rX.length; var4++) {
+      for (int var4 = 0; var4 < GameConstants.rX.length; var4++) {
          this.Vt.addItem(var4);
       }
 

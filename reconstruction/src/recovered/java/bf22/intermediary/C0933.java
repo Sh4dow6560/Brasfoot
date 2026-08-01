@@ -1,16 +1,20 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import mod.recovered.model.Club;
 
-public class C0933 extends C0713 implements Serializable {
+public class C0933 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
    private Club agg = null;
    private Club agh = null;
    private String agi = null;
-   private C0962 aac = null;
+   private KnockoutStage aac = null;
    private int YH = 0;
    String[] agj = new String[]{"Buenos Aires", "Rio de Janeiro", "São Paulo", "Santiago", "Lima", "Belo Horizonte", "Motevidéu", "Quito", "Bogotá"};
    int[] agk = new int[]{11, 29, 29, 42, 151, 29, 195, 60, 46};
@@ -30,8 +34,8 @@ public class C0933 extends C0713 implements Serializable {
          boolean[] var2 = new boolean[7];
          var1.add(this.agg);
          var1.add(this.agh);
-         this.aac = new C0962(null, var1.size(), 13, 0, var2, this, -1);
-         C0929 var3 = new C0929();
+         this.aac = new KnockoutStage(null, var1.size(), 13, 0, var2, this, -1);
+         KnockoutRound var3 = new KnockoutRound();
          var3.a(this.aac, var1, 0, var2[0], 0, 0, 13, false);
          this.YH++;
 
@@ -85,8 +89,8 @@ public class C0933 extends C0713 implements Serializable {
    }
 
    @Override
-   public C0678[] mB() {
-      return new C0678[]{this.aac};
+   public CompetitionStage[] mB() {
+      return new CompetitionStage[]{this.aac};
    }
 
    @Override
@@ -95,7 +99,7 @@ public class C0933 extends C0713 implements Serializable {
    }
 
    @Override
-   public String[] b(C0678 c0678) {
+   public String[] b(CompetitionStage c0678) {
       return this.aac.zB();
    }
 

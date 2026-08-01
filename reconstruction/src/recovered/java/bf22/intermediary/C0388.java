@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -37,7 +39,7 @@ public class C0388 extends JFrame {
       this.afx.setCursor(new Cursor(12));
       this.afw.setCursor(new Cursor(12));
       this.mH();
-      if (C0745.vL()) {
+      if (GamePersistence.vL()) {
          this.rO();
       }
 
@@ -55,7 +57,7 @@ public class C0388 extends JFrame {
    private void pW() {
       C0732.b(this);
       C0732.g("Metal");
-      C0685.cX();
+      MainWindow.cX();
    }
 
    private void rN() {
@@ -72,13 +74,13 @@ public class C0388 extends JFrame {
    }
 
    private void mi() {
-      new C0745();
+      new GamePersistence();
       C0734.dd();
       C0732.g("Metal");
       if (C0732.db() == null) {
-         new C0685(true);
+         new MainWindow(true);
       } else {
-         C0685.aY(0);
+         MainWindow.aY(0);
       }
 
       this.dispose();
@@ -86,10 +88,10 @@ public class C0388 extends JFrame {
 
    private void rP() {
       if (C0732.db() == null) {
-         new C0685(false);
-         C0685.aY(7);
+         new MainWindow(false);
+         MainWindow.aY(7);
       } else {
-         C0685.aY(7);
+         MainWindow.aY(7);
       }
 
       this.dispose();

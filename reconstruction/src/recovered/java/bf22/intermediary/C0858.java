@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.geo.CountryInfo;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,8 +19,8 @@ public class C0858 extends JLabel implements ListCellRenderer {
          this.setForeground(jList.getForeground());
       }
 
-      ImageIcon var7 = ((C0697)C0732.cY().get(C0732.h(var6))).jD();
-      String var8 = ((C0697)C0732.cY().get(C0732.h(var6))).getNome();
+      ImageIcon var7 = ((CountryInfo)C0732.cY().get(C0732.h(var6))).jD();
+      String var8 = ((CountryInfo)C0732.cY().get(C0732.h(var6))).getNome();
       this.setIcon(var7);
       this.setText(var8);
       return this;

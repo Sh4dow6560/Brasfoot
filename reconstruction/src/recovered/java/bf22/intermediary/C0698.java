@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 public abstract class C0698 {
    private static String nome = null;
    private static String mc = "";
@@ -29,7 +30,7 @@ public abstract class C0698 {
 
          for (int var2 = 0; var2 < string.length(); var2++) {
             String var3 = Character.toString(string.charAt(var2));
-            if (C0710.tG[var2]) {
+            if (GameConstants.tG[var2]) {
                var1 = var1 + Character.toString(string.charAt(var2));
             }
          }
@@ -49,7 +50,7 @@ public abstract class C0698 {
 
       for (int var2 = 0; var2 < string.length(); var2++) {
          String var3 = Character.toString(string.charAt(var2));
-         if (C0710.tF[var2]) {
+         if (GameConstants.tF[var2]) {
             var1 += Character.getNumericValue(string.charAt(var2));
          }
       }

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -42,8 +44,8 @@ public class C0401 extends JPanel {
          this.GD.setVisible(false);
          int var4 = 0;
 
-         for (int var5 = 0; var5 < C0745.SR.bn().size(); var5++) {
-            this.LB.add((C0739)C0745.SR.bn().get(var5));
+         for (int var5 = 0; var5 < GamePersistence.SR.bn().size(); var5++) {
+            this.LB.add((C0739)GamePersistence.SR.bn().get(var5));
             if (++var4 == 100) {
                break;
             }
@@ -57,7 +59,7 @@ public class C0401 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void mQ() {
@@ -71,19 +73,19 @@ public class C0401 extends JPanel {
       this.uK.clear();
       int var1 = 0;
       if (this.GD.getSelectedIndex() == 0) {
-         for (int var2 = C0745.SR.bo().size() - 1; var2 >= 0; var2--) {
-            if (((C0709)C0745.SR.bo().get(var2)).x() != null) {
-               this.uK.add((C0709)C0745.SR.bo().get(var2));
+         for (int var2 = GamePersistence.SR.bo().size() - 1; var2 >= 0; var2--) {
+            if (((C0709)GamePersistence.SR.bo().get(var2)).x() != null) {
+               this.uK.add((C0709)GamePersistence.SR.bo().get(var2));
                if (++var1 == 200) {
                   break;
                }
             }
          }
       } else {
-         for (int var3 = C0745.SR.bo().size() - 1; var3 >= 0; var3--) {
-            if (((C0709)C0745.SR.bo().get(var3)).x() != null
-               && (((C0709)C0745.SR.bo().get(var3)).lZ() == this.uk.lk() || ((C0709)C0745.SR.bo().get(var3)).ma() == this.uk.lk())) {
-               this.uK.add((C0709)C0745.SR.bo().get(var3));
+         for (int var3 = GamePersistence.SR.bo().size() - 1; var3 >= 0; var3--) {
+            if (((C0709)GamePersistence.SR.bo().get(var3)).x() != null
+               && (((C0709)GamePersistence.SR.bo().get(var3)).lZ() == this.uk.lk() || ((C0709)GamePersistence.SR.bo().get(var3)).ma() == this.uk.lk())) {
+               this.uK.add((C0709)GamePersistence.SR.bo().get(var3));
             }
          }
       }

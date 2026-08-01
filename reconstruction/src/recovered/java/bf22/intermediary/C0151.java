@@ -1,5 +1,11 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionSeasonResult;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -25,7 +31,7 @@ public class C0151 extends JPanel {
    private ArrayList DJ = new ArrayList();
    private ArrayList DK = new ArrayList();
    private ArrayList DL = new ArrayList();
-   private C0692 DM = null;
+   private CountryCompetitions DM = null;
    private static Timer Dk;
    private JButton DN;
    private JButton DO;
@@ -51,10 +57,10 @@ public class C0151 extends JPanel {
       this.Br = jFrame;
       this.mJ();
       this.DN.setVisible(false);
-      C0745.SR.isJogaIntClubes();
+      GamePersistence.SR.isJogaIntClubes();
 
-      for (int var2 = 0; var2 < C0745.SR.N().size(); var2++) {
-         this.ue.addItem(((C0692)C0745.SR.N().get(var2)).jp());
+      for (int var2 = 0; var2 < GamePersistence.SR.N().size(); var2++) {
+         this.ue.addItem(((CountryCompetitions)GamePersistence.SR.N().get(var2)).jp());
       }
 
       C0037 var3 = new C0037();
@@ -65,15 +71,15 @@ public class C0151 extends JPanel {
       this.mH();
       this.ue.setSelectedIndex(0);
       this.pk();
-      if (C0745.SR.isJogaEstadual() || C0745.SR.isJogaRegionais()) {
+      if (GamePersistence.SR.isJogaEstadual() || GamePersistence.SR.isJogaRegionais()) {
          this.pj();
       }
 
-      if (C0745.SR.isJogaIntClubes()) {
+      if (GamePersistence.SR.isJogaIntClubes()) {
          this.pi();
       }
 
-      if (C0745.SR.bD()) {
+      if (GamePersistence.SR.bD()) {
          this.oR();
       }
 
@@ -81,15 +87,15 @@ public class C0151 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void pi() {
-      C0713[] var1 = C0745.SR.bB();
+      Competition[] var1 = GamePersistence.SR.bB();
 
       for (int var2 = 0; var2 < var1.length; var2++) {
          if (var1[var2] != null) {
-            C0727 var3 = var1[var2].mo();
+            CompetitionSeasonResult var3 = var1[var2].mo();
             if (var3 != null) {
                String var4 = var1[var2].getNome();
                this.a(this.DK, var3, var4, -1);
@@ -102,22 +108,22 @@ public class C0151 extends JPanel {
 
    private void pj() {
       this.DL.clear();
-      if (C0745.SR.isJogaRegionais()) {
-         for (int var1 = 0; var1 < C0745.SR.bV().length; var1++) {
-            if (C0745.SR.bV()[var1] != null) {
+      if (GamePersistence.SR.isJogaRegionais()) {
+         for (int var1 = 0; var1 < GamePersistence.SR.bV().length; var1++) {
+            if (GamePersistence.SR.bV()[var1] != null) {
                int var2 = 100 + var1;
-               String var3 = C0710.pY[var1];
-               this.a(this.DL, C0745.SR.bV()[var1].mo(), var3, var2);
+               String var3 = GameConstants.pY[var1];
+               this.a(this.DL, GamePersistence.SR.bV()[var1].mo(), var3, var2);
             }
          }
       }
 
-      if (C0745.SR.isJogaEstadual()) {
-         for (int var5 = 0; var5 < C0745.SR.aE().size(); var5++) {
-            for (int var6 = 0; var6 < ((C0741)C0745.SR.aE().get(var5)).eb().size(); var6++) {
-               int var7 = ((C0741)C0745.SR.aE().get(var5)).getEstado();
-               String var4 = ((C0951)((C0741)C0745.SR.aE().get(var5)).eb().get(var6)).is();
-               this.a(this.DL, ((C0951)((C0741)C0745.SR.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
+      if (GamePersistence.SR.isJogaEstadual()) {
+         for (int var5 = 0; var5 < GamePersistence.SR.aE().size(); var5++) {
+            for (int var6 = 0; var6 < ((C0741)GamePersistence.SR.aE().get(var5)).eb().size(); var6++) {
+               int var7 = ((C0741)GamePersistence.SR.aE().get(var5)).getEstado();
+               String var4 = ((C0951)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).is();
+               this.a(this.DL, ((C0951)((C0741)GamePersistence.SR.aE().get(var5)).eb().get(var6)).mo(), var4, var7);
             }
          }
       }
@@ -127,7 +133,7 @@ public class C0151 extends JPanel {
 
    private void pk() {
       this.DJ.clear();
-      this.DM = (C0692)C0745.SR.N().get(this.ue.getSelectedIndex());
+      this.DM = (CountryCompetitions)GamePersistence.SR.N().get(this.ue.getSelectedIndex());
 
       for (int var1 = 0; var1 < this.DM.eb().size(); var1++) {
          this.a(this.DJ, ((C0924)this.DM.eb().get(var1)).mo(), ((C0924)this.DM.eb().get(var1)).is(), -1);
@@ -137,7 +143,7 @@ public class C0151 extends JPanel {
       this.a(this.DU, this.DJ);
    }
 
-   private void a(ArrayList arrayList, C0727 c0727, String string, int i) {
+   private void a(ArrayList arrayList, CompetitionSeasonResult c0727, String string, int i) {
       try {
          if (i >= 0 && i < 100) {
             C0777 var5 = new C0777();
@@ -190,15 +196,15 @@ public class C0151 extends JPanel {
       int var0 = -1;
       var0 = JOptionPane.showConfirmDialog(null, "Deseja marcar amistosos?", "Amistosos de início de temporada", 0);
       if (var0 == 0) {
-         for (int var1 = 0; var1 < C0745.SR.M().size(); var1++) {
-            if (((Coach)C0745.SR.M().get(var1)).fg() != null) {
-               C0685.w(((Coach)C0745.SR.M().get(var1)).fg());
+         for (int var1 = 0; var1 < GamePersistence.SR.M().size(); var1++) {
+            if (((Coach)GamePersistence.SR.M().get(var1)).fg() != null) {
+               MainWindow.w(((Coach)GamePersistence.SR.M().get(var1)).fg());
             }
          }
 
-         for (int var3 = 0; var3 < C0745.SR.M().size(); var3++) {
-            if (((Coach)C0745.SR.M().get(var3)).jo() != null) {
-               C0685.x(((Coach)C0745.SR.M().get(var3)).jo());
+         for (int var3 = 0; var3 < GamePersistence.SR.M().size(); var3++) {
+            if (((Coach)GamePersistence.SR.M().get(var3)).jo() != null) {
+               MainWindow.x(((Coach)GamePersistence.SR.M().get(var3)).jo());
             }
          }
       }
@@ -208,24 +214,24 @@ public class C0151 extends JPanel {
       int var0 = -1;
       var0 = JOptionPane.showConfirmDialog(null, "Deseja criar um torneio Amistoso de início de temporada? ", "Torneio Amistoso", 0);
       if (var0 == 0) {
-         C0685.aY(10);
+         MainWindow.aY(10);
       } else {
-         C0745.SR.az();
-         C0745.SR.V();
+         GamePersistence.SR.az();
+         GamePersistence.SR.V();
       }
    }
 
    public void pm() {
-      C0685.a(null, this.DM, 1);
+      MainWindow.a(null, this.DM, 1);
    }
 
    public void pn() {
       this.DO.setCursor(new Cursor(3));
-      if (C0745.SR.getAutoSalvar() == 3) {
-         C0745.SR.j(true);
+      if (GamePersistence.SR.getAutoSalvar() == 3) {
+         GamePersistence.SR.j(true);
       }
 
-      C0745.SR.V();
+      GamePersistence.SR.V();
    }
 
    private void a(JTable jTable, ArrayList arrayList) {

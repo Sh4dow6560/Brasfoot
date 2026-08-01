@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.ui.MainWindow;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,7 +19,7 @@ class C0459 extends MouseAdapter {
       int var3 = C0452.k(this.MV).columnAtPoint(mouseEvent.getPoint());
       int var4 = mouseEvent.getClickCount();
       if (var4 >= 2) {
-         C0685.a(C0452.l(this.MV), null);
+         MainWindow.a(C0452.l(this.MV), null);
       }
    }
 

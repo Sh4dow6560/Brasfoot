@@ -1,12 +1,17 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.KnockoutRound;
+import mod.recovered.competition.KnockoutStage;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 import mod.recovered.model.Club;
 
-public class C0927 extends C0713 implements Serializable {
+public class C0927 extends Competition implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0962 aac = null;
+   private KnockoutStage aac = null;
    private ArrayList cE = new ArrayList();
 
    public C0927() {
@@ -19,20 +24,20 @@ public class C0927 extends C0713 implements Serializable {
       this.aac = null;
       Club var1 = null;
       Club var2 = null;
-      if (C0745.SR.aF() != null) {
-         var1 = C0745.SR.aF().yz();
+      if (GamePersistence.SR.aF() != null) {
+         var1 = GamePersistence.SR.aF().yz();
       }
 
-      if (C0745.SR.aH() != null) {
-         var2 = C0745.SR.aH().yz();
+      if (GamePersistence.SR.aH() != null) {
+         var2 = GamePersistence.SR.aH().yz();
       }
 
       boolean[] var3 = new boolean[]{true, true, true, true, true, true, true};
       if (var1 != null && var2 != null && var1 != var2) {
          this.cE.add(var2);
          this.cE.add(var1);
-         this.aac = new C0962(null, this.cE.size(), 8, 0, var3, this, -1);
-         C0929 var4 = new C0929();
+         this.aac = new KnockoutStage(null, this.cE.size(), 8, 0, var3, this, -1);
+         KnockoutRound var4 = new KnockoutRound();
          var4.a(this.aac, this.cE, 0, true, 0, 0, 8, false);
       }
    }
@@ -42,13 +47,13 @@ public class C0927 extends C0713 implements Serializable {
       this.aac.z(this);
    }
 
-   public C0962 zS() {
+   public KnockoutStage zS() {
       return this.aac;
    }
 
    @Override
-   public C0678[] mB() {
-      return new C0678[]{this.aac};
+   public CompetitionStage[] mB() {
+      return new CompetitionStage[]{this.aac};
    }
 
    @Override
@@ -57,7 +62,7 @@ public class C0927 extends C0713 implements Serializable {
    }
 
    @Override
-   public String[] b(C0678 c0678) {
+   public String[] b(CompetitionStage c0678) {
       return this.aac.zB();
    }
 

@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import mod.recovered.model.Player;
 
@@ -55,21 +57,21 @@ public class C0699 {
       if (this.ml >= 0) {
          this.mS.clear();
 
-         for (int var3 = 0; var3 < C0745.SR.N().size(); var3++) {
-            this.mS.add(((C0692)C0745.SR.N().get(var3)).jc());
+         for (int var3 = 0; var3 < GamePersistence.SR.N().size(); var3++) {
+            this.mS.add(((CountryCompetitions)GamePersistence.SR.N().get(var3)).jc());
          }
       }
 
-      for (int var4 = 0; var4 < C0745.SR.O().size(); var4++) {
-         if (this.i((Player)C0745.SR.O().get(var4))) {
-            var2.add((Player)C0745.SR.O().get(var4));
+      for (int var4 = 0; var4 < GamePersistence.SR.O().size(); var4++) {
+         if (this.i((Player)GamePersistence.SR.O().get(var4))) {
+            var2.add((Player)GamePersistence.SR.O().get(var4));
          }
       }
 
       if (bl) {
-         for (int var5 = 0; var5 < C0745.SR.bN().size(); var5++) {
-            if (this.i((Player)C0745.SR.bN().get(var5))) {
-               var2.add((Player)C0745.SR.bN().get(var5));
+         for (int var5 = 0; var5 < GamePersistence.SR.bN().size(); var5++) {
+            if (this.i((Player)GamePersistence.SR.bN().get(var5))) {
+               var2.add((Player)GamePersistence.SR.bN().get(var5));
             }
          }
       }

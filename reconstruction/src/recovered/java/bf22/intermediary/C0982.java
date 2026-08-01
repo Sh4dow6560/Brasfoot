@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.ui.MainWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +12,7 @@ class C0982 implements ActionListener {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      new C0685(false);
-      C0685.aY(7);
+      new MainWindow(false);
+      MainWindow.aY(7);
    }
 }

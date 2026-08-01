@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -10,7 +11,7 @@ import javax.swing.JPanel;
 
 public class C0770 extends JPanel {
    C0435 QS = null;
-   C0675 zz = null;
+   Match zz = null;
    private MouseAdapter QT;
    private JLabel Lm;
    private JLabel zO;
@@ -89,7 +90,7 @@ public class C0770 extends JPanel {
       this.add(this.QU, new C0775(-3, 0, 300, 25));
    }
 
-   public C0675 tR() {
+   public Match tR() {
       return this.zz;
    }
 }

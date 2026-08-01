@@ -1,5 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CompetitionStage;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.competition.LeagueStage;
+import mod.recovered.core.GameConstants;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,11 +55,11 @@ public class C0693 implements Serializable {
 
    public void clear() {
       for (int var1 = 0; var1 < this.s.size(); var1++) {
-         ((C0675)this.s.get(var1)).clear();
+         ((Match)this.s.get(var1)).clear();
       }
 
       for (int var2 = 0; var2 < this.u.size(); var2++) {
-         ((C0713)this.u.get(var2)).clear();
+         ((Competition)this.u.get(var2)).clear();
       }
 
       this.s.clear();
@@ -78,8 +86,8 @@ public class C0693 implements Serializable {
    public static ArrayList b(int i) {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0745.SR.R().size(); var2++) {
-         if (((C0693)C0745.SR.R().get(var2)).b() == i) {
+      for (int var2 = 0; var2 < GamePersistence.SR.R().size(); var2++) {
+         if (((C0693)GamePersistence.SR.R().get(var2)).b() == i) {
             var1.add(var2);
          }
       }
@@ -90,8 +98,8 @@ public class C0693 implements Serializable {
    public static ArrayList c(int i) {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < C0745.SR.R().size(); var2++) {
-         if (((C0693)C0745.SR.R().get(var2)).a().get(7) == i) {
+      for (int var2 = 0; var2 < GamePersistence.SR.R().size(); var2++) {
+         if (((C0693)GamePersistence.SR.R().get(var2)).a().get(7) == i) {
             var1.add(var2);
          }
       }
@@ -106,8 +114,8 @@ public class C0693 implements Serializable {
    public static ArrayList d() {
       ArrayList var0 = new ArrayList();
 
-      for (int var1 = 0; var1 < C0745.SR.R().size(); var1++) {
-         if (((C0693)C0745.SR.R().get(var1)).a().get(5) == 2) {
+      for (int var1 = 0; var1 < GamePersistence.SR.R().size(); var1++) {
+         if (((C0693)GamePersistence.SR.R().get(var1)).a().get(5) == 2) {
             var0.add(var1);
          }
       }
@@ -116,8 +124,8 @@ public class C0693 implements Serializable {
    }
 
    public static int d(int i) {
-      for (int var1 = C0745.SR.R().size() - 1; var1 >= 0; var1--) {
-         if (((C0693)C0745.SR.R().get(var1)).b() == i) {
+      for (int var1 = GamePersistence.SR.R().size() - 1; var1 >= 0; var1--) {
+         if (((C0693)GamePersistence.SR.R().get(var1)).b() == i) {
             return var1;
          }
       }
@@ -126,8 +134,8 @@ public class C0693 implements Serializable {
    }
 
    public static int e(int i) {
-      for (int var1 = 0; var1 < C0745.SR.R().size(); var1++) {
-         if (((C0693)C0745.SR.R().get(var1)).b() == i) {
+      for (int var1 = 0; var1 < GamePersistence.SR.R().size(); var1++) {
+         if (((C0693)GamePersistence.SR.R().get(var1)).b() == i) {
             return var1;
          }
       }
@@ -138,12 +146,12 @@ public class C0693 implements Serializable {
    public static int a(int i, int j) {
       int var2 = 1;
 
-      for (int var3 = 0; var3 < C0745.SR.R().size(); var3++) {
-         if (((C0693)C0745.SR.R().get(var3)).b() == i && var2 == j) {
+      for (int var3 = 0; var3 < GamePersistence.SR.R().size(); var3++) {
+         if (((C0693)GamePersistence.SR.R().get(var3)).b() == i && var2 == j) {
             return var3;
          }
 
-         if (((C0693)C0745.SR.R().get(var3)).b() == i) {
+         if (((C0693)GamePersistence.SR.R().get(var3)).b() == i) {
             var2++;
          }
       }
@@ -158,8 +166,8 @@ public class C0693 implements Serializable {
          var3 = 2;
       }
 
-      for (int var4 = 0; var4 < C0745.SR.R().size(); var4++) {
-         if (((C0693)C0745.SR.R().get(var4)).b() == i && !((C0693)C0745.SR.R().get(var4)).e()) {
+      for (int var4 = 0; var4 < GamePersistence.SR.R().size(); var4++) {
+         if (((C0693)GamePersistence.SR.R().get(var4)).b() == i && !((C0693)GamePersistence.SR.R().get(var4)).e()) {
             if (var3 <= 0) {
                var2.add(var4);
             }
@@ -206,26 +214,26 @@ public class C0693 implements Serializable {
       int var2 = 0;
       int var3 = 0;
 
-      for (int var4 = C0745.SR.R().size() - 1; var4 > 0; var4--) {
-         if (((C0693)C0745.SR.R().get(var4)).b() > 0) {
+      for (int var4 = GamePersistence.SR.R().size() - 1; var4 > 0; var4--) {
+         if (((C0693)GamePersistence.SR.R().get(var4)).b() > 0) {
             var3 = var4;
             break;
          }
       }
 
-      if (var3 < C0745.SR.J()) {
-         var3 = C0745.SR.J();
+      if (var3 < GamePersistence.SR.J()) {
+         var3 = GamePersistence.SR.J();
       }
 
-      for (int var5 = var3; var5 < C0745.SR.R().size(); var5++) {
-         if (((C0693)C0745.SR.R().get(var5)).b() == 0 && ((C0693)C0745.SR.R().get(var5)).a().get(7) == i) {
+      for (int var5 = var3; var5 < GamePersistence.SR.R().size(); var5++) {
+         if (((C0693)GamePersistence.SR.R().get(var5)).b() == 0 && ((C0693)GamePersistence.SR.R().get(var5)).a().get(7) == i) {
             var2 = var5;
             break;
          }
       }
 
       if (var2 > 0) {
-         ((C0693)C0745.SR.R().get(var2)).a(j);
+         ((C0693)GamePersistence.SR.R().get(var2)).a(j);
       }
    }
 
@@ -487,10 +495,10 @@ public class C0693 implements Serializable {
    }
 
    public int i() {
-      return this.s.size() > 0 ? ((C0675)this.s.get(0)).hy().b() : 0;
+      return this.s.size() > 0 ? ((Match)this.s.get(0)).hy().b() : 0;
    }
 
-   public void a(C0675 c0675) {
+   public void a(Match c0675) {
       this.s.add(c0675);
    }
 
@@ -498,13 +506,13 @@ public class C0693 implements Serializable {
       return this.t;
    }
 
-   public void a(C0678 c0678) {
+   public void a(CompetitionStage c0678) {
       if (!this.t.contains(c0678)) {
          this.t.add(c0678);
       }
    }
 
-   public void a(C0713 c0713) {
+   public void a(Competition c0713) {
       if (!this.u.contains(c0713)) {
          this.u.add(c0713);
       }
@@ -537,10 +545,10 @@ public class C0693 implements Serializable {
       }
 
       if (k == 0) {
-         C0693 var4 = (C0693)C0745.SR.R().get(i);
+         C0693 var4 = (C0693)GamePersistence.SR.R().get(i);
          var4.q.add(var3);
       } else {
-         C0693 var5 = (C0693)C0745.SR.R().get(i);
+         C0693 var5 = (C0693)GamePersistence.SR.R().get(i);
          var5.r.add(var3);
       }
    }
@@ -571,11 +579,11 @@ public class C0693 implements Serializable {
             } else if (var3.equals(var13.get(var14))) {
                this.n();
             } else if (var4.equals(var13.get(var14))) {
-               C0745.SR.aT();
+               GamePersistence.SR.aT();
             } else if (var5.equals(var13.get(var14))) {
-               if (C0745.SR.bk()) {
+               if (GamePersistence.SR.bk()) {
                   this.m();
-               } else if (C0745.SR.X()) {
+               } else if (GamePersistence.SR.X()) {
                   this.l();
                }
             } else if (var6.equals(var13.get(var14))) {
@@ -587,7 +595,7 @@ public class C0693 implements Serializable {
             } else if (var9.equals(var13.get(var14))) {
                this.b(true);
             } else if (var10.equals(var13.get(var14))) {
-               C0745.afQ.zw();
+               GamePersistence.afQ.zw();
             } else {
                var12.equals(var13.get(var14));
             }
@@ -598,29 +606,29 @@ public class C0693 implements Serializable {
    }
 
    private void k() {
-      if (C0745.SR.isJogaSelecoesAll()) {
-         for (int var1 = 0; var1 < C0745.SR.M().size(); var1++) {
-            if (((Coach)C0745.SR.M().get(var1)).jo() != null) {
-               C0685.a(((Coach)C0745.SR.M().get(var1)).jo().ka().jo(), true);
+      if (GamePersistence.SR.isJogaSelecoesAll()) {
+         for (int var1 = 0; var1 < GamePersistence.SR.M().size(); var1++) {
+            if (((Coach)GamePersistence.SR.M().get(var1)).jo() != null) {
+               MainWindow.a(((Coach)GamePersistence.SR.M().get(var1)).jo().ka().jo(), true);
             }
          }
       }
    }
 
    private void b(boolean bl) {
-      if (C0745.SR.isJogaSelecoesAll()) {
-         for (int var3 = 0; var3 < C0745.SR.M().size(); var3++) {
+      if (GamePersistence.SR.isJogaSelecoesAll()) {
+         for (int var3 = 0; var3 < GamePersistence.SR.M().size(); var3++) {
             if (!bl) {
-               if (((Coach)C0745.SR.M().get(var3)).jZ() && ((Coach)C0745.SR.M().get(var3)).jo() == null) {
-                  ArrayList var2 = C0745.afQ.a((Coach)C0745.SR.M().get(var3), bl);
-                  if (!C0745.SR.bD() && var2 != null && var2.size() > 0) {
-                     C0685.a(var2, (Coach)C0745.SR.M().get(var3), 1);
+               if (((Coach)GamePersistence.SR.M().get(var3)).jZ() && ((Coach)GamePersistence.SR.M().get(var3)).jo() == null) {
+                  ArrayList var2 = GamePersistence.afQ.a((Coach)GamePersistence.SR.M().get(var3), bl);
+                  if (!GamePersistence.SR.bD() && var2 != null && var2.size() > 0) {
+                     MainWindow.a(var2, (Coach)GamePersistence.SR.M().get(var3), 1);
                   }
                }
-            } else if (((Coach)C0745.SR.M().get(var3)).jZ()) {
-               ArrayList var4 = C0745.afQ.a((Coach)C0745.SR.M().get(var3), bl);
-               if (!C0745.SR.bD() && var4 != null && var4.size() > 0) {
-                  C0685.a(var4, (Coach)C0745.SR.M().get(var3), 1);
+            } else if (((Coach)GamePersistence.SR.M().get(var3)).jZ()) {
+               ArrayList var4 = GamePersistence.afQ.a((Coach)GamePersistence.SR.M().get(var3), bl);
+               if (!GamePersistence.SR.bD() && var4 != null && var4.size() > 0) {
+                  MainWindow.a(var4, (Coach)GamePersistence.SR.M().get(var3), 1);
                }
             }
          }
@@ -628,7 +636,7 @@ public class C0693 implements Serializable {
    }
 
    public void l() {
-      C0692 var1 = C0745.SR.o(29);
+      CountryCompetitions var1 = GamePersistence.SR.o(29);
       if (var1 != null) {
          ArrayList var2 = new ArrayList();
          var2.addAll(var1.jg());
@@ -638,9 +646,9 @@ public class C0693 implements Serializable {
    }
 
    public void m() {
-      C0692 var1 = C0745.SR.o(29);
-      if (var1 != null && C0745.SR.bk() && var1.eb().size() == 4) {
-         C0955 var2 = ((C0924)var1.eb().get(var1.eb().size() - 1)).yi();
+      CountryCompetitions var1 = GamePersistence.SR.o(29);
+      if (var1 != null && GamePersistence.SR.bk() && var1.eb().size() == 4) {
+         LeagueStage var2 = ((C0924)var1.eb().get(var1.eb().size() - 1)).yi();
          ArrayList var3 = null;
          if (var2 != null) {
             var2.aN(false);
@@ -677,39 +685,39 @@ public class C0693 implements Serializable {
          var1.a(var10, false, "criaSerieDCopa");
       }
 
-      C0745.SR.bx().clear();
+      GamePersistence.SR.bx().clear();
    }
 
    public void n() {
-      for (int var1 = 0; var1 < C0745.SR.aN().size(); var1++) {
-         if (((Club)C0745.SR.aN().get(var1)).bY(this.c())) {
-            ((Club)C0745.SR.aN().get(var1)).kJ();
+      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
+         if (((Club)GamePersistence.SR.aN().get(var1)).bY(this.c())) {
+            ((Club)GamePersistence.SR.aN().get(var1)).kJ();
          }
       }
    }
 
    public void o() {
-      for (int var1 = 0; var1 < C0745.SR.aN().size(); var1++) {
-         if (((Club)C0745.SR.aN().get(var1)).kL() != null && ((Club)C0745.SR.aN().get(var1)).kL().eQ() > 0) {
-            ((Club)C0745.SR.aN().get(var1)).w(((Club)C0745.SR.aN().get(var1)).kL().eQ(), 4);
+      for (int var1 = 0; var1 < GamePersistence.SR.aN().size(); var1++) {
+         if (((Club)GamePersistence.SR.aN().get(var1)).kL() != null && ((Club)GamePersistence.SR.aN().get(var1)).kL().eQ() > 0) {
+            ((Club)GamePersistence.SR.aN().get(var1)).w(((Club)GamePersistence.SR.aN().get(var1)).kL().eQ(), 4);
          }
       }
    }
 
    public void p() {
-      C0923 var1 = C0745.SR.aR();
+      C0923 var1 = GamePersistence.SR.aR();
       var1.zC();
    }
 
    public void K() {
-      for (int var1 = 0; var1 < C0745.SR.N().size(); var1++) {
-         ((C0692)C0745.SR.N().get(var1)).K();
+      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
+         ((CountryCompetitions)GamePersistence.SR.N().get(var1)).K();
       }
    }
 
    public static void q() {
-      if (C0745.SR.isJogaSelecoesAll()) {
-         if (C0745.SR.isJogaEstadual()) {
+      if (GamePersistence.SR.isJogaSelecoesAll()) {
+         if (GamePersistence.SR.isJogaEstadual()) {
             int var0 = a(3, 4);
             if (var0 > 0) {
                b(var0, 6, 1);
@@ -762,7 +770,7 @@ public class C0693 implements Serializable {
 
    public boolean a(Club club) {
       for (int var2 = 0; var2 < this.s.size(); var2++) {
-         if (((C0675)this.s.get(var2)).hc() == club || ((C0675)this.s.get(var2)).hd() == club) {
+         if (((Match)this.s.get(var2)).hc() == club || ((Match)this.s.get(var2)).hd() == club) {
             return true;
          }
       }
@@ -773,13 +781,13 @@ public class C0693 implements Serializable {
    public static void aD() {
       String var0 = "";
 
-      for (int var1 = 0; var1 < C0745.SR.R().size(); var1++) {
-         if (((C0693)C0745.SR.R().get(var1)).b() > 0) {
-            if (var0.equals(((C0693)C0745.SR.R().get(var1)).f())) {
+      for (int var1 = 0; var1 < GamePersistence.SR.R().size(); var1++) {
+         if (((C0693)GamePersistence.SR.R().get(var1)).b() > 0) {
+            if (var0.equals(((C0693)GamePersistence.SR.R().get(var1)).f())) {
                System.out.println("erro de data: " + var1);
             }
 
-            var0 = ((C0693)C0745.SR.R().get(var1)).f();
+            var0 = ((C0693)GamePersistence.SR.R().get(var1)).f();
          }
       }
    }
@@ -795,9 +803,9 @@ public class C0693 implements Serializable {
                "Amistoso Clube:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var2))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var2))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var2))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var2))).a().get(7)]
                   + " "
                   + var1.get(var2)
             );
@@ -812,9 +820,9 @@ public class C0693 implements Serializable {
                "Amistoso Seleção:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var34))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var34))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var34))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var34))).a().get(7)]
                   + " "
                   + var1.get(var34)
             );
@@ -829,9 +837,9 @@ public class C0693 implements Serializable {
                "Estadual:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var35))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var35))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var35))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var35))).a().get(7)]
                   + " "
                   + var1.get(var35)
             );
@@ -847,9 +855,9 @@ public class C0693 implements Serializable {
                "Regional:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var36))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var36))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var36))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var36))).a().get(7)]
                   + " "
                   + var1.get(var36)
             );
@@ -865,9 +873,9 @@ public class C0693 implements Serializable {
                "SuperCopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var37))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var37))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var37))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var37))).a().get(7)]
                   + " "
                   + var1.get(var37)
             );
@@ -883,9 +891,9 @@ public class C0693 implements Serializable {
                "Nacional:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var38))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var38))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var38))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var38))).a().get(7)]
                   + " "
                   + var1.get(var38)
             );
@@ -901,9 +909,9 @@ public class C0693 implements Serializable {
                "Int1:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var39))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var39))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var39))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var39))).a().get(7)]
                   + " "
                   + var1.get(var39)
             );
@@ -919,9 +927,9 @@ public class C0693 implements Serializable {
                "Copa:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var40))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var40))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var40))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var40))).a().get(7)]
                   + " "
                   + var1.get(var40)
             );
@@ -937,9 +945,9 @@ public class C0693 implements Serializable {
                "Selecoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var41))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var41))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var41))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var41))).a().get(7)]
                   + " "
                   + var1.get(var41)
             );
@@ -955,9 +963,9 @@ public class C0693 implements Serializable {
                "INT2:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var42))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var42))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var42))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var42))).a().get(7)]
                   + " "
                   + var1.get(var42)
             );
@@ -973,9 +981,9 @@ public class C0693 implements Serializable {
                "Recopa:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var43))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var43))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var43))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var43))).a().get(7)]
                   + " "
                   + var1.get(var43)
             );
@@ -991,9 +999,9 @@ public class C0693 implements Serializable {
                "INT3:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var44))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var44))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var44))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var44))).a().get(7)]
                   + " "
                   + var1.get(var44)
             );
@@ -1009,9 +1017,9 @@ public class C0693 implements Serializable {
                "Mundial:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var45))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var45))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var45))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var45))).a().get(7)]
                   + " "
                   + var1.get(var45)
             );
@@ -1027,9 +1035,9 @@ public class C0693 implements Serializable {
                "Elimin:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var46))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var46))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var46))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var46))).a().get(7)]
                   + " "
                   + var1.get(var46)
             );
@@ -1045,9 +1053,9 @@ public class C0693 implements Serializable {
                "Finalissima:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var47))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var47))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var47))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var47))).a().get(7)]
                   + " "
                   + var1.get(var47)
             );
@@ -1063,9 +1071,9 @@ public class C0693 implements Serializable {
                "Liga Nacoes:"
                   + ++var0
                   + ") "
-                  + ((C0693)C0745.SR.R().get((Integer)var1.get(var48))).f()
+                  + ((C0693)GamePersistence.SR.R().get((Integer)var1.get(var48))).f()
                   + " "
-                  + C0710.rF[((C0693)C0745.SR.R().get((Integer)var1.get(var48))).a().get(7)]
+                  + GameConstants.rF[((C0693)GamePersistence.SR.R().get((Integer)var1.get(var48))).a().get(7)]
                   + " "
                   + var1.get(var48)
             );

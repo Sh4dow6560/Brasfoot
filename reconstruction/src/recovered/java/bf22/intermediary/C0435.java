@@ -1,5 +1,10 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.Competition;
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -41,8 +46,8 @@ public class C0435 extends JPanel {
    private ArrayList KP = new ArrayList();
    private ArrayList KQ = new ArrayList();
    private int w;
-   private C0692 KR = null;
-   private C0675 KS = null;
+   private CountryCompetitions KR = null;
+   private Match KS = null;
    private static int KT = 0;
    private static Timer Dk;
    private JPanel xb = null;
@@ -52,7 +57,7 @@ public class C0435 extends JPanel {
    private int KV = -1;
    private Color KW = new Color(211, 191, 22);
    private Color KX = new Color(228, 227, 227);
-   private C0675 KY = null;
+   private Match KY = null;
    public static Comparator KZ = new C0436();
    private JButton HS;
    private JButton La;
@@ -111,7 +116,7 @@ public class C0435 extends JPanel {
       this.zg.setBorder(BorderFactory.createEmptyBorder());
       this.mY();
       this.sd();
-      if (C0745.SR.bD()) {
+      if (GamePersistence.SR.bD()) {
          this.oR();
       }
    }
@@ -230,13 +235,13 @@ public class C0435 extends JPanel {
 
    private void nx() {
       this.zK.setCursor(new Cursor(3));
-      if (C0745.SR.isUsaSons()) {
+      if (GamePersistence.SR.isUsaSons()) {
          C0208.qb();
       }
 
       boolean var1 = false;
       C0272.aQ(false);
-      if (C0745.SR.isVerLeiloes() && this.KS != null && (this.w == 1 || this.w == 3 || this.w == 10)) {
+      if (GamePersistence.SR.isVerLeiloes() && this.KS != null && (this.w == 1 || this.w == 3 || this.w == 10)) {
          ArrayList var2 = new ArrayList();
          int var3 = new Random().nextInt(4);
 
@@ -248,15 +253,15 @@ public class C0435 extends JPanel {
          }
 
          C0238.X(var2);
-         if (var2.size() > 0 && C0745.SR.cd()) {
+         if (var2.size() > 0 && GamePersistence.SR.cd()) {
             var1 = true;
          }
       }
 
       if (var1) {
-         C0685.aY(8);
+         MainWindow.aY(8);
       } else {
-         C0745.SR.ax();
+         GamePersistence.SR.ax();
       }
    }
 
@@ -270,20 +275,20 @@ public class C0435 extends JPanel {
    }
 
    private void qV() {
-      C0713 var1 = null;
+      Competition var1 = null;
       if (this.KY != null) {
          var1 = this.KY.hy();
       }
 
       this.HS.setCursor(new Cursor(3));
-      C0685.a(this.w, var1);
+      MainWindow.a(this.w, var1);
       this.HS.setCursor(new Cursor(12));
    }
 
    public void rr() {
       Club var1 = null;
-      if (C0745.SR.aN().size() > 0) {
-         var1 = (Club)C0745.SR.aN().get(0);
+      if (GamePersistence.SR.aN().size() > 0) {
+         var1 = (Club)GamePersistence.SR.aN().get(0);
       }
 
       if (var1 != null && var1.jZ()) {
@@ -293,7 +298,7 @@ public class C0435 extends JPanel {
          if (var3 == 0) {
             Coach var4 = var1.ka();
             Coach var5 = var1.kE();
-            C0685.a(var4, var5, var1, 0);
+            MainWindow.a(var4, var5, var1, 0);
          }
       }
    }
@@ -301,14 +306,14 @@ public class C0435 extends JPanel {
    private void cC(int i) {
       if (this.KN.size() > 0) {
          if (this.w == 1) {
-            this.e((C0692)this.KN.get(i));
+            this.e((CountryCompetitions)this.KN.get(i));
          }
       } else if (this.KM.size() > 0) {
          if (this.w == 3) {
             this.a((C0741)this.KM.get(i));
          }
       } else if (this.cQ.size() > 0) {
-         this.x((C0713)this.cQ.get(i));
+         this.x((Competition)this.cQ.get(i));
       }
 
       this.f(0, true);
@@ -321,18 +326,18 @@ public class C0435 extends JPanel {
       this.va.setMaximumRowCount(24);
       this.w = 0;
       this.cP.clear();
-      this.cP.addAll(((C0693)C0745.SR.R().get(C0745.SR.J())).t());
+      this.cP.addAll(((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).t());
       KT = 0;
       if (this.cP.size() > 0) {
-         if (((C0713)this.cP.get(0)).b() == 1) {
+         if (((Competition)this.cP.get(0)).b() == 1) {
             this.pB();
             KT = 1;
             this.w = 1;
-         } else if (((C0713)this.cP.get(0)).b() == 3) {
+         } else if (((Competition)this.cP.get(0)).b() == 3) {
             this.sb();
             this.w = 3;
          } else {
-            this.w = ((C0713)this.cP.get(0)).b();
+            this.w = ((Competition)this.cP.get(0)).b();
             this.sa();
          }
       }
@@ -343,7 +348,7 @@ public class C0435 extends JPanel {
 
       for (int var1 = 0; var1 < this.cP.size(); var1++) {
          this.va.addItem(this.cP.get(var1));
-         this.cQ.add((C0713)this.cP.get(var1));
+         this.cQ.add((Competition)this.cP.get(var1));
       }
 
       int var5 = 0;
@@ -363,7 +368,7 @@ public class C0435 extends JPanel {
 
       if (this.w == 4) {
          for (int var6 = 0; var6 < this.cQ.size(); var6++) {
-            if (((C0713)this.cQ.get(var6)).gg() == C0737.dL()) {
+            if (((Competition)this.cQ.get(var6)).gg() == C0737.dL()) {
                var5 = var6;
                break;
             }
@@ -375,17 +380,17 @@ public class C0435 extends JPanel {
       } catch (Exception var4) {
       }
 
-      this.x((C0713)this.cQ.get(var5));
+      this.x((Competition)this.cQ.get(var5));
    }
 
-   public void x(C0713 c0713) {
+   public void x(Competition c0713) {
       this.nt();
       boolean var2 = true;
       byte var3 = 0;
       byte var4 = 0;
 
-      for (int var5 = 0; var5 < C0745.SR.S().size(); var5++) {
-         if (((C0675)C0745.SR.S().get(var5)).hy() == c0713) {
+      for (int var5 = 0; var5 < GamePersistence.SR.S().size(); var5++) {
+         if (((Match)GamePersistence.SR.S().get(var5)).hy() == c0713) {
             var3 = -1;
             if (var3 != var4) {
                var2 = true;
@@ -393,14 +398,14 @@ public class C0435 extends JPanel {
 
             if (var2) {
                C0826 var6 = new C0826();
-               var6.D(((C0675)C0745.SR.S().get(var5)).ij());
+               var6.D(((Match)GamePersistence.SR.S().get(var5)).ij());
                this.a(var6);
                var2 = false;
                var4 = var3;
             }
 
             C0826 var9 = new C0826();
-            var9.n((C0675)C0745.SR.S().get(var5));
+            var9.n((Match)GamePersistence.SR.S().get(var5));
             this.a(var9);
          }
       }
@@ -412,11 +417,11 @@ public class C0435 extends JPanel {
    private void sb() {
       this.KM.clear();
 
-      for (int var1 = 0; var1 < C0745.SR.aE().size(); var1++) {
+      for (int var1 = 0; var1 < GamePersistence.SR.aE().size(); var1++) {
          for (int var2 = 0; var2 < this.cP.size(); var2++) {
-            if (((C0713)this.cP.get(var2)).ir() == C0745.SR.aE().get(var1) && !this.cQ.contains(C0745.SR.aE().get(var1))) {
-               this.va.addItem(C0745.SR.aE().get(var1));
-               this.KM.add((C0741)C0745.SR.aE().get(var1));
+            if (((Competition)this.cP.get(var2)).ir() == GamePersistence.SR.aE().get(var1) && !this.cQ.contains(GamePersistence.SR.aE().get(var1))) {
+               this.va.addItem(GamePersistence.SR.aE().get(var1));
+               this.KM.add((C0741)GamePersistence.SR.aE().get(var1));
             }
          }
       }
@@ -439,15 +444,15 @@ public class C0435 extends JPanel {
    private void pB() {
       this.KN.clear();
 
-      for (int var1 = 0; var1 < C0745.SR.N().size(); var1++) {
+      for (int var1 = 0; var1 < GamePersistence.SR.N().size(); var1++) {
          for (int var2 = 0; var2 < this.cP.size(); var2++) {
-            if (((C0713)this.cP.get(var2)).iq() == C0745.SR.N().get(var1) && !this.KN.contains(C0745.SR.N().get(var1))) {
+            if (((Competition)this.cP.get(var2)).iq() == GamePersistence.SR.N().get(var1) && !this.KN.contains(GamePersistence.SR.N().get(var1))) {
                try {
-                  this.va.addItem(C0745.SR.N().get(var1));
+                  this.va.addItem(GamePersistence.SR.N().get(var1));
                } catch (Exception var5) {
                }
 
-               this.KN.add((C0692)C0745.SR.N().get(var1));
+               this.KN.add((CountryCompetitions)GamePersistence.SR.N().get(var1));
             }
          }
       }
@@ -456,9 +461,9 @@ public class C0435 extends JPanel {
       int var7 = this.KN.size() - 1;
       if (var6 >= 0) {
          for (int var3 = 0; var3 < this.KN.size(); var3++) {
-            if (((C0692)this.KN.get(var3)).jc() == var6) {
+            if (((CountryCompetitions)this.KN.get(var3)).jc() == var6) {
                var7 = var3;
-               this.KR = (C0692)this.KN.get(var3);
+               this.KR = (CountryCompetitions)this.KN.get(var3);
                break;
             }
          }
@@ -469,7 +474,7 @@ public class C0435 extends JPanel {
       } catch (Exception var4) {
       }
 
-      this.e((C0692)this.KN.get(var7));
+      this.e((CountryCompetitions)this.KN.get(var7));
    }
 
    public void a(C0741 c0741) {
@@ -479,28 +484,28 @@ public class C0435 extends JPanel {
       int var4 = 0;
       ArrayList var5 = new ArrayList();
 
-      for (int var6 = 0; var6 < C0745.SR.S().size(); var6++) {
-         if (((C0675)C0745.SR.S().get(var6)).hy() instanceof C0951 && ((C0951)((C0675)C0745.SR.S().get(var6)).hy()).yj() == c0741) {
-            var5.add((C0675)C0745.SR.S().get(var6));
+      for (int var6 = 0; var6 < GamePersistence.SR.S().size(); var6++) {
+         if (((Match)GamePersistence.SR.S().get(var6)).hy() instanceof C0951 && ((C0951)((Match)GamePersistence.SR.S().get(var6)).hy()).yj() == c0741) {
+            var5.add((Match)GamePersistence.SR.S().get(var6));
          }
       }
 
       for (int var9 = 0; var9 < var5.size(); var9++) {
-         var3 = ((C0675)var5.get(var9)).hy().ip();
+         var3 = ((Match)var5.get(var9)).hy().ip();
          if (var3 != var4) {
             var2 = true;
          }
 
          if (var2) {
             C0826 var7 = new C0826();
-            var7.D(((C0675)var5.get(var9)).ij());
+            var7.D(((Match)var5.get(var9)).ij());
             this.a(var7);
             var2 = false;
             var4 = var3;
          }
 
          C0826 var11 = new C0826();
-         var11.n((C0675)var5.get(var9));
+         var11.n((Match)var5.get(var9));
          this.a(var11);
       }
 
@@ -556,7 +561,7 @@ public class C0435 extends JPanel {
       }
    }
 
-   public void a(C0770 c0770, C0675 c0675) {
+   public void a(C0770 c0770, Match c0675) {
       this.xb.requestFocusInWindow();
       if (this.KV >= 0 && this.KV < this.KU.size()) {
          ((C0770)this.KU.get(this.KV)).e(this.KX);
@@ -576,15 +581,15 @@ public class C0435 extends JPanel {
       c0770.e(this.KW);
    }
 
-   public void e(C0692 c0692) {
+   public void e(CountryCompetitions c0692) {
       this.nt();
       boolean var2 = true;
       int var3 = 0;
       int var4 = 0;
 
-      for (int var5 = 0; var5 < C0745.SR.S().size(); var5++) {
-         if (((C0675)C0745.SR.S().get(var5)).hy().iq() == c0692) {
-            var3 = ((C0675)C0745.SR.S().get(var5)).hy().ip();
+      for (int var5 = 0; var5 < GamePersistence.SR.S().size(); var5++) {
+         if (((Match)GamePersistence.SR.S().get(var5)).hy().iq() == c0692) {
+            var3 = ((Match)GamePersistence.SR.S().get(var5)).hy().ip();
             if (var3 != var4) {
                var2 = true;
             }
@@ -593,12 +598,12 @@ public class C0435 extends JPanel {
                var2 = false;
                var4 = var3;
                C0826 var6 = new C0826();
-               var6.D(((C0675)C0745.SR.S().get(var5)).ij());
+               var6.D(((Match)GamePersistence.SR.S().get(var5)).ij());
                this.a(var6);
             }
 
             C0826 var9 = new C0826();
-            var9.n((C0675)C0745.SR.S().get(var5));
+            var9.n((Match)GamePersistence.SR.S().get(var5));
             this.a(var9);
          }
       }
@@ -608,9 +613,9 @@ public class C0435 extends JPanel {
    }
 
    public void sd() {
-      for (int var1 = 0; var1 < C0745.SR.S().size(); var1++) {
-         if (((C0675)C0745.SR.S().get(var1)).hc().jZ() || ((C0675)C0745.SR.S().get(var1)).hd().jZ()) {
-            this.KS = (C0675)C0745.SR.S().get(var1);
+      for (int var1 = 0; var1 < GamePersistence.SR.S().size(); var1++) {
+         if (((Match)GamePersistence.SR.S().get(var1)).hc().jZ() || ((Match)GamePersistence.SR.S().get(var1)).hd().jZ()) {
+            this.KS = (Match)GamePersistence.SR.S().get(var1);
             break;
          }
       }
@@ -651,7 +656,7 @@ public class C0435 extends JPanel {
       this.wi.getViewport().setViewPosition(var1);
    }
 
-   public void i(C0675 c0675) {
+   public void i(Match c0675) {
       if (c0675 != null && c0675 != this.KY) {
          this.KY = c0675;
          this.zO.setForeground(c0675.hc().kC());
@@ -710,7 +715,7 @@ public class C0435 extends JPanel {
       }
    }
 
-   private void j(C0675 c0675) {
+   private void j(Match c0675) {
       this.KO.clear();
       ArrayList var2 = null;
       ArrayList var3 = null;
@@ -761,7 +766,7 @@ public class C0435 extends JPanel {
       this.DG.addNotify();
    }
 
-   private void k(C0675 c0675) {
+   private void k(Match c0675) {
       this.Ln.setText(Integer.toString(c0675.hz()[0]));
       this.Lo.setText(Integer.toString(c0675.hz()[1]));
       this.Lp.setText(Integer.toString(c0675.hA()[0]));
@@ -774,7 +779,7 @@ public class C0435 extends JPanel {
       this.Lk.setText(Integer.toString(c0675.hC()[1]));
    }
 
-   private void a(C0675 c0675, int i) {
+   private void a(Match c0675, int i) {
       ArrayList var3;
       ArrayList var4;
       Club var5;
@@ -829,7 +834,7 @@ public class C0435 extends JPanel {
       return -1;
    }
 
-   public static String h(C0675 c0675) {
+   public static String h(Match c0675) {
       String var1 = null;
       if (c0675.hy().b() == 3) {
          var1 = c0675.hy().getNome() + " " + c0675.hy().ip();

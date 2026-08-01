@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import mod.recovered.model.Player;
@@ -18,16 +19,16 @@ class C0897 implements ActionListener {
       C0893.eH(C0893.f(this.Ut).getSelectedIndex());
       if (C0893.f(this.Ut).getSelectedIndex() == 0) {
          for (int var3 = 0; var3 <= 3; var3++) {
-            C0893.d(this.Ut).addItem(C0710.qM[var3]);
-            C0893.e(this.Ut).addItem(C0710.qM[var3]);
+            C0893.d(this.Ut).addItem(GameConstants.qM[var3]);
+            C0893.e(this.Ut).addItem(GameConstants.qM[var3]);
          }
 
          C0893.d(this.Ut).setSelectedIndex(var2[0]);
          C0893.e(this.Ut).setSelectedIndex(var2[1]);
       } else {
-         for (int var4 = 4; var4 < C0710.qM.length; var4++) {
-            C0893.d(this.Ut).addItem(C0710.qM[var4]);
-            C0893.e(this.Ut).addItem(C0710.qM[var4]);
+         for (int var4 = 4; var4 < GameConstants.qM.length; var4++) {
+            C0893.d(this.Ut).addItem(GameConstants.qM[var4]);
+            C0893.e(this.Ut).addItem(GameConstants.qM[var4]);
          }
 
          C0893.d(this.Ut).setSelectedIndex(var2[0] - 4);

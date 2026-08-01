@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.game.CareerState;
+import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import mod.recovered.model.Club;
 
@@ -34,19 +37,19 @@ public class C0686 implements Serializable {
          if (k > l) {
             this.gZ++;
             this.hb = m;
-            this.hc = C0745.SR.H();
+            this.hc = GamePersistence.SR.H();
             this.hd = k;
             this.he = l;
          } else {
             this.ha++;
             this.hf = m;
-            this.hg = C0745.SR.H();
+            this.hg = GamePersistence.SR.H();
             this.hh = k;
             this.hi = l;
          }
       }
 
-      C0745.SR.bd().add(this);
+      GamePersistence.SR.bd().add(this);
    }
 
    public void a(int i, int j, int k, int l) {
@@ -63,7 +66,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hc = C0745.SR.H();
+            this.hc = GamePersistence.SR.H();
             this.hb = l;
             this.hd = j;
             this.he = k;
@@ -78,7 +81,7 @@ public class C0686 implements Serializable {
          }
 
          if (var7) {
-            this.hg = C0745.SR.H();
+            this.hg = GamePersistence.SR.H();
             this.hf = l;
             this.hh = j;
             this.hi = k;
@@ -119,11 +122,11 @@ public class C0686 implements Serializable {
    }
 
    public String iJ() {
-      return C0723.z(this.gV);
+      return CareerState.z(this.gV);
    }
 
    public String iK() {
-      return C0723.z(this.gW);
+      return CareerState.z(this.gW);
    }
 
    public int iL() {
@@ -163,9 +166,9 @@ public class C0686 implements Serializable {
 
    public Club y(Club club) {
       if (this.gV == club.lk()) {
-         return C0745.SR.x(this.gW);
+         return GamePersistence.SR.x(this.gW);
       } else {
-         return this.gW == club.lk() ? C0745.SR.x(this.gV) : null;
+         return this.gW == club.lk() ? GamePersistence.SR.x(this.gV) : null;
       }
    }
 
@@ -223,8 +226,8 @@ public class C0686 implements Serializable {
    public String[] iP() {
       String[] var1 = new String[]{"", ""};
       if (this.hb >= 0) {
-         var1[0] = String.valueOf(C0745.SR.iU() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
-         var1[1] = "(" + C0710.tz[this.hb] + ")";
+         var1[0] = String.valueOf(GamePersistence.SR.iU() + this.hc) + " - " + this.bh(1) + ": " + this.hd + "x" + this.he;
+         var1[1] = "(" + GameConstants.tz[this.hb] + ")";
       }
 
       return var1;
@@ -233,8 +236,8 @@ public class C0686 implements Serializable {
    public String[] iQ() {
       String[] var1 = new String[]{"", ""};
       if (this.hf >= 0) {
-         var1[0] = String.valueOf(C0745.SR.iU() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
-         var1[1] = "(" + C0710.tz[this.hf] + ")";
+         var1[0] = String.valueOf(GamePersistence.SR.iU() + this.hg) + " - " + this.bh(2) + ": " + this.hh + "x" + this.hi;
+         var1[1] = "(" + GameConstants.tz[this.hf] + ")";
       }
 
       return var1;
@@ -243,15 +246,15 @@ public class C0686 implements Serializable {
    public String bh(int i) {
       String var2 = "";
       if (this.hb >= 0) {
-         var2 = C0710.tz[this.hb];
+         var2 = GameConstants.tz[this.hb];
       }
 
-      Club var3 = C0745.SR.x(this.gV);
+      Club var3 = GamePersistence.SR.x(this.gV);
       int var4 = this.hb;
       if (i == 2) {
-         var3 = C0745.SR.x(this.gW);
+         var3 = GamePersistence.SR.x(this.gW);
          if (this.hf >= 0) {
-            var2 = C0710.tz[this.hf];
+            var2 = GameConstants.tz[this.hf];
          }
 
          var4 = this.hf;
@@ -260,9 +263,9 @@ public class C0686 implements Serializable {
       if (var4 == 1) {
          var2 = "Camp. Nacional";
       } else if (var4 == 3) {
-         var2 = "Camp. " + C0710.rZ[var3.getEstado()];
+         var2 = "Camp. " + GameConstants.rZ[var3.getEstado()];
       } else if (var4 == 4 || var4 == 6 || var4 == 7 || var4 == 8) {
-         var2 = C0710.z(var4, var3.gg());
+         var2 = GameConstants.z(var4, var3.gg());
       }
 
       return var2;

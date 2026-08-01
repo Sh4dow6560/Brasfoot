@@ -1,5 +1,9 @@
-package bf22.intermediary;
+package mod.recovered.competition;
 
+import bf22.intermediary.*;
+import mod.recovered.match.Match;
+import mod.recovered.save.GamePersistence;
+import mod.recovered.ui.MainWindow;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,15 +12,15 @@ import mod.recovered.config.LeagueLoadOptions;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 
-public class C0955 extends C0678 implements Serializable {
+public class LeagueStage extends CompetitionStage implements Serializable {
    private static final long serialVersionUID = 1L;
-   private C0713 YY = null;
-   private C0692 RT = null;
+   private Competition YY = null;
+   private CountryCompetitions RT = null;
    private C0741 YZ = null;
    private int divisao = 0;
    private ArrayList Za = new ArrayList();
    private ArrayList Zb = new ArrayList();
-   private C0962 Zc = null;
+   private KnockoutStage Zc = null;
    private Club NS = null;
    private int Zd = 0;
    private boolean[] duasVoltasMataMata = new boolean[]{true, true, true, true, true, true, true};
@@ -37,7 +41,7 @@ public class C0955 extends C0678 implements Serializable {
    public boolean melhoresTerceiros = false;
    private int numeroTurnos = 0;
    private int Zk = 0;
-   public static transient C0955 Zl = null;
+   public static transient LeagueStage Zl = null;
    private transient ArrayList wK = new ArrayList();
    private transient ArrayList xc = new ArrayList();
    private int[] Zm = new int[]{0, 1};
@@ -55,22 +59,22 @@ public class C0955 extends C0678 implements Serializable {
    private int[] Zy = new int[]{7, 0, 2, 5, 3, 4, 6, 1, 15, 8, 10, 13, 11, 12, 14, 9, 23, 16, 18, 21, 19, 20, 22, 17, 31, 24, 26, 29, 27, 28, 30, 25};
    private int[] Zz = new int[]{31, 0, 25, 6, 24, 7, 27, 4, 23, 8, 22, 9, 29, 2, 21, 10, 26, 5, 20, 11, 19, 12, 28, 3, 18, 13, 17, 14, 16, 15, 30, 1};
 
-   public C0955() {
+   public LeagueStage() {
    }
 
-   public C0955(
+   public LeagueStage(
       LeagueLoadOptions leagueLoadOptions,
       ArrayList arrayList,
       int i,
-      C0955 c0955,
-      C0955 c09552,
-      C0692 c0692,
+      LeagueStage c0955,
+      LeagueStage c09552,
+      CountryCompetitions c0692,
       int j,
       C0741 c0741,
       boolean bl,
-      C0955 c09553,
+      LeagueStage c09553,
       boolean bl2,
-      C0713 c0713
+      Competition c0713
    ) {
       this.YY = c0713;
       this.a(j);
@@ -147,7 +151,7 @@ public class C0955 extends C0678 implements Serializable {
       }
    }
 
-   private void a(C0713 c0713, ArrayList arrayList) {
+   private void a(Competition c0713, ArrayList arrayList) {
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 67; var4 > 59; var4--) {
@@ -155,9 +159,9 @@ public class C0955 extends C0678 implements Serializable {
       }
 
       boolean[] var7 = new boolean[]{true, true, true, true, true, true, true};
-      C0962 var5 = new C0962(this, 8, this.b(), 1, var7, this.YY, 1068);
+      KnockoutStage var5 = new KnockoutStage(this, 8, this.b(), 1, var7, this.YY, 1068);
       ((C0924)c0713).d(var5);
-      C0929 var6 = new C0929();
+      KnockoutRound var6 = new KnockoutRound();
       var6.a(var5, var3, 0, true, 0, 0, this.b(), false);
       var6.fb(1068);
    }
@@ -264,14 +268,14 @@ public class C0955 extends C0678 implements Serializable {
          }
       }
 
-      if ((this.b() != 7 || C0745.SR.H() != 1) && !this.jogosDentroGrupo) {
+      if ((this.b() != 7 || GamePersistence.SR.H() != 1) && !this.jogosDentroGrupo) {
          this.a(this.Zb, this.doisTurnos, true, this.Za);
       }
    }
 
    private void a(ArrayList arrayList, boolean bl, boolean bl2, ArrayList arrayList2) {
       Club[][][] var5 = null;
-      C0713 var6 = null;
+      Competition var6 = null;
       var6 = this.YY;
       if (!bl2) {
          if (arrayList.size() == 4 && this.var0 == 7700) {
@@ -356,7 +360,7 @@ public class C0955 extends C0678 implements Serializable {
       for (int var9 = 0; var9 < var5.length; var9++) {
          for (int var10 = 0; var10 < var13; var10++) {
             if (var5[var9][var10][0] != null && var5[var9][var10][3] != null) {
-               new C0675(this, var9, var5[var9][var10][0], var5[var9][var10][3], (Integer)var8.get(var9), var6, null);
+               new Match(this, var9, var5[var9][var10][0], var5[var9][var10][3], (Integer)var8.get(var9), var6, null);
             }
          }
 
@@ -407,7 +411,7 @@ public class C0955 extends C0678 implements Serializable {
 
    private void yN() {
       for (int var1 = 0; var1 < this.yQ().size(); var1++) {
-         C0745.SR.aY().a(this.YY, C0745.SR.s(((Club)((C0673)this.yQ().get(var1)).gR().get(0)).getPais()));
+         GamePersistence.SR.aY().a(this.YY, GamePersistence.SR.s(((Club)((C0673)this.yQ().get(var1)).gR().get(0)).getPais()));
       }
 
       ArrayList var4 = new ArrayList();
@@ -425,8 +429,8 @@ public class C0955 extends C0678 implements Serializable {
       }
 
       Collections.shuffle(var2);
-      this.Zc = new C0962(this, 8, this.b(), 1, this.duasVoltasMataMata, this.YY, -1);
-      C0929 var6 = new C0929();
+      this.Zc = new KnockoutStage(this, 8, this.b(), 1, this.duasVoltasMataMata, this.YY, -1);
+      KnockoutRound var6 = new KnockoutRound();
       var6.a(this.Zc, var2, 0, this.duasVoltasMataMata[0], 0, 0, this.b(), false);
       this.Zc.fc(90);
    }
@@ -503,8 +507,8 @@ public class C0955 extends C0678 implements Serializable {
             var3.add((Club)var1.get(var4[var12]));
          }
 
-         this.Zc = new C0962(this, var3.size(), this.b(), 0, this.duasVoltasMataMata, this.YY, -1);
-         C0929 var13 = new C0929();
+         this.Zc = new KnockoutStage(this, var3.size(), this.b(), 0, this.duasVoltasMataMata, this.YY, -1);
+         KnockoutRound var13 = new KnockoutRound();
          var13.a(this.Zc, var3, 0, this.duasVoltasMataMata[0], 0, 0, this.b(), false);
       }
    }
@@ -639,8 +643,8 @@ public class C0955 extends C0678 implements Serializable {
       if (this.var0 == 1020) {
          ((C0924)this.YY).a(var3, this, this.var0);
       } else {
-         this.Zc = new C0962(this, var3.size(), this.b(), 0, this.duasVoltasMataMata, this.YY, -1);
-         C0929 var14 = new C0929();
+         this.Zc = new KnockoutStage(this, var3.size(), this.b(), 0, this.duasVoltasMataMata, this.YY, -1);
+         KnockoutRound var14 = new KnockoutRound();
          var14.a(this.Zc, var3, 0, this.duasVoltasMataMata[0], 0, 0, this.b(), var1);
          if (this.var0 == 1802) {
             this.Zc.fc(1802);
@@ -652,12 +656,12 @@ public class C0955 extends C0678 implements Serializable {
 
    public void pO() {
       new ArrayList();
-      ArrayList var1 = ((C0693)C0745.SR.R().get(C0745.SR.J())).h();
+      ArrayList var1 = ((C0693)GamePersistence.SR.R().get(GamePersistence.SR.J())).h();
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-         if (((C0675)var1.get(var2)).ht() == this) {
-            ((C0675)var1.get(var2)).hc().a((C0675)var1.get(var2), this);
-            ((C0675)var1.get(var2)).hd().a((C0675)var1.get(var2), this);
+         if (((Match)var1.get(var2)).ht() == this) {
+            ((Match)var1.get(var2)).hc().a((Match)var1.get(var2), this);
+            ((Match)var1.get(var2)).hd().a((Match)var1.get(var2), this);
          }
       }
 
@@ -670,7 +674,7 @@ public class C0955 extends C0678 implements Serializable {
 
       this.Zf++;
       if (this.b() == 1 && this.Zd == 0 && this.Zf == this.zk()) {
-         C0745.afQ.zj();
+         GamePersistence.afQ.zj();
          C0700.b(this);
       }
 
@@ -686,52 +690,52 @@ public class C0955 extends C0678 implements Serializable {
          }
 
          if (this.var0 == 14001) {
-            C0745.SR.sq().yt();
+            GamePersistence.SR.sq().yt();
          } else if (this.var0 == 14401) {
-            C0745.SR.ym().yt();
+            GamePersistence.SR.ym().yt();
          } else if (this.var0 == 14003) {
-            C0745.SR.sq().BB();
+            GamePersistence.SR.sq().BB();
          } else if (this.var0 != 14002 && this.var0 != 14004 && this.var0 != 14402 && this.var0 != 14403) {
             if (this.var0 == 4005) {
-               C0745.SR.aI().yt();
+               GamePersistence.SR.aI().yt();
             } else if (this.var0 == 6005) {
-               C0745.SR.aK().Be();
+               GamePersistence.SR.aK().Be();
             } else if (this.var0 == 4104) {
-               C0745.SR.aF().yt();
+               GamePersistence.SR.aF().yt();
             } else if (this.var0 == 12005) {
-               C0745.SR.mj().Be();
+               GamePersistence.SR.mj().Be();
             } else if (this.var0 == 6105) {
-               C0745.SR.aH().yt();
+               GamePersistence.SR.aH().yt();
             } else if (this.var0 == 7700) {
-               C0745.SR.aY().yt();
+               GamePersistence.SR.aY().yt();
             } else if (this.var0 == 7701) {
-               C0745.SR.bQ().Bn();
+               GamePersistence.SR.bQ().Bn();
             } else if (this.var0 == 9001) {
-               C0745.SR.bL().Bk();
+               GamePersistence.SR.bL().Bk();
             } else if (this.var0 == 9400) {
-               C0745.SR.bR().Bp();
+               GamePersistence.SR.bR().Bp();
             } else if (this.var0 == 9402) {
-               C0745.SR.bR().Bm();
+               GamePersistence.SR.bR().Bm();
             } else if (this.var0 == 9500) {
-               C0745.SR.bS().Bq();
+               GamePersistence.SR.bS().Bq();
             } else if (this.var0 == 9501) {
-               C0745.SR.bS().yt();
+               GamePersistence.SR.bS().yt();
             } else if (this.var0 == 9100) {
-               C0745.SR.bK().Bm();
+               GamePersistence.SR.bK().Bm();
             } else if (this.Zd == 0 && this.var0 == 90) {
                this.yN();
             } else if (this.var0 == 9201) {
-               C0745.SR.bM().Bk();
+               GamePersistence.SR.bM().Bk();
             } else if (this.var0 == 9301) {
-               C0745.SR.bQ().yt();
+               GamePersistence.SR.bQ().yt();
             } else if (this.var0 == 9302) {
-               C0745.SR.bQ().Bm();
+               GamePersistence.SR.bQ().Bm();
             } else if (this.Zd > 0 && this.melhoresTerceiros) {
                this.yO();
             } else if (this.Zd > 0) {
                this.yP();
             } else {
-               new C0727(this.YY, this, (Club)this.Zb.get(0), (Club)this.Zb.get(1));
+               new CompetitionSeasonResult(this.YY, this, (Club)this.Zb.get(0), (Club)this.Zb.get(1));
             }
          }
       }
@@ -789,9 +793,9 @@ public class C0955 extends C0678 implements Serializable {
       Club[] var1 = new Club[2];
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((C0727)this.YY.mn().get(var2)).H() == C0745.SR.H()) {
-            var1[0] = ((C0727)this.YY.mn().get(var2)).ce();
-            var1[1] = ((C0727)this.YY.mn().get(var2)).cf();
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.SR.H()) {
+            var1[0] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
+            var1[1] = ((CompetitionSeasonResult)this.YY.mn().get(var2)).cf();
             return var1;
          }
       }
@@ -803,8 +807,8 @@ public class C0955 extends C0678 implements Serializable {
       Object var1 = null;
 
       for (int var2 = 0; var2 < this.YY.mn().size(); var2++) {
-         if (((C0727)this.YY.mn().get(var2)).H() == C0745.SR.H()) {
-            return ((C0727)this.YY.mn().get(var2)).ce();
+         if (((CompetitionSeasonResult)this.YY.mn().get(var2)).H() == GamePersistence.SR.H()) {
+            return ((CompetitionSeasonResult)this.YY.mn().get(var2)).ce();
          }
       }
 
@@ -815,15 +819,15 @@ public class C0955 extends C0678 implements Serializable {
       Object var2 = null;
 
       for (int var3 = 0; var3 < this.YY.mn().size(); var3++) {
-         if (((C0727)this.YY.mn().get(var3)).H() == i) {
-            return ((C0727)this.YY.mn().get(var3)).ce();
+         if (((CompetitionSeasonResult)this.YY.mn().get(var3)).H() == i) {
+            return ((CompetitionSeasonResult)this.YY.mn().get(var3)).ce();
          }
       }
 
       return null;
    }
 
-   public C0713 yT() {
+   public Competition yT() {
       return this.YY;
    }
 
@@ -840,16 +844,16 @@ public class C0955 extends C0678 implements Serializable {
             }
          }
       } else if (this.ze() == 1020) {
-         C0955 var9 = ((C0924)this.YY).zP();
-         C0962 var5 = var9.yY();
+         LeagueStage var9 = ((C0924)this.YY).zP();
+         KnockoutStage var5 = var9.yY();
          if (i > var3.size()) {
-            var3.add((Club)((C0929)var5.zp().get(0)).zY().get(0));
+            var3.add((Club)((KnockoutRound)var5.zp().get(0)).zY().get(0));
          }
 
          if (i > var3.size()) {
-            for (int var6 = 0; var6 < ((C0929)var5.zp().get(0)).zV().size(); var6++) {
-               if (!var3.contains(((C0929)var5.zp().get(0)).zV().get(var6))) {
-                  var3.add((Club)((C0929)var5.zp().get(0)).zV().get(var6));
+            for (int var6 = 0; var6 < ((KnockoutRound)var5.zp().get(0)).zV().size(); var6++) {
+               if (!var3.contains(((KnockoutRound)var5.zp().get(0)).zV().get(var6))) {
+                  var3.add((Club)((KnockoutRound)var5.zp().get(0)).zV().get(var6));
                }
             }
          }
@@ -889,9 +893,9 @@ public class C0955 extends C0678 implements Serializable {
          }
       } else if (this.Zc != null && i > 0) {
          for (int var11 = this.Zc.zp().size() - 1; var11 >= 0; var11--) {
-            for (int var14 = 0; var14 < ((C0929)this.Zc.zp().get(var11)).zY().size(); var14++) {
-               if (i > var3.size() && !var3.contains(((C0929)this.Zc.zp().get(var11)).zY().get(var14))) {
-                  var3.add((Club)((C0929)this.Zc.zp().get(var11)).zY().get(var14));
+            for (int var14 = 0; var14 < ((KnockoutRound)this.Zc.zp().get(var11)).zY().size(); var14++) {
+               if (i > var3.size() && !var3.contains(((KnockoutRound)this.Zc.zp().get(var11)).zY().get(var14))) {
+                  var3.add((Club)((KnockoutRound)this.Zc.zp().get(var11)).zY().get(var14));
                }
             }
          }
@@ -912,7 +916,7 @@ public class C0955 extends C0678 implements Serializable {
       }
 
       if (bl && this.YY != null && this.YY instanceof C0924 && this.RT != null) {
-         C0962 var13 = ((C0924)this.YY).BR();
+         KnockoutStage var13 = ((C0924)this.YY).BR();
          if (var13 != null) {
             ArrayList var15 = new ArrayList();
             byte var18 = -1;
@@ -923,7 +927,7 @@ public class C0955 extends C0678 implements Serializable {
             }
 
             if (var18 >= 0 && var18 < var13.zp().size()) {
-               var15.addAll(((C0929)var13.zp().get(var18)).zY());
+               var15.addAll(((KnockoutRound)var13.zp().get(var18)).zY());
             }
 
             int var21 = var3.size() - var15.size();
@@ -987,8 +991,8 @@ public class C0955 extends C0678 implements Serializable {
 
    public ArrayList yV() {
       ArrayList var1 = new ArrayList();
-      C0962 var2 = this.Zc;
-      C0955 var3 = null;
+      KnockoutStage var2 = this.Zc;
+      LeagueStage var3 = null;
       if (this.ze() == 1020) {
          var3 = ((C0924)this.YY).zP();
          if (var3 != null) {
@@ -998,9 +1002,9 @@ public class C0955 extends C0678 implements Serializable {
 
       if (var2 != null) {
          for (int var4 = var2.zp().size() - 1; var4 >= 0; var4--) {
-            for (int var5 = 0; var5 < ((C0929)var2.zp().get(var4)).zY().size(); var5++) {
-               if (!var1.contains(((C0929)var2.zp().get(var4)).zY().get(var5))) {
-                  var1.add((Club)((C0929)var2.zp().get(var4)).zY().get(var5));
+            for (int var5 = 0; var5 < ((KnockoutRound)var2.zp().get(var4)).zY().size(); var5++) {
+               if (!var1.contains(((KnockoutRound)var2.zp().get(var4)).zY().get(var5))) {
+                  var1.add((Club)((KnockoutRound)var2.zp().get(var4)).zY().get(var5));
                }
             }
          }
@@ -1031,7 +1035,7 @@ public class C0955 extends C0678 implements Serializable {
       return this.Zd;
    }
 
-   public C0962 yY() {
+   public KnockoutStage yY() {
       return this.Zc;
    }
 
@@ -1133,22 +1137,22 @@ public class C0955 extends C0678 implements Serializable {
       return false;
    }
 
-   public void f(C0962 c0962) {
-      C0713 var2 = this.YY;
+   public void f(KnockoutStage c0962) {
+      Competition var2 = this.YY;
       int var3 = 0;
       int var4 = 1;
       ArrayList var5 = new ArrayList();
 
       for (int var6 = c0962.zp().size() - 1; var6 >= 0; var6--) {
-         for (int var7 = 0; var7 < ((C0929)c0962.zp().get(var6)).zW().size(); var7++) {
+         for (int var7 = 0; var7 < ((KnockoutRound)c0962.zp().get(var6)).zW().size(); var7++) {
             Club var8 = null;
             Club var9 = null;
-            if (((C0929)c0962.zp().get(var6)).zY().contains(((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hc())) {
-               var8 = ((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hc();
-               var9 = ((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hd();
-            } else if (((C0929)c0962.zp().get(var6)).zY().contains(((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hd())) {
-               var8 = ((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hd();
-               var9 = ((C0675)((C0929)c0962.zp().get(var6)).zW().get(var7)).hc();
+            if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc())) {
+               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc();
+               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd();
+            } else if (((KnockoutRound)c0962.zp().get(var6)).zY().contains(((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd())) {
+               var8 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hd();
+               var9 = ((Match)((KnockoutRound)c0962.zp().get(var6)).zW().get(var7)).hc();
             }
 
             if (!var5.contains(var8)) {
@@ -1168,7 +1172,7 @@ public class C0955 extends C0678 implements Serializable {
       }
 
       ArrayList var10 = new ArrayList();
-      var10.addAll(((C0929)this.Zc.zp().get(0)).zV());
+      var10.addAll(((KnockoutRound)this.Zc.zp().get(0)).zV());
 
       for (int var11 = 0; var11 < this.Zb.size(); var11++) {
          if (!var5.contains(this.Zb.get(var11)) && !var10.contains(this.Zb.get(var11))) {
@@ -1184,7 +1188,7 @@ public class C0955 extends C0678 implements Serializable {
    }
 
    public void za() {
-      C0713 var1 = this.YY;
+      Competition var1 = this.YY;
       boolean var2 = false;
       if (this.YZ != null) {
          var2 = true;
@@ -1194,8 +1198,8 @@ public class C0955 extends C0678 implements Serializable {
       if (this.Zc == null) {
          for (int var4 = 0; var4 < this.Zb.size(); var4++) {
             ((Club)this.Zb.get(var4)).a(var1, var4 + 1, -1);
-            if (var2 && ((Club)this.Zb.get(var4)).getDivisao() == 0 && C0745.SR.bx() != null && this.YZ != null) {
-               C0745.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var4), var4 + 1));
+            if (var2 && ((Club)this.Zb.get(var4)).getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
+               GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var4), var4 + 1));
             }
          }
       } else {
@@ -1203,22 +1207,22 @@ public class C0955 extends C0678 implements Serializable {
          int var5 = 1;
 
          for (int var6 = this.Zc.zp().size() - 1; var6 >= 0; var6--) {
-            for (int var7 = 0; var7 < ((C0929)this.Zc.zp().get(var6)).zW().size(); var7++) {
+            for (int var7 = 0; var7 < ((KnockoutRound)this.Zc.zp().get(var6)).zW().size(); var7++) {
                Club var8 = null;
                Club var9 = null;
-               if (((C0929)this.Zc.zp().get(var6)).zY().contains(((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hc())) {
-                  var8 = ((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hc();
-                  var9 = ((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hd();
-               } else if (((C0929)this.Zc.zp().get(var6)).zY().contains(((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hd())) {
-                  var8 = ((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hd();
-                  var9 = ((C0675)((C0929)this.Zc.zp().get(var6)).zW().get(var7)).hc();
+               if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc())) {
+                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc();
+                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd();
+               } else if (((KnockoutRound)this.Zc.zp().get(var6)).zY().contains(((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd())) {
+                  var8 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hd();
+                  var9 = ((Match)((KnockoutRound)this.Zc.zp().get(var6)).zW().get(var7)).hc();
                }
 
                if (!var3.contains(var8)) {
                   var3.add(var8);
                   var8.a(var1, var5, var10);
-                  if (var2 && var8.getDivisao() == 0 && C0745.SR.bx() != null && this.YZ != null) {
-                     C0745.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var8, var5));
+                  if (var2 && var8.getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
+                     GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var8, var5));
                   }
 
                   var5++;
@@ -1227,8 +1231,8 @@ public class C0955 extends C0678 implements Serializable {
                if (!var3.contains(var9)) {
                   var3.add(var9);
                   var9.a(var1, var5, var10);
-                  if (var2 && var9.getDivisao() == 0 && C0745.SR.bx() != null && this.YZ != null) {
-                     C0745.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var9, var5));
+                  if (var2 && var9.getDivisao() == 0 && GamePersistence.SR.bx() != null && this.YZ != null) {
+                     GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, var9, var5));
                   }
 
                   var5++;
@@ -1247,7 +1251,7 @@ public class C0955 extends C0678 implements Serializable {
 
                ((Club)this.Zb.get(var11)).a(var1, var5, var12);
                if (var2 && ((Club)this.Zb.get(var11)).getDivisao() == 0 && this.YZ != null) {
-                  C0745.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var11), var5));
+                  GamePersistence.SR.bx().add(new C0779(this.YZ.getEstado(), this.divisao, (Club)this.Zb.get(var11), var5));
                }
 
                var5++;
@@ -1262,7 +1266,7 @@ public class C0955 extends C0678 implements Serializable {
    }
 
    @Override
-   public C0692 iq() {
+   public CountryCompetitions iq() {
       return this.YY.iq();
    }
 
@@ -1359,7 +1363,7 @@ public class C0955 extends C0678 implements Serializable {
 
                Coach var4 = ((Club)this.yK().get(var2)).ka();
                Coach var5 = ((Club)this.yK().get(var2)).kE();
-               C0685.a(var4, var5, (Club)this.yK().get(var2), var3);
+               MainWindow.a(var4, var5, (Club)this.yK().get(var2), var3);
                arrayList.add(new C0813((Club)this.yK().get(var2), var4, var5, var3));
             } else if (var2 > 5) {
                Coach var7 = ((Club)this.yK().get(var2)).ka();
@@ -1439,35 +1443,35 @@ public class C0955 extends C0678 implements Serializable {
       if (this.RT != null) {
          if (this.RT.gg() == 1) {
             if (i == 1) {
-               return C0745.SR.aF().cS();
+               return GamePersistence.SR.aF().cS();
             }
 
             if (i == 2) {
-               return C0745.SR.aH().cS();
+               return GamePersistence.SR.aH().cS();
             }
          } else if (this.RT.gg() == 0) {
             if (i == 1) {
-               return C0745.SR.aI().cS();
+               return GamePersistence.SR.aI().cS();
             }
 
             if (i == 2) {
-               return C0745.SR.aK().cS();
+               return GamePersistence.SR.aK().cS();
             }
          } else {
             if (this.RT.gg() == 2) {
-               return C0745.SR.aO().cS();
+               return GamePersistence.SR.aO().cS();
             }
 
             if (this.RT.gg() == 3) {
-               return C0745.SR.aL().cS();
+               return GamePersistence.SR.aL().cS();
             }
 
             if (this.RT.gg() == 4) {
-               return C0745.SR.aP().cS();
+               return GamePersistence.SR.aP().cS();
             }
 
             if (this.RT.gg() == 5) {
-               return C0745.SR.aQ().cS();
+               return GamePersistence.SR.aQ().cS();
             }
          }
       }
@@ -1475,7 +1479,7 @@ public class C0955 extends C0678 implements Serializable {
       return null;
    }
 
-   public C0692 vl() {
+   public CountryCompetitions vl() {
       return this.RT;
    }
 
@@ -1503,11 +1507,11 @@ public class C0955 extends C0678 implements Serializable {
       return this.Zi;
    }
 
-   public static void r(C0955 c0955) {
+   public static void r(LeagueStage c0955) {
       Zl = c0955;
    }
 
-   public void c(C0962 c0962) {
+   public void c(KnockoutStage c0962) {
       this.Zc = c0962;
    }
 

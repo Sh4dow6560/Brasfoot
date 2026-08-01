@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import mod.recovered.model.Club;
 
 public class C0786 {
@@ -32,7 +33,7 @@ public class C0786 {
    }
 
    public String uD() {
-      return Integer.toString(this.ae + C0745.SR.iU());
+      return Integer.toString(this.ae + GamePersistence.SR.iU());
    }
 
    public void k(int i) {

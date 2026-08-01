@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.save.GamePersistence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,6 @@ class C0979 implements ActionListener {
    public void actionPerformed(ActionEvent actionEvent) {
       C0734.dg();
       C0734.dh();
-      C0745.SR.az();
+      GamePersistence.SR.az();
    }
 }

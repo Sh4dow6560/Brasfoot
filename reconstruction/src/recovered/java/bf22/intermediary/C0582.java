@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,7 +28,7 @@ public class C0582 extends AbstractTableModel {
 
       Collections.sort(this.vp, C1007.abe);
       this.Nt = new String[]{"", "P", "", "Nome", "L", "F", "Energia", "Salário", "Passe", "G", "Car.", "Idade", "GC", "A", "NM"};
-      if (C0745.SR.isHabilidadeIndividual()) {
+      if (GamePersistence.SR.isHabilidadeIndividual()) {
          this.Nt = new String[]{
             "", "P", "", "Nome", "L", "Gol", "Des", "Arm", "Fin", "Vel", "Tec", "Pas", "Energia", "Salário", "Valor", "G", "Car.", "Idade", "GC", "A", "NM"
          };
@@ -59,7 +61,7 @@ public class C0582 extends AbstractTableModel {
    public Object Y(int i, int j) {
       if (j != 0) {
          if (j == 1) {
-            return C0710.rI[((Player)this.vp.get(i)).getPosicao()];
+            return GameConstants.rI[((Player)this.vp.get(i)).getPosicao()];
          }
 
          if (j != 2) {
@@ -68,7 +70,7 @@ public class C0582 extends AbstractTableModel {
             }
 
             if (j == 4) {
-               return C0710.rK[((Player)this.vp.get(i)).getLado()];
+               return GameConstants.rK[((Player)this.vp.get(i)).getLado()];
             }
 
             if (j == 5) {
@@ -89,7 +91,7 @@ public class C0582 extends AbstractTableModel {
 
             if (j != 9) {
                if (j == 10) {
-                  return C0710.qN[((Player)this.vp.get(i)).getCr1()] + "/" + C0710.qN[((Player)this.vp.get(i)).getCr2()];
+                  return GameConstants.qN[((Player)this.vp.get(i)).getCr1()] + "/" + GameConstants.qN[((Player)this.vp.get(i)).getCr2()];
                }
 
                if (j == 11) {

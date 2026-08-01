@@ -1,10 +1,11 @@
 package bf22.intermediary;
 
+import mod.recovered.match.Match;
 import java.util.ArrayList;
 
 public class C0809 {
-   private C0675 NB = null;
-   private C0675 NC = null;
+   private Match NB = null;
+   private Match NC = null;
    private boolean ND = false;
    private boolean NE = false;
    private boolean NF = false;
@@ -16,19 +17,19 @@ public class C0809 {
    private String NL = null;
    private int w = 0;
 
-   public C0675 sP() {
+   public Match sP() {
       return this.NB;
    }
 
-   public void l(C0675 c0675) {
+   public void l(Match c0675) {
       this.NB = c0675;
    }
 
-   public C0675 sQ() {
+   public Match sQ() {
       return this.NC;
    }
 
-   public void m(C0675 c0675) {
+   public void m(Match c0675) {
       this.NC = c0675;
    }
 

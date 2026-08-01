@@ -1,5 +1,7 @@
 package bf22.intermediary;
 
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -43,17 +45,17 @@ public class C0156 extends JPanel {
       this.pp();
       this.pq();
       this.po();
-      this.ug.setText("Finanças - " + String.valueOf(C0745.SR.H() + C0745.SR.iU()));
+      this.ug.setText("Finanças - " + String.valueOf(GamePersistence.SR.H() + GamePersistence.SR.iU()));
       this.mG();
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
    }
 
    private void po() {
       String var1 = "Total de salários por mês: ";
-      if (!C0745.SR.isSalarioMensal()) {
+      if (!GamePersistence.SR.isSalarioMensal()) {
          var1 = "Total de salários por semana: ";
       }
 

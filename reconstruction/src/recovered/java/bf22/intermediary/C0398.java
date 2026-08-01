@@ -1,5 +1,8 @@
 package bf22.intermediary;
 
+import mod.recovered.competition.CountryCompetitions;
+import mod.recovered.core.GameConstants;
+import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -58,15 +61,15 @@ public class C0398 extends JPanel {
    }
 
    private void mG() {
-      this.setBackground(C0710.E(C0745.vM().getCorTema(), 1));
-      this.uv.setBackground(C0710.E(C0745.vM().getCorTema(), 2));
+      this.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 1));
+      this.uv.setBackground(GameConstants.E(GamePersistence.vM().getCorTema(), 2));
    }
 
    private void mK() {
       this.un = C0937.L(this.ul);
 
       for (int var1 = 0; var1 < this.un.size(); var1++) {
-         this.up.addItem(((C0693)C0745.SR.R().get((Integer)this.un.get(var1))).f());
+         this.up.addItem(((C0693)GamePersistence.SR.R().get((Integer)this.un.get(var1))).f());
       }
    }
 
@@ -119,9 +122,9 @@ public class C0398 extends JPanel {
       this.uw.getSelectionModel().setSelectionMode(1);
       this.uw.addTreeSelectionListener(new C0550(this));
 
-      for (int var1 = 0; var1 < C0745.SR.P().size(); var1++) {
-         if (!((Club)C0745.SR.P().get(var1)).kn()) {
-            this.um.add((Club)C0745.SR.P().get(var1));
+      for (int var1 = 0; var1 < GamePersistence.SR.P().size(); var1++) {
+         if (!((Club)GamePersistence.SR.P().get(var1)).kn()) {
+            this.um.add((Club)GamePersistence.SR.P().get(var1));
             Collections.sort(this.um, C1007.VS);
          }
       }
@@ -136,28 +139,28 @@ public class C0398 extends JPanel {
       DefaultMutableTreeNode var3 = null;
       MutableTreeNode var4 = null;
 
-      for (int var5 = 0; var5 < C0745.SR.N().size(); var5++) {
-         var2 = new DefaultMutableTreeNode(((C0692)C0745.SR.N().get(var5)).jp());
+      for (int var5 = 0; var5 < GamePersistence.SR.N().size(); var5++) {
+         var2 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).jp());
          defaultMutableTreeNode.add(var2);
 
-         for (int var6 = 0; var6 < ((C0692)C0745.SR.N().get(var5)).eb().size(); var6++) {
-            if (((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
-               var3 = new DefaultMutableTreeNode(((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).getNome());
+         for (int var6 = 0; var6 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().size(); var6++) {
+            if (((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size() > 0) {
+               var3 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).getNome());
                var2.add(var3);
 
-               for (int var7 = 0; var7 < ((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
-                  var4 = new DefaultMutableTreeNode(((C0924)((C0692)C0745.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
+               for (int var7 = 0; var7 < ((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().size(); var7++) {
+                  var4 = new DefaultMutableTreeNode(((C0924)((CountryCompetitions)GamePersistence.SR.N().get(var5)).eb().get(var6)).yi().yK().get(var7));
                   var3.add(var4);
                }
             }
          }
 
-         if (((C0692)C0745.SR.N().get(var5)).ek().size() > 0) {
+         if (((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size() > 0) {
             var3 = new DefaultMutableTreeNode("Regionais");
             var2.add(var3);
 
-            for (int var16 = 0; var16 < ((C0692)C0745.SR.N().get(var5)).ek().size(); var16++) {
-               var4 = new DefaultMutableTreeNode(((C0692)C0745.SR.N().get(var5)).ek().get(var16));
+            for (int var16 = 0; var16 < ((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().size(); var16++) {
+               var4 = new DefaultMutableTreeNode(((CountryCompetitions)GamePersistence.SR.N().get(var5)).ek().get(var16));
                var3.add(var4);
             }
          }

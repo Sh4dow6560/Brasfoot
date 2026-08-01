@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.ui.MainWindow;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
@@ -11,6 +12,6 @@ class C0265 extends AbstractAction {
 
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
-      C0685.a(C0272.c(this.Iz));
+      MainWindow.a(C0272.c(this.Iz));
    }
 }
