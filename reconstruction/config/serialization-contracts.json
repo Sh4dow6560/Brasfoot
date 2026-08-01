@@ -3,7 +3,7 @@
   "classes": [
     {
       "officialName": "best/A",
-      "namedName": "bf22/intermediary/C0667",
+      "namedName": "mod/recovered/match/MatchEvent",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",
@@ -72,7 +72,7 @@
     },
     {
       "officialName": "best/B",
-      "namedName": "bf22/intermediary/C0668",
+      "namedName": "mod/recovered/stadium/StadiumExpansionProject",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.stadium.StadiumExpansionProject;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -83,12 +84,12 @@ public class C0171 extends JPanel {
    }
 
    public void oB() {
-      if (GamePersistence.careerState.bw() != null && GamePersistence.careerState.bw().size() > 0) {
-         for (int var1 = 0; var1 < GamePersistence.careerState.bw().size(); var1++) {
-            if (((C0668)GamePersistence.careerState.bw().get(var1)).ev() == this.dH) {
+      if (GamePersistence.careerState.getStadiumExpansionProjects() != null && GamePersistence.careerState.getStadiumExpansionProjects().size() > 0) {
+         for (int var1 = 0; var1 < GamePersistence.careerState.getStadiumExpansionProjects().size(); var1++) {
+            if (((StadiumExpansionProject)GamePersistence.careerState.getStadiumExpansionProjects().get(var1)).getStadium() == this.dH) {
                this.BY.setVisible(false);
                DateFormat var2 = DateFormat.getDateInstance();
-               String var3 = var2.format(((C0668)GamePersistence.careerState.bw().get(var1)).ew().getTime());
+               String var3 = var2.format(((StadiumExpansionProject)GamePersistence.careerState.getStadiumExpansionProjects().get(var1)).getCompletionDate().getTime());
                this.zh.setText("Expansão com término em: " + var3);
                break;
             }

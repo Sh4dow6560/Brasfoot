@@ -472,11 +472,11 @@ public class Match implements Serializable {
       }
 
       for (int var5 = 0; var5 < this.fN.size(); var5++) {
-         if (((C0667)this.fN.get(var5)).eo() != null) {
-            if (((C0667)this.fN.get(var5)).b() == 1 && ((C0667)this.fN.get(var5)).el() != 2) {
-               ((C0667)this.fN.get(var5)).eo().a(this.fx, ((C0667)this.fN.get(var5)).cu());
-            } else if (((C0667)this.fN.get(var5)).b() == 2 || ((C0667)this.fN.get(var5)).b() == 3 || ((C0667)this.fN.get(var5)).b() == 4) {
-               ((C0667)this.fN.get(var5)).eo().a(((C0667)this.fN.get(var5)).b(), this.fx, ((C0667)this.fN.get(var5)).cu());
+         if (((MatchEvent)this.fN.get(var5)).getPrimaryPlayer() != null) {
+            if (((MatchEvent)this.fN.get(var5)).getType() == 1 && ((MatchEvent)this.fN.get(var5)).getSubtype() != 2) {
+               ((MatchEvent)this.fN.get(var5)).getPrimaryPlayer().a(this.fx, ((MatchEvent)this.fN.get(var5)).getClub());
+            } else if (((MatchEvent)this.fN.get(var5)).getType() == 2 || ((MatchEvent)this.fN.get(var5)).getType() == 3 || ((MatchEvent)this.fN.get(var5)).getType() == 4) {
+               ((MatchEvent)this.fN.get(var5)).getPrimaryPlayer().a(((MatchEvent)this.fN.get(var5)).getType(), this.fx, ((MatchEvent)this.fN.get(var5)).getClub());
             }
          }
       }
@@ -701,7 +701,7 @@ public class Match implements Serializable {
       return null;
    }
 
-   public static C0667 a(int i, int j, Match c0675, Club club, Player player, Player player2, int k, int l) {
+   public static MatchEvent a(int i, int j, Match c0675, Club club, Player player, Player player2, int k, int l) {
       ArrayList var8 = null;
       ArrayList var9 = null;
       byte var10 = 0;
@@ -715,28 +715,28 @@ public class Match implements Serializable {
          var10 = 1;
       }
 
-      C0667 var11 = new C0667(var10);
-      var11.a(i);
-      var11.f(player);
+      MatchEvent var11 = new MatchEvent(var10);
+      var11.setType(i);
+      var11.setPrimaryPlayer(player);
       if (j == 2) {
          Player var12 = G(var9);
          if (var12 != null) {
-            var11.f(var12);
-            var11.R(2);
+            var11.setPrimaryPlayer(var12);
+            var11.setSubtype(2);
          } else {
-            var11.R(1);
+            var11.setSubtype(1);
          }
       } else {
-         var11.R(j);
+         var11.setSubtype(j);
       }
 
       if (player2 != null) {
-         var11.g(player2);
+         var11.setSecondaryPlayer(player2);
       }
 
-      var11.S(l);
-      var11.T(k);
-      var11.k(club);
+      var11.setMinute(l);
+      var11.setPeriod(k);
+      var11.setClub(club);
       c0675.fN.add(var11);
       if (i == 2) {
          player.gB().tG();
@@ -819,8 +819,8 @@ public class Match implements Serializable {
       }
    }
 
-   public C0667 a(int i, Player player, Player player2, int j, int k, int l) {
-      C0667 var7 = null;
+   public MatchEvent a(int i, Player player, Player player2, int j, int k, int l) {
+      MatchEvent var7 = null;
       ArrayList var8 = null;
       ArrayList var9 = null;
       ArrayList var10 = null;
@@ -1145,18 +1145,18 @@ public class Match implements Serializable {
       }
 
       a(this, j, i);
-      C0667 var4 = null;
+      MatchEvent var4 = null;
       var4 = var3.vO();
       if (var4 != null) {
-         var4.S(i);
-         var4.T(j);
+         var4.setMinute(i);
+         var4.setPeriod(j);
          this.hE().add(var4);
-         if (var4.b() == 1 && var4.ep() != null) {
-            C0667 var5 = new C0667(var4.et());
-            var5.S(i);
-            var5.f(var4.ep());
-            var5.a(8);
-            var5.T(j);
+         if (var4.getType() == 1 && var4.getSecondaryPlayer() != null) {
+            MatchEvent var5 = new MatchEvent(var4.getTeamSide());
+            var5.setMinute(i);
+            var5.setPrimaryPlayer(var4.getSecondaryPlayer());
+            var5.setType(8);
+            var5.setPeriod(j);
             this.hE().add(var5);
          }
       }
@@ -1212,18 +1212,18 @@ public class Match implements Serializable {
 
          for (int var3 = 0; var3 < 45 + this.fQ[0]; var3++) {
             a(this, 1, var3);
-            C0667 var4 = null;
+            MatchEvent var4 = null;
             var4 = var1.vO();
             if (var4 != null) {
-               var4.S(var3);
-               var4.T(1);
+               var4.setMinute(var3);
+               var4.setPeriod(1);
                this.hE().add(var4);
-               if (var4.b() == 1 && var4.ep() != null) {
-                  C0667 var5 = new C0667(var4.et());
-                  var5.S(var3);
-                  var5.f(var4.ep());
-                  var5.a(8);
-                  var5.T(1);
+               if (var4.getType() == 1 && var4.getSecondaryPlayer() != null) {
+                  MatchEvent var5 = new MatchEvent(var4.getTeamSide());
+                  var5.setMinute(var3);
+                  var5.setPrimaryPlayer(var4.getSecondaryPlayer());
+                  var5.setType(8);
+                  var5.setPeriod(1);
                   this.hE().add(var5);
                }
             }
@@ -1233,18 +1233,18 @@ public class Match implements Serializable {
 
          for (int var6 = 0; var6 < 45 + this.fQ[1]; var6++) {
             a(this, 2, var6);
-            C0667 var9 = null;
+            MatchEvent var9 = null;
             var9 = var1.vO();
             if (var9 != null) {
-               var9.S(var6);
-               var9.T(2);
+               var9.setMinute(var6);
+               var9.setPeriod(2);
                this.hE().add(var9);
-               if (var9.b() == 1 && var9.ep() != null) {
-                  C0667 var12 = new C0667(var9.et());
-                  var12.S(var6);
-                  var12.f(var9.ep());
-                  var12.T(2);
-                  var12.a(8);
+               if (var9.getType() == 1 && var9.getSecondaryPlayer() != null) {
+                  MatchEvent var12 = new MatchEvent(var9.getTeamSide());
+                  var12.setMinute(var6);
+                  var12.setPrimaryPlayer(var9.getSecondaryPlayer());
+                  var12.setPeriod(2);
+                  var12.setType(8);
                   this.hE().add(var12);
                }
             }
@@ -1472,10 +1472,10 @@ public class Match implements Serializable {
       this.fC = 0;
 
       for (int var1 = 0; var1 < this.fN.size(); var1++) {
-         if (((C0667)this.fN.get(var1)).b() == 1) {
-            if (((C0667)this.fN.get(var1)).cu() == this.fz) {
+         if (((MatchEvent)this.fN.get(var1)).getType() == 1) {
+            if (((MatchEvent)this.fN.get(var1)).getClub() == this.fz) {
                this.fB++;
-            } else if (((C0667)this.fN.get(var1)).cu() == this.fA) {
+            } else if (((MatchEvent)this.fN.get(var1)).getClub() == this.fA) {
                this.fC++;
             }
          }

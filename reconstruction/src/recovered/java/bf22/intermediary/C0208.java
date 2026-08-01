@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.competition.CopaLibertadores;
 import mod.recovered.competition.CopaSudamericana;
 import mod.recovered.competition.NationalSuperCup;
@@ -665,10 +666,10 @@ public class C0208 extends JPanel {
       for (int var4 = 0; var4 < vK.size(); var4++) {
          if (((C0827)vK.get(var4)).tR() != null) {
             for (int var5 = 0; var5 < ((C0827)vK.get(var4)).tR().hE().size(); var5++) {
-               if (!((C0667)((C0827)vK.get(var4)).tR().hE().get(var5)).isDone()
-                  && ((C0667)((C0827)vK.get(var4)).tR().hE().get(var5)).en() == dB
-                  && ((C0667)((C0827)vK.get(var4)).tR().hE().get(var5)).em() <= GT) {
-                  this.a((C0827)vK.get(var4), ((C0827)vK.get(var4)).tR(), (C0667)((C0827)vK.get(var4)).tR().hE().get(var5), var4);
+               if (!((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).isDone()
+                  && ((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).getPeriod() == dB
+                  && ((MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5)).getMinute() <= GT) {
+                  this.a((C0827)vK.get(var4), ((C0827)vK.get(var4)).tR(), (MatchEvent)((C0827)vK.get(var4)).tR().hE().get(var5), var4);
                }
             }
          }
@@ -687,49 +688,49 @@ public class C0208 extends JPanel {
       }
    }
 
-   public void a(C0827 c0827, Match c0675, C0667 c0667, int i) {
-      if (c0667.b() == 8) {
-         c0667.p(true);
+   public void a(C0827 c0827, Match c0675, MatchEvent c0667, int i) {
+      if (c0667.getType() == 8) {
+         c0667.setDone(true);
       }
 
       if (!c0667.isDone()) {
-         c0667.p(true);
+         c0667.setDone(true);
          byte var5 = 0;
-         if (c0667.cu() == c0675.hc()) {
+         if (c0667.getClub() == c0675.hc()) {
             var5 = 1;
-         } else if (c0667.cu() == c0675.hd()) {
+         } else if (c0667.getClub() == c0675.hd()) {
             var5 = 2;
          }
 
          if (var5 > 0) {
             c0827.a(c0667);
-            if (c0667.b() == 1) {
-               if (c0667.el() == 3 && c0827.ei()) {
+            if (c0667.getType() == 1) {
+               if (c0667.getSubtype() == 3 && c0827.ei()) {
                   this.dk(4);
-                  if (!c0667.cu().jZ()) {
+                  if (!c0667.getClub().jZ()) {
                      this.b(c0827, c0667);
                   } else {
                      this.a(c0827, c0667);
                   }
 
-                  c0667.q(true);
+                  c0667.setConfirmed(true);
                } else {
                   c0827.dJ(var5);
                   if (c0827.ei()) {
-                     if (c0667.cu().jZ()) {
+                     if (c0667.getClub().jZ()) {
                         this.dk(2);
                      } else {
                         this.dk(3);
                      }
                   }
                }
-            } else if (c0667.b() != 3 && c0667.b() != 4) {
-               if (c0667.b() == 5) {
+            } else if (c0667.getType() != 3 && c0667.getType() != 4) {
+               if (c0667.getType() == 5) {
                   if (c0827.ei()) {
                      this.dk(6);
                   }
 
-                  if (c0667.cu().jZ()) {
+                  if (c0667.getClub().jZ()) {
                      GS.e(i, false);
                   }
                }
@@ -738,7 +739,7 @@ public class C0208 extends JPanel {
                   this.dk(5);
                }
 
-               if (c0667.cu().jZ()) {
+               if (c0667.getClub().jZ()) {
                   GS.e(i, false);
                }
             }
@@ -748,19 +749,19 @@ public class C0208 extends JPanel {
          if (this.Hr.isVisible() && this.GW >= 0 && this.GW == i) {
             this.Hn.setText(c0827.tT() + " x " + c0827.tU());
             if (var5 == 1) {
-               this.Hj.setText(c0827.tV().er());
-               this.Hj.setIcon(c0827.tV().es());
+               this.Hj.setText(c0827.tV().getDisplayHtml());
+               this.Hj.setIcon(c0827.tV().getIcon());
             } else {
-               this.Hk.setText(c0827.tV().er());
-               this.Hk.setIcon(c0827.tV().es());
+               this.Hk.setText(c0827.tV().getDisplayHtml());
+               this.Hk.setIcon(c0827.tV().getIcon());
             }
          }
       }
    }
 
-   private void a(C0827 c0827, C0667 c0667) {
+   private void a(C0827 c0827, MatchEvent c0667) {
       ArrayList var3;
-      if (c0667.cu() == c0827.tR().hc()) {
+      if (c0667.getClub() == c0827.tR().hc()) {
          var3 = c0827.tR().hp();
       } else {
          var3 = c0827.tR().hq();
@@ -779,9 +780,9 @@ public class C0208 extends JPanel {
       this.b(c0827, c0667);
    }
 
-   private void b(C0827 c0827, C0667 c0667) {
+   private void b(C0827 c0827, MatchEvent c0667) {
       JDialog var3 = new JDialog(Br);
-      C0373 var4 = new C0373(var3, c0827, c0667, c0667.eo(), this);
+      C0373 var4 = new C0373(var3, c0827, c0667, c0667.getPrimaryPlayer(), this);
       var3.add(var4);
       var3.setSize(402, 202);
       var3.setPreferredSize(new Dimension(402, 202));

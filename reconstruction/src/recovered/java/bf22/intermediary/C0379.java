@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Font;
@@ -19,7 +20,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import mod.recovered.model.Player;
 
 public class C0379 extends JPanel {
-   private C0667 JO = null;
+   private MatchEvent JO = null;
    private ArrayList vp = null;
    private Player CY = null;
    private JDialog ub = null;
@@ -29,13 +30,13 @@ public class C0379 extends JPanel {
    private JLabel vf;
    private JTable zS;
 
-   public C0379(JDialog jDialog, C0667 c0667, ArrayList arrayList) {
+   public C0379(JDialog jDialog, MatchEvent c0667, ArrayList arrayList) {
       this.ub = jDialog;
       this.JO = c0667;
       this.vp = arrayList;
       this.mJ();
       this.vq.setEnabled(false);
-      this.vf.setIcon(c0667.cu().kU());
+      this.vf.setIcon(c0667.getClub().kU());
       this.mV();
       this.vq.addActionListener(new C0380(this));
       if (GamePersistence.careerState.bD()) {
@@ -55,7 +56,7 @@ public class C0379 extends JPanel {
    public void A(Player player) {
       this.CY = player;
       if (player != null) {
-         this.JO.f(player);
+         this.JO.setPrimaryPlayer(player);
          this.vq.setEnabled(true);
       }
    }

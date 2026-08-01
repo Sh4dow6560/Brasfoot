@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.stadium.StadiumExpansionProject;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -137,11 +138,11 @@ public class C0176 extends JPanel {
       if (this.zu.kb() < this.Ct) {
          JOptionPane.showMessageDialog(this.ub, "Sem dinheiro para essa expansão", "Expansão", 2);
       } else {
-         C0668 var1 = new C0668();
-         var1.a(this.dH);
-         var1.c(this.dI);
-         var1.c(this.Cr);
-         GamePersistence.careerState.bw().add(var1);
+         StadiumExpansionProject var1 = new StadiumExpansionProject();
+         var1.setStadium(this.dH);
+         var1.setCompletionDate(this.dI);
+         var1.setSeatAdditions(this.Cr);
+         GamePersistence.careerState.getStadiumExpansionProjects().add(var1);
          this.zu.w(this.Ct, 7);
          this.ub.dispose();
          this.Cn.oB();

@@ -26,13 +26,19 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 80 classes e 159 membros mapeados possuem nomes validos ou
+- Legibilidade: 82 classes e 203 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
   expoe temporada, ano inicial, data atual, indice, partidas e dias agendados
   por nomes diretos.
+- Partidas: `MatchEvent` expoe clube, jogadores, tipo, subtipo, minuto,
+  periodo, lado e estados do evento. O save real valida 3.116 eventos dos oito
+  tipos existentes, e a API passou um cenario funcional completo no Java 8.
+- Estadios: `StadiumExpansionProject` e o processamento correspondente em
+  `CareerState` estao nomeados. Um teste funcional confirma aplicacao unica de
+  70 lugares, preservacao da data e round-trip Kryo.
 - Migracao: nomes de membros estaticos podem ser aplicados de forma
   transacional nas 1.032 fontes, com backup e verificacao de referencias.
-- Proxima fase: nomear eventos do calendario e ampliar os testes funcionais
-  antes de implementar novas mecanicas.
+- Proxima fase: tornar legiveis as regras internas de simulacao e estatisticas
+  de partidas antes de implementar novas mecanicas.

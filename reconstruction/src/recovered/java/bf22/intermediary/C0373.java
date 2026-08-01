@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.Random;
@@ -18,7 +19,7 @@ import mod.recovered.model.Player;
 public class C0373 extends JPanel {
    private JDialog ub = null;
    private C0827 Db = null;
-   private C0667 JO = null;
+   private MatchEvent JO = null;
    private Player ef = null;
    private Player JP = null;
    private Timer zC;
@@ -30,17 +31,17 @@ public class C0373 extends JPanel {
    private JLabel JU;
    private JLabel vf;
 
-   public C0373(JDialog jDialog, C0827 c0827, C0667 c0667, Player player, C0208 c0208) {
+   public C0373(JDialog jDialog, C0827 c0827, MatchEvent c0667, Player player, C0208 c0208) {
       this.ub = jDialog;
       this.JT = c0208;
       this.Db = c0827;
       this.JO = c0667;
       this.ef = player;
-      if (c0827.tR().hc() == c0667.cu()) {
+      if (c0827.tR().hc() == c0667.getClub()) {
          this.JQ = 1;
          this.JR = 2;
          this.JS = c0827.tR().hc().jZ();
-      } else if (c0827.tR().hd() == c0667.cu()) {
+      } else if (c0827.tR().hd() == c0667.getClub()) {
          this.JQ = 2;
          this.JR = 1;
          this.JS = c0827.tR().hd().jZ();
@@ -48,8 +49,8 @@ public class C0373 extends JPanel {
 
       this.JP = c0827.tR().aT(this.JR);
       this.mJ();
-      this.vf.setIcon(c0667.cu().kU());
-      this.JU.setText("<html><center>" + c0667.cu().getNome() + " tem um penalty" + "</center></html>");
+      this.vf.setIcon(c0667.getClub().kU());
+      this.JU.setText("<html><center>" + c0667.getClub().getNome() + " tem um penalty" + "</center></html>");
       this.zC = new Timer();
       this.zC.scheduleAtFixedRate(new C0374(this), 2000L, 2000L);
       this.a((JComponent)this);
@@ -211,9 +212,9 @@ public class C0373 extends JPanel {
             this.Db.tR().ia()[this.JQ - 1]++;
          }
 
-         this.JO.a(7);
+         this.JO.setType(7);
          if (var11 == 0 || var11 == 3 || var11 == 5) {
-            this.JO.g(this.JP);
+            this.JO.setSecondaryPlayer(this.JP);
             this.JP.gB().tJ();
          }
 

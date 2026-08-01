@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.StateChampionship;
 import mod.recovered.competition.Competition;
@@ -227,7 +228,7 @@ public class C0435 extends JPanel {
       this.DG.setAutoResizeMode(3);
       this.DG.setRowHeight(20);
       this.DG.setShowGrid(false);
-      this.DG.setDefaultRenderer(C0667.class, new C0634(true));
+      this.DG.setDefaultRenderer(MatchEvent.class, new C0634(true));
       this.DG.setAutoCreateRowSorter(false);
       this.DG.setCellSelectionEnabled(false);
       this.DG.setRowSelectionAllowed(false);
@@ -725,43 +726,43 @@ public class C0435 extends JPanel {
       ArrayList var5 = null;
 
       for (int var6 = 0; var6 < c0675.hE().size(); var6++) {
-         ((C0667)c0675.hE().get(var6)).p(true);
+         ((MatchEvent)c0675.hE().get(var6)).setDone(true);
       }
 
       for (int var7 = 0; var7 < c0675.hE().size(); var7++) {
-         if (((C0667)c0675.hE().get(var7)).b() == 1) {
+         if (((MatchEvent)c0675.hE().get(var7)).getType() == 1) {
             if (var2 == null) {
                var2 = new ArrayList();
             }
 
-            var2.add((C0667)c0675.hE().get(var7));
-         } else if (((C0667)c0675.hE().get(var7)).b() >= 2 && ((C0667)c0675.hE().get(var7)).b() <= 4) {
+            var2.add((MatchEvent)c0675.hE().get(var7));
+         } else if (((MatchEvent)c0675.hE().get(var7)).getType() >= 2 && ((MatchEvent)c0675.hE().get(var7)).getType() <= 4) {
             if (var3 == null) {
                var3 = new ArrayList();
             }
 
-            var3.add((C0667)c0675.hE().get(var7));
-         } else if (((C0667)c0675.hE().get(var7)).b() == 5) {
+            var3.add((MatchEvent)c0675.hE().get(var7));
+         } else if (((MatchEvent)c0675.hE().get(var7)).getType() == 5) {
             if (var5 == null) {
                var5 = new ArrayList();
             }
 
-            var5.add((C0667)c0675.hE().get(var7));
+            var5.add((MatchEvent)c0675.hE().get(var7));
          }
       }
 
       if (var2 != null) {
-         this.KO.add(new C0667(91, true));
+         this.KO.add(new MatchEvent(91, true));
          this.KO.addAll(var2);
       }
 
       if (var3 != null) {
-         this.KO.add(new C0667(92, true));
+         this.KO.add(new MatchEvent(92, true));
          this.KO.addAll(var3);
       }
 
       if (var5 != null) {
-         this.KO.add(new C0667(95, true));
+         this.KO.add(new MatchEvent(95, true));
          this.KO.addAll(var5);
       }
 
@@ -812,14 +813,14 @@ public class C0435 extends JPanel {
       var3.add(var12);
 
       for (int var8 = 0; var8 < c0675.hE().size(); var8++) {
-         if (((C0667)c0675.hE().get(var8)).b() == 6 && ((C0667)c0675.hE().get(var8)).cu() == var5) {
+         if (((MatchEvent)c0675.hE().get(var8)).getType() == 6 && ((MatchEvent)c0675.hE().get(var8)).getClub() == var5) {
             C0814 var9 = new C0814();
-            var9.h(((C0667)c0675.hE().get(var8)).ep());
+            var9.h(((MatchEvent)c0675.hE().get(var8)).getSecondaryPlayer());
             var9.ap(true);
-            var9.K(((C0667)c0675.hE().get(var8)).eq());
+            var9.K(((MatchEvent)c0675.hE().get(var8)).getTimeLabel());
             var3.add(var9);
             C0814 var10 = new C0814();
-            var10.h(((C0667)c0675.hE().get(var8)).eo());
+            var10.h(((MatchEvent)c0675.hE().get(var8)).getPrimaryPlayer());
             var10.aq(true);
             var3.add(var10);
          }

@@ -1,6 +1,6 @@
 package mod.recovered.model;
 
-import bf22.intermediary.C0667;
+import mod.recovered.match.MatchEvent;
 import bf22.intermediary.C0674;
 import mod.recovered.match.Match;
 import bf22.intermediary.C0676;
@@ -2786,19 +2786,19 @@ public class Player implements Serializable {
       int var10 = 90;
 
       for (int var11 = 0; var11 < c0675.hE().size(); var11++) {
-         if (((C0667)c0675.hE().get(var11)).eo() == this) {
-            if (((C0667)c0675.hE().get(var11)).en() == 1) {
-               var10 = ((C0667)c0675.hE().get(var11)).em();
+         if (((MatchEvent)c0675.hE().get(var11)).getPrimaryPlayer() == this) {
+            if (((MatchEvent)c0675.hE().get(var11)).getPeriod() == 1) {
+               var10 = ((MatchEvent)c0675.hE().get(var11)).getMinute();
             } else {
-               var10 = 48 + ((C0667)c0675.hE().get(var11)).em();
+               var10 = 48 + ((MatchEvent)c0675.hE().get(var11)).getMinute();
             }
          }
 
-         if (((C0667)c0675.hE().get(var11)).ep() == this) {
-            if (((C0667)c0675.hE().get(var11)).en() == 1) {
-               var10 = 48 + (50 - ((C0667)c0675.hE().get(var11)).em());
+         if (((MatchEvent)c0675.hE().get(var11)).getSecondaryPlayer() == this) {
+            if (((MatchEvent)c0675.hE().get(var11)).getPeriod() == 1) {
+               var10 = 48 + (50 - ((MatchEvent)c0675.hE().get(var11)).getMinute());
             } else {
-               var10 = 50 - ((C0667)c0675.hE().get(var11)).em();
+               var10 = 50 - ((MatchEvent)c0675.hE().get(var11)).getMinute();
             }
          }
       }

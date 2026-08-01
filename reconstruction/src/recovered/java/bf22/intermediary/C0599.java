@@ -66,22 +66,22 @@ public class C0599 extends DefaultTableCellRenderer {
          } else if (j == 5) {
             this.setHorizontalAlignment(2);
             if (var7.tV() != null) {
-               if (var7.tV().et() == 0 && GamePersistence.careerState.isNegritoCasa()) {
+               if (var7.tV().getTeamSide() == 0 && GamePersistence.careerState.isNegritoCasa()) {
                   super.setFont(new Font("Tahoma", 1, 11));
                }
 
                boolean var11 = true;
-               if (var7.tV().b() == 6 && !var7.tR().hc().jZ() && !var7.tR().hd().jZ()) {
+               if (var7.tV().getType() == 6 && !var7.tR().hc().jZ() && !var7.tR().hd().jZ()) {
                   var11 = false;
                }
 
-               if (var7.tV().b() == 1 && var7.tV().el() == 3) {
-                  var11 = var7.tV().eu();
+               if (var7.tV().getType() == 1 && var7.tV().getSubtype() == 3) {
+                  var11 = var7.tV().isConfirmed();
                }
 
                if (var11) {
-                  this.setText(var7.tV().er());
-                  this.setIcon(var7.tV().es());
+                  this.setText(var7.tV().getDisplayHtml());
+                  this.setIcon(var7.tV().getIcon());
                }
             }
          }

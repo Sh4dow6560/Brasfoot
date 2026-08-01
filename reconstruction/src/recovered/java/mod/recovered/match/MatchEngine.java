@@ -192,8 +192,8 @@ public class MatchEngine {
    public MatchEngine() {
    }
 
-   public C0667 vO() {
-      C0667 var1 = null;
+   public MatchEvent vO() {
+      MatchEvent var1 = null;
       this.TC++;
       int var2 = this.vR();
       if (var2 == this.TB) {
@@ -620,8 +620,8 @@ public class MatchEngine {
       return var5 / 12.0;
    }
 
-   public C0667 vT() {
-      C0667 var1 = null;
+   public MatchEvent vT() {
+      MatchEvent var1 = null;
       double var2 = this.eE(this.vQ());
       this.TF = var2;
       double var4 = this.eA(this.TB);
@@ -677,8 +677,8 @@ public class MatchEngine {
       var17 = this.a(var15, var16);
       this.TG[this.TB]++;
       if (var17 == 0) {
-         var1 = new C0667(this.TB);
-         var1.k(this.TA[this.TB]);
+         var1 = new MatchEvent(this.TB);
+         var1.setClub(this.TA[this.TB]);
          this.a(var1, this.TE);
          this.zz.hZ()[this.TB]++;
       } else if (var17 == 1) {
@@ -965,9 +965,9 @@ public class MatchEngine {
       return -1;
    }
 
-   public void a(C0667 c0667, Player player) {
-      c0667.a(1);
-      c0667.f(player);
+   public void a(MatchEvent c0667, Player player) {
+      c0667.setType(1);
+      c0667.setPrimaryPlayer(player);
       byte var3 = 1;
       int var4 = new Random().nextInt(1000);
       if (var4 < 900) {
@@ -1008,10 +1008,10 @@ public class MatchEngine {
          if (var8 != null && var8 != player) {
             var8.gB().gV();
             if (var8.fg() != null && !var8.fC()) {
-               var8.a(8, c0667.cu(), this.zz.hy());
+               var8.a(8, c0667.getClub(), this.zz.hy());
             }
 
-            c0667.g(var8);
+            c0667.setSecondaryPlayer(var8);
          }
       }
 
@@ -1024,7 +1024,7 @@ public class MatchEngine {
          }
 
          if (this.TA[this.TB].lq() != null && var9.contains(this.TA[this.TB].lq())) {
-            c0667.f(this.TA[this.TB].lq());
+            c0667.setPrimaryPlayer(this.TA[this.TB].lq());
          } else if (player.getPosicao() == 0) {
             var3 = 1;
          }
@@ -1033,7 +1033,7 @@ public class MatchEngine {
       if (var3 == 2) {
          Player var11 = this.vV();
          if (var11 != null) {
-            c0667.f(var11);
+            c0667.setPrimaryPlayer(var11);
             var11.gB().tE();
          } else {
             var3 = 1;
@@ -1052,17 +1052,17 @@ public class MatchEngine {
          }
 
          if (this.TA[this.TB].ke() != null && var12.contains(this.TA[this.TB].ke())) {
-            c0667.f(this.TA[this.TB].ke());
+            c0667.setPrimaryPlayer(this.TA[this.TB].ke());
          }
       }
 
       boolean var14 = false;
       if (var3 == 3) {
-         c0667.q(true);
+         c0667.setConfirmed(true);
          if (this.TA[0].jZ() || this.TA[1].jZ()) {
             var14 = true;
             var3 = 3;
-            c0667.q(false);
+            c0667.setConfirmed(false);
          }
       }
 
@@ -1079,7 +1079,7 @@ public class MatchEngine {
          }
       }
 
-      c0667.R(var3);
+      c0667.setSubtype(var3);
    }
 
    public void eG(int i) {

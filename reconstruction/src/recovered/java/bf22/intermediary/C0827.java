@@ -1,12 +1,13 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.match.Match;
 public class C0827 {
    private Match zz;
    private String Pp = "";
    private int Pq = 0;
    private int Pr = 0;
-   private C0667 Ps = null;
+   private MatchEvent Ps = null;
    private boolean Pt = false;
    private int Pu = 0;
    private String gq = null;
@@ -47,11 +48,11 @@ public class C0827 {
       return this.Pr;
    }
 
-   public C0667 tV() {
+   public MatchEvent tV() {
       return this.Ps;
    }
 
-   public void a(C0667 c0667) {
+   public void a(MatchEvent c0667) {
       this.Ps = c0667;
    }
 

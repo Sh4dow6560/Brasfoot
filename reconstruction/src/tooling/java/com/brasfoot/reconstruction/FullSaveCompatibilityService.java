@@ -13,7 +13,7 @@ import java.util.TreeSet;
 
 final class FullSaveCompatibilityService {
   private static final List<String> REQUIRED_MODELS = List.of(
-      "best.F", "best.ah", "best.al", "best.C", "best.v");
+      "best.A", "best.F", "best.a", "best.ah", "best.al", "best.C", "best.v");
 
   private final ProjectContext context;
 
@@ -71,8 +71,12 @@ final class FullSaveCompatibilityService {
         throw new IllegalStateException("Reference save does not contain recovered model " + model);
       }
     }
+    int matchEventCount = readCount(log, "best.A");
     if (!log.contains("ROOT best.f AUX best.ay")
         || !log.contains("CALENDAR days=")
+        || !log.contains("MATCH_EVENTS count=" + matchEventCount + " ")
+        || !log.contains("MATCH_EVENT_API ")
+        || !log.contains("STADIUM_EXPANSION ")
         || !log.contains("ROUNDTRIP ")) {
       throw new IllegalStateException("Full save did not complete a Kryo round-trip:\n" + log);
     }

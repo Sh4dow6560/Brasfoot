@@ -666,7 +666,7 @@
   "b/y": "compile-clean",
   "b/z": "compile-clean",
   "best/A": "runtime-verified",
-  "best/B": "compile-clean",
+  "best/B": "runtime-verified",
   "best/C": "runtime-verified",
   "best/D": "compile-clean",
   "best/E": "compile-clean",

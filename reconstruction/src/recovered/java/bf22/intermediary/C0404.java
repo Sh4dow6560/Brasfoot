@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
@@ -118,21 +119,21 @@ public class C0404 extends JPanel {
          int[] var21 = new int[]{new Random().nextInt(3), new Random().nextInt(5) + 1};
 
          for (int var22 = 0; var22 < 45 + var21[0]; var22++) {
-            C0667 var23 = null;
+            MatchEvent var23 = null;
             var23 = var20.vO();
             if (var23 != null) {
-               var23.S(var22);
-               var23.T(1);
+               var23.setMinute(var22);
+               var23.setPeriod(1);
                var19.hE().add(var23);
             }
          }
 
          for (int var28 = 0; var28 < 45 + var21[1]; var28++) {
-            C0667 var43 = null;
+            MatchEvent var43 = null;
             var43 = var20.vO();
             if (var43 != null) {
-               var43.S(var28);
-               var43.T(2);
+               var43.setMinute(var28);
+               var43.setPeriod(2);
                var19.hE().add(var43);
             }
          }
@@ -184,15 +185,15 @@ public class C0404 extends JPanel {
 
             for (int var25 = 0; var25 < var19.hE().size(); var25++) {
                var24 = var24
-                  + ((C0667)var19.hE().get(var25)).eo().getNome()
+                  + ((MatchEvent)var19.hE().get(var25)).getPrimaryPlayer().getNome()
                   + " "
-                  + GameConstants.rI[((C0667)var19.hE().get(var25)).eo().getPosicao()]
+                  + GameConstants.rI[((MatchEvent)var19.hE().get(var25)).getPrimaryPlayer().getPosicao()]
                   + " "
-                  + Integer.toString(((C0667)var19.hE().get(var25)).em())
+                  + Integer.toString(((MatchEvent)var19.hE().get(var25)).getMinute())
                   + "' - "
-                  + Integer.toString(((C0667)var19.hE().get(var25)).en())
+                  + Integer.toString(((MatchEvent)var19.hE().get(var25)).getPeriod())
                   + "º "
-                  + ((C0667)var19.hE().get(var25)).cu().getNome()
+                  + ((MatchEvent)var19.hE().get(var25)).getClub().getNome()
                   + "<br>";
             }
 

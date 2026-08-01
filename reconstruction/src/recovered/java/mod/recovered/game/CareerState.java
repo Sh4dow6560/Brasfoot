@@ -1,5 +1,6 @@
 package mod.recovered.game;
 
+import mod.recovered.stadium.StadiumExpansionProject;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.AfricaCupOfNations;
 import mod.recovered.competition.AfricaWorldCupQualifiers;
@@ -83,7 +84,7 @@ public class CareerState implements Serializable {
    private ArrayList at = new ArrayList();
    private ArrayList au = new ArrayList();
    private ArrayList av = new ArrayList();
-   private ArrayList aw = new ArrayList();
+   private ArrayList stadiumExpansionProjects = new ArrayList();
    private ArrayList ax = new ArrayList();
    private ArrayList ay = new ArrayList();
    private ArrayList az = new ArrayList();
@@ -1528,20 +1529,20 @@ public class CareerState implements Serializable {
       }
    }
 
-   private void aw() {
+   private void processCompletedStadiumExpansions() {
       ArrayList var1 = new ArrayList();
-      if (this.aw != null && GamePersistence.careerState.aw.size() > 0) {
-         for (int var2 = 0; var2 < GamePersistence.careerState.aw.size(); var2++) {
-            if (((C0668)GamePersistence.careerState.aw.get(var2)).ew().before(GamePersistence.careerState.getCurrentDate())) {
-               ((C0668)GamePersistence.careerState.aw.get(var2)).ex();
-               var1.add((C0668)GamePersistence.careerState.aw.get(var2));
+      if (this.stadiumExpansionProjects != null && GamePersistence.careerState.stadiumExpansionProjects.size() > 0) {
+         for (int var2 = 0; var2 < GamePersistence.careerState.stadiumExpansionProjects.size(); var2++) {
+            if (((StadiumExpansionProject)GamePersistence.careerState.stadiumExpansionProjects.get(var2)).getCompletionDate().before(GamePersistence.careerState.getCurrentDate())) {
+               ((StadiumExpansionProject)GamePersistence.careerState.stadiumExpansionProjects.get(var2)).applyExpansion();
+               var1.add((StadiumExpansionProject)GamePersistence.careerState.stadiumExpansionProjects.get(var2));
             }
          }
       }
 
       if (var1.size() > 0) {
          for (int var3 = 0; var3 < var1.size(); var3++) {
-            GamePersistence.careerState.aw.remove(var1.get(var3));
+            GamePersistence.careerState.stadiumExpansionProjects.remove(var1.get(var3));
          }
       }
    }
@@ -1561,8 +1562,8 @@ public class CareerState implements Serializable {
          this.av();
       }
 
-      if (this.aw != null && GamePersistence.careerState.aw.size() > 0) {
-         this.aw();
+      if (this.stadiumExpansionProjects != null && GamePersistence.careerState.stadiumExpansionProjects.size() > 0) {
+         this.processCompletedStadiumExpansions();
       }
 
       this.q(1);
@@ -2374,12 +2375,12 @@ public class CareerState implements Serializable {
       return this.aH;
    }
 
-   public ArrayList bw() {
-      if (this.aw == null) {
-         this.aw = new ArrayList();
+   public ArrayList getStadiumExpansionProjects() {
+      if (this.stadiumExpansionProjects == null) {
+         this.stadiumExpansionProjects = new ArrayList();
       }
 
-      return this.aw;
+      return this.stadiumExpansionProjects;
    }
 
    public ArrayList bx() {
@@ -2532,8 +2533,8 @@ public class CareerState implements Serializable {
       this.au = arrayList;
    }
 
-   public void q(ArrayList arrayList) {
-      this.aw = arrayList;
+   public void setStadiumExpansionProjects(ArrayList arrayList) {
+      this.stadiumExpansionProjects = arrayList;
    }
 
    public void r(ArrayList arrayList) {

@@ -682,8 +682,48 @@ c	b/w	bf22/intermediary/C0663	bf22/intermediary/C0663
 c	b/x	bf22/intermediary/C0664	bf22/intermediary/C0664
 c	b/y	bf22/intermediary/C0665	bf22/intermediary/C0665
 c	b/z	bf22/intermediary/C0666	bf22/intermediary/C0666
-c	best/A	bf22/intermediary/C0667	bf22/intermediary/C0667
-c	best/B	bf22/intermediary/C0668	bf22/intermediary/C0668
+c	best/A	bf22/intermediary/C0667	mod/recovered/match/MatchEvent
+	f	I	dA	dA	minute
+	f	I	dB	dB	period
+	f	Lbest/F;	dC	dC	primaryPlayer
+	f	Lbest/F;	dD	dD	secondaryPlayer
+	f	Z	dE	dE	done
+	f	I	dF	dF	teamSide
+	f	Z	dG	dG	confirmed
+	f	Lbest/ah;	dy	dy	club
+	f	I	dz	dz	subtype
+	f	I	w	w	type
+	m	(I)V	R	R	setSubtype
+	m	(I)V	S	S	setMinute
+	m	(I)V	T	T	setPeriod
+	m	(I)V	a	a	setType
+	m	()I	b	b	getType
+	m	()Lbest/ah;	cu	cu	getClub
+	m	()I	el	el	getSubtype
+	m	()I	em	em	getMinute
+	m	()I	en	en	getPeriod
+	m	()Lbest/F;	eo	eo	getPrimaryPlayer
+	m	()Lbest/F;	ep	ep	getSecondaryPlayer
+	m	()Ljava/lang/String;	eq	eq	getTimeLabel
+	m	()Ljava/lang/String;	er	er	getDisplayHtml
+	m	()Ljavax/swing/ImageIcon;	es	es	getIcon
+	m	()I	et	et	getTeamSide
+	m	()Z	eu	eu	isConfirmed
+	m	(Lbest/F;)V	f	f	setPrimaryPlayer
+	m	(Lbest/F;)V	g	g	setSecondaryPlayer
+	m	(Lbest/ah;)V	k	k	setClub
+	m	(Z)V	p	p	setDone
+	m	(Z)V	q	q	setConfirmed
+c	best/B	bf22/intermediary/C0668	mod/recovered/stadium/StadiumExpansionProject
+	f	Lbest/v;	dH	dH	stadium
+	f	Ljava/util/Calendar;	dI	dI	completionDate
+	f	[I	dJ	dJ	seatAdditions
+	m	(Lbest/v;)V	a	a	setStadium
+	m	(Ljava/util/Calendar;)V	c	c	setCompletionDate
+	m	([I)V	c	c	setSeatAdditions
+	m	()Lbest/v;	ev	ev	getStadium
+	m	()Ljava/util/Calendar;	ew	ew	getCompletionDate
+	m	()V	ex	ex	applyExpansion
 c	best/C	bf22/intermediary/C0669	mod/recovered/finance/ClubFinances
 c	best/D	bf22/intermediary/C0670	bf22/intermediary/C0670
 c	best/E	bf22/intermediary/C0671	bf22/intermediary/C0671
@@ -753,6 +793,7 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	f	I	ae	ae	seasonNumber
 	f	I	af	af	currentScheduleIndex
 	f	Ljava/util/ArrayList;	as	as	scheduleDays
+	f	Ljava/util/ArrayList;	aw	aw	stadiumExpansionProjects
 	f	Ljava/lang/String;	bj	bj	saveName
 	f	I	rM	rM	firstSeasonYear
 	m	()I	H	H	getSeasonNumber
@@ -763,16 +804,19 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	m	()Ljava/util/ArrayList;	S	S	getCurrentMatches
 	m	()Ljava/lang/String;	T	T	getCurrentDateText
 	m	(Lest/InfoArquivoSalvoType;)V	a	a	setSavedGameInfo
+	m	()V	aw	aw	processCompletedStadiumExpansions
 	m	()Ljava/util/Calendar;	bb	bb	getCurrentDate
 	m	()J	bc	bc	getCurrentTimeMillis
 	m	()Ljava/lang/String;	br	br	getSaveName
 	m	()Lest/InfoArquivoSalvoType;	bs	bs	getSavedGameInfo
+	m	()Ljava/util/ArrayList;	bw	bw	getStadiumExpansionProjects
 	m	(Ljava/lang/String;)V	d	d	setSaveName
 	m	()I	iU	iU	getSeasonYearOffset
 	m	(I)V	k	k	setSeasonNumber
 	m	(I)V	l	l	setCurrentScheduleIndex
 	m	(I)Ljava/util/ArrayList;	m	m	getMatchesAtScheduleIndex
 	m	()I	op	op	getFirstSeasonYear
+	m	(Ljava/util/ArrayList;)V	q	q	setStadiumExpansionProjects
 c	best/g	bf22/intermediary/C0724	mod/recovered/game/CoachPerformanceComparator
 	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725

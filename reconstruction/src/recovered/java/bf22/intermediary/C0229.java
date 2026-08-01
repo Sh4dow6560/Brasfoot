@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Font;
@@ -88,7 +89,7 @@ public class C0229 extends JPanel {
 
    private void nc() {
       for (int var1 = 0; var1 < this.Db.tR().hE().size(); var1++) {
-         ((C0667)this.Db.tR().hE().get(var1)).p(true);
+         ((MatchEvent)this.Db.tR().hE().get(var1)).setDone(true);
       }
 
       C0662 var4 = new C0662(this.Db.tR().hE());
@@ -103,7 +104,7 @@ public class C0229 extends JPanel {
       this.DG.setAutoResizeMode(3);
       this.DG.setRowHeight(20);
       this.DG.setShowGrid(false);
-      this.DG.setDefaultRenderer(C0667.class, new C0634(false));
+      this.DG.setDefaultRenderer(MatchEvent.class, new C0634(false));
       this.DG.setAutoCreateRowSorter(false);
       this.DG.setCellSelectionEnabled(false);
       this.DG.setRowSelectionAllowed(false);

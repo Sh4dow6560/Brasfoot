@@ -13,6 +13,7 @@ chamadas binaras permanecem compativeis.
 | `save/SavedGameInfo` | `est/InfoArquivoSalvoType` | metadados exibidos no carregamento |
 | `manager/CoachJobMarket` | `best/ay` | propostas e mercado de tecnicos |
 | `game/ScheduleDay` | `best/a` | data, partidas, fases e eventos agendados |
+| `stadium/StadiumExpansionProject` | `best/B` | obra, data de conclusao e novos lugares |
 
 `GamePersistence` ja possui API fonte legivel: `careerState`,
 `coachJobMarket`, `getOptions`, `saveCareer`, `loadCareer`,
@@ -22,7 +23,8 @@ nomes voltam aos identificadores oficiais somente na montagem final.
 `CareerState` tambem expoe `getSeasonNumber`, `advanceSeason`,
 `getScheduleDays`, `getCurrentScheduleIndex`, `getCurrentMatches`,
 `getCurrentDate`, `getCurrentTimeMillis`, `getFirstSeasonYear` e os respectivos
-ajustes essenciais.
+ajustes essenciais. As obras de estadio podem ser consultadas, substituidas e
+processadas por nomes diretos.
 
 ## Competicoes
 
@@ -42,8 +44,14 @@ ajustes essenciais.
 | Fonte | Classe oficial | Papel |
 |---|---|---|
 | `match/Match` | `best/I` | estado, times, placar e estatisticas da partida |
+| `match/MatchEvent` | `best/A` | gols, cartoes, substituicoes e demais eventos |
 | `match/MatchEngine` | `c/b` | probabilidades e processamento da simulacao |
 | `core/GameConstants` | `best/aq` | codigos, tabelas e parametros globais |
+
+`MatchEvent` expoe diretamente clube, tipo, subtipo, minuto, periodo,
+jogadores principal e secundario, lado do time, confirmacao, texto e icone.
+Esses acessos sao exercitados no JAR final e preservados pelo round-trip do
+save de referencia.
 
 ## Transferencias
 

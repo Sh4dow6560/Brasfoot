@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.match.MatchEvent;
 import mod.recovered.core.GameConstants;
 import java.awt.Color;
 import java.awt.Component;
@@ -23,41 +24,41 @@ public class C0634 extends DefaultTableCellRenderer {
       this.setHorizontalAlignment(0);
       this.setIcon(null);
       this.setText("");
-      C0667 var7 = (C0667)object;
+      MatchEvent var7 = (MatchEvent)object;
       if (this.SP) {
          this.setBackground(GameConstants.or);
       }
 
       if (var7 != null && var7.isDone()) {
          if (j == 1) {
-            if (var7.b() < 90) {
-               this.setText(var7.er());
-            } else if (var7.b() == 91) {
+            if (var7.getType() < 90) {
+               this.setText(var7.getDisplayHtml());
+            } else if (var7.getType() == 91) {
                this.setText("Gols");
-            } else if (var7.b() == 92) {
+            } else if (var7.getType() == 92) {
                this.setText("Cartões");
-            } else if (var7.b() == 95) {
+            } else if (var7.getType() == 95) {
                this.setText("Contusões");
-            } else if (var7.b() == 96) {
+            } else if (var7.getType() == 96) {
                this.setText("Substituições");
             }
          }
 
-         if (var7.b() > 90) {
+         if (var7.getType() > 90) {
             if (j == 1) {
                this.setFont(new Font("Arial", 1, 12));
                this.setHorizontalAlignment(0);
                this.setBackground(GameConstants.os);
             }
-         } else if (var7.et() == 0) {
+         } else if (var7.getTeamSide() == 0) {
             if (j == 0) {
-               this.setIcon(var7.es());
+               this.setIcon(var7.getIcon());
             } else if (j == 1) {
                this.setHorizontalAlignment(2);
             }
-         } else if (var7.et() == 1) {
+         } else if (var7.getTeamSide() == 1) {
             if (j == 2) {
-               this.setIcon(var7.es());
+               this.setIcon(var7.getIcon());
             } else if (j == 1) {
                this.setHorizontalAlignment(4);
             }

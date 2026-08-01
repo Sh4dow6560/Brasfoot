@@ -22,11 +22,17 @@
 - O teste do save tambem valida o comportamento estrutural do calendario real:
   ordem das datas, limites do indice atual, temporada, ano inicial e contagem
   de partidas permanecem identicos apos a regravacao.
-- 80 classes ja possuem nomes semanticos. O nucleo legivel cobre
+- Os 3.116 eventos de partida do save sao validados por tipo, vinculos,
+  minuto, periodo e lado do time antes e depois da regravacao. Um segundo
+  cenario executa diretamente todos os acessores essenciais de `MatchEvent`.
+- A expansao de estadio possui cenario funcional isolado que confirma aumento
+  de capacidade, consumo dos lugares pendentes e idempotencia.
+- 82 classes ja possuem nomes semanticos. O nucleo legivel cobre
   `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
-  `KnockoutStage`, `TransferNegotiation`, `Match` e `MatchEngine`, alem das
-  competicoes concretas nacionais e internacionais. `ScheduleDay` e os
-  acessos centrais de temporada, data e agenda tambem estao nomeados.
+  `KnockoutStage`, `TransferNegotiation`, `Match`, `MatchEvent` e
+  `MatchEngine`, alem das competicoes concretas nacionais e internacionais.
+  `ScheduleDay`, `StadiumExpansionProject` e os acessos centrais de temporada,
+  data e agenda tambem estao nomeados.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos e todas as suas
@@ -36,7 +42,7 @@
 
 ## Proximas Fases
 
-1. Nomeacao semantica da API de carreira, calendario e transferencias.
+1. Nomeacao semantica das regras de simulacao e estatisticas de partidas.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.
