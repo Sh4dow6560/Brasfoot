@@ -99,14 +99,16 @@ final class ArchiveService {
       @Override
       public FieldVisitor visitField(int access, String name, String descriptor,
           String signature, Object value) {
-        members.add(new MemberInfo("field", name, descriptor, access));
+        members.add(new MemberInfo(
+            "field", name, descriptor, access, signature,
+            value == null ? null : String.valueOf(value)));
         return null;
       }
 
       @Override
       public MethodVisitor visitMethod(int access, String name, String descriptor,
           String signature, String[] exceptions) {
-        members.add(new MemberInfo("method", name, descriptor, access));
+        members.add(new MemberInfo("method", name, descriptor, access, signature, null));
         return null;
       }
     }, ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
@@ -148,7 +150,13 @@ final class ArchiveService {
       List<MemberInfo> members) {
   }
 
-  record MemberInfo(String kind, String name, String descriptor, int access) {
+  record MemberInfo(
+      String kind,
+      String name,
+      String descriptor,
+      int access,
+      String genericSignature,
+      String constantValue) {
     String signature() {
       return kind + ":" + name + ":" + descriptor;
     }

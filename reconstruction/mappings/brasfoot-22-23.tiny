@@ -793,7 +793,14 @@ c	components/ac	bf22/intermediary/C0783	bf22/intermediary/C0783
 c	components/ad	bf22/intermediary/C0784	bf22/intermediary/C0784
 c	components/ae	bf22/intermediary/C0785	bf22/intermediary/C0785
 c	components/af	bf22/intermediary/C0786	bf22/intermediary/C0786
-c	components/ag	bf22/intermediary/C0787	bf22/intermediary/C0787
+c	components/ag	bf22/intermediary/C0787	mod/recovered/team/LineupPreset
+	f	Ljava/util/ArrayList;	Ri	Ri	positions
+	f	Ljava/lang/String;	nome	nome	name
+	f	Ljava/util/ArrayList;	vp	vp	players
+	m	()Ljava/lang/String;	getNome	getNome	getName
+	m	(Ljava/lang/String;)V	setNome	setNome	setName
+	m	()Ljava/util/ArrayList;	uH	uH	getPlayers
+	m	()Ljava/util/ArrayList;	uI	uI	getPositions
 c	components/ah	bf22/intermediary/C0788	bf22/intermediary/C0788
 c	components/ai	bf22/intermediary/C0789	bf22/intermediary/C0789
 c	components/aj	bf22/intermediary/C0790	bf22/intermediary/C0790
@@ -928,13 +935,27 @@ c	d/y	bf22/intermediary/C0912	bf22/intermediary/C0912
 c	d/z	bf22/intermediary/C0913	bf22/intermediary/C0913
 c	e/g	bf22/intermediary/C0914	bf22/intermediary/C0914
 c	e/t	bf22/intermediary/C0915	bf22/intermediary/C0915
-c	est/ArrayLigaEType	bf22/intermediary/C0916	bf22/intermediary/C0916
-c	est/ArrayLigaType	bf22/intermediary/C0917	bf22/intermediary/C0917
-c	est/ConfigEstadualType	bf22/intermediary/C0918	bf22/intermediary/C0918
-c	est/ConfigLigaType	bf22/intermediary/C0919	bf22/intermediary/C0919
-c	est/InfoArquivoSalvoType	bf22/intermediary/C0920	bf22/intermediary/C0920
-c	est/LoadLigaOptions	bf22/intermediary/C0921	bf22/intermediary/C0921
-c	est/Options	bf22/intermediary/C0922	bf22/intermediary/C0922
+c	est/ArrayLigaEType	bf22/intermediary/C0916	mod/recovered/config/StateLeagueConfigs
+	f	Ljava/util/ArrayList;	a	a	leagues
+c	est/ArrayLigaType	bf22/intermediary/C0917	mod/recovered/config/NationalLeagueConfigs
+	f	Ljava/util/ArrayList;	a	a	leagues
+c	est/ConfigEstadualType	bf22/intermediary/C0918	mod/recovered/config/StateLeagueConfig
+c	est/ConfigLigaType	bf22/intermediary/C0919	mod/recovered/config/NationalLeagueConfig
+c	est/InfoArquivoSalvoType	bf22/intermediary/C0920	mod/recovered/save/SavedGameInfo
+	f	Ljava/lang/Integer;	a	a	seasonYear
+	f	Ljava/lang/String;	i	i	nextMatch
+	f	Ljava/lang/String;	n	n	managerName
+	f	Ljava/lang/String;	tc	tc	clubName
+	m	()Ljava/lang/Integer;	getA	getA	getSeasonYear
+	m	()Ljava/lang/String;	getI	getI	getNextMatch
+	m	()Ljava/lang/String;	getN	getN	getManagerName
+	m	()Ljava/lang/String;	getTc	getTc	getClubName
+	m	(Ljava/lang/Integer;)V	setA	setA	setSeasonYear
+	m	(Ljava/lang/String;)V	setI	setI	setNextMatch
+	m	(Ljava/lang/String;)V	setN	setN	setManagerName
+	m	(Ljava/lang/String;)V	setTc	setTc	setClubName
+c	est/LoadLigaOptions	bf22/intermediary/C0921	mod/recovered/config/LeagueLoadOptions
+c	est/Options	bf22/intermediary/C0922	mod/recovered/config/GameOptions
 c	f/A	bf22/intermediary/C0923	bf22/intermediary/C0923
 c	f/B	bf22/intermediary/C0924	bf22/intermediary/C0924
 c	f/C	bf22/intermediary/C0925	bf22/intermediary/C0925

@@ -1,3 +1,11 @@
 {
-  "components/ar": "runtime-verified"
+  "components/ar": "runtime-verified",
+  "components/ag": "runtime-verified",
+  "est/ArrayLigaEType": "runtime-verified",
+  "est/ArrayLigaType": "runtime-verified",
+  "est/ConfigEstadualType": "runtime-verified",
+  "est/ConfigLigaType": "runtime-verified",
+  "est/InfoArquivoSalvoType": "runtime-verified",
+  "est/LoadLigaOptions": "runtime-verified",
+  "est/Options": "runtime-verified"
 }

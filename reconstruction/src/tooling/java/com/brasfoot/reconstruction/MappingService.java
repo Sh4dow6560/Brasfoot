@@ -4,6 +4,7 @@ import com.brasfoot.reconstruction.ArchiveService.ArchiveData;
 import com.brasfoot.reconstruction.ArchiveService.ClassInfo;
 import com.brasfoot.reconstruction.ArchiveService.MemberInfo;
 import com.brasfoot.reconstruction.ProjectContext.MethodSemanticName;
+import com.brasfoot.reconstruction.ProjectContext.FieldSemanticName;
 import com.brasfoot.reconstruction.ProjectContext.SemanticNames;
 import com.brasfoot.reconstruction.ProjectContext.VersionSpec;
 import java.io.IOException;
@@ -37,6 +38,10 @@ final class MappingService {
     for (MethodSemanticName item : semantic.methods()) {
       semanticMethods.put(methodKey(item.owner(), item.name(), item.descriptor()), item);
     }
+    Map<String, FieldSemanticName> semanticFields = new HashMap<>();
+    for (FieldSemanticName item : semantic.fields()) {
+      semanticFields.put(fieldKey(item.owner(), item.name(), item.descriptor()), item);
+    }
 
     List<String> officialNames = new ArrayList<>(target.classes().keySet());
     officialNames.sort(String::compareTo);
@@ -55,6 +60,7 @@ final class MappingService {
     StringBuilder tiny = new StringBuilder("tiny\t2\t0\tofficial\tintermediary\tnamed\n");
     int mappedMembers = 0;
     Set<String> consumedSemanticMethods = new HashSet<>();
+    Set<String> consumedSemanticFields = new HashSet<>();
     for (String official : officialNames) {
       ClassInfo classInfo = target.classes().get(official);
       tiny.append("c\t").append(official).append('\t')
@@ -67,10 +73,14 @@ final class MappingService {
         }
         MethodSemanticName semanticMethod = "method".equals(member.kind())
             ? semanticMethods.get(methodKey(official, member.name(), member.descriptor())) : null;
+        FieldSemanticName semanticField = "field".equals(member.kind())
+            ? semanticFields.get(fieldKey(official, member.name(), member.descriptor())) : null;
         boolean illegal = !JavaIdentifiers.isLegal(member.name());
         String intermediaryName = illegal
             ? JavaIdentifiers.legalMemberName(member.kind(), member.name()) : member.name();
-        String namedName = semanticMethod == null ? intermediaryName : semanticMethod.named();
+        String namedName = semanticMethod != null
+            ? semanticMethod.named()
+            : semanticField != null ? semanticField.named() : intermediaryName;
         if (!JavaIdentifiers.isLegal(intermediaryName) || !JavaIdentifiers.isLegal(namedName)) {
           throw new IllegalStateException("Illegal mapped member name for " + official + "."
               + member.name() + member.descriptor());
@@ -80,7 +90,7 @@ final class MappingService {
           throw new IllegalStateException("Mapped member collision: " + official + " "
               + outputSignature);
         }
-        if (semanticMethod == null && !illegal) {
+        if (semanticMethod == null && semanticField == null && !illegal) {
           continue;
         }
         tiny.append('\t').append("field".equals(member.kind()) ? 'f' : 'm').append('\t')
@@ -91,6 +101,10 @@ final class MappingService {
           consumedSemanticMethods.add(methodKey(
               semanticMethod.owner(), semanticMethod.name(), semanticMethod.descriptor()));
         }
+        if (semanticField != null) {
+          consumedSemanticFields.add(fieldKey(
+              semanticField.owner(), semanticField.name(), semanticField.descriptor()));
+        }
       }
     }
 
@@ -98,6 +112,11 @@ final class MappingService {
       Set<String> missing = new HashSet<>(semanticMethods.keySet());
       missing.removeAll(consumedSemanticMethods);
       throw new IllegalStateException("Semantic method mappings not found in target: " + missing);
+    }
+    if (consumedSemanticFields.size() != semanticFields.size()) {
+      Set<String> missing = new HashSet<>(semanticFields.keySet());
+      missing.removeAll(consumedSemanticFields);
+      throw new IllegalStateException("Semantic field mappings not found in target: " + missing);
     }
     if (!target.classes().keySet().containsAll(semantic.classes().keySet())) {
       Set<String> missing = new HashSet<>(semantic.classes().keySet());
@@ -197,6 +216,10 @@ final class MappingService {
 
   private String methodKey(String owner, String name, String descriptor) {
     return owner + "." + name + descriptor;
+  }
+
+  private String fieldKey(String owner, String name, String descriptor) {
+    return owner + "." + name + ":" + descriptor;
   }
 
   record RecoveryIndex(int schemaVersion, List<RecoveryEntry> classes) {

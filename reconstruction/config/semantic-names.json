@@ -1,11 +1,42 @@
 {
   "classes": {
-    "components/ar": "mod/recovered/CrashLogHandler"
+    "components/ar": "mod/recovered/CrashLogHandler",
+    "components/ag": "mod/recovered/team/LineupPreset",
+    "est/ArrayLigaEType": "mod/recovered/config/StateLeagueConfigs",
+    "est/ArrayLigaType": "mod/recovered/config/NationalLeagueConfigs",
+    "est/ConfigEstadualType": "mod/recovered/config/StateLeagueConfig",
+    "est/ConfigLigaType": "mod/recovered/config/NationalLeagueConfig",
+    "est/InfoArquivoSalvoType": "mod/recovered/save/SavedGameInfo",
+    "est/LoadLigaOptions": "mod/recovered/config/LeagueLoadOptions",
+    "est/Options": "mod/recovered/config/GameOptions"
   },
+  "fields": [
+    {"owner":"components/ag","name":"nome","descriptor":"Ljava/lang/String;","named":"name"},
+    {"owner":"components/ag","name":"vp","descriptor":"Ljava/util/ArrayList;","named":"players"},
+    {"owner":"components/ag","name":"Ri","descriptor":"Ljava/util/ArrayList;","named":"positions"},
+    {"owner":"est/ArrayLigaEType","name":"a","descriptor":"Ljava/util/ArrayList;","named":"leagues"},
+    {"owner":"est/ArrayLigaType","name":"a","descriptor":"Ljava/util/ArrayList;","named":"leagues"},
+    {"owner":"est/InfoArquivoSalvoType","name":"n","descriptor":"Ljava/lang/String;","named":"managerName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"tc","descriptor":"Ljava/lang/String;","named":"clubName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"a","descriptor":"Ljava/lang/Integer;","named":"seasonYear"},
+    {"owner":"est/InfoArquivoSalvoType","name":"i","descriptor":"Ljava/lang/String;","named":"nextMatch"}
+  ],
   "methods": [
+    {"owner":"components/ag","name":"getNome","descriptor":"()Ljava/lang/String;","named":"getName"},
+    {"owner":"components/ag","name":"setNome","descriptor":"(Ljava/lang/String;)V","named":"setName"},
+    {"owner":"components/ag","name":"uH","descriptor":"()Ljava/util/ArrayList;","named":"getPlayers"},
+    {"owner":"components/ag","name":"uI","descriptor":"()Ljava/util/ArrayList;","named":"getPositions"},
     {"owner":"components/ar","name":"a","descriptor":"(Ljava/lang/Throwable;)Ljava/lang/String;","named":"stackTrace"},
     {"owner":"components/ar","name":"d","descriptor":"(Ljava/lang/String;Ljava/lang/String;)V","named":"appendLog"},
     {"owner":"components/ar","name":"b","descriptor":"(Ljava/lang/Throwable;)V","named":"writeThrowable"},
-    {"owner":"components/ar","name":"ao","descriptor":"(Ljava/lang/String;)V","named":"touchInfoError"}
+    {"owner":"components/ar","name":"ao","descriptor":"(Ljava/lang/String;)V","named":"touchInfoError"},
+    {"owner":"est/InfoArquivoSalvoType","name":"getN","descriptor":"()Ljava/lang/String;","named":"getManagerName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"setN","descriptor":"(Ljava/lang/String;)V","named":"setManagerName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"getTc","descriptor":"()Ljava/lang/String;","named":"getClubName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"setTc","descriptor":"(Ljava/lang/String;)V","named":"setClubName"},
+    {"owner":"est/InfoArquivoSalvoType","name":"getA","descriptor":"()Ljava/lang/Integer;","named":"getSeasonYear"},
+    {"owner":"est/InfoArquivoSalvoType","name":"setA","descriptor":"(Ljava/lang/Integer;)V","named":"setSeasonYear"},
+    {"owner":"est/InfoArquivoSalvoType","name":"getI","descriptor":"()Ljava/lang/String;","named":"getNextMatch"},
+    {"owner":"est/InfoArquivoSalvoType","name":"setI","descriptor":"(Ljava/lang/String;)V","named":"setNextMatch"}
   ]
 }

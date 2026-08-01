@@ -19,6 +19,9 @@ public final class ReconstructionTool {
       case "verify-inputs" -> new AtlasService(context).verifyInputs();
       case "normalize-game" -> normalizeGame(context);
       case "build-version-atlas" -> new AtlasService(context).buildVersionAtlas();
+      case "capture-reference-save" -> new SaveFixtureService(context).capture();
+      case "verify-reference-save" -> new SaveFixtureService(context).verify();
+      case "build-serialization-atlas" -> new SerializationAtlasService(context).build();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();
@@ -27,6 +30,7 @@ public final class ReconstructionTool {
       case "assemble-hybrid" -> new HybridService(context).assemble();
       case "static-smoke" -> new SmokeService(context).staticSmoke();
       case "runtime-smoke" -> new SmokeService(context).runtimeSmoke();
+      case "save-compatibility" -> new SaveCompatibilityService(context).verify();
       case "run-hybrid" -> new SmokeService(context).runHybrid();
       default -> throw new IllegalArgumentException("Unknown command: " + command);
     }

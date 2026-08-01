@@ -10,7 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import org.objectweb.asm.ClassReader;
 
 final class SmokeService {
@@ -117,9 +120,17 @@ final class SmokeService {
     Files.deleteIfExists(processLog);
     Files.deleteIfExists(context.hybridRoot().resolve("erros.log"));
 
+    OverlayManifest manifest = readOverlayManifest();
+    Set<String> targets = new TreeSet<>();
+    targets.add("best/h2");
+    manifest.overlays().stream()
+        .map(HybridService.OverlayEntry::entry)
+        .map(entry -> entry.substring(0, entry.length() - ".class".length()))
+        .forEach(targets::add);
+
     ProcessBuilder builder = new ProcessBuilder(
         context.java8Executable().toString(),
-        "-javaagent:" + agentJar + "=" + probeLog,
+        "-javaagent:" + agentJar + "=" + probeLog + "|" + String.join(",", targets),
         "-jar",
         context.hybridJar().getFileName().toString());
     builder.directory(context.hybridRoot().toFile());
@@ -165,11 +176,37 @@ final class SmokeService {
     if (!probe.contains("LOADED components/ar " + expected)) {
       throw new IllegalStateException("Runtime loaded a different components/ar bytecode");
     }
+    Set<String> loadedOverlays = new TreeSet<>();
+    Map<String, byte[]> hybridEntries = ZipSupport.readEntries(context.hybridJar());
+    for (HybridService.OverlayEntry overlay : manifest.overlays()) {
+      String className = overlay.entry().substring(0, overlay.entry().length() - 6);
+      String hash = Hashing.sha256(hybridEntries.get(overlay.entry()));
+      if (probe.contains("LOADED " + className + " " + hash)) {
+        loadedOverlays.add(className);
+      } else if (probe.contains("LOADED " + className + " ")) {
+        throw new IllegalStateException("Runtime loaded different bytecode for " + className);
+      }
+    }
+    context.writeJson(context.reportsDir().resolve("runtime-overlay-report.json"),
+        new RuntimeOverlayReport(
+            manifest.overlays().size(), List.copyOf(loadedOverlays), List.copyOf(targets)));
     if (Files.exists(context.hybridRoot().resolve("erros.log"))) {
       throw new IllegalStateException("Game wrote erros.log during runtime smoke");
     }
     new AtlasService(context).verifyInputs();
-    System.out.println("Runtime smoke passed: hybrid best/h2 and recovered components/ar loaded on Java 8.");
+    System.out.println("Runtime smoke passed: " + loadedOverlays.size() + " of "
+        + manifest.overlays().size() + " recovered overlays loaded on Java 8 startup.");
+  }
+
+  private OverlayManifest readOverlayManifest() throws IOException {
+    Path manifestPath = context.hybridRoot().resolve("overlay-manifest.json");
+    try (Reader reader = Files.newBufferedReader(manifestPath, StandardCharsets.UTF_8)) {
+      OverlayManifest manifest = ProjectContext.JSON.fromJson(reader, OverlayManifest.class);
+      if (manifest == null || manifest.overlays() == null || manifest.overlays().isEmpty()) {
+        throw new IllegalStateException("Overlay manifest is empty");
+      }
+      return manifest;
+    }
   }
 
   private void terminateProbedProcess(Path probeLog) throws Exception {
@@ -202,5 +239,11 @@ final class SmokeService {
     if (exit != 0) {
       throw new IllegalStateException("Hybrid game exited with code " + exit);
     }
+  }
+
+  record RuntimeOverlayReport(
+      int overlayCount,
+      List<String> loadedOverlays,
+      List<String> targets) {
   }
 }

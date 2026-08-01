@@ -23,6 +23,7 @@ final class HybridService {
   void assemble() throws IOException {
     Path officialRecovered = context.buildDir().resolve("work/recovered/recovered-official.jar");
     remapper.remapRecoveredToOfficial(officialRecovered);
+    new SerializationAtlasService(context).verifyRecoveredContracts(officialRecovered);
 
     Map<String, byte[]> originalEntries = ZipSupport.readEntries(context.normalizedGameJar());
     Map<String, byte[]> recoveredEntries = ZipSupport.readEntries(officialRecovered);

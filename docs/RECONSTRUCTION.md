@@ -10,12 +10,16 @@
   Vineflower.
 - `components/ar` recuperada como `CrashLogHandler`, compilada em Java 8 e
   carregada no jogo pelo nome oficial.
-- As outras 2.192 entradas do JAR permanecem byte a byte identicas.
+- Os sete tipos `est` de configuracao e metadados foram recuperados e testados
+  no Java 8; `est.InfoArquivoSalvoType` leu o save de referencia existente.
+- `components/ag` foi recuperada como `LineupPreset`, primeira dependencia
+  direta do modelo de clube.
+- As outras 2.184 entradas do JAR permanecem byte a byte identicas.
 
 ## Proximos Lotes
 
-1. Inicializacao, configuracao e logs.
-2. Modelos serializaveis, clubes e jogadores.
+1. Modelos serializaveis auxiliares de clubes e jogadores.
+2. Modelos principais `best/F` (jogador), `best/ah` (clube) e `best/al` (tecnico).
 3. Calendario e competicoes.
 4. Simulacao de partidas e transferencias.
 5. Interface e extensoes novas.

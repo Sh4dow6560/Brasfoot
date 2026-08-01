@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "localDirectory": "fixtures/local/career-reference",
+  "sourceExecutableSha256": "2FA65476A92611419CE28C0CFD158A0C7F741AF235AA988B0BED00C44443BB1C",
+  "files": [
+    {
+      "name": "reference.s22",
+      "size": 4758811,
+      "sha256": "9A0DD86C224FBC3D4ACE5820823AD32489B2F1EF18035DD1CBF6E2F719D84400"
+    },
+    {
+      "name": "reference.sbck",
+      "size": 4758811,
+      "sha256": "9A0DD86C224FBC3D4ACE5820823AD32489B2F1EF18035DD1CBF6E2F719D84400"
+    },
+    {
+      "name": "reference.info",
+      "size": 259,
+      "sha256": "CE0BC7AA55734387A52E9E2ED80D44747DF21F3A4E635F2EB75839FD276A7481"
+    }
+  ]
+}

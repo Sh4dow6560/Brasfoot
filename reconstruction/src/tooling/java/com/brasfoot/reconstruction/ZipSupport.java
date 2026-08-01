@@ -83,30 +83,71 @@ final class ZipSupport {
 
   static void copyGameTree(Path source, Path target, String excludedExecutable) throws IOException {
     Path normalizedTarget = target.toAbsolutePath().normalize();
-    if (Files.exists(normalizedTarget)) {
-      deleteTreeWithin(normalizedTarget, normalizedTarget.getParent());
+    Path allowedRoot = normalizedTarget.getParent();
+    Path preservedSaves = null;
+    if (Files.isDirectory(normalizedTarget.resolve("sav"))) {
+      preservedSaves = Files.createTempDirectory(allowedRoot, ".brasfoot-saves-");
+      copyDirectory(normalizedTarget.resolve("sav"), preservedSaves);
     }
-    Files.createDirectories(normalizedTarget);
 
+    boolean savesRestored = preservedSaves == null;
+    try {
+      if (Files.exists(normalizedTarget)) {
+        deleteTreeWithin(normalizedTarget, allowedRoot);
+      }
+      Files.createDirectories(normalizedTarget);
+
+      Files.walkFileTree(source, new SimpleFileVisitor<>() {
+        @Override
+        public FileVisitResult preVisitDirectory(Path directory, BasicFileAttributes attributes)
+            throws IOException {
+          Path relative = source.relativize(directory);
+          Files.createDirectories(normalizedTarget.resolve(relative.toString()));
+          return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attributes)
+            throws IOException {
+          Path relative = source.relativize(file);
+          String portable = relative.toString().replace('\\', '/');
+          if (portable.equalsIgnoreCase(excludedExecutable)
+              || portable.startsWith("sav/")
+              || portable.endsWith(".log")) {
+            return FileVisitResult.CONTINUE;
+          }
+          Path destination = normalizedTarget.resolve(relative.toString());
+          Files.createDirectories(destination.getParent());
+          Files.copy(file, destination, StandardCopyOption.REPLACE_EXISTING,
+              StandardCopyOption.COPY_ATTRIBUTES);
+          return FileVisitResult.CONTINUE;
+        }
+      });
+
+      if (preservedSaves != null) {
+        copyDirectory(preservedSaves, normalizedTarget.resolve("sav"));
+        savesRestored = true;
+      }
+    } finally {
+      if (savesRestored && preservedSaves != null && Files.exists(preservedSaves)) {
+        deleteTreeWithin(preservedSaves, allowedRoot);
+      }
+    }
+  }
+
+  private static void copyDirectory(Path source, Path target) throws IOException {
     Files.walkFileTree(source, new SimpleFileVisitor<>() {
       @Override
       public FileVisitResult preVisitDirectory(Path directory, BasicFileAttributes attributes)
           throws IOException {
-        Path relative = source.relativize(directory);
-        Files.createDirectories(normalizedTarget.resolve(relative.toString()));
+        Files.createDirectories(target.resolve(source.relativize(directory).toString()));
         return FileVisitResult.CONTINUE;
       }
 
       @Override
-      public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
-        Path relative = source.relativize(file);
-        String portable = relative.toString().replace('\\', '/');
-        if (portable.equalsIgnoreCase(excludedExecutable)
-            || portable.startsWith("sav/")
-            || portable.endsWith(".log")) {
-          return FileVisitResult.CONTINUE;
-        }
-        Path destination = normalizedTarget.resolve(relative.toString());
+      public FileVisitResult visitFile(Path file, BasicFileAttributes attributes)
+          throws IOException {
+        Path destination = target.resolve(source.relativize(file).toString());
         Files.createDirectories(destination.getParent());
         Files.copy(file, destination, StandardCopyOption.REPLACE_EXISTING,
             StandardCopyOption.COPY_ATTRIBUTES);

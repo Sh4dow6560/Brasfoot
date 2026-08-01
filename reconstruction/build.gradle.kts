@@ -90,6 +90,16 @@ val buildVersionAtlas = registerToolTask("buildVersionAtlas", "build-version-atl
     dependsOn(verifyInputs)
 }
 
+registerToolTask("captureReferenceSave", "capture-reference-save")
+
+registerToolTask("verifyReferenceSave", "verify-reference-save")
+
+val buildSerializationAtlas = registerToolTask(
+    "buildSerializationAtlas", "build-serialization-atlas"
+) {
+    dependsOn(normalizeGame, generateMappings)
+}
+
 val generateMappings = registerToolTask("generateMappings", "generate-mappings") {
     dependsOn(verifyInputs)
 }
@@ -110,7 +120,7 @@ tasks.register<JavaExec>("decompileGame") {
     doFirst {
         delete(output)
         output.get().asFile.mkdirs()
-        args("--folder", "--silent", "--skip-extra-files=true", input.get().asFile.absolutePath,
+        args("-log=ERROR", input.get().asFile.absolutePath,
             output.get().asFile.absolutePath)
     }
 }
@@ -146,6 +156,10 @@ val runtimeSmokeTest = registerToolTask("runtimeSmokeTest", "runtime-smoke") {
     dependsOn(assembleHybrid, agentJar)
 }
 
+val saveCompatibilityTest = registerToolTask("saveCompatibilityTest", "save-compatibility") {
+    dependsOn(assembleHybrid, agentJar)
+}
+
 val teamRoundTrip = tasks.register<Exec>("teamRoundTrip") {
     group = "verification"
     dependsOn(assembleHybrid)
@@ -157,7 +171,7 @@ val teamRoundTrip = tasks.register<Exec>("teamRoundTrip") {
 
 tasks.register("smokeTest") {
     group = "verification"
-    dependsOn(staticSmokeTest, runtimeSmokeTest, teamRoundTrip)
+    dependsOn(staticSmokeTest, runtimeSmokeTest, saveCompatibilityTest, teamRoundTrip)
 }
 
 registerToolTask("runHybrid", "run-hybrid") {
@@ -165,5 +179,5 @@ registerToolTask("runHybrid", "run-hybrid") {
 }
 
 tasks.named("check") {
-    dependsOn(buildVersionAtlas, generateMappings)
+    dependsOn(buildVersionAtlas, buildSerializationAtlas, generateMappings)
 }

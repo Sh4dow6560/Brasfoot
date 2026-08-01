@@ -1,0 +1,6190 @@
+{
+  "schemaVersion": 1,
+  "classes": [
+    {
+      "officialName": "best/A",
+      "namedName": "bf22/intermediary/C0667",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 16,
+      "fields": [
+        {
+          "name": "dA",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dB",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dC",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "dD",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "dE",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "dF",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dG",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "dy",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "dz",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/F",
+        "best/ah"
+      ]
+    },
+    {
+      "officialName": "best/B",
+      "namedName": "bf22/intermediary/C0668",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 6,
+      "fields": [
+        {
+          "name": "dH",
+          "descriptor": "Lbest/v;",
+          "access": 2
+        },
+        {
+          "name": "dI",
+          "descriptor": "Ljava/util/Calendar;",
+          "access": 2
+        },
+        {
+          "name": "dJ",
+          "descriptor": "[I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/v"
+      ]
+    },
+    {
+      "officialName": "best/C",
+      "namedName": "bf22/intermediary/C0669",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "dK",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "dL",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dM",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dN",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "dO",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dP",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dQ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dR",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "dS",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "dT",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dV",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dX",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/E",
+      "namedName": "bf22/intermediary/C0671",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "dB",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ed",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ee",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ef",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "eg",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/F"
+      ]
+    },
+    {
+      "officialName": "best/F",
+      "namedName": "bf22/intermediary/C0672",
+      "role": "player",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 55,
+      "fields": [
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dm",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "eA",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eB",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eC",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eD",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eE",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eF",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eG",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eH",
+          "descriptor": "[D",
+          "access": 2
+        },
+        {
+          "name": "eI",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "eJ",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "eK",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eL",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eM",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "eN",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "eO",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eP",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eQ",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eR",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "eT",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "eU",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "eV",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eW",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eX",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eY",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "eZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ei",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ej",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ek",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "el",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "em",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "en",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ep",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eq",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "er",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "es",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "et",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "eu",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ev",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ew",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ex",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ey",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ez",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fa",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fb",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "fc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fd",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fe",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "ff",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fh",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fi",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "status",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/G",
+      "namedName": "bf22/intermediary/C0673",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 1,
+      "fields": [
+        {
+          "name": "fs",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/H",
+      "namedName": "bf22/intermediary/C0674",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "V",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ca",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cb",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ft",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fu",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "fv",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/I",
+      "namedName": "bf22/intermediary/C0675",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 59,
+      "fields": [
+        {
+          "name": "dH",
+          "descriptor": "Lbest/v;",
+          "access": 2
+        },
+        {
+          "name": "dq",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "fB",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fC",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fD",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fE",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fG",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fH",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fI",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fJ",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fK",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fL",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fM",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fN",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fO",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fP",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fQ",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fR",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fS",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fT",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "fW",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fX",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fY",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fZ",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "fw",
+          "descriptor": "Lbest/L;",
+          "access": 2
+        },
+        {
+          "name": "fx",
+          "descriptor": "Lbest/at;",
+          "access": 2
+        },
+        {
+          "name": "fy",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "fz",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ga",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "gb",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "gc",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "gd",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "ge",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "gf",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "gg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gh",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gi",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "gj",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "gk",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "gl",
+          "descriptor": "[[I",
+          "access": 2
+        },
+        {
+          "name": "gm",
+          "descriptor": "[[I",
+          "access": 2
+        },
+        {
+          "name": "gn",
+          "descriptor": "[[I",
+          "access": 2
+        },
+        {
+          "name": "v",
+          "descriptor": "Z",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/L",
+        "best/ah",
+        "best/at",
+        "best/v"
+      ]
+    },
+    {
+      "officialName": "best/J",
+      "namedName": "bf22/intermediary/C0676",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 3,
+      "fields": [
+        {
+          "name": "Z",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "fy",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gx",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/L",
+      "namedName": "bf22/intermediary/C0678",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 2,
+      "fields": [
+        {
+          "name": "nome",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/T",
+      "namedName": "bf22/intermediary/C0686",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 15,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gV",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gY",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ha",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hb",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hd",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "he",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hh",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hi",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/Z",
+      "namedName": "bf22/intermediary/C0692",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 20,
+      "fields": [
+        {
+          "name": "ds",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "dt",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasMataMata",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "dw",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hA",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hB",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "hC",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "hr",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hu",
+          "descriptor": "Lf/f;",
+          "access": 2
+        },
+        {
+          "name": "hv",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "hw",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "hy",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "hz",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/f"
+      ]
+    },
+    {
+      "officialName": "best/a",
+      "namedName": "bf22/intermediary/C0693",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "p",
+          "descriptor": "Ljava/util/Calendar;",
+          "access": 2
+        },
+        {
+          "name": "q",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "r",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "s",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "t",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "u",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "v",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/ah",
+      "namedName": "bf22/intermediary/C0701",
+      "role": "club",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 56,
+      "fields": [
+        {
+          "name": "cA",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "cor1",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "cor2",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "dH",
+          "descriptor": "Lbest/v;",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dm",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "dr",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ei",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hA",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hr",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "mU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "mV",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "mW",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "mX",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "mY",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nA",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nB",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "nC",
+          "descriptor": "[[I",
+          "access": 2
+        },
+        {
+          "name": "nD",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "na",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nb",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "nc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nd",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ne",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nf",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ng",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nh",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "ni",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "nj",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "nk",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "nl",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "no",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "np",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nq",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "nr",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "ns",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nt",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "nu",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nv",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "nw",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nx",
+          "descriptor": "Lbest/C;",
+          "access": 2
+        },
+        {
+          "name": "ny",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nz",
+          "descriptor": "Lcomponents/ag;",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/C",
+        "best/F",
+        "best/v",
+        "components/ag"
+      ]
+    },
+    {
+      "officialName": "best/aj",
+      "namedName": "bf22/intermediary/C0703",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 12,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dz",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nK",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nL",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nM",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nN",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nO",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/ak",
+      "namedName": "bf22/intermediary/C0704",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nK",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nL",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nS",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "nT",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "best/al",
+      "namedName": "bf22/intermediary/C0705",
+      "role": "coach",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 26,
+      "fields": [
+        {
+          "name": "W",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cA",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "dm",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "hy",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "mW",
+          "descriptor": "Ljava/lang/Boolean;",
+          "access": 2
+        },
+        {
+          "name": "nU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nY",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nu",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oa",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ob",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "oc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "od",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oe",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "of",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "og",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oh",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "oi",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah"
+      ]
+    },
+    {
+      "officialName": "best/am",
+      "namedName": "bf22/intermediary/C0706",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 4,
+      "fields": [
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oj",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ok",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ol",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/ao",
+      "namedName": "bf22/intermediary/C0708",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "Y",
+          "descriptor": "Lbest/at;",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "dz",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/at"
+      ]
+    },
+    {
+      "officialName": "best/ap",
+      "namedName": "bf22/intermediary/C0709",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ei",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ej",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "on",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oo",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "op",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "oq",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "y",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/at",
+      "namedName": "bf22/intermediary/C0713",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "decisaoTerceiroLugar",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "dm",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "dz",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ei",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "tR",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "tS",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "tT",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "tU",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/ay",
+      "namedName": "bf22/intermediary/C0718",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 4,
+      "fields": [
+        {
+          "name": "Jg",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "Jh",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "Jj",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "Jl",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/b",
+      "namedName": "bf22/intermediary/C0719",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 3,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "g",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "n",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/c",
+      "namedName": "bf22/intermediary/C0720",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 6,
+      "fields": [
+        {
+          "name": "U",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        },
+        {
+          "name": "V",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "W",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/F"
+      ]
+    },
+    {
+      "officialName": "best/e",
+      "namedName": "bf22/intermediary/C0722",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 12,
+      "fields": [
+        {
+          "name": "U",
+          "descriptor": "Lbest/F;",
+          "access": 0
+        },
+        {
+          "name": "Y",
+          "descriptor": "Lbest/at;",
+          "access": 0
+        },
+        {
+          "name": "Z",
+          "descriptor": "D",
+          "access": 0
+        },
+        {
+          "name": "aa",
+          "descriptor": "D",
+          "access": 0
+        },
+        {
+          "name": "ab",
+          "descriptor": "D",
+          "access": 0
+        },
+        {
+          "name": "ac",
+          "descriptor": "I",
+          "access": 0
+        }
+      ],
+      "dependencies": [
+        "best/F",
+        "best/at"
+      ]
+    },
+    {
+      "officialName": "best/f",
+      "namedName": "bf22/intermediary/C0723",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 204,
+      "fields": [
+        {
+          "name": "GC",
+          "descriptor": "Lf/M;",
+          "access": 2
+        },
+        {
+          "name": "GI",
+          "descriptor": "Lf/N;",
+          "access": 2
+        },
+        {
+          "name": "Gy",
+          "descriptor": "Lf/L;",
+          "access": 2
+        },
+        {
+          "name": "IX",
+          "descriptor": "Lf/K;",
+          "access": 2
+        },
+        {
+          "name": "IY",
+          "descriptor": "Lf/J;",
+          "access": 2
+        },
+        {
+          "name": "IZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Ja",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Jb",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "aA",
+          "descriptor": "Lf/A;",
+          "access": 2
+        },
+        {
+          "name": "aB",
+          "descriptor": "Lf/v;",
+          "access": 2
+        },
+        {
+          "name": "aC",
+          "descriptor": "Lf/r;",
+          "access": 2
+        },
+        {
+          "name": "aD",
+          "descriptor": "Lf/t;",
+          "access": 2
+        },
+        {
+          "name": "aE",
+          "descriptor": "Lf/u;",
+          "access": 2
+        },
+        {
+          "name": "aF",
+          "descriptor": "Lf/w;",
+          "access": 2
+        },
+        {
+          "name": "aG",
+          "descriptor": "Lf/y;",
+          "access": 2
+        },
+        {
+          "name": "aH",
+          "descriptor": "Lf/a;",
+          "access": 2
+        },
+        {
+          "name": "aI",
+          "descriptor": "Lf/E;",
+          "access": 2
+        },
+        {
+          "name": "aJ",
+          "descriptor": "Lf/D;",
+          "access": 2
+        },
+        {
+          "name": "aK",
+          "descriptor": "Lf/q;",
+          "access": 2
+        },
+        {
+          "name": "aL",
+          "descriptor": "Lf/n;",
+          "access": 2
+        },
+        {
+          "name": "aM",
+          "descriptor": "Lf/l;",
+          "access": 2
+        },
+        {
+          "name": "aN",
+          "descriptor": "Lf/i;",
+          "access": 2
+        },
+        {
+          "name": "aO",
+          "descriptor": "Lf/j;",
+          "access": 2
+        },
+        {
+          "name": "aP",
+          "descriptor": "Lf/m;",
+          "access": 2
+        },
+        {
+          "name": "aQ",
+          "descriptor": "Lf/k;",
+          "access": 2
+        },
+        {
+          "name": "aR",
+          "descriptor": "Lf/d;",
+          "access": 2
+        },
+        {
+          "name": "aS",
+          "descriptor": "Lf/p;",
+          "access": 2
+        },
+        {
+          "name": "aT",
+          "descriptor": "Lf/c;",
+          "access": 2
+        },
+        {
+          "name": "aU",
+          "descriptor": "Lf/e;",
+          "access": 2
+        },
+        {
+          "name": "aV",
+          "descriptor": "Lf/h;",
+          "access": 2
+        },
+        {
+          "name": "aW",
+          "descriptor": "Lf/g;",
+          "access": 2
+        },
+        {
+          "name": "aX",
+          "descriptor": "Lf/x;",
+          "access": 2
+        },
+        {
+          "name": "aY",
+          "descriptor": "Lf/H;",
+          "access": 2
+        },
+        {
+          "name": "aZ",
+          "descriptor": "[Lf/F;",
+          "access": 2
+        },
+        {
+          "name": "ad",
+          "descriptor": "Lest/InfoArquivoSalvoType;",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "af",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ag",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ah",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ai",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aj",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ak",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "al",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "am",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "an",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ao",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ap",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aq",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ar",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "as",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "at",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "au",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "autoRenovaContrato",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "autoSalvar",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "av",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "avisoTerminoContrato",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "aw",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ax",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ay",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "az",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "bP",
+          "descriptor": "[Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "ba",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "bb",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "bc",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "bd",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "be",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bh",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bi",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "bj",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "bk",
+          "descriptor": "Z",
+          "access": 1
+        },
+        {
+          "name": "bl",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bm",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bn",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bo",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bp",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bq",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "br",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bs",
+          "descriptor": "Z",
+          "access": 1
+        },
+        {
+          "name": "bt",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bu",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "corPlacar",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "gruposIntPadrao",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "habilidadeIndividual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "ignoraEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "ignoraLigas",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaIntClubes",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaIntano1",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaRegionais",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaRegionaisTodos",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "jogaSelecoesAll",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "negritoCasa",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "rM",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "salarioMensal",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaCorPlacar",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaCoresLista",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaGrupoPadraoEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaSons",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "velocidade",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "velocidadeNH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verDecisaoPenNaoHumano",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verEstaduaisAgrupados",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "verJanelaSubs",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verJint",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "verLeiloes",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "verMudancaTecnicos",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "est/InfoArquivoSalvoType",
+        "f/A",
+        "f/D",
+        "f/E",
+        "f/F",
+        "f/H",
+        "f/J",
+        "f/K",
+        "f/L",
+        "f/M",
+        "f/N",
+        "f/a",
+        "f/c",
+        "f/d",
+        "f/e",
+        "f/g",
+        "f/h",
+        "f/i",
+        "f/j",
+        "f/k",
+        "f/l",
+        "f/m",
+        "f/n",
+        "f/p",
+        "f/q",
+        "f/r",
+        "f/t",
+        "f/u",
+        "f/v",
+        "f/w",
+        "f/x",
+        "f/y"
+      ]
+    },
+    {
+      "officialName": "best/i",
+      "namedName": "bf22/intermediary/C0727",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "V",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bQ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bR",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bS",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "bT",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bV",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/j",
+      "namedName": "bf22/intermediary/C0728",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 7,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bY",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bZ",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/k",
+      "namedName": "bf22/intermediary/C0729",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "V",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ab",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "ae",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ca",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cb",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cc",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cd",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ce",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/u",
+      "namedName": "bf22/intermediary/C0739",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 8,
+      "fields": [
+        {
+          "name": "bW",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "di",
+          "descriptor": "Lbest/al;",
+          "access": 2
+        },
+        {
+          "name": "dj",
+          "descriptor": "Lbest/al;",
+          "access": 2
+        },
+        {
+          "name": "dk",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "p",
+          "descriptor": "Ljava/util/Calendar;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/al"
+      ]
+    },
+    {
+      "officialName": "best/v",
+      "namedName": "bf22/intermediary/C0740",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 6,
+      "fields": [
+        {
+          "name": "dm",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "dn",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "do",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "dp",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "dq",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "best/w",
+      "namedName": "bf22/intermediary/C0741",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 4,
+      "fields": [
+        {
+          "name": "dr",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ds",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 1
+        },
+        {
+          "name": "dt",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "dw",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/a",
+      "namedName": "bf22/intermediary/C0775",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "5261460716622152494",
+      "unchangedFrom2021": true,
+      "risk": 4,
+      "fields": [
+        {
+          "name": "height",
+          "descriptor": "I",
+          "access": 1
+        },
+        {
+          "name": "width",
+          "descriptor": "I",
+          "access": 1
+        },
+        {
+          "name": "x",
+          "descriptor": "I",
+          "access": 1
+        },
+        {
+          "name": "y",
+          "descriptor": "I",
+          "access": 1
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/aD",
+      "namedName": "bf22/intermediary/C0779",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 7,
+      "fields": [
+        {
+          "name": "SC",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "c",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "id",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah"
+      ]
+    },
+    {
+      "officialName": "components/ag",
+      "namedName": "mod/recovered/team/LineupPreset",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 3,
+      "fields": [
+        {
+          "name": "Ri",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nome",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "vp",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/ah",
+      "namedName": "bf22/intermediary/C0788",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 7,
+      "fields": [
+        {
+          "name": "T",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "bX",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "mU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nK",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nL",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nT",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/am",
+      "namedName": "bf22/intermediary/C0793",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 3,
+      "fields": [
+        {
+          "name": "Rw",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Rx",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Ry",
+          "descriptor": "Z",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/as",
+      "namedName": "bf22/intermediary/C0799",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 13,
+      "fields": [
+        {
+          "name": "RU",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "RV",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "RW",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "RX",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "RY",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "RZ",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "Sa",
+          "descriptor": "Ljava/lang/String;",
+          "access": 0
+        },
+        {
+          "name": "Sb",
+          "descriptor": "Ljava/lang/String;",
+          "access": 0
+        },
+        {
+          "name": "Sc",
+          "descriptor": "I",
+          "access": 0
+        },
+        {
+          "name": "Sd",
+          "descriptor": "I",
+          "access": 0
+        },
+        {
+          "name": "Se",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "data",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "oq",
+          "descriptor": "I",
+          "access": 0
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/b",
+      "namedName": "bf22/intermediary/C0807",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/awt/LayoutManager2",
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "-1919857869177070440",
+      "unchangedFrom2021": true,
+      "risk": 1,
+      "fields": [
+        {
+          "name": "NA",
+          "descriptor": "Ljava/util/Hashtable;",
+          "access": 4
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "components/t",
+      "namedName": "bf22/intermediary/C0825",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "Pm",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Pn",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "Po",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "U",
+          "descriptor": "Lbest/F;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/F",
+        "best/ah"
+      ]
+    },
+    {
+      "officialName": "e/g",
+      "namedName": "bf22/intermediary/C0914",
+      "role": "player",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "16",
+      "unchangedFrom2021": true,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "a",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "aid",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "b",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "c",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "e",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "f",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "g",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "h",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "hash",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "i",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "j",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "sid",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "tid",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "e/t",
+      "namedName": "bf22/intermediary/C0915",
+      "role": "club",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "16",
+      "unchangedFrom2021": true,
+      "risk": 21,
+      "fields": [
+        {
+          "name": "a",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "aid",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "b",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "c",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "cor1",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "cor2",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "d",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "e",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "f",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "g",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "h",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "i",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "id",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "l",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "m",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "n",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "o",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "sid",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "tid",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "valid",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "vid",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/ArrayLigaEType",
+      "namedName": "mod/recovered/config/StateLeagueConfigs",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 1,
+      "fields": [
+        {
+          "name": "a",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 1
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/ArrayLigaType",
+      "namedName": "mod/recovered/config/NationalLeagueConfigs",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 1,
+      "fields": [
+        {
+          "name": "a",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 1
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/ConfigEstadualType",
+      "namedName": "mod/recovered/config/StateLeagueConfig",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 6,
+      "fields": [
+        {
+          "name": "desempate",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "finaisIdaVolta",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "formula",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "id",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nRebaixados",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/ConfigLigaType",
+      "namedName": "mod/recovered/config/NationalLeagueConfig",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "16",
+      "unchangedFrom2021": false,
+      "risk": 23,
+      "fields": [
+        {
+          "name": "classificaPeloGeral",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "desempate",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "doisTurnos",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasMataMata",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasMataMataSobe",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasplayoffReb",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "formula",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "jogosDentroGrupo",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "melhoresTerceiros",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "nGrupos",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nRebaixados",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nTimes",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nome",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "nomeDivisao",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "numeroTimesMataMata",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "playoffRebaixamento",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "rebaixadoPeloGrupo",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "rebaixadosDireto",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "vagasSobemPeloMataMata",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "valido",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "versaoArquivo",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/InfoArquivoSalvoType",
+      "namedName": "mod/recovered/save/SavedGameInfo",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 4,
+      "fields": [
+        {
+          "name": "a",
+          "descriptor": "Ljava/lang/Integer;",
+          "access": 2
+        },
+        {
+          "name": "i",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "n",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "tc",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "est/Options",
+      "namedName": "mod/recovered/config/GameOptions",
+      "role": "configuration",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 37,
+      "fields": [
+        {
+          "name": "UsarGruposReaisCopa",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "autoRenovaContrato",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "autoSalvar",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "avisoTerminoContrato",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "conviteRegionais",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "corPlacar",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "corTema",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "coresLista",
+          "descriptor": "[Ljava/awt/Color;",
+          "access": 2
+        },
+        {
+          "name": "gruposIntPadrao",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "habilidadeIndividual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "ignoraEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "ignoraLigas",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaIntClubes",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaIntano1",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaRegionais",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "jogaRegionaisTodos",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "jogaSelecoes",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "jogaSelecoesAll",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "negritoCasa",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "novoFormatoCopa",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "regionaisSemHumanos",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "salarioMensal",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaCorPlacar",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaCoresLista",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaGrupoPadraoEstadual",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "usaSons",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "velocidade",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "velocidadeNH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verDecisaoPenNaoHumano",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verEstaduaisAgrupados",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "verJanelaSubs",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verJint",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "verLeiloes",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "verMudancaTecnicos",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "verMundias",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "verSuperCopas",
+          "descriptor": "Z",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "f/A",
+      "namedName": "bf22/intermediary/C0923",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "ZM",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ZN",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ZO",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZP",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZQ",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZR",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZS",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZT",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/B",
+      "namedName": "bf22/intermediary/C0924",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 27,
+      "fields": [
+        {
+          "name": "GU",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "KR",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YL",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "ZU",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "ZV",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ZW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZX",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZY",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aaa",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agA",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agB",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agz",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasMataMataSobe",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "duasVoltasplayoffReb",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "nRebaixados",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "rebaixadosDireto",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "vagasSobemPeloMataMata",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/D",
+      "namedName": "bf22/intermediary/C0926",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 5,
+      "fields": [
+        {
+          "name": "aac",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "cE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/E",
+      "namedName": "bf22/intermediary/C0927",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 5,
+      "fields": [
+        {
+          "name": "aac",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "cE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/F",
+      "namedName": "bf22/intermediary/C0928",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "aad",
+          "descriptor": "Ljava/lang/Integer;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/G",
+      "namedName": "bf22/intermediary/C0929",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 16,
+      "fields": [
+        {
+          "name": "aae",
+          "descriptor": "Lf/z;",
+          "access": 0
+        },
+        {
+          "name": "aaf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "aag",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "aai",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aaj",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aak",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "aam",
+          "descriptor": "I",
+          "access": 0
+        },
+        {
+          "name": "aan",
+          "descriptor": "I",
+          "access": 0
+        },
+        {
+          "name": "as",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "gj",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "oj",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "var0",
+          "descriptor": "I",
+          "access": 0
+        },
+        {
+          "name": "w",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/H",
+      "namedName": "bf22/intermediary/C0930",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 17,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YJ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "aao",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/I",
+      "namedName": "bf22/intermediary/C0931",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 6,
+      "fields": [
+        {
+          "name": "aac",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "cE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "pais",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/J",
+      "namedName": "bf22/intermediary/C0932",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 21,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YP",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YQ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YR",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZB",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ZE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "afT",
+          "descriptor": "Lf/z;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/K",
+      "namedName": "bf22/intermediary/C0933",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 15,
+      "fields": [
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "aac",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agg",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "agh",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "agi",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "agj",
+          "descriptor": "[Ljava/lang/String;",
+          "access": 0
+        },
+        {
+          "name": "agk",
+          "descriptor": "[I",
+          "access": 0
+        },
+        {
+          "name": "agl",
+          "descriptor": "[Ljava/lang/String;",
+          "access": 0
+        },
+        {
+          "name": "agm",
+          "descriptor": "[I",
+          "access": 0
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/L",
+      "namedName": "bf22/intermediary/C0934",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 5,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agn",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/M",
+      "namedName": "bf22/intermediary/C0935",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 19,
+      "fields": [
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "afT",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agp",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agq",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agr",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "ags",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agt",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agu",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agv",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agw",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agx",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agy",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "xc",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/N",
+      "namedName": "bf22/intermediary/C0936",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 16,
+      "fields": [
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "afT",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agp",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agq",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agr",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agt",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agu",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agv",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agy",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "xc",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/a",
+      "namedName": "bf22/intermediary/C0937",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 0,
+      "fields": [],
+      "dependencies": []
+    },
+    {
+      "officialName": "f/c",
+      "namedName": "bf22/intermediary/C0939",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 11,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/d",
+      "namedName": "bf22/intermediary/C0940",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 11,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/e",
+      "namedName": "bf22/intermediary/C0941",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 11,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/f",
+      "namedName": "bf22/intermediary/C0942",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "KR",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YI",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "afU",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "nTimes",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/g",
+      "namedName": "bf22/intermediary/C0943",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 11,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/h",
+      "namedName": "bf22/intermediary/C0944",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 15,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "YJ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/i",
+      "namedName": "bf22/intermediary/C0945",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YJ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "afV",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "afW",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/j",
+      "namedName": "bf22/intermediary/C0946",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 16,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YJ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "afX",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "afY",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "afZ",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "aga",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/k",
+      "namedName": "bf22/intermediary/C0947",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "afW",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "afX",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agb",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agc",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agd",
+          "descriptor": "Lf/z;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/l",
+      "namedName": "bf22/intermediary/C0948",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 9,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "afV",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "age",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/m",
+      "namedName": "bf22/intermediary/C0949",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 14,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "afT",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "agb",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "agf",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/n",
+      "namedName": "bf22/intermediary/C0950",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "agf",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/o",
+      "namedName": "bf22/intermediary/C0951",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YK",
+          "descriptor": "Lbest/w;",
+          "access": 2
+        },
+        {
+          "name": "YL",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nRebaixados",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/w",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/p",
+      "namedName": "bf22/intermediary/C0952",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 12,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "YM",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/q",
+      "namedName": "bf22/intermediary/C0953",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 15,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YG",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "YM",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YN",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YO",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "Zw",
+          "descriptor": "[I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/r",
+      "namedName": "bf22/intermediary/C0954",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 20,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YP",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YQ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YR",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YT",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "YU",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YX",
+          "descriptor": "Z",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/s",
+      "namedName": "bf22/intermediary/C0955",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/L",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 56,
+      "fields": [
+        {
+          "name": "NS",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "RT",
+          "descriptor": "Lbest/Z;",
+          "access": 2
+        },
+        {
+          "name": "YY",
+          "descriptor": "Lbest/at;",
+          "access": 2
+        },
+        {
+          "name": "YZ",
+          "descriptor": "Lbest/w;",
+          "access": 2
+        },
+        {
+          "name": "Za",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "Zb",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "Zc",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "Zd",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Ze",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zi",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "Zj",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zk",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zm",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zn",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zo",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zp",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zq",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zr",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zs",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zt",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zu",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zv",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zw",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zx",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zy",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "Zz",
+          "descriptor": "[I",
+          "access": 2
+        },
+        {
+          "name": "as",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "desempateEstadual",
+          "descriptor": "I",
+          "access": 1
+        },
+        {
+          "name": "divisao",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "doisTurnos",
+          "descriptor": "Z",
+          "access": 1
+        },
+        {
+          "name": "duasVoltasMataMata",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "jogosDentroGrupo",
+          "descriptor": "Z",
+          "access": 1
+        },
+        {
+          "name": "melhoresTerceiros",
+          "descriptor": "Z",
+          "access": 1
+        },
+        {
+          "name": "nTimes",
+          "descriptor": "I",
+          "access": 1
+        },
+        {
+          "name": "nomeDivisao",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "nomeLiga",
+          "descriptor": "Ljava/lang/String;",
+          "access": 2
+        },
+        {
+          "name": "numeroTurnos",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "pulaDuasDatas",
+          "descriptor": "Z",
+          "access": 2
+        },
+        {
+          "name": "var0",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/Z",
+        "best/ah",
+        "best/at",
+        "best/w",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/t",
+      "namedName": "bf22/intermediary/C0956",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 15,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YP",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YQ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/u",
+      "namedName": "bf22/intermediary/C0957",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/v",
+      "namedName": "bf22/intermediary/C0958",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 22,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YJ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YP",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YQ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YR",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YT",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZB",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ZC",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZD",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/w",
+      "namedName": "bf22/intermediary/C0959",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/x",
+      "namedName": "bf22/intermediary/C0960",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 20,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YP",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YQ",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "YS",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YW",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        },
+        {
+          "name": "ZE",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "afT",
+          "descriptor": "Lf/z;",
+          "access": 2
+        },
+        {
+          "name": "ago",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s",
+        "f/z"
+      ]
+    },
+    {
+      "officialName": "f/y",
+      "namedName": "bf22/intermediary/C0961",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/at",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 10,
+      "fields": [
+        {
+          "name": "YD",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "YF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "YV",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZA",
+          "descriptor": "Lbest/ah;",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/ah",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "f/z",
+      "namedName": "bf22/intermediary/C0962",
+      "role": "unknown",
+      "direct": true,
+      "superName": "best/L",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": false,
+      "risk": 16,
+      "fields": [
+        {
+          "name": "YY",
+          "descriptor": "Lbest/at;",
+          "access": 2
+        },
+        {
+          "name": "ZF",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        },
+        {
+          "name": "ZG",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ZH",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "ZK",
+          "descriptor": "[Z",
+          "access": 2
+        },
+        {
+          "name": "ZL",
+          "descriptor": "Z",
+          "access": 0
+        },
+        {
+          "name": "Zf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Zg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "nS",
+          "descriptor": "Lf/s;",
+          "access": 2
+        },
+        {
+          "name": "tR",
+          "descriptor": "I",
+          "access": 2
+        }
+      ],
+      "dependencies": [
+        "best/at",
+        "f/s"
+      ]
+    },
+    {
+      "officialName": "forms/t",
+      "namedName": "bf22/intermediary/C0983",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/lang/Object",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 24,
+      "fields": [
+        {
+          "name": "XA",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "XB",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "XD",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xd",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xe",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xf",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Xg",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Xh",
+          "descriptor": "Ljava/util/Random;",
+          "access": 2
+        },
+        {
+          "name": "Xi",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Xj",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xk",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xl",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "Xm",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xn",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xo",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Xp",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xq",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "Xr",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "Xs",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xt",
+          "descriptor": "[J",
+          "access": 2
+        },
+        {
+          "name": "Xw",
+          "descriptor": "I",
+          "access": 2
+        },
+        {
+          "name": "Xx",
+          "descriptor": "D",
+          "access": 2
+        },
+        {
+          "name": "Xy",
+          "descriptor": "J",
+          "access": 2
+        },
+        {
+          "name": "Xz",
+          "descriptor": "J",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "officialName": "g/a",
+      "namedName": "bf22/intermediary/C0989",
+      "role": "unknown",
+      "direct": true,
+      "superName": "java/util/ArrayList",
+      "interfaces": [
+        "java/io/Serializable"
+      ],
+      "serialVersionUid": "1",
+      "unchangedFrom2021": true,
+      "risk": 1,
+      "fields": [
+        {
+          "name": "aaD",
+          "descriptor": "Ljava/util/ArrayList;",
+          "access": 2
+        }
+      ],
+      "dependencies": []
+    }
+  ]
+}

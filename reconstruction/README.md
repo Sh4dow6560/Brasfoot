@@ -17,11 +17,20 @@ Esse arquivo, executaveis, decompilacoes e builds nao entram no Git.
 ```powershell
 .\gradlew.bat verifyInputs
 .\gradlew.bat buildVersionAtlas
+.\gradlew.bat buildSerializationAtlas
 .\gradlew.bat generateMappings
 .\gradlew.bat decompileGame
 .\gradlew.bat compileRecovered
 .\gradlew.bat assembleHybrid
 .\gradlew.bat smokeTest
+```
+
+Depois de validar uma carreira pela interface, preserve-a como referencia:
+
+```powershell
+.\gradlew.bat captureReferenceSave
+.\gradlew.bat verifyReferenceSave
+.\gradlew.bat saveCompatibilityTest
 ```
 
 O build jogavel fica em `C:\Brasfoot22-23_modkit\build\Brasfoot22-23_hybrid`.
@@ -35,6 +44,10 @@ O teste automatizado confirma integridade, inicializacao no Java 8 e o
 carregamento da classe recuperada. Antes de promover codigo de simulacao ou
 persistencia, execute tambem uma carreira com dez partidas e valide salvar e
 carregar pela interface.
+
+`buildSerializationAtlas` gera o contrato de todas as classes serializaveis.
+`saveCompatibilityTest` carrega os tipos recuperados no Java 8, executa
+round-trip e desserializa o `reference.info` preservado.
 
 ## Espacos De Nomes
 

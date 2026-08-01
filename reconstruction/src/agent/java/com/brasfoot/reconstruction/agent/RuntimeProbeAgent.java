@@ -12,13 +12,23 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.ProtectionDomain;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class RuntimeProbeAgent {
   private RuntimeProbeAgent() {
   }
 
   public static void premain(String agentArgs, Instrumentation instrumentation) throws IOException {
-    final Path log = Paths.get(agentArgs).toAbsolutePath();
+    String[] arguments = agentArgs.split("\\|", 2);
+    final Path log = Paths.get(arguments[0]).toAbsolutePath();
+    final Set<String> targets = new HashSet<String>();
+    targets.add("best/h2");
+    targets.add("components/ar");
+    if (arguments.length == 2 && !arguments[1].isEmpty()) {
+      targets.addAll(Arrays.asList(arguments[1].split(",")));
+    }
     Files.createDirectories(log.getParent());
     Files.write(log, new byte[0], StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     append(log, "AGENT_READY");
@@ -32,7 +42,7 @@ public final class RuntimeProbeAgent {
           Class<?> classBeingRedefined,
           ProtectionDomain protectionDomain,
           byte[] classfileBuffer) throws IllegalClassFormatException {
-        if ("best/h2".equals(className) || "components/ar".equals(className)) {
+        if (targets.contains(className)) {
           append(log, "LOADED " + className + " " + sha256(classfileBuffer)
               + " loader=" + (loader == null ? "bootstrap" : loader.getClass().getName()));
         }

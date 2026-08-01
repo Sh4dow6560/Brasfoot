@@ -106,6 +106,18 @@ final class ProjectContext {
     return buildDir().resolve("reports");
   }
 
+  Path referenceSaveDir() {
+    return projectDir.resolve("fixtures/local/career-reference");
+  }
+
+  Path referenceSaveManifest() {
+    return projectDir.resolve("fixtures/save-reference.json");
+  }
+
+  Path serializationContractsFile() {
+    return projectDir.resolve("config/serialization-contracts.json");
+  }
+
   Map<String, String> promotions() throws IOException {
     return readStringMap(projectDir.resolve("config/promotions.json"));
   }
@@ -114,7 +126,13 @@ final class ProjectContext {
     Path path = projectDir.resolve("config/semantic-names.json");
     try (Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
       SemanticNames value = JSON.fromJson(reader, SemanticNames.class);
-      return value == null ? new SemanticNames(Map.of(), List.of()) : value;
+      if (value == null) {
+        return new SemanticNames(Map.of(), List.of(), List.of());
+      }
+      return new SemanticNames(
+          value.classes() == null ? Map.of() : value.classes(),
+          value.fields() == null ? List.of() : value.fields(),
+          value.methods() == null ? List.of() : value.methods());
     }
   }
 
@@ -153,7 +171,13 @@ final class ProjectContext {
       String mainClass) {
   }
 
-  record SemanticNames(Map<String, String> classes, List<MethodSemanticName> methods) {
+  record SemanticNames(
+      Map<String, String> classes,
+      List<FieldSemanticName> fields,
+      List<MethodSemanticName> methods) {
+  }
+
+  record FieldSemanticName(String owner, String name, String descriptor, String named) {
   }
 
   record MethodSemanticName(String owner, String name, String descriptor, String named) {

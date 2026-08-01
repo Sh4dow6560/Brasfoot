@@ -5506,9 +5506,10 @@
     {
       "officialName": "components/ag",
       "intermediaryName": "bf22/intermediary/C0787",
-      "namedName": "bf22/intermediary/C0787",
+      "namedName": "mod/recovered/team/LineupPreset",
       "introducedIn": "2021",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "FAB081F9D865D949F4FFD866F3C0607536D0E9FF6BAEF56CCA1E82770BBE29B6"
     },
     {
       "officialName": "components/ah",
@@ -6410,51 +6411,58 @@
     {
       "officialName": "est/ArrayLigaEType",
       "intermediaryName": "bf22/intermediary/C0916",
-      "namedName": "bf22/intermediary/C0916",
+      "namedName": "mod/recovered/config/StateLeagueConfigs",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "F3FB91A891A04CB3B46E6C92145F15B43B1480C7673673E652E7C79B36857892"
     },
     {
       "officialName": "est/ArrayLigaType",
       "intermediaryName": "bf22/intermediary/C0917",
-      "namedName": "bf22/intermediary/C0917",
+      "namedName": "mod/recovered/config/NationalLeagueConfigs",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "A6BFAB0A6BF11BD4241AEA567502613B8662C0D4FBE90FA5A16C7CB8D5D149BC"
     },
     {
       "officialName": "est/ConfigEstadualType",
       "intermediaryName": "bf22/intermediary/C0918",
-      "namedName": "bf22/intermediary/C0918",
+      "namedName": "mod/recovered/config/StateLeagueConfig",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "97425907298C0A024813F9299B3822FBE0D271E2F943C541ADDFA5D64432B1D1"
     },
     {
       "officialName": "est/ConfigLigaType",
       "intermediaryName": "bf22/intermediary/C0919",
-      "namedName": "bf22/intermediary/C0919",
+      "namedName": "mod/recovered/config/NationalLeagueConfig",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "5E71B2C6233064485145CFDC46E34FCB0C8B635EF07C0086FCA1C40ABF476EFC"
     },
     {
       "officialName": "est/InfoArquivoSalvoType",
       "intermediaryName": "bf22/intermediary/C0920",
-      "namedName": "bf22/intermediary/C0920",
+      "namedName": "mod/recovered/save/SavedGameInfo",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "E2A8FCB6F64E5BBFC44D042633FE1882B5734F49A50FDD6F1C8C4AB2141FBBCF"
     },
     {
       "officialName": "est/LoadLigaOptions",
       "intermediaryName": "bf22/intermediary/C0921",
-      "namedName": "bf22/intermediary/C0921",
+      "namedName": "mod/recovered/config/LeagueLoadOptions",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "0509CE28C8D924B2BAE9A1280CC37933A82B43F9CEF5EDBBDCE0096AAD793AEA"
     },
     {
       "officialName": "est/Options",
       "intermediaryName": "bf22/intermediary/C0922",
-      "namedName": "bf22/intermediary/C0922",
+      "namedName": "mod/recovered/config/GameOptions",
       "introducedIn": "2016",
-      "status": "binary"
+      "status": "runtime-verified",
+      "sourceSha256": "75C525096914941739F56902149A1D472931B5F159F238BFD75D80F2F3ECF766"
     },
     {
       "officialName": "f/A",
