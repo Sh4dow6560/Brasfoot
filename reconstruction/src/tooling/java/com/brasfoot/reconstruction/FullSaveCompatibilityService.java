@@ -71,11 +71,13 @@ final class FullSaveCompatibilityService {
         throw new IllegalStateException("Reference save does not contain recovered model " + model);
       }
     }
-    if (!log.contains("ROOT best.f AUX best.ay") || !log.contains("ROUNDTRIP ")) {
+    if (!log.contains("ROOT best.f AUX best.ay")
+        || !log.contains("CALENDAR days=")
+        || !log.contains("ROUNDTRIP ")) {
       throw new IllegalStateException("Full save did not complete a Kryo round-trip:\n" + log);
     }
     System.out.println("Full save compatibility passed on Java 8: Kryo loaded and rewrote the "
-        + "complete reference career with recovered Player, Club, Coach, finances and stadium.");
+        + "complete reference career and preserved its chronological calendar.");
   }
 
   private TreeSet<String> recoveredSerializableClasses() throws IOException {

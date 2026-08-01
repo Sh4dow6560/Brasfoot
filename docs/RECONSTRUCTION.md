@@ -19,6 +19,9 @@
 - As outras 1.161 entradas permanecem byte a byte identicas.
 - O save completo de referencia, os 88 contratos serializaveis e os 703 times
   passaram os testes automatizados.
+- O teste do save tambem valida o comportamento estrutural do calendario real:
+  ordem das datas, limites do indice atual, temporada, ano inicial e contagem
+  de partidas permanecem identicos apos a regravacao.
 - 80 classes ja possuem nomes semanticos. O nucleo legivel cobre
   `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
   `KnockoutStage`, `TransferNegotiation`, `Match` e `MatchEngine`, alem das

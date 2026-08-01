@@ -18,6 +18,9 @@
   save completo foi lido e regravado byte a byte no Java 8.
 - Save de referencia: tres arquivos preservados localmente por hash; o
   arquivo de carreira de 4.758.811 bytes passou round-trip identico.
+- Cenario de calendario: a carreira real valida automaticamente 365 dias em
+  ordem cronologica, indice atual 105, 44 dias com jogos e 2.312 partidas,
+  antes e depois do round-trip.
 - Dados: round-trip dos 703 times aprovado; existe um aviso preexistente de
   jogador duplicado em `vitoriaguimaraes_por.ban`.
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
