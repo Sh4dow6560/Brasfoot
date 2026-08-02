@@ -896,6 +896,85 @@ c	best/ac	bf22/intermediary/C0696	bf22/intermediary/C0696
 c	best/ad	bf22/intermediary/C0697	mod/recovered/geo/CountryInfo
 c	best/ae	bf22/intermediary/C0698	bf22/intermediary/C0698
 c	best/af	bf22/intermediary/C0699	mod/recovered/transfer/PlayerSearchCriteria
+	f	I	mA	mA	minPassing
+	f	I	mB	mB	maxPassing
+	f	I	mC	mC	tacklingFilterIndex
+	f	I	mD	mD	minTackling
+	f	I	mE	mE	maxTackling
+	f	I	mF	mF	finishingFilterIndex
+	f	I	mG	mG	minFinishing
+	f	I	mH	mH	maxFinishing
+	f	I	mI	mI	techniqueFilterIndex
+	f	I	mJ	mJ	minTechnique
+	f	I	mK	mK	maxTechnique
+	f	Z	mL	mL	requireStarPlayer
+	f	Z	mM	mM	requireWorldClassPlayer
+	f	Z	mN	mN	requireAvailableForLoan
+	f	Z	mO	mO	requireTransferListed
+	f	[[I	mP	mP	overallStrengthRanges
+	f	[[I	mQ	mQ	ageRanges
+	f	[[I	mR	mR	marketValueRanges
+	f	Ljava/util/ArrayList;	mS	mS	loadedCountryIds
+	f	I	md	md	position
+	f	I	me	me	side
+	f	I	mf	mf	overallStrengthFilterIndex
+	f	I	mg	mg	ageFilterIndex
+	f	I	mh	mh	marketValueRangeIndex
+	f	I	mi	mi	primaryCharacteristic
+	f	I	mj	mj	secondaryCharacteristic
+	f	I	mk	mk	countryId
+	f	I	ml	ml	loadedCountryIndex
+	f	I	mm	mm	minOverallStrength
+	f	I	mn	mn	maxOverallStrength
+	f	I	mo	mo	minAge
+	f	I	mp	mp	maxAge
+	f	I	mq	mq	goalkeepingFilterIndex
+	f	I	mr	mr	minGoalkeeping
+	f	I	ms	ms	maxGoalkeeping
+	f	I	mt	mt	speedFilterIndex
+	f	I	mu	mu	minSpeed
+	f	I	mv	mv	maxSpeed
+	f	I	mw	mw	playmakingFilterIndex
+	f	I	mx	mx	minPlaymaking
+	f	I	my	my	maxPlaymaking
+	f	I	mz	mz	passingFilterIndex
+	f	Ljava/lang/String;	nome	nome	namePrefix
+	m	(Z)Ljava/util/ArrayList;	D	D	findPlayers
+	m	(Z)V	E	E	setRequireStarPlayer
+	m	(Z)V	F	F	setRequireWorldClassPlayer
+	m	(Z)V	G	G	setRequireAvailableForLoan
+	m	(Z)V	H	H	setRequireTransferListed
+	m	(Ljava/lang/String;II)V	b	b	setAttributeRange
+	m	(I)V	bA	bA	setPrimaryCharacteristic
+	m	(I)V	bB	bB	setSecondaryCharacteristic
+	m	(I)V	bC	bC	setCountryId
+	m	(I)V	bD	bD	setLoadedCountryIndex
+	m	(I)I	bE	bE	getRegistrationValue
+	m	(I)V	bF	bF	setGoalkeepingFilterIndex
+	m	(I)V	bG	bG	setSpeedFilterIndex
+	m	(I)V	bH	bH	setPlaymakingFilterIndex
+	m	(I)V	bI	bI	setPassingFilterIndex
+	m	(I)V	bJ	bJ	setTacklingFilterIndex
+	m	(I)V	bK	bK	setFinishingFilterIndex
+	m	(I)V	bL	bL	setTechniqueFilterIndex
+	m	(I)V	bM	bM	setMinOverallStrength
+	m	(I)V	bN	bN	setMaxOverallStrength
+	m	(I)V	bO	bO	setMinAge
+	m	(I)V	bP	bP	setMaxAge
+	m	(I)V	bv	bv	setPosition
+	m	(I)V	bw	bw	setSide
+	m	(I)V	bx	bx	setOverallStrengthFilterIndex
+	m	(I)V	by	by	setAgeFilterIndex
+	m	(I)V	bz	bz	setMarketValueRangeIndex
+	m	(Lbest/F;)Z	i	i	matches
+	m	()I	jH	jH	getGoalkeepingFilterIndex
+	m	()I	jI	jI	getSpeedFilterIndex
+	m	()I	jJ	jJ	getPlaymakingFilterIndex
+	m	()I	jK	jK	getPassingFilterIndex
+	m	()I	jL	jL	getTacklingFilterIndex
+	m	()I	jM	jM	getFinishingFilterIndex
+	m	()I	jN	jN	getTechniqueFilterIndex
+	m	(Ljava/lang/String;)V	setNome	setNome	setNamePrefix
 c	best/ag	bf22/intermediary/C0700	mod/recovered/transfer/AiSquadManager
 	m	(Lbest/ah;IZ)V	a	a	processClubMarketActions
 	m	(Lbest/ah;ZZ)V	a	a	transferSurplusPlayer
@@ -956,6 +1035,32 @@ c	best/an	bf22/intermediary/C0707	bf22/intermediary/C0707
 	m	()Lbest/ah;	fg	fg	getClub
 c	best/ao	bf22/intermediary/C0708	bf22/intermediary/C0708
 c	best/ap	bf22/intermediary/C0709	mod/recovered/transfer/PlayerTransferRecord
+	f	Lbest/F;	U	U	player
+	f	I	d	d	day
+	f	I	ei	ei	playerId
+	f	I	ej	ej	playerPoolType
+	f	I	on	on	month
+	f	I	oo	oo	sourceClubId
+	f	I	op	op	destinationClubId
+	f	I	oq	oq	fee
+	f	I	y	y	year
+	m	(Lbest/F;)V	a	a	setPlayer
+	m	(I)V	cp	cp	setYear
+	m	(I)V	cq	cq	setFee
+	m	(I)V	cr	cr	setDestinationClubId
+	m	(I)V	cs	cs	setSourceClubId
+	m	()Ljava/lang/String;	f	f	getDateText
+	m	(III)V	f	f	setDate
+	m	()I	gD	gD	getPlayerId
+	m	()I	getY	getY	getYear
+	m	()I	lY	lY	getFee
+	m	()I	lZ	lZ	getDestinationClubId
+	m	()I	ma	ma	getSourceClubId
+	m	()V	mb	mb	capturePlayerIdentity
+	m	()Ljava/lang/String;	mc	mc	getSourceClubName
+	m	()Ljava/lang/String;	md	md	getDestinationClubName
+	m	()V	me	me	restorePlayerReference
+	m	()Lbest/F;	x	x	getPlayer
 c	best/aq	bf22/intermediary/C0710	mod/recovered/core/GameConstants
 	f	I	to	field_kw_to	field_kw_to
 c	best/ar	bf22/intermediary/C0711	bf22/intermediary/C0711

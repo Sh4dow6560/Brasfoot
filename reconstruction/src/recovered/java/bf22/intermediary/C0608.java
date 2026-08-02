@@ -17,21 +17,21 @@ public class C0608 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       PlayerTransferRecord var7 = (PlayerTransferRecord)object;
-      if (var7 != null && var7.x() != null) {
+      if (var7 != null && var7.getPlayer() != null) {
          if (j == 0) {
-            this.setText(var7.f());
+            this.setText(var7.getDateText());
          } else if (j == 1) {
-            this.setText(var7.x().getNome());
+            this.setText(var7.getPlayer().getNome());
          } else if (j == 2) {
-            if (var7.ma() >= 0) {
-               this.setText(var7.mc());
+            if (var7.getSourceClubId() >= 0) {
+               this.setText(var7.getSourceClubName());
             }
          } else if (j == 3) {
-            if (var7.lZ() >= 0) {
-               this.setText(var7.md());
+            if (var7.getDestinationClubId() >= 0) {
+               this.setText(var7.getDestinationClubName());
             }
          } else if (j == 4) {
-            this.setText(ClubFinances.a(var7.lY(), 0));
+            this.setText(ClubFinances.a(var7.getFee(), 0));
          }
       }
 

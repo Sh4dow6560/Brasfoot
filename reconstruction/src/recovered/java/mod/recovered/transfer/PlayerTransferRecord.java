@@ -1,111 +1,119 @@
 package mod.recovered.transfer;
 
-import bf22.intermediary.*;
-import mod.recovered.game.CareerState;
-import mod.recovered.save.GamePersistence;
 import java.io.Serializable;
 import java.util.ArrayList;
+import mod.recovered.game.CareerState;
 import mod.recovered.model.Player;
+import mod.recovered.save.GamePersistence;
 
 public class PlayerTransferRecord implements Serializable {
    private static final long serialVersionUID = 1L;
-   private int d = 0;
-   private int on = 0;
-   private int y = 0;
-   private transient Player U = null;
-   private int ei = -1;
-   private int ej = -1;
-   private int oo = -1;
-   private int op = -1;
-   private int oq = 0;
+   private int day = 0;
+   private int month = 0;
+   private int year = 0;
+   private transient Player player = null;
+   private int playerId = -1;
+   private int playerPoolType = -1;
+   private int sourceClubId = -1;
+   private int destinationClubId = -1;
+   private int fee = 0;
 
-   public int getY() {
-      return this.y;
+   public int getYear() {
+      return this.year;
    }
 
-   public void cp(int i) {
-      this.y = i;
+   public void setYear(int year) {
+      this.year = year;
    }
 
-   public void f(int i, int j, int k) {
-      this.d = i;
-      this.on = j + 1;
-      this.y = k;
+   public void setDate(int day, int zeroBasedMonth, int year) {
+      this.day = day;
+      this.month = zeroBasedMonth + 1;
+      this.year = year;
    }
 
-   public Player x() {
-      return this.U;
+   public Player getPlayer() {
+      return this.player;
    }
 
-   public void a(Player player) {
-      this.U = player;
+   public void setPlayer(Player player) {
+      this.player = player;
    }
 
-   public int lY() {
-      return this.oq;
+   public int getFee() {
+      return this.fee;
    }
 
-   public void cq(int i) {
-      this.oq = i;
+   public void setFee(int fee) {
+      this.fee = fee;
    }
 
-   public String f() {
-      return Integer.toString(this.d) + "/" + Integer.toString(this.on) + "/" + Integer.toString(this.y);
+   public String getDateText() {
+      return Integer.toString(this.day)
+         + "/"
+         + Integer.toString(this.month)
+         + "/"
+         + Integer.toString(this.year);
    }
 
-   public int lZ() {
-      return this.op;
+   public int getDestinationClubId() {
+      return this.destinationClubId;
    }
 
-   public void cr(int i) {
-      this.op = i;
+   public void setDestinationClubId(int clubId) {
+      this.destinationClubId = clubId;
    }
 
-   public int ma() {
-      return this.oo;
+   public int getSourceClubId() {
+      return this.sourceClubId;
    }
 
-   public void cs(int i) {
-      this.oo = i;
+   public void setSourceClubId(int clubId) {
+      this.sourceClubId = clubId;
    }
 
-   public int gD() {
-      return this.ei;
+   public int getPlayerId() {
+      return this.playerId;
    }
 
-   public void mb() {
-      if (this.U != null) {
-         this.ei = this.U.gD();
-         this.ej = this.U.gI();
+   public void capturePlayerIdentity() {
+      if (this.player != null) {
+         this.playerId = this.player.gD();
+         this.playerPoolType = this.player.gI();
       } else {
-         this.ei = -1;
+         this.playerId = -1;
       }
    }
 
-   public String mc() {
-      return CareerState.z(this.oo);
+   public String getSourceClubName() {
+      return CareerState.z(this.sourceClubId);
    }
 
-   public String md() {
-      return CareerState.z(this.op);
+   public String getDestinationClubName() {
+      return CareerState.z(this.destinationClubId);
    }
 
-   public void me() {
-      if (this.ei >= 0) {
-         ArrayList var1 = null;
-         if (this.ej == 1) {
-            var1 = GamePersistence.careerState.O();
-         } else if (this.ej == 2) {
-            var1 = GamePersistence.careerState.Q();
-         }
+   public void restorePlayerReference() {
+      if (this.playerId < 0) {
+         return;
+      }
 
-         if (var1 != null) {
-            for (int var2 = 0; var2 < var1.size(); var2++) {
-               if (this.ei == ((Player)var1.get(var2)).gD()) {
-                  this.U = (Player)var1.get(var2);
-                  break;
-               }
-            }
+      ArrayList players = null;
+      if (this.playerPoolType == 1) {
+         players = GamePersistence.careerState.O();
+      } else if (this.playerPoolType == 2) {
+         players = GamePersistence.careerState.Q();
+      }
+
+      if (players == null) {
+         return;
+      }
+
+      for (int index = 0; index < players.size(); index++) {
+         Player candidate = (Player)players.get(index);
+         if (this.playerId == candidate.gD()) {
+            this.player = candidate;
+            break;
          }
       }
    }

@@ -93,6 +93,15 @@ e movimentacao de destaques. O teste funcional executa os pontos de entrada e
 confirma que elencos equilibrados, atletas emprestados e clubes do usuario nao
 sao alterados pelo processamento isolado.
 
+`PlayerSearchCriteria` expoe os filtros por nome, posicao, lado, forca, idade,
+valor, caracteristicas, pais, competicoes carregadas, atributos, estrela,
+destaque mundial, emprestimo e lista de transferencias. O cenario funcional
+valida cada grupo, nomes com acento e a inclusao opcional de jogadores gerados.
+
+`PlayerTransferRecord` expoe data, jogador, origem, destino, valor e identidade
+persistente. O cenario Kryo confirma que a referencia transitoria do jogador e
+removida na gravacao e restaurada pelo ID e pelo grupo correto no carregamento.
+
 ## Torneios Concretos
 
 O pacote `competition` tambem contem nomes diretos para as competicoes

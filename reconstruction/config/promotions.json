@@ -697,7 +697,7 @@
   "best/ac": "runtime-verified",
   "best/ad": "compile-clean",
   "best/ae": "compile-clean",
-  "best/af": "compile-clean",
+  "best/af": "runtime-verified",
   "best/ag": "runtime-verified",
   "best/ah": "runtime-verified",
   "best/ai": "compile-clean",

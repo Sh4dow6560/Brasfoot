@@ -49,6 +49,8 @@ public final class KryoSaveCompatibilityProbe {
       String contractLoanApi = validateContractAndLoanBehavior(loader, roots[0]);
       String transferNegotiationApi = validateTransferNegotiationBehavior(loader);
       String aiSquadApi = validateAiSquadManagerBehavior(loader, roots[0]);
+      String playerSearchApi = validatePlayerSearchCriteriaBehavior(loader, roots[0]);
+      String transferHistoryApi = validatePlayerTransferRecordBehavior(loader, roots[0]);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -94,6 +96,8 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("CONTRACT_LOAN_API " + contractLoanApi);
       System.out.println("TRANSFER_NEGOTIATION_API " + transferNegotiationApi);
       System.out.println("AI_SQUAD_API " + aiSquadApi);
+      System.out.println("PLAYER_SEARCH_API " + playerSearchApi);
+      System.out.println("TRANSFER_HISTORY_API " + transferHistoryApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -874,6 +878,281 @@ public final class KryoSaveCompatibilityProbe {
     }
 
     return "entryPoints=true balancedPlayers=2 loanProtected=5 userProtected=5";
+  }
+
+  private static String validatePlayerSearchCriteriaBehavior(
+      ClassLoader loader, Object career) throws Exception {
+    Class<?> searchClass = loader.loadClass("best.af");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> persistenceClass = loader.loadClass("c.a");
+
+    Object club = clubClass.getDeclaredConstructor().newInstance();
+    setField(club, "mU", 81);
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(club, 29);
+
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("setNome", String.class)
+        .invoke(player, "\u00c1lvaro Teste");
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 2);
+    playerClass.getDeclaredMethod("setLado", Integer.TYPE).invoke(player, 1);
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 72);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    playerClass.getDeclaredMethod("af", Integer.TYPE).invoke(player, 750_000);
+    playerClass.getDeclaredMethod("setCr1", Integer.TYPE).invoke(player, 4);
+    playerClass.getDeclaredMethod("setCr2", Integer.TYPE).invoke(player, 5);
+    playerClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(player, 29);
+    playerClass.getDeclaredMethod("aJ", Integer.TYPE).invoke(player, 11);
+    playerClass.getDeclaredMethod("aI", Integer.TYPE).invoke(player, 61);
+    playerClass.getDeclaredMethod("aK", Integer.TYPE).invoke(player, 62);
+    playerClass.getDeclaredMethod("aL", Integer.TYPE).invoke(player, 63);
+    playerClass.getDeclaredMethod("aM", Integer.TYPE).invoke(player, 64);
+    playerClass.getDeclaredMethod("aN", Integer.TYPE).invoke(player, 65);
+    playerClass.getDeclaredMethod("aO", Integer.TYPE).invoke(player, 66);
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, club);
+    setField(player, "ek", Boolean.TRUE);
+    setField(player, "el", Boolean.TRUE);
+    setField(player, "eW", Boolean.TRUE);
+    setField(player, "eY", Boolean.TRUE);
+
+    Object generatedPlayer = playerClass.getDeclaredConstructor().newInstance();
+    Object previousCareer = readStaticField(persistenceClass, "SR");
+    Object previousPrimaryPlayers = readField(career, "ag");
+    Object previousGeneratedPlayers = readField(career, "ai");
+    try {
+      setStaticField(persistenceClass, "SR", career);
+      ArrayList<Object> primaryPlayers = new ArrayList<Object>();
+      primaryPlayers.add(player);
+      ArrayList<Object> generatedPlayers = new ArrayList<Object>();
+      generatedPlayers.add(generatedPlayer);
+      setField(career, "ag", primaryPlayers);
+      setField(career, "ai", generatedPlayers);
+
+      Object poolSearch = searchClass.getDeclaredConstructor().newInstance();
+      List<Object> primaryOnly = castList(searchClass.getDeclaredMethod(
+          "D", Boolean.TYPE).invoke(poolSearch, false));
+      List<Object> allPlayers = castList(searchClass.getDeclaredMethod(
+          "D", Boolean.TYPE).invoke(poolSearch, true));
+      if (primaryOnly.size() != 1 || primaryOnly.get(0) != player) {
+        throw new IllegalStateException("Player search changed the primary player pool");
+      }
+      if (allPlayers.size() != 2 || allPlayers.get(0) != player
+          || allPlayers.get(1) != generatedPlayer) {
+        throw new IllegalStateException("Player search did not include generated players");
+      }
+    } finally {
+      setField(career, "ag", previousPrimaryPlayers);
+      setField(career, "ai", previousGeneratedPlayers);
+      setStaticField(persistenceClass, "SR", previousCareer);
+    }
+
+    Object criteria = searchClass.getDeclaredConstructor().newInstance();
+    searchClass.getDeclaredMethod("setNome", String.class).invoke(criteria, "alv");
+    searchClass.getDeclaredMethod("bv", Integer.TYPE).invoke(criteria, 2);
+    searchClass.getDeclaredMethod("bw", Integer.TYPE).invoke(criteria, 1);
+    searchClass.getDeclaredMethod("bM", Integer.TYPE).invoke(criteria, 70);
+    searchClass.getDeclaredMethod("bN", Integer.TYPE).invoke(criteria, 75);
+    searchClass.getDeclaredMethod("bx", Integer.TYPE).invoke(criteria, 0);
+    searchClass.getDeclaredMethod("bO", Integer.TYPE).invoke(criteria, 20);
+    searchClass.getDeclaredMethod("bP", Integer.TYPE).invoke(criteria, 30);
+    searchClass.getDeclaredMethod("by", Integer.TYPE).invoke(criteria, 0);
+    searchClass.getDeclaredMethod("bz", Integer.TYPE).invoke(criteria, 2);
+    searchClass.getDeclaredMethod("bA", Integer.TYPE).invoke(criteria, 4);
+    searchClass.getDeclaredMethod("bB", Integer.TYPE).invoke(criteria, 5);
+    searchClass.getDeclaredMethod("bC", Integer.TYPE).invoke(criteria, 29);
+    searchClass.getDeclaredMethod("bD", Integer.TYPE).invoke(criteria, 0);
+    searchClass.getDeclaredMethod("E", Boolean.TYPE).invoke(criteria, true);
+    searchClass.getDeclaredMethod("F", Boolean.TYPE).invoke(criteria, true);
+    searchClass.getDeclaredMethod("G", Boolean.TYPE).invoke(criteria, true);
+    searchClass.getDeclaredMethod("H", Boolean.TYPE).invoke(criteria, true);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "gol", 10, 12);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "des", 63, 65);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "vel", 60, 62);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "fin", 65, 67);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "arm", 64, 66);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "tec", 61, 63);
+    searchClass.getDeclaredMethod("b", String.class, Integer.TYPE, Integer.TYPE)
+        .invoke(criteria, "pas", 62, 64);
+    ArrayList<Integer> loadedCountryIds = new ArrayList<Integer>();
+    loadedCountryIds.add(29);
+    setField(criteria, "mS", loadedCountryIds);
+
+    String[][] filterAccessors = new String[][]{
+        {"jH", "bF"}, {"jI", "bG"}, {"jJ", "bH"}, {"jK", "bI"},
+        {"jL", "bJ"}, {"jM", "bK"}, {"jN", "bL"}
+    };
+    for (String[] accessors : filterAccessors) {
+      assertInteger(searchClass, criteria, accessors[0], 0);
+      searchClass.getDeclaredMethod(accessors[1], Integer.TYPE).invoke(criteria, -1);
+      assertInteger(searchClass, criteria, accessors[0], -1);
+      searchClass.getDeclaredMethod(accessors[1], Integer.TYPE).invoke(criteria, 0);
+    }
+    searchClass.getDeclaredMethod("bE", Integer.TYPE).invoke(null, 0);
+    assertSearchMatch(searchClass, criteria, playerClass, player, true, "all filters");
+
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 3);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "position");
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 2);
+    playerClass.getDeclaredMethod("setLado", Integer.TYPE).invoke(player, 0);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "side");
+    playerClass.getDeclaredMethod("setLado", Integer.TYPE).invoke(player, 1);
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 69);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "strength");
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 72);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 31);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "age");
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    playerClass.getDeclaredMethod("af", Integer.TYPE).invoke(player, 500_000);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "market value");
+    playerClass.getDeclaredMethod("af", Integer.TYPE).invoke(player, 750_000);
+    playerClass.getDeclaredMethod("setCr1", Integer.TYPE).invoke(player, 3);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "primary trait");
+    playerClass.getDeclaredMethod("setCr1", Integer.TYPE).invoke(player, 4);
+    playerClass.getDeclaredMethod("setCr2", Integer.TYPE).invoke(player, 4);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "secondary trait");
+    playerClass.getDeclaredMethod("setCr2", Integer.TYPE).invoke(player, 5);
+    playerClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(player, 30);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "country");
+    playerClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(player, 29);
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(club, 30);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "loaded country");
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(club, 29);
+
+    setField(player, "ek", Boolean.FALSE);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "star flag");
+    setField(player, "ek", Boolean.TRUE);
+    setField(player, "el", Boolean.FALSE);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "world-class flag");
+    setField(player, "el", Boolean.TRUE);
+    setField(player, "eW", Boolean.FALSE);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "loan flag");
+    setField(player, "eW", Boolean.TRUE);
+    setField(player, "eY", Boolean.FALSE);
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "transfer flag");
+    setField(player, "eY", Boolean.TRUE);
+
+    String[] attributeSetters = new String[]{"aJ", "aI", "aN", "aL", "aM", "aO", "aK"};
+    int[] failingValues = new int[]{9, 59, 63, 61, 62, 64, 60};
+    int[] matchingValues = new int[]{11, 61, 65, 63, 64, 66, 62};
+    for (int index = 0; index < attributeSetters.length; index++) {
+      playerClass.getDeclaredMethod(attributeSetters[index], Integer.TYPE)
+          .invoke(player, failingValues[index]);
+      assertSearchMatch(searchClass, criteria, playerClass, player, false,
+          "attribute " + attributeSetters[index]);
+      playerClass.getDeclaredMethod(attributeSetters[index], Integer.TYPE)
+          .invoke(player, matchingValues[index]);
+    }
+    searchClass.getDeclaredMethod("setNome", String.class).invoke(criteria, "zzz");
+    assertSearchMatch(searchClass, criteria, playerClass, player, false, "name prefix");
+    searchClass.getDeclaredMethod("setNome", String.class).invoke(criteria, "alv");
+    assertSearchMatch(searchClass, criteria, playerClass, player, true, "restored filters");
+
+    return "pools=1/2 filters=18 attributes=7 accentPrefix=true generatedPlayers=true";
+  }
+
+  private static void assertSearchMatch(
+      Class<?> searchClass,
+      Object criteria,
+      Class<?> playerClass,
+      Object player,
+      boolean expected,
+      String description) throws Exception {
+    boolean actual = ((Boolean)invokePrivateWithArgument(
+        searchClass, criteria, "i", playerClass, player)).booleanValue();
+    if (actual != expected) {
+      throw new IllegalStateException("Player search " + description
+          + " returned " + actual + " instead of " + expected);
+    }
+  }
+
+  private static String validatePlayerTransferRecordBehavior(
+      ClassLoader loader, Object career) throws Exception {
+    Class<?> recordClass = loader.loadClass("best.ap");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> persistenceClass = loader.loadClass("c.a");
+
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("az", Integer.TYPE).invoke(player, 9_101);
+    playerClass.getDeclaredMethod("aC", Integer.TYPE).invoke(player, 1);
+    Object sourceClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(sourceClub, "mU", 101);
+    setField(sourceClub, "dm", "Origem FC");
+    Object destinationClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(destinationClub, "mU", 202);
+    setField(destinationClub, "dm", "Destino FC");
+
+    Object record = recordClass.getDeclaredConstructor().newInstance();
+    recordClass.getDeclaredMethod("cp", Integer.TYPE).invoke(record, 2025);
+    assertInteger(recordClass, record, "getY", 2025);
+    recordClass.getDeclaredMethod("a", playerClass).invoke(record, player);
+    recordClass.getDeclaredMethod("f", Integer.TYPE, Integer.TYPE, Integer.TYPE)
+        .invoke(record, 14, 7, 2026);
+    recordClass.getDeclaredMethod("cs", Integer.TYPE).invoke(record, 101);
+    recordClass.getDeclaredMethod("cr", Integer.TYPE).invoke(record, 202);
+    recordClass.getDeclaredMethod("cq", Integer.TYPE).invoke(record, 1_250_000);
+    recordClass.getDeclaredMethod("mb").invoke(record);
+    assertSame(player, recordClass.getDeclaredMethod("x").invoke(record),
+        "transfer history player");
+    assertInteger(recordClass, record, "getY", 2026);
+    assertInteger(recordClass, record, "lY", 1_250_000);
+    assertInteger(recordClass, record, "ma", 101);
+    assertInteger(recordClass, record, "lZ", 202);
+    assertInteger(recordClass, record, "gD", 9_101);
+    String date = (String)recordClass.getDeclaredMethod("f").invoke(record);
+    if (!"14/8/2026".equals(date)) {
+      throw new IllegalStateException("Transfer history date changed: " + date);
+    }
+
+    Object previousCareer = readStaticField(persistenceClass, "SR");
+    Object previousPrimaryPlayers = readField(career, "ag");
+    Object previousClubs = readField(career, "aj");
+    try {
+      setStaticField(persistenceClass, "SR", career);
+      ArrayList<Object> players = new ArrayList<Object>();
+      players.add(player);
+      ArrayList<Object> clubs = new ArrayList<Object>();
+      clubs.add(sourceClub);
+      clubs.add(destinationClub);
+      setField(career, "ag", players);
+      setField(career, "aj", clubs);
+
+      if (!"Origem FC".equals(recordClass.getDeclaredMethod("mc").invoke(record))
+          || !"Destino FC".equals(recordClass.getDeclaredMethod("md").invoke(record))) {
+        throw new IllegalStateException("Transfer history club names were not resolved");
+      }
+
+      Object restored = roundTripObject(record, loader);
+      if (recordClass.getDeclaredMethod("x").invoke(restored) != null) {
+        throw new IllegalStateException("Transient transfer player survived Kryo round-trip");
+      }
+      assertInteger(recordClass, restored, "getY", 2026);
+      assertInteger(recordClass, restored, "lY", 1_250_000);
+      assertInteger(recordClass, restored, "ma", 101);
+      assertInteger(recordClass, restored, "lZ", 202);
+      assertInteger(recordClass, restored, "gD", 9_101);
+      recordClass.getDeclaredMethod("me").invoke(restored);
+      assertSame(player, recordClass.getDeclaredMethod("x").invoke(restored),
+          "restored transfer history player");
+      if (!"14/8/2026".equals(recordClass.getDeclaredMethod("f").invoke(restored))) {
+        throw new IllegalStateException("Transfer history date changed after Kryo round-trip");
+      }
+    } finally {
+      setField(career, "ag", previousPrimaryPlayers);
+      setField(career, "aj", previousClubs);
+      setStaticField(persistenceClass, "SR", previousCareer);
+    }
+
+    Object emptyRecord = recordClass.getDeclaredConstructor().newInstance();
+    recordClass.getDeclaredMethod("mb").invoke(emptyRecord);
+    assertInteger(recordClass, emptyRecord, "gD", -1);
+    return "date=14/8/2026 fee=1250000 clubs=101/202 transient=true restored=true";
   }
 
   private static Object createAiMarketPlayer(

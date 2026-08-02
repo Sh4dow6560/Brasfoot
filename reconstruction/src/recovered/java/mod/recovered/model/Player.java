@@ -3106,11 +3106,11 @@ public class Player implements Serializable {
       club.w(i, 1);
       Calendar var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
       PlayerTransferRecord var5 = new PlayerTransferRecord();
-      var5.a(this);
-      var5.f(var4.get(5), var4.get(2), var4.get(1));
-      var5.cs(var3.getClubId());
-      var5.cr(club.getClubId());
-      var5.cq(i);
+      var5.setPlayer(this);
+      var5.setDate(var4.get(5), var4.get(2), var4.get(1));
+      var5.setSourceClubId(var3.getClubId());
+      var5.setDestinationClubId(club.getClubId());
+      var5.setFee(i);
       this.setAskingPrice(i);
       GamePersistence.careerState.bo().add(var5);
       var3.getYouthPlayers().remove(this);
@@ -3194,11 +3194,11 @@ public class Player implements Serializable {
          }
 
          PlayerTransferRecord var12 = new PlayerTransferRecord();
-         var12.a(this);
-         var12.f(var7.get(5), var7.get(2), var7.get(1));
-         var12.cs(var6.getClubId());
-         var12.cr(club.getClubId());
-         var12.cq(i);
+         var12.setPlayer(this);
+         var12.setDate(var7.get(5), var7.get(2), var7.get(1));
+         var12.setSourceClubId(var6.getClubId());
+         var12.setDestinationClubId(club.getClubId());
+         var12.setFee(i);
          GamePersistence.careerState.bo().add(var12);
          var6.getSeniorPlayers().remove(this);
          if (var6.getSeniorPlayers().contains(this)) {

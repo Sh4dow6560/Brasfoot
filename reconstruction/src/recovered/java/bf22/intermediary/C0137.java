@@ -849,7 +849,7 @@ public class C0137 extends JPanel {
       boolean var2 = false;
 
       for (int var3 = 0; var3 < var0.length; var3++) {
-         int var4 = PlayerSearchCriteria.bE(var3);
+         int var4 = PlayerSearchCriteria.getRegistrationValue(var3);
          String var5 = Integer.toString(var4);
          String var6 = Character.toString(var5.charAt(var5.length() - 3));
          if (GameConstants.tG[var3]) {

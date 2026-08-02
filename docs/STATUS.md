@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 83 classes e 490 membros mapeados possuem nomes validos ou
+- Legibilidade: 83 classes e 595 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -82,6 +82,14 @@
   reposicao de carencias e movimentacao de destaques. Um cenario executa todos
   os pontos de entrada e confirma a protecao de elencos equilibrados,
   jogadores emprestados e clubes controlados pelo usuario.
+- Busca de jogadores: `PlayerSearchCriteria` identifica posicao, lado, idade,
+  forca, valor, pais, caracteristicas, sete atributos e os quatro estados do
+  mercado. Um cenario valida 18 filtros, nomes com acento e a inclusao opcional
+  de jogadores gerados no JAR final.
+- Historico de transferencias: `PlayerTransferRecord` identifica data, jogador,
+  clubes, valor e IDs persistentes. O teste confirma a resolucao dos nomes dos
+  clubes, o campo transitorio do jogador e sua restauracao depois do round-trip
+  Kryo sem alterar o save completo.
 - Paises: 48 consultas que dependiam dos nomes internos `P0...P223`, perdidos
   ao recompilar o enum, agora usam o mesmo indice numerico do bytecode. O fluxo
   de negociacao exercita essa correcao e o contrato binario permanece intacto.
@@ -97,5 +105,4 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: recuperar filtros de busca, registros e historico do mercado
-  em `PlayerSearchCriteria` e `PlayerTransferRecord`.
+- Proxima fase: recuperar financas, receitas e despesas ligadas ao mercado.

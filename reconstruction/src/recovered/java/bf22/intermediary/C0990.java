@@ -90,13 +90,13 @@ public abstract class C0990 {
       }
 
       for (int var3 = 0; var3 < GamePersistence.careerState.bo().size(); var3++) {
-         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).mb();
+         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).capturePlayerIdentity();
       }
    }
 
    public static void Aj() {
       for (int var0 = 0; var0 < GamePersistence.careerState.bo().size(); var0++) {
-         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var0)).me();
+         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var0)).restorePlayerReference();
       }
    }
 }

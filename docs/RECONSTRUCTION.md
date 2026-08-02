@@ -78,13 +78,18 @@
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 490 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 595 membros
   recuperados no total.
+- `PlayerSearchCriteria` identifica os filtros por nome, elenco, pais, posicao,
+  idade, forca, valor, caracteristicas e atributos. `PlayerTransferRecord`
+  identifica data, atleta, clubes, valor e a restauracao da referencia
+  transitoria depois do carregamento. Ambos possuem cenarios funcionais no
+  Java 8 e preservam o round-trip byte-identico do save completo.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica dos filtros, registros e historico de transferencias.
+1. Nomeacao semantica das financas, receitas e despesas do mercado.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

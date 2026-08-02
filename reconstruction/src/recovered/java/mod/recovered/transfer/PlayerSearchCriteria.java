@@ -1,327 +1,356 @@
 package mod.recovered.transfer;
 
-import bf22.intermediary.*;
-import mod.recovered.competition.CountryCompetitions;
-import mod.recovered.save.GamePersistence;
+import bf22.intermediary.C0670;
+import bf22.intermediary.C0983;
 import java.util.ArrayList;
+import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.model.Player;
+import mod.recovered.save.GamePersistence;
 
 public class PlayerSearchCriteria {
-   private String nome = null;
-   private int md = -1;
-   private int me = -1;
-   private int mf = -1;
-   private int mg = -1;
-   private int mh = -1;
-   private int mi = -1;
-   private int mj = -1;
-   private int mk = -1;
-   private int ml = -1;
-   private int mm = -1;
-   private int mn = -1;
-   private int mo = -1;
-   private int mp = -1;
-   private int mq = -1;
-   private int mr = -1;
-   private int ms = -1;
-   private int mt = -1;
-   private int mu = -1;
-   private int mv = -1;
-   private int mw = -1;
-   private int mx = -1;
-   private int my = -1;
-   private int mz = -1;
-   private int mA = -1;
-   private int mB = -1;
-   private int mC = -1;
-   private int mD = -1;
-   private int mE = -1;
-   private int mF = -1;
-   private int mG = -1;
-   private int mH = -1;
-   private int mI = -1;
-   private int mJ = -1;
-   private int mK = -1;
-   private boolean mL = false;
-   private boolean mM = false;
-   private boolean mN = false;
-   private boolean mO = false;
-   private int[][] mP = new int[][]{{1, 10}, {11, 30}, {31, 50}, {51, 70}, {71, 100}};
-   private int[][] mQ = new int[][]{{16, 25}, {26, 36}, {37, 60}};
-   private int[][] mR = new int[][]{
-      {1, 100999}, {101000, 500999}, {501000, 1000000}, {1000001, 3000000}, {3000001, 5000000}, {5000001, 10000000}, {10000000, 1000000000}
+   private String namePrefix = null;
+   private int position = -1;
+   private int side = -1;
+   private int overallStrengthFilterIndex = -1;
+   private int ageFilterIndex = -1;
+   private int marketValueRangeIndex = -1;
+   private int primaryCharacteristic = -1;
+   private int secondaryCharacteristic = -1;
+   private int countryId = -1;
+   private int loadedCountryIndex = -1;
+   private int minOverallStrength = -1;
+   private int maxOverallStrength = -1;
+   private int minAge = -1;
+   private int maxAge = -1;
+   private int goalkeepingFilterIndex = -1;
+   private int minGoalkeeping = -1;
+   private int maxGoalkeeping = -1;
+   private int speedFilterIndex = -1;
+   private int minSpeed = -1;
+   private int maxSpeed = -1;
+   private int playmakingFilterIndex = -1;
+   private int minPlaymaking = -1;
+   private int maxPlaymaking = -1;
+   private int passingFilterIndex = -1;
+   private int minPassing = -1;
+   private int maxPassing = -1;
+   private int tacklingFilterIndex = -1;
+   private int minTackling = -1;
+   private int maxTackling = -1;
+   private int finishingFilterIndex = -1;
+   private int minFinishing = -1;
+   private int maxFinishing = -1;
+   private int techniqueFilterIndex = -1;
+   private int minTechnique = -1;
+   private int maxTechnique = -1;
+   private boolean requireStarPlayer = false;
+   private boolean requireWorldClassPlayer = false;
+   private boolean requireAvailableForLoan = false;
+   private boolean requireTransferListed = false;
+   private int[][] overallStrengthRanges = new int[][]{
+      {1, 10}, {11, 30}, {31, 50}, {51, 70}, {71, 100}
    };
-   private ArrayList mS = new ArrayList();
+   private int[][] ageRanges = new int[][]{{16, 25}, {26, 36}, {37, 60}};
+   private int[][] marketValueRanges = new int[][]{
+      {1, 100999},
+      {101000, 500999},
+      {501000, 1000000},
+      {1000001, 3000000},
+      {3000001, 5000000},
+      {5000001, 10000000},
+      {10000000, 1000000000}
+   };
+   private ArrayList loadedCountryIds = new ArrayList();
 
-   public ArrayList D(boolean bl) {
-      ArrayList var2 = new ArrayList();
-      if (this.ml >= 0) {
-         this.mS.clear();
+   public ArrayList findPlayers(boolean includeGeneratedPlayers) {
+      ArrayList players = new ArrayList();
+      if (this.loadedCountryIndex >= 0) {
+         this.loadedCountryIds.clear();
 
-         for (int var3 = 0; var3 < GamePersistence.careerState.N().size(); var3++) {
-            this.mS.add(((CountryCompetitions)GamePersistence.careerState.N().get(var3)).jc());
+         for (int index = 0; index < GamePersistence.careerState.N().size(); index++) {
+            this.loadedCountryIds.add(
+               ((CountryCompetitions)GamePersistence.careerState.N().get(index)).jc()
+            );
          }
       }
 
-      for (int var4 = 0; var4 < GamePersistence.careerState.O().size(); var4++) {
-         if (this.i((Player)GamePersistence.careerState.O().get(var4))) {
-            var2.add((Player)GamePersistence.careerState.O().get(var4));
+      for (int index = 0; index < GamePersistence.careerState.O().size(); index++) {
+         Player player = (Player)GamePersistence.careerState.O().get(index);
+         if (this.matches(player)) {
+            players.add(player);
          }
       }
 
-      if (bl) {
-         for (int var5 = 0; var5 < GamePersistence.careerState.bN().size(); var5++) {
-            if (this.i((Player)GamePersistence.careerState.bN().get(var5))) {
-               var2.add((Player)GamePersistence.careerState.bN().get(var5));
+      if (includeGeneratedPlayers) {
+         for (int index = 0; index < GamePersistence.careerState.bN().size(); index++) {
+            Player player = (Player)GamePersistence.careerState.bN().get(index);
+            if (this.matches(player)) {
+               players.add(player);
             }
          }
       }
 
-      return var2;
+      return players;
    }
 
-   public void b(String string, int i, int j) {
-      if (string.equals("gol")) {
-         this.mq = 0;
-         this.mr = i;
-         this.ms = j;
-      } else if (string.equals("des")) {
-         this.mC = 0;
-         this.mD = i;
-         this.mE = j;
-      } else if (string.equals("vel")) {
-         this.mt = 0;
-         this.mu = i;
-         this.mv = j;
-      } else if (string.equals("fin")) {
-         this.mF = 0;
-         this.mG = i;
-         this.mH = j;
-      } else if (string.equals("arm")) {
-         this.mw = 0;
-         this.mx = i;
-         this.my = j;
-      } else if (string.equals("tec")) {
-         this.mI = 0;
-         this.mJ = i;
-         this.mK = j;
-      } else if (string.equals("pas")) {
-         this.mz = 0;
-         this.mA = i;
-         this.mB = j;
+   public void setAttributeRange(String attribute, int minimum, int maximum) {
+      if (attribute.equals("gol")) {
+         this.goalkeepingFilterIndex = 0;
+         this.minGoalkeeping = minimum;
+         this.maxGoalkeeping = maximum;
+      } else if (attribute.equals("des")) {
+         this.tacklingFilterIndex = 0;
+         this.minTackling = minimum;
+         this.maxTackling = maximum;
+      } else if (attribute.equals("vel")) {
+         this.speedFilterIndex = 0;
+         this.minSpeed = minimum;
+         this.maxSpeed = maximum;
+      } else if (attribute.equals("fin")) {
+         this.finishingFilterIndex = 0;
+         this.minFinishing = minimum;
+         this.maxFinishing = maximum;
+      } else if (attribute.equals("arm")) {
+         this.playmakingFilterIndex = 0;
+         this.minPlaymaking = minimum;
+         this.maxPlaymaking = maximum;
+      } else if (attribute.equals("tec")) {
+         this.techniqueFilterIndex = 0;
+         this.minTechnique = minimum;
+         this.maxTechnique = maximum;
+      } else if (attribute.equals("pas")) {
+         this.passingFilterIndex = 0;
+         this.minPassing = minimum;
+         this.maxPassing = maximum;
       }
    }
 
-   private boolean i(Player player) {
-      if (this.md >= 0 && player.getPosicao() != this.md) {
+   private boolean matches(Player player) {
+      if (this.position >= 0 && player.getPosicao() != this.position) {
          return false;
       }
-
-      if (this.me >= 0 && player.getLado() != this.me) {
+      if (this.side >= 0 && player.getLado() != this.side) {
          return false;
       }
-
-      if (this.mf < 0 || player.getOverallStrength() >= this.mm && player.getOverallStrength() <= this.mn) {
-         if (this.mg < 0 || player.getIdade() >= this.mo && player.getIdade() <= this.mp) {
-            if (this.mq < 0 || player.getGoalkeeping() >= this.mr && player.getGoalkeeping() <= this.ms) {
-               if (this.mw < 0 || player.getPlaymaking() >= this.mx && player.getPlaymaking() <= this.my) {
-                  if (this.mI < 0 || player.getTechnique() >= this.mJ && player.getTechnique() <= this.mK) {
-                     if (this.mt < 0 || player.getSpeed() >= this.mu && player.getSpeed() <= this.mv) {
-                        if (this.mF < 0 || player.getFinishing() >= this.mG && player.getFinishing() <= this.mH) {
-                           if (this.mC < 0 || player.getTackling() >= this.mD && player.getTackling() <= this.mE) {
-                              if (this.mz < 0 || player.getPassing() >= this.mA && player.getPassing() <= this.mB) {
-                                 if (this.mh < 0 || player.getMarketValue() >= this.mR[this.mh][0] && player.getMarketValue() <= this.mR[this.mh][1]) {
-                                    if (this.mi >= 0 && player.getCr1() != this.mi) {
-                                       return false;
-                                    } else if (this.mj >= 0 && player.getCr2() != this.mj) {
-                                       return false;
-                                    } else if (this.mk >= 0 && player.getPais() != this.mk) {
-                                       return false;
-                                    } else if (this.ml >= 0
-                                       && player.getClub() != null
-                                       && this.ml < this.mS.size()
-                                       && player.getClub().getPais() != (Integer)this.mS.get(this.ml)) {
-                                       return false;
-                                    } else if (this.mL && !player.isStarPlayer()) {
-                                       return false;
-                                    } else if (this.mM && !player.isWorldClassPlayer()) {
-                                       return false;
-                                    } else if (this.mN && !player.isAvailableForLoan()) {
-                                       return false;
-                                    } else {
-                                       return this.mO && !player.isTransferListed()
-                                          ? false
-                                          : this.nome == null
-                                             || this.nome.isEmpty()
-                                             || this.nome.length() <= 0
-                                             || this.nome.length() <= player.getNome().length()
-                                                && this.nome.equalsIgnoreCase(C0670.f(player.getNome()).substring(0, this.nome.length()));
-                                    }
-                                 } else {
-                                    return false;
-                                 }
-                              } else {
-                                 return false;
-                              }
-                           } else {
-                              return false;
-                           }
-                        } else {
-                           return false;
-                        }
-                     } else {
-                        return false;
-                     }
-                  } else {
-                     return false;
-                  }
-               } else {
-                  return false;
-               }
-            } else {
-               return false;
-            }
-         } else {
-            return false;
-         }
-      } else {
+      if (this.overallStrengthFilterIndex >= 0
+         && (player.getOverallStrength() < this.minOverallStrength
+            || player.getOverallStrength() > this.maxOverallStrength)) {
          return false;
       }
+      if (this.ageFilterIndex >= 0
+         && (player.getIdade() < this.minAge || player.getIdade() > this.maxAge)) {
+         return false;
+      }
+      if (this.goalkeepingFilterIndex >= 0
+         && (player.getGoalkeeping() < this.minGoalkeeping
+            || player.getGoalkeeping() > this.maxGoalkeeping)) {
+         return false;
+      }
+      if (this.playmakingFilterIndex >= 0
+         && (player.getPlaymaking() < this.minPlaymaking
+            || player.getPlaymaking() > this.maxPlaymaking)) {
+         return false;
+      }
+      if (this.techniqueFilterIndex >= 0
+         && (player.getTechnique() < this.minTechnique
+            || player.getTechnique() > this.maxTechnique)) {
+         return false;
+      }
+      if (this.speedFilterIndex >= 0
+         && (player.getSpeed() < this.minSpeed || player.getSpeed() > this.maxSpeed)) {
+         return false;
+      }
+      if (this.finishingFilterIndex >= 0
+         && (player.getFinishing() < this.minFinishing
+            || player.getFinishing() > this.maxFinishing)) {
+         return false;
+      }
+      if (this.tacklingFilterIndex >= 0
+         && (player.getTackling() < this.minTackling
+            || player.getTackling() > this.maxTackling)) {
+         return false;
+      }
+      if (this.passingFilterIndex >= 0
+         && (player.getPassing() < this.minPassing || player.getPassing() > this.maxPassing)) {
+         return false;
+      }
+      if (this.marketValueRangeIndex >= 0
+         && (player.getMarketValue() < this.marketValueRanges[this.marketValueRangeIndex][0]
+            || player.getMarketValue() > this.marketValueRanges[this.marketValueRangeIndex][1])) {
+         return false;
+      }
+      if (this.primaryCharacteristic >= 0
+         && player.getCr1() != this.primaryCharacteristic) {
+         return false;
+      }
+      if (this.secondaryCharacteristic >= 0
+         && player.getCr2() != this.secondaryCharacteristic) {
+         return false;
+      }
+      if (this.countryId >= 0 && player.getPais() != this.countryId) {
+         return false;
+      }
+      if (this.loadedCountryIndex >= 0
+         && player.getClub() != null
+         && this.loadedCountryIndex < this.loadedCountryIds.size()
+         && player.getClub().getPais()
+            != (Integer)this.loadedCountryIds.get(this.loadedCountryIndex)) {
+         return false;
+      }
+      if (this.requireStarPlayer && !player.isStarPlayer()) {
+         return false;
+      }
+      if (this.requireWorldClassPlayer && !player.isWorldClassPlayer()) {
+         return false;
+      }
+      if (this.requireAvailableForLoan && !player.isAvailableForLoan()) {
+         return false;
+      }
+      if (this.requireTransferListed && !player.isTransferListed()) {
+         return false;
+      }
+      return this.namePrefix == null
+         || this.namePrefix.isEmpty()
+         || this.namePrefix.length() <= 0
+         || this.namePrefix.length() <= player.getNome().length()
+            && this.namePrefix.equalsIgnoreCase(
+               C0670.f(player.getNome()).substring(0, this.namePrefix.length())
+            );
    }
 
-   public void setNome(String string) {
-      if (string != null && !string.isEmpty()) {
-         string = C0670.f(string);
+   public void setNamePrefix(String namePrefix) {
+      if (namePrefix != null && !namePrefix.isEmpty()) {
+         namePrefix = C0670.f(namePrefix);
       }
 
-      this.nome = string;
+      this.namePrefix = namePrefix;
    }
 
-   public void bv(int i) {
-      this.md = i;
+   public void setPosition(int position) {
+      this.position = position;
    }
 
-   public void bw(int i) {
-      this.me = i;
+   public void setSide(int side) {
+      this.side = side;
    }
 
-   public void bx(int i) {
-      this.mf = i;
+   public void setOverallStrengthFilterIndex(int filterIndex) {
+      this.overallStrengthFilterIndex = filterIndex;
    }
 
-   public void by(int i) {
-      this.mg = i;
+   public void setAgeFilterIndex(int filterIndex) {
+      this.ageFilterIndex = filterIndex;
    }
 
-   public void bz(int i) {
-      this.mh = i;
+   public void setMarketValueRangeIndex(int rangeIndex) {
+      this.marketValueRangeIndex = rangeIndex;
    }
 
-   public void bA(int i) {
-      this.mi = i;
+   public void setPrimaryCharacteristic(int characteristic) {
+      this.primaryCharacteristic = characteristic;
    }
 
-   public void bB(int i) {
-      this.mj = i;
+   public void setSecondaryCharacteristic(int characteristic) {
+      this.secondaryCharacteristic = characteristic;
    }
 
-   public void bC(int i) {
-      this.mk = i;
+   public void setCountryId(int countryId) {
+      this.countryId = countryId;
    }
 
-   public void bD(int i) {
-      this.ml = i;
+   public void setLoadedCountryIndex(int countryIndex) {
+      this.loadedCountryIndex = countryIndex;
    }
 
-   public void E(boolean bl) {
-      this.mL = bl;
+   public void setRequireStarPlayer(boolean required) {
+      this.requireStarPlayer = required;
    }
 
-   public void F(boolean bl) {
-      this.mM = bl;
+   public void setRequireWorldClassPlayer(boolean required) {
+      this.requireWorldClassPlayer = required;
    }
 
-   public void G(boolean bl) {
-      this.mN = bl;
+   public void setRequireAvailableForLoan(boolean required) {
+      this.requireAvailableForLoan = required;
    }
 
-   public void H(boolean bl) {
-      this.mO = bl;
+   public void setRequireTransferListed(boolean required) {
+      this.requireTransferListed = required;
    }
 
-   public static int bE(int i) {
-      return C0983.eT(i);
+   public static int getRegistrationValue(int index) {
+      return C0983.eT(index);
    }
 
-   public int jH() {
-      return this.mq;
+   public int getGoalkeepingFilterIndex() {
+      return this.goalkeepingFilterIndex;
    }
 
-   public void bF(int i) {
-      this.mq = i;
+   public void setGoalkeepingFilterIndex(int filterIndex) {
+      this.goalkeepingFilterIndex = filterIndex;
    }
 
-   public int jI() {
-      return this.mt;
+   public int getSpeedFilterIndex() {
+      return this.speedFilterIndex;
    }
 
-   public void bG(int i) {
-      this.mt = i;
+   public void setSpeedFilterIndex(int filterIndex) {
+      this.speedFilterIndex = filterIndex;
    }
 
-   public int jJ() {
-      return this.mw;
+   public int getPlaymakingFilterIndex() {
+      return this.playmakingFilterIndex;
    }
 
-   public void bH(int i) {
-      this.mw = i;
+   public void setPlaymakingFilterIndex(int filterIndex) {
+      this.playmakingFilterIndex = filterIndex;
    }
 
-   public int jK() {
-      return this.mz;
+   public int getPassingFilterIndex() {
+      return this.passingFilterIndex;
    }
 
-   public void bI(int i) {
-      this.mz = i;
+   public void setPassingFilterIndex(int filterIndex) {
+      this.passingFilterIndex = filterIndex;
    }
 
-   public int jL() {
-      return this.mC;
+   public int getTacklingFilterIndex() {
+      return this.tacklingFilterIndex;
    }
 
-   public void bJ(int i) {
-      this.mC = i;
+   public void setTacklingFilterIndex(int filterIndex) {
+      this.tacklingFilterIndex = filterIndex;
    }
 
-   public int jM() {
-      return this.mF;
+   public int getFinishingFilterIndex() {
+      return this.finishingFilterIndex;
    }
 
-   public void bK(int i) {
-      this.mF = i;
+   public void setFinishingFilterIndex(int filterIndex) {
+      this.finishingFilterIndex = filterIndex;
    }
 
-   public int jN() {
-      return this.mI;
+   public int getTechniqueFilterIndex() {
+      return this.techniqueFilterIndex;
    }
 
-   public void bL(int i) {
-      this.mI = i;
+   public void setTechniqueFilterIndex(int filterIndex) {
+      this.techniqueFilterIndex = filterIndex;
    }
 
-   public void bM(int i) {
-      this.mm = i;
+   public void setMinOverallStrength(int minimum) {
+      this.minOverallStrength = minimum;
    }
 
-   public void bN(int i) {
-      this.mn = i;
+   public void setMaxOverallStrength(int maximum) {
+      this.maxOverallStrength = maximum;
    }
 
-   public void bO(int i) {
-      this.mo = i;
+   public void setMinAge(int minimum) {
+      this.minAge = minimum;
    }
 
-   public void bP(int i) {
-      this.mp = i;
+   public void setMaxAge(int maximum) {
+      this.maxAge = maximum;
    }
 }

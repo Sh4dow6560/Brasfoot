@@ -108,16 +108,16 @@ public class C0395 extends JPanel {
 
    private void nD() {
       PlayerSearchCriteria var1 = new PlayerSearchCriteria();
-      var1.setNome(this.zi.uf.getText());
-      var1.bv(this.zi.Nq.getSelectedIndex() - 1);
-      var1.bw(this.zi.Qx.getSelectedIndex() - 1);
+      var1.setNamePrefix(this.zi.uf.getText());
+      var1.setPosition(this.zi.Nq.getSelectedIndex() - 1);
+      var1.setSide(this.zi.Qx.getSelectedIndex() - 1);
       if (this.w == 1) {
          if (this.zi.QB.getValue() <= this.zi.QB.getMinimum() && this.zi.QB.uv() >= this.zi.QB.getMaximum()) {
-            var1.bx(-1);
+            var1.setOverallStrengthFilterIndex(-1);
          } else {
-            var1.bM(this.zi.QB.getValue());
-            var1.bN(this.zi.QB.uv());
-            var1.bx(0);
+            var1.setMinOverallStrength(this.zi.QB.getValue());
+            var1.setMaxOverallStrength(this.zi.QB.uv());
+            var1.setOverallStrengthFilterIndex(0);
          }
       } else {
          String[] var2 = new String[]{"gol", "des", "vel", "fin", "arm", "tec", "pas"};
@@ -125,41 +125,41 @@ public class C0395 extends JPanel {
 
          for (int var4 = 0; var4 < var3.length; var4++) {
             if (var3[var4].getValue() > var3[var4].getMinimum() || var3[var4].uv() < var3[var4].getMaximum()) {
-               var1.b(var2[var4], var3[var4].getValue(), var3[var4].uv());
+               var1.setAttributeRange(var2[var4], var3[var4].getValue(), var3[var4].uv());
             }
          }
       }
 
       if (this.zi.QC.getValue() <= this.zi.QC.getMinimum() && this.zi.QC.uv() >= this.zi.QC.getMaximum()) {
-         var1.by(-1);
+         var1.setAgeFilterIndex(-1);
       } else {
-         var1.bO(this.zi.QC.getValue());
-         var1.bP(this.zi.QC.uv());
+         var1.setMinAge(this.zi.QC.getValue());
+         var1.setMaxAge(this.zi.QC.uv());
          if (this.zi.QC.uv() == this.zi.QC.getMaximum()) {
-            var1.bP(100);
+            var1.setMaxAge(100);
          }
 
-         var1.by(0);
+         var1.setAgeFilterIndex(0);
       }
 
-      var1.bz(this.zi.Qy.getSelectedIndex() - 1);
-      var1.bA(this.zi.Qv.getSelectedIndex() - 1);
-      var1.bB(this.zi.Qw.getSelectedIndex() - 1);
+      var1.setMarketValueRangeIndex(this.zi.Qy.getSelectedIndex() - 1);
+      var1.setPrimaryCharacteristic(this.zi.Qv.getSelectedIndex() - 1);
+      var1.setSecondaryCharacteristic(this.zi.Qw.getSelectedIndex() - 1);
       if (this.zi.BD.getSelectedIndex() > 0) {
          String var5 = (String)this.zi.BD.getSelectedItem();
          int var7 = C0732.h(var5);
-         var1.bC(((CountryInfo)C0732.cY().get(var7)).getPais());
+         var1.setCountryId(((CountryInfo)C0732.cY().get(var7)).getPais());
       }
 
-      var1.bD(this.zi.Qu.getSelectedIndex() - 1);
-      var1.E(this.zi.Qs.isSelected());
-      var1.F(this.zi.Qt.isSelected());
-      var1.G(this.zi.Qr.isSelected());
-      var1.H(this.zi.Qq.isSelected());
+      var1.setLoadedCountryIndex(this.zi.Qu.getSelectedIndex() - 1);
+      var1.setRequireStarPlayer(this.zi.Qs.isSelected());
+      var1.setRequireWorldClassPlayer(this.zi.Qt.isSelected());
+      var1.setRequireAvailableForLoan(this.zi.Qr.isSelected());
+      var1.setRequireTransferListed(this.zi.Qq.isSelected());
       this.vp.clear();
       this.uK.clear();
       this.zj.addNotify();
-      this.vp = var1.D(false);
+      this.vp = var1.findPlayers(false);
       int var6 = 0;
 
       for (int var8 = 0; var8 < this.vp.size(); var8++) {

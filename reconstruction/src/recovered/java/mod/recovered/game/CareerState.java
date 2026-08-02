@@ -372,7 +372,7 @@ public class CareerState implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < GamePersistence.careerState.bo().size(); var2++) {
-         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getY() + 10 < this.getSeasonYearOffset()) {
+         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getYear() + 10 < this.getSeasonYearOffset()) {
             var1.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
          }
       }
