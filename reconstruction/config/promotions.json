@@ -823,7 +823,7 @@
   "components/q": "compile-clean",
   "components/r": "compile-clean",
   "components/s": "compile-clean",
-  "components/t": "compile-clean",
+  "components/t": "runtime-verified",
   "components/u": "compile-clean",
   "components/v": "compile-clean",
   "components/w": "compile-clean",

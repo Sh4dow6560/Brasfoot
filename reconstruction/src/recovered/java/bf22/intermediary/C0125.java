@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerLoan;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -74,8 +75,8 @@ public class C0125 extends JPanel {
       ArrayList var1 = GamePersistence.careerState.e(this.Af);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-         this.Ai.add((C0825)var1.get(var2));
-         this.a((C0825)var1.get(var2));
+         this.Ai.add((PlayerLoan)var1.get(var2));
+         this.a((PlayerLoan)var1.get(var2));
       }
 
       JViewport var3 = this.ut.getViewport();
@@ -88,8 +89,8 @@ public class C0125 extends JPanel {
       ArrayList var1 = GamePersistence.careerState.f(this.Af);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-         this.Aj.add((C0825)var1.get(var2));
-         this.b((C0825)var1.get(var2));
+         this.Aj.add((PlayerLoan)var1.get(var2));
+         this.b((PlayerLoan)var1.get(var2));
       }
 
       JViewport var3 = this.wi.getViewport();
@@ -103,7 +104,7 @@ public class C0125 extends JPanel {
       this.xh += 36;
    }
 
-   private void a(C0825 c0825) {
+   private void a(PlayerLoan c0825) {
       byte var2 = 0;
       C0754 var3 = new C0754(1, this, c0825);
       this.xb.add(var3, new C0775(0, this.xh, 690, 36));
@@ -117,7 +118,7 @@ public class C0125 extends JPanel {
       this.Ak += 36;
    }
 
-   private void b(C0825 c0825) {
+   private void b(PlayerLoan c0825) {
       C0754 var2 = new C0754(4, this, c0825);
       this.Ah.add(var2, new C0775(0, this.Ak, 690, 36));
       this.Ak += 36;
@@ -133,10 +134,10 @@ public class C0125 extends JPanel {
       this.Am.addActionListener(new C0126(this));
    }
 
-   public void a(C0825 c0825, int i) {
-      if (c0825.tN()) {
+   public void a(PlayerLoan c0825, int i) {
+      if (c0825.returnToOriginalClub()) {
          Ag = true;
-         GamePersistence.careerState.d(c0825.x());
+         GamePersistence.careerState.d(c0825.getPlayer());
          if (i == 1) {
             this.nS();
          } else {

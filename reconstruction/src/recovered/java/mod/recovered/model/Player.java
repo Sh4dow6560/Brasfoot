@@ -19,7 +19,7 @@ import bf22.intermediary.C0729;
 import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0799;
 import bf22.intermediary.C0824;
-import bf22.intermediary.C0825;
+import mod.recovered.transfer.PlayerLoan;
 import bf22.intermediary.C0914;
 import mod.recovered.competition.NationalLeague;
 import java.awt.Color;
@@ -81,7 +81,7 @@ public class Player implements Serializable {
    private ArrayList eU = new ArrayList();
    private int eV = 0;
    private Boolean eW = false;
-   private Boolean eX = false;
+   private Boolean onLoan = false;
    private Boolean eY = false;
    private int eZ = 0;
    private int fa = 0;
@@ -704,7 +704,7 @@ public class Player implements Serializable {
             var4 = 100;
          }
 
-         this.a(new Random().nextInt(30) + 210, true);
+         this.renewContract(new Random().nextInt(30) + 210, true);
          this.setOverallStrength(var4);
          if (GamePersistence.careerState.isHabilidadeIndividual()) {
             this.j(var7, var8);
@@ -1947,7 +1947,7 @@ public class Player implements Serializable {
    }
 
    public void ge() {
-      if (this.getClub() != null && !this.eX) {
+      if (this.getClub() != null && !this.onLoan) {
          if (this.getClub().isUserControlled()) {
             this.eY = false;
          }
@@ -2113,8 +2113,8 @@ public class Player implements Serializable {
       this.fi = 0;
       this.fh = 0;
       this.fn = 0;
-      if (this.gl()) {
-         this.eX = false;
+      if (this.isOnLoan()) {
+         this.onLoan = false;
       }
 
       this.n(null);
@@ -3075,7 +3075,7 @@ public class Player implements Serializable {
       this.eN = d;
    }
 
-   public void a(long l, boolean bl) {
+   public void renewContract(long l, boolean bl) {
       long var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime();
       if (!bl) {
          var4 = this.contractEndTimeMillis;
@@ -3088,12 +3088,12 @@ public class Player implements Serializable {
       this.fr = false;
    }
 
-   public Boolean gl() {
-      return this.eX;
+   public Boolean isOnLoan() {
+      return this.onLoan;
    }
 
-   public void i(Boolean boolean_) {
-      this.eX = boolean_;
+   public void setOnLoan(Boolean boolean_) {
+      this.onLoan = boolean_;
    }
 
    public void c(Club club, int i) {
@@ -3118,7 +3118,7 @@ public class Player implements Serializable {
       this.fk = null;
    }
 
-   public void a(Club club, int i, boolean bl, boolean bl2, boolean bl3) {
+   public void moveToClub(Club club, int i, boolean bl, boolean bl2, boolean bl3) {
       Club var6 = this.getClub();
       this.am(var6.getClubId());
       this.n(club);
@@ -3127,11 +3127,11 @@ public class Player implements Serializable {
          this.eW = false;
          this.eY = false;
          if (bl2 && !bl3) {
-            this.eX = true;
+            this.onLoan = true;
          }
 
          if (bl3) {
-            this.eX = false;
+            this.onLoan = false;
             this.eW = false;
          }
 
@@ -3175,9 +3175,9 @@ public class Player implements Serializable {
          }
 
          if (!bl2) {
-            this.a(180L, true);
+            this.renewContract(180L, true);
          } else {
-            this.a(365L, true);
+            this.renewContract(365L, true);
          }
 
          this.fm();
@@ -3373,13 +3373,13 @@ public class Player implements Serializable {
       return this.eU;
    }
 
-   public void q(Club club) {
-      new C0825(this, this.getClub());
-      this.a(club, 0, false, true, false);
+   public void loanToClub(Club club) {
+      new PlayerLoan(this, this.getClub());
+      this.moveToClub(club, 0, false, true, false);
    }
 
-   public void r(Club club) {
-      this.a(club, 0, false, false, true);
+   public void returnFromLoan(Club club) {
+      this.moveToClub(club, 0, false, false, true);
    }
 
    public int[] gw() {

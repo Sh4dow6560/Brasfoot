@@ -92,7 +92,7 @@ public class C0185 extends JPanel {
                var2 = JOptionPane.showConfirmDialog(this.ub, var6 + " proposta pelo seu jogador\n" + "Deseja aceitar?", "Proposta de compra", 0);
                if (var2 == 0) {
                   if (!this.CZ) {
-                     this.CY.a(this.ul, var4, false, false, false);
+                     this.CY.moveToClub(this.ul, var4, false, false, false);
                   } else {
                      this.CY.c(this.ul, var4);
                   }
@@ -155,7 +155,7 @@ public class C0185 extends JPanel {
                if (var14 == 1) {
                   if (!this.CZ) {
                      Club var19 = this.CY.getClub();
-                     this.CY.a(this.ul, var16, false, false, false);
+                     this.CY.moveToClub(this.ul, var16, false, false, false);
                      TransferNegotiation.a(var19, this.CY);
                   } else {
                      this.CY.c(this.ul, var16);

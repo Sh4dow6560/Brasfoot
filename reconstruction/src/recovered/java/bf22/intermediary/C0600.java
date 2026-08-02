@@ -60,7 +60,7 @@ public class C0600 extends DefaultTableCellRenderer {
       if (j == 3) {
          this.setHorizontalAlignment(2);
          this.setText(var7.getNome());
-         if (var7.gl() && !C0272.rC()) {
+         if (var7.isOnLoan() && !C0272.rC()) {
             this.setText("<html><b>" + var7.getNome() + "</b></html>");
          }
 

@@ -61,7 +61,7 @@ public class C0794 {
 
    private void va() {
       if (this.RB != null) {
-         this.U.a(this.RB, this.RA, true, false, false);
+         this.U.moveToClub(this.RB, this.RA, true, false, false);
       }
    }
 

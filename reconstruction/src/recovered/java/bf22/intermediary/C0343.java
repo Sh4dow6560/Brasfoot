@@ -84,7 +84,7 @@ public class C0343 extends JPanel {
       this.CY.fm();
       int var2 = this.Bf.getSelectedIndex();
       int[] var3 = new int[]{180, 365, 730, 1095};
-      this.CY.a(var3[var2], false);
+      this.CY.renewContract(var3[var2], false);
       this.CY.ae(i);
       this.ub.dispose();
    }

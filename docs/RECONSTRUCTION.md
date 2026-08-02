@@ -36,7 +36,7 @@
   assistente.
 - A expansao de estadio possui cenario funcional isolado que confirma aumento
   de capacidade, consumo dos lugares pendentes e idempotencia.
-- 82 classes ja possuem nomes semanticos. O nucleo legivel cobre
+- 83 classes ja possuem nomes semanticos. O nucleo legivel cobre
   `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
   `KnockoutStage`, `TransferNegotiation`, `Match`, `MatchEvent` e
   `MatchEngine`, alem das competicoes concretas nacionais e internacionais.
@@ -57,19 +57,22 @@
 - `Club` identifica configuracoes taticas, preparacao das escalacoes da IA,
   selecao de atletas por posicao, montagem de titulares e banco e calculo da
   forca resultante. Um cenario sintetico com 22 jogadores valida todo o fluxo.
+- `Player` e `PlayerLoan` identificam renovacao contratual, movimentacao entre
+  clubes, emprestimo, vencimento e retorno ao clube de origem. O cenario
+  funcional limpa os registros sinteticos e preserva o save byte a byte.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 406 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 424 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica da manutencao de elenco, contratos e transferencias.
+1. Nomeacao semantica da negociacao de transferencias e manutencao da IA.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

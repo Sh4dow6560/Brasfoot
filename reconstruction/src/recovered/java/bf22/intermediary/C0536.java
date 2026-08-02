@@ -57,9 +57,9 @@ public class C0536 extends JPanel {
 
    private void qX() {
       if (!this.Nx) {
-         this.uz.a(this.Nu, this.Nw, false, false, false);
+         this.uz.moveToClub(this.Nu, this.Nw, false, false, false);
       } else {
-         this.uz.q(this.Nu);
+         this.uz.loanToClub(this.Nu);
       }
 
       Nv = true;

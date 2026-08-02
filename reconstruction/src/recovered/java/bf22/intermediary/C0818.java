@@ -134,7 +134,7 @@ public class C0818 extends JPanel {
    public void a(Player player, Match c0675, Competition c0713, boolean bl) {
       String var5 = player.getContractEndDateLabel();
       String var6 = "Contrato até:";
-      if (player.gl()) {
+      if (player.isOnLoan()) {
          var6 = "Emprestado até:";
       }
 

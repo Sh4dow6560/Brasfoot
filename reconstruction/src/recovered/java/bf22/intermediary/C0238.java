@@ -313,7 +313,7 @@ public class C0238 extends JPanel {
          this.yA.setText("não houve compradores");
       } else {
          this.yA.setText(club.getNome() + " por " + ClubFinances.c(this.FZ));
-         player.a(club, this.FZ, false, false, false);
+         player.moveToClub(club, this.FZ, false, false, false);
       }
    }
 

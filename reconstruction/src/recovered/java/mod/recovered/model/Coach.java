@@ -693,7 +693,7 @@ public class Coach implements Serializable {
          }
 
          for (int var2 = 0; var2 < club.getSeniorPlayers().size(); var2++) {
-            ((Player)club.getSeniorPlayers().get(var2)).a(180L, true);
+            ((Player)club.getSeniorPlayers().get(var2)).renewContract(180L, true);
          }
       }
    }

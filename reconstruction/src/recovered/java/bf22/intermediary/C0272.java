@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerLoan;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.transfer.TransferNegotiation;
 import mod.recovered.competition.Competition;
@@ -287,7 +288,7 @@ public class C0272 extends JPanel {
       int var11 = -1;
       if (!bl) {
          for (int var4 = 0; var4 < this.zu.getSeniorPlayers().size(); var4++) {
-            if (!((Player)this.zu.getSeniorPlayers().get(var4)).gl()) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var4)).isOnLoan()) {
                var2.add((Player)this.zu.getSeniorPlayers().get(var4));
             }
          }
@@ -296,7 +297,7 @@ public class C0272 extends JPanel {
          var11 = new Random().nextInt(var2.size());
       } else {
          for (int var13 = 0; var13 < this.zu.getSeniorPlayers().size(); var13++) {
-            if (!((Player)this.zu.getSeniorPlayers().get(var13)).gl() && ((Player)this.zu.getSeniorPlayers().get(var13)).fz()) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var13)).isOnLoan() && ((Player)this.zu.getSeniorPlayers().get(var13)).fz()) {
                var2.add((Player)this.zu.getSeniorPlayers().get(var13));
             }
          }
@@ -342,7 +343,7 @@ public class C0272 extends JPanel {
       if (GamePersistence.careerState.isAutoRenovaContrato()) {
          for (int var2 = 0; var2 < this.zu.getSeniorPlayers().size(); var2++) {
             if (((Player)this.zu.getSeniorPlayers().get(var2)).getContractDaysRemaining() <= 0) {
-               ((Player)this.zu.getSeniorPlayers().get(var2)).a(180L, true);
+               ((Player)this.zu.getSeniorPlayers().get(var2)).renewContract(180L, true);
             }
          }
       }
@@ -384,7 +385,7 @@ public class C0272 extends JPanel {
          String var3 = "";
          String var4 = this.uz.getContractEndDateLabel();
          String var5 = "Contrato até:";
-         if (this.uz.gl()) {
+         if (this.uz.isOnLoan()) {
             var5 = "Emprestado até:";
          }
 
@@ -486,7 +487,7 @@ public class C0272 extends JPanel {
             this.HE.setEnabled(false);
          }
 
-         if (!this.uz.gl() && !this.yp) {
+         if (!this.uz.isOnLoan() && !this.yp) {
             this.HH.setEnabled(false);
             this.HI.setEnabled(false);
             this.HJ.setEnabled(true);
@@ -821,7 +822,7 @@ public class C0272 extends JPanel {
    }
 
    private void qF() {
-      if (this.uz != null && this.uz.gl() && this.zu.kb() >= this.uz.fk()) {
+      if (this.uz != null && this.uz.isOnLoan() && this.zu.kb() >= this.uz.fk()) {
          int var1 = -1;
          var1 = JOptionPane.showConfirmDialog(this, "Deseja comprar o jogador " + this.uz.getNome() + "?", "Confirmar", 0);
          if (var1 == 0) {
@@ -829,16 +830,16 @@ public class C0272 extends JPanel {
             Object var3 = null;
 
             for (int var4 = 0; var4 < GamePersistence.careerState.bt().size(); var4++) {
-               if (((C0825)GamePersistence.careerState.bt().get(var4)).x() == this.uz) {
-                  var2 = ((C0825)GamePersistence.careerState.bt().get(var4)).tP();
-                  var3 = (C0825)GamePersistence.careerState.bt().get(var4);
+               if (((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer() == this.uz) {
+                  var2 = ((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getOriginalClub();
+                  var3 = (PlayerLoan)GamePersistence.careerState.bt().get(var4);
                   break;
                }
             }
 
             GamePersistence.careerState.d(this.uz);
-            this.uz.r(var2);
-            this.uz.a(this.zu, this.uz.fk(), false, false, false);
+            this.uz.returnFromLoan(var2);
+            this.uz.moveToClub(this.zu, this.uz.fk(), false, false, false);
             this.qJ();
             this.qI();
             this.qH();
@@ -847,13 +848,13 @@ public class C0272 extends JPanel {
    }
 
    private void qG() {
-      C0825 var1 = GamePersistence.careerState.e(this.uz);
+      PlayerLoan var1 = GamePersistence.careerState.e(this.uz);
       if (var1 != null) {
          int var2 = -1;
          var2 = JOptionPane.showConfirmDialog(this, "Deseja cancelar o empréstimo do jogador " + this.uz.getNome() + "?", "Confirmar", 0);
          if (var2 == 0) {
-            if (var1.tN()) {
-               GamePersistence.careerState.d(var1.x());
+            if (var1.returnToOriginalClub()) {
+               GamePersistence.careerState.d(var1.getPlayer());
                this.pK();
                this.qI();
                this.qH();

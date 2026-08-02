@@ -513,7 +513,7 @@ public class TransferNegotiation {
          int var3 = 0;
 
          for (int var4 = 0; var4 < GamePersistence.careerState.bt().size(); var4++) {
-            if (((C0825)GamePersistence.careerState.bt().get(var4)).x().getClub() != null && ((C0825)GamePersistence.careerState.bt().get(var4)).x().getClub() == club) {
+            if (((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer().getClub() == club) {
                var3++;
             }
          }
@@ -526,7 +526,7 @@ public class TransferNegotiation {
             return 4;
          }
 
-         player.q(club);
+         player.loanToClub(club);
          return 1;
       } else {
          return 0;
@@ -555,7 +555,7 @@ public class TransferNegotiation {
          return 4;
       }
 
-      player.a(club, player.fl(), false, false, false);
+      player.moveToClub(club, player.fl(), false, false, false);
       cw = true;
       return 1;
    }
@@ -731,7 +731,7 @@ public class TransferNegotiation {
       }
 
       if (var6 != null) {
-         var6.a(club, var6.fk(), false, false, false);
+         var6.moveToClub(club, var6.fk(), false, false, false);
       } else {
          var6 = Player.a(club, is[0], null, 0, null, false);
          if (var6 != null) {

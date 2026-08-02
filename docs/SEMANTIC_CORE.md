@@ -76,6 +76,7 @@ formulas de forca de meio-campo, ataque, goleiro, atacante e defesa.
 | `transfer/AiSquadManager` | `best/ag` | manutencao de elencos e compras da IA |
 | `transfer/PlayerTransferRecord` | `best/ap` | registro persistente de transferencia |
 | `transfer/TransferNegotiation` | `best/l` | selecao de destino e avaliacao de proposta |
+| `transfer/PlayerLoan` | `components/t` | prazo e retorno de jogador emprestado |
 | `manager/CoachChangeRecord` | `best/u` | historico de troca de tecnicos |
 
 ## Torneios Concretos
@@ -109,6 +110,10 @@ escalacoes da IA, seleciona jogadores por posicao, monta titulares e reservas e
 calcula a forca da equipe. Jogador, tecnico e componentes auxiliares usam
 `getClub`; clube, partida e obra usam `getStadium`. Um cenario executado no
 JAR final valida esses acessos e suas identidades.
+
+`Player` tambem expoe renovacao contratual, estado de emprestimo, movimentacao
+entre clubes, inicio e retorno de emprestimo. `PlayerLoan` expoe jogador, clube
+de origem, prazo, vencimento, retorno e controle da notificacao de falha.
 
 Os demais nomes semanticos de configuracao, comparadores e utilitarios ficam
 registrados em `reconstruction/config/semantic-names.json`.

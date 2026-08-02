@@ -127,14 +127,14 @@ public abstract class AiSquadManager {
          TransferNegotiation var7 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
          var7.a(false, false);
          if (var7.cK() != null) {
-            ((Player)var1.get(var6)).a(var7.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
+            ((Player)var1.get(var6)).moveToClub(var7.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
          }
 
          if (var7.cK() == null) {
             TransferNegotiation var4 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
             var4.k(false);
             if (var4.cK() != null) {
-               ((Player)var1.get(var6)).a(var4.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
+               ((Player)var1.get(var6)).moveToClub(var4.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
             }
          }
       }
@@ -218,7 +218,7 @@ public abstract class AiSquadManager {
 
          for (int var12 = 0; var12 < club.getSeniorPlayers().size(); var12++) {
             if (((Player)club.getSeniorPlayers().get(var12)).getPosicao() == var15
-               && !((Player)club.getSeniorPlayers().get(var12)).gl()
+               && !((Player)club.getSeniorPlayers().get(var12)).isOnLoan()
                && (!((Player)club.getSeniorPlayers().get(var12)).ff() || ((Player)club.getSeniorPlayers().get(var12)).ff() == var18)) {
                var11.add((Player)club.getSeniorPlayers().get(var12));
             }
@@ -275,7 +275,7 @@ public abstract class AiSquadManager {
          }
 
          if (var14.cK() != null) {
-            var3.a(var14.cK(), var3.fk(), false, false, false);
+            var3.moveToClub(var14.cK(), var3.fk(), false, false, false);
          }
       }
    }

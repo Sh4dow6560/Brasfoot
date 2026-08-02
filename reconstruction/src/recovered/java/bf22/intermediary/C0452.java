@@ -564,7 +564,7 @@ public class C0452 extends JPanel {
    }
 
    private void sG() {
-      if (this.uk == this.ul || this.yp || this.yK.gl()) {
+      if (this.uk == this.ul || this.yp || this.yK.isOnLoan()) {
          this.MJ.setEnabled(false);
          this.FN.setEnabled(false);
          this.MK.setEnabled(false);

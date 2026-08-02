@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.transfer.PlayerLoan;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.core.GameConstants;
 import mod.recovered.ui.MainWindow;
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
 
 public class C0754 extends JPanel {
    C0125 Qj = null;
-   C0825 Qk;
+   PlayerLoan Qk;
    int w = -1;
    private JButton Ql;
    private JButton Qm;
@@ -23,28 +24,28 @@ public class C0754 extends JPanel {
    private JLabel uF;
    private JLabel zO;
 
-   public C0754(int i, C0125 c0125, C0825 c0825) {
+   public C0754(int i, C0125 c0125, PlayerLoan c0825) {
       this.Qj = c0125;
       this.Qk = c0825;
       this.w = i;
       if (i == 1) {
          this.mJ();
-         this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
-         this.Qn.setText(ScheduleDay.a(c0825.tO()));
-         if (c0825.tP() != null) {
-            this.zO.setText(c0825.tP().getNome());
-            this.zO.setIcon(c0825.tP().kU());
+         this.uF.setText(GameConstants.rI[c0825.getPlayer().getPosicao()] + " - " + c0825.getPlayer().getNome());
+         this.Qn.setText(ScheduleDay.a(c0825.getEndTimeMillis()));
+         if (c0825.getOriginalClub() != null) {
+            this.zO.setText(c0825.getOriginalClub().getNome());
+            this.zO.setIcon(c0825.getOriginalClub().kU());
          }
 
          this.mH();
       } else if (i == 4) {
          this.ui();
          this.mJ();
-         this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
-         this.Qn.setText(ScheduleDay.a(c0825.tO()));
-         if (c0825.x().getClub() != null) {
-            this.zO.setText(c0825.x().getClub().getNome());
-            this.zO.setIcon(c0825.x().getClub().kU());
+         this.uF.setText(GameConstants.rI[c0825.getPlayer().getPosicao()] + " - " + c0825.getPlayer().getNome());
+         this.Qn.setText(ScheduleDay.a(c0825.getEndTimeMillis()));
+         if (c0825.getPlayer().getClub() != null) {
+            this.zO.setText(c0825.getPlayer().getClub().getNome());
+            this.zO.setIcon(c0825.getPlayer().getClub().kU());
          }
 
          this.mH();
@@ -63,13 +64,13 @@ public class C0754 extends JPanel {
 
    private void uh() {
       this.setCursor(new Cursor(3));
-      MainWindow.a(this.Qk.x(), null);
+      MainWindow.a(this.Qk.getPlayer(), null);
       this.setCursor(new Cursor(12));
    }
 
    private void qG() {
       int var1 = -1;
-      var1 = JOptionPane.showConfirmDialog(this.Qj, "Deseja cancelar o empréstimo do jogador " + this.Qk.x().getNome() + "?", "Confirmar", 0);
+      var1 = JOptionPane.showConfirmDialog(this.Qj, "Deseja cancelar o empréstimo do jogador " + this.Qk.getPlayer().getNome() + "?", "Confirmar", 0);
       if (var1 == 0) {
          this.Qj.a(this.Qk, this.w);
       }

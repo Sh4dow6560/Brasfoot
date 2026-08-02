@@ -15,7 +15,7 @@ import bf22.intermediary.C0741;
 import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0788;
 import bf22.intermediary.C0799;
-import bf22.intermediary.C0825;
+import mod.recovered.transfer.PlayerLoan;
 import bf22.intermediary.C0914;
 import bf22.intermediary.C0915;
 import mod.recovered.competition.NationalLeague;
@@ -1064,7 +1064,7 @@ public class Club implements Serializable {
                   && ((Player)this.seniorPlayers.get(var4)).getStatus() == 0
                   && !((Player)this.seniorPlayers.get(var4)).ff()
                   && !((Player)this.seniorPlayers.get(var4)).gm()
-                  && !((Player)this.seniorPlayers.get(var4)).gl()) {
+                  && !((Player)this.seniorPlayers.get(var4)).isOnLoan()) {
                   ((Player)this.seniorPlayers.get(var4)).fm();
                   ((Player)this.seniorPlayers.get(var4)).c(true);
                   if (new Random().nextInt(100) > 70 && ((Player)this.seniorPlayers.get(var4)).getOverallStrength() < 42) {
@@ -1081,7 +1081,7 @@ public class Club implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < GamePersistence.careerState.bt().size(); var2++) {
-         if (((C0825)GamePersistence.careerState.bt().get(var2)).x().getClub() != null && ((C0825)GamePersistence.careerState.bt().get(var2)).tP() == this) {
+         if (((PlayerLoan)GamePersistence.careerState.bt().get(var2)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.bt().get(var2)).getOriginalClub() == this) {
             var1++;
          }
       }
@@ -1093,7 +1093,7 @@ public class Club implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.seniorPlayers.size(); var2++) {
-         if (!((Player)this.seniorPlayers.get(var2)).gl() && ((Player)this.seniorPlayers.get(var2)).fz()) {
+         if (!((Player)this.seniorPlayers.get(var2)).isOnLoan() && ((Player)this.seniorPlayers.get(var2)).fz()) {
             var1++;
          }
       }
@@ -1127,7 +1127,7 @@ public class Club implements Serializable {
             if (((Player)this.seniorPlayers.get(var3)).getPosicao() == 3 && ((Player)this.seniorPlayers.get(var3)).fF() == 1) {
                var2[5]++;
             }
-         } else if (!((Player)this.seniorPlayers.get(var3)).gl()) {
+         } else if (!((Player)this.seniorPlayers.get(var3)).isOnLoan()) {
             var2[((Player)this.seniorPlayers.get(var3)).getPosicao()]++;
             if (((Player)this.seniorPlayers.get(var3)).getPosicao() == 3 && ((Player)this.seniorPlayers.get(var3)).fF() == 0) {
                var2[5]++;
@@ -1177,7 +1177,7 @@ public class Club implements Serializable {
          ArrayList var6 = new ArrayList();
 
          for (int var5 = 0; var5 < this.seniorPlayers.size(); var5++) {
-            if (!((Player)this.seniorPlayers.get(var5)).gl() && !((Player)this.seniorPlayers.get(var5)).ff() && ((Player)this.seniorPlayers.get(var5)).getPosicao() == (Integer)var3.get(0)) {
+            if (!((Player)this.seniorPlayers.get(var5)).isOnLoan() && !((Player)this.seniorPlayers.get(var5)).ff() && ((Player)this.seniorPlayers.get(var5)).getPosicao() == (Integer)var3.get(0)) {
                var6.add((Player)this.seniorPlayers.get(var5));
             }
          }

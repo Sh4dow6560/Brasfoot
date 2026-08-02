@@ -3171,7 +3171,7 @@
     },
     {
       "officialName": "components/t",
-      "namedName": "bf22/intermediary/C0825",
+      "namedName": "mod/recovered/transfer/PlayerLoan",
       "role": "unknown",
       "direct": true,
       "superName": "java/lang/Object",

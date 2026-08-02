@@ -740,9 +740,12 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	f	J	eJ	eJ	contractEndTimeMillis
 	f	I	eK	eK	energy
 	f	I	eR	eR	tacticalPosition
+	f	Ljava/lang/Boolean;	eX	eX	onLoan
 	f	Lbest/ah;	eo	eo	club
 	f	I	eq	eq	overallStrength
 	f	Ljava/lang/Boolean;	fb	fb	youthPlayer
+	m	(JZ)V	a	a	renewContract
+	m	(Lbest/ah;IZZZ)V	a	a	moveToClub
 	m	(I)V	aI	aI	setSpeed
 	m	(I)V	aJ	aJ	setGoalkeeping
 	m	(I)V	aK	aK	setTechnique
@@ -775,6 +778,10 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	m	()I	gN	gN	getTackling
 	m	()I	gO	gO	getPlaymaking
 	m	()I	gP	gP	getFinishing
+	m	()Ljava/lang/Boolean;	gl	gl	isOnLoan
+	m	(Ljava/lang/Boolean;)V	i	i	setOnLoan
+	m	(Lbest/ah;)V	q	q	loanToClub
+	m	(Lbest/ah;)V	r	r	returnFromLoan
 c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
 c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
@@ -1162,7 +1169,18 @@ c	components/p	bf22/intermediary/C0821	bf22/intermediary/C0821
 c	components/q	bf22/intermediary/C0822	bf22/intermediary/C0822
 c	components/r	bf22/intermediary/C0823	bf22/intermediary/C0823
 c	components/s	bf22/intermediary/C0824	bf22/intermediary/C0824
-c	components/t	bf22/intermediary/C0825	bf22/intermediary/C0825
+c	components/t	bf22/intermediary/C0825	mod/recovered/transfer/PlayerLoan
+	f	J	Pm	Pm	endTimeMillis
+	f	Lbest/ah;	Pn	Pn	originalClub
+	f	Z	Po	Po	returnFailureNotified
+	f	Lbest/F;	U	U	player
+	m	(Z)V	au	au	setReturnFailureNotified
+	m	()Z	tM	tM	isExpired
+	m	()Z	tN	tN	returnToOriginalClub
+	m	()J	tO	tO	getEndTimeMillis
+	m	()Lbest/ah;	tP	tP	getOriginalClub
+	m	()Z	tQ	tQ	isReturnFailureNotified
+	m	()Lbest/F;	x	x	getPlayer
 c	components/u	bf22/intermediary/C0826	bf22/intermediary/C0826
 c	components/v	bf22/intermediary/C0827	bf22/intermediary/C0827
 c	components/w	bf22/intermediary/C0828	bf22/intermediary/C0828

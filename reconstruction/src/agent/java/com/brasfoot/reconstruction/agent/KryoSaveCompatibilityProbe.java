@@ -46,6 +46,7 @@ public final class KryoSaveCompatibilityProbe {
       String substitutionApi = validateSubstitutionBehavior(loader);
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
       String lineupApi = validateLineupBehavior(loader);
+      String contractLoanApi = validateContractAndLoanBehavior(loader, roots[0]);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -88,6 +89,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("SUBSTITUTION_API " + substitutionApi);
       System.out.println("MATCH_ENGINE_API " + matchEngineApi);
       System.out.println("LINEUP_API " + lineupApi);
+      System.out.println("CONTRACT_LOAN_API " + contractLoanApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -542,6 +544,103 @@ public final class KryoSaveCompatibilityProbe {
     playerClass.getDeclaredMethod("n", clubClass).invoke(player, club);
     setField(player, "ex", role);
     return player;
+  }
+
+  private static String validateContractAndLoanBehavior(ClassLoader loader, Object career)
+      throws Exception {
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> loanClass = loader.loadClass("components.t");
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    Object originalClub = clubClass.getDeclaredConstructor().newInstance();
+    Object borrowingClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(originalClub, "mU", 51);
+    setField(borrowingClub, "mU", 52);
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, originalClub);
+    List<Object> originalPlayers = castList(
+        clubClass.getDeclaredMethod("kc").invoke(originalClub));
+    List<Object> borrowingPlayers = castList(
+        clubClass.getDeclaredMethod("kc").invoke(borrowingClub));
+    originalPlayers.add(player);
+
+    List<Object> transferHistory = castList(career.getClass().getDeclaredMethod("bo").invoke(career));
+    List<Object> loanRecords = castList(career.getClass().getDeclaredMethod("bt").invoke(career));
+    int originalTransferCount = transferHistory.size();
+    int originalLoanCount = loanRecords.size();
+    long dayMillis = 86_400_000L;
+    long currentTime = ((Calendar)career.getClass().getDeclaredMethod("bb")
+        .invoke(career)).getTimeInMillis();
+    try {
+      playerClass.getDeclaredMethod("a", Long.TYPE, Boolean.TYPE)
+          .invoke(player, 30L, true);
+      long firstEnd = ((Long)readField(player, "eJ")).longValue();
+      if (firstEnd != currentTime + 30L * dayMillis) {
+        throw new IllegalStateException("Contract renewal did not start from the current date");
+      }
+      playerClass.getDeclaredMethod("a", Long.TYPE, Boolean.TYPE)
+          .invoke(player, 15L, false);
+      long extendedEnd = ((Long)readField(player, "eJ")).longValue();
+      if (extendedEnd != firstEnd + 15L * dayMillis) {
+        throw new IllegalStateException("Contract extension did not use the existing end date");
+      }
+      assertInteger(playerClass, player, "fR", 45);
+
+      playerClass.getDeclaredMethod("q", clubClass).invoke(player, borrowingClub);
+      assertSame(borrowingClub, playerClass.getDeclaredMethod("fg").invoke(player),
+          "borrowing club");
+      assertBoolean(playerClass, player, "gl", true);
+      if (originalPlayers.contains(player) || !borrowingPlayers.contains(player)
+          || loanRecords.size() != originalLoanCount + 1
+          || transferHistory.size() != originalTransferCount + 1) {
+        throw new IllegalStateException("Loan did not update club and career lists");
+      }
+      assertInteger(playerClass, player, "fR", 365);
+
+      Object loan = loanRecords.get(loanRecords.size() - 1);
+      if (!loanClass.isInstance(loan)) {
+        throw new IllegalStateException("Loan record used unexpected class "
+            + loan.getClass().getName());
+      }
+      assertSame(player, loanClass.getDeclaredMethod("x").invoke(loan), "loan player");
+      assertSame(originalClub, loanClass.getDeclaredMethod("tP").invoke(loan),
+          "loan original club");
+      long loanEnd = ((Long)loanClass.getDeclaredMethod("tO").invoke(loan)).longValue();
+      if (loanEnd != currentTime + 366L * dayMillis) {
+        throw new IllegalStateException("Loan record received unexpected end date");
+      }
+      loanClass.getDeclaredMethod("au", Boolean.TYPE).invoke(loan, true);
+      assertBoolean(loanClass, loan, "tQ", true);
+      loanClass.getDeclaredMethod("au", Boolean.TYPE).invoke(loan, false);
+      setField(loan, "Pm", currentTime - 1L);
+      assertBoolean(loanClass, loan, "tM", true);
+
+      boolean returned = ((Boolean)loanClass.getDeclaredMethod("tN").invoke(loan))
+          .booleanValue();
+      if (!returned) {
+        throw new IllegalStateException("Expired loan did not return to the original club");
+      }
+      assertSame(originalClub, playerClass.getDeclaredMethod("fg").invoke(player),
+          "returned player club");
+      assertBoolean(playerClass, player, "gl", false);
+      if (!originalPlayers.contains(player) || borrowingPlayers.contains(player)
+          || transferHistory.size() != originalTransferCount + 2) {
+        throw new IllegalStateException("Loan return did not restore club lists");
+      }
+      assertInteger(playerClass, player, "fR", 180);
+      return "renewal=30+15 loanDays=365 returnDays=180 record=true lists=true";
+    } finally {
+      while (transferHistory.size() > originalTransferCount) {
+        transferHistory.remove(transferHistory.size() - 1);
+      }
+      while (loanRecords.size() > originalLoanCount) {
+        loanRecords.remove(loanRecords.size() - 1);
+      }
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  private static List<Object> castList(Object value) {
+    return (List<Object>)value;
   }
 
   private static Object invokePrivateWithArgument(
