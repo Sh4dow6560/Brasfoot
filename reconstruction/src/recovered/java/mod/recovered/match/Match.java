@@ -547,10 +547,10 @@ public class Match implements Serializable {
       ArrayList var14;
       if (var15 > 55) {
          var14 = c0675.homePlayersOnField;
-         var16 = c0675.getHomeClub().kj()[2];
+         var16 = c0675.getHomeClub().getTacticalSettings()[2];
       } else {
          var14 = c0675.awayPlayersOnField;
-         var16 = c0675.getAwayClub().kj()[2];
+         var16 = c0675.getAwayClub().getTacticalSettings()[2];
          var17 = 1;
       }
 
@@ -804,7 +804,7 @@ public class Match implements Serializable {
                var11 = false;
             }
 
-            var10 = Club.a(var7, player.getTacticalPosition(), false, var11);
+            var10 = Club.selectPlayerForTacticalPosition(var7, player.getTacticalPosition(), false, var11);
          }
 
          if (var10 != null) {
@@ -1265,8 +1265,8 @@ public class Match implements Serializable {
          }
       }
 
-      this.getHomeClub().I(false);
-      this.getAwayClub().I(false);
+      this.getHomeClub().setLineupReady(false);
+      this.getAwayClub().setLineupReady(false);
    }
 
    public boolean hk() {

@@ -112,8 +112,8 @@ public class C0404 extends JPanel {
 
       for (int var18 = 0; var18 < i; var18++) {
          Match var19 = new Match(this.LF, this.LG, this.LQ.isSelected());
-         Club.a(var19.getHomeClub(), var19, 1, var16, false);
-         Club.a(var19.getAwayClub(), var19, 2, var17, false);
+         Club.buildAiLineup(var19.getHomeClub(), var19, 1, var16, false);
+         Club.buildAiLineup(var19.getAwayClub(), var19, 2, var17, false);
          MatchEngine var20 = new MatchEngine(var19);
          var19.a(var20);
          int[] var21 = new int[]{new Random().nextInt(3), new Random().nextInt(5) + 1};
@@ -293,15 +293,15 @@ public class C0404 extends JPanel {
 
    private void dB(int i) {
       if (i == 1) {
-         this.LF.kj()[1] = this.Bg.getSelectedIndex();
-         this.LF.kj()[2] = this.Bh.getSelectedIndex();
-         this.LF.kj()[3] = this.Bi.getSelectedIndex();
+         this.LF.getTacticalSettings()[1] = this.Bg.getSelectedIndex();
+         this.LF.getTacticalSettings()[2] = this.Bh.getSelectedIndex();
+         this.LF.getTacticalSettings()[3] = this.Bi.getSelectedIndex();
       }
 
       if (i == 2) {
-         this.LG.kj()[1] = this.LX.getSelectedIndex();
-         this.LG.kj()[2] = this.LY.getSelectedIndex();
-         this.LG.kj()[3] = this.LR.getSelectedIndex();
+         this.LG.getTacticalSettings()[1] = this.LX.getSelectedIndex();
+         this.LG.getTacticalSettings()[2] = this.LY.getSelectedIndex();
+         this.LG.getTacticalSettings()[3] = this.LR.getSelectedIndex();
       }
    }
 

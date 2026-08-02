@@ -54,19 +54,22 @@
 - `Match` identifica o estado e o fluxo de substituicoes, incluindo limites,
   listas de jogadores utilizados, desgaste e decisoes automaticas por placar
   ou fadiga. Um cenario deterministico exercita a troca no JAR final.
+- `Club` identifica configuracoes taticas, preparacao das escalacoes da IA,
+  selecao de atletas por posicao, montagem de titulares e banco e calculo da
+  forca resultante. Um cenario sintetico com 22 jogadores valida todo o fluxo.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 398 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 406 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica das regras de simulacao e estatisticas de partidas.
+1. Nomeacao semantica da manutencao de elenco, contratos e transferencias.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

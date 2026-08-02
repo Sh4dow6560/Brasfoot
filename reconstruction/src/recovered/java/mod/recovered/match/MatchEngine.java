@@ -163,13 +163,13 @@ public class MatchEngine {
       if (c0675.getHomePlayersOnField().size() == 0) {
          System.out.println("erro escala: " + c0675.getHomeClub().getNome());
          GamePersistence.careerState.bN = true;
-         Club.a(c0675.getHomeClub(), c0675, 1, -1, true);
+         Club.buildAiLineup(c0675.getHomeClub(), c0675, 1, -1, true);
       }
 
       if (c0675.getAwayPlayersOnField().size() == 0) {
          System.out.println("erro escala: " + c0675.getAwayClub().getNome());
          GamePersistence.careerState.bN = true;
-         Club.a(c0675.getAwayClub(), c0675, 1, -1, true);
+         Club.buildAiLineup(c0675.getAwayClub(), c0675, 1, -1, true);
       }
 
       for (int var3 = 0; var3 < c0675.getHomeStartingLineup().size(); var3++) {
@@ -235,7 +235,7 @@ public class MatchEngine {
          var2 = this.match.getAwayPlayersOnField();
       }
 
-      int var3 = this.clubs[i].kj()[2];
+      int var3 = this.clubs[i].getTacticalSettings()[2];
       double[] var4 = new double[]{0.0, 0.04, 0.08};
       if (var3 >= var4.length) {
          var3 = 2;
@@ -512,7 +512,7 @@ public class MatchEngine {
          var2 += 0.3;
       }
 
-      int var10000 = this.clubs[this.activeTeamIndex].kj()[1];
+      int var10000 = this.clubs[this.activeTeamIndex].getTacticalSettings()[1];
       if (var2 < 0.2) {
          var2 = 0.2;
       }
@@ -812,10 +812,10 @@ public class MatchEngine {
       int var4 = 0;
       if (this.activeTeamIndex == 0) {
          var3 = this.match.getHomePlayersOnField();
-         var4 = this.match.getHomeClub().kj()[2];
+         var4 = this.match.getHomeClub().getTacticalSettings()[2];
       } else {
          var3 = this.match.getAwayPlayersOnField();
-         var4 = this.match.getAwayClub().kj()[2];
+         var4 = this.match.getAwayClub().getTacticalSettings()[2];
       }
 
       double var5 = 0.0;
@@ -993,7 +993,7 @@ public class MatchEngine {
          }
 
          if (var5.size() == 0) {
-            Club.a(this.clubs[this.activeTeamIndex], this.match, this.activeTeamIndex + 1, -1, true);
+            Club.buildAiLineup(this.clubs[this.activeTeamIndex], this.match, this.activeTeamIndex + 1, -1, true);
          }
 
          player = this.selectAttacker();

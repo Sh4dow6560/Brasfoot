@@ -12,7 +12,7 @@ class C0100 implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
       if (C0132.f(this.Bq).getSelectedIndex() >= 0) {
-         C0132.e(this.Bq).kj()[2] = C0132.f(this.Bq).getSelectedIndex();
+         C0132.e(this.Bq).getTacticalSettings()[2] = C0132.f(this.Bq).getSelectedIndex();
       }
    }
 }

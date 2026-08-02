@@ -1369,7 +1369,7 @@ public class CareerState implements Serializable {
             this.bH = true;
          }
 
-         Club.kh();
+         Club.prepareAiLineupsForCurrentSchedule();
          Match.he();
          if (this.bs && !this.bH && C0737.dw()) {
             C0737.dx();
@@ -1426,8 +1426,8 @@ public class CareerState implements Serializable {
          ((Match)var1.get(var3)).hi();
          ((Match)var1.get(var3)).hf();
          ((Match)var1.get(var3)).hh();
-         ((Match)var1.get(var3)).getHomeClub().I(false);
-         ((Match)var1.get(var3)).getAwayClub().I(false);
+         ((Match)var1.get(var3)).getHomeClub().setLineupReady(false);
+         ((Match)var1.get(var3)).getAwayClub().setLineupReady(false);
          ((Match)var1.get(var3)).a(null);
       }
 

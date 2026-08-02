@@ -791,7 +791,7 @@
       "namedName": "bf22/intermediary/C0099",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "D6D03B1DFB947684701EFC0C7BA02B444414D4C0368EA2E9A506AF2137BA4961"
+      "sourceSha256": "A001D721055691DB36C2044CF56F61117BBCA79487091BFE1D4E742A31967A69"
     },
     {
       "officialName": "a/bT",
@@ -799,7 +799,7 @@
       "namedName": "bf22/intermediary/C0100",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "B508039FE74212AD86E9021574BDF1680E813349070141DED5D2AAB3FFA97940"
+      "sourceSha256": "46D27A21745FA15618A5BB76012A2499DC7531B65FBE6CF76493013E1102AD98"
     },
     {
       "officialName": "a/bU",
@@ -807,7 +807,7 @@
       "namedName": "bf22/intermediary/C0101",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "68E82E1A06A86982AEF23E55617550F2715BECD3557F31DD9401831849FF321E"
+      "sourceSha256": "8EDD28C7E9B4E059B41F9343FBC6A46CA127CE7DE10E8BE72F77918372CDFD7D"
     },
     {
       "officialName": "a/bV",
@@ -1055,7 +1055,7 @@
       "namedName": "bf22/intermediary/C0132",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "D770D97E0AB43A729B2BA1BFE779A8DB3CBDB6699DE3CEE78A5BEA3399533DBA"
+      "sourceSha256": "2C2A1306CF9D3302AC30EC869AD61FBAF04471E13821D7923D068B181C9A8638"
     },
     {
       "officialName": "a/c",
@@ -1095,7 +1095,7 @@
       "namedName": "bf22/intermediary/C0137",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "4AFB87A45B97FFE953063B02D5A1F68BB605F294CA8D7665482C97E2DBDA3D13"
+      "sourceSha256": "0BBDEBFADA2B96087395544CCD6E9E935569EF5F1F381DA2E3BD1974797557D0"
     },
     {
       "officialName": "a/cE",
@@ -3231,7 +3231,7 @@
       "namedName": "bf22/intermediary/C0404",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "CD79A3A3BBCD51C16F3FBF28C2F36C7F2DEFCBB7970DCCCE0B9B8C1B8F9AF476"
+      "sourceSha256": "1123EF7FF05C5F29FD50E6F01B2A67786F3DA745966DBC36E4DB52294D6DE959"
     },
     {
       "officialName": "a/hG",
@@ -5375,7 +5375,7 @@
       "namedName": "mod/recovered/model/Player",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "6F60B97F1964DF67E3005F37CA74B55A86DD34F2A11B0D31E400F54EDB72E451"
+      "sourceSha256": "E05B4181A63E8E9C3D30B64BA12C75664336A4EABAACD86BD15B645CA307A357"
     },
     {
       "officialName": "best/G",
@@ -5399,7 +5399,7 @@
       "namedName": "mod/recovered/match/Match",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "81F2C38F02BCDBE3D25827891B967FE78E6C7D242FC1A271CFCD088629E9F5BB"
+      "sourceSha256": "EF232E642D92D449BD7D2D94AEA0F0C6CE5BC9361F40D9F537A6367956212021"
     },
     {
       "officialName": "best/J",
@@ -5607,7 +5607,7 @@
       "namedName": "mod/recovered/model/Club",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "081D339EB127D8CA7C53EAE80C43D8215A563DD9E29F7033CD3D0C42FE41FFA4"
+      "sourceSha256": "CA325879DE593BC755229D11A4366CF5805CAE05E869DA2014654E4EA4B9F9BA"
     },
     {
       "officialName": "best/ai",
@@ -5783,7 +5783,7 @@
       "namedName": "mod/recovered/game/CareerState",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "C14AA881D38EB6D77F290E94F492AAB74027C5550C1645085831025B41591DD9"
+      "sourceSha256": "E304E493795C58928BA3491737E7B672F857E0A624C8A0CA7A4EB965F52F3035"
     },
     {
       "officialName": "best/g",
@@ -5967,7 +5967,7 @@
       "namedName": "mod/recovered/match/MatchEngine",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "66C0FB2CDEAE7D6DE9864C9DFA96AE68510208958E6864EE4D8D7D345A91859C"
+      "sourceSha256": "B3CB7350AB6420EC66F97E2643EAB732153618EE59AB0450FC1405D5A1DEC9BF"
     },
     {
       "officialName": "components/A",

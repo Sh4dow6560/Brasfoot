@@ -715,9 +715,9 @@ public class C0137 extends JPanel {
 
    private void pc() {
       if (this.zu.isUserControlled()) {
-         this.zu.kj()[1] = this.Do.getSelectedIndex();
-         this.zu.kj()[2] = this.Dp.getSelectedIndex();
-         this.zu.kj()[3] = this.Dn.getSelectedIndex();
+         this.zu.getTacticalSettings()[1] = this.Do.getSelectedIndex();
+         this.zu.getTacticalSettings()[2] = this.Dp.getSelectedIndex();
+         this.zu.getTacticalSettings()[3] = this.Dn.getSelectedIndex();
       }
    }
 
@@ -797,19 +797,19 @@ public class C0137 extends JPanel {
          this.Do.addItem(GameConstants.rC[var1]);
       }
 
-      this.Do.setSelectedIndex(this.zu.kj()[1]);
+      this.Do.setSelectedIndex(this.zu.getTacticalSettings()[1]);
 
       for (int var2 = 0; var2 < GameConstants.rE.length; var2++) {
          this.Dp.addItem(GameConstants.rE[var2]);
       }
 
-      this.Dp.setSelectedIndex(this.zu.kj()[2]);
+      this.Dp.setSelectedIndex(this.zu.getTacticalSettings()[2]);
 
       for (int var3 = 0; var3 < GameConstants.rD.length; var3++) {
          this.Dn.addItem(GameConstants.rD[var3]);
       }
 
-      this.Dn.setSelectedIndex(this.zu.kj()[3]);
+      this.Dn.setSelectedIndex(this.zu.getTacticalSettings()[3]);
       this.pf();
    }
 
@@ -824,9 +824,9 @@ public class C0137 extends JPanel {
          this.Do.setEnabled(true);
          this.Dp.setEnabled(true);
          this.Dn.setEnabled(true);
-         this.Do.setSelectedIndex(this.zu.kj()[1]);
-         this.Dp.setSelectedIndex(this.zu.kj()[2]);
-         this.Dn.setSelectedIndex(this.zu.kj()[3]);
+         this.Do.setSelectedIndex(this.zu.getTacticalSettings()[1]);
+         this.Dp.setSelectedIndex(this.zu.getTacticalSettings()[2]);
+         this.Dn.setSelectedIndex(this.zu.getTacticalSettings()[3]);
       } else {
          this.Dt.setVisible(true);
          this.Du.setVisible(true);
@@ -837,9 +837,9 @@ public class C0137 extends JPanel {
          this.Do.setVisible(false);
          this.Dp.setVisible(false);
          this.Dn.setVisible(false);
-         this.Dt.setText(GameConstants.rC[this.zu.kj()[1]]);
-         this.Du.setText(GameConstants.rE[this.zu.kj()[2]]);
-         this.Dr.setText(GameConstants.rD[this.zu.kj()[3]]);
+         this.Dt.setText(GameConstants.rC[this.zu.getTacticalSettings()[1]]);
+         this.Du.setText(GameConstants.rE[this.zu.getTacticalSettings()[2]]);
+         this.Dr.setText(GameConstants.rD[this.zu.getTacticalSettings()[3]]);
       }
    }
 

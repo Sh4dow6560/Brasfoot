@@ -45,6 +45,7 @@ public final class KryoSaveCompatibilityProbe {
       String matchStateApi = validateMatchStateBehavior(loader);
       String substitutionApi = validateSubstitutionBehavior(loader);
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
+      String lineupApi = validateLineupBehavior(loader);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -86,6 +87,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("MATCH_STATE_API " + matchStateApi);
       System.out.println("SUBSTITUTION_API " + substitutionApi);
       System.out.println("MATCH_ENGINE_API " + matchEngineApi);
+      System.out.println("LINEUP_API " + lineupApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -461,6 +463,87 @@ public final class KryoSaveCompatibilityProbe {
     return declared.invoke(value);
   }
 
+  private static String validateLineupBehavior(ClassLoader loader) throws Exception {
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> matchClass = loader.loadClass("best.I");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> constantsClass = loader.loadClass("best.aq");
+    Object club = clubClass.getDeclaredConstructor().newInstance();
+    Object match = matchClass.getDeclaredConstructor().newInstance();
+    setField(club, "mU", 31);
+    setField(match, "fz", club);
+
+    int[][] requirements = (int[][])readStaticField(constantsClass, "sE");
+    int[][] formations = (int[][])readStaticField(constantsClass, "sJ");
+    int[] benchPositions = (int[])readStaticField(constantsClass, "sI");
+    int formation = 4;
+    ArrayList<Object> players = new ArrayList<Object>();
+    int ordinal = 0;
+    for (int tacticalPosition : formations[formation]) {
+      players.add(createLineupPlayer(
+          playerClass, clubClass, club, requirements[tacticalPosition], ordinal++));
+    }
+    for (int tacticalPosition : benchPositions) {
+      players.add(createLineupPlayer(
+          playerClass, clubClass, club, requirements[tacticalPosition], ordinal++));
+    }
+    setField(club, "nd", players);
+
+    int[] tactics = new int[]{formation, 1, 2, 1};
+    clubClass.getDeclaredMethod("k", int[].class).invoke(club, (Object)tactics);
+    assertIntArray((int[])clubClass.getDeclaredMethod("kj").invoke(club), tactics,
+        "club tactical settings");
+    clubClass.getDeclaredMethod("I", Boolean.TYPE).invoke(club, false);
+    clubClass.getDeclaredMethod(
+        "a", clubClass, matchClass, Integer.TYPE, Integer.TYPE, Boolean.TYPE)
+        .invoke(null, club, match, 1, formation, false);
+
+    List<?> startingLineup = (List<?>)clubClass.getDeclaredMethod("kY").invoke(club);
+    List<?> bench = (List<?>)clubClass.getDeclaredMethod("kZ").invoke(club);
+    List<?> matchStartingLineup = (List<?>)matchClass.getDeclaredMethod("hl").invoke(match);
+    List<?> playersOnField = (List<?>)matchClass.getDeclaredMethod("hp").invoke(match);
+    List<?> matchBench = (List<?>)matchClass.getDeclaredMethod("hn").invoke(match);
+    if (startingLineup.size() != 11 || bench.size() != 11
+        || matchStartingLineup.size() != 11 || playersOnField.size() != 11
+        || matchBench.size() != 11) {
+      throw new IllegalStateException("AI lineup did not produce 11 starters and 11 substitutes");
+    }
+    if (!((Boolean)clubClass.getDeclaredMethod("kf").invoke(club)).booleanValue()) {
+      throw new IllegalStateException("AI lineup did not mark the club as ready");
+    }
+    for (int index = 0; index < startingLineup.size(); index++) {
+      int tacticalPosition = ((Integer)playerClass.getDeclaredMethod("fT")
+          .invoke(startingLineup.get(index))).intValue();
+      if (tacticalPosition != formations[formation][index]) {
+        throw new IllegalStateException("Starter " + index + " received tactical position "
+            + tacticalPosition + " instead of " + formations[formation][index]);
+      }
+    }
+
+    clubClass.getDeclaredMethod("a", matchClass, clubClass, Integer.TYPE)
+        .invoke(null, match, club, 1);
+    int lineupStrength = ((Integer)matchClass.getDeclaredMethod("hr").invoke(match)).intValue();
+    if (lineupStrength <= 0) {
+      throw new IllegalStateException("AI lineup produced non-positive strength " + lineupStrength);
+    }
+    return "formation=4 starters=11 bench=11 tactics=4/1/2/1 strength=" + lineupStrength;
+  }
+
+  private static Object createLineupPlayer(
+      Class<?> playerClass, Class<?> clubClass, Object club, int[] requirement, int ordinal)
+      throws Exception {
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    int side = requirement[1] < 0 ? ordinal % 2 : requirement[1];
+    int role = requirement[2] < 0 ? 0 : requirement[2];
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, requirement[0]);
+    playerClass.getDeclaredMethod("setLado", Integer.TYPE).invoke(player, side);
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 90 - ordinal % 10);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 22 + ordinal % 8);
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, club);
+    setField(player, "ex", role);
+    return player;
+  }
+
   private static Object invokePrivateWithArgument(
       Class<?> owner, Object value, String method, Class<?> parameterType, Object argument)
       throws Exception {
@@ -790,6 +873,12 @@ public final class KryoSaveCompatibilityProbe {
     Field field = owner.getClass().getDeclaredField(name);
     field.setAccessible(true);
     return field.get(owner);
+  }
+
+  private static Object readStaticField(Class<?> owner, String name) throws Exception {
+    Field field = owner.getDeclaredField(name);
+    field.setAccessible(true);
+    return field.get(null);
   }
 
   private static void setField(Object owner, String name, Object value) throws Exception {

@@ -3207,7 +3207,7 @@ public class Player implements Serializable {
 
          club.getSeniorPlayers().add(this);
          if (club.isUserControlled() && var6.isUserControlled()) {
-            var6.I(false);
+            var6.setLineupReady(false);
          }
 
          this.fk = null;

@@ -195,19 +195,19 @@ public class C0132 extends JPanel {
          this.Bg.addItem(var2[var5]);
       }
 
-      this.Bg.setSelectedIndex(this.zu.kj()[1]);
+      this.Bg.setSelectedIndex(this.zu.getTacticalSettings()[1]);
 
       for (int var12 = 0; var12 < var4.length; var12++) {
          this.Bh.addItem(var4[var12]);
       }
 
-      this.Bh.setSelectedIndex(this.zu.kj()[2]);
+      this.Bh.setSelectedIndex(this.zu.getTacticalSettings()[2]);
 
       for (int var13 = 0; var13 < var3.length; var13++) {
          this.Bi.addItem(var3[var13]);
       }
 
-      this.Bi.setSelectedIndex(this.zu.kj()[3]);
+      this.Bi.setSelectedIndex(this.zu.getTacticalSettings()[3]);
 
       for (int var14 = 0; var14 < var1.length; var14++) {
          this.Bf.addItem(var1[var14]);
@@ -516,7 +516,7 @@ public class C0132 extends JPanel {
 
          for (int var8 = 0; var8 < 11; var8++) {
             int var4 = GameConstants.sJ[i][var8];
-            Player var5 = Club.a(var7, var4, false, false);
+            Player var5 = Club.selectPlayerForTacticalPosition(var7, var4, false, false);
             if (var5 != null) {
                ((C0795)this.AE.get(var4)).h(this.AL);
                ((C0795)this.AE.get(var4)).a(var5);
@@ -528,7 +528,7 @@ public class C0132 extends JPanel {
          int var9 = 26;
 
          for (int var11 = 0; var11 < GameConstants.sI.length; var11++) {
-            Player var14 = Club.a(var7, GameConstants.sI[var11], true, false);
+            Player var14 = Club.selectPlayerForTacticalPosition(var7, GameConstants.sI[var11], true, false);
             if (var14 != null) {
                ((C0795)this.AE.get(var9)).h(this.AL);
                ((C0795)this.AE.get(var9)).a(var14);
@@ -643,7 +643,7 @@ public class C0132 extends JPanel {
          }
       }
 
-      this.zu.I(true);
+      this.zu.setLineupReady(true);
       if (GamePersistence.careerState.getAutoSalvar() > 0) {
          MainWindow.iF().rt();
       }

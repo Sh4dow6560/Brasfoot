@@ -72,7 +72,7 @@ public class Club implements Serializable {
    private ArrayList no = new ArrayList();
    private ArrayList np = new ArrayList();
    private Stadium stadium;
-   private int[] nq = new int[4];
+   private int[] tacticalSettings = new int[4];
    private int[] nr = new int[]{0, 1, 1, 1, 1};
    private int ns = 0;
    private boolean nt = true;
@@ -328,7 +328,7 @@ public class Club implements Serializable {
       return this.lineupReady;
    }
 
-   public void I(boolean bl) {
+   public void setLineupReady(boolean bl) {
       this.lineupReady = bl;
    }
 
@@ -345,22 +345,22 @@ public class Club implements Serializable {
       this.divisao = i;
    }
 
-   public static void kh() {
+   public static void prepareAiLineupsForCurrentSchedule() {
       new ArrayList();
       ArrayList var0 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).h();
 
       for (int var1 = 0; var1 < var0.size(); var1++) {
          if (!((Match)var0.get(var1)).getHomeClub().isUserControlled() && !((Match)var0.get(var1)).getHomeClub().isLineupReady()) {
-            a(((Match)var0.get(var1)).getHomeClub(), (Match)var0.get(var1), 1, -1, true);
+            buildAiLineup(((Match)var0.get(var1)).getHomeClub(), (Match)var0.get(var1), 1, -1, true);
          }
 
          if (!((Match)var0.get(var1)).getAwayClub().isUserControlled() && !((Match)var0.get(var1)).getAwayClub().isLineupReady()) {
-            a(((Match)var0.get(var1)).getAwayClub(), (Match)var0.get(var1), 2, -1, true);
+            buildAiLineup(((Match)var0.get(var1)).getAwayClub(), (Match)var0.get(var1), 2, -1, true);
          }
       }
    }
 
-   public static void a(Club club, Match c0675, int i, int j, boolean bl) {
+   public static void buildAiLineup(Club club, Match c0675, int i, int j, boolean bl) {
       ArrayList var5 = new ArrayList();
       int[] var6 = new int[6];
 
@@ -418,7 +418,7 @@ public class Club implements Serializable {
 
       for (int var9 = 0; var9 < 11; var9++) {
          int var10 = GameConstants.sJ[var13][var9];
-         Player var11 = a(var5, var10, false, false);
+         Player var11 = selectPlayerForTacticalPosition(var5, var10, false, false);
          if (var11 != null) {
             var11.setTacticalPosition(var10);
             var11.b(true);
@@ -436,7 +436,7 @@ public class Club implements Serializable {
       }
 
       for (int var19 = 0; var19 < GameConstants.sI.length; var19++) {
-         Player var21 = a(var5, GameConstants.sI[var19], true, false);
+         Player var21 = selectPlayerForTacticalPosition(var5, GameConstants.sI[var19], true, false);
          if (var21 != null) {
             club.bench.add(var21);
             if (i == 1) {
@@ -449,7 +449,7 @@ public class Club implements Serializable {
          }
       }
 
-      club.I(true);
+      club.setLineupReady(true);
       if (bl) {
          byte var20 = 0;
          byte var22 = 0;
@@ -480,11 +480,11 @@ public class Club implements Serializable {
          }
 
          int[] var12 = new int[]{var13, var20, var22, var23};
-         club.k(var12);
+         club.setTacticalSettings(var12);
       }
    }
 
-   public static void a(Match c0675, Club club, int i) {
+   public static void calculateLineupStrength(Match c0675, Club club, int i) {
       int[] var3 = new int[26];
       int[] var4 = new int[13];
       int var5 = 0;
@@ -602,7 +602,7 @@ public class Club implements Serializable {
       }
    }
 
-   public static Player a(ArrayList arrayList, int i, boolean bl, boolean bl2) {
+   public static Player selectPlayerForTacticalPosition(ArrayList arrayList, int i, boolean bl, boolean bl2) {
       int var4 = GameConstants.sE[i][0];
       int var6 = GameConstants.sE[i][1];
       int var7 = GameConstants.sE[i][2];
@@ -689,12 +689,12 @@ public class Club implements Serializable {
       return this.nr[i];
    }
 
-   public int[] kj() {
-      return this.nq;
+   public int[] getTacticalSettings() {
+      return this.tacticalSettings;
    }
 
-   public void k(int[] is) {
-      this.nq = is;
+   public void setTacticalSettings(int[] is) {
+      this.tacticalSettings = is;
    }
 
    public C0704 c(LeagueStage c0955) {

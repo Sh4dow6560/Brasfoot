@@ -880,11 +880,17 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	f	Ljava/util/ArrayList;	ne	ne	youthPlayers
 	f	Ljava/util/ArrayList;	nf	nf	startingLineup
 	f	Ljava/util/ArrayList;	ng	ng	bench
+	f	[I	nq	nq	tacticalSettings
 	f	Z	nv	nv	lineupReady
 	f	Lbest/C;	nx	nx	finances
 	f	Lcomponents/ag;	nz	nz	lineupPreset
+	m	(Z)V	I	I	setLineupReady
+	m	(Lbest/I;Lbest/ah;I)V	a	a	calculateLineupStrength
+	m	(Lbest/ah;Lbest/I;IIZ)V	a	a	buildAiLineup
+	m	(Ljava/util/ArrayList;IZZ)Lbest/F;	a	a	selectPlayerForTacticalPosition
 	m	()Lbest/v;	ev	ev	getStadium
 	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
+	m	([I)V	k	k	setTacticalSettings
 	m	()Lbest/C;	kL	kL	getFinances
 	m	()Lcomponents/ag;	kX	kX	getLineupPreset
 	m	()Ljava/util/ArrayList;	kY	kY	getStartingLineup
@@ -892,6 +898,8 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	m	()Lbest/al;	ka	ka	getCoach
 	m	()Ljava/util/ArrayList;	kc	kc	getSeniorPlayers
 	m	()Z	kf	kf	isLineupReady
+	m	()V	kh	kh	prepareAiLineupsForCurrentSchedule
+	m	()[I	kj	kj	getTacticalSettings
 	m	()Ljava/util/ArrayList;	ky	ky	getYouthPlayers
 	m	()I	lk	lk	getClubId
 c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
