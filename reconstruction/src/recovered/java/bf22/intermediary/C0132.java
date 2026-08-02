@@ -615,7 +615,7 @@ public class C0132 extends JPanel {
 
       for (int var1 = 1; var1 <= 25; var1++) {
          if (((C0795)this.AE.get(var1)).x() != null) {
-            ((C0795)this.AE.get(var1)).x().as(var1);
+            ((C0795)this.AE.get(var1)).x().setTacticalPosition(var1);
             ((C0795)this.AE.get(var1)).x().b(true);
             this.zu.getStartingLineup().add(((C0795)this.AE.get(var1)).x());
             if (this.AT == 0) {
@@ -632,7 +632,7 @@ public class C0132 extends JPanel {
 
       for (int var2 = 26; var2 <= 36; var2++) {
          if (((C0795)this.AE.get(var2)).x() != null) {
-            ((C0795)this.AE.get(var2)).x().as(var2);
+            ((C0795)this.AE.get(var2)).x().setTacticalPosition(var2);
             ((C0795)this.AE.get(var2)).x().b(true);
             this.zu.getBench().add(((C0795)this.AE.get(var2)).x());
             if (this.AT == 0) {

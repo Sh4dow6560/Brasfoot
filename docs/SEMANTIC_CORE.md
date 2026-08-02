@@ -99,7 +99,8 @@ estaduais, regionais e supercopas.
 `Player` identifica diretamente forca geral, posicao tatica, atleta da base,
 velocidade, habilidade de goleiro, tecnica, passe, desarme, armacao,
 finalizacao, atuacao fora de posicao, energia, forca efetiva, lesao e prazo
-contratual. `Club` identifica elenco principal e
+contratual. Forca, posicao, atributos e energia tambem possuem setters
+diretos. `Club` identifica elenco principal e
 da base, titulares, banco, tecnico, financas, esquema, ID, controle do usuario
 e estado da escalacao. Jogador, tecnico e componentes auxiliares usam
 `getClub`; clube, partida e obra usam `getStadium`. Um cenario executado no

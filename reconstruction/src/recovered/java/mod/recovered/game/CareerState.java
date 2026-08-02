@@ -1436,7 +1436,7 @@ public class CareerState implements Serializable {
       }
 
       for (int var7 = 0; var7 < GamePersistence.careerState.Q().size(); var7++) {
-         ((Player)GamePersistence.careerState.Q().get(var7)).ai(100);
+         ((Player)GamePersistence.careerState.Q().get(var7)).setEnergy(100);
       }
 
       if (var2 == 7 || var2 == 9) {

@@ -78,3 +78,8 @@ seguranca transacional em `build/generated`. Membros de instancia ambiguos
 continuam exigindo migracao dirigida pelo tipo. Um grupo repetido sem
 argumentos pode ser migrado junto quando todos os membros do grupo estiverem
 explicitamente configurados com o mesmo nome semantico.
+
+Quando o nome e o numero de argumentos ainda colidem entre tipos diferentes,
+a migracao deve alterar somente receptores cujo tipo foi confirmado e depois
+recompilar as 1.032 fontes. Os setters centrais de `Player` sao o primeiro
+lote validado por esse procedimento dirigido.

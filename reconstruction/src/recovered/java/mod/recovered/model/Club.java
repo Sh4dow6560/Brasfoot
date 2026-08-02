@@ -365,7 +365,7 @@ public class Club implements Serializable {
       int[] var6 = new int[6];
 
       for (int var7 = 0; var7 < club.seniorPlayers.size(); var7++) {
-         ((Player)club.seniorPlayers.get(var7)).as(-1);
+         ((Player)club.seniorPlayers.get(var7)).setTacticalPosition(-1);
          if (((Player)club.seniorPlayers.get(var7)).a(c0675, false)) {
             var5.add((Player)club.seniorPlayers.get(var7));
             int var8 = ((Player)club.seniorPlayers.get(var7)).getPosicao();
@@ -420,7 +420,7 @@ public class Club implements Serializable {
          int var10 = GameConstants.sJ[var13][var9];
          Player var11 = a(var5, var10, false, false);
          if (var11 != null) {
-            var11.as(var10);
+            var11.setTacticalPosition(var10);
             var11.b(true);
             club.startingLineup.add(var11);
             if (i == 1) {

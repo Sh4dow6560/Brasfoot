@@ -56,7 +56,7 @@ public abstract class C0677 {
          var8 += new Random().nextInt(10);
       }
 
-      player.ad(var8);
+      player.setOverallStrength(var8);
       if (GamePersistence.careerState.isHabilidadeIndividual()) {
          byte var9 = 1;
          if (club.kn()) {
@@ -197,7 +197,7 @@ public abstract class C0677 {
       }
 
       var3 = var3 - 5 + new Random().nextInt(8);
-      player.ad(var3);
+      player.setOverallStrength(var3);
       player.h(false);
       player.ar(GamePersistence.careerState.getSeasonNumber());
       player.d(0.0);

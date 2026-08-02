@@ -1055,7 +1055,7 @@
       "namedName": "bf22/intermediary/C0132",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "7D14F9D2F28DA0773D3E5C08833ABAB0884D91096134BEEC6EDED85D5AA9C9EA"
+      "sourceSha256": "D770D97E0AB43A729B2BA1BFE779A8DB3CBDB6699DE3CEE78A5BEA3399533DBA"
     },
     {
       "officialName": "a/c",
@@ -1095,7 +1095,7 @@
       "namedName": "bf22/intermediary/C0137",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "F72D834B76FC913036FAC6F8E53BBA2F339CBE71890A633867046753DAEA0191"
+      "sourceSha256": "8E09F25198EFC580DBA95F0518D4066DC241A140300AE392F5F31D64BB16C587"
     },
     {
       "officialName": "a/cE",
@@ -5375,7 +5375,7 @@
       "namedName": "mod/recovered/model/Player",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "BCC8B102BFC8C65F5B79841AA66BA5820B8F3F484DF24F07FDC0DD8D599C5C09"
+      "sourceSha256": "6F60B97F1964DF67E3005F37CA74B55A86DD34F2A11B0D31E400F54EDB72E451"
     },
     {
       "officialName": "best/G",
@@ -5399,7 +5399,7 @@
       "namedName": "mod/recovered/match/Match",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "155D6BE0A07DBF9F6876581C6E8DC5E2E839E1A1025C7002E1F2E68E93F809A9"
+      "sourceSha256": "F1B8FFF6C5C44746FC4E4BC24AC00E8B3CF5162570F755836C83169E5B06A601"
     },
     {
       "officialName": "best/J",
@@ -5415,7 +5415,7 @@
       "namedName": "bf22/intermediary/C0677",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "2F1EE558D4C70EB17A4D052EB9206326EBB4924C1599F885E8E23D3099F3C3BA"
+      "sourceSha256": "4015513644C5101A54D6FD79CBC7137E3BC6324772BC63BE6479570FB4F22A1F"
     },
     {
       "officialName": "best/L",
@@ -5607,7 +5607,7 @@
       "namedName": "mod/recovered/model/Club",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "B3640EA1DAE583402540F6CDF4E93BDC2F1CDDEAA455E43EE73B83FE64A68BCE"
+      "sourceSha256": "081D339EB127D8CA7C53EAE80C43D8215A563DD9E29F7033CD3D0C42FE41FFA4"
     },
     {
       "officialName": "best/ai",
@@ -5783,7 +5783,7 @@
       "namedName": "mod/recovered/game/CareerState",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "A30852AAB2D4AB3D243A3AA12F8B89736145D4DB6CF73D846E70DCFD3E0CBCCF"
+      "sourceSha256": "C14AA881D38EB6D77F290E94F492AAB74027C5550C1645085831025B41591DD9"
     },
     {
       "officialName": "best/g",

@@ -48,13 +48,16 @@
   contratos possuem cenario funcional no JAR final.
 - O estado operacional de `Player` identifica energia, desgaste, recuperacao,
   forca efetiva, lesao e prazo contratual usando a data real da carreira.
+- Setters semanticamente nomeados alteram forca geral, posicao tatica, os sete
+  atributos e energia. Referencias ambiguas foram migradas de forma dirigida
+  pelo tipo e recompiladas em conjunto.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 373 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 385 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 

@@ -425,6 +425,11 @@ public final class KryoSaveCompatibilityProbe {
 
     playerClass.getDeclaredMethod("h", Boolean.class).invoke(player, Boolean.FALSE);
     playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    playerClass.getDeclaredMethod("ai", Integer.TYPE).invoke(player, 80);
+    assertInteger(playerClass, player, "fp", 80);
+    playerClass.getDeclaredMethod("aj", Integer.TYPE).invoke(player, 10);
+    assertInteger(playerClass, player, "fp", 70);
+    playerClass.getDeclaredMethod("ak", Integer.TYPE).invoke(player, 40);
     assertInteger(playerClass, player, "fp", 100);
     assertInteger(playerClass, player, "fU", 72);
     playerClass.getDeclaredMethod("fq").invoke(player);

@@ -460,11 +460,11 @@ public class C0137 extends JPanel {
       } else if (var3) {
          Collections.swap(var5, i, j);
          if (((C0795)var5.get(i)).x() != null) {
-            ((C0795)var5.get(i)).x().as(i);
+            ((C0795)var5.get(i)).x().setTacticalPosition(i);
          }
 
          if (((C0795)var5.get(j)).x() != null) {
-            ((C0795)var5.get(j)).x().as(j);
+            ((C0795)var5.get(j)).x().setTacticalPosition(j);
          }
       }
    }

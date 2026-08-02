@@ -743,6 +743,18 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	f	Lbest/ah;	eo	eo	club
 	f	I	eq	eq	overallStrength
 	f	Ljava/lang/Boolean;	fb	fb	youthPlayer
+	m	(I)V	aI	aI	setSpeed
+	m	(I)V	aJ	aJ	setGoalkeeping
+	m	(I)V	aK	aK	setTechnique
+	m	(I)V	aL	aL	setPassing
+	m	(I)V	aM	aM	setTackling
+	m	(I)V	aN	aN	setPlaymaking
+	m	(I)V	aO	aO	setFinishing
+	m	(I)V	ad	ad	setOverallStrength
+	m	(I)V	ai	ai	setEnergy
+	m	(I)V	aj	aj	decreaseEnergy
+	m	(I)V	ak	ak	increaseEnergy
+	m	(I)V	as	as	setTacticalPosition
 	m	()Ljava/lang/Boolean;	fC	fC	isYouthPlayer
 	m	()Z	fP	fP	isInjured
 	m	()Ljava/lang/String;	fQ	fQ	getContractEndDateLabel

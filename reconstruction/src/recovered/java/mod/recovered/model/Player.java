@@ -247,7 +247,7 @@ public class Player implements Serializable {
       return this.overallStrength;
    }
 
-   public void ad(int i) {
+   public void setOverallStrength(int i) {
       this.overallStrength = i;
    }
 
@@ -335,18 +335,18 @@ public class Player implements Serializable {
       return this.energy;
    }
 
-   public void ai(int i) {
+   public void setEnergy(int i) {
       this.energy = i;
    }
 
-   public void aj(int i) {
+   public void decreaseEnergy(int i) {
       this.energy -= i;
       if (this.energy < 0) {
          this.energy = 1;
       }
    }
 
-   public void ak(int i) {
+   public void increaseEnergy(int i) {
       this.energy += i;
       if (this.energy > 100) {
          this.energy = 100;
@@ -355,15 +355,15 @@ public class Player implements Serializable {
 
    public void reduceEnergyAfterMatch() {
       if (this.em <= 20) {
-         this.aj(1);
+         this.decreaseEnergy(1);
       } else if (this.em <= 25) {
-         this.aj(2);
+         this.decreaseEnergy(2);
       } else if (this.em <= 31) {
-         this.aj(3);
+         this.decreaseEnergy(3);
       } else if (this.em <= 36) {
-         this.aj(4);
+         this.decreaseEnergy(4);
       } else {
-         this.aj(5);
+         this.decreaseEnergy(5);
       }
    }
 
@@ -376,37 +376,37 @@ public class Player implements Serializable {
       if (this.eL) {
          if (var1) {
             if (this.em <= 20) {
-               this.ak(13);
+               this.increaseEnergy(13);
             } else if (this.em <= 25) {
-               this.ak(24);
+               this.increaseEnergy(24);
             } else if (this.em <= 31) {
-               this.ak(37);
+               this.increaseEnergy(37);
             } else if (this.em <= 36) {
-               this.ak(40);
+               this.increaseEnergy(40);
             } else {
-               this.ak(30);
+               this.increaseEnergy(30);
             }
          } else if (this.em <= 20) {
-            this.ak(20);
+            this.increaseEnergy(20);
          } else if (this.em <= 25) {
-            this.ak(30);
+            this.increaseEnergy(30);
          } else if (this.em <= 31) {
-            this.ak(50);
+            this.increaseEnergy(50);
          } else if (this.em <= 36) {
-            this.ak(52);
+            this.increaseEnergy(52);
          } else {
-            this.ak(42);
+            this.increaseEnergy(42);
          }
       } else if (this.em < 20) {
-         this.ak(30);
+         this.increaseEnergy(30);
       } else if (this.em < 26) {
-         this.ak(30);
+         this.increaseEnergy(30);
       } else if (this.em < 33) {
-         this.ak(35);
+         this.increaseEnergy(35);
       } else if (this.em < 45) {
-         this.ak(35);
+         this.increaseEnergy(35);
       } else {
-         this.ak(30);
+         this.increaseEnergy(30);
       }
    }
 
@@ -705,7 +705,7 @@ public class Player implements Serializable {
          }
 
          this.a(new Random().nextInt(30) + 210, true);
-         this.ad(var4);
+         this.setOverallStrength(var4);
          if (GamePersistence.careerState.isHabilidadeIndividual()) {
             this.j(var7, var8);
          }
@@ -1345,7 +1345,7 @@ public class Player implements Serializable {
       return this.tacticalPosition;
    }
 
-   public void as(int i) {
+   public void setTacticalPosition(int i) {
       this.tacticalPosition = i;
    }
 
@@ -3682,7 +3682,7 @@ public class Player implements Serializable {
       return this.speed;
    }
 
-   public void aI(int i) {
+   public void setSpeed(int i) {
       this.speed = i;
    }
 
@@ -3690,7 +3690,7 @@ public class Player implements Serializable {
       return this.goalkeeping;
    }
 
-   public void aJ(int i) {
+   public void setGoalkeeping(int i) {
       this.goalkeeping = i;
    }
 
@@ -3698,7 +3698,7 @@ public class Player implements Serializable {
       return this.technique;
    }
 
-   public void aK(int i) {
+   public void setTechnique(int i) {
       this.technique = i;
    }
 
@@ -3706,7 +3706,7 @@ public class Player implements Serializable {
       return this.passing;
    }
 
-   public void aL(int i) {
+   public void setPassing(int i) {
       this.passing = i;
    }
 
@@ -3714,7 +3714,7 @@ public class Player implements Serializable {
       return this.tackling;
    }
 
-   public void aM(int i) {
+   public void setTackling(int i) {
       this.tackling = i;
    }
 
@@ -3722,7 +3722,7 @@ public class Player implements Serializable {
       return this.playmaking;
    }
 
-   public void aN(int i) {
+   public void setPlaymaking(int i) {
       this.playmaking = i;
    }
 
@@ -3730,7 +3730,7 @@ public class Player implements Serializable {
       return this.finishing;
    }
 
-   public void aO(int i) {
+   public void setFinishing(int i) {
       this.finishing = i;
    }
 

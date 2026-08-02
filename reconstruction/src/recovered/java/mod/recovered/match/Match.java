@@ -840,9 +840,9 @@ public class Match implements Serializable {
          }
 
          if (var8 != null && var9 != null) {
-            player2.as(player.getTacticalPosition());
+            player2.setTacticalPosition(player.getTacticalPosition());
             if (l > 0) {
-               player2.as(l);
+               player2.setTacticalPosition(l);
             }
 
             var8.remove(player);
