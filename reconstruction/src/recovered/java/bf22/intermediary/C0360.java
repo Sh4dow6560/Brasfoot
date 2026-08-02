@@ -128,7 +128,7 @@ public class C0360 extends JPanel {
             this.Es.fg().kE();
          }
 
-         GamePersistence.careerState.a(this.Em, this.Em.ka(), this.Es);
+         GamePersistence.careerState.a(this.Em, this.Em.getCoach(), this.Es);
          this.ub.dispose();
       } else {
          CountryCompetitions var1 = GamePersistence.careerState.s(this.Em.getPais());
@@ -154,7 +154,7 @@ public class C0360 extends JPanel {
       this.uu.setText(var1);
       this.uu.setIcon(var2);
       this.uK.clear();
-      this.uK.addAll(this.Em.kc());
+      this.uK.addAll(this.Em.getSeniorPlayers());
       this.nE();
    }
 

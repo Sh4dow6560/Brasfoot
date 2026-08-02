@@ -44,6 +44,7 @@ public final class KryoSaveCompatibilityProbe {
       String matchEventApi = validateMatchEventBehavior(loader);
       String matchStateApi = validateMatchStateBehavior(loader);
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
+      String playerClubApi = validatePlayerAndClubBehavior(loader);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
       MatchStateSummary matches = new MatchStateSummary();
@@ -83,6 +84,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("MATCH_STATE " + matches.toLogLine());
       System.out.println("MATCH_STATE_API " + matchStateApi);
       System.out.println("MATCH_ENGINE_API " + matchEngineApi);
+      System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
           + " outputBytes=" + roundTrip.length
@@ -388,6 +390,66 @@ public final class KryoSaveCompatibilityProbe {
     java.lang.reflect.Method declared = owner.getDeclaredMethod(method, parameterType);
     declared.setAccessible(true);
     return declared.invoke(value, argument);
+  }
+
+  private static String validatePlayerAndClubBehavior(ClassLoader loader) throws Exception {
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 72);
+    playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(player, 19);
+    playerClass.getDeclaredMethod("h", Boolean.class).invoke(player, Boolean.TRUE);
+    playerClass.getDeclaredMethod("aI", Integer.TYPE).invoke(player, 61);
+    playerClass.getDeclaredMethod("aJ", Integer.TYPE).invoke(player, 62);
+    playerClass.getDeclaredMethod("aK", Integer.TYPE).invoke(player, 63);
+    playerClass.getDeclaredMethod("aL", Integer.TYPE).invoke(player, 64);
+    playerClass.getDeclaredMethod("aM", Integer.TYPE).invoke(player, 65);
+    playerClass.getDeclaredMethod("aN", Integer.TYPE).invoke(player, 66);
+    playerClass.getDeclaredMethod("aO", Integer.TYPE).invoke(player, 67);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 4);
+
+    assertInteger(playerClass, player, "fi", 72);
+    assertInteger(playerClass, player, "fT", 19);
+    assertBoolean(playerClass, player, "fC", true);
+    assertInteger(playerClass, player, "gJ", 61);
+    assertInteger(playerClass, player, "gK", 62);
+    assertInteger(playerClass, player, "gL", 63);
+    assertInteger(playerClass, player, "gM", 64);
+    assertInteger(playerClass, player, "gN", 65);
+    assertInteger(playerClass, player, "gO", 66);
+    assertInteger(playerClass, player, "gP", 67);
+    assertBoolean(playerClass, player, "gF", false);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 0);
+    assertBoolean(playerClass, player, "gF", true);
+
+    Object club = clubClass.getDeclaredConstructor().newInstance();
+    ArrayList<Object> seniorPlayers = new ArrayList<Object>();
+    ArrayList<Object> youthPlayers = new ArrayList<Object>();
+    ArrayList<Object> startingLineup = new ArrayList<Object>();
+    ArrayList<Object> bench = new ArrayList<Object>();
+    seniorPlayers.add(player);
+    startingLineup.add(player);
+    setField(club, "nd", seniorPlayers);
+    setField(club, "ne", youthPlayers);
+    setField(club, "nf", startingLineup);
+    setField(club, "ng", bench);
+    setField(club, "nv", true);
+    assertSame(seniorPlayers, clubClass.getDeclaredMethod("kc").invoke(club),
+        "club senior players");
+    assertSame(youthPlayers, clubClass.getDeclaredMethod("ky").invoke(club),
+        "club youth players");
+    assertSame(startingLineup, clubClass.getDeclaredMethod("kY").invoke(club),
+        "club starting lineup");
+    assertSame(bench, clubClass.getDeclaredMethod("kZ").invoke(club), "club bench");
+    assertBoolean(clubClass, club, "kf", true);
+    if (clubClass.getDeclaredMethod("kL").invoke(club) == null) {
+      throw new IllegalStateException("Club finances were not initialized");
+    }
+    if (clubClass.getDeclaredMethod("kX").invoke(club) != null) {
+      throw new IllegalStateException("New club unexpectedly has a lineup preset");
+    }
+    return "overall=72 tacticalPosition=19 attributes=7 outOfPosition=true "
+        + "seniorPlayers=1 lineupReady=true finances=true";
   }
 
   private static Object createMatchEvent(

@@ -277,9 +277,9 @@ public class UefaEuropaLeague extends Competition implements Serializable {
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
          if (((Club)arrayList.get(var3)).jZ()) {
             if (i == 0) {
-               new C0799(((Club)arrayList.get(var3)).ka(), 30, 85, "", "");
+               new C0799(((Club)arrayList.get(var3)).getCoach(), 30, 85, "", "");
             } else {
-               new C0799(((Club)arrayList.get(var3)).ka(), 31, 86, "", "");
+               new C0799(((Club)arrayList.get(var3)).getCoach(), 31, 86, "", "");
             }
          }
       }

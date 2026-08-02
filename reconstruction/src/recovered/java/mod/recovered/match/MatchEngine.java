@@ -246,7 +246,7 @@ public class MatchEngine {
       double var8 = 0.1;
 
       for (int var10 = 0; var10 < var2.size(); var10++) {
-         if (var7 < 5 && ((Player)var2.get(var10)).fT() >= 10 && ((Player)var2.get(var10)).fT() <= 17) {
+         if (var7 < 5 && ((Player)var2.get(var10)).getTacticalPosition() >= 10 && ((Player)var2.get(var10)).getTacticalPosition() <= 17) {
             var5 += this.calculatePlayerStrength((Player)var2.get(var10));
             var7++;
          }
@@ -273,7 +273,7 @@ public class MatchEngine {
       double var6 = 0.1;
 
       for (int var8 = 0; var8 < var2.size(); var8++) {
-         if (var5 < 3 && ((Player)var2.get(var8)).fT() >= 19 && ((Player)var2.get(var8)).fT() <= 25) {
+         if (var5 < 3 && ((Player)var2.get(var8)).getTacticalPosition() >= 19 && ((Player)var2.get(var8)).getTacticalPosition() <= 25) {
             var3 += this.calculatePlayerStrength((Player)var2.get(var8));
             var5++;
          }
@@ -299,14 +299,14 @@ public class MatchEngine {
       double var4 = 0.1;
 
       for (int var6 = 0; var6 < var2.size(); var6++) {
-         if (((Player)var2.get(var6)).fT() == 1) {
+         if (((Player)var2.get(var6)).getTacticalPosition() == 1) {
             var3 = (Player)var2.get(var6);
             var4 = this.calculatePlayerStrength((Player)var2.get(var6));
             break;
          }
       }
 
-      if (var3 != null && var3.gF()) {
+      if (var3 != null && var3.isOutOfPosition()) {
          var4 = (int)Math.round(var4 * 0.2);
       }
 
@@ -333,7 +333,7 @@ public class MatchEngine {
       }
 
       for (int var4 = 0; var4 < var2.size(); var4++) {
-         if (((Player)var2.get(var4)).fT() >= 3 && ((Player)var2.get(var4)).fT() <= 8) {
+         if (((Player)var2.get(var4)).getTacticalPosition() >= 3 && ((Player)var2.get(var4)).getTacticalPosition() <= 8) {
             var3++;
          }
       }
@@ -354,7 +354,7 @@ public class MatchEngine {
       double var6 = 0.1;
 
       for (int var8 = 0; var8 < var2.size(); var8++) {
-         if (var5 < 5 && ((Player)var2.get(var8)).fT() >= 2 && ((Player)var2.get(var8)).fT() <= 9) {
+         if (var5 < 5 && ((Player)var2.get(var8)).getTacticalPosition() >= 2 && ((Player)var2.get(var8)).getTacticalPosition() <= 9) {
             var3 += this.calculatePlayerStrength((Player)var2.get(var8));
             var5++;
          }
@@ -369,64 +369,64 @@ public class MatchEngine {
    }
 
    public double calculatePlayerStrength(Player player) {
-      int var2 = player.fi();
+      int var2 = player.getOverallStrength();
       if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = 0;
-         if (player.fT() == 1) {
-            var2 += (int)Math.round(player.gK() * 0.6);
-            var2 += (int)Math.round(player.gL() * 0.15);
-            var2 += (int)Math.round(player.gJ() * 0.15);
-            var2 += (int)Math.round(player.gM() * 0.1);
-         } else if (player.fT() >= 3 && player.fT() <= 8) {
-            var2 += (int)Math.round(player.gN() * 0.5);
-            var2 += (int)Math.round(player.gL() * 0.1);
-            var2 += (int)Math.round(player.gJ() * 0.25);
-            var2 += (int)Math.round(player.gM() * 0.1);
-            var2 += (int)Math.round(player.gO() * 0.05);
-         } else if (player.fT() == 2 || player.fT() == 9) {
-            var2 += (int)Math.round(player.gN() * 0.4);
-            var2 += (int)Math.round(player.gJ() * 0.1);
-            var2 += (int)Math.round(player.gL() * 0.1);
-            var2 += (int)Math.round(player.gM() * 0.3);
-            var2 += (int)Math.round(player.gO() * 0.05);
-            var2 += (int)Math.round(player.gP() * 0.05);
-         } else if (player.fT() >= 11 && player.fT() <= 13) {
-            var2 += (int)Math.round(player.gN() * 0.4);
-            var2 += (int)Math.round(player.gJ() * 0.15);
-            var2 += (int)Math.round(player.gL() * 0.1);
-            var2 += (int)Math.round(player.gM() * 0.2);
-            var2 += (int)Math.round(player.gO() * 0.1);
-            var2 += (int)Math.round(player.gP() * 0.05);
-         } else if (player.fT() >= 14 && player.fT() <= 16) {
-            var2 += (int)Math.round(player.gN() * 0.05);
-            var2 += (int)Math.round(player.gJ() * 0.1);
-            var2 += (int)Math.round(player.gL() * 0.1);
-            var2 += (int)Math.round(player.gM() * 0.25);
-            var2 += (int)Math.round(player.gO() * 0.4);
-            var2 += (int)Math.round(player.gP() * 0.1);
-         } else if (player.fT() == 10 || player.fT() == 17) {
-            var2 += (int)Math.round(player.gN() * 0.05);
-            var2 += (int)Math.round(player.gJ() * 0.25);
-            var2 += (int)Math.round(player.gL() * 0.15);
-            var2 += (int)Math.round(player.gM() * 0.25);
-            var2 += (int)Math.round(player.gO() * 0.2);
-            var2 += (int)Math.round(player.gP() * 0.1);
-         } else if (player.fT() >= 19 && player.fT() <= 24) {
-            var2 += (int)Math.round(player.gJ() * 0.25);
-            var2 += (int)Math.round(player.gL() * 0.25);
-            var2 += (int)Math.round(player.gM() * 0.05);
-            var2 += (int)Math.round(player.gO() * 0.05);
-            var2 += (int)Math.round(player.gP() * 0.4);
-         } else if (player.fT() == 18 || player.fT() == 25) {
-            var2 += (int)Math.round(player.gJ() * 0.25);
-            var2 += (int)Math.round(player.gL() * 0.15);
-            var2 += (int)Math.round(player.gM() * 0.15);
-            var2 += (int)Math.round(player.gO() * 0.05);
-            var2 += (int)Math.round(player.gP() * 0.4);
+         if (player.getTacticalPosition() == 1) {
+            var2 += (int)Math.round(player.getGoalkeeping() * 0.6);
+            var2 += (int)Math.round(player.getTechnique() * 0.15);
+            var2 += (int)Math.round(player.getSpeed() * 0.15);
+            var2 += (int)Math.round(player.getPassing() * 0.1);
+         } else if (player.getTacticalPosition() >= 3 && player.getTacticalPosition() <= 8) {
+            var2 += (int)Math.round(player.getTackling() * 0.5);
+            var2 += (int)Math.round(player.getTechnique() * 0.1);
+            var2 += (int)Math.round(player.getSpeed() * 0.25);
+            var2 += (int)Math.round(player.getPassing() * 0.1);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.05);
+         } else if (player.getTacticalPosition() == 2 || player.getTacticalPosition() == 9) {
+            var2 += (int)Math.round(player.getTackling() * 0.4);
+            var2 += (int)Math.round(player.getSpeed() * 0.1);
+            var2 += (int)Math.round(player.getTechnique() * 0.1);
+            var2 += (int)Math.round(player.getPassing() * 0.3);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.05);
+            var2 += (int)Math.round(player.getFinishing() * 0.05);
+         } else if (player.getTacticalPosition() >= 11 && player.getTacticalPosition() <= 13) {
+            var2 += (int)Math.round(player.getTackling() * 0.4);
+            var2 += (int)Math.round(player.getSpeed() * 0.15);
+            var2 += (int)Math.round(player.getTechnique() * 0.1);
+            var2 += (int)Math.round(player.getPassing() * 0.2);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.1);
+            var2 += (int)Math.round(player.getFinishing() * 0.05);
+         } else if (player.getTacticalPosition() >= 14 && player.getTacticalPosition() <= 16) {
+            var2 += (int)Math.round(player.getTackling() * 0.05);
+            var2 += (int)Math.round(player.getSpeed() * 0.1);
+            var2 += (int)Math.round(player.getTechnique() * 0.1);
+            var2 += (int)Math.round(player.getPassing() * 0.25);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.4);
+            var2 += (int)Math.round(player.getFinishing() * 0.1);
+         } else if (player.getTacticalPosition() == 10 || player.getTacticalPosition() == 17) {
+            var2 += (int)Math.round(player.getTackling() * 0.05);
+            var2 += (int)Math.round(player.getSpeed() * 0.25);
+            var2 += (int)Math.round(player.getTechnique() * 0.15);
+            var2 += (int)Math.round(player.getPassing() * 0.25);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.2);
+            var2 += (int)Math.round(player.getFinishing() * 0.1);
+         } else if (player.getTacticalPosition() >= 19 && player.getTacticalPosition() <= 24) {
+            var2 += (int)Math.round(player.getSpeed() * 0.25);
+            var2 += (int)Math.round(player.getTechnique() * 0.25);
+            var2 += (int)Math.round(player.getPassing() * 0.05);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.05);
+            var2 += (int)Math.round(player.getFinishing() * 0.4);
+         } else if (player.getTacticalPosition() == 18 || player.getTacticalPosition() == 25) {
+            var2 += (int)Math.round(player.getSpeed() * 0.25);
+            var2 += (int)Math.round(player.getTechnique() * 0.15);
+            var2 += (int)Math.round(player.getPassing() * 0.15);
+            var2 += (int)Math.round(player.getPlaymaking() * 0.05);
+            var2 += (int)Math.round(player.getFinishing() * 0.4);
          }
       }
 
-      if (player.gF()) {
+      if (player.isOutOfPosition()) {
          var2 = (int)Math.round(var2 * 0.5);
       }
 
@@ -749,11 +749,11 @@ public class MatchEngine {
       double var3 = 0.0;
 
       for (int var5 = 0; var5 < var2.size(); var5++) {
-         if (((Player)var2.get(var5)).fT() != 1
+         if (((Player)var2.get(var5)).getTacticalPosition() != 1
             && ((Player)var2.get(var5)).getPosicao() != 0
-            && ((Player)var2.get(var5)).fT() > 0
-            && ((Player)var2.get(var5)).fT() < Tx.length) {
-            var3 += Tx[((Player)var2.get(var5)).fT()][0];
+            && ((Player)var2.get(var5)).getTacticalPosition() > 0
+            && ((Player)var2.get(var5)).getTacticalPosition() < Tx.length) {
+            var3 += Tx[((Player)var2.get(var5)).getTacticalPosition()][0];
             if (((Player)var2.get(var5)).getCr1() == 9 || ((Player)var2.get(var5)).getCr2() == 9) {
                var3 += 4.0;
             } else if (((Player)var2.get(var5)).getCr1() == 5 || ((Player)var2.get(var5)).getCr2() == 5) {
@@ -769,11 +769,11 @@ public class MatchEngine {
       double var7 = 0.0;
 
       for (int var9 = 0; var9 < var2.size(); var9++) {
-         if (((Player)var2.get(var9)).fT() != 1
+         if (((Player)var2.get(var9)).getTacticalPosition() != 1
             && ((Player)var2.get(var9)).getPosicao() != 0
-            && ((Player)var2.get(var9)).fT() > 0
-            && ((Player)var2.get(var9)).fT() < Tx.length) {
-            var7 += Tx[((Player)var2.get(var9)).fT()][0];
+            && ((Player)var2.get(var9)).getTacticalPosition() > 0
+            && ((Player)var2.get(var9)).getTacticalPosition() < Tx.length) {
+            var7 += Tx[((Player)var2.get(var9)).getTacticalPosition()][0];
             if (((Player)var2.get(var9)).getCr1() == 9 || ((Player)var2.get(var9)).getCr2() == 9) {
                var7 += 4.0;
             } else if (((Player)var2.get(var9)).getCr1() == 5 || ((Player)var2.get(var9)).getCr2() == 5) {
@@ -821,8 +821,8 @@ public class MatchEngine {
       double var5 = 0.0;
 
       for (int var7 = 0; var7 < var3.size(); var7++) {
-         if (var3.get(var7) != player && ((Player)var3.get(var7)).fT() > 0 && ((Player)var3.get(var7)).fT() < Ty.length) {
-            var5 += Ty[((Player)var3.get(var7)).fT()][0];
+         if (var3.get(var7) != player && ((Player)var3.get(var7)).getTacticalPosition() > 0 && ((Player)var3.get(var7)).getTacticalPosition() < Ty.length) {
+            var5 += Ty[((Player)var3.get(var7)).getTacticalPosition()][0];
             if (((Player)var3.get(var7)).getCr1() == 11 || ((Player)var3.get(var7)).getCr2() == 11) {
                var5 += 10.0;
                if (((Player)var3.get(var7)).getCr1() == 4 || ((Player)var3.get(var7)).getCr2() == 4) {
@@ -862,8 +862,8 @@ public class MatchEngine {
       double var9 = 0.0;
 
       for (int var11 = 0; var11 < var3.size(); var11++) {
-         if (var3.get(var11) != player && ((Player)var3.get(var11)).fT() > 0 && ((Player)var3.get(var11)).fT() < Ty.length) {
-            var9 += Ty[((Player)var3.get(var11)).fT()][0];
+         if (var3.get(var11) != player && ((Player)var3.get(var11)).getTacticalPosition() > 0 && ((Player)var3.get(var11)).getTacticalPosition() < Ty.length) {
+            var9 += Ty[((Player)var3.get(var11)).getTacticalPosition()][0];
             if (((Player)var3.get(var11)).getCr1() == 11 || ((Player)var3.get(var11)).getCr2() == 11) {
                var9 += 10.0;
                if (((Player)var3.get(var11)).getCr1() == 4 || ((Player)var3.get(var11)).getCr2() == 4) {
@@ -919,8 +919,8 @@ public class MatchEngine {
       double var3 = 0.0;
 
       for (int var5 = 0; var5 < var2.size(); var5++) {
-         if (((Player)var2.get(var5)).fT() >= 0 && ((Player)var2.get(var5)).fT() < Tz.length) {
-            var3 += Tz[((Player)var2.get(var5)).fT()][0];
+         if (((Player)var2.get(var5)).getTacticalPosition() >= 0 && ((Player)var2.get(var5)).getTacticalPosition() < Tz.length) {
+            var3 += Tz[((Player)var2.get(var5)).getTacticalPosition()][0];
          }
       }
 
@@ -928,8 +928,8 @@ public class MatchEngine {
       double var7 = 0.0;
 
       for (int var9 = 0; var9 < var2.size(); var9++) {
-         if (((Player)var2.get(var9)).fT() >= 0 && ((Player)var2.get(var9)).fT() < Tz.length) {
-            var7 += Tz[((Player)var2.get(var9)).fT()][0];
+         if (((Player)var2.get(var9)).getTacticalPosition() >= 0 && ((Player)var2.get(var9)).getTacticalPosition() < Tz.length) {
+            var7 += Tz[((Player)var2.get(var9)).getTacticalPosition()][0];
          }
 
          if (var11 <= var7) {
@@ -1007,7 +1007,7 @@ public class MatchEngine {
          Player var8 = this.selectAssistProvider(player);
          if (var8 != null && var8 != player) {
             var8.gB().gV();
-            if (var8.fg() != null && !var8.fC()) {
+            if (var8.fg() != null && !var8.isYouthPlayer()) {
                var8.a(8, c0667.getClub(), this.match.getCompetition());
             }
 

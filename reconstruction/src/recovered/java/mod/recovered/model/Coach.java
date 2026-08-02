@@ -668,8 +668,8 @@ public class Coach implements Serializable {
          this.T(null);
       }
 
-      if (this.fg() != null && this.fg().kL() != null) {
-         this.fg().kL().V(0);
+      if (this.fg() != null && this.fg().getFinances() != null) {
+         this.fg().getFinances().V(0);
       }
 
       this.fg().h(null);
@@ -692,8 +692,8 @@ public class Coach implements Serializable {
             club.ev().i(club);
          }
 
-         for (int var2 = 0; var2 < club.kc().size(); var2++) {
-            ((Player)club.kc().get(var2)).a(180L, true);
+         for (int var2 = 0; var2 < club.getSeniorPlayers().size(); var2++) {
+            ((Player)club.getSeniorPlayers().get(var2)).a(180L, true);
          }
       }
    }

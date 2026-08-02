@@ -30,8 +30,8 @@ public class C0196 extends JPanel {
       this.mH();
       this.uu.setText(club.getNome());
       this.uu.setIcon(club.kU());
-      if (club.ka() != null) {
-         this.Fs.setText(club.ka().dS());
+      if (club.getCoach() != null) {
+         this.Fs.setText(club.getCoach().dS());
       }
 
       this.Sx.setText(c0713.getNome());

@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 
 final class SemanticMemberSourceMigrationService {
   private static final int GAME_CLASS_COUNT = 1032;
@@ -37,7 +38,7 @@ final class SemanticMemberSourceMigrationService {
     ArchiveData game = new ArchiveService().analyze(context.input("22-23"));
     List<MemberMigration> migrations = pendingMigrations(current, game);
     if (migrations.isEmpty()) {
-      throw new IllegalStateException("No pending semantic static member mappings to apply");
+      throw new IllegalStateException("No pending semantic member mappings to apply");
     }
 
     Path trackedRoot = context.projectDir().resolve("src/recovered/java");
@@ -150,9 +151,20 @@ final class SemanticMemberSourceMigrationService {
             .filter(candidate -> candidate.kind().equals(kind))
             .filter(candidate -> candidate.name().equals(officialName))
             .count() == 1;
-    if (!externalReferences && !privateMember && !globalInstanceReferences) {
+    boolean globalZeroArgumentReferences = !externalReferences
+        && "method".equals(kind)
+        && Type.getArgumentTypes(descriptor).length == 0
+        && game.classes().values().stream()
+            .flatMap(classInfo -> classInfo.members().stream())
+            .filter(candidate -> candidate.kind().equals(kind))
+            .filter(candidate -> candidate.name().equals(officialName))
+            .filter(candidate -> Type.getArgumentTypes(candidate.descriptor()).length == 0)
+            .count() == 1;
+    if (!externalReferences && !privateMember && !globalInstanceReferences
+        && !globalZeroArgumentReferences) {
       throw new IllegalStateException("Automatic source migration requires a static member, "
-          + "a private member, or a globally unique instance method: " + key);
+          + "a private member, a globally unique instance method, or a globally unique "
+          + "zero-argument method: " + key);
     }
     long sameNameMembers = ownerInfo.members().stream()
         .filter(candidate -> candidate.kind().equals(kind))
@@ -164,7 +176,7 @@ final class SemanticMemberSourceMigrationService {
     }
     migrations.add(new MemberMigration(
         owner, ownerNamed, kind, officialName, descriptor, currentName, desiredName,
-        externalReferences, globalInstanceReferences));
+        externalReferences, globalInstanceReferences, globalZeroArgumentReferences));
   }
 
   private String migrateExternalReferences(String source, List<MemberMigration> migrations) {
@@ -176,6 +188,9 @@ final class SemanticMemberSourceMigrationService {
         migrated = replaceIdentifier(migrated, oldReference, newReference);
       } else if (migration.globalInstanceReferences()) {
         migrated = replaceMethodSelection(
+            migrated, migration.currentName(), migration.desiredName());
+      } else if (migration.globalZeroArgumentReferences()) {
+        migrated = replaceZeroArgumentMethodSelection(
             migrated, migration.currentName(), migration.desiredName());
       }
     }
@@ -213,6 +228,12 @@ final class SemanticMemberSourceMigrationService {
       } else if (migration.globalInstanceReferences()) {
         for (Map.Entry<String, String> source : sources.entrySet()) {
           if (containsMethodSelection(source.getValue(), migration.currentName())) {
+            stale.add(source.getKey() + ":." + migration.currentName() + "()");
+          }
+        }
+      } else if (migration.globalZeroArgumentReferences()) {
+        for (Map.Entry<String, String> source : sources.entrySet()) {
+          if (containsZeroArgumentMethodSelection(source.getValue(), migration.currentName())) {
             stale.add(source.getKey() + ":." + migration.currentName() + "()");
           }
         }
@@ -266,6 +287,17 @@ final class SemanticMemberSourceMigrationService {
         .matcher(text).find();
   }
 
+  private String replaceZeroArgumentMethodSelection(
+      String text, String oldName, String newName) {
+    return Pattern.compile("\\." + Pattern.quote(oldName) + "(?=\\s*\\(\\s*\\))")
+        .matcher(text).replaceAll(Matcher.quoteReplacement("." + newName));
+  }
+
+  private boolean containsZeroArgumentMethodSelection(String text, String methodName) {
+    return Pattern.compile("\\." + Pattern.quote(methodName) + "(?=\\s*\\(\\s*\\))")
+        .matcher(text).find();
+  }
+
   private String memberKey(String owner, String kind, String name, String descriptor) {
     return owner + ":" + kind + ":" + name + ":" + descriptor;
   }
@@ -307,7 +339,8 @@ final class SemanticMemberSourceMigrationService {
       String currentName,
       String desiredName,
       boolean externalReferences,
-      boolean globalInstanceReferences) {
+      boolean globalInstanceReferences,
+      boolean globalZeroArgumentReferences) {
     String key() {
       return ownerOfficial + ":" + kind + ":" + officialName + ":" + descriptor;
     }

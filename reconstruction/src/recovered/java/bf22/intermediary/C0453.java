@@ -11,8 +11,8 @@ class C0453 implements Comparator<Player> {
       int var6 = 0;
       var3 = player2.getPosicao();
       var4 = player.getPosicao();
-      var5 = player2.fi();
-      var6 = player.fi();
+      var5 = player2.getOverallStrength();
+      var6 = player.getOverallStrength();
       if (var3 != var4) {
          return var4 - var3;
       } else {

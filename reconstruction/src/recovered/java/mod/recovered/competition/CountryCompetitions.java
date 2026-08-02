@@ -641,8 +641,8 @@ public class CountryCompetitions implements Serializable {
    }
 
    public void z(boolean bl) {
-      this.jo().kc().clear();
-      if ((bl || this.jo().ka() == null) && !this.jo().jZ()) {
+      this.jo().getSeniorPlayers().clear();
+      if ((bl || this.jo().getCoach() == null) && !this.jo().jZ()) {
          Coach var2 = this.ji();
          if (var2 != null) {
             this.g(var2);
@@ -1137,8 +1137,8 @@ public class CountryCompetitions implements Serializable {
    }
 
    public void g(Coach coach) {
-      if (this.jo().ka() != null) {
-         this.jo().ka().z(null);
+      if (this.jo().getCoach() != null) {
+         this.jo().getCoach().z(null);
       }
 
       if (coach.jo() != null) {

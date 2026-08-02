@@ -121,15 +121,15 @@ public class PlayerSearchCriteria {
          return false;
       }
 
-      if (this.mf < 0 || player.fi() >= this.mm && player.fi() <= this.mn) {
+      if (this.mf < 0 || player.getOverallStrength() >= this.mm && player.getOverallStrength() <= this.mn) {
          if (this.mg < 0 || player.getIdade() >= this.mo && player.getIdade() <= this.mp) {
-            if (this.mq < 0 || player.gK() >= this.mr && player.gK() <= this.ms) {
-               if (this.mw < 0 || player.gO() >= this.mx && player.gO() <= this.my) {
-                  if (this.mI < 0 || player.gL() >= this.mJ && player.gL() <= this.mK) {
-                     if (this.mt < 0 || player.gJ() >= this.mu && player.gJ() <= this.mv) {
-                        if (this.mF < 0 || player.gP() >= this.mG && player.gP() <= this.mH) {
-                           if (this.mC < 0 || player.gN() >= this.mD && player.gN() <= this.mE) {
-                              if (this.mz < 0 || player.gM() >= this.mA && player.gM() <= this.mB) {
+            if (this.mq < 0 || player.getGoalkeeping() >= this.mr && player.getGoalkeeping() <= this.ms) {
+               if (this.mw < 0 || player.getPlaymaking() >= this.mx && player.getPlaymaking() <= this.my) {
+                  if (this.mI < 0 || player.getTechnique() >= this.mJ && player.getTechnique() <= this.mK) {
+                     if (this.mt < 0 || player.getSpeed() >= this.mu && player.getSpeed() <= this.mv) {
+                        if (this.mF < 0 || player.getFinishing() >= this.mG && player.getFinishing() <= this.mH) {
+                           if (this.mC < 0 || player.getTackling() >= this.mD && player.getTackling() <= this.mE) {
+                              if (this.mz < 0 || player.getPassing() >= this.mA && player.getPassing() <= this.mB) {
                                  if (this.mh < 0 || player.fk() >= this.mR[this.mh][0] && player.fk() <= this.mR[this.mh][1]) {
                                     if (this.mi >= 0 && player.getCr1() != this.mi) {
                                        return false;

@@ -92,29 +92,29 @@ public class NationalLeague extends Competition implements Serializable {
 
    public void E(Player player) {
       boolean var2 = true;
-      if (player.getPosicao() == 0 && player.fT() != 1) {
+      if (player.getPosicao() == 0 && player.getTacticalPosition() != 1) {
          var2 = false;
-      } else if (player.getPosicao() == 1 && player.getLado() == 0 && player.fT() != 9) {
+      } else if (player.getPosicao() == 1 && player.getLado() == 0 && player.getTacticalPosition() != 9) {
          var2 = false;
-      } else if (player.getPosicao() == 1 && player.getLado() == 1 && player.fT() != 2) {
+      } else if (player.getPosicao() == 1 && player.getLado() == 1 && player.getTacticalPosition() != 2) {
          var2 = false;
       } else if (player.getPosicao() == 2) {
-         if (player.fT() < 3 || player.fT() > 8) {
+         if (player.getTacticalPosition() < 3 || player.getTacticalPosition() > 8) {
             var2 = false;
          }
       } else if (player.getPosicao() == 3) {
-         if (player.fT() < 10 || player.fT() > 17) {
+         if (player.getTacticalPosition() < 10 || player.getTacticalPosition() > 17) {
             var2 = false;
          }
-      } else if (player.getPosicao() == 4 && player.fT() < 18) {
+      } else if (player.getPosicao() == 4 && player.getTacticalPosition() < 18) {
          var2 = false;
       }
 
-      if (player.getPosicao() == 1 && player.getLado() == 0 && player.fT() == 17) {
+      if (player.getPosicao() == 1 && player.getLado() == 0 && player.getTacticalPosition() == 17) {
          var2 = true;
       }
 
-      if (player.getPosicao() == 1 && player.getLado() == 1 && player.fT() == 10) {
+      if (player.getPosicao() == 1 && player.getLado() == 1 && player.getTacticalPosition() == 10) {
          var2 = true;
       }
 
@@ -122,16 +122,16 @@ public class NationalLeague extends Competition implements Serializable {
       if (var2) {
          C0722 var4 = this.D(player);
          var4.a(player.gk());
-         if (var3[player.fT()] == 3 && player.fF() == 0) {
+         if (var3[player.getTacticalPosition()] == 3 && player.fF() == 0) {
             var4.j(6);
-         } else if (var3[player.fT()] == 3 && player.fF() == 1) {
+         } else if (var3[player.getTacticalPosition()] == 3 && player.fF() == 1) {
             var4.j(3);
-         } else if (var3[player.fT()] == 5 && player.getPosicao() == 3) {
+         } else if (var3[player.getTacticalPosition()] == 5 && player.getPosicao() == 3) {
             var4.j(3);
-         } else if (var3[player.fT()] == 1 && player.getPosicao() == 3) {
+         } else if (var3[player.getTacticalPosition()] == 1 && player.getPosicao() == 3) {
             var4.j(3);
          } else {
-            var4.j(var3[player.fT()]);
+            var4.j(var3[player.getTacticalPosition()]);
          }
       }
    }
@@ -215,7 +215,7 @@ public class NationalLeague extends Competition implements Serializable {
       C0691 var2 = new C0691();
       var2.a(player);
       var2.j(player.gk());
-      var2.bi(player.fT());
+      var2.bi(player.getTacticalPosition());
       if (this.ZZ == null) {
          this.ZZ = new ArrayList();
       }

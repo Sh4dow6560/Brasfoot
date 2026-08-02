@@ -233,7 +233,7 @@ public class C0452 extends JPanel {
       } else if (TransferNegotiation.d(this.sE(), this.ul)) {
          if (this.sE().fg() == this.ul) {
             JOptionPane.showMessageDialog(this.ub, "Jogador do time", "Proposta", 2);
-         } else if (this.ul.kc().size() >= 35) {
+         } else if (this.ul.getSeniorPlayers().size() >= 35) {
             JOptionPane.showMessageDialog(this.ub, "Limite de 32 jogadores alcançado", "Limite de jogadores", 2);
          } else if (this.sE() != null) {
             TransferNegotiation.l(false);
@@ -280,7 +280,7 @@ public class C0452 extends JPanel {
 
    private void sB() {
       JDialog var1 = new JDialog(this.ub);
-      C0369 var2 = new C0369(var1, this.uk.ka());
+      C0369 var2 = new C0369(var1, this.uk.getCoach());
       var1.add(var2);
       var1.setSize(880, 663);
       var1.setPreferredSize(new Dimension(880, 663));
@@ -436,7 +436,7 @@ public class C0452 extends JPanel {
             var3 = "Fim contusão: " + ScheduleDay.a(this.yK.fo());
          }
 
-         String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.fi()) + "&nbsp;&nbsp;&nbsp;";
+         String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";
          if (GamePersistence.careerState.isHabilidadeIndividual()) {
             var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;";
          }
@@ -577,7 +577,7 @@ public class C0452 extends JPanel {
 
    private void sH() {
       this.uK.clear();
-      this.uK.addAll(this.uk.kc());
+      this.uK.addAll(this.uk.getSeniorPlayers());
       ((C0586)this.zj.getModel()).fireTableDataChanged();
       Collections.sort(this.uK, KZ);
       if (this.zj.getRowCount() > 0) {
@@ -605,8 +605,8 @@ public class C0452 extends JPanel {
    public void mK() {
       this.uu.setText(this.uk.getNome());
       this.MP.setText(ClubFinances.c(this.ul.kb()));
-      if (this.uk.ka() != null) {
-         this.MS.setText(this.uk.ka().dS());
+      if (this.uk.getCoach() != null) {
+         this.MS.setText(this.uk.getCoach().dS());
       } else {
          this.MS.setText("interino");
       }
@@ -622,18 +622,18 @@ public class C0452 extends JPanel {
          this.MM.setVisible(false);
       }
 
-      this.Hf.setValue(this.uk.ka().lL());
-      this.Ig.setValue(this.uk.ka().lM());
+      this.Hf.setValue(this.uk.getCoach().lL());
+      this.Ig.setValue(this.uk.getCoach().lM());
       long var2 = 0L;
 
-      for (int var4 = 0; var4 < this.uk.kc().size(); var4++) {
-         ((Player)this.uk.kc().get(var4)).a((ImageIcon)null);
-         var2 += ((Player)this.uk.kc().get(var4)).fk();
+      for (int var4 = 0; var4 < this.uk.getSeniorPlayers().size(); var4++) {
+         ((Player)this.uk.getSeniorPlayers().get(var4)).a((ImageIcon)null);
+         var2 += ((Player)this.uk.getSeniorPlayers().get(var4)).fk();
       }
 
       this.MT.setText("Valor do elenco: " + ClubFinances.a(var2, 0));
       this.uK.clear();
-      this.uK.addAll(this.uk.kc());
+      this.uK.addAll(this.uk.getSeniorPlayers());
       ((C0586)this.zj.getModel()).fireTableDataChanged();
       Collections.sort(this.uK, KZ);
    }

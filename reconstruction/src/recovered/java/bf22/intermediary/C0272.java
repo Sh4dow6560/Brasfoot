@@ -170,14 +170,14 @@ public class C0272 extends JPanel {
          this.Hw = this.bv.ic();
       }
 
-      this.zu.ka().jo();
-      if (this.zu.ka().jo() == this.zu) {
+      this.zu.getCoach().jo();
+      if (this.zu.getCoach().jo() == this.zu) {
          this.yp = true;
       }
 
       if (this.yp) {
-         for (int var2 = 0; var2 < this.zu.kc().size(); var2++) {
-            ((Player)this.zu.kc().get(var2)).b((JProgressBar)null);
+         for (int var2 = 0; var2 < this.zu.getSeniorPlayers().size(); var2++) {
+            ((Player)this.zu.getSeniorPlayers().get(var2)).b((JProgressBar)null);
          }
       }
 
@@ -286,18 +286,18 @@ public class C0272 extends JPanel {
 
       int var11 = -1;
       if (!bl) {
-         for (int var4 = 0; var4 < this.zu.kc().size(); var4++) {
-            if (!((Player)this.zu.kc().get(var4)).gl()) {
-               var2.add((Player)this.zu.kc().get(var4));
+         for (int var4 = 0; var4 < this.zu.getSeniorPlayers().size(); var4++) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var4)).gl()) {
+               var2.add((Player)this.zu.getSeniorPlayers().get(var4));
             }
          }
 
          Collections.shuffle(var2);
          var11 = new Random().nextInt(var2.size());
       } else {
-         for (int var13 = 0; var13 < this.zu.kc().size(); var13++) {
-            if (!((Player)this.zu.kc().get(var13)).gl() && ((Player)this.zu.kc().get(var13)).fz()) {
-               var2.add((Player)this.zu.kc().get(var13));
+         for (int var13 = 0; var13 < this.zu.getSeniorPlayers().size(); var13++) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var13)).gl() && ((Player)this.zu.getSeniorPlayers().get(var13)).fz()) {
+               var2.add((Player)this.zu.getSeniorPlayers().get(var13));
             }
          }
 
@@ -335,29 +335,29 @@ public class C0272 extends JPanel {
    }
 
    private void qr() {
-      for (int var1 = 0; var1 < this.zu.kc().size(); var1++) {
-         ((Player)this.zu.kc().get(var1)).aB(((Player)this.zu.kc().get(var1)).fR());
+      for (int var1 = 0; var1 < this.zu.getSeniorPlayers().size(); var1++) {
+         ((Player)this.zu.getSeniorPlayers().get(var1)).aB(((Player)this.zu.getSeniorPlayers().get(var1)).fR());
       }
 
       if (GamePersistence.careerState.isAutoRenovaContrato()) {
-         for (int var2 = 0; var2 < this.zu.kc().size(); var2++) {
-            if (((Player)this.zu.kc().get(var2)).fR() <= 0) {
-               ((Player)this.zu.kc().get(var2)).a(180L, true);
+         for (int var2 = 0; var2 < this.zu.getSeniorPlayers().size(); var2++) {
+            if (((Player)this.zu.getSeniorPlayers().get(var2)).fR() <= 0) {
+               ((Player)this.zu.getSeniorPlayers().get(var2)).a(180L, true);
             }
          }
       }
 
       if (GamePersistence.careerState.getAvisoTerminoContrato() == 1 && !GamePersistence.careerState.isAutoRenovaContrato()) {
-         for (int var4 = 0; var4 < this.zu.kc().size(); var4++) {
-            if (((Player)this.zu.kc().get(var4)).fR() <= 0) {
-               new C0799(this.zu.ka(), 17, 67, ((Player)this.zu.kc().get(var4)).getNome(), "");
+         for (int var4 = 0; var4 < this.zu.getSeniorPlayers().size(); var4++) {
+            if (((Player)this.zu.getSeniorPlayers().get(var4)).fR() <= 0) {
+               new C0799(this.zu.getCoach(), 17, 67, ((Player)this.zu.getSeniorPlayers().get(var4)).getNome(), "");
             }
          }
       } else if (GamePersistence.careerState.getAvisoTerminoContrato() == 2) {
-         for (int var3 = 0; var3 < this.zu.kc().size(); var3++) {
-            if (!((Player)this.zu.kc().get(var3)).gQ() && ((Player)this.zu.kc().get(var3)).fR() < 31) {
-               ((Player)this.zu.kc().get(var3)).r(true);
-               new C0799(this.zu.ka(), 16, 66, ((Player)this.zu.kc().get(var3)).getNome(), "");
+         for (int var3 = 0; var3 < this.zu.getSeniorPlayers().size(); var3++) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var3)).gQ() && ((Player)this.zu.getSeniorPlayers().get(var3)).fR() < 31) {
+               ((Player)this.zu.getSeniorPlayers().get(var3)).r(true);
+               new C0799(this.zu.getCoach(), 16, 66, ((Player)this.zu.getSeniorPlayers().get(var3)).getNome(), "");
             }
          }
       }
@@ -415,22 +415,22 @@ public class C0272 extends JPanel {
             var8 = "Suspenso " + var9;
          }
 
-         String var12 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.fi()) + "&nbsp;&nbsp;&nbsp;";
+         String var12 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";
          if (GamePersistence.careerState.isHabilidadeIndividual()) {
             var12 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\"><b>Goleiro:</b> "
-               + Integer.toString(this.uz.gK())
+               + Integer.toString(this.uz.getGoalkeeping())
                + " <b>Desarme:</b> "
-               + Integer.toString(this.uz.gN())
+               + Integer.toString(this.uz.getTackling())
                + " <b>Passe:</b> "
-               + Integer.toString(this.uz.gM())
+               + Integer.toString(this.uz.getPassing())
                + " <br><br><b>Armação:</b> "
-               + Integer.toString(this.uz.gO())
+               + Integer.toString(this.uz.getPlaymaking())
                + " <b>Finalização:</b> "
-               + Integer.toString(this.uz.gP())
+               + Integer.toString(this.uz.getFinishing())
                + "<br><br><b>Velocidade:</b> "
-               + Integer.toString(this.uz.gJ())
+               + Integer.toString(this.uz.getSpeed())
                + " <b>Técnica:</b> "
-               + Integer.toString(this.uz.gL());
+               + Integer.toString(this.uz.getTechnique());
          }
 
          if (this.yp) {
@@ -549,8 +549,8 @@ public class C0272 extends JPanel {
       this.Eh.setForeground(this.zu.kC());
       this.If.setBorder(BorderFactory.createLineBorder(this.zu.kC()));
       this.If.oJ();
-      this.Hf.setValue(this.zu.ka().lL());
-      this.Ig.setValue(this.zu.ka().lM());
+      this.Hf.setValue(this.zu.getCoach().lL());
+      this.Ig.setValue(this.zu.getCoach().lM());
    }
 
    public void qv() {
@@ -583,10 +583,10 @@ public class C0272 extends JPanel {
       }
 
       this.ug.setText(this.zu.getNome());
-      this.a_.setText(this.zu.ka().dS());
+      this.a_.setText(this.zu.getCoach().dS());
       this.ze.setText("Mensagens");
-      this.Hf.setValue(this.zu.ka().lL());
-      this.Ig.setValue(this.zu.ka().lM());
+      this.Hf.setValue(this.zu.getCoach().lL());
+      this.Ig.setValue(this.zu.getCoach().lM());
       this.Eg.setText(GamePersistence.careerState.getCurrentDateText());
       if (!this.yp) {
          this.Fq.setIcon(this.zu.kP());
@@ -641,9 +641,9 @@ public class C0272 extends JPanel {
    private void qw() {
       int var1 = 0;
       this.ze.setText("");
-      if (this.zu.ka().lQ() != null) {
-         for (int var2 = 0; var2 < this.zu.ka().lQ().size(); var2++) {
-            if (!((C0799)this.zu.ka().lQ().get(var2)).vo()) {
+      if (this.zu.getCoach().lQ() != null) {
+         for (int var2 = 0; var2 < this.zu.getCoach().lQ().size(); var2++) {
+            if (!((C0799)this.zu.getCoach().lQ().get(var2)).vo()) {
                var1++;
             }
          }
@@ -673,7 +673,7 @@ public class C0272 extends JPanel {
             var1 = "F - ";
          }
 
-         GamePersistence.careerState.getSavedGameInfo().setClubName(this.zu.ka().dS());
+         GamePersistence.careerState.getSavedGameInfo().setClubName(this.zu.getCoach().dS());
          GamePersistence.careerState.getSavedGameInfo().setManagerName(this.zu.getNome());
          GamePersistence.careerState.getSavedGameInfo().setSeasonYear(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset());
          GamePersistence.careerState.getSavedGameInfo().setNextMatch(var1 + this.Hv.getNome() + " - " + this.Bj.getText());
@@ -682,9 +682,9 @@ public class C0272 extends JPanel {
 
    public void pK() {
       if (!this.yp) {
-         this.Ef.setText(Integer.toString(this.zu.kc().size()) + "/" + Integer.toString(35));
+         this.Ef.setText(Integer.toString(this.zu.getSeniorPlayers().size()) + "/" + Integer.toString(35));
       } else {
-         this.Ef.setText(Integer.toString(this.zu.kc().size()));
+         this.Ef.setText(Integer.toString(this.zu.getSeniorPlayers().size()));
       }
    }
 
@@ -882,19 +882,19 @@ public class C0272 extends JPanel {
       this.pK();
       this.qx();
       this.qL();
-      Collections.sort(this.zu.kc(), C1007.abe);
+      Collections.sort(this.zu.getSeniorPlayers(), C1007.abe);
    }
 
    private void qK() {
-      for (int var1 = 0; var1 < this.zu.kc().size(); var1++) {
-         ((Player)this.zu.kc().get(var1)).b((JProgressBar)null);
+      for (int var1 = 0; var1 < this.zu.getSeniorPlayers().size(); var1++) {
+         ((Player)this.zu.getSeniorPlayers().get(var1)).b((JProgressBar)null);
       }
    }
 
    private void qL() {
-      for (int var1 = 0; var1 < this.zu.kc().size(); var1++) {
+      for (int var1 = 0; var1 < this.zu.getSeniorPlayers().size(); var1++) {
          if (this.tR != 0) {
-            ((Player)this.zu.kc().get(var1)).ax(((Player)this.zu.kc().get(var1)).d(this.bv.getCompetition()));
+            ((Player)this.zu.getSeniorPlayers().get(var1)).ax(((Player)this.zu.getSeniorPlayers().get(var1)).d(this.bv.getCompetition()));
          }
       }
    }
@@ -915,7 +915,7 @@ public class C0272 extends JPanel {
    }
 
    private void AI() {
-      MainWindow.l(this.zu.ka());
+      MainWindow.l(this.zu.getCoach());
       if (afk) {
          this.Hx = new JPopupMenu();
          this.AL();
@@ -1097,7 +1097,7 @@ public class C0272 extends JPanel {
    private void qT() {
       Club var1 = this.zu;
       if (this.yp) {
-         var1 = this.zu.ka().fg();
+         var1 = this.zu.getCoach().fg();
       }
 
       if (var1 != null) {
@@ -1120,7 +1120,7 @@ public class C0272 extends JPanel {
    private void qU() {
       Club var1 = this.zu;
       if (this.yp) {
-         var1 = this.zu.ka().fg();
+         var1 = this.zu.getCoach().fg();
       }
 
       if (var1 != null) {
@@ -1138,7 +1138,7 @@ public class C0272 extends JPanel {
    }
 
    private void dn(int i) {
-      int var2 = this.zu.kc().size();
+      int var2 = this.zu.getSeniorPlayers().size();
       JDialog var3 = new JDialog(this.Br);
       C0395 var4 = new C0395(var3, this.zu, this.yp, i);
       short var5 = 820;
@@ -1156,7 +1156,7 @@ public class C0272 extends JPanel {
       var3.setLocationRelativeTo(null);
       var3.setUndecorated(true);
       var3.setVisible(true);
-      if (var2 != this.zu.kc().size()) {
+      if (var2 != this.zu.getSeniorPlayers().size()) {
          this.qI();
          this.qJ();
          this.qH();
@@ -1304,7 +1304,7 @@ public class C0272 extends JPanel {
       var2.addActionListener(new C0263(this));
       this.afi.add(var2);
       this.afi.addSeparator();
-      if (this.qp().ka().jo() == null) {
+      if (this.qp().getCoach().jo() == null) {
          var1.setEnabled(false);
          var2.setEnabled(false);
       }
@@ -1316,14 +1316,14 @@ public class C0272 extends JPanel {
       JMenuItem var4 = new JMenuItem("Pedir demissão da seleção");
       var4.addActionListener(new C0319(this));
       this.afi.add(var4);
-      if (this.qp().ka().jo() == null || this.HK) {
+      if (this.qp().getCoach().jo() == null || this.HK) {
          var3.setEnabled(false);
          var4.setEnabled(false);
       }
 
-      if (this.qp().ka().jo() != null) {
+      if (this.qp().getCoach().jo() != null) {
          this.afl.setVisible(true);
-         this.afl.setIcon(this.qp().ka().jo().K(true));
+         this.afl.setIcon(this.qp().getCoach().jo().K(true));
       } else {
          this.afl.setVisible(false);
       }
@@ -1429,7 +1429,7 @@ public class C0272 extends JPanel {
    }
 
    private void rc() {
-      Club var1 = this.zu.ka().jo();
+      Club var1 = this.zu.getCoach().jo();
       if (var1 != null) {
          MainWindow.a(var1, false);
          this.qA();
@@ -1447,10 +1447,10 @@ public class C0272 extends JPanel {
    }
 
    public void G(Club club) {
-      int var2 = this.zu.kc().size();
+      int var2 = this.zu.getSeniorPlayers().size();
       Club var3 = this.zu;
       if (this.yp) {
-         var3 = this.zu.ka().fg();
+         var3 = this.zu.getCoach().fg();
       } else if (club != null) {
          var3 = club;
       }
@@ -1459,7 +1459,7 @@ public class C0272 extends JPanel {
          MainWindow.a(var3, this.zu, this.yp);
       }
 
-      if (var2 != this.zu.kc().size()) {
+      if (var2 != this.zu.getSeniorPlayers().size()) {
          this.qI();
          this.qJ();
          this.qH();
@@ -1469,9 +1469,9 @@ public class C0272 extends JPanel {
    public void ad(boolean bl) {
       Club var2 = null;
       if (!bl) {
-         var2 = this.zu.ka().fg();
+         var2 = this.zu.getCoach().fg();
       } else {
-         var2 = this.zu.ka().jo();
+         var2 = this.zu.getCoach().jo();
       }
 
       if (var2 != null) {
@@ -1489,16 +1489,16 @@ public class C0272 extends JPanel {
    }
 
    public void re() {
-      Club var1 = this.zu.ka().fg();
+      Club var1 = this.zu.getCoach().fg();
       if (var1 != null) {
-         MainWindow.w(this.zu.ka().fg());
+         MainWindow.w(this.zu.getCoach().fg());
       }
 
       this.qx();
    }
 
    public void rf() {
-      Club var1 = this.zu.ka().jo();
+      Club var1 = this.zu.getCoach().jo();
       if (var1 != null) {
          MainWindow.x(var1);
       }
@@ -1615,7 +1615,7 @@ public class C0272 extends JPanel {
 
    public void rm() {
       JDialog var1 = new JDialog(this.Br);
-      C0120 var2 = new C0120(var1, this.zu.ka().lQ(), this.zu);
+      C0120 var2 = new C0120(var1, this.zu.getCoach().lQ(), this.zu);
       var1.add(var2);
       var1.setSize(894, 391);
       var1.setPreferredSize(new Dimension(894, 391));
@@ -1642,7 +1642,7 @@ public class C0272 extends JPanel {
 
    public void ro() {
       JDialog var1 = new JDialog(this.Br);
-      C0369 var2 = new C0369(var1, this.zu.ka());
+      C0369 var2 = new C0369(var1, this.zu.getCoach());
       var1.add(var2);
       var1.setSize(880, 663);
       var1.setPreferredSize(new Dimension(880, 663));
@@ -1679,7 +1679,7 @@ public class C0272 extends JPanel {
          int var1 = -1;
          var1 = JOptionPane.showConfirmDialog(this.Br, "Deseja realmente ser demitido?", "Confirmação", 0);
          if (var1 == 0) {
-            Coach var2 = this.zu.ka();
+            Coach var2 = this.zu.getCoach();
             Coach var3 = this.zu.kE();
             if (var3 == null) {
                JOptionPane.showMessageDialog(
@@ -1699,13 +1699,13 @@ public class C0272 extends JPanel {
       var1 = JOptionPane.showConfirmDialog(this.Br, "Deseja realmente ser demitido da seleção?", "Confirmação", 0);
       if (var1 == 0) {
          int var2 = -1;
-         if (this.zu.ka().jo() != null) {
-            var2 = this.zu.ka().jo().getPais();
+         if (this.zu.getCoach().jo() != null) {
+            var2 = this.zu.getCoach().jo().getPais();
          }
 
          CountryCompetitions var3 = GamePersistence.careerState.s(var2);
          if (var3 != null) {
-            Coach var4 = this.zu.ka();
+            Coach var4 = this.zu.getCoach();
             Coach var5 = var3.ji();
             var3.z(false);
             var4.z(null);
@@ -1759,8 +1759,8 @@ public class C0272 extends JPanel {
    }
 
    private void rx() {
-      if (this.zu.ka() != null) {
-         MainWindow.e(this.zu.ka());
+      if (this.zu.getCoach() != null) {
+         MainWindow.e(this.zu.getCoach());
       }
    }
 

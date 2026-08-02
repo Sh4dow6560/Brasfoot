@@ -12,13 +12,13 @@ class C0570 implements Comparator<Player> {
       if (C0569.vG() == 0) {
          var3 = player.getPosicao();
          var4 = player2.getPosicao();
-         var5 = player.fi();
-         var6 = player2.fi();
+         var5 = player.getOverallStrength();
+         var6 = player2.getOverallStrength();
       } else {
          var3 = player2.getPosicao();
          var4 = player.getPosicao();
-         var5 = player2.fi();
-         var6 = player.fi();
+         var5 = player2.getOverallStrength();
+         var6 = player.getOverallStrength();
       }
 
       if (var3 != var4) {

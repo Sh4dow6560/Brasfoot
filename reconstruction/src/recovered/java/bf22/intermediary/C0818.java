@@ -175,7 +175,7 @@ public class C0818 extends JPanel {
       this.uF.setIcon(var11);
       this.uF.setText(player.getNome());
       this.OT.setText(GameConstants.rH[player.getPosicao()] + " - Lado " + GameConstants.rL[player.getLado()] + " - " + Integer.toString(player.getIdade()) + " anos");
-      this.OM.setText("F:" + Integer.toString(player.fi()));
+      this.OM.setText("F:" + Integer.toString(player.getOverallStrength()));
       if (GamePersistence.careerState.isHabilidadeIndividual()) {
          this.OM.setVisible(false);
       }

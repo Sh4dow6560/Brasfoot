@@ -120,14 +120,14 @@ public abstract class C0677 {
          player.aq(8);
       }
 
-      club.ky().remove(player);
-      club.ky().remove(player);
+      club.getYouthPlayers().remove(player);
+      club.getYouthPlayers().remove(player);
       if (bl) {
          GamePersistence.careerState.bA.remove(player);
       }
 
-      if (!club.kc().contains(player)) {
-         club.kc().add(player);
+      if (!club.getSeniorPlayers().contains(player)) {
+         club.getSeniorPlayers().add(player);
       }
 
       if (!GamePersistence.careerState.O().contains(player)) {

@@ -63,7 +63,8 @@ de placar, `getEvents`, `getScheduleIndex`, `getMatchEngine` e
 `MatchEngine` identifica a partida processada, os dois clubes, o time ativo,
 o atacante selecionado, posses, gols, chutes, avancos e desarmes por setor. A
 API nomeada cobre selecao inicial, alternancia de posse, disputa, avanco,
-finalizacao, escolha de atacante/defensor e registro do evento de gol.
+finalizacao, escolha de atacante/defensor, registro do evento de gol e as
+formulas de forca de meio-campo, ataque, goleiro, atacante e defesa.
 
 ## Transferencias
 
@@ -94,6 +95,12 @@ estaduais, regionais e supercopas.
 | `finance/ClubFinances` | `best/C` | financas do clube |
 | `geo/CountryInfo` | `best/ad` | nome, bandeira e metadados de pais |
 | `ui/MainWindow` | `best/S` | janela principal e navegacao |
+
+`Player` identifica diretamente forca geral, posicao tatica, atleta da base,
+velocidade, habilidade de goleiro, tecnica, passe, desarme, armacao,
+finalizacao e atuacao fora de posicao. `Club` identifica elenco principal e
+da base, titulares, banco, tecnico, financas, esquema e estado da escalacao.
+Um cenario executado no JAR final valida esses acessos e suas identidades.
 
 Os demais nomes semanticos de configuracao, comparadores e utilitarios ficam
 registrados em `reconstruction/config/semantic-names.json`.

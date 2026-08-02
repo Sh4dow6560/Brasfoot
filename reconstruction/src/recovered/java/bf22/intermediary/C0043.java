@@ -159,7 +159,7 @@ public class C0043 extends JPanel {
    }
 
    private void ny() {
-      this.hy.kc().clear();
+      this.hy.getSeniorPlayers().clear();
       ((C0657)this.zk.getModel()).fireTableDataChanged();
       this.nC();
       this.zk.addNotify();
@@ -188,9 +188,9 @@ public class C0043 extends JPanel {
          }
 
          if (var2) {
-            if (!this.hy.kc().contains(this.yK)) {
-               this.hy.kc().add(this.yK);
-               Collections.sort(this.hy.kc(), C1007.abe);
+            if (!this.hy.getSeniorPlayers().contains(this.yK)) {
+               this.hy.getSeniorPlayers().add(this.yK);
+               Collections.sort(this.hy.getSeniorPlayers(), C1007.abe);
                this.uK.remove(this.yK);
                ((C0657)this.zj.getModel()).fireTableDataChanged();
                if (this.zj.getRowCount() > 0) {
@@ -218,7 +218,7 @@ public class C0043 extends JPanel {
       if (this.zk.getSelectedRowCount() > 0) {
          int var1 = this.zk.convertRowIndexToModel(this.zk.getSelectedRow());
          this.yL = ((C0657)this.zk.getModel()).ev(var1);
-         this.hy.kc().remove(this.yL);
+         this.hy.getSeniorPlayers().remove(this.yL);
          this.uK.add(0, this.yL);
          ((C0657)this.zk.getModel()).fireTableDataChanged();
          if (this.zk.getRowCount() > 0) {
@@ -237,8 +237,8 @@ public class C0043 extends JPanel {
    private int[] nC() {
       int[] var1 = new int[2];
 
-      for (int var2 = 0; var2 < this.hy.kc().size(); var2++) {
-         if (((Player)this.hy.kc().get(var2)).getPosicao() == 0) {
+      for (int var2 = 0; var2 < this.hy.getSeniorPlayers().size(); var2++) {
+         if (((Player)this.hy.getSeniorPlayers().get(var2)).getPosicao() == 0) {
             var1[0]++;
          } else {
             var1[1]++;
@@ -297,7 +297,7 @@ public class C0043 extends JPanel {
       int var5 = 0;
 
       for (int var6 = 0; var6 < this.vp.size(); var6++) {
-         if (!this.hy.kc().contains(this.vp.get(var6))) {
+         if (!this.hy.getSeniorPlayers().contains(this.vp.get(var6))) {
             this.uK.add((Player)this.vp.get(var6));
             var5++;
          }
@@ -365,7 +365,7 @@ public class C0043 extends JPanel {
    }
 
    private void nF() {
-      C0657 var1 = new C0657(this.hy.kc(), this, 2);
+      C0657 var1 = new C0657(this.hy.getSeniorPlayers(), this, 2);
       this.zk.setModel(var1);
       int[] var2 = new int[]{25, 120, 120, 20, 20, 45, 25};
       int[] var3 = new int[]{20, 90, 90, 20};

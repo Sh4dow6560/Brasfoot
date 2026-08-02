@@ -330,8 +330,8 @@ public class KnockoutRound implements Serializable {
                var34 = (Match)this.aaj.get(var12);
             }
 
-            this.a(var34, ((Match)this.aai.get(var12)).getHomeClub().ka(), 1);
-            this.a(var34, ((Match)this.aai.get(var12)).getAwayClub().ka(), 2);
+            this.a(var34, ((Match)this.aai.get(var12)).getHomeClub().getCoach(), 1);
+            this.a(var34, ((Match)this.aai.get(var12)).getAwayClub().getCoach(), 2);
             this.V(((Match)this.aai.get(var12)).getHomeClub());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
                GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).getHomeClub().getPais()));
@@ -344,8 +344,8 @@ public class KnockoutRound implements Serializable {
                var35 = (Match)this.aaj.get(var12);
             }
 
-            this.a(var35, ((Match)this.aai.get(var12)).getHomeClub().ka(), 2);
-            this.a(var35, ((Match)this.aai.get(var12)).getAwayClub().ka(), 1);
+            this.a(var35, ((Match)this.aai.get(var12)).getHomeClub().getCoach(), 2);
+            this.a(var35, ((Match)this.aai.get(var12)).getAwayClub().getCoach(), 1);
             this.V(((Match)this.aai.get(var12)).getAwayClub());
             if (this.aae.zf() == 90 || this.aae.zf() == 91 || this.aae.zf() == 92 || this.aae.zf() == 93 || this.aae.zf() == 94 || this.aae.zf() == 95) {
                GamePersistence.careerState.aY().a(this.aae.yT(), GamePersistence.careerState.s(((Match)this.aai.get(var12)).getAwayClub().getPais()));
@@ -448,7 +448,7 @@ public class KnockoutRound implements Serializable {
 
                   new CompetitionSeasonResult(var32, var36, var14, var15);
                   if (GameConstants.fs(var32.b())) {
-                     var14.ka();
+                     var14.getCoach();
                   }
                }
             }
@@ -461,8 +461,8 @@ public class KnockoutRound implements Serializable {
       if (club != null && this.aam > 0 && club.jZ()) {
          club.v(this.aam, 3);
          KnockoutStage var2 = this.zT();
-         if (club.ka() != null && club.ka().jZ() && var2 != null) {
-            new C0799(club.ka(), 26, 79, var2.getNome(), ClubFinances.c(this.aam));
+         if (club.getCoach() != null && club.getCoach().jZ() && var2 != null) {
+            new C0799(club.getCoach(), 26, 79, var2.getNome(), ClubFinances.c(this.aam));
          }
       }
    }

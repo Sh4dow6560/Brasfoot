@@ -728,6 +728,29 @@ c	best/C	bf22/intermediary/C0669	mod/recovered/finance/ClubFinances
 c	best/D	bf22/intermediary/C0670	bf22/intermediary/C0670
 c	best/E	bf22/intermediary/C0671	bf22/intermediary/C0671
 c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
+	f	I	bW	bW	clubId
+	f	I	eA	eA	goalkeeping
+	f	I	eB	eB	speed
+	f	I	eC	eC	technique
+	f	I	eD	eD	passing
+	f	I	eE	eE	tackling
+	f	I	eF	eF	playmaking
+	f	I	eG	eG	finishing
+	f	I	eR	eR	tacticalPosition
+	f	Lbest/ah;	eo	eo	club
+	f	I	eq	eq	overallStrength
+	f	Ljava/lang/Boolean;	fb	fb	youthPlayer
+	m	()Ljava/lang/Boolean;	fC	fC	isYouthPlayer
+	m	()I	fT	fT	getTacticalPosition
+	m	()I	fi	fi	getOverallStrength
+	m	()Z	gF	gF	isOutOfPosition
+	m	()I	gJ	gJ	getSpeed
+	m	()I	gK	gK	getGoalkeeping
+	m	()I	gL	gL	getTechnique
+	m	()I	gM	gM	getPassing
+	m	()I	gN	gN	getTackling
+	m	()I	gO	gO	getPlaymaking
+	m	()I	gP	gP	getFinishing
 c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
 c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
@@ -809,6 +832,26 @@ c	best/ae	bf22/intermediary/C0698	bf22/intermediary/C0698
 c	best/af	bf22/intermediary/C0699	mod/recovered/transfer/PlayerSearchCriteria
 c	best/ag	bf22/intermediary/C0700	mod/recovered/transfer/AiSquadManager
 c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
+	f	Lbest/v;	dH	dH	stadium
+	f	Ljava/lang/Boolean;	mW	mW	userControlled
+	f	Lbest/al;	mZ	mZ	coach
+	f	I	na	na	coachId
+	f	I	nc	nc	reputation
+	f	Ljava/util/ArrayList;	nd	nd	seniorPlayers
+	f	Ljava/util/ArrayList;	ne	ne	youthPlayers
+	f	Ljava/util/ArrayList;	nf	nf	startingLineup
+	f	Ljava/util/ArrayList;	ng	ng	bench
+	f	Z	nv	nv	lineupReady
+	f	Lbest/C;	nx	nx	finances
+	f	Lcomponents/ag;	nz	nz	lineupPreset
+	m	()Lbest/C;	kL	kL	getFinances
+	m	()Lcomponents/ag;	kX	kX	getLineupPreset
+	m	()Ljava/util/ArrayList;	kY	kY	getStartingLineup
+	m	()Ljava/util/ArrayList;	kZ	kZ	getBench
+	m	()Lbest/al;	ka	ka	getCoach
+	m	()Ljava/util/ArrayList;	kc	kc	getSeniorPlayers
+	m	()Z	kf	kf	isLineupReady
+	m	()Ljava/util/ArrayList;	ky	ky	getYouthPlayers
 c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
 	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/aj	bf22/intermediary/C0703	bf22/intermediary/C0703

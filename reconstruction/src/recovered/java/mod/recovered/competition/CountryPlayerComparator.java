@@ -6,8 +6,8 @@ import mod.recovered.model.Player;
 
 class CountryPlayerComparator implements Comparator<Player> {
    public int compare(Player player, Player player2) {
-      int var3 = player.fi();
-      int var4 = player2.fi();
+      int var3 = player.getOverallStrength();
+      int var4 = player2.getOverallStrength();
       byte var5 = 0;
       byte var6 = 0;
       if (player.ff()) {

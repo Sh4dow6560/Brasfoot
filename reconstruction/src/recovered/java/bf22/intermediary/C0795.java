@@ -471,14 +471,14 @@ public class C0795 {
 
          var15 = var15 + " - ";
          if (!GamePersistence.careerState.isHabilidadeIndividual()) {
-            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + "F:" + Integer.toString(player.fi()) + " E:" + Integer.toString(player.fp()));
+            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.fp()));
          } else {
             var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + " E:" + Integer.toString(player.fp()));
          }
       } else if (i == 2) {
          if (!GamePersistence.careerState.isHabilidadeIndividual()) {
             var13 = new StringTokenizer(
-               player.getNome() + " <br> " + "F:" + Integer.toString(player.fi()) + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]
+               player.getNome() + " <br> " + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]
             );
          } else {
             var13 = new StringTokenizer(player.getNome() + " <br> " + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]);

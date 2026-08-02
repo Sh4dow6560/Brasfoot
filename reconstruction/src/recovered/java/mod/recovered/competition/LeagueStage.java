@@ -1354,7 +1354,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public void A(ArrayList arrayList) {
       for (int var2 = 0; var2 < this.yK().size(); var2++) {
-         if (((Club)this.yK().get(var2)).ka() != null && ((Club)this.yK().get(var2)).ka().lL() < 10) {
+         if (((Club)this.yK().get(var2)).getCoach() != null && ((Club)this.yK().get(var2)).getCoach().lL() < 10) {
             if (((Club)this.yK().get(var2)).jZ()) {
                int var3 = 2;
                if (((Club)this.yK().get(var2)).kb() < 0L) {
@@ -1363,12 +1363,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
                   var3 = new Random().nextInt(2) + 2;
                }
 
-               Coach var4 = ((Club)this.yK().get(var2)).ka();
+               Coach var4 = ((Club)this.yK().get(var2)).getCoach();
                Coach var5 = ((Club)this.yK().get(var2)).kE();
                MainWindow.a(var4, var5, (Club)this.yK().get(var2), var3);
                arrayList.add(new C0813((Club)this.yK().get(var2), var4, var5, var3));
             } else if (var2 > 5) {
-               Coach var7 = ((Club)this.yK().get(var2)).ka();
+               Coach var7 = ((Club)this.yK().get(var2)).getCoach();
                Coach var8 = ((Club)this.yK().get(var2)).kE();
                int var9 = new Random().nextInt(3) + 1;
                arrayList.add(new C0813((Club)this.yK().get(var2), var7, var8, var9));

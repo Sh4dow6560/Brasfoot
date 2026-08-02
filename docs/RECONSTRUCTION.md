@@ -42,11 +42,15 @@
   `MatchEngine`, alem das competicoes concretas nacionais e internacionais.
   `ScheduleDay`, `StadiumExpansionProject` e os acessos centrais de temporada,
   data e agenda tambem estao nomeados.
+- `Player` e `Club` agora identificam forca geral, posicao tatica, sete
+  atributos individuais, elencos principal/base, titulares, banco, tecnico,
+  financas e esquema. Esses contratos possuem cenario funcional no JAR final.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
-- `applySemanticMemberMappings` migra membros estaticos, membros privados e
-  metodos de instancia globalmente unicos de forma transacional. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 290 membros
+- `applySemanticMemberMappings` migra membros estaticos, membros privados,
+  metodos de instancia globalmente unicos e metodos sem argumentos sem
+  colisao equivalente de forma transacional. Os lotes ja
+  cobrem a persistencia central, o estado essencial de `Match` e 333 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 

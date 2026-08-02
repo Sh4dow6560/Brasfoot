@@ -9,8 +9,8 @@ class C1031 implements Comparator<Player> {
       int var4 = player2.getPosicao();
       int var5 = player.fF();
       int var6 = player2.fF();
-      int var7 = player.fi();
-      int var8 = player2.fi();
+      int var7 = player.getOverallStrength();
+      int var8 = player2.getOverallStrength();
       byte var9 = 0;
       byte var10 = 0;
       if (player.ff()) {

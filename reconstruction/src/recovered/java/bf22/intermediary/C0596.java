@@ -30,8 +30,8 @@ public class C0596 extends DefaultTableCellRenderer {
                var9 = " (" + var7.tp() + ")";
             }
 
-            if (var7.fb().fT() >= 0) {
-               var8 = GameConstants.rI[GameConstants.sE[var7.fb().fT()][0]];
+            if (var7.fb().getTacticalPosition() >= 0) {
+               var8 = GameConstants.rI[GameConstants.sE[var7.fb().getTacticalPosition()][0]];
             }
 
             this.setText(var8 + " - " + var7.fb().getNome() + var9);

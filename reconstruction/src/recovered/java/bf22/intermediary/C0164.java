@@ -66,8 +66,8 @@ public class C0164 extends JPanel {
    }
 
    private void ov() {
-      for (int var1 = 0; var1 < this.ul.kc().size(); var1++) {
-         ((Player)this.ul.kc().get(var1)).ah(0);
+      for (int var1 = 0; var1 < this.ul.getSeniorPlayers().size(); var1++) {
+         ((Player)this.ul.getSeniorPlayers().get(var1)).ah(0);
       }
 
       this.ox();
@@ -82,28 +82,28 @@ public class C0164 extends JPanel {
    }
 
    private void nz() {
-      for (int var1 = 0; var1 < this.ul.kc().size(); var1++) {
-         ((Player)this.ul.kc().get(var1)).ah(0);
+      for (int var1 = 0; var1 < this.ul.getSeniorPlayers().size(); var1++) {
+         ((Player)this.ul.getSeniorPlayers().get(var1)).ah(0);
       }
 
       int[][] var5 = new int[][]{{1, 12, 22}, {2, 6, 13, 16}, {3, 4, 14, 15}, {7, 10, 19, 20}, {9, 11, 21, 23}, {5, 8, 17, 18}};
       int[] var2 = new int[6];
 
-      for (int var3 = 0; var3 < this.ul.kc().size(); var3++) {
-         int var4 = ((Player)this.ul.kc().get(var3)).getPosicao();
-         if (var4 == 3 && ((Player)this.ul.kc().get(var3)).fF() == 0) {
+      for (int var3 = 0; var3 < this.ul.getSeniorPlayers().size(); var3++) {
+         int var4 = ((Player)this.ul.getSeniorPlayers().get(var3)).getPosicao();
+         if (var4 == 3 && ((Player)this.ul.getSeniorPlayers().get(var3)).fF() == 0) {
             var4 = 5;
          }
 
          if (var2[var4] < var5[var4].length) {
-            ((Player)this.ul.kc().get(var3)).ah(var5[var4][var2[var4]]);
+            ((Player)this.ul.getSeniorPlayers().get(var3)).ah(var5[var4][var2[var4]]);
             var2[var4]++;
          }
       }
 
-      for (int var6 = 0; var6 < this.ul.kc().size(); var6++) {
-         if (((Player)this.ul.kc().get(var6)).fn() <= 0) {
-            ((Player)this.ul.kc().get(var6)).ah(this.oz());
+      for (int var6 = 0; var6 < this.ul.getSeniorPlayers().size(); var6++) {
+         if (((Player)this.ul.getSeniorPlayers().get(var6)).fn() <= 0) {
+            ((Player)this.ul.getSeniorPlayers().get(var6)).ah(this.oz());
          }
       }
 
@@ -135,9 +135,9 @@ public class C0164 extends JPanel {
       ArrayList var1 = new ArrayList();
       int var2 = 1;
 
-      for (int var3 = 0; var3 < this.ul.kc().size(); var3++) {
-         if (((Player)this.ul.kc().get(var3)).fn() > 0) {
-            var1.add(((Player)this.ul.kc().get(var3)).fn());
+      for (int var3 = 0; var3 < this.ul.getSeniorPlayers().size(); var3++) {
+         if (((Player)this.ul.getSeniorPlayers().get(var3)).fn() > 0) {
+            var1.add(((Player)this.ul.getSeniorPlayers().get(var3)).fn());
          }
       }
 
@@ -161,8 +161,8 @@ public class C0164 extends JPanel {
    }
 
    private boolean cY(int i) {
-      for (int var2 = 0; var2 < this.ul.kc().size(); var2++) {
-         if (((Player)this.ul.kc().get(var2)).fn() == i) {
+      for (int var2 = 0; var2 < this.ul.getSeniorPlayers().size(); var2++) {
+         if (((Player)this.ul.getSeniorPlayers().get(var2)).fn() == i) {
             return true;
          }
       }
@@ -177,8 +177,8 @@ public class C0164 extends JPanel {
       this.BV.getSelectionModel().setSelectionMode(1);
       this.BV.addTreeSelectionListener(new C0170(this));
 
-      for (int var1 = 0; var1 < this.ul.kc().size(); var1++) {
-         this.BQ.add((Player)this.ul.kc().get(var1));
+      for (int var1 = 0; var1 < this.ul.getSeniorPlayers().size(); var1++) {
+         this.BQ.add((Player)this.ul.getSeniorPlayers().get(var1));
       }
 
       Collections.sort(this.BQ, C1007.aaR);

@@ -20,7 +20,7 @@ public class C0582 extends AbstractTableModel {
 
    public C0582(Club club, C0272 c0272) {
       this.SN = c0272;
-      this.vp = club.kc();
+      this.vp = club.getSeniorPlayers();
 
       for (int var3 = 0; var3 < this.vp.size(); var3++) {
          ((Player)this.vp.get(var3)).a((ImageIcon)null);
@@ -74,7 +74,7 @@ public class C0582 extends AbstractTableModel {
             }
 
             if (j == 5) {
-               return ((Player)this.vp.get(i)).fi();
+               return ((Player)this.vp.get(i)).getOverallStrength();
             }
 
             if (j == 6) {

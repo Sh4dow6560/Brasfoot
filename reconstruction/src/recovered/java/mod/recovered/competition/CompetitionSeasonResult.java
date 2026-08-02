@@ -28,16 +28,16 @@ public class CompetitionSeasonResult implements Serializable {
          this.bQ = club.lk();
       }
 
-      if (club != null && club.ka() != null) {
-         this.bU = club.ka().lT();
+      if (club != null && club.getCoach() != null) {
+         this.bU = club.getCoach().lT();
       }
 
       if (club2 != null) {
          this.bR = club2.lk();
       }
 
-      if (club2 != null && club2.ka() != null) {
-         this.bV = club2.ka().lT();
+      if (club2 != null && club2.getCoach() != null) {
+         this.bV = club2.getCoach().lT();
       }
 
       int var5 = 0;

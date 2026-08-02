@@ -40,7 +40,7 @@ public class C0630 extends DefaultTableCellRenderer {
             this.setHorizontalAlignment(0);
             this.setText(GameConstants.rK[var7.getLado()]);
          } else if (j == 4) {
-            this.setText(Integer.toString(var7.fi()));
+            this.setText(Integer.toString(var7.getOverallStrength()));
          } else if (j == 5) {
             this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 6) {
@@ -69,19 +69,19 @@ public class C0630 extends DefaultTableCellRenderer {
          }
 
          if (j == 4) {
-            this.setText(Integer.toString(var7.gK()));
+            this.setText(Integer.toString(var7.getGoalkeeping()));
          } else if (j == 5) {
-            this.setText(Integer.toString(var7.gN()));
+            this.setText(Integer.toString(var7.getTackling()));
          } else if (j == 6) {
-            this.setText(Integer.toString(var7.gO()));
+            this.setText(Integer.toString(var7.getPlaymaking()));
          } else if (j == 7) {
-            this.setText(Integer.toString(var7.gP()));
+            this.setText(Integer.toString(var7.getFinishing()));
          } else if (j == 8) {
-            this.setText(Integer.toString(var7.gJ()));
+            this.setText(Integer.toString(var7.getSpeed()));
          } else if (j == 9) {
-            this.setText(Integer.toString(var7.gL()));
+            this.setText(Integer.toString(var7.getTechnique()));
          } else if (j == 10) {
-            this.setText(Integer.toString(var7.gM()));
+            this.setText(Integer.toString(var7.getPassing()));
          } else if (j == 11) {
             this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 12) {

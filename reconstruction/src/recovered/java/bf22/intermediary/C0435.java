@@ -295,11 +295,11 @@ public class C0435 extends JPanel {
       }
 
       if (var1 != null && var1.jZ()) {
-         String var2 = var1.ka().dS();
+         String var2 = var1.getCoach().dS();
          int var3 = -1;
          var3 = JOptionPane.showConfirmDialog(this.Br, var2 + " deseja ser demitido do " + var1.getNome(), "Pedido de demissão", 0);
          if (var3 == 0) {
-            Coach var4 = var1.ka();
+            Coach var4 = var1.getCoach();
             Coach var5 = var1.kE();
             MainWindow.a(var4, var5, var1, 0);
          }

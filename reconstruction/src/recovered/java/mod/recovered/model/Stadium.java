@@ -165,8 +165,8 @@ public class Stadium implements Serializable {
       }
 
       int var34 = 80;
-      if (c0675.getHomeClub().ka() != null) {
-         var34 = c0675.getHomeClub().ka().lM();
+      if (c0675.getHomeClub().getCoach() != null) {
+         var34 = c0675.getHomeClub().getCoach().lM();
       }
 
       double var20 = var34 / 100.0;

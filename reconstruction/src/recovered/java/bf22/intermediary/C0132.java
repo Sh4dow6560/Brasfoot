@@ -149,8 +149,8 @@ public class C0132 extends JPanel {
 
       this.U(this.AX);
       this.lA();
-      if (this.Be.isSelected() && this.zu.kX() != null) {
-         this.a(this.zu.kX(), false);
+      if (this.Be.isSelected() && this.zu.getLineupPreset() != null) {
+         this.a(this.zu.getLineupPreset(), false);
       }
 
       this.X(false);
@@ -310,7 +310,7 @@ public class C0132 extends JPanel {
          }
       } else {
          for (int var4 = 0; var4 < this.AF.size(); var4++) {
-            if (((Player)this.AF.get(var4)).fC() == this.AY && !this.t((Player)this.AF.get(var4))) {
+            if (((Player)this.AF.get(var4)).isYouthPlayer() == this.AY && !this.t((Player)this.AF.get(var4))) {
                ((C0795)this.AE.get(var3)).a((Player)this.AF.get(var4));
                ((C0795)this.AE.get(var3)).h(this.AL);
                var3++;
@@ -324,22 +324,22 @@ public class C0132 extends JPanel {
    public void U(boolean bl) {
       this.AF.clear();
       if (!this.AV) {
-         for (int var2 = 0; var2 < this.zu.kc().size(); var2++) {
-            if (((Player)this.zu.kc().get(var2)).a(this.bv, this.AV)) {
-               this.AF.add((Player)this.zu.kc().get(var2));
+         for (int var2 = 0; var2 < this.zu.getSeniorPlayers().size(); var2++) {
+            if (((Player)this.zu.getSeniorPlayers().get(var2)).a(this.bv, this.AV)) {
+               this.AF.add((Player)this.zu.getSeniorPlayers().get(var2));
             }
          }
       } else {
-         for (int var3 = 0; var3 < this.zu.kc().size(); var3++) {
-            if (((Player)this.zu.kc().get(var3)).a(this.bv, this.AV)) {
-               this.AF.add((Player)this.zu.kc().get(var3));
+         for (int var3 = 0; var3 < this.zu.getSeniorPlayers().size(); var3++) {
+            if (((Player)this.zu.getSeniorPlayers().get(var3)).a(this.bv, this.AV)) {
+               this.AF.add((Player)this.zu.getSeniorPlayers().get(var3));
             }
          }
       }
 
       if (bl) {
-         for (int var4 = 0; var4 < this.zu.ky().size(); var4++) {
-            this.AF.add((Player)this.zu.ky().get(var4));
+         for (int var4 = 0; var4 < this.zu.getYouthPlayers().size(); var4++) {
+            this.AF.add((Player)this.zu.getYouthPlayers().get(var4));
          }
       }
    }
@@ -372,7 +372,7 @@ public class C0132 extends JPanel {
 
    private void W(boolean bl) {
       if (bl) {
-         LineupPreset var2 = this.zu.kX();
+         LineupPreset var2 = this.zu.getLineupPreset();
          if (var2 == null) {
             var2 = new LineupPreset();
             this.zu.a(var2);
@@ -602,7 +602,7 @@ public class C0132 extends JPanel {
    }
 
    public void oi() {
-      this.zu.kY().clear();
+      this.zu.getStartingLineup().clear();
       if (this.AT == 0) {
          this.bv.getHomeStartingLineup().clear();
          this.bv.getHomePlayersOnField().clear();
@@ -617,7 +617,7 @@ public class C0132 extends JPanel {
          if (((C0795)this.AE.get(var1)).x() != null) {
             ((C0795)this.AE.get(var1)).x().as(var1);
             ((C0795)this.AE.get(var1)).x().b(true);
-            this.zu.kY().add(((C0795)this.AE.get(var1)).x());
+            this.zu.getStartingLineup().add(((C0795)this.AE.get(var1)).x());
             if (this.AT == 0) {
                this.bv.getHomeStartingLineup().add(((C0795)this.AE.get(var1)).x());
                this.bv.getHomePlayersOnField().add(((C0795)this.AE.get(var1)).x());
@@ -628,13 +628,13 @@ public class C0132 extends JPanel {
          }
       }
 
-      this.zu.kZ().clear();
+      this.zu.getBench().clear();
 
       for (int var2 = 26; var2 <= 36; var2++) {
          if (((C0795)this.AE.get(var2)).x() != null) {
             ((C0795)this.AE.get(var2)).x().as(var2);
             ((C0795)this.AE.get(var2)).x().b(true);
-            this.zu.kZ().add(((C0795)this.AE.get(var2)).x());
+            this.zu.getBench().add(((C0795)this.AE.get(var2)).x());
             if (this.AT == 0) {
                this.bv.getHomeBench().add(((C0795)this.AE.get(var2)).x());
             } else if (this.AT == 1) {

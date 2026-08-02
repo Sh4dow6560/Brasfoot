@@ -5,8 +5,8 @@ import mod.recovered.model.Player;
 
 class C1004 implements Comparator<Player> {
    public int compare(Player player, Player player2) {
-      int var3 = player.gK();
-      int var4 = player2.gK();
+      int var3 = player.getGoalkeeping();
+      int var4 = player2.getGoalkeeping();
       return var3 != var4 ? var4 - var3 : 0;
    }
 }

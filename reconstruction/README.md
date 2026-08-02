@@ -69,8 +69,9 @@ Ao adicionar nomes de classes em `config/semantic-names.json`, execute
 mapeamentos. O pipeline bloqueia a ordem incorreta para proteger as fontes
 revisadas.
 
-Ao adicionar nomes de membros estaticos, membros privados ou metodos de
-instancia cujo nome seja unico em toda a engine, execute
+Ao adicionar nomes de membros estaticos, membros privados, metodos de
+instancia cujo nome seja unico em toda a engine ou metodos sem argumentos
+unicos entre os demais metodos sem argumentos, execute
 `applySemanticMemberMappings` antes de `generateMappings`. A tarefa atualiza
 as referencias nas 1.032 fontes, valida a migracao e mantem uma copia de
 seguranca transacional em `build/generated`. Membros de instancia ambiguos

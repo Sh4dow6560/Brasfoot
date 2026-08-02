@@ -112,7 +112,7 @@ public class C0238 extends JPanel {
 
    private void pQ() {
       this.Gg.setIcon(this.FV.kU());
-      this.Gg.setText(this.FV.ka().dS() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.c(this.FV.kb()));
+      this.Gg.setText(this.FV.getCoach().dS() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.c(this.FV.kb()));
    }
 
    private void a(C0680 c0680) {
@@ -148,22 +148,22 @@ public class C0238 extends JPanel {
          var5 = "Fim contusão: " + ScheduleDay.a(var2.fo());
       }
 
-      String var6 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(var2.fi()) + "&nbsp;&nbsp;&nbsp;";
+      String var6 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(var2.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";
       if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var6 = "<html>\n<body><p style=\\\"padding:5; font-size:13\\\">\n&nbsp;&nbsp;&nbsp;&nbsp;<b>Gol:</b>"
-            + Integer.toString(var2.gK())
+            + Integer.toString(var2.getGoalkeeping())
             + " <b>Des:</b> "
-            + Integer.toString(var2.gN())
+            + Integer.toString(var2.getTackling())
             + " <b>Arm:</b> "
-            + Integer.toString(var2.gO())
+            + Integer.toString(var2.getPlaymaking())
             + " <b>Fin:</b> "
-            + Integer.toString(var2.gP())
+            + Integer.toString(var2.getFinishing())
             + " <b>Vel:</b> "
-            + Integer.toString(var2.gJ())
+            + Integer.toString(var2.getSpeed())
             + " <b>Téc:</b> "
-            + Integer.toString(var2.gL())
+            + Integer.toString(var2.getTechnique())
             + " <br><br><b>Pas:</b>"
-            + Integer.toString(var2.gM())
+            + Integer.toString(var2.getPassing())
             + "&nbsp;&nbsp;&nbsp;";
       }
 

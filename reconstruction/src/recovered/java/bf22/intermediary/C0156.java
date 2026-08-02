@@ -61,12 +61,12 @@ public class C0156 extends JPanel {
 
       this.Ec.setText(var1 + ClubFinances.c(this.uk.kK()));
       this.DZ.setText("Dinheiro em caixa: " + ClubFinances.c(this.uk.kb()));
-      this.Ea.setText("Valor já emprestado: " + ClubFinances.c(this.uk.kL().eN()));
-      this.Eb.setText("Juros mensais: " + ClubFinances.c(this.uk.kL().eQ()));
+      this.Ea.setText("Valor já emprestado: " + ClubFinances.c(this.uk.getFinances().eN()));
+      this.Eb.setText("Juros mensais: " + ClubFinances.c(this.uk.getFinances().eQ()));
    }
 
    private void pp() {
-      ClubFinances var1 = this.uk.kL();
+      ClubFinances var1 = this.uk.getFinances();
       if (var1 != null) {
          C0815 var2 = new C0815();
          var2.ar(true);
@@ -148,11 +148,11 @@ public class C0156 extends JPanel {
 
    private void df(int i) {
       if (i == 1) {
-         if (!this.uk.kL().m(this.uk)) {
+         if (!this.uk.getFinances().m(this.uk)) {
             this.uh.setText("Empréstimo bancário - limite máximo alcançado");
          }
       } else if (i == -1) {
-         this.uk.kL().l(this.uk);
+         this.uk.getFinances().l(this.uk);
       }
 
       this.po();

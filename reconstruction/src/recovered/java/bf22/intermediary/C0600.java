@@ -92,7 +92,7 @@ public class C0600 extends DefaultTableCellRenderer {
 
       if (!GamePersistence.careerState.isHabilidadeIndividual()) {
          if (j == 5) {
-            this.setText(Integer.toString(var7.fi()));
+            this.setText(Integer.toString(var7.getOverallStrength()));
          } else {
             if (j == 6) {
                return var7.a(C0272.rA());
@@ -148,19 +148,19 @@ public class C0600 extends DefaultTableCellRenderer {
             }
          }
       } else if (j == 5) {
-         this.setText(Integer.toString(var7.gK()));
+         this.setText(Integer.toString(var7.getGoalkeeping()));
       } else if (j == 6) {
-         this.setText(Integer.toString(var7.gN()));
+         this.setText(Integer.toString(var7.getTackling()));
       } else if (j == 7) {
-         this.setText(Integer.toString(var7.gO()));
+         this.setText(Integer.toString(var7.getPlaymaking()));
       } else if (j == 8) {
-         this.setText(Integer.toString(var7.gP()));
+         this.setText(Integer.toString(var7.getFinishing()));
       } else if (j == 9) {
-         this.setText(Integer.toString(var7.gJ()));
+         this.setText(Integer.toString(var7.getSpeed()));
       } else if (j == 10) {
-         this.setText(Integer.toString(var7.gL()));
+         this.setText(Integer.toString(var7.getTechnique()));
       } else if (j == 11) {
-         this.setText(Integer.toString(var7.gM()));
+         this.setText(Integer.toString(var7.getPassing()));
       } else {
          if (j == 12) {
             return var7.a(C0272.rA());
@@ -192,7 +192,7 @@ public class C0600 extends DefaultTableCellRenderer {
          } else if (j == 18) {
             this.setText(Integer.toString(var7.gy()));
          } else if (j == 19) {
-            this.setText(Integer.toString(var7.fi()));
+            this.setText(Integer.toString(var7.getOverallStrength()));
             this.setText(Integer.toString(var7.gs()));
          } else if (j == 20) {
             String var12 = var7.gn();

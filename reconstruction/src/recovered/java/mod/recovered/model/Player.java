@@ -44,10 +44,10 @@ public class Player implements Serializable {
    private int em;
    private int pais;
    private int en;
-   private transient Club eo = null;
-   private int bW = -1;
+   private transient Club club = null;
+   private int clubId = -1;
    private int ep = -1;
-   private int eq;
+   private int overallStrength;
    private int er = 0;
    private int es;
    private int et;
@@ -58,13 +58,13 @@ public class Player implements Serializable {
    private int ex;
    private int ey = 0;
    private int ez = 0;
-   private int eA = 0;
-   private int eB = 0;
-   private int eC = 0;
-   private int eD = 0;
-   private int eE = 0;
-   private int eF = 0;
-   private int eG = 0;
+   private int goalkeeping = 0;
+   private int speed = 0;
+   private int technique = 0;
+   private int passing = 0;
+   private int tackling = 0;
+   private int playmaking = 0;
+   private int finishing = 0;
    private double[] eH = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
    private long eI = 0L;
    private long eJ = 0L;
@@ -75,7 +75,7 @@ public class Player implements Serializable {
    private Boolean eO = false;
    private Boolean eP = false;
    private Boolean eQ = false;
-   private int eR = -1;
+   private int tacticalPosition = -1;
    private ArrayList eS = new ArrayList();
    private ArrayList eT = new ArrayList();
    private ArrayList eU = new ArrayList();
@@ -85,7 +85,7 @@ public class Player implements Serializable {
    private Boolean eY = false;
    private int eZ = 0;
    private int fa = 0;
-   private Boolean fb = false;
+   private Boolean youthPlayer = false;
    private int fc = 0;
    private int fd = 0;
    private double fe = 0.0;
@@ -190,7 +190,7 @@ public class Player implements Serializable {
 
    public void setIdade(int i) {
       int var2 = i;
-      if (this.fb) {
+      if (this.youthPlayer) {
          if (var2 < 16 || var2 > 20) {
             var2 = 18;
          }
@@ -218,37 +218,37 @@ public class Player implements Serializable {
    }
 
    public Club fg() {
-      Club var1 = this.eo;
-      if (var1 == null && this.bW >= 0) {
-         var1 = GamePersistence.careerState.x(this.bW);
-         this.eo = var1;
+      Club var1 = this.club;
+      if (var1 == null && this.clubId >= 0) {
+         var1 = GamePersistence.careerState.x(this.clubId);
+         this.club = var1;
          return var1;
       } else {
-         return this.bW == -1 ? null : var1;
+         return this.clubId == -1 ? null : var1;
       }
    }
 
    public void fh() {
-      if (this.eo != null) {
-         this.bW = this.eo.lk();
+      if (this.club != null) {
+         this.clubId = this.club.lk();
       }
    }
 
    public void n(Club club) {
-      this.eo = club;
+      this.club = club;
       if (club != null) {
-         this.bW = club.lk();
+         this.clubId = club.lk();
       } else {
-         this.bW = -1;
+         this.clubId = -1;
       }
    }
 
-   public int fi() {
-      return this.eq;
+   public int getOverallStrength() {
+      return this.overallStrength;
    }
 
    public void ad(int i) {
-      this.eq = i;
+      this.overallStrength = i;
    }
 
    public int getLado() {
@@ -490,12 +490,12 @@ public class Player implements Serializable {
       this.fa = i;
    }
 
-   public Boolean fC() {
-      return this.fb;
+   public Boolean isYouthPlayer() {
+      return this.youthPlayer;
    }
 
    public void h(Boolean boolean_) {
-      this.fb = boolean_;
+      this.youthPlayer = boolean_;
    }
 
    public int fD() {
@@ -672,7 +672,7 @@ public class Player implements Serializable {
             var4 = var4 + 9 + new Random().nextInt(3);
          }
 
-         if (this.fb) {
+         if (this.youthPlayer) {
             var4 -= 23;
             if (var4 < 5) {
                var4 = 10;
@@ -718,280 +718,280 @@ public class Player implements Serializable {
    public void j(int i, int j) {
       int var3 = Math.round(i / 3);
       if (this.en == 0) {
-         this.eA = this.eq + new Random().nextInt(2);
-         this.eB = i + new Random().nextInt(7);
-         this.eC = i + new Random().nextInt(4);
-         this.eD = i + new Random().nextInt(4);
-         this.eE = j + new Random().nextInt(3);
-         this.eF = j + new Random().nextInt(3);
-         this.eG = j + new Random().nextInt(3);
+         this.goalkeeping = this.overallStrength + new Random().nextInt(2);
+         this.speed = i + new Random().nextInt(7);
+         this.technique = i + new Random().nextInt(4);
+         this.passing = i + new Random().nextInt(4);
+         this.tackling = j + new Random().nextInt(3);
+         this.playmaking = j + new Random().nextInt(3);
+         this.finishing = j + new Random().nextInt(3);
          if (this.ey == 0 || this.ey == 3) {
-            this.eC = this.eC + 2 + new Random().nextInt(5);
+            this.technique = this.technique + 2 + new Random().nextInt(5);
          }
 
          if (this.ez == 0 || this.ez == 3) {
-            this.eC = this.eC + new Random().nextInt(2);
+            this.technique = this.technique + new Random().nextInt(2);
          }
 
          if (this.ey == 2) {
-            this.eB = this.eB + 2 + new Random().nextInt(5);
+            this.speed = this.speed + 2 + new Random().nextInt(5);
          }
 
          if (this.ez == 2) {
-            this.eB = this.eB + new Random().nextInt(2);
+            this.speed = this.speed + new Random().nextInt(2);
          }
 
          if (this.ey == 1) {
-            this.eA = this.eA + 1 + new Random().nextInt(3);
+            this.goalkeeping = this.goalkeeping + 1 + new Random().nextInt(3);
          }
 
          if (this.ez == 1) {
-            this.eA = this.eA + new Random().nextInt(2);
+            this.goalkeeping = this.goalkeeping + new Random().nextInt(2);
          }
       } else if (this.en == 1) {
          if (this.ex == 0) {
-            this.eE = (int)Math.round(this.eq * 0.8) + new Random().nextInt(6);
-            this.eG = j + new Random().nextInt(4);
-            this.eD = i + new Random().nextInt(3);
-            this.eC = i + new Random().nextInt(7);
-            this.eF = j + new Random().nextInt(5);
-            this.eB = i + j + new Random().nextInt(6);
+            this.tackling = (int)Math.round(this.overallStrength * 0.8) + new Random().nextInt(6);
+            this.finishing = j + new Random().nextInt(4);
+            this.passing = i + new Random().nextInt(3);
+            this.technique = i + new Random().nextInt(7);
+            this.playmaking = j + new Random().nextInt(5);
+            this.speed = i + j + new Random().nextInt(6);
          } else {
-            this.eF = (int)Math.round(this.eq * 0.5) + new Random().nextInt(5);
-            this.eG = i + j + new Random().nextInt(4);
-            this.eD = i + var3 + new Random().nextInt(3);
-            this.eC = i + var3 + new Random().nextInt(7);
-            this.eE = i + new Random().nextInt(4);
-            this.eB = i + j + new Random().nextInt(4);
+            this.playmaking = (int)Math.round(this.overallStrength * 0.5) + new Random().nextInt(5);
+            this.finishing = i + j + new Random().nextInt(4);
+            this.passing = i + var3 + new Random().nextInt(3);
+            this.technique = i + var3 + new Random().nextInt(7);
+            this.tackling = i + new Random().nextInt(4);
+            this.speed = i + j + new Random().nextInt(4);
          }
 
-         this.eA = 1 + new Random().nextInt(4);
+         this.goalkeeping = 1 + new Random().nextInt(4);
          if (this.ey == 4 || this.ez == 4) {
-            this.eF = this.eF + j + new Random().nextInt(5);
-            this.eD = this.eD + j + new Random().nextInt(5);
+            this.playmaking = this.playmaking + j + new Random().nextInt(5);
+            this.passing = this.passing + j + new Random().nextInt(5);
          }
 
          if (this.ey == 5 || this.ez == 5) {
-            this.eG = this.eG + 2 + new Random().nextInt(3);
-            this.eE = this.eE + 2 + new Random().nextInt(3);
+            this.finishing = this.finishing + 2 + new Random().nextInt(3);
+            this.tackling = this.tackling + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 6 || this.ez == 6) {
-            this.eD = this.eD + 2 + new Random().nextInt(3);
+            this.passing = this.passing + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 7 || this.ez == 7) {
-            this.eE = this.eE + j + new Random().nextInt(3);
+            this.tackling = this.tackling + j + new Random().nextInt(3);
          }
 
          if (this.ey == 8 || this.ez == 8) {
-            this.eC = this.eC + j + new Random().nextInt(3);
+            this.technique = this.technique + j + new Random().nextInt(3);
          }
 
          if (this.ey == 9 || this.ez == 9) {
-            this.eG = this.eG + j + new Random().nextInt(3);
+            this.finishing = this.finishing + j + new Random().nextInt(3);
          }
 
          if (this.ey == 10 || this.ez == 10) {
-            this.eE = this.eE + j + new Random().nextInt(5);
+            this.tackling = this.tackling + j + new Random().nextInt(5);
          }
 
          if (this.ey == 11 || this.ez == 11) {
-            this.eD = this.eD + j + new Random().nextInt(2);
+            this.passing = this.passing + j + new Random().nextInt(2);
          }
 
          if (this.ey == 12 || this.ez == 12) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 13 || this.ez == 13) {
-            this.eB = this.eB + i + new Random().nextInt(3);
+            this.speed = this.speed + i + new Random().nextInt(3);
          }
       } else if (this.en == 2) {
-         this.eE = (int)Math.round(this.eq * 0.9) + new Random().nextInt(2);
-         this.eA = 1 + new Random().nextInt(7);
-         this.eB = i + j + new Random().nextInt(4);
-         this.eC = i + j + new Random().nextInt(7);
-         this.eD = i + j + new Random().nextInt(3);
-         this.eG = j + new Random().nextInt(6);
-         this.eF = i + new Random().nextInt(5);
+         this.tackling = (int)Math.round(this.overallStrength * 0.9) + new Random().nextInt(2);
+         this.goalkeeping = 1 + new Random().nextInt(7);
+         this.speed = i + j + new Random().nextInt(4);
+         this.technique = i + j + new Random().nextInt(7);
+         this.passing = i + j + new Random().nextInt(3);
+         this.finishing = j + new Random().nextInt(6);
+         this.playmaking = i + new Random().nextInt(5);
          if (this.ey == 4 || this.ez == 4) {
-            this.eF = this.eF + j + new Random().nextInt(5);
-            this.eD = this.eD + j + new Random().nextInt(5);
+            this.playmaking = this.playmaking + j + new Random().nextInt(5);
+            this.passing = this.passing + j + new Random().nextInt(5);
          }
 
          if (this.ey == 5 || this.ez == 5) {
-            this.eG = this.eG + j + new Random().nextInt(6);
+            this.finishing = this.finishing + j + new Random().nextInt(6);
          }
 
          if (this.ey == 6 || this.ez == 6) {
-            this.eD = this.eD + 2 + new Random().nextInt(3);
+            this.passing = this.passing + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 7 || this.ez == 7) {
-            this.eE = this.eE + j + new Random().nextInt(3);
+            this.tackling = this.tackling + j + new Random().nextInt(3);
          }
 
          if (this.ey == 8 || this.ez == 8) {
-            this.eC = this.eC + j + new Random().nextInt(3);
+            this.technique = this.technique + j + new Random().nextInt(3);
          }
 
          if (this.ey == 9 || this.ez == 9) {
-            this.eG = this.eG + 3 + new Random().nextInt(3);
+            this.finishing = this.finishing + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 10 || this.ez == 10) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 11 || this.ez == 11) {
-            this.eD = this.eD + j + new Random().nextInt(2);
+            this.passing = this.passing + j + new Random().nextInt(2);
          }
 
          if (this.ey == 12 || this.ez == 12) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
-            this.eG += 2;
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
+            this.finishing += 2;
          }
 
          if (this.ey == 13 || this.ez == 13) {
-            this.eB = this.eB + i + new Random().nextInt(3);
+            this.speed = this.speed + i + new Random().nextInt(3);
          }
       } else if (this.en == 3) {
          if (this.ex == 0) {
-            this.eE = (int)Math.round(this.eq * 0.7) + new Random().nextInt(6);
-            this.eG = i + new Random().nextInt(4);
-            this.eD = i + new Random().nextInt(3);
-            this.eC = i + new Random().nextInt(7);
-            this.eF = i + new Random().nextInt(5);
-            this.eB = i + j + new Random().nextInt(6);
+            this.tackling = (int)Math.round(this.overallStrength * 0.7) + new Random().nextInt(6);
+            this.finishing = i + new Random().nextInt(4);
+            this.passing = i + new Random().nextInt(3);
+            this.technique = i + new Random().nextInt(7);
+            this.playmaking = i + new Random().nextInt(5);
+            this.speed = i + j + new Random().nextInt(6);
          } else {
-            this.eF = this.eq + new Random().nextInt(2);
-            this.eG = i + var3 + new Random().nextInt(4);
-            this.eD = i + j + new Random().nextInt(3);
-            this.eC = i + var3 + new Random().nextInt(7);
-            this.eE = i + new Random().nextInt(4);
-            this.eB = i + var3 + new Random().nextInt(4);
+            this.playmaking = this.overallStrength + new Random().nextInt(2);
+            this.finishing = i + var3 + new Random().nextInt(4);
+            this.passing = i + j + new Random().nextInt(3);
+            this.technique = i + var3 + new Random().nextInt(7);
+            this.tackling = i + new Random().nextInt(4);
+            this.speed = i + var3 + new Random().nextInt(4);
          }
 
-         this.eA = 1 + new Random().nextInt(4);
+         this.goalkeeping = 1 + new Random().nextInt(4);
          if (this.ey == 4 || this.ez == 4) {
-            this.eF = this.eF + j + new Random().nextInt(5);
-            this.eD = this.eD + j + new Random().nextInt(5);
+            this.playmaking = this.playmaking + j + new Random().nextInt(5);
+            this.passing = this.passing + j + new Random().nextInt(5);
          }
 
          if (this.ey == 5 || this.ez == 5) {
-            this.eG = this.eG + 2 + new Random().nextInt(3);
-            this.eE = this.eE + 2 + new Random().nextInt(3);
+            this.finishing = this.finishing + 2 + new Random().nextInt(3);
+            this.tackling = this.tackling + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 6 || this.ez == 6) {
-            this.eD = this.eD + 2 + new Random().nextInt(3);
+            this.passing = this.passing + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 7 || this.ez == 7) {
-            this.eE = this.eE + j + new Random().nextInt(3);
+            this.tackling = this.tackling + j + new Random().nextInt(3);
          }
 
          if (this.ey == 8 || this.ez == 8) {
-            this.eC = this.eC + j + new Random().nextInt(3);
+            this.technique = this.technique + j + new Random().nextInt(3);
          }
 
          if (this.ey == 9 || this.ez == 9) {
-            this.eG = this.eG + j + new Random().nextInt(3);
+            this.finishing = this.finishing + j + new Random().nextInt(3);
          }
 
          if (this.ey == 10 || this.ez == 10) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 11 || this.ez == 11) {
-            this.eD = this.eD + j + new Random().nextInt(2);
+            this.passing = this.passing + j + new Random().nextInt(2);
          }
 
          if (this.ey == 12 || this.ez == 12) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 13 || this.ez == 13) {
-            this.eB = this.eB + i + new Random().nextInt(3);
+            this.speed = this.speed + i + new Random().nextInt(3);
          }
       } else if (this.en == 4) {
-         this.eG = (int)Math.round(this.eq * 0.8) + new Random().nextInt(2);
-         this.eA = 1 + new Random().nextInt(6);
-         this.eB = i + var3 + new Random().nextInt(4);
-         this.eC = i + var3 + new Random().nextInt(7);
-         this.eD = i + j + new Random().nextInt(3);
-         this.eE = j + new Random().nextInt(6);
-         this.eF = j + i + new Random().nextInt(5);
+         this.finishing = (int)Math.round(this.overallStrength * 0.8) + new Random().nextInt(2);
+         this.goalkeeping = 1 + new Random().nextInt(6);
+         this.speed = i + var3 + new Random().nextInt(4);
+         this.technique = i + var3 + new Random().nextInt(7);
+         this.passing = i + j + new Random().nextInt(3);
+         this.tackling = j + new Random().nextInt(6);
+         this.playmaking = j + i + new Random().nextInt(5);
          if (this.ey == 4 || this.ez == 4) {
-            this.eF = this.eF + i + new Random().nextInt(5);
-            this.eD = this.eD + j + new Random().nextInt(5);
+            this.playmaking = this.playmaking + i + new Random().nextInt(5);
+            this.passing = this.passing + j + new Random().nextInt(5);
          }
 
          if (this.ey == 5 || this.ez == 5) {
-            this.eG = this.eG + 2 + new Random().nextInt(3);
+            this.finishing = this.finishing + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 6 || this.ez == 6) {
-            this.eD = this.eD + 2 + new Random().nextInt(3);
+            this.passing = this.passing + 2 + new Random().nextInt(3);
          }
 
          if (this.ey == 7 || this.ez == 7) {
-            this.eE = this.eE + j + new Random().nextInt(3);
+            this.tackling = this.tackling + j + new Random().nextInt(3);
          }
 
          if (this.ey == 8 || this.ez == 8) {
-            this.eC = this.eC + j + new Random().nextInt(3);
+            this.technique = this.technique + j + new Random().nextInt(3);
          }
 
          if (this.ey == 9 || this.ez == 9) {
-            this.eG = this.eG + 3 + new Random().nextInt(3);
+            this.finishing = this.finishing + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 10 || this.ez == 10) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
          }
 
          if (this.ey == 11 || this.ez == 11) {
-            this.eD = this.eD + i + new Random().nextInt(2);
+            this.passing = this.passing + i + new Random().nextInt(2);
          }
 
          if (this.ey == 12 || this.ez == 12) {
-            this.eE = this.eE + 3 + new Random().nextInt(3);
-            this.eG += 2;
+            this.tackling = this.tackling + 3 + new Random().nextInt(3);
+            this.finishing += 2;
          }
 
          if (this.ey == 13 || this.ez == 13) {
-            this.eB = this.eB + i + new Random().nextInt(3);
+            this.speed = this.speed + i + new Random().nextInt(3);
          }
       }
 
-      if (this.eA > 100) {
-         this.eA = 100;
+      if (this.goalkeeping > 100) {
+         this.goalkeeping = 100;
       }
 
-      if (this.eB > 100) {
-         this.eB = 100;
+      if (this.speed > 100) {
+         this.speed = 100;
       }
 
-      if (this.eC > 100) {
-         this.eC = 100;
+      if (this.technique > 100) {
+         this.technique = 100;
       }
 
-      if (this.eD > 100) {
-         this.eD = 100;
+      if (this.passing > 100) {
+         this.passing = 100;
       }
 
-      if (this.eE > 100) {
-         this.eE = 100;
+      if (this.tackling > 100) {
+         this.tackling = 100;
       }
 
-      if (this.eF > 100) {
-         this.eF = 100;
+      if (this.playmaking > 100) {
+         this.playmaking = 100;
       }
 
-      if (this.eG > 100) {
-         this.eG = 100;
+      if (this.finishing > 100) {
+         this.finishing = 100;
       }
    }
 
@@ -1040,11 +1040,11 @@ public class Player implements Serializable {
       }
 
       var2 = (int)Math.round(0.5 * var2);
-      int var4 = this.eq * 2 * var2;
+      int var4 = this.overallStrength * 2 * var2;
       int var5 = (this.em - 32) * 300;
       int var6 = 0;
       if (this.ek || this.el) {
-         var6 = this.eq * 250;
+         var6 = this.overallStrength * 250;
       }
 
       if (this.em < 32) {
@@ -1061,7 +1061,7 @@ public class Player implements Serializable {
          var1 = (int)Math.round(var1 * 1.4);
       }
 
-      if (this.fC()) {
+      if (this.isYouthPlayer()) {
          var1 = (int)Math.round(var1 * 0.1);
       }
 
@@ -1085,7 +1085,7 @@ public class Player implements Serializable {
          var2 = 10;
       }
 
-      var3 = this.eq * 2;
+      var3 = this.overallStrength * 2;
       var3 *= var3;
       if (var2 >= 21) {
          var4 = 750;
@@ -1150,7 +1150,7 @@ public class Player implements Serializable {
       }
 
       var1 = var3 * var4;
-      if (this.fb) {
+      if (this.youthPlayer) {
          var1 = (int)Math.round(var1 * 0.03) * this.es;
       } else if (this.ff > 0 && GamePersistence.careerState.getSeasonNumber() == this.ff) {
          var1 = (int)Math.round(var1 * 0.18);
@@ -1163,7 +1163,7 @@ public class Player implements Serializable {
          var1 = (int)Math.round(var1 * 0.65);
       }
 
-      if (this.fb && this.es == 10) {
+      if (this.youthPlayer && this.es == 10) {
          var1 = (int)Math.round(var1 * 1.5);
       }
 
@@ -1341,16 +1341,16 @@ public class Player implements Serializable {
       }
    }
 
-   public int fT() {
-      return this.eR;
+   public int getTacticalPosition() {
+      return this.tacticalPosition;
    }
 
    public void as(int i) {
-      this.eR = i;
+      this.tacticalPosition = i;
    }
 
    public int fU() {
-      return Math.round(this.eK / 100 * this.eq);
+      return Math.round(this.eK / 100 * this.overallStrength);
    }
 
    public void fV() {
@@ -1584,13 +1584,13 @@ public class Player implements Serializable {
          var6 += 0.04;
       }
 
-      if (this.eq >= 30 && this.eq <= 40) {
+      if (this.overallStrength >= 30 && this.overallStrength <= 40) {
          var6 -= 0.02;
-      } else if (this.eq >= 41 && this.eq <= 50) {
+      } else if (this.overallStrength >= 41 && this.overallStrength <= 50) {
          var6 -= 0.03;
-      } else if (this.eq >= 51 && this.eq <= 70) {
+      } else if (this.overallStrength >= 51 && this.overallStrength <= 70) {
          var6 -= 0.04;
-      } else if (this.eq >= 71 && this.eq <= 100) {
+      } else if (this.overallStrength >= 71 && this.overallStrength <= 100) {
          var6 -= 0.05;
       }
 
@@ -1759,17 +1759,17 @@ public class Player implements Serializable {
          }
       }
 
-      if (this.eM > 1.0 && this.eq < 100) {
-         if (this.eq < var8) {
-            this.eq++;
+      if (this.eM > 1.0 && this.overallStrength < 100) {
+         if (this.overallStrength < var8) {
+            this.overallStrength++;
             this.eM--;
          } else {
             this.eM = 1.0;
          }
       }
 
-      if (this.eq > 100) {
-         this.eq = 100;
+      if (this.overallStrength > 100) {
+         this.overallStrength = 100;
       }
    }
 
@@ -1794,11 +1794,11 @@ public class Player implements Serializable {
          var9 -= 2.0;
       }
 
-      if (this.eq >= 1 && this.eq <= 50) {
+      if (this.overallStrength >= 1 && this.overallStrength <= 50) {
          var2 = 0.7 * var9;
-      } else if (this.eq >= 51 && this.eq <= 70) {
+      } else if (this.overallStrength >= 51 && this.overallStrength <= 70) {
          var2 = 1.0 * var9;
-      } else if (this.eq >= 71 && this.eq <= 100) {
+      } else if (this.overallStrength >= 71 && this.overallStrength <= 100) {
          var2 = 1.2 * var9;
       }
 
@@ -1818,14 +1818,14 @@ public class Player implements Serializable {
             this.e(var7);
          }
 
-         if (this.eM > 1.0 && this.eq > var11) {
-            this.eq--;
+         if (this.eM > 1.0 && this.overallStrength > var11) {
+            this.overallStrength--;
             this.eM--;
          }
       }
 
-      if (this.eq < 1) {
-         this.eq = 1;
+      if (this.overallStrength < 1) {
+         this.overallStrength = 1;
       }
    }
 
@@ -2014,7 +2014,7 @@ public class Player implements Serializable {
                if (!this.fg().jZ()) {
                   this.a(null, -1, true);
                } else {
-                  new C0799(this.fg().ka(), 34, 89, "", this.getNome());
+                  new C0799(this.fg().getCoach(), 34, 89, "", this.getNome());
                }
             }
          }
@@ -2097,7 +2097,7 @@ public class Player implements Serializable {
          var16 = true;
       }
 
-      var6.kc().remove(this);
+      var6.getSeniorPlayers().remove(this);
       this.gr().clear();
       this.gH().clear();
       if (GamePersistence.careerState.getSeasonNumber() < 2 && this.fh > 0) {
@@ -2183,14 +2183,14 @@ public class Player implements Serializable {
             GamePersistence.careerState.Q().add(var6);
          }
 
-         if (!club.ky().contains(club)) {
-            club.ky().add(var6);
+         if (!club.getYouthPlayers().contains(club)) {
+            club.getYouthPlayers().add(var6);
          }
       } else {
          var6 = player;
       }
 
-      var6.fb = true;
+      var6.youthPlayer = true;
       var6.n(club);
       int var11 = new Random().nextInt(100) + 1;
       byte var8 = 1;
@@ -2605,9 +2605,9 @@ public class Player implements Serializable {
       }
 
       if (this.em >= 35) {
-         this.eq -= 5;
-         if (this.eq < 0) {
-            this.eq = 1;
+         this.overallStrength -= 5;
+         if (this.overallStrength < 0) {
+            this.overallStrength = 1;
          }
       }
 
@@ -2620,21 +2620,21 @@ public class Player implements Serializable {
          var2 += 20;
       }
 
-      if (this.fg() != null && this.fg().ka() != null && this.fg().ka().jZ() && var2 >= 8) {
+      if (this.fg() != null && this.fg().getCoach() != null && this.fg().getCoach().jZ() && var2 >= 8) {
          if (var2 < 15) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(3) + 23, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(3) + 23, this.getNome(), "");
          } else if (var2 < 22) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(2) + 26, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 26, this.getNome(), "");
          } else if (var2 < 29) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(2) + 28, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 28, this.getNome(), "");
          } else if (var2 < 43) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(4) + 30, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 30, this.getNome(), "");
          } else if (var2 < 55) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(2) + 34, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 34, this.getNome(), "");
          } else if (var2 < 70) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(4) + 36, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 36, this.getNome(), "");
          } else if (var2 >= 70) {
-            new C0799(this.fg().ka(), 3, new Random().nextInt(4) + 40, this.getNome(), "");
+            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 40, this.getNome(), "");
          }
       }
 
@@ -2649,7 +2649,7 @@ public class Player implements Serializable {
    }
 
    public boolean a(int i, Competition c0713, Club club) {
-      if (this.fC()) {
+      if (this.isYouthPlayer()) {
          return false;
       }
 
@@ -2674,9 +2674,9 @@ public class Player implements Serializable {
                }
             }
 
-            if (this.fg() != null && this.fg().ka() != null && this.fg().ka().jZ()) {
+            if (this.fg() != null && this.fg().getCoach() != null && this.fg().getCoach().jZ()) {
                if (var6 == 2) {
-                  new C0799(this.fg().ka(), 1, new Random().nextInt(6) + 10, this.getNome(), "");
+                  new C0799(this.fg().getCoach(), 1, new Random().nextInt(6) + 10, this.getNome(), "");
                } else if (var6 > 1) {
                   byte var7 = 1;
                   int var8 = 5;
@@ -2688,7 +2688,7 @@ public class Player implements Serializable {
                      var8 = new Random().nextInt(2) + 0;
                   }
 
-                  new C0799(true, 1, this.fg(), this, this.fg().ka(), var7, var8, this.getNome(), "");
+                  new C0799(true, 1, this.fg(), this, this.fg().getCoach(), var7, var8, this.getNome(), "");
                }
             }
 
@@ -2703,7 +2703,7 @@ public class Player implements Serializable {
    }
 
    public boolean a(Competition c0713, Club club) {
-      if (this.fC()) {
+      if (this.isYouthPlayer()) {
          return false;
       }
 
@@ -2720,7 +2720,7 @@ public class Player implements Serializable {
    }
 
    public void b(Competition c0713, Club club) {
-      if (!this.fC()) {
+      if (!this.isYouthPlayer()) {
          if (c0713 != null) {
             C0674 var3 = this.h(c0713);
             var3.cl();
@@ -2732,7 +2732,7 @@ public class Player implements Serializable {
    }
 
    public void a(Competition c0713, double d) {
-      if (!this.fC() && c0713 != null) {
+      if (!this.isYouthPlayer() && c0713 != null) {
          C0674 var4 = this.h(c0713);
          var4.i(d);
       }
@@ -2824,47 +2824,47 @@ public class Player implements Serializable {
       }
 
       double var21 = 5.5;
-      int var13 = this.eR;
+      int var13 = this.tacticalPosition;
       if (var13 < 1) {
          var13 = var6[this.en];
-         this.eR = var13;
+         this.tacticalPosition = var13;
       }
 
       if (var7 == 0) {
-         if (this.eq <= 30) {
+         if (this.overallStrength <= 30) {
             var21 = 5.5;
-         } else if (this.eq <= 60) {
+         } else if (this.overallStrength <= 60) {
             var21 = 5.8;
-         } else if (this.eq <= 90) {
+         } else if (this.overallStrength <= 90) {
             var21 = 6.2;
          } else {
             var21 = 6.8;
          }
       } else if (var7 == 1) {
-         if (this.eq <= 30) {
+         if (this.overallStrength <= 30) {
             var21 = 6.0;
-         } else if (this.eq <= 60) {
+         } else if (this.overallStrength <= 60) {
             var21 = 6.0;
-         } else if (this.eq <= 90) {
+         } else if (this.overallStrength <= 90) {
             var21 = 6.7;
          } else {
             var21 = 7.2;
          }
       } else if (var7 == 2) {
-         if (this.eq <= 30) {
+         if (this.overallStrength <= 30) {
             var21 = 5.0;
-         } else if (this.eq <= 60) {
+         } else if (this.overallStrength <= 60) {
             var21 = 5.2;
-         } else if (this.eq <= 90) {
+         } else if (this.overallStrength <= 90) {
             var21 = 5.5;
          } else {
             var21 = 6.0;
          }
       }
 
-      if (this.gF()) {
+      if (this.isOutOfPosition()) {
          var21 -= 1.5;
-         if (this.fT() == 1) {
+         if (this.getTacticalPosition() == 1) {
             var21 -= 1.5;
          }
       }
@@ -3113,8 +3113,8 @@ public class Player implements Serializable {
       var5.cq(i);
       this.ag(i);
       GamePersistence.careerState.bo().add(var5);
-      var3.ky().remove(this);
-      club.ky().add(this);
+      var3.getYouthPlayers().remove(this);
+      club.getYouthPlayers().add(this);
       this.fk = null;
    }
 
@@ -3159,7 +3159,7 @@ public class Player implements Serializable {
             }
 
             if (var8 > 0) {
-               var6.kL();
+               var6.getFinances();
             }
 
             if (var6.jZ()) {
@@ -3200,12 +3200,12 @@ public class Player implements Serializable {
          var12.cr(club.lk());
          var12.cq(i);
          GamePersistence.careerState.bo().add(var12);
-         var6.kc().remove(this);
-         if (var6.kc().contains(this)) {
-            var6.kc().remove(this);
+         var6.getSeniorPlayers().remove(this);
+         if (var6.getSeniorPlayers().contains(this)) {
+            var6.getSeniorPlayers().remove(this);
          }
 
-         club.kc().add(this);
+         club.getSeniorPlayers().add(this);
          if (club.jZ() && var6.jZ()) {
             var6.I(false);
          }
@@ -3502,14 +3502,14 @@ public class Player implements Serializable {
       this.ep = i;
    }
 
-   public boolean gF() {
+   public boolean isOutOfPosition() {
       boolean var1 = false;
-      if (this.fT() <= 0) {
+      if (this.getTacticalPosition() <= 0) {
          return true;
       }
 
-      if (this.fT() <= 25 && GameConstants.sE[this.fT()][0] != this.getPosicao()) {
-         if (this.fT() != 10 && this.fT() != 17) {
+      if (this.getTacticalPosition() <= 25 && GameConstants.sE[this.getTacticalPosition()][0] != this.getPosicao()) {
+         if (this.getTacticalPosition() != 10 && this.getTacticalPosition() != 17) {
             var1 = true;
          } else if (this.getPosicao() != 1 || this.getPosicao() == 3) {
             var1 = true;
@@ -3607,131 +3607,131 @@ public class Player implements Serializable {
 
    public int aF(int i) {
       if (i == 0) {
-         return this.gK();
+         return this.getGoalkeeping();
       } else if (i == 1) {
-         return this.gJ();
+         return this.getSpeed();
       } else if (i == 2) {
-         return this.gL();
+         return this.getTechnique();
       } else if (i == 3) {
-         return this.gM();
+         return this.getPassing();
       } else if (i == 4) {
-         return this.gN();
+         return this.getTackling();
       } else {
-         return i == 5 ? this.gO() : this.gP();
+         return i == 5 ? this.getPlaymaking() : this.getFinishing();
       }
    }
 
    public void aG(int i) {
       if (i == 0) {
-         this.eA++;
-         if (this.eA > 100) {
-            this.eA = 100;
+         this.goalkeeping++;
+         if (this.goalkeeping > 100) {
+            this.goalkeeping = 100;
          }
       } else if (i == 1) {
-         this.eB++;
-         if (this.eB > 100) {
-            this.eB = 100;
+         this.speed++;
+         if (this.speed > 100) {
+            this.speed = 100;
          }
       } else if (i == 2) {
-         this.eC++;
-         if (this.eC > 100) {
-            this.eC = 100;
+         this.technique++;
+         if (this.technique > 100) {
+            this.technique = 100;
          }
       } else if (i == 3) {
-         this.eD++;
-         if (this.eD > 100) {
-            this.eD = 100;
+         this.passing++;
+         if (this.passing > 100) {
+            this.passing = 100;
          }
       } else if (i == 4) {
-         this.eE++;
-         if (this.eE > 100) {
-            this.eE = 100;
+         this.tackling++;
+         if (this.tackling > 100) {
+            this.tackling = 100;
          }
       } else if (i == 5) {
-         this.eF++;
-         if (this.eF > 100) {
-            this.eF = 100;
+         this.playmaking++;
+         if (this.playmaking > 100) {
+            this.playmaking = 100;
          }
       } else if (i == 6) {
-         this.eG++;
-         if (this.eG > 100) {
-            this.eG = 100;
+         this.finishing++;
+         if (this.finishing > 100) {
+            this.finishing = 100;
          }
       }
    }
 
    public void aH(int i) {
       if (i == 0) {
-         this.eA--;
+         this.goalkeeping--;
       } else if (i == 1) {
-         this.eB--;
+         this.speed--;
       } else if (i == 2) {
-         this.eC--;
+         this.technique--;
       } else if (i == 3) {
-         this.eD--;
+         this.passing--;
       } else if (i == 4) {
-         this.eE--;
+         this.tackling--;
       } else if (i == 5) {
-         this.eF--;
+         this.playmaking--;
       } else if (i == 6) {
-         this.eG--;
+         this.finishing--;
       }
    }
 
-   public int gJ() {
-      return this.eB;
+   public int getSpeed() {
+      return this.speed;
    }
 
    public void aI(int i) {
-      this.eB = i;
+      this.speed = i;
    }
 
-   public int gK() {
-      return this.eA;
+   public int getGoalkeeping() {
+      return this.goalkeeping;
    }
 
    public void aJ(int i) {
-      this.eA = i;
+      this.goalkeeping = i;
    }
 
-   public int gL() {
-      return this.eC;
+   public int getTechnique() {
+      return this.technique;
    }
 
    public void aK(int i) {
-      this.eC = i;
+      this.technique = i;
    }
 
-   public int gM() {
-      return this.eD;
+   public int getPassing() {
+      return this.passing;
    }
 
    public void aL(int i) {
-      this.eD = i;
+      this.passing = i;
    }
 
-   public int gN() {
-      return this.eE;
+   public int getTackling() {
+      return this.tackling;
    }
 
    public void aM(int i) {
-      this.eE = i;
+      this.tackling = i;
    }
 
-   public int gO() {
-      return this.eF;
+   public int getPlaymaking() {
+      return this.playmaking;
    }
 
    public void aN(int i) {
-      this.eF = i;
+      this.playmaking = i;
    }
 
-   public int gP() {
-      return this.eG;
+   public int getFinishing() {
+      return this.finishing;
    }
 
    public void aO(int i) {
-      this.eG = i;
+      this.finishing = i;
    }
 
    public double F() {

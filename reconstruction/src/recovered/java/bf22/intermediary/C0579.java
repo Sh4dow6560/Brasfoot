@@ -17,7 +17,7 @@ public class C0579 extends AbstractTableModel {
 
    public C0579(Club club, C0231 c0231) {
       this.SM = c0231;
-      this.vp = club.ky();
+      this.vp = club.getYouthPlayers();
       Collections.sort(this.vp, KZ);
       this.Nt = new String[]{"", "P", "Pais", "Nome", "Idade", "L", "Desenvolvimento", "CPE", "Car", "Valor estimado", "Salário"};
 

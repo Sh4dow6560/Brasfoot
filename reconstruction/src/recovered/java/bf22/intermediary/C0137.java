@@ -573,9 +573,9 @@ public class C0137 extends JPanel {
             }
 
             for (int var4 = 0; var4 < var16.size(); var4++) {
-               if (var16.get(var4) != null && ((Player)var16.get(var4)).fT() >= 1 && ((Player)var16.get(var4)).fT() <= 25) {
-                  ((C0795)var3.get(((Player)var16.get(var4)).fT())).a((Player)var16.get(var4));
-                  ((C0795)var3.get(((Player)var16.get(var4)).fT())).h(this.AL);
+               if (var16.get(var4) != null && ((Player)var16.get(var4)).getTacticalPosition() >= 1 && ((Player)var16.get(var4)).getTacticalPosition() <= 25) {
+                  ((C0795)var3.get(((Player)var16.get(var4)).getTacticalPosition())).a((Player)var16.get(var4));
+                  ((C0795)var3.get(((Player)var16.get(var4)).getTacticalPosition())).h(this.AL);
                }
             }
 
@@ -592,16 +592,16 @@ public class C0137 extends JPanel {
          }
       } else {
          for (int var8 = 0; var8 < this.Db.tR().getHomePlayersOnField().size(); var8++) {
-            if (this.Db.tR().getHomePlayersOnField().get(var8) != null && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT() >= 1 && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT() <= 25) {
-               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT())).a((Player)this.Db.tR().getHomePlayersOnField().get(var8));
-               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).fT())).h(this.AL);
+            if (this.Db.tR().getHomePlayersOnField().get(var8) != null && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).getTacticalPosition() >= 1 && ((Player)this.Db.tR().getHomePlayersOnField().get(var8)).getTacticalPosition() <= 25) {
+               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).getTacticalPosition())).a((Player)this.Db.tR().getHomePlayersOnField().get(var8));
+               ((C0795)this.AE.get(((Player)this.Db.tR().getHomePlayersOnField().get(var8)).getTacticalPosition())).h(this.AL);
             }
          }
 
          for (int var9 = 0; var9 < this.Db.tR().getAwayPlayersOnField().size(); var9++) {
-            if (this.Db.tR().getAwayPlayersOnField().get(var9) != null && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT() >= 1 && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT() <= 25) {
-               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT())).a((Player)this.Db.tR().getAwayPlayersOnField().get(var9));
-               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).fT())).h(this.Dd);
+            if (this.Db.tR().getAwayPlayersOnField().get(var9) != null && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).getTacticalPosition() >= 1 && ((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).getTacticalPosition() <= 25) {
+               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).getTacticalPosition())).a((Player)this.Db.tR().getAwayPlayersOnField().get(var9));
+               ((C0795)this.Dc.get(((Player)this.Db.tR().getAwayPlayersOnField().get(var9)).getTacticalPosition())).h(this.Dd);
             }
          }
 
@@ -785,8 +785,8 @@ public class C0137 extends JPanel {
    }
 
    private void pd() {
-      if (this.zu.ka() != null) {
-         this.DD.setText("Tec:" + this.zu.ka().dS());
+      if (this.zu.getCoach() != null) {
+         this.DD.setText("Tec:" + this.zu.getCoach().dS());
       } else {
          this.DD.setText("");
       }

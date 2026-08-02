@@ -49,7 +49,7 @@ public class TransferNegotiation {
          }
 
          boolean var7 = false;
-         if (this.ck.getPais() == 29 && this.U.fi() > 50 && new Random().nextInt(100) > 10) {
+         if (this.ck.getPais() == 29 && this.U.getOverallStrength() > 50 && new Random().nextInt(100) > 10) {
             var7 = true;
          }
 
@@ -82,7 +82,7 @@ public class TransferNegotiation {
          }
 
          boolean var9 = false;
-         if (this.ck.getPais() == 29 && this.U.fi() > 50 && new Random().nextInt(100) > 10) {
+         if (this.ck.getPais() == 29 && this.U.getOverallStrength() > 50 && new Random().nextInt(100) > 10) {
             var9 = true;
          }
 
@@ -169,7 +169,7 @@ public class TransferNegotiation {
    public Club a(boolean bl, boolean bl2) {
       Club var3 = null;
       boolean var4 = true;
-      if (this.U.fi() > 30 && this.ck.jZ() && new Random().nextInt(100) > 60) {
+      if (this.U.getOverallStrength() > 30 && this.ck.jZ() && new Random().nextInt(100) > 60) {
          var4 = false;
       }
 
@@ -235,7 +235,7 @@ public class TransferNegotiation {
          if (!((Club)GamePersistence.careerState.P().get(var3)).kn()
             && GamePersistence.careerState.P().get(var3) != this.U.fg()
             && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
-            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < this.cx
+            && ((Club)GamePersistence.careerState.P().get(var3)).getSeniorPlayers().size() < this.cx
             && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
             var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
@@ -302,7 +302,7 @@ public class TransferNegotiation {
          if (((Club)GamePersistence.careerState.P().get(var3)).getReputacao() >= 4
             && GamePersistence.careerState.P().get(var3) != this.U.fg()
             && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
-            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < this.cx
+            && ((Club)GamePersistence.careerState.P().get(var3)).getSeniorPlayers().size() < this.cx
             && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
             var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
@@ -334,7 +334,7 @@ public class TransferNegotiation {
       for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
          if (GamePersistence.careerState.P().get(var3) != this.U.fg()
             && !((Club)GamePersistence.careerState.P().get(var3)).jZ()
-            && ((Club)GamePersistence.careerState.P().get(var3)).kc().size() < 35
+            && ((Club)GamePersistence.careerState.P().get(var3)).getSeniorPlayers().size() < 35
             && ((Club)GamePersistence.careerState.P().get(var3)).lk() != this.U.fA()) {
             var2.add((Club)GamePersistence.careerState.P().get(var3));
          }
@@ -410,20 +410,20 @@ public class TransferNegotiation {
       if (this.cs == 1) {
          var4 = 1;
          var5 = 2;
-         if (this.ck.gg() == 0 && this.ck.getReputacao() >= 4 && this.U.fi() >= 40) {
+         if (this.ck.gg() == 0 && this.ck.getReputacao() >= 4 && this.U.getOverallStrength() >= 40) {
             var5 = 1;
          }
       }
 
       for (int var7 = 0; var7 < arrayList.size(); var7++) {
-         if (this.U.fi() <= 5) {
+         if (this.U.getOverallStrength() <= 5) {
             var4 = 0;
             var5 = ((CountryCompetitions)arrayList.get(var7)).js();
-         } else if (this.U.fi() <= 20) {
+         } else if (this.U.getOverallStrength() <= 20) {
             var5 = ((CountryCompetitions)arrayList.get(var7)).js();
          }
 
-         if (this.U.fi() <= 20) {
+         if (this.U.getOverallStrength() <= 20) {
             var4 = 0;
          }
 
@@ -435,7 +435,7 @@ public class TransferNegotiation {
                   && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8)).getDivisao() >= var4
                   && ((CountryCompetitions)arrayList.get(var7)).jg().get(var8) != this.ck
                   && !((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8)).jZ()
-                  && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8)).kc().size() < this.cx) {
+                  && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8)).getSeniorPlayers().size() < this.cx) {
                   int[] var9 = ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8)).J(true);
                   var3.add((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var8));
                }
@@ -448,7 +448,7 @@ public class TransferNegotiation {
                   && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11)).getDivisao() >= var4
                   && ((CountryCompetitions)arrayList.get(var7)).jg().get(var11) != this.ck
                   && !((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11)).jZ()
-                  && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11)).kc().size() < this.cx) {
+                  && ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11)).getSeniorPlayers().size() < this.cx) {
                   int[] var13 = ((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11)).J(true);
                   var3.add((Club)((CountryCompetitions)arrayList.get(var7)).jg().get(var11));
                }
@@ -505,7 +505,7 @@ public class TransferNegotiation {
             return 2;
          }
 
-         if (club.kc().size() >= 35) {
+         if (club.getSeniorPlayers().size() >= 35) {
             return 6;
          }
 
@@ -547,7 +547,7 @@ public class TransferNegotiation {
          return 5;
       }
 
-      if (club.kc().size() >= 35) {
+      if (club.getSeniorPlayers().size() >= 35) {
          return 3;
       }
 
@@ -572,7 +572,7 @@ public class TransferNegotiation {
       int[] var8 = new int[]{15, 20, 20, 10, 10, 2};
       int var9 = 0;
       if (var3[player.getPosicao()] >= var4[player.getPosicao()]) {
-         if (player.fi() >= 30 && player.getIdade() <= 35) {
+         if (player.getOverallStrength() >= 30 && player.getIdade() <= 35) {
             int var10 = (int)Math.round(player.fk() * var7[player.getPosicao()]);
             var9 = player.fk() + var10;
          } else {
@@ -677,7 +677,7 @@ public class TransferNegotiation {
 
       for (int var4 = 0; var4 <= 4; var4++) {
          if (var2[var4] < var3[var4]) {
-            int[] var5 = new int[]{player.getPosicao(), player.fi()};
+            int[] var5 = new int[]{player.getPosicao(), player.getOverallStrength()};
             a(club, var5);
          }
       }
@@ -759,7 +759,7 @@ public class TransferNegotiation {
 
       for (int var9 = 0; var9 < arrayList.size(); var9++) {
          var8.clear();
-         var8.addAll(((Club)arrayList.get(var9)).kc());
+         var8.addAll(((Club)arrayList.get(var9)).getSeniorPlayers());
          Collections.shuffle(var8);
          var7 = 0;
 
@@ -770,8 +770,8 @@ public class TransferNegotiation {
 
             if (var5 == null
                && ((Player)var8.get(var10)).getPosicao() == var4
-               && ((Player)var8.get(var10)).fi() >= var2
-               && ((Player)var8.get(var10)).fi() <= var3
+               && ((Player)var8.get(var10)).getOverallStrength() >= var2
+               && ((Player)var8.get(var10)).getOverallStrength() <= var3
                && !((Player)var8.get(var10)).ff()
                && !((Player)var8.get(var10)).gm()) {
                var5 = (Player)var8.get(var10);

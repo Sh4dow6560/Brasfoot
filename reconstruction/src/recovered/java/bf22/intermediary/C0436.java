@@ -9,8 +9,8 @@ class C0436 implements Comparator<C0814> {
       int var4 = 0;
       boolean var5 = false;
       boolean var6 = false;
-      var3 = GameConstants.sE[c0814.fb().fT()][0];
-      var4 = GameConstants.sE[c08142.fb().fT()][0];
+      var3 = GameConstants.sE[c0814.fb().getTacticalPosition()][0];
+      var4 = GameConstants.sE[c08142.fb().getTacticalPosition()][0];
       return var3 != var4 ? var3 - var4 : 0;
    }
 }

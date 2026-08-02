@@ -238,9 +238,9 @@ public class CopaSudamericana extends Competition implements Serializable {
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
          if (((Club)arrayList.get(var3)).jZ()) {
             if (i == 0) {
-               new C0799(((Club)arrayList.get(var3)).ka(), 32, 87, "", "");
+               new C0799(((Club)arrayList.get(var3)).getCoach(), 32, 87, "", "");
             } else {
-               new C0799(((Club)arrayList.get(var3)).ka(), 33, 88, "", "");
+               new C0799(((Club)arrayList.get(var3)).getCoach(), 33, 88, "", "");
             }
          }
       }

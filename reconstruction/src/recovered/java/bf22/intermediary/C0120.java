@@ -79,8 +79,8 @@ public class C0120 extends JPanel {
          var1 = true;
       }
 
-      if (var1 && this.zX != null && this.zY != null && this.zY.ka() != null) {
-         new C0799(this.zY.ka(), 10, new Random().nextInt(4) + 16, this.zX.vs(), "");
+      if (var1 && this.zX != null && this.zY != null && this.zY.getCoach() != null) {
+         new C0799(this.zY.getCoach(), 10, new Random().nextInt(4) + 16, this.zX.vs(), "");
       }
    }
 

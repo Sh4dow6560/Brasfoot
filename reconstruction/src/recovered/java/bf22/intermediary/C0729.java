@@ -138,7 +138,7 @@ public class C0729 implements Serializable {
    }
 
    public void a(Player player, Competition c0713) {
-      if (c0713 != null && player != null && !player.fC()) {
+      if (c0713 != null && player != null && !player.isYouthPlayer()) {
          this.cc++;
          C0674 var3 = player.h(c0713);
          var3.gV();

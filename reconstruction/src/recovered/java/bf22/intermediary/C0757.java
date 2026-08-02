@@ -32,7 +32,7 @@ public class C0757 extends JLayeredPane {
                return "<html>"
                   + ((C0795)C0132.oa().get(var3)).x().getNome()
                   + "(F:"
-                  + Integer.toString(((C0795)C0132.oa().get(var3)).x().fi())
+                  + Integer.toString(((C0795)C0132.oa().get(var3)).x().getOverallStrength())
                   + " E:"
                   + Integer.toString(((C0795)C0132.oa().get(var3)).x().fp())
                   + ")"
@@ -69,19 +69,19 @@ public class C0757 extends JLayeredPane {
                + "/"
                + GameConstants.qN[((C0795)C0132.oa().get(var3)).x().getCr2()]
                + "<br><b>Gol: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gK())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getGoalkeeping())
                + "<br><b>Des: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gN())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getTackling())
                + "<br><b>Arm: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gO())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getPlaymaking())
                + "<br><b>Fin: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gP())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getFinishing())
                + "<br><b>Vel: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gJ())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getSpeed())
                + "<br><b>Tec: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gL())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getTechnique())
                + "<br><b>Pas: "
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().gM())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getPassing())
                + "<br><b>Nota média</b>: "
                + var6
                + "<br>"
@@ -132,19 +132,19 @@ public class C0757 extends JLayeredPane {
                + "/"
                + GameConstants.qN[((C0795)C0132.oa().get(var7)).x().getCr2()]
                + "<br><b>Gol: "
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gK())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getGoalkeeping())
                + "<br><b>Des:"
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gN())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getTackling())
                + "<br><b>Arm:"
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gO())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getPlaymaking())
                + "<br><b>Fin: "
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gP())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getFinishing())
                + "<br><b>Vel:"
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gJ())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getSpeed())
                + "<br><b>Tec:"
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gL())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getTechnique())
                + "<br><b>Pas: "
-               + Integer.toString(((C0795)C0132.oa().get(var7)).x().gM())
+               + Integer.toString(((C0795)C0132.oa().get(var7)).x().getPassing())
                + "<br><b>Nota média</b>: "
                + var9
                + "</html>";

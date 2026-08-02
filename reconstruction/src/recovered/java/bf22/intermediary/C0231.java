@@ -63,7 +63,7 @@ public class C0231 extends JPanel {
          this.FQ.setVisible(false);
          this.FP.setVisible(false);
          this.FO.setVisible(false);
-         if (this.Af.ky().size() >= 20) {
+         if (this.Af.getYouthPlayers().size() >= 20) {
             this.FN.setEnabled(false);
          } else {
             this.FN.setEnabled(true);
@@ -129,9 +129,9 @@ public class C0231 extends JPanel {
 
    public void pK() {
       if (this.FM) {
-         this.uh.setText("Vagas: " + Integer.toString(this.zu.ky().size()) + "/" + Integer.toString(20));
+         this.uh.setText("Vagas: " + Integer.toString(this.zu.getYouthPlayers().size()) + "/" + Integer.toString(20));
       } else {
-         this.uh.setText(Integer.toString(this.zu.ky().size()) + " jogadores");
+         this.uh.setText(Integer.toString(this.zu.getYouthPlayers().size()) + " jogadores");
       }
    }
 
@@ -150,7 +150,7 @@ public class C0231 extends JPanel {
 
       if (this.FR.getSelectedRow() >= 0 && this.FL != null) {
          TransferNegotiation.l(false);
-         if (this.Af.ky().size() < 20) {
+         if (this.Af.getYouthPlayers().size() < 20) {
             JDialog var1 = new JDialog(this.ub);
             C0185 var2 = new C0185(var1, this.FL, this.Af, true);
             var1.add(var2);
@@ -178,7 +178,7 @@ public class C0231 extends JPanel {
          var1 = JOptionPane.showConfirmDialog(this.ub, "Deseja dispensar o junior " + this.FL.getNome() + "?", "Confirmar", 0);
          if (var1 == 0) {
             this.FL.n(null);
-            this.zu.ky().remove(this.FL);
+            this.zu.getYouthPlayers().remove(this.FL);
             GamePersistence.careerState.Q().remove(this.FL);
             ((C0579)this.FR.getModel()).fireTableDataChanged();
             this.FR.addNotify();
@@ -194,7 +194,7 @@ public class C0231 extends JPanel {
    }
 
    public void pN() {
-      if (this.zu.kc().size() >= 35) {
+      if (this.zu.getSeniorPlayers().size() >= 35) {
          JOptionPane.showMessageDialog(this.ub, "Não há vagas no time profissional", "", 2);
       } else if (this.FR.getSelectedRow() >= 0 && this.FL != null) {
          int var1 = -1;

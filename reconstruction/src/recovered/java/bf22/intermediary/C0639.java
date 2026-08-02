@@ -26,9 +26,9 @@ public class C0639 extends DefaultTableCellRenderer {
          this.setText(var7.getNome());
       } else if (j == 2) {
          if (!GamePersistence.careerState.isHabilidadeIndividual()) {
-            this.setText(Integer.toString(var7.fi()));
+            this.setText(Integer.toString(var7.getOverallStrength()));
          } else {
-            this.setText(Integer.toString(var7.gP()));
+            this.setText(Integer.toString(var7.getFinishing()));
          }
       } else {
          if (j == 3) {

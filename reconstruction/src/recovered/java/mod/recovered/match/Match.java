@@ -409,8 +409,8 @@ public class Match implements Serializable {
 
       this.homeClub.e(this);
       this.awayClub.e(this);
-      if (this.homeClub.ka() != null) {
-         this.homeClub.ka().e(this);
+      if (this.homeClub.getCoach() != null) {
+         this.homeClub.getCoach().e(this);
          if (this.competition != null
             && (
                this.competition.b() == 1
@@ -422,12 +422,12 @@ public class Match implements Serializable {
                   || this.competition.b() == 8
                   || this.competition.b() == 10
             )) {
-            this.homeClub.ka().a(this, false, -1);
+            this.homeClub.getCoach().a(this, false, -1);
          }
       }
 
-      if (this.awayClub.ka() != null) {
-         this.awayClub.ka().e(this);
+      if (this.awayClub.getCoach() != null) {
+         this.awayClub.getCoach().e(this);
          if (this.competition != null
             && (
                this.competition.b() == 1
@@ -439,7 +439,7 @@ public class Match implements Serializable {
                   || this.competition.b() == 8
                   || this.competition.b() == 10
             )) {
-            this.awayClub.ka().a(this, false, -1);
+            this.awayClub.getCoach().a(this, false, -1);
          }
       }
    }
@@ -449,7 +449,7 @@ public class Match implements Serializable {
          ((Player)this.homeStartingLineup.get(var1)).b(this.competition, this.getHomeClub());
          ((Player)this.homeStartingLineup.get(var1)).a(this.competition, this, 0, 1, this.getHomeClub());
          if (var1 < this.gl[0].length) {
-            this.gl[0][var1] = ((Player)this.homeStartingLineup.get(var1)).fT();
+            this.gl[0][var1] = ((Player)this.homeStartingLineup.get(var1)).getTacticalPosition();
          }
       }
 
@@ -457,7 +457,7 @@ public class Match implements Serializable {
          ((Player)this.awayStartingLineup.get(var2)).b(this.competition, this.getAwayClub());
          ((Player)this.awayStartingLineup.get(var2)).a(this.competition, this, 1, 0, this.getAwayClub());
          if (var2 < this.gl[1].length) {
-            this.gl[1][var2] = ((Player)this.awayStartingLineup.get(var2)).fT();
+            this.gl[1][var2] = ((Player)this.awayStartingLineup.get(var2)).getTacticalPosition();
          }
       }
 
@@ -485,17 +485,17 @@ public class Match implements Serializable {
    public void hi() {
       Competition var1 = this.competition;
 
-      for (int var2 = 0; var2 < this.homeClub.kc().size(); var2++) {
-         ((Player)this.homeClub.kc().get(var2)).aw(0);
-         if (((Player)this.homeClub.kc().get(var2)).c(var1)) {
-            ((Player)this.homeClub.kc().get(var2)).f(var1);
+      for (int var2 = 0; var2 < this.homeClub.getSeniorPlayers().size(); var2++) {
+         ((Player)this.homeClub.getSeniorPlayers().get(var2)).aw(0);
+         if (((Player)this.homeClub.getSeniorPlayers().get(var2)).c(var1)) {
+            ((Player)this.homeClub.getSeniorPlayers().get(var2)).f(var1);
          }
       }
 
-      for (int var3 = 0; var3 < this.awayClub.kc().size(); var3++) {
-         ((Player)this.awayClub.kc().get(var3)).aw(0);
-         if (((Player)this.awayClub.kc().get(var3)).c(var1)) {
-            ((Player)this.awayClub.kc().get(var3)).f(var1);
+      for (int var3 = 0; var3 < this.awayClub.getSeniorPlayers().size(); var3++) {
+         ((Player)this.awayClub.getSeniorPlayers().get(var3)).aw(0);
+         if (((Player)this.awayClub.getSeniorPlayers().get(var3)).c(var1)) {
+            ((Player)this.awayClub.getSeniorPlayers().get(var3)).f(var1);
          }
       }
    }
@@ -763,7 +763,7 @@ public class Match implements Serializable {
          }
       } else if (var8 != null) {
          var8.remove(player);
-         if (player.fT() <= 13 && !club.jZ() && c0675.fR[var10] > 0) {
+         if (player.getTacticalPosition() <= 13 && !club.jZ() && c0675.fR[var10] > 0) {
             a(var10, true, c0675, player, k, l, false);
          }
       }
@@ -789,7 +789,7 @@ public class Match implements Serializable {
             var9 = a(var8, 14, 17);
          }
 
-         if (var9 == null && player.fT() == 1) {
+         if (var9 == null && player.getTacticalPosition() == 1) {
             var9 = a(var8, 2, 25);
          }
       } else {
@@ -798,22 +798,22 @@ public class Match implements Serializable {
 
       if (var7 != null && var9 != null) {
          Player var10 = null;
-         if (player.fT() >= 0) {
+         if (player.getTacticalPosition() >= 0) {
             boolean var11 = true;
             if (player.getPosicao() == 0) {
                var11 = false;
             }
 
-            var10 = Club.a(var7, player.fT(), false, var11);
+            var10 = Club.a(var7, player.getTacticalPosition(), false, var11);
          }
 
          if (var10 != null) {
             if (bl2) {
                if (var9.getPosicao() == 0 || var10.getPosicao() != 0) {
-                  c0675.a(i, var9, var10, j, k, player.fT());
+                  c0675.a(i, var9, var10, j, k, player.getTacticalPosition());
                }
             } else {
-               c0675.a(i, var9, var10, j, k, player.fT());
+               c0675.a(i, var9, var10, j, k, player.getTacticalPosition());
             }
          }
       }
@@ -840,7 +840,7 @@ public class Match implements Serializable {
          }
 
          if (var8 != null && var9 != null) {
-            player2.as(player.fT());
+            player2.as(player.getTacticalPosition());
             if (l > 0) {
                player2.as(l);
             }
@@ -860,7 +860,7 @@ public class Match implements Serializable {
 
    public void l(int i, int j) {
       for (int var3 = 0; var3 < this.homePlayersOnField.size(); var3++) {
-         if (((Player)this.homePlayersOnField.get(var3)).fT() != 1) {
+         if (((Player)this.homePlayersOnField.get(var3)).getTacticalPosition() != 1) {
             ((Player)this.homePlayersOnField.get(var3)).fq();
          } else if (i == 2) {
             ((Player)this.homePlayersOnField.get(var3)).fq();
@@ -868,7 +868,7 @@ public class Match implements Serializable {
       }
 
       for (int var4 = 0; var4 < this.awayPlayersOnField.size(); var4++) {
-         if (((Player)this.awayPlayersOnField.get(var4)).fT() != 1) {
+         if (((Player)this.awayPlayersOnField.get(var4)).getTacticalPosition() != 1) {
             ((Player)this.awayPlayersOnField.get(var4)).fq();
          } else if (i == 2) {
             ((Player)this.awayPlayersOnField.get(var4)).fq();
@@ -921,7 +921,7 @@ public class Match implements Serializable {
          }
 
          for (int var8 = var7; var8 < arrayList.size(); var8++) {
-            if (((Player)arrayList.get(var8)).fT() != 1 && ((Player)arrayList.get(var8)).fp() < var6) {
+            if (((Player)arrayList.get(var8)).getTacticalPosition() != 1 && ((Player)arrayList.get(var8)).fp() < var6) {
                a(j, false, this, (Player)arrayList.get(var8), k, l, false);
                return true;
             }
@@ -940,7 +940,7 @@ public class Match implements Serializable {
                var10 = var9.nextInt(arrayList.size());
             }
 
-            if (((Player)arrayList.get(var10)).fT() != 1 && !var12.contains(arrayList.get(var10))) {
+            if (((Player)arrayList.get(var10)).getTacticalPosition() != 1 && !var12.contains(arrayList.get(var10))) {
                a(j, false, this, (Player)arrayList.get(var10), k, l, false);
                return true;
             }
@@ -983,7 +983,7 @@ public class Match implements Serializable {
       if (var3 > var4) {
          if (!this.homeClub.jZ() && this.fR[0] > 0) {
             for (int var6 = 0; var6 < this.homePlayersOnField.size(); var6++) {
-               if (((Player)this.homePlayersOnField.get(var6)).fT() != 1) {
+               if (((Player)this.homePlayersOnField.get(var6)).getTacticalPosition() != 1) {
                   if (((Player)this.homePlayersOnField.get(var6)).fp() < 75) {
                      a(0, false, this, (Player)this.homePlayersOnField.get(var6), i, j, false);
                      var5 = true;
@@ -999,7 +999,7 @@ public class Match implements Serializable {
 
          if (!var5 && !this.awayClub.jZ() && this.fR[1] > 0) {
             for (int var8 = 0; var8 < this.awayPlayersOnField.size(); var8++) {
-               if (((Player)this.awayPlayersOnField.get(var8)).fT() != 1) {
+               if (((Player)this.awayPlayersOnField.get(var8)).getTacticalPosition() != 1) {
                   if (((Player)this.awayPlayersOnField.get(var8)).fp() < 75) {
                      a(1, false, this, (Player)this.awayPlayersOnField.get(var8), i, j, false);
                      break;
@@ -1086,7 +1086,7 @@ public class Match implements Serializable {
       ArrayList var3 = new ArrayList();
 
       for (int var4 = 0; var4 < arrayList.size(); var4++) {
-         if (((Player)arrayList.get(var4)).fT() >= i && ((Player)arrayList.get(var4)).fT() <= j) {
+         if (((Player)arrayList.get(var4)).getTacticalPosition() >= i && ((Player)arrayList.get(var4)).getTacticalPosition() <= j) {
             var3.add((Player)arrayList.get(var4));
          }
       }
@@ -1452,13 +1452,13 @@ public class Match implements Serializable {
    public Player aT(int i) {
       if (i == 1) {
          for (int var2 = 0; var2 < this.homePlayersOnField.size(); var2++) {
-            if (((Player)this.homePlayersOnField.get(var2)).fT() == 1) {
+            if (((Player)this.homePlayersOnField.get(var2)).getTacticalPosition() == 1) {
                return (Player)this.homePlayersOnField.get(var2);
             }
          }
       } else if (i == 2) {
          for (int var3 = 0; var3 < this.awayPlayersOnField.size(); var3++) {
-            if (((Player)this.awayPlayersOnField.get(var3)).fT() == 1) {
+            if (((Player)this.awayPlayersOnField.get(var3)).getTacticalPosition() == 1) {
                return (Player)this.awayPlayersOnField.get(var3);
             }
          }

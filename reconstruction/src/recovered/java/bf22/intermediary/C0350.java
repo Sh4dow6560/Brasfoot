@@ -233,7 +233,7 @@ public class C0350 extends JPanel {
                this.Es.fg().kE();
             }
 
-            GamePersistence.careerState.a(this.Em, this.Em.ka(), this.Es);
+            GamePersistence.careerState.a(this.Em, this.Em.getCoach(), this.Es);
             C0272.aQ(true);
             this.ub.dispose();
             GamePersistence.careerState.g(true);
