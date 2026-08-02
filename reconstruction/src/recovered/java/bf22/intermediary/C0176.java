@@ -129,13 +129,13 @@ public class C0176 extends JPanel {
       this.dI.add(5, var7);
       DateFormat var5 = DateFormat.getDateInstance();
       String var6 = var5.format(this.dI.getTime());
-      this.zh.setText("<html> Custo da obra: " + ClubFinances.c(this.Ct) + "<br>Previsão de término: " + var6);
+      this.zh.setText("<html> Custo da obra: " + ClubFinances.formatAmount(this.Ct) + "<br>Previsão de término: " + var6);
       this.Cv.setVisible(true);
       return true;
    }
 
    private void oI() {
-      if (this.zu.kb() < this.Ct) {
+      if (this.zu.getCashBalance() < this.Ct) {
          JOptionPane.showMessageDialog(this.ub, "Sem dinheiro para essa expansão", "Expansão", 2);
       } else {
          StadiumExpansionProject var1 = new StadiumExpansionProject();
@@ -143,7 +143,7 @@ public class C0176 extends JPanel {
          var1.setCompletionDate(this.dI);
          var1.setSeatAdditions(this.Cr);
          GamePersistence.careerState.getStadiumExpansionProjects().add(var1);
-         this.zu.w(this.Ct, 7);
+         this.zu.debit(this.Ct, 7);
          this.ub.dispose();
          this.Cn.oB();
       }

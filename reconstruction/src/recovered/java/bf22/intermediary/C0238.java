@@ -68,7 +68,7 @@ public class C0238 extends JPanel {
       this.index = 0;
 
       for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
-         if (((Club)GamePersistence.careerState.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
+         if (((Club)GamePersistence.careerState.aN().get(var2)).getCashBalance() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
             this.FX.add((Club)GamePersistence.careerState.aN().get(var2));
          }
       }
@@ -99,7 +99,7 @@ public class C0238 extends JPanel {
       this.index = 0;
 
       for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
-         if (((Club)GamePersistence.careerState.aN().get(var2)).kb() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
+         if (((Club)GamePersistence.careerState.aN().get(var2)).getCashBalance() > 0L && ((Club)GamePersistence.careerState.aN().get(var2)).kw() < 35) {
             this.FX.add((Club)GamePersistence.careerState.aN().get(var2));
          }
       }
@@ -112,7 +112,7 @@ public class C0238 extends JPanel {
 
    private void pQ() {
       this.Gg.setIcon(this.FV.kU());
-      this.Gg.setText(this.FV.getCoach().dS() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.c(this.FV.kb()));
+      this.Gg.setText(this.FV.getCoach().dS() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.formatAmount(this.FV.getCashBalance()));
    }
 
    private void a(C0680 c0680) {
@@ -134,7 +134,7 @@ public class C0238 extends JPanel {
 
       Player var2 = c0680.iA();
       this.FW = (int)Math.round(var2.getMarketValue() * 0.5);
-      this.Gi.setText("Lance mínimo: " + ClubFinances.c(this.FW));
+      this.Gi.setText("Lance mínimo: " + ClubFinances.formatAmount(this.FW));
       this.Gk.setText(var2.getClub().getNome() + " está leiloando o jogador:");
       this.Fq.setIcon(c0680.iA().getClub().kP());
       this.Gj.setText(" " + GameConstants.rI[c0680.iA().getPosicao()] + "(" + GameConstants.rK[c0680.iA().getLado()] + ") - " + c0680.iA().getNome());
@@ -183,7 +183,7 @@ public class C0238 extends JPanel {
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(var2.getSalary())
+         + ClubFinances.formatAmount(var2.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>Características :"
          + GameConstants.qM[var2.getCr1()]
@@ -212,8 +212,8 @@ public class C0238 extends JPanel {
    private void oK() {
       String var1 = this.Gf.getText().toString() + "000";
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) >= 0) {
-         this.Gl.setText(ClubFinances.c(Integer.parseInt(var1)));
-         if (Integer.parseInt(var1) > this.FV.kb()) {
+         this.Gl.setText(ClubFinances.formatAmount(Integer.parseInt(var1)));
+         if (Integer.parseInt(var1) > this.FV.getCashBalance()) {
             this.Gl.setText("Sem dinheiro para essa oferta");
          }
       } else {
@@ -238,7 +238,7 @@ public class C0238 extends JPanel {
          int var2 = Integer.parseInt(var1);
          if (this.FV.kw() >= 35) {
             this.Gl.setText("Não há vagas no time");
-         } else if (var2 < this.FV.kb()) {
+         } else if (var2 < this.FV.getCashBalance()) {
             this.dg(var2);
          } else {
             this.Gl.setText("Oferta maior que seu dinheiro em caixa");
@@ -312,7 +312,7 @@ public class C0238 extends JPanel {
       if (club == null) {
          this.yA.setText("não houve compradores");
       } else {
-         this.yA.setText(club.getNome() + " por " + ClubFinances.c(this.FZ));
+         this.yA.setText(club.getNome() + " por " + ClubFinances.formatAmount(this.FZ));
          player.moveToClub(club, this.FZ, false, false, false);
       }
    }

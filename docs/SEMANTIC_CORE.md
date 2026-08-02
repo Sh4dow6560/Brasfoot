@@ -140,5 +140,12 @@ JAR final valida esses acessos e suas identidades.
 entre clubes, inicio e retorno de emprestimo. `PlayerLoan` expoe jogador, clube
 de origem, prazo, vencimento, retorno e controle da notificacao de falha.
 
+`Club` expoe `getCashBalance`, `setCashBalance`, `credit`, `debit`,
+`debitSalaryExpense`, `resetFinancialPeriod`, `payPayroll` e
+`getTotalPayroll`. `ClubFinances` expoe os totais e cada categoria de receita
+e despesa, alem de principal, juros, contratacao e quitacao de emprestimos e
+formatacao dos valores exibidos pela interface. Esses nomes retornam aos
+identificadores oficiais durante a montagem e sao exercitados no JAR final.
+
 Os demais nomes semanticos de configuracao, comparadores e utilitarios ficam
 registrados em `reconstruction/config/semantic-names.json`.

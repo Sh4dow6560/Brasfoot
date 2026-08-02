@@ -50,7 +50,7 @@ public class C0185 extends JPanel {
 
    private void mK() {
       this.uF.setText(this.CY.getNome());
-      this.uG.setText("Valor do passe: " + ClubFinances.c(this.CY.getMarketValue()));
+      this.uG.setText("Valor do passe: " + ClubFinances.formatAmount(this.CY.getMarketValue()));
    }
 
    public static boolean B(String string) {
@@ -67,7 +67,7 @@ public class C0185 extends JPanel {
    private void oK() {
       String var1 = this.uE.getText().toString() + "000";
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) >= 0) {
-         this.uH.setText(ClubFinances.c(Integer.parseInt(var1)));
+         this.uH.setText(ClubFinances.formatAmount(Integer.parseInt(var1)));
       } else {
          this.uH.setText("valor inválido");
       }
@@ -84,7 +84,7 @@ public class C0185 extends JPanel {
       int var2 = -1;
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) > 0) {
          int var3 = Integer.parseInt(var1);
-         if (this.ul.kb() >= var3) {
+         if (this.ul.getCashBalance() >= var3) {
             if (this.CY.getClub().isUserControlled()) {
                int var4 = Integer.parseInt(var1);
                String var5 = this.ul.getNome();
@@ -117,7 +117,7 @@ public class C0185 extends JPanel {
                if (var14 <= 5) {
                   JOptionPane.showMessageDialog(this.ub, var17[var14], "Compra", 2);
                } else if (var14 == 6) {
-                  String var7 = ClubFinances.c(TransferNegotiation.getRequestedSalary());
+                  String var7 = ClubFinances.formatAmount(TransferNegotiation.getRequestedSalary());
                   var2 = JOptionPane.showConfirmDialog(
                      this.ub, "Para jogar no seu time\no jogador quer um salário de:\n" + var7 + "\n" + "Deseja aceitar?", "Deseja aumento de salário", 0
                   );
@@ -133,13 +133,13 @@ public class C0185 extends JPanel {
                   int var10 = 0;
                   if (TransferNegotiation.getRequestedSalary() > 0) {
                      var10 = TransferNegotiation.getRequestedSalary();
-                     var8 = ClubFinances.c(TransferNegotiation.getRequestedSalary());
+                     var8 = ClubFinances.formatAmount(TransferNegotiation.getRequestedSalary());
                      var9 = "E o jogador quer um salário de " + var8 + "\n";
                   }
 
                   var2 = JOptionPane.showConfirmDialog(
                      this.ub,
-                     var18 + " enviou uma contra-proposta\n" + "O clube aceita um valor de " + ClubFinances.c(var16) + "\n" + var9 + "Deseja aceitar?",
+                     var18 + " enviou uma contra-proposta\n" + "O clube aceita um valor de " + ClubFinances.formatAmount(var16) + "\n" + var9 + "Deseja aceitar?",
                      "Contra-proposta",
                      0
                   );

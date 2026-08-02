@@ -429,7 +429,7 @@ public class CareerState implements Serializable {
 
    private void aa() {
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
-         ((Club)GamePersistence.careerState.aN().get(var1)).kI();
+         ((Club)GamePersistence.careerState.aN().get(var1)).resetFinancialPeriod();
       }
 
       if (this.jogaIntClubes) {
@@ -2834,7 +2834,7 @@ public class CareerState implements Serializable {
 
    public boolean cd() {
       for (int var1 = 0; var1 < this.ak.size(); var1++) {
-         if (((Club)this.ak.get(var1)).getCoach() != null && ((Club)this.ak.get(var1)).kb() > 0L && ((Club)this.ak.get(var1)).kw() < 35) {
+         if (((Club)this.ak.get(var1)).getCoach() != null && ((Club)this.ak.get(var1)).getCashBalance() > 0L && ((Club)this.ak.get(var1)).kw() < 35) {
             return true;
          }
       }

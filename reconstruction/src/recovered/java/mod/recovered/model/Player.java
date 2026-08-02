@@ -3102,8 +3102,8 @@ public class Player implements Serializable {
       this.ew = 0;
       this.availableForLoan = false;
       this.transferListed = false;
-      var3.v(i, 1);
-      club.w(i, 1);
+      var3.credit(i, 1);
+      club.debit(i, 1);
       Calendar var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
       PlayerTransferRecord var5 = new PlayerTransferRecord();
       var5.setPlayer(this);
@@ -3163,14 +3163,14 @@ public class Player implements Serializable {
             }
 
             if (var6.isUserControlled()) {
-               var6.v(i, 1);
+               var6.credit(i, 1);
                if (var8 > 0) {
-                  var6.w(var8, 8);
+                  var6.debit(var8, 8);
                }
             }
 
             if (club.isUserControlled()) {
-               club.w(i, 1);
+               club.debit(i, 1);
             }
          }
 

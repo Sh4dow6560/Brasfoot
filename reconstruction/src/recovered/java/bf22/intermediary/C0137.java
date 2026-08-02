@@ -742,10 +742,10 @@ public class C0137 extends JPanel {
          this.Cg.setText(this.Db.tR().getStadium().dS());
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
          this.Dy.setToolTipText(this.Db.tR().hV());
-         this.Dz.setText(ClubFinances.a(this.Db.tR().hN(), 0));
+         this.Dz.setText(ClubFinances.formatCompactAmount(this.Db.tR().hN(), 0));
       } else if (this.Db.tR().il() != null) {
          this.Cg.setText(this.Db.tR().il().dS());
-         this.Dz.setText(ClubFinances.a(this.Db.tR().hN(), 0));
+         this.Dz.setText(ClubFinances.formatCompactAmount(this.Db.tR().hN(), 0));
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
          this.Dy.setToolTipText(this.Db.tR().hV());
       } else {

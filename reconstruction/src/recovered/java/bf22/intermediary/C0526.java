@@ -66,7 +66,7 @@ public class C0526 extends JPanel {
       this.uh.setText(this.CY.getNome());
       this.oq = this.CY.getMarketValue();
       this.uE.setText(String.valueOf(Math.round(this.CY.getMarketValue() / 1000)));
-      this.uH.setText(ClubFinances.c(this.CY.getMarketValue()));
+      this.uH.setText(ClubFinances.formatAmount(this.CY.getMarketValue()));
       this.Km.addActionListener(new C0527(this));
       this.Kn.addActionListener(new C0528(this));
       this.Km.setSelected(true);
@@ -106,7 +106,7 @@ public class C0526 extends JPanel {
    private void oK() {
       String var1 = this.uE.getText().toString() + "000";
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) >= 0) {
-         this.uH.setText(ClubFinances.c(Integer.parseInt(var1)));
+         this.uH.setText(ClubFinances.formatAmount(Integer.parseInt(var1)));
       } else {
          this.uH.setText("valor inválido");
       }

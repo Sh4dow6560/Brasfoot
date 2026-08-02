@@ -93,7 +93,7 @@ public class C0398 extends JPanel {
             "Amistoso recusado",
             "Amistoso marcado",
             this.uk.getNome() + " já tem um amistoso nesta data",
-            "Quer um valor de " + ClubFinances.c(FriendlyMatches.xY()) + "\n Deseja aceitar?"
+            "Quer um valor de " + ClubFinances.formatAmount(FriendlyMatches.xY()) + "\n Deseja aceitar?"
          };
          if (var1 >= 0 && var1 < 3) {
             JOptionPane.showMessageDialog(this.ub, var2[var1], "Amistoso", 2);
@@ -102,7 +102,7 @@ public class C0398 extends JPanel {
             var3 = JOptionPane.showConfirmDialog(this.ub, var2[3], "Amistoso", 0);
             if (var3 == 0) {
                var1 = 1;
-               this.ul.w(FriendlyMatches.xY(), -1);
+               this.ul.debit(FriendlyMatches.xY(), -1);
             }
          }
 

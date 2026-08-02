@@ -121,7 +121,7 @@ public class C0229 extends JPanel {
          this.Cg.setText(this.Db.tR().getStadium().dS());
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
          this.Dy.setToolTipText(this.Db.tR().hV());
-         this.Dz.setText(ClubFinances.c(this.Db.tR().hN()));
+         this.Dz.setText(ClubFinances.formatAmount(this.Db.tR().hN()));
       } else {
          if (this.Db.ik() != null) {
             this.Cg.setText(this.Db.ik());

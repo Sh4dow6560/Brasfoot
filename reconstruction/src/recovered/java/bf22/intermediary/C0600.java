@@ -101,12 +101,12 @@ public class C0600 extends DefaultTableCellRenderer {
             if (j == 7) {
                if (!C0272.rC() && var7.gG() < 30) {
                   super.setForeground(new Color(127, 4, 30));
-                  this.setText("<html><b>&nbsp;" + ClubFinances.a(var7.getSalary(), 0) + "</b></html>");
+                  this.setText("<html><b>&nbsp;" + ClubFinances.formatCompactAmount(var7.getSalary(), 0) + "</b></html>");
                } else {
-                  this.setText("  " + ClubFinances.a(var7.getSalary(), 0));
+                  this.setText("  " + ClubFinances.formatCompactAmount(var7.getSalary(), 0));
                }
             } else if (j == 8) {
-               this.setText(ClubFinances.a(var7.getMarketValue(), 0));
+               this.setText(ClubFinances.formatCompactAmount(var7.getMarketValue(), 0));
                if (var7.isTransferListed()) {
                   super.setForeground(new Color(29, 163, 51));
                }
@@ -169,12 +169,12 @@ public class C0600 extends DefaultTableCellRenderer {
          if (j == 13) {
             if (!C0272.rC() && var7.gG() < 30) {
                super.setForeground(new Color(127, 4, 30));
-               this.setText("<html><b>&nbsp;" + ClubFinances.a(var7.getSalary(), 0) + "</b></html>");
+               this.setText("<html><b>&nbsp;" + ClubFinances.formatCompactAmount(var7.getSalary(), 0) + "</b></html>");
             } else {
-               this.setText("  " + ClubFinances.a(var7.getSalary(), 0));
+               this.setText("  " + ClubFinances.formatCompactAmount(var7.getSalary(), 0));
             }
          } else if (j == 14) {
-            this.setText(ClubFinances.a(var7.getMarketValue(), 0));
+            this.setText(ClubFinances.formatCompactAmount(var7.getMarketValue(), 0));
             if (var7.isTransferListed()) {
                super.setForeground(new Color(29, 163, 51));
             }

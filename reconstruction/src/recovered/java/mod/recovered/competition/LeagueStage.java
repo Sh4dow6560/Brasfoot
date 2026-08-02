@@ -1357,7 +1357,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
          if (((Club)this.yK().get(var2)).getCoach() != null && ((Club)this.yK().get(var2)).getCoach().lL() < 10) {
             if (((Club)this.yK().get(var2)).isUserControlled()) {
                int var3 = 2;
-               if (((Club)this.yK().get(var2)).kb() < 0L) {
+               if (((Club)this.yK().get(var2)).getCashBalance() < 0L) {
                   var3 = 1;
                } else {
                   var3 = new Random().nextInt(2) + 2;

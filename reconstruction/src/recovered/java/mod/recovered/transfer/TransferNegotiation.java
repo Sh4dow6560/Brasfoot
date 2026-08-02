@@ -543,7 +543,7 @@ public class TransferNegotiation {
          return 2;
       }
 
-      if (club.kb() < player.getAskingPrice()) {
+      if (club.getCashBalance() < player.getAskingPrice()) {
          return 5;
       }
 
@@ -594,7 +594,7 @@ public class TransferNegotiation {
             return var15 == 2 ? 6 : 1;
          }
       } else {
-         if (club.kb() >= var9) {
+         if (club.getCashBalance() >= var9) {
             int var14 = evaluatePlayerInterest(player, club);
             if (var14 == 0 || var14 == 2) {
                counterOfferFee = var9;

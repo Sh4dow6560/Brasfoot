@@ -31,7 +31,7 @@ public class C0608 extends DefaultTableCellRenderer {
                this.setText(var7.getDestinationClubName());
             }
          } else if (j == 4) {
-            this.setText(ClubFinances.a(var7.getFee(), 0));
+            this.setText(ClubFinances.formatCompactAmount(var7.getFee(), 0));
          }
       }
 

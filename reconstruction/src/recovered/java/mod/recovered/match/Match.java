@@ -383,7 +383,7 @@ public class Match implements Serializable {
    public void hf() {
       int var1 = this.competition.b();
       if (var1 != 7 && var1 != 5 && this.getHomeClub().isUserControlled()) {
-         this.getHomeClub().v(this.fE, 5);
+         this.getHomeClub().credit(this.fE, 5);
       }
    }
 

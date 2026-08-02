@@ -54,7 +54,7 @@ public class Club implements Serializable {
    private int divisao = 0;
    private transient Coach coach;
    private int coachId = -1;
-   private long nb = 0L;
+   private long cashBalance = 0L;
    private int reputation = 0;
    private ArrayList seniorPlayers = new ArrayList();
    private ArrayList youthPlayers = new ArrayList();
@@ -236,12 +236,12 @@ public class Club implements Serializable {
       }
    }
 
-   public long kb() {
-      return this.nb;
+   public long getCashBalance() {
+      return this.cashBalance;
    }
 
-   public void e(long l) {
-      this.nb = l;
+   public void setCashBalance(long l) {
+      this.cashBalance = l;
    }
 
    public int getReputacao() {
@@ -805,9 +805,9 @@ public class Club implements Serializable {
       }
 
       if (var3 > 0) {
-         this.v(var3, 3);
+         this.credit(var3, 3);
          if (this.getCoach() != null && this.getCoach().isUserControlled() && c0713 != null) {
-            new C0799(this.getCoach(), 26, 80, c0713.getNome(), ClubFinances.c(var3));
+            new C0799(this.getCoach(), 26, 80, c0713.getNome(), ClubFinances.formatAmount(var3));
          }
       }
    }
@@ -1569,58 +1569,58 @@ public class Club implements Serializable {
       return null;
    }
 
-   public void v(int i, int j) {
-      this.nb += i;
+   public void credit(int i, int j) {
+      this.cashBalance += i;
       if (this.finances != null && this.isUserControlled()) {
-         this.finances.h(i, j);
+         this.finances.recordRevenue(i, j);
       }
    }
 
-   public void w(int i, int j) {
-      this.nb -= i;
+   public void debit(int i, int j) {
+      this.cashBalance -= i;
       if (this.finances != null && this.isUserControlled()) {
-         this.finances.i(i, j);
+         this.finances.recordExpense(i, j);
       }
    }
 
-   public void f(long l) {
-      this.nb -= l;
+   public void debitSalaryExpense(long l) {
+      this.cashBalance -= l;
       if (this.finances != null && this.isUserControlled()) {
-         this.finances.b(l);
+         this.finances.recordSalaryExpense(l);
       }
    }
 
    public void kG() {
       if (this.pais != 29 && GamePersistence.careerState.isJogaEstadual()) {
-         this.nb = (long)(this.nb + 3.2 * this.kK());
+         this.cashBalance = (long)(this.cashBalance + 3.2 * this.getTotalPayroll());
       }
 
       if (this.divisao >= 0 & this.divisao <= 4) {
-         this.v(GameConstants.sD[this.divisao][0], 6);
+         this.credit(GameConstants.sD[this.divisao][0], 6);
       }
    }
 
    public void kH() {
       int var1 = this.divisao;
-      this.nb = GameConstants.sC[var1][0];
+      this.cashBalance = GameConstants.sC[var1][0];
       if (this.pais != 29 && GamePersistence.careerState.isJogaEstadual()) {
-         this.nb = (long)(this.nb + 3.2 * this.kK());
+         this.cashBalance = (long)(this.cashBalance + 3.2 * this.getTotalPayroll());
       }
 
-      this.finances.h(GameConstants.sD[this.divisao][0], 6);
+      this.finances.recordRevenue(GameConstants.sD[this.divisao][0], 6);
    }
 
-   public void kI() {
+   public void resetFinancialPeriod() {
       if (this.finances != null) {
-         this.finances.eA();
+         this.finances.resetPeriodTotals();
       }
    }
 
-   public void kJ() {
-      this.f(this.kK());
+   public void payPayroll() {
+      this.debitSalaryExpense(this.getTotalPayroll());
    }
 
-   public long kK() {
+   public long getTotalPayroll() {
       long var1 = 0L;
 
       for (int var3 = 0; var3 < this.seniorPlayers.size(); var3++) {

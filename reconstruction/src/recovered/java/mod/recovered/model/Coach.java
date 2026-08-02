@@ -261,7 +261,7 @@ public class Coach implements Serializable {
 
       if (!var15) {
          if (var14 == 1) {
-            if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
+            if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
                this.cj(-10);
             }
 
@@ -279,7 +279,7 @@ public class Coach implements Serializable {
             var22 = var28;
          } else if (var14 != 3 && var14 != 10) {
             if (var14 != 4 && var14 != 6) {
-               if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
+               if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
                   this.cj(-5);
                }
 
@@ -296,7 +296,7 @@ public class Coach implements Serializable {
                var21 = var42;
                var22 = var48;
             } else {
-               if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
+               if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
                   this.cj(-5);
                }
 
@@ -314,7 +314,7 @@ public class Coach implements Serializable {
                var22 = var47;
             }
          } else {
-            if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
+            if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
                this.cj(-5);
             }
 
@@ -669,7 +669,7 @@ public class Coach implements Serializable {
       }
 
       if (this.getClub() != null && this.getClub().getFinances() != null) {
-         this.getClub().getFinances().V(0);
+         this.getClub().getFinances().setOutstandingLoanPrincipal(0);
       }
 
       this.getClub().h(null);

@@ -725,6 +725,50 @@ c	best/B	bf22/intermediary/C0668	mod/recovered/stadium/StadiumExpansionProject
 	m	()Ljava/util/Calendar;	ew	ew	getCompletionDate
 	m	()V	ex	ex	applyExpansion
 c	best/C	bf22/intermediary/C0669	mod/recovered/finance/ClubFinances
+	f	J	dK	dK	legacyBalance
+	f	I	dL	dL	ticketRevenue
+	f	I	dM	dM	prizeRevenue
+	f	J	dN	dN	playerSaleRevenue
+	f	I	dO	dO	sponsorshipRevenue
+	f	I	dP	dP	otherRevenue
+	f	I	dQ	dQ	stadiumExpenses
+	f	J	dR	dR	playerPurchaseExpenses
+	f	J	dS	dS	salaryExpenses
+	f	I	dT	dT	loanInterestExpenses
+	f	I	dU	dU	miscellaneousExpenses
+	f	I	dV	dV	contractTerminationExpenses
+	f	I	dW	dW	outstandingLoanPrincipal
+	f	I	dX	dX	monthlyLoanInterest
+	f	[Ljava/lang/String;	dY	dY	compactAmountSuffixes
+	m	(I)V	V	V	setOutstandingLoanPrincipal
+	m	(I)V	W	W	setMonthlyLoanInterest
+	m	(I)V	X	X	setOtherRevenue
+	m	(DI)Ljava/lang/String;	a	a	formatCompactAmount
+	m	(J)V	b	b	recordSalaryExpense
+	m	(J)Ljava/lang/String;	c	c	formatAmount
+	m	()V	eA	eA	resetPeriodTotals
+	m	()J	eB	eB	getTotalExpenses
+	m	()J	eC	eC	getNetResult
+	m	()J	eD	eD	getLegacyBalance
+	m	()I	eE	eE	getTicketRevenue
+	m	()I	eF	eF	getPrizeRevenue
+	m	()J	eG	eG	getPlayerSaleRevenue
+	m	()I	eH	eH	getSponsorshipRevenue
+	m	()I	eI	eI	getStadiumExpenses
+	m	()J	eJ	eJ	getPlayerPurchaseExpenses
+	m	()I	eK	eK	getLoanInterestExpenses
+	m	()I	eL	eL	getMiscellaneousExpenses
+	m	()I	eM	eM	getContractTerminationExpenses
+	m	()I	eN	eN	getOutstandingLoanPrincipal
+	m	()J	eO	eO	getSalaryExpenses
+	m	()V	eP	eP	recalculateLoanInterest
+	m	()I	eQ	eQ	getMonthlyLoanInterest
+	m	()I	eR	eR	getOtherRevenue
+	m	()J	ez	ez	getTotalRevenue
+	m	(II)V	h	h	recordRevenue
+	m	(II)V	i	i	recordExpense
+	m	(Lbest/ah;)Z	l	l	repayLoanInstallment
+	m	(Lbest/ah;)Z	m	m	borrowLoanInstallment
 c	best/D	bf22/intermediary/C0670	bf22/intermediary/C0670
 c	best/E	bf22/intermediary/C0671	bf22/intermediary/C0671
 c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
@@ -992,6 +1036,7 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	f	Ljava/lang/Boolean;	mW	mW	userControlled
 	f	Lbest/al;	mZ	mZ	coach
 	f	I	na	na	coachId
+	f	J	nb	nb	cashBalance
 	f	I	nc	nc	reputation
 	f	Ljava/util/ArrayList;	nd	nd	seniorPlayers
 	f	Ljava/util/ArrayList;	ne	ne	youthPlayers
@@ -1005,20 +1050,28 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	m	(Lbest/I;Lbest/ah;I)V	a	a	calculateLineupStrength
 	m	(Lbest/ah;Lbest/I;IIZ)V	a	a	buildAiLineup
 	m	(Ljava/util/ArrayList;IZZ)Lbest/F;	a	a	selectPlayerForTacticalPosition
+	m	(J)V	e	e	setCashBalance
 	m	()Lbest/v;	ev	ev	getStadium
+	m	(J)V	f	f	debitSalaryExpense
 	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
 	m	([I)V	k	k	setTacticalSettings
+	m	()V	kI	kI	resetFinancialPeriod
+	m	()V	kJ	kJ	payPayroll
+	m	()J	kK	kK	getTotalPayroll
 	m	()Lbest/C;	kL	kL	getFinances
 	m	()Lcomponents/ag;	kX	kX	getLineupPreset
 	m	()Ljava/util/ArrayList;	kY	kY	getStartingLineup
 	m	()Ljava/util/ArrayList;	kZ	kZ	getBench
 	m	()Lbest/al;	ka	ka	getCoach
+	m	()J	kb	kb	getCashBalance
 	m	()Ljava/util/ArrayList;	kc	kc	getSeniorPlayers
 	m	()Z	kf	kf	isLineupReady
 	m	()V	kh	kh	prepareAiLineupsForCurrentSchedule
 	m	()[I	kj	kj	getTacticalSettings
 	m	()Ljava/util/ArrayList;	ky	ky	getYouthPlayers
 	m	()I	lk	lk	getClubId
+	m	(II)V	v	v	credit
+	m	(II)V	w	w	debit
 c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
 	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/aj	bf22/intermediary/C0703	bf22/intermediary/C0703

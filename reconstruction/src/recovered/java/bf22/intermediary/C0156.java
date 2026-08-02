@@ -59,10 +59,10 @@ public class C0156 extends JPanel {
          var1 = "Total de salários por semana: ";
       }
 
-      this.Ec.setText(var1 + ClubFinances.c(this.uk.kK()));
-      this.DZ.setText("Dinheiro em caixa: " + ClubFinances.c(this.uk.kb()));
-      this.Ea.setText("Valor já emprestado: " + ClubFinances.c(this.uk.getFinances().eN()));
-      this.Eb.setText("Juros mensais: " + ClubFinances.c(this.uk.getFinances().eQ()));
+      this.Ec.setText(var1 + ClubFinances.formatAmount(this.uk.getTotalPayroll()));
+      this.DZ.setText("Dinheiro em caixa: " + ClubFinances.formatAmount(this.uk.getCashBalance()));
+      this.Ea.setText("Valor já emprestado: " + ClubFinances.formatAmount(this.uk.getFinances().getOutstandingLoanPrincipal()));
+      this.Eb.setText("Juros mensais: " + ClubFinances.formatAmount(this.uk.getFinances().getMonthlyLoanInterest()));
    }
 
    private void pp() {
@@ -75,28 +75,28 @@ public class C0156 extends JPanel {
          this.DW.add(var2);
          C0815 var3 = new C0815();
          var3.D("Ingressos:");
-         var3.g(var1.eE());
+         var3.g(var1.getTicketRevenue());
          this.DW.add(var3);
          C0815 var4 = new C0815();
          var4.D("Venda de Jogadores:");
-         var4.g(var1.eG());
+         var4.g(var1.getPlayerSaleRevenue());
          this.DW.add(var4);
          C0815 var5 = new C0815();
          var5.D("Prêmios:");
-         var5.g(var1.eF());
+         var5.g(var1.getPrizeRevenue());
          this.DW.add(var5);
          C0815 var6 = new C0815();
          var6.D("Patrocinio/Sócio torcedor:");
-         var6.g(var1.eH());
+         var6.g(var1.getSponsorshipRevenue());
          this.DW.add(var6);
          C0815 var7 = new C0815();
          var7.D("Multas/outros:");
-         var7.g(var1.eR());
+         var7.g(var1.getOtherRevenue());
          this.DW.add(var7);
          C0815 var8 = new C0815();
          var8.D("Total de receitas:");
          var8.as(true);
-         var8.g(var1.ez());
+         var8.g(var1.getTotalRevenue());
          this.DW.add(var8);
          C0815 var9 = new C0815();
          var9.ar(true);
@@ -105,37 +105,37 @@ public class C0156 extends JPanel {
          this.DW.add(var9);
          C0815 var10 = new C0815();
          var10.D("Compras de jogadores:");
-         var10.g(var1.eJ());
+         var10.g(var1.getPlayerPurchaseExpenses());
          this.DW.add(var10);
          C0815 var11 = new C0815();
          var11.D("Estádio:");
-         var11.g(var1.eI());
+         var11.g(var1.getStadiumExpenses());
          this.DW.add(var11);
          C0815 var12 = new C0815();
          var12.D("Salários:");
-         var12.g(var1.eO());
+         var12.g(var1.getSalaryExpenses());
          this.DW.add(var12);
          C0815 var13 = new C0815();
          var13.D("Juros de empréstimo:");
-         var13.g(var1.eK());
+         var13.g(var1.getLoanInterestExpenses());
          this.DW.add(var13);
          C0815 var14 = new C0815();
          var14.D("Multa de rescisão:");
-         var14.g(var1.eM());
+         var14.g(var1.getContractTerminationExpenses());
          this.DW.add(var14);
          C0815 var15 = new C0815();
          var15.D("Diversos:");
-         var15.g(var1.eL());
+         var15.g(var1.getMiscellaneousExpenses());
          this.DW.add(var15);
          C0815 var16 = new C0815();
          var16.D("Total de despesas:");
          var16.as(true);
-         var16.g(var1.eB());
+         var16.g(var1.getTotalExpenses());
          this.DW.add(var16);
          C0815 var17 = new C0815();
          var17.D("Saldo:");
          var17.as(true);
-         var17.g(var1.eC());
+         var17.g(var1.getNetResult());
          this.DW.add(var17);
       }
    }
@@ -148,11 +148,11 @@ public class C0156 extends JPanel {
 
    private void df(int i) {
       if (i == 1) {
-         if (!this.uk.getFinances().m(this.uk)) {
+         if (!this.uk.getFinances().borrowLoanInstallment(this.uk)) {
             this.uh.setText("Empréstimo bancário - limite máximo alcançado");
          }
       } else if (i == -1) {
-         this.uk.getFinances().l(this.uk);
+         this.uk.getFinances().repayLoanInstallment(this.uk);
       }
 
       this.po();

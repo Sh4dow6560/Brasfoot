@@ -66,7 +66,7 @@ public class C0475 extends JPanel {
       this.zP.setVisible(false);
       if (this.Nc.ve() != null) {
          this.Ni.setIcon(this.Nc.ve().x(30, 30));
-         this.Ni.setText("<html>Comprador: " + this.Nc.ve().getNome() + " vendido por " + ClubFinances.c(this.Nc.vd()) + "</html>");
+         this.Ni.setText("<html>Comprador: " + this.Nc.ve().getNome() + " vendido por " + ClubFinances.formatAmount(this.Nc.vd()) + "</html>");
       } else {
          this.Ni.setText("Não houve compradores - tente com um preço menor...");
       }
@@ -77,7 +77,7 @@ public class C0475 extends JPanel {
       this.Ne = new ArrayList();
 
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
-         if (GamePersistence.careerState.aN().get(var1) != this.uz.getClub() && ((Club)GamePersistence.careerState.aN().get(var1)).kb() > this.Nc.lY()) {
+         if (GamePersistence.careerState.aN().get(var1) != this.uz.getClub() && ((Club)GamePersistence.careerState.aN().get(var1)).getCashBalance() > this.Nc.lY()) {
             this.Nd.add((Club)GamePersistence.careerState.aN().get(var1));
          }
       }
@@ -86,7 +86,7 @@ public class C0475 extends JPanel {
    }
 
    private void sL() {
-      this.zP.setText(((Club)this.Nd.get(this.index)).getCoach().dS() + ", dinheiro em caixa:" + ClubFinances.c(((Club)this.Nd.get(this.index)).kb()));
+      this.zP.setText(((Club)this.Nd.get(this.index)).getCoach().dS() + ", dinheiro em caixa:" + ClubFinances.formatAmount(((Club)this.Nd.get(this.index)).getCashBalance()));
       this.zP.setIcon(((Club)this.Nd.get(this.index)).kU());
    }
 
@@ -94,7 +94,7 @@ public class C0475 extends JPanel {
       int[] var1 = new int[6];
       this.MO.setText("<html><b>" + this.uz.getNome() + " - " + GameConstants.rI[this.uz.getPosicao()] + "</b></html>");
       this.MO.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png")));
-      this.Nh.setText(ClubFinances.c(this.uz.getAskingPrice()));
+      this.Nh.setText(ClubFinances.formatAmount(this.uz.getAskingPrice()));
       this.zO.setText(this.uz.getClub().getNome());
       this.zO.setIcon(this.uz.getClub().kU());
       var1 = this.uz.gw();
@@ -137,11 +137,11 @@ public class C0475 extends JPanel {
          + "<b>"
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Passe:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.getMarketValue())
+         + ClubFinances.formatAmount(this.uz.getMarketValue())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.getSalary())
+         + ClubFinances.formatAmount(this.uz.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
          + GameConstants.qM[this.uz.getCr1()]
@@ -176,7 +176,7 @@ public class C0475 extends JPanel {
    private void oK() {
       String var1 = this.uE.getText().toString() + "000";
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) >= 0) {
-         this.uH.setText(ClubFinances.c(Integer.parseInt(var1)));
+         this.uH.setText(ClubFinances.formatAmount(Integer.parseInt(var1)));
       } else {
          this.uH.setText("valor inválido");
       }
@@ -187,7 +187,7 @@ public class C0475 extends JPanel {
       String var2 = this.uE.getText().toString() + "000";
       if (!var2.equals("") && var2.matches("\\d+") && B(var2) && Integer.parseInt(var2) >= 0) {
          var1 = Integer.parseInt(var2);
-         if (((Club)this.Nd.get(this.index)).kb() >= var1) {
+         if (((Club)this.Nd.get(this.index)).getCashBalance() >= var1) {
             this.dC(var1);
          } else {
             this.uH.setText("lance maior que valor em caixa");

@@ -51,6 +51,7 @@ public final class KryoSaveCompatibilityProbe {
       String aiSquadApi = validateAiSquadManagerBehavior(loader, roots[0]);
       String playerSearchApi = validatePlayerSearchCriteriaBehavior(loader, roots[0]);
       String transferHistoryApi = validatePlayerTransferRecordBehavior(loader, roots[0]);
+      String clubFinancesApi = validateClubFinancesBehavior(loader);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -98,6 +99,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("AI_SQUAD_API " + aiSquadApi);
       System.out.println("PLAYER_SEARCH_API " + playerSearchApi);
       System.out.println("TRANSFER_HISTORY_API " + transferHistoryApi);
+      System.out.println("CLUB_FINANCES_API " + clubFinancesApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -1155,6 +1157,118 @@ public final class KryoSaveCompatibilityProbe {
     return "date=14/8/2026 fee=1250000 clubs=101/202 transient=true restored=true";
   }
 
+  private static String validateClubFinancesBehavior(ClassLoader loader) throws Exception {
+    Class<?> financesClass = loader.loadClass("best.C");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> playerClass = loader.loadClass("best.F");
+
+    Object club = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(club, Boolean.TRUE);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(club, 100_000L);
+    Object finances = clubClass.getDeclaredMethod("kL").invoke(club);
+
+    clubClass.getDeclaredMethod("v", Integer.TYPE, Integer.TYPE).invoke(club, 1_000, 1);
+    clubClass.getDeclaredMethod("v", Integer.TYPE, Integer.TYPE).invoke(club, 2_000, 3);
+    clubClass.getDeclaredMethod("v", Integer.TYPE, Integer.TYPE).invoke(club, 3_000, 5);
+    clubClass.getDeclaredMethod("v", Integer.TYPE, Integer.TYPE).invoke(club, 4_000, 6);
+    clubClass.getDeclaredMethod("v", Integer.TYPE, Integer.TYPE).invoke(club, 5_000, 9);
+    clubClass.getDeclaredMethod("w", Integer.TYPE, Integer.TYPE).invoke(club, 600, 1);
+    clubClass.getDeclaredMethod("w", Integer.TYPE, Integer.TYPE).invoke(club, 700, 4);
+    clubClass.getDeclaredMethod("w", Integer.TYPE, Integer.TYPE).invoke(club, 800, 7);
+    clubClass.getDeclaredMethod("w", Integer.TYPE, Integer.TYPE).invoke(club, 900, 8);
+    clubClass.getDeclaredMethod("w", Integer.TYPE, Integer.TYPE).invoke(club, 1_000, 2);
+    clubClass.getDeclaredMethod("f", Long.TYPE).invoke(club, 1_100L);
+
+    assertLong(clubClass, club, "kb", 109_900L);
+    assertInteger(financesClass, finances, "eE", 3_000);
+    assertInteger(financesClass, finances, "eF", 2_000);
+    assertLong(financesClass, finances, "eG", 1_000L);
+    assertInteger(financesClass, finances, "eH", 4_000);
+    assertInteger(financesClass, finances, "eR", 5_000);
+    assertLong(financesClass, finances, "eJ", 600L);
+    assertInteger(financesClass, finances, "eK", 700);
+    assertInteger(financesClass, finances, "eI", 800);
+    assertInteger(financesClass, finances, "eM", 900);
+    assertInteger(financesClass, finances, "eL", 1_000);
+    assertLong(financesClass, finances, "eO", 1_100L);
+    assertLong(financesClass, finances, "ez", 15_000L);
+    assertLong(financesClass, finances, "eB", 5_100L);
+    assertLong(financesClass, finances, "eC", 9_900L);
+
+    Object restoredFinances = roundTripObject(finances, loader);
+    assertLong(financesClass, restoredFinances, "ez", 15_000L);
+    assertLong(financesClass, restoredFinances, "eB", 5_100L);
+    assertLong(financesClass, restoredFinances, "eC", 9_900L);
+
+    financesClass.getDeclaredMethod("eA").invoke(finances);
+    assertLong(financesClass, finances, "ez", 5_000L);
+    assertLong(financesClass, finances, "eB", 0L);
+
+    Object loanClub = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(loanClub, Boolean.TRUE);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(loanClub, 1_000_000L);
+    setField(loanClub, "divisao", 1);
+    Object loanFinances = clubClass.getDeclaredMethod("kL").invoke(loanClub);
+    for (int installment = 0; installment < 10; installment++) {
+      boolean borrowed = ((Boolean)financesClass.getDeclaredMethod("m", clubClass)
+          .invoke(loanFinances, loanClub)).booleanValue();
+      if (!borrowed) {
+        throw new IllegalStateException("Loan limit was reached before the tenth installment");
+      }
+    }
+    boolean exceeded = ((Boolean)financesClass.getDeclaredMethod("m", clubClass)
+        .invoke(loanFinances, loanClub)).booleanValue();
+    if (exceeded) {
+      throw new IllegalStateException("Loan exceeded the division-one principal limit");
+    }
+    assertInteger(financesClass, loanFinances, "eN", 5_000_000);
+    assertInteger(financesClass, loanFinances, "eQ", 150_000);
+    assertLong(clubClass, loanClub, "kb", 6_000_000L);
+
+    boolean repaid = ((Boolean)financesClass.getDeclaredMethod("l", clubClass)
+        .invoke(loanFinances, loanClub)).booleanValue();
+    if (!repaid) {
+      throw new IllegalStateException("Loan installment was not repaid");
+    }
+    assertInteger(financesClass, loanFinances, "eN", 4_500_000);
+    assertInteger(financesClass, loanFinances, "eQ", 135_000);
+    assertLong(clubClass, loanClub, "kb", 5_500_000L);
+    Object restoredLoan = roundTripObject(loanFinances, loader);
+    assertInteger(financesClass, restoredLoan, "eN", 4_500_000);
+    assertInteger(financesClass, restoredLoan, "eQ", 135_000);
+
+    assertString("0 mil", financesClass.getDeclaredMethod("c", Long.TYPE)
+        .invoke(null, 0L), "zero amount");
+    assertString("-1", financesClass.getDeclaredMethod("c", Long.TYPE)
+        .invoke(null, -1L), "negative amount");
+    assertString("1 milh\u00e3o ", financesClass.getDeclaredMethod("c", Long.TYPE)
+        .invoke(null, 1_000_000L), "one million amount");
+    assertString("2 milh\u00f5es 1 mil", financesClass.getDeclaredMethod("c", Long.TYPE)
+        .invoke(null, 2_001_000L), "mixed million amount");
+    assertString("1.5 mil", financesClass.getDeclaredMethod("a", Double.TYPE, Integer.TYPE)
+        .invoke(null, 1_500.0, 0), "compact thousand amount");
+    assertString("1M", financesClass.getDeclaredMethod("a", Double.TYPE, Integer.TYPE)
+        .invoke(null, 1_000_000.0, 0), "compact million amount");
+
+    Object payrollClub = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(payrollClub, Boolean.TRUE);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(payrollClub, 10_000L);
+    Object senior = playerClass.getDeclaredConstructor().newInstance();
+    Object youth = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("ae", Integer.TYPE).invoke(senior, 200);
+    playerClass.getDeclaredMethod("ae", Integer.TYPE).invoke(youth, 300);
+    castList(clubClass.getDeclaredMethod("kc").invoke(payrollClub)).add(senior);
+    castList(clubClass.getDeclaredMethod("ky").invoke(payrollClub)).add(youth);
+    assertLong(clubClass, payrollClub, "kK", 500L);
+    clubClass.getDeclaredMethod("kJ").invoke(payrollClub);
+    assertLong(clubClass, payrollClub, "kb", 9_500L);
+    Object payrollFinances = clubClass.getDeclaredMethod("kL").invoke(payrollClub);
+    assertLong(financesClass, payrollFinances, "eO", 500L);
+
+    return "revenue=15000 expenses=5100 net=9900 resetPreservesOther=true "
+        + "loan=4500000 interest=135000 payroll=500 formatting=true roundTrip=true";
+  }
+
   private static Object createAiMarketPlayer(
       Class<?> playerClass, Class<?> clubClass, Object club, int position, boolean onLoan)
       throws Exception {
@@ -1356,6 +1470,20 @@ public final class KryoSaveCompatibilityProbe {
     int actual = ((Integer)owner.getDeclaredMethod(method).invoke(value)).intValue();
     if (actual != expected) {
       throw new IllegalStateException(method + " returned " + actual + " instead of " + expected);
+    }
+  }
+
+  private static void assertLong(
+      Class<?> owner, Object value, String method, long expected) throws Exception {
+    long actual = ((Long)owner.getDeclaredMethod(method).invoke(value)).longValue();
+    if (actual != expected) {
+      throw new IllegalStateException(method + " returned " + actual + " instead of " + expected);
+    }
+  }
+
+  private static void assertString(String expected, Object actual, String description) {
+    if (!expected.equals(actual)) {
+      throw new IllegalStateException(description + " was " + actual + " instead of " + expected);
     }
   }
 

@@ -82,11 +82,11 @@ public class C0582 extends AbstractTableModel {
             }
 
             if (j == 7) {
-               return ClubFinances.a(((Player)this.vp.get(i)).getSalary(), 0);
+               return ClubFinances.formatCompactAmount(((Player)this.vp.get(i)).getSalary(), 0);
             }
 
             if (j == 8) {
-               return ClubFinances.a(((Player)this.vp.get(i)).getMarketValue(), 0);
+               return ClubFinances.formatCompactAmount(((Player)this.vp.get(i)).getMarketValue(), 0);
             }
 
             if (j != 9) {

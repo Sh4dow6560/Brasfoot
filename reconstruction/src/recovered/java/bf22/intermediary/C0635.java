@@ -26,7 +26,7 @@ public class C0635 extends DefaultTableCellRenderer {
             this.setHorizontalAlignment(4);
             this.setText(var7.sT());
          } else if (j == 1 && !var7.tt()) {
-            this.setText(ClubFinances.c(var7.ts()));
+            this.setText(ClubFinances.formatAmount(var7.ts()));
          }
       }
 

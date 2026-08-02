@@ -21,7 +21,7 @@ public class C0794 {
       int var5 = 0;
       if (!bl2) {
          for (int var6 = 0; var6 < GamePersistence.careerState.aN().size(); var6++) {
-            if (GamePersistence.careerState.aN().get(var6) != player.getClub() && ((Club)GamePersistence.careerState.aN().get(var6)).kb() >= i) {
+            if (GamePersistence.careerState.aN().get(var6) != player.getClub() && ((Club)GamePersistence.careerState.aN().get(var6)).getCashBalance() >= i) {
                var5++;
             }
          }

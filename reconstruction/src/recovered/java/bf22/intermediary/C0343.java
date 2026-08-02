@@ -46,7 +46,7 @@ public class C0343 extends JPanel {
 
       this.uF.setText(this.CY.getNome());
       this.uG.setText("Contrato até: " + this.CY.getContractEndDateLabel());
-      this.Ec.setText("Salário atual: " + ClubFinances.c(this.CY.getSalary()));
+      this.Ec.setText("Salário atual: " + ClubFinances.formatAmount(this.CY.getSalary()));
       this.Bf.setSelectedIndex(0);
       this.IE.setModel(new SpinnerNumberModel(this.CY.getSalary(), 1, 100000000, 1000));
    }
@@ -74,7 +74,7 @@ public class C0343 extends JPanel {
             }
          }
       } else if (var2 >= this.rF()) {
-         String var3 = ClubFinances.c(this.rF());
+         String var3 = ClubFinances.formatAmount(this.rF());
          JOptionPane.showMessageDialog(this.ub, "Salário maior que o limite para esse jogador. Limite é " + var3, "Salário", 2);
       }
    }

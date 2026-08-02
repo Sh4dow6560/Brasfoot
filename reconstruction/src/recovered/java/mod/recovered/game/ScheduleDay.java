@@ -695,15 +695,15 @@ public class ScheduleDay implements Serializable {
    public void n() {
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
          if (((Club)GamePersistence.careerState.aN().get(var1)).bY(this.c())) {
-            ((Club)GamePersistence.careerState.aN().get(var1)).kJ();
+            ((Club)GamePersistence.careerState.aN().get(var1)).payPayroll();
          }
       }
    }
 
    public void o() {
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
-         if (((Club)GamePersistence.careerState.aN().get(var1)).getFinances() != null && ((Club)GamePersistence.careerState.aN().get(var1)).getFinances().eQ() > 0) {
-            ((Club)GamePersistence.careerState.aN().get(var1)).w(((Club)GamePersistence.careerState.aN().get(var1)).getFinances().eQ(), 4);
+         if (((Club)GamePersistence.careerState.aN().get(var1)).getFinances() != null && ((Club)GamePersistence.careerState.aN().get(var1)).getFinances().getMonthlyLoanInterest() > 0) {
+            ((Club)GamePersistence.careerState.aN().get(var1)).debit(((Club)GamePersistence.careerState.aN().get(var1)).getFinances().getMonthlyLoanInterest(), 4);
          }
       }
    }

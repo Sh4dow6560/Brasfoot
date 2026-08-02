@@ -70,7 +70,7 @@ public class C0536 extends JPanel {
       int[] var2 = new int[6];
       this.MO.setText("<html><b>" + this.uz.getNome() + " - " + GameConstants.rI[this.uz.getPosicao()] + "</b></html>");
       this.MO.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png")));
-      this.uu.setText(this.Nu.getNome() + " oferece: " + ClubFinances.c(this.Nw));
+      this.uu.setText(this.Nu.getNome() + " oferece: " + ClubFinances.formatAmount(this.Nw));
       this.uu.setIcon(this.Nu.kU());
       if (bl) {
          this.ug.setText("Proposta de empréstimo");
@@ -118,11 +118,11 @@ public class C0536 extends JPanel {
          + "<b>"
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Valor:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.getMarketValue())
+         + ClubFinances.formatAmount(this.uz.getMarketValue())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.getSalary())
+         + ClubFinances.formatAmount(this.uz.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
          + GameConstants.qM[this.uz.getCr1()]

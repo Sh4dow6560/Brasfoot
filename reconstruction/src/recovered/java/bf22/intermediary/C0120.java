@@ -90,7 +90,7 @@ public class C0120 extends JPanel {
             this.zX.aG(false);
             this.T(false);
             if (this.zX.vt() == 1 && this.zX.lY() > 0 && this.zY != null) {
-               this.zY.v(this.zX.lY(), 9);
+               this.zY.credit(this.zX.lY(), 9);
                this.Ab.setVisible(true);
                this.Ab.setText("Multado!");
                this.nQ();

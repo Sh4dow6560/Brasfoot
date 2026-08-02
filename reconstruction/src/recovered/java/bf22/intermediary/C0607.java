@@ -56,9 +56,9 @@ public class C0607 extends DefaultTableCellRenderer {
             if (j == 5) {
                this.setText(Integer.toString(var7.getOverallStrength()));
             } else if (j == 6) {
-               this.setText(ClubFinances.a(var7.getSalary(), 0));
+               this.setText(ClubFinances.formatCompactAmount(var7.getSalary(), 0));
             } else if (j == 7) {
-               this.setText(ClubFinances.a(var7.getMarketValue(), 0));
+               this.setText(ClubFinances.formatCompactAmount(var7.getMarketValue(), 0));
             } else if (j == 8) {
                this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
             } else if (j == 9) {
@@ -89,9 +89,9 @@ public class C0607 extends DefaultTableCellRenderer {
          } else if (j == 11) {
             this.setText(Integer.toString(var7.getPassing()));
          } else if (j == 12) {
-            this.setText(ClubFinances.a(var7.getSalary(), 0));
+            this.setText(ClubFinances.formatCompactAmount(var7.getSalary(), 0));
          } else if (j == 13) {
-            this.setText(ClubFinances.a(var7.getMarketValue(), 0));
+            this.setText(ClubFinances.formatCompactAmount(var7.getMarketValue(), 0));
          } else if (j == 14) {
             this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 15) {

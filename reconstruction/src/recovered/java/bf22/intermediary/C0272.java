@@ -458,11 +458,11 @@ public class C0272 extends JPanel {
             + "&nbsp;&nbsp;&nbsp;"
             + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Valor:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.uz.getMarketValue())
+            + ClubFinances.formatAmount(this.uz.getMarketValue())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:12\\\">\n<b>"
             + "Salário:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.uz.getSalary())
+            + ClubFinances.formatAmount(this.uz.getSalary())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:12\\\">\n"
             + "<b>"
             + var3
@@ -662,7 +662,7 @@ public class C0272 extends JPanel {
    }
 
    private void qx() {
-      this.Iw.setText(ClubFinances.c(this.zu.kb()));
+      this.Iw.setText(ClubFinances.formatAmount(this.zu.getCashBalance()));
    }
 
    private void qy() {
@@ -822,7 +822,7 @@ public class C0272 extends JPanel {
    }
 
    private void qF() {
-      if (this.uz != null && this.uz.isOnLoan() && this.zu.kb() >= this.uz.getMarketValue()) {
+      if (this.uz != null && this.uz.isOnLoan() && this.zu.getCashBalance() >= this.uz.getMarketValue()) {
          int var1 = -1;
          var1 = JOptionPane.showConfirmDialog(this, "Deseja comprar o jogador " + this.uz.getNome() + "?", "Confirmar", 0);
          if (var1 == 0) {

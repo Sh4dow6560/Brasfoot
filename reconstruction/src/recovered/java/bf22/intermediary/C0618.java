@@ -58,7 +58,7 @@ public class C0618 extends DefaultTableCellRenderer {
                   this.setText(Integer.toString(var7.hU()));
                }
             } else if (j == 6 && var7.hN() > 0) {
-               this.setText(ClubFinances.a(var7.hN(), 0));
+               this.setText(ClubFinances.formatCompactAmount(var7.hN(), 0));
             }
          } else if (j == 2) {
             this.setText("x");
