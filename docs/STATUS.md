@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 83 classes e 648 membros mapeados possuem nomes validos ou
+- Legibilidade: 83 classes e 653 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -97,6 +97,11 @@
   9.900, limite bancario, juros de 3%, pagamento da folha, formatacao monetaria
   e round-trip Kryo. As assinaturas binarias de `best.C` e `best.ah` coincidem
   integralmente com o original.
+- Receitas sazonais: o original nao possui contratos separados de patrocinio
+  ou socio-torcedor; usa tabelas fixas de caixa e receita para cinco divisoes.
+  `Club` agora identifica a aplicacao na abertura da temporada, a inicializacao
+  financeira por divisao e o reset ao trocar de clube. O teste valida tambem o
+  bonus legado de 3,2 vezes a folha quando os estaduais estao habilitados.
 - Paises: 48 consultas que dependiam dos nomes internos `P0...P223`, perdidos
   ao recompilar o enum, agora usam o mesmo indice numerico do bytecode. O fluxo
   de negociacao exercita essa correcao e o contrato binario permanece intacto.
@@ -112,4 +117,4 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: recuperar contratos de patrocinio, socios e receitas sazonais.
+- Proxima fase: recuperar a carreira do tecnico e o mercado de empregos.

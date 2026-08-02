@@ -147,5 +147,11 @@ e despesa, alem de principal, juros, contratacao e quitacao de emprestimos e
 formatacao dos valores exibidos pela interface. Esses nomes retornam aos
 identificadores oficiais durante a montagem e sao exercitados no JAR final.
 
+`GameConstants.initialCashByDivision` e
+`GameConstants.sponsorshipRevenueByDivision` revelam as cinco faixas fixas do
+original. `Club.applyNewSeasonRevenue`, `initializeFinancesForDivision` e
+`resetFinances` identificam quando esses valores entram no caixa e no relatorio
+financeiro.
+
 Os demais nomes semanticos de configuracao, comparadores e utilitarios ficam
 registrados em `reconstruction/config/semantic-names.json`.

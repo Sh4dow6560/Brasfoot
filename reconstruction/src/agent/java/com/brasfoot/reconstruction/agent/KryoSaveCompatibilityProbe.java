@@ -51,7 +51,7 @@ public final class KryoSaveCompatibilityProbe {
       String aiSquadApi = validateAiSquadManagerBehavior(loader, roots[0]);
       String playerSearchApi = validatePlayerSearchCriteriaBehavior(loader, roots[0]);
       String transferHistoryApi = validatePlayerTransferRecordBehavior(loader, roots[0]);
-      String clubFinancesApi = validateClubFinancesBehavior(loader);
+      String clubFinancesApi = validateClubFinancesBehavior(loader, roots[0]);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -1157,7 +1157,8 @@ public final class KryoSaveCompatibilityProbe {
     return "date=14/8/2026 fee=1250000 clubs=101/202 transient=true restored=true";
   }
 
-  private static String validateClubFinancesBehavior(ClassLoader loader) throws Exception {
+  private static String validateClubFinancesBehavior(ClassLoader loader, Object career)
+      throws Exception {
     Class<?> financesClass = loader.loadClass("best.C");
     Class<?> clubClass = loader.loadClass("best.ah");
     Class<?> playerClass = loader.loadClass("best.F");
@@ -1265,8 +1266,70 @@ public final class KryoSaveCompatibilityProbe {
     Object payrollFinances = clubClass.getDeclaredMethod("kL").invoke(payrollClub);
     assertLong(financesClass, payrollFinances, "eO", 500L);
 
+    Class<?> constantsClass = loader.loadClass("best.aq");
+    long[][] initialCash = (long[][])readStaticField(constantsClass, "sC");
+    int[][] sponsorship = (int[][])readStaticField(constantsClass, "sD");
+    if (initialCash.length != 5 || sponsorship.length != 5
+        || initialCash[1][0] != 15_000_000L || sponsorship[1][0] != 6_000_000
+        || initialCash[4][0] != 3_500_000L || sponsorship[4][0] != 2_000_000) {
+      throw new IllegalStateException("Division finance tables changed");
+    }
+
+    Object seasonClub = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(seasonClub, 29);
+    clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(seasonClub, 2);
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(seasonClub, Boolean.TRUE);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(seasonClub, 100L);
+    clubClass.getDeclaredMethod("kG").invoke(seasonClub);
+    assertLong(clubClass, seasonClub, "kb", 4_500_100L);
+    Object seasonFinances = clubClass.getDeclaredMethod("kL").invoke(seasonClub);
+    assertInteger(financesClass, seasonFinances, "eH", 4_500_000);
+
+    Object initializedClub = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(initializedClub, 29);
+    clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(initializedClub, 3);
+    clubClass.getDeclaredMethod("kH").invoke(initializedClub);
+    assertLong(clubClass, initializedClub, "kb", 10_000_000L);
+    Object previousFinances = clubClass.getDeclaredMethod("kL").invoke(initializedClub);
+    assertInteger(financesClass, previousFinances, "eH", 2_500_000);
+    financesClass.getDeclaredMethod("X", Integer.TYPE).invoke(previousFinances, 321);
+    clubClass.getDeclaredMethod("lg").invoke(initializedClub);
+    Object resetFinances = clubClass.getDeclaredMethod("kL").invoke(initializedClub);
+    if (resetFinances == previousFinances) {
+      throw new IllegalStateException("Club finance reset reused the previous ledger");
+    }
+    assertLong(clubClass, initializedClub, "kb", 10_000_000L);
+    assertInteger(financesClass, resetFinances, "eH", 2_500_000);
+    assertInteger(financesClass, resetFinances, "eR", 0);
+
+    Class<?> persistenceClass = loader.loadClass("c.a");
+    Object previousCareer = readStaticField(persistenceClass, "SR");
+    boolean previousStateChampionship = ((Boolean)career.getClass()
+        .getDeclaredMethod("isJogaEstadual").invoke(career)).booleanValue();
+    try {
+      setStaticField(persistenceClass, "SR", career);
+      career.getClass().getDeclaredMethod("setJogaEstadual", Boolean.TYPE)
+          .invoke(career, true);
+      Object foreignClub = clubClass.getDeclaredConstructor().newInstance();
+      clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(foreignClub, 10);
+      clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(foreignClub, 4);
+      clubClass.getDeclaredMethod("k", Boolean.class).invoke(foreignClub, Boolean.TRUE);
+      Object salariedPlayer = playerClass.getDeclaredConstructor().newInstance();
+      playerClass.getDeclaredMethod("ae", Integer.TYPE).invoke(salariedPlayer, 1_000);
+      castList(clubClass.getDeclaredMethod("kc").invoke(foreignClub)).add(salariedPlayer);
+      clubClass.getDeclaredMethod("kG").invoke(foreignClub);
+      assertLong(clubClass, foreignClub, "kb", 2_003_200L);
+      Object foreignFinances = clubClass.getDeclaredMethod("kL").invoke(foreignClub);
+      assertInteger(financesClass, foreignFinances, "eH", 2_000_000);
+    } finally {
+      career.getClass().getDeclaredMethod("setJogaEstadual", Boolean.TYPE)
+          .invoke(career, previousStateChampionship);
+      setStaticField(persistenceClass, "SR", previousCareer);
+    }
+
     return "revenue=15000 expenses=5100 net=9900 resetPreservesOther=true "
-        + "loan=4500000 interest=135000 payroll=500 formatting=true roundTrip=true";
+        + "loan=4500000 interest=135000 payroll=500 sponsorship=4500000 "
+        + "divisionTables=5 stateBonus=3200 formatting=true roundTrip=true";
   }
 
   private static Object createAiMarketPlayer(

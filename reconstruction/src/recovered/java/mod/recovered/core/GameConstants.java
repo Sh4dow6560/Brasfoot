@@ -621,10 +621,10 @@ public final class GameConstants {
    public static final int[] sA = new int[]{1000000, 500000};
    public static final int[][] aeG = new int[][]{{500000, 700000, 2000000, 2500000, 7000000, 0}, {500000, 1000000, 1500000, 5000000, 5000000, 0}};
    public static final int[][] sB = new int[][]{{3, 12, 15, 25}, {10, 15, 25, 80}, {7, 13, 20, 70}, {5, 12, 17, 40}, {3, 12, 15, 30}, {3, 12, 15, 30}};
-   public static final long[][] sC = new long[][]{
+   public static final long[][] initialCashByDivision = new long[][]{
       {3500000L, 2000000L}, {15000000L, 12000000L}, {12000000L, 10000000L}, {10000000L, 7000000L}, {3500000L, 3000000L}
    };
-   public static final int[][] sD = new int[][]{{3500000, 3500000}, {6000000, 6000000}, {4500000, 4500000}, {2500000, 2500000}, {2000000, 2000000}};
+   public static final int[][] sponsorshipRevenueByDivision = new int[][]{{3500000, 3500000}, {6000000, 6000000}, {4500000, 4500000}, {2500000, 2500000}, {2000000, 2000000}};
    public static final int[][] sE = new int[][]{
       {0, -1, -1},
       {0, -1, -1},

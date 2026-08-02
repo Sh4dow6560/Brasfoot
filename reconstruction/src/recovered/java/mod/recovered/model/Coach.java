@@ -662,7 +662,7 @@ public class Coach implements Serializable {
 
          GamePersistence.careerState.v(this.getClub().getPais());
          this.getClub().k(false);
-         this.getClub().lg();
+         this.getClub().resetFinances();
          this.getClub().M(true);
          GamePersistence.careerState.aN().remove(this.getClub());
          this.T(null);
@@ -682,7 +682,7 @@ public class Coach implements Serializable {
       this.of = 95;
       this.og = 85;
       this.oi = 0;
-      club.lg();
+      club.resetFinances();
       if (this.isUserControlled()) {
          club.k(true);
          GamePersistence.careerState.aN().add(club);

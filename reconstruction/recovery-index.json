@@ -5607,7 +5607,7 @@
       "namedName": "mod/recovered/model/Club",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "1ACBD26F28C3130DEC302494C325408100BCF5768E687B997564DB2D75A7B230"
+      "sourceSha256": "999FB90428661209C769A38A88EF7E79450CDC469B9C560C4D4B1A0E84A5DA2F"
     },
     {
       "officialName": "best/ai",
@@ -5639,7 +5639,7 @@
       "namedName": "mod/recovered/model/Coach",
       "introducedIn": "2017",
       "status": "runtime-verified",
-      "sourceSha256": "ECBFA1B1CA8BD246A356492CC5F1289B21387AE5D2FED4B074939D0421FADCFE"
+      "sourceSha256": "7C53C877F0FA90658490D2B1EA29CE67AD24C1EE418AE1DC80D6DD3C7C275AC1"
     },
     {
       "officialName": "best/am",
@@ -5679,7 +5679,7 @@
       "namedName": "mod/recovered/core/GameConstants",
       "introducedIn": "2021",
       "status": "compile-clean",
-      "sourceSha256": "D2F8C8D6049F951CCA0DAC97F4F88FF3C8831C6AC4C37CA67F6E374EE0745C42"
+      "sourceSha256": "7AD42FB05EAB78D2A3C45D0BE4C3FFD46317D910D63B716AF06230BA945BBE6D"
     },
     {
       "officialName": "best/ar",
@@ -5783,7 +5783,7 @@
       "namedName": "mod/recovered/game/CareerState",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "97399AE4628369A96F94ABC514B60E4EAF57C3BDBC3D9A73D6D9D00D9D473D3E"
+      "sourceSha256": "9C10F616F8DFB9A6A5BBE229EAB879CE5BEEC1D3731F1105EEAEEC5681863092"
     },
     {
       "officialName": "best/g",

@@ -1055,6 +1055,8 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	m	(J)V	f	f	debitSalaryExpense
 	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
 	m	([I)V	k	k	setTacticalSettings
+	m	()V	kG	kG	applyNewSeasonRevenue
+	m	()V	kH	kH	initializeFinancesForDivision
 	m	()V	kI	kI	resetFinancialPeriod
 	m	()V	kJ	kJ	payPayroll
 	m	()J	kK	kK	getTotalPayroll
@@ -1069,6 +1071,7 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	m	()V	kh	kh	prepareAiLineupsForCurrentSchedule
 	m	()[I	kj	kj	getTacticalSettings
 	m	()Ljava/util/ArrayList;	ky	ky	getYouthPlayers
+	m	()V	lg	lg	resetFinances
 	m	()I	lk	lk	getClubId
 	m	(II)V	v	v	credit
 	m	(II)V	w	w	debit
@@ -1115,6 +1118,8 @@ c	best/ap	bf22/intermediary/C0709	mod/recovered/transfer/PlayerTransferRecord
 	m	()V	me	me	restorePlayerReference
 	m	()Lbest/F;	x	x	getPlayer
 c	best/aq	bf22/intermediary/C0710	mod/recovered/core/GameConstants
+	f	[[J	sC	sC	initialCashByDivision
+	f	[[I	sD	sD	sponsorshipRevenueByDivision
 	f	I	to	field_kw_to	field_kw_to
 c	best/ar	bf22/intermediary/C0711	bf22/intermediary/C0711
 c	best/as	bf22/intermediary/C0712	bf22/intermediary/C0712

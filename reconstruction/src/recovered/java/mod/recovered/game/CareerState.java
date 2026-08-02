@@ -1141,7 +1141,7 @@ public class CareerState implements Serializable {
       }
 
       for (int var2 = 0; var2 < GamePersistence.careerState.aN().size(); var2++) {
-         ((Club)GamePersistence.careerState.aN().get(var2)).kG();
+         ((Club)GamePersistence.careerState.aN().get(var2)).applyNewSeasonRevenue();
       }
    }
 
@@ -1928,7 +1928,7 @@ public class CareerState implements Serializable {
 
       for (int var3 = 0; var3 < this.aj.size(); var3++) {
          ((Club)this.aj.get(var3)).kp();
-         ((Club)this.aj.get(var3)).kH();
+         ((Club)this.aj.get(var3)).initializeFinancesForDivision();
       }
    }
 

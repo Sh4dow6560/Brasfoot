@@ -1590,24 +1590,24 @@ public class Club implements Serializable {
       }
    }
 
-   public void kG() {
+   public void applyNewSeasonRevenue() {
       if (this.pais != 29 && GamePersistence.careerState.isJogaEstadual()) {
          this.cashBalance = (long)(this.cashBalance + 3.2 * this.getTotalPayroll());
       }
 
       if (this.divisao >= 0 & this.divisao <= 4) {
-         this.credit(GameConstants.sD[this.divisao][0], 6);
+         this.credit(GameConstants.sponsorshipRevenueByDivision[this.divisao][0], 6);
       }
    }
 
-   public void kH() {
+   public void initializeFinancesForDivision() {
       int var1 = this.divisao;
-      this.cashBalance = GameConstants.sC[var1][0];
+      this.cashBalance = GameConstants.initialCashByDivision[var1][0];
       if (this.pais != 29 && GamePersistence.careerState.isJogaEstadual()) {
          this.cashBalance = (long)(this.cashBalance + 3.2 * this.getTotalPayroll());
       }
 
-      this.finances.recordRevenue(GameConstants.sD[this.divisao][0], 6);
+      this.finances.recordRevenue(GameConstants.sponsorshipRevenueByDivision[this.divisao][0], 6);
    }
 
    public void resetFinancialPeriod() {
@@ -2047,9 +2047,9 @@ public class Club implements Serializable {
       return this.cA;
    }
 
-   public void lg() {
+   public void resetFinances() {
       this.finances = new ClubFinances();
-      this.kH();
+      this.initializeFinancesForDivision();
    }
 
    public boolean a(Player player, boolean bl) {
