@@ -15,15 +15,15 @@ import mod.recovered.model.Player;
 public abstract class AiSquadManager {
    private static transient ArrayList mT = new ArrayList();
 
-   public static void jO() {
-      jS();
-      jU();
-      jR();
-      jP();
-      jT();
+   public static void runSeasonSquadMaintenance() {
+      balanceLoadedLeagueSquads();
+      balanceNonLeagueSquads();
+      fillAiSquadGaps();
+      refreshNationalTeamSquads();
+      moveStandoutPlayersToEliteClubs();
    }
 
-   public static void jP() {
+   public static void refreshNationalTeamSquads() {
       for (int var0 = 0; var0 < GamePersistence.careerState.aG().size(); var0++) {
          if (((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn() != null) {
             if (!((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().isUserControlled()) {
@@ -39,7 +39,7 @@ public abstract class AiSquadManager {
       }
    }
 
-   public static void jQ() {
+   public static void reviewCoachPerformance() {
       GamePersistence.careerState.bn().clear();
 
       for (int var0 = 0; var0 < GamePersistence.careerState.L().size(); var0++) {
@@ -69,7 +69,7 @@ public abstract class AiSquadManager {
       }
    }
 
-   public static void jR() {
+   public static void fillAiSquadGaps() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
          if (!((Club)GamePersistence.careerState.P().get(var0)).isUserControlled()) {
             ((Club)GamePersistence.careerState.P().get(var0)).ku();
@@ -77,27 +77,27 @@ public abstract class AiSquadManager {
       }
    }
 
-   public static void jS() {
+   public static void balanceLoadedLeagueSquads() {
       for (int var0 = 0; var0 < GamePersistence.careerState.N().size(); var0++) {
          for (int var1 = 0; var1 < ((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().size(); var1++) {
             for (int var2 = 0; var2 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
                if (!((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).isUserControlled()) {
-                  a((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
+                  processClubMarketActions((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
                }
             }
          }
       }
    }
 
-   public static void b(LeagueStage c0955) {
+   public static void balanceLeagueStageSquads(LeagueStage c0955) {
       for (int var1 = 0; var1 < c0955.yK().size(); var1++) {
          if (!((Club)c0955.yK().get(var1)).isUserControlled()) {
-            a((Club)c0955.yK().get(var1), var1, true);
+            processClubMarketActions((Club)c0955.yK().get(var1), var1, true);
          }
       }
    }
 
-   public static void jT() {
+   public static void moveStandoutPlayersToEliteClubs() {
       boolean var0 = false;
       ArrayList var1 = new ArrayList();
 
@@ -115,7 +115,7 @@ public abstract class AiSquadManager {
             for (int var3 = 0; var3 < ((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().size(); var3++) {
                if (((Player)((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().get(var3)).getOverallStrength() > 50
                   && ((Player)((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().get(var3)).getIdade() < 31
-                  && ((Player)((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().get(var3)).ff()
+                  && ((Player)((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().get(var3)).isStarPlayer()
                   && new Random().nextInt(100) > 25) {
                   var1.add((Player)((Club)GamePersistence.careerState.P().get(var2)).getSeniorPlayers().get(var3));
                }
@@ -124,31 +124,31 @@ public abstract class AiSquadManager {
       }
 
       for (int var6 = 0; var6 < var1.size(); var6++) {
-         TransferNegotiation var7 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
+         TransferNegotiation var7 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).getMarketValue(), false, true, 2);
          var7.findDestination(false, false);
          if (var7.getDestinationClub() != null) {
-            ((Player)var1.get(var6)).moveToClub(var7.getDestinationClub(), ((Player)var1.get(var6)).fk(), false, false, false);
+            ((Player)var1.get(var6)).moveToClub(var7.getDestinationClub(), ((Player)var1.get(var6)).getMarketValue(), false, false, false);
          }
 
          if (var7.getDestinationClub() == null) {
-            TransferNegotiation var4 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
+            TransferNegotiation var4 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).getMarketValue(), false, true, 2);
             var4.findAnyDestination(false);
             if (var4.getDestinationClub() != null) {
-               ((Player)var1.get(var6)).moveToClub(var4.getDestinationClub(), ((Player)var1.get(var6)).fk(), false, false, false);
+               ((Player)var1.get(var6)).moveToClub(var4.getDestinationClub(), ((Player)var1.get(var6)).getMarketValue(), false, false, false);
             }
          }
       }
    }
 
-   private static void jU() {
+   private static void balanceNonLeagueSquads() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
          if (!((Club)GamePersistence.careerState.P().get(var0)).kn() && !((Club)GamePersistence.careerState.P().get(var0)).isUserControlled()) {
-            a((Club)GamePersistence.careerState.P().get(var0), var0, false);
+            processClubMarketActions((Club)GamePersistence.careerState.P().get(var0), var0, false);
          }
       }
    }
 
-   private static void a(Club club, int i, boolean bl) {
+   private static void processClubMarketActions(Club club, int i, boolean bl) {
       byte var3 = 0;
       if (i <= 1) {
          var3 = 1;
@@ -161,15 +161,15 @@ public abstract class AiSquadManager {
       }
 
       for (int var4 = 0; var4 < var3; var4++) {
-         a(club, bl, true);
+         transferSurplusPlayer(club, bl, true);
       }
 
       for (int var6 = 0; var6 < var3; var6++) {
-         a(club, bl, false);
+         transferSurplusPlayer(club, bl, false);
       }
    }
 
-   private static void a(Club club, boolean bl, boolean bl2) {
+   private static void transferSurplusPlayer(Club club, boolean bl, boolean bl2) {
       Player var3 = null;
       int[] var4 = club.J(true);
       int[] var5 = new int[]{4, 5, 5, 10, 8, 0};
@@ -219,7 +219,7 @@ public abstract class AiSquadManager {
          for (int var12 = 0; var12 < club.getSeniorPlayers().size(); var12++) {
             if (((Player)club.getSeniorPlayers().get(var12)).getPosicao() == var15
                && !((Player)club.getSeniorPlayers().get(var12)).isOnLoan()
-               && (!((Player)club.getSeniorPlayers().get(var12)).ff() || ((Player)club.getSeniorPlayers().get(var12)).ff() == var18)) {
+               && (!((Player)club.getSeniorPlayers().get(var12)).isStarPlayer() || ((Player)club.getSeniorPlayers().get(var12)).isStarPlayer() == var18)) {
                var11.add((Player)club.getSeniorPlayers().get(var12));
             }
          }
@@ -240,7 +240,7 @@ public abstract class AiSquadManager {
             }
          } else {
             var19 = false;
-            if (var3.ff() && new Random().nextInt(100) > 30) {
+            if (var3.isStarPlayer() && new Random().nextInt(100) > 30) {
                var19 = true;
                var13 = 1;
                var20 = true;
@@ -267,7 +267,7 @@ public abstract class AiSquadManager {
             }
          }
 
-         TransferNegotiation var14 = new TransferNegotiation(var3, var3.fk(), false, true, var13);
+         TransferNegotiation var14 = new TransferNegotiation(var3, var3.getMarketValue(), false, true, var13);
          if (var19) {
             var14.findDestination(false, false);
          } else {
@@ -275,7 +275,7 @@ public abstract class AiSquadManager {
          }
 
          if (var14.getDestinationClub() != null) {
-            var3.moveToClub(var14.getDestinationClub(), var3.fk(), false, false, false);
+            var3.moveToClub(var14.getDestinationClub(), var3.getMarketValue(), false, false, false);
          }
       }
    }

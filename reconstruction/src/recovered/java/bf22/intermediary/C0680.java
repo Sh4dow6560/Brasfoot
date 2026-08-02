@@ -35,7 +35,7 @@ public class C0680 {
    }
 
    private void iy() {
-      TransferNegotiation var1 = new TransferNegotiation(this.gE, this.gE.fk(), true, false, 0);
+      TransferNegotiation var1 = new TransferNegotiation(this.gE, this.gE.getMarketValue(), true, false, 0);
       var1.findDestination(false, false);
       this.gD = var1.getDestinationClub();
    }

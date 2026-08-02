@@ -67,19 +67,24 @@
   proposta, contraproposta, salario, emprestimo, venda listada e reposicao de
   elenco. O cenario funcional cobre os principais codigos de retorno e nao
   modifica os dados persistidos usados no round-trip.
+- `Player` identifica estrela, destaque mundial, salario, valor de mercado,
+  preco pedido e estados de venda e emprestimo. `AiSquadManager` identifica as
+  fases sazonais de equilibrio, reposicao e movimentacao de atletas. O teste
+  funcional executa todos os pontos de entrada com dados isolados e valida as
+  protecoes contra movimentacoes indevidas.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 459 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 490 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica da manutencao de elenco e das decisoes de mercado da IA.
+1. Nomeacao semantica dos filtros, registros e historico de transferencias.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

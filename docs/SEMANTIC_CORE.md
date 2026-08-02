@@ -87,6 +87,12 @@ compatibilidade entre clube e atleta e reposicao do elenco vendedor. Um teste
 executado no JAR final valida os estados de aceite, recusa, contraproposta e
 pedido salarial sem efetivar uma transferencia na carreira de referencia.
 
+`AiSquadManager` expoe a manutencao sazonal, renovacao de selecoes, revisao de
+tecnicos, reposicao de carencias, equilibrio de clubes em ligas ou fora delas
+e movimentacao de destaques. O teste funcional executa os pontos de entrada e
+confirma que elencos equilibrados, atletas emprestados e clubes do usuario nao
+sao alterados pelo processamento isolado.
+
 ## Torneios Concretos
 
 O pacote `competition` tambem contem nomes diretos para as competicoes
@@ -110,8 +116,10 @@ estaduais, regionais e supercopas.
 `Player` identifica diretamente forca geral, posicao tatica, atleta da base,
 velocidade, habilidade de goleiro, tecnica, passe, desarme, armacao,
 finalizacao, atuacao fora de posicao, energia, forca efetiva, lesao e prazo
-contratual. Forca, posicao, atributos e energia tambem possuem setters
-diretos. `Club` identifica elenco principal e
+contratual. Estrela, destaque mundial, salario, valor de mercado, preco
+pedido, lista de transferencias e disponibilidade para emprestimo tambem
+possuem acessos diretos. Forca, posicao, atributos, energia e dados de mercado
+possuem setters semanticos. `Club` identifica elenco principal e
 da base, titulares, banco, tecnico, financas, esquema, ID, controle do usuario,
 estado da escalacao e configuracoes taticas. A API nomeada tambem prepara as
 escalacoes da IA, seleciona jogadores por posicao, monta titulares e reservas e

@@ -71,9 +71,9 @@ public class C0601 extends DefaultTableCellRenderer {
          } else if (j == 8) {
             this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 9) {
-            this.setText(ClubFinances.a(var7.fk(), 0));
+            this.setText(ClubFinances.a(var7.getMarketValue(), 0));
          } else if (j == 10) {
-            this.setText(ClubFinances.a(var7.fj(), 0));
+            this.setText(ClubFinances.a(var7.getSalary(), 0));
          }
       }
 

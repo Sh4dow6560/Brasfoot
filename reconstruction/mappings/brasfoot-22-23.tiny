@@ -740,12 +740,20 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	f	J	eJ	eJ	contractEndTimeMillis
 	f	I	eK	eK	energy
 	f	I	eR	eR	tacticalPosition
+	f	Ljava/lang/Boolean;	eW	eW	availableForLoan
 	f	Ljava/lang/Boolean;	eX	eX	onLoan
+	f	Ljava/lang/Boolean;	eY	eY	transferListed
+	f	Ljava/lang/Boolean;	ek	ek	starPlayer
+	f	Ljava/lang/Boolean;	el	el	worldClassPlayer
 	f	Lbest/ah;	eo	eo	club
 	f	I	eq	eq	overallStrength
+	f	I	et	et	salary
+	f	I	eu	eu	marketValue
+	f	I	ev	ev	askingPrice
 	f	Ljava/lang/Boolean;	fb	fb	youthPlayer
 	m	(JZ)V	a	a	renewContract
 	m	(Lbest/ah;IZZZ)V	a	a	moveToClub
+	m	(Ljava/lang/Boolean;)V	a	a	setStarPlayer
 	m	(I)V	aI	aI	setSpeed
 	m	(I)V	aJ	aJ	setGoalkeeping
 	m	(I)V	aK	aK	setTechnique
@@ -754,22 +762,34 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	m	(I)V	aN	aN	setPlaymaking
 	m	(I)V	aO	aO	setFinishing
 	m	(I)V	ad	ad	setOverallStrength
+	m	(I)V	ae	ae	setSalary
+	m	(I)V	af	af	setMarketValue
+	m	(I)V	ag	ag	setAskingPrice
 	m	(I)V	ai	ai	setEnergy
 	m	(I)V	aj	aj	decreaseEnergy
 	m	(I)V	ak	ak	increaseEnergy
 	m	(I)V	as	as	setTacticalPosition
+	m	(Ljava/lang/Boolean;)V	c	c	setTransferListed
 	m	()Ljava/lang/Boolean;	fC	fC	isYouthPlayer
 	m	()Z	fP	fP	isInjured
 	m	()Ljava/lang/String;	fQ	fQ	getContractEndDateLabel
 	m	()I	fR	fR	getContractDaysRemaining
 	m	()I	fT	fT	getTacticalPosition
 	m	()I	fU	fU	getEnergyAdjustedStrength
+	m	()Ljava/lang/Boolean;	ff	ff	isStarPlayer
 	m	()Lbest/ah;	fg	fg	getClub
 	m	()I	fi	fi	getOverallStrength
+	m	()I	fj	fj	getSalary
+	m	()I	fk	fk	getMarketValue
+	m	()I	fl	fl	getAskingPrice
+	m	()V	fm	fm	resetAskingPriceToMarketValue
 	m	()J	fo	fo	getInjuryEndTimeMillis
 	m	()I	fp	fp	getEnergy
 	m	()V	fq	fq	reduceEnergyAfterMatch
 	m	()V	fr	fr	recoverEnergyDaily
+	m	()Ljava/lang/Boolean;	ft	ft	isTransferListed
+	m	()Ljava/lang/Boolean;	fz	fz	isAvailableForLoan
+	m	(Ljava/lang/Boolean;)V	g	g	setAvailableForLoan
 	m	()Z	gF	gF	isOutOfPosition
 	m	()I	gJ	gJ	getSpeed
 	m	()I	gK	gK	getGoalkeeping
@@ -779,6 +799,7 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	m	()I	gO	gO	getPlaymaking
 	m	()I	gP	gP	getFinishing
 	m	()Ljava/lang/Boolean;	gl	gl	isOnLoan
+	m	()Ljava/lang/Boolean;	gm	gm	isWorldClassPlayer
 	m	(Ljava/lang/Boolean;)V	i	i	setOnLoan
 	m	(Lbest/ah;)V	q	q	loanToClub
 	m	(Lbest/ah;)V	r	r	returnFromLoan
@@ -876,6 +897,16 @@ c	best/ad	bf22/intermediary/C0697	mod/recovered/geo/CountryInfo
 c	best/ae	bf22/intermediary/C0698	bf22/intermediary/C0698
 c	best/af	bf22/intermediary/C0699	mod/recovered/transfer/PlayerSearchCriteria
 c	best/ag	bf22/intermediary/C0700	mod/recovered/transfer/AiSquadManager
+	m	(Lbest/ah;IZ)V	a	a	processClubMarketActions
+	m	(Lbest/ah;ZZ)V	a	a	transferSurplusPlayer
+	m	(Lf/s;)V	b	b	balanceLeagueStageSquads
+	m	()V	jO	jO	runSeasonSquadMaintenance
+	m	()V	jP	jP	refreshNationalTeamSquads
+	m	()V	jQ	jQ	reviewCoachPerformance
+	m	()V	jR	jR	fillAiSquadGaps
+	m	()V	jS	jS	balanceLoadedLeagueSquads
+	m	()V	jT	jT	moveStandoutPlayersToEliteClubs
+	m	()V	jU	jU	balanceNonLeagueSquads
 c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	f	Lbest/v;	dH	dH	stadium
 	f	I	mU	mU	clubId

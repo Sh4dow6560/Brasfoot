@@ -64,9 +64,9 @@ public class C0526 extends JPanel {
       this.Kl.add(this.Km);
       this.Kl.add(this.Kn);
       this.uh.setText(this.CY.getNome());
-      this.oq = this.CY.fk();
-      this.uE.setText(String.valueOf(Math.round(this.CY.fk() / 1000)));
-      this.uH.setText(ClubFinances.c(this.CY.fk()));
+      this.oq = this.CY.getMarketValue();
+      this.uE.setText(String.valueOf(Math.round(this.CY.getMarketValue() / 1000)));
+      this.uH.setText(ClubFinances.c(this.CY.getMarketValue()));
       this.Km.addActionListener(new C0527(this));
       this.Kn.addActionListener(new C0528(this));
       this.Km.setSelected(true);
@@ -88,7 +88,7 @@ public class C0526 extends JPanel {
          this.Nl = 35;
       }
 
-      this.Nk = Math.round(this.CY.fk() * this.Nl / 100);
+      this.Nk = Math.round(this.CY.getMarketValue() * this.Nl / 100);
       this.Nn.setText("Multa estimada deste jogador: " + Integer.toString(this.Nl) + "% da venda");
    }
 
@@ -118,22 +118,22 @@ public class C0526 extends JPanel {
    }
 
    private void dD(int i) {
-      this.CY.c(true);
-      this.CY.ag(i);
+      this.CY.setTransferListed(true);
+      this.CY.setAskingPrice(i);
       this.ub.dispose();
    }
 
    private void dE(int i) {
-      this.CY.ag(i);
+      this.CY.setAskingPrice(i);
       int var2 = i;
-      if (i < this.CY.fk()) {
+      if (i < this.CY.getMarketValue()) {
          double var3 = 0.1;
          if (new Random().nextInt(100) > 50) {
             var3 = 0.15;
          }
 
-         var2 = (int)Math.round(this.CY.fk() * var3);
-         var2 = this.CY.fk() - var2;
+         var2 = (int)Math.round(this.CY.getMarketValue() * var3);
+         var2 = this.CY.getMarketValue() - var2;
          if (var2 < i) {
             var2 = i;
          }

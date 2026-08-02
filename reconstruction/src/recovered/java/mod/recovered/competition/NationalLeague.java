@@ -162,7 +162,7 @@ public class NationalLeague extends Competition implements Serializable {
             if (i == 0) {
                var7 = ((C0722)this.ZW.get(var9)).x();
                if (var7 != null) {
-                  var7.a(true);
+                  var7.setStarPlayer(true);
                }
             }
             break;

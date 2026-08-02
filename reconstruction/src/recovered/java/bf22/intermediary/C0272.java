@@ -297,7 +297,7 @@ public class C0272 extends JPanel {
          var11 = new Random().nextInt(var2.size());
       } else {
          for (int var13 = 0; var13 < this.zu.getSeniorPlayers().size(); var13++) {
-            if (!((Player)this.zu.getSeniorPlayers().get(var13)).isOnLoan() && ((Player)this.zu.getSeniorPlayers().get(var13)).fz()) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var13)).isOnLoan() && ((Player)this.zu.getSeniorPlayers().get(var13)).isAvailableForLoan()) {
                var2.add((Player)this.zu.getSeniorPlayers().get(var13));
             }
          }
@@ -309,9 +309,9 @@ public class C0272 extends JPanel {
       Player var14 = null;
       var14 = (Player)var2.get(var11);
       if (var14 != null) {
-         TransferNegotiation var5 = new TransferNegotiation(var14, var14.fk(), true, true, 0);
+         TransferNegotiation var5 = new TransferNegotiation(var14, var14.getMarketValue(), true, true, 0);
          Club var6 = var5.findDestination(true, bl);
-         int var7 = (int)(var14.fk() + Math.round(var14.fk() * 0.3));
+         int var7 = (int)(var14.getMarketValue() + Math.round(var14.getMarketValue() * 0.3));
          if (var6 != null) {
             JDialog var8 = new JDialog(this.Br);
             C0536 var9 = new C0536(var8, var14, var6, var7, bl);
@@ -458,11 +458,11 @@ public class C0272 extends JPanel {
             + "&nbsp;&nbsp;&nbsp;"
             + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Valor:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.uz.fk())
+            + ClubFinances.c(this.uz.getMarketValue())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:12\\\">\n<b>"
             + "Salário:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.uz.fj())
+            + ClubFinances.c(this.uz.getSalary())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:12\\\">\n"
             + "<b>"
             + var3
@@ -491,7 +491,7 @@ public class C0272 extends JPanel {
             this.HH.setEnabled(false);
             this.HI.setEnabled(false);
             this.HJ.setEnabled(true);
-            if (this.uz.fz()) {
+            if (this.uz.isAvailableForLoan()) {
                this.HJ.setText("Não pôr para empréstimo");
             } else {
                this.HJ.setText("Pôr para empréstimo");
@@ -514,7 +514,7 @@ public class C0272 extends JPanel {
             this.HI.setEnabled(false);
          }
 
-         if (this.uz.ft()) {
+         if (this.uz.isTransferListed()) {
             this.If.h(1, true);
             this.If.g(1, true);
          } else {
@@ -802,8 +802,8 @@ public class C0272 extends JPanel {
    }
 
    private void qE() {
-      if (this.uz.fz()) {
-         this.uz.g(false);
+      if (this.uz.isAvailableForLoan()) {
+         this.uz.setAvailableForLoan(false);
          this.qt();
       } else {
          ArrayList var1 = GamePersistence.careerState.f(this.zu);
@@ -813,7 +813,7 @@ public class C0272 extends JPanel {
          }
 
          if (var2 + this.zu.kr() < 10) {
-            this.uz.g(true);
+            this.uz.setAvailableForLoan(true);
             this.qt();
          } else {
             JOptionPane.showMessageDialog(null, "Limite de jogadores emprestáveis é de " + Integer.toString(10), "Limite de emprestados", 2);
@@ -822,7 +822,7 @@ public class C0272 extends JPanel {
    }
 
    private void qF() {
-      if (this.uz != null && this.uz.isOnLoan() && this.zu.kb() >= this.uz.fk()) {
+      if (this.uz != null && this.uz.isOnLoan() && this.zu.kb() >= this.uz.getMarketValue()) {
          int var1 = -1;
          var1 = JOptionPane.showConfirmDialog(this, "Deseja comprar o jogador " + this.uz.getNome() + "?", "Confirmar", 0);
          if (var1 == 0) {
@@ -839,7 +839,7 @@ public class C0272 extends JPanel {
 
             GamePersistence.careerState.d(this.uz);
             this.uz.returnFromLoan(var2);
-            this.uz.moveToClub(this.zu, this.uz.fk(), false, false, false);
+            this.uz.moveToClub(this.zu, this.uz.getMarketValue(), false, false, false);
             this.qJ();
             this.qI();
             this.qH();
@@ -1074,8 +1074,8 @@ public class C0272 extends JPanel {
    }
 
    public void qR() {
-      this.uz.c(false);
-      this.uz.fm();
+      this.uz.setTransferListed(false);
+      this.uz.resetAskingPriceToMarketValue();
       this.Iy.addNotify();
       this.If.g(1, false);
    }
@@ -1210,7 +1210,7 @@ public class C0272 extends JPanel {
             this.qJ();
             this.pK();
             this.qH();
-         } else if (this.uz.ft()) {
+         } else if (this.uz.isTransferListed()) {
             this.If.h(1, true);
             this.If.g(1, true);
             this.Iy.addNotify();

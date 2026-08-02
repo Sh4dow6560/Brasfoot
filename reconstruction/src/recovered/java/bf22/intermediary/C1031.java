@@ -13,11 +13,11 @@ class C1031 implements Comparator<Player> {
       int var8 = player2.getOverallStrength();
       byte var9 = 0;
       byte var10 = 0;
-      if (player.ff()) {
+      if (player.isStarPlayer()) {
          var9 = 1;
       }
 
-      if (player2.ff()) {
+      if (player2.isStarPlayer()) {
          var10 = 1;
       }
 

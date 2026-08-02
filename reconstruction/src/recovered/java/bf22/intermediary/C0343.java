@@ -46,9 +46,9 @@ public class C0343 extends JPanel {
 
       this.uF.setText(this.CY.getNome());
       this.uG.setText("Contrato até: " + this.CY.getContractEndDateLabel());
-      this.Ec.setText("Salário atual: " + ClubFinances.c(this.CY.fj()));
+      this.Ec.setText("Salário atual: " + ClubFinances.c(this.CY.getSalary()));
       this.Bf.setSelectedIndex(0);
-      this.IE.setModel(new SpinnerNumberModel(this.CY.fj(), 1, 100000000, 1000));
+      this.IE.setModel(new SpinnerNumberModel(this.CY.getSalary(), 1, 100000000, 1000));
    }
 
    public void mH() {
@@ -80,12 +80,12 @@ public class C0343 extends JPanel {
    }
 
    private void dq(int i) {
-      this.CY.c(false);
-      this.CY.fm();
+      this.CY.setTransferListed(false);
+      this.CY.resetAskingPriceToMarketValue();
       int var2 = this.Bf.getSelectedIndex();
       int[] var3 = new int[]{180, 365, 730, 1095};
       this.CY.renewContract(var3[var2], false);
-      this.CY.ae(i);
+      this.CY.setSalary(i);
       this.ub.dispose();
    }
 
@@ -93,8 +93,8 @@ public class C0343 extends JPanel {
       int var2 = this.Bf.getSelectedIndex();
       int[] var3 = new int[]{1, 3, 5, 12};
       int[] var4 = new int[]{10, 12, 15, 5};
-      int var5 = this.CY.fj() - Math.round(this.CY.fj() * var3[var2] / 100);
-      int var6 = this.CY.fj() + Math.round(this.CY.fj() * var4[var2] / 100);
+      int var5 = this.CY.getSalary() - Math.round(this.CY.getSalary() * var3[var2] / 100);
+      int var6 = this.CY.getSalary() + Math.round(this.CY.getSalary() * var4[var2] / 100);
       if (this.CY.getContractDaysRemaining() < 60) {
          this.IC = var5;
          if (i < var5) {
@@ -111,11 +111,11 @@ public class C0343 extends JPanel {
    }
 
    private int rF() {
-      return (int)Math.round(this.CY.fk() * 0.25);
+      return (int)Math.round(this.CY.getMarketValue() * 0.25);
    }
 
    private boolean ds(int i) {
-      int var2 = (int)Math.round(this.CY.fk() * 0.25);
+      int var2 = (int)Math.round(this.CY.getMarketValue() * 0.25);
       return i <= var2;
    }
 

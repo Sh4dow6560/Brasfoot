@@ -1062,13 +1062,13 @@ public class Club implements Serializable {
             for (int var4 = 0; var4 < this.seniorPlayers.size(); var4++) {
                if (((Player)this.seniorPlayers.get(var4)).getPosicao() == var3
                   && ((Player)this.seniorPlayers.get(var4)).getStatus() == 0
-                  && !((Player)this.seniorPlayers.get(var4)).ff()
-                  && !((Player)this.seniorPlayers.get(var4)).gm()
+                  && !((Player)this.seniorPlayers.get(var4)).isStarPlayer()
+                  && !((Player)this.seniorPlayers.get(var4)).isWorldClassPlayer()
                   && !((Player)this.seniorPlayers.get(var4)).isOnLoan()) {
-                  ((Player)this.seniorPlayers.get(var4)).fm();
-                  ((Player)this.seniorPlayers.get(var4)).c(true);
+                  ((Player)this.seniorPlayers.get(var4)).resetAskingPriceToMarketValue();
+                  ((Player)this.seniorPlayers.get(var4)).setTransferListed(true);
                   if (new Random().nextInt(100) > 70 && ((Player)this.seniorPlayers.get(var4)).getOverallStrength() < 42) {
-                     ((Player)this.seniorPlayers.get(var4)).g(true);
+                     ((Player)this.seniorPlayers.get(var4)).setAvailableForLoan(true);
                   }
                   break;
                }
@@ -1093,7 +1093,7 @@ public class Club implements Serializable {
       int var1 = 0;
 
       for (int var2 = 0; var2 < this.seniorPlayers.size(); var2++) {
-         if (!((Player)this.seniorPlayers.get(var2)).isOnLoan() && ((Player)this.seniorPlayers.get(var2)).fz()) {
+         if (!((Player)this.seniorPlayers.get(var2)).isOnLoan() && ((Player)this.seniorPlayers.get(var2)).isAvailableForLoan()) {
             var1++;
          }
       }
@@ -1103,8 +1103,8 @@ public class Club implements Serializable {
 
    public void ks() {
       for (int var1 = 0; var1 < this.seniorPlayers.size(); var1++) {
-         ((Player)this.seniorPlayers.get(var1)).c(false);
-         ((Player)this.seniorPlayers.get(var1)).g(false);
+         ((Player)this.seniorPlayers.get(var1)).setTransferListed(false);
+         ((Player)this.seniorPlayers.get(var1)).setAvailableForLoan(false);
       }
    }
 
@@ -1177,7 +1177,7 @@ public class Club implements Serializable {
          ArrayList var6 = new ArrayList();
 
          for (int var5 = 0; var5 < this.seniorPlayers.size(); var5++) {
-            if (!((Player)this.seniorPlayers.get(var5)).isOnLoan() && !((Player)this.seniorPlayers.get(var5)).ff() && ((Player)this.seniorPlayers.get(var5)).getPosicao() == (Integer)var3.get(0)) {
+            if (!((Player)this.seniorPlayers.get(var5)).isOnLoan() && !((Player)this.seniorPlayers.get(var5)).isStarPlayer() && ((Player)this.seniorPlayers.get(var5)).getPosicao() == (Integer)var3.get(0)) {
                var6.add((Player)this.seniorPlayers.get(var5));
             }
          }
@@ -1624,11 +1624,11 @@ public class Club implements Serializable {
       long var1 = 0L;
 
       for (int var3 = 0; var3 < this.seniorPlayers.size(); var3++) {
-         var1 += ((Player)this.seniorPlayers.get(var3)).fj();
+         var1 += ((Player)this.seniorPlayers.get(var3)).getSalary();
       }
 
       for (int var4 = 0; var4 < this.youthPlayers.size(); var4++) {
-         var1 += ((Player)this.youthPlayers.get(var4)).fj();
+         var1 += ((Player)this.youthPlayers.get(var4)).getSalary();
       }
 
       return var1;

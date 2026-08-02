@@ -30,7 +30,7 @@ public class C0799 implements Serializable {
       this.a(coach, j, k, string, string2);
       if (player != null) {
          this.Sa = player.getNome();
-         this.oq = (int)Math.round(player.fj() * 0.1);
+         this.oq = (int)Math.round(player.getSalary() * 0.1);
          this.RZ = bl;
          this.Sc = i;
       }

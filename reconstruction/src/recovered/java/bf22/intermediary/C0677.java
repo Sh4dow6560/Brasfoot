@@ -103,20 +103,20 @@ public abstract class C0677 {
       player.renewContract(180L, true);
       player.fK();
       player.fJ();
-      if (player.ff()) {
+      if (player.isStarPlayer()) {
          if (new Random().nextInt(3) == 1) {
-            player.a(true);
+            player.setStarPlayer(true);
          } else {
-            player.a(false);
+            player.setStarPlayer(false);
          }
-      } else if (player.gm()) {
-         player.a(true);
+      } else if (player.isWorldClassPlayer()) {
+         player.setStarPlayer(true);
          player.j(false);
       } else if (new Random().nextInt(200) == 1) {
-         player.a(true);
+         player.setStarPlayer(true);
       }
 
-      if (player.ff() && player.fH() < 8) {
+      if (player.isStarPlayer() && player.fH() < 8) {
          player.aq(8);
       }
 

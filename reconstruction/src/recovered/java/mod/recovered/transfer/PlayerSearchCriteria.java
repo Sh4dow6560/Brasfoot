@@ -130,7 +130,7 @@ public class PlayerSearchCriteria {
                         if (this.mF < 0 || player.getFinishing() >= this.mG && player.getFinishing() <= this.mH) {
                            if (this.mC < 0 || player.getTackling() >= this.mD && player.getTackling() <= this.mE) {
                               if (this.mz < 0 || player.getPassing() >= this.mA && player.getPassing() <= this.mB) {
-                                 if (this.mh < 0 || player.fk() >= this.mR[this.mh][0] && player.fk() <= this.mR[this.mh][1]) {
+                                 if (this.mh < 0 || player.getMarketValue() >= this.mR[this.mh][0] && player.getMarketValue() <= this.mR[this.mh][1]) {
                                     if (this.mi >= 0 && player.getCr1() != this.mi) {
                                        return false;
                                     } else if (this.mj >= 0 && player.getCr2() != this.mj) {
@@ -142,14 +142,14 @@ public class PlayerSearchCriteria {
                                        && this.ml < this.mS.size()
                                        && player.getClub().getPais() != (Integer)this.mS.get(this.ml)) {
                                        return false;
-                                    } else if (this.mL && !player.ff()) {
+                                    } else if (this.mL && !player.isStarPlayer()) {
                                        return false;
-                                    } else if (this.mM && !player.gm()) {
+                                    } else if (this.mM && !player.isWorldClassPlayer()) {
                                        return false;
-                                    } else if (this.mN && !player.fz()) {
+                                    } else if (this.mN && !player.isAvailableForLoan()) {
                                        return false;
                                     } else {
-                                       return this.mO && !player.ft()
+                                       return this.mO && !player.isTransferListed()
                                           ? false
                                           : this.nome == null
                                              || this.nome.isEmpty()

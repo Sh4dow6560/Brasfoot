@@ -39,8 +39,8 @@ public class Player implements Serializable {
    private int ei = -1;
    private int ej = -1;
    private String dm;
-   private Boolean ek = false;
-   private Boolean el = false;
+   private Boolean starPlayer = false;
+   private Boolean worldClassPlayer = false;
    private int em;
    private int pais;
    private int en;
@@ -50,9 +50,9 @@ public class Player implements Serializable {
    private int overallStrength;
    private int er = 0;
    private int es;
-   private int et;
-   private int eu;
-   private int ev;
+   private int salary;
+   private int marketValue;
+   private int askingPrice;
    private int status = 0;
    private int ew = 0;
    private int ex;
@@ -80,9 +80,9 @@ public class Player implements Serializable {
    private ArrayList eT = new ArrayList();
    private ArrayList eU = new ArrayList();
    private int eV = 0;
-   private Boolean eW = false;
+   private Boolean availableForLoan = false;
    private Boolean onLoan = false;
-   private Boolean eY = false;
+   private Boolean transferListed = false;
    private int eZ = 0;
    private int fa = 0;
    private Boolean youthPlayer = false;
@@ -109,7 +109,7 @@ public class Player implements Serializable {
 
    public void fd() {
       this.fp++;
-      if (!this.gm() && this.fp >= 2 && this.getClub() != null && this.em < 35) {
+      if (!this.isWorldClassPlayer() && this.fp >= 2 && this.getClub() != null && this.em < 35) {
          if (this.getClub().gg() == 0) {
             if (this.getClub().getPais() == 1 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
                this.j(true);
@@ -139,13 +139,13 @@ public class Player implements Serializable {
       this.setPosicao(c0689.en);
       this.setLado(c0689.er);
       if (c0689.hm == 1) {
-         this.el = true;
+         this.worldClassPlayer = true;
       }
 
       if (c0689.hl == 1) {
-         this.a(true);
+         this.setStarPlayer(true);
       } else {
-         this.a(false);
+         this.setStarPlayer(false);
       }
 
       this.aq(c0689.es);
@@ -173,14 +173,14 @@ public class Player implements Serializable {
       }
    }
 
-   public Boolean ff() {
-      return this.ek;
+   public Boolean isStarPlayer() {
+      return this.starPlayer;
    }
 
-   public void a(Boolean boolean_) {
-      this.ek = boolean_;
-      if (this.el) {
-         this.ek = true;
+   public void setStarPlayer(Boolean boolean_) {
+      this.starPlayer = boolean_;
+      if (this.worldClassPlayer) {
+         this.starPlayer = true;
       }
    }
 
@@ -263,32 +263,32 @@ public class Player implements Serializable {
       }
    }
 
-   public int fj() {
-      return this.et;
+   public int getSalary() {
+      return this.salary;
    }
 
-   public void ae(int i) {
-      this.et = i;
+   public void setSalary(int i) {
+      this.salary = i;
    }
 
-   public int fk() {
-      return this.eu;
+   public int getMarketValue() {
+      return this.marketValue;
    }
 
-   public void af(int i) {
-      this.eu = i;
+   public void setMarketValue(int i) {
+      this.marketValue = i;
    }
 
-   public int fl() {
-      return this.ev;
+   public int getAskingPrice() {
+      return this.askingPrice;
    }
 
-   public void ag(int i) {
-      this.ev = i;
+   public void setAskingPrice(int i) {
+      this.askingPrice = i;
    }
 
-   public void fm() {
-      this.ev = this.eu;
+   public void resetAskingPriceToMarketValue() {
+      this.askingPrice = this.marketValue;
    }
 
    public int getStatus() {
@@ -418,12 +418,12 @@ public class Player implements Serializable {
       this.eL = boolean_;
    }
 
-   public Boolean ft() {
-      return this.eY;
+   public Boolean isTransferListed() {
+      return this.transferListed;
    }
 
-   public void c(Boolean boolean_) {
-      this.eY = boolean_;
+   public void setTransferListed(Boolean boolean_) {
+      this.transferListed = boolean_;
    }
 
    public double fu() {
@@ -466,12 +466,12 @@ public class Player implements Serializable {
       this.eV = i;
    }
 
-   public Boolean fz() {
-      return this.eW;
+   public Boolean isAvailableForLoan() {
+      return this.availableForLoan;
    }
 
-   public void g(Boolean boolean_) {
-      this.eW = boolean_;
+   public void setAvailableForLoan(Boolean boolean_) {
+      this.availableForLoan = boolean_;
    }
 
    public int fA() {
@@ -566,7 +566,7 @@ public class Player implements Serializable {
 
    public void aq(int i) {
       this.es = i;
-      if (this.ek && this.es > 8) {
+      if (this.starPlayer && this.es > 8) {
          this.es = 10;
       }
    }
@@ -668,7 +668,7 @@ public class Player implements Serializable {
             var4 = var4 + 8 + new Random().nextInt(2);
          }
 
-         if (this.ek || this.el) {
+         if (this.starPlayer || this.worldClassPlayer) {
             var4 = var4 + 9 + new Random().nextInt(3);
          }
 
@@ -1043,7 +1043,7 @@ public class Player implements Serializable {
       int var4 = this.overallStrength * 2 * var2;
       int var5 = (this.em - 32) * 300;
       int var6 = 0;
-      if (this.ek || this.el) {
+      if (this.starPlayer || this.worldClassPlayer) {
          var6 = this.overallStrength * 250;
       }
 
@@ -1057,7 +1057,7 @@ public class Player implements Serializable {
          var1 = 500;
       }
 
-      if (this.el) {
+      if (this.worldClassPlayer) {
          var1 = (int)Math.round(var1 * 1.4);
       }
 
@@ -1066,9 +1066,9 @@ public class Player implements Serializable {
       }
 
       if (GamePersistence.careerState.isSalarioMensal()) {
-         this.et = var1 * 4;
+         this.salary = var1 * 4;
       } else {
-         this.et = var1;
+         this.salary = var1;
       }
    }
 
@@ -1099,7 +1099,7 @@ public class Player implements Serializable {
          var4 = 366;
       }
 
-      if (this.ek) {
+      if (this.starPlayer) {
          if (var2 >= 22 && var6 == 0) {
             var4 *= 3;
          } else if (var2 >= 21 && var6 == 0) {
@@ -1109,7 +1109,7 @@ public class Player implements Serializable {
          }
       }
 
-      if (this.gm()) {
+      if (this.isWorldClassPlayer()) {
          var4 = (int)Math.round(1.6 * var4);
       }
 
@@ -1154,8 +1154,8 @@ public class Player implements Serializable {
          var1 = (int)Math.round(var1 * 0.03) * this.es;
       } else if (this.ff > 0 && GamePersistence.careerState.getSeasonNumber() == this.ff) {
          var1 = (int)Math.round(var1 * 0.18);
-         if (var1 > this.fl() && this.fl() > 0) {
-            var1 = this.fl();
+         if (var1 > this.getAskingPrice() && this.getAskingPrice() > 0) {
+            var1 = this.getAskingPrice();
          }
       } else if (this.ff > 0 && GamePersistence.careerState.getSeasonNumber() - 1 == this.ff) {
          var1 = (int)Math.round(var1 * 0.35);
@@ -1167,7 +1167,7 @@ public class Player implements Serializable {
          var1 = (int)Math.round(var1 * 1.5);
       }
 
-      this.eu = var1;
+      this.marketValue = var1;
    }
 
    public int fL() {
@@ -1608,9 +1608,9 @@ public class Player implements Serializable {
          }
       }
 
-      if (this.gm()) {
+      if (this.isWorldClassPlayer()) {
          var6 += 0.02;
-      } else if (this.ff()) {
+      } else if (this.isStarPlayer()) {
          var6 += 0.01;
       }
 
@@ -1949,18 +1949,18 @@ public class Player implements Serializable {
    public void ge() {
       if (this.getClub() != null && !this.onLoan) {
          if (this.getClub().isUserControlled()) {
-            this.eY = false;
+            this.transferListed = false;
          }
 
          boolean var1 = false;
          int var2 = GameConstants.cu(100) + 1;
          if (this.em > 32) {
             int var3 = this.em;
-            if (this.ff()) {
+            if (this.isStarPlayer()) {
                var3--;
             }
 
-            if (this.gm()) {
+            if (this.isWorldClassPlayer()) {
                var3 -= 3;
             }
 
@@ -2046,11 +2046,11 @@ public class Player implements Serializable {
             var8 = 125;
          }
 
-         if (this.ek) {
+         if (this.starPlayer) {
             var8 = 5;
          }
 
-         if (this.gm()) {
+         if (this.isWorldClassPlayer()) {
             var8 = 2;
          }
 
@@ -2262,9 +2262,9 @@ public class Player implements Serializable {
 
       var6.es = var8;
       if (var11 == 1) {
-         var6.ek = true;
+         var6.starPlayer = true;
       } else {
-         var6.ek = false;
+         var6.starPlayer = false;
       }
 
       var6.em = new Random().nextInt(4) + 16;
@@ -2527,8 +2527,8 @@ public class Player implements Serializable {
       this.n(club);
       this.setPosicao(c0914.getPosicao());
       this.setLado(c0914.getLado());
-      this.el = c0914.isTopMundial();
-      this.a(c0914.isEstrela());
+      this.worldClassPlayer = c0914.isTopMundial();
+      this.setStarPlayer(c0914.isEstrela());
       this.aq(c0914.getHash());
       this.setStatus(c0914.getStatus());
       this.setCr1(c0914.getCr1());
@@ -3009,11 +3009,11 @@ public class Player implements Serializable {
          }
       }
 
-      if (this.ek) {
+      if (this.starPlayer) {
          var21 += 0.4;
       }
 
-      if (this.el) {
+      if (this.worldClassPlayer) {
          var21 += 0.6;
       }
 
@@ -3100,8 +3100,8 @@ public class Player implements Serializable {
       Club var3 = this.getClub();
       this.n(club);
       this.ew = 0;
-      this.eW = false;
-      this.eY = false;
+      this.availableForLoan = false;
+      this.transferListed = false;
       var3.v(i, 1);
       club.w(i, 1);
       Calendar var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
@@ -3111,7 +3111,7 @@ public class Player implements Serializable {
       var5.cs(var3.getClubId());
       var5.cr(club.getClubId());
       var5.cq(i);
-      this.ag(i);
+      this.setAskingPrice(i);
       GamePersistence.careerState.bo().add(var5);
       var3.getYouthPlayers().remove(this);
       club.getYouthPlayers().add(this);
@@ -3124,15 +3124,15 @@ public class Player implements Serializable {
       this.n(club);
       if (!var6.equals(club)) {
          this.ew = 0;
-         this.eW = false;
-         this.eY = false;
+         this.availableForLoan = false;
+         this.transferListed = false;
          if (bl2 && !bl3) {
             this.onLoan = true;
          }
 
          if (bl3) {
             this.onLoan = false;
-            this.eW = false;
+            this.availableForLoan = false;
          }
 
          Calendar var7 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
@@ -3180,7 +3180,7 @@ public class Player implements Serializable {
             this.renewContract(365L, true);
          }
 
-         this.fm();
+         this.resetAskingPriceToMarketValue();
          if (var6.ke() == this) {
             var6.kA();
          }
@@ -3214,8 +3214,8 @@ public class Player implements Serializable {
       }
    }
 
-   public Boolean gm() {
-      return this.el;
+   public Boolean isWorldClassPlayer() {
+      return this.worldClassPlayer;
    }
 
    public JProgressBar a(Color color) {
@@ -3467,7 +3467,7 @@ public class Player implements Serializable {
    }
 
    public void j(Boolean boolean_) {
-      this.el = boolean_;
+      this.worldClassPlayer = boolean_;
    }
 
    public void b(JProgressBar jProgressBar) {
@@ -3475,7 +3475,7 @@ public class Player implements Serializable {
    }
 
    public void ay(int i) {
-      if (this.gm() && this.getIdade() > 34) {
+      if (this.isWorldClassPlayer() && this.getIdade() > 34) {
          this.j(false);
       }
 

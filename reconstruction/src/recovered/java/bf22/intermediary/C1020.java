@@ -5,8 +5,8 @@ import mod.recovered.model.Player;
 
 class C1020 implements Comparator<Player> {
    public int compare(Player player, Player player2) {
-      boolean var3 = player.ft();
-      boolean var4 = player2.ft();
+      boolean var3 = player.isTransferListed();
+      boolean var4 = player2.isTransferListed();
       if (var3 != var4) {
          return var3 ? -1 : 1;
       } else {

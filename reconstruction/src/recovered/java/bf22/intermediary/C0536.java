@@ -118,11 +118,11 @@ public class C0536 extends JPanel {
          + "<b>"
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Valor:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.fk())
+         + ClubFinances.c(this.uz.getMarketValue())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.fj())
+         + ClubFinances.c(this.uz.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
          + GameConstants.qM[this.uz.getCr1()]

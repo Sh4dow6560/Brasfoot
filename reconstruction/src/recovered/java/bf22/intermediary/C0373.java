@@ -108,12 +108,12 @@ public class C0373 extends JPanel {
    private void nO() {
       byte var1 = 70;
       int var2 = 30;
-      if (this.ef.getCr1() == 9 || this.ef.getCr2() == 9 || this.ef.gm()) {
+      if (this.ef.getCr1() == 9 || this.ef.getCr2() == 9 || this.ef.isWorldClassPlayer()) {
          var1 += 10;
          var2 -= 10;
       }
 
-      if (this.ef.ff()) {
+      if (this.ef.isStarPlayer()) {
          var1 += 5;
          var2 -= 5;
       }
@@ -124,12 +124,12 @@ public class C0373 extends JPanel {
             var2 += 10;
          }
 
-         if (this.JP.gm()) {
+         if (this.JP.isWorldClassPlayer()) {
             var1 -= 10;
             var2 += 10;
          }
 
-         if (this.JP.ff()) {
+         if (this.JP.isStarPlayer()) {
             var1 -= 5;
             var2 += 5;
          }

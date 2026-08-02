@@ -133,7 +133,7 @@ public class C0238 extends JPanel {
       }
 
       Player var2 = c0680.iA();
-      this.FW = (int)Math.round(var2.fk() * 0.5);
+      this.FW = (int)Math.round(var2.getMarketValue() * 0.5);
       this.Gi.setText("Lance mínimo: " + ClubFinances.c(this.FW));
       this.Gk.setText(var2.getClub().getNome() + " está leiloando o jogador:");
       this.Fq.setIcon(c0680.iA().getClub().kP());
@@ -183,7 +183,7 @@ public class C0238 extends JPanel {
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(var2.fj())
+         + ClubFinances.c(var2.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>Características :"
          + GameConstants.qM[var2.getCr1()]

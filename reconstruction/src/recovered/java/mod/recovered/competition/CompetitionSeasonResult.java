@@ -61,7 +61,7 @@ public class CompetitionSeasonResult implements Serializable {
          }
 
          if (c0678 != null && c0678.b() == 1 && c0678.ip() == 1) {
-            var6.x().a(true);
+            var6.x().setStarPlayer(true);
          }
       }
 

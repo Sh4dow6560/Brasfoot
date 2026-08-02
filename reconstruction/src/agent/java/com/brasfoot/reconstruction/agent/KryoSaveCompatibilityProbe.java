@@ -48,6 +48,7 @@ public final class KryoSaveCompatibilityProbe {
       String lineupApi = validateLineupBehavior(loader);
       String contractLoanApi = validateContractAndLoanBehavior(loader, roots[0]);
       String transferNegotiationApi = validateTransferNegotiationBehavior(loader);
+      String aiSquadApi = validateAiSquadManagerBehavior(loader, roots[0]);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -92,6 +93,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("LINEUP_API " + lineupApi);
       System.out.println("CONTRACT_LOAN_API " + contractLoanApi);
       System.out.println("TRANSFER_NEGOTIATION_API " + transferNegotiationApi);
+      System.out.println("AI_SQUAD_API " + aiSquadApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -688,6 +690,26 @@ public final class KryoSaveCompatibilityProbe {
     playerClass.getDeclaredMethod("g", Boolean.class).invoke(player, Boolean.TRUE);
     playerClass.getDeclaredMethod("c", Boolean.class).invoke(player, Boolean.TRUE);
     castList(clubClass.getDeclaredMethod("kc").invoke(sourceClub)).add(player);
+    assertInteger(playerClass, player, "fj", 100);
+    assertInteger(playerClass, player, "fk", 1_000);
+    assertInteger(playerClass, player, "fl", 1_200);
+    assertBoolean(playerClass, player, "ft", true);
+    assertBoolean(playerClass, player, "fz", true);
+    assertBoolean(playerClass, player, "ff", false);
+    assertBoolean(playerClass, player, "gm", false);
+    playerClass.getDeclaredMethod("a", Boolean.class).invoke(player, Boolean.TRUE);
+    assertBoolean(playerClass, player, "ff", true);
+    setField(player, "el", Boolean.TRUE);
+    playerClass.getDeclaredMethod("a", Boolean.class).invoke(player, Boolean.FALSE);
+    assertBoolean(playerClass, player, "ff", true);
+    assertBoolean(playerClass, player, "gm", true);
+    setField(player, "el", Boolean.FALSE);
+    playerClass.getDeclaredMethod("a", Boolean.class).invoke(player, Boolean.FALSE);
+    assertBoolean(playerClass, player, "ff", false);
+    assertBoolean(playerClass, player, "gm", false);
+    playerClass.getDeclaredMethod("fm").invoke(player);
+    assertInteger(playerClass, player, "fl", 1_000);
+    playerClass.getDeclaredMethod("ag", Integer.TYPE).invoke(player, 1_200);
 
     Object negotiation = negotiationClass.getDeclaredConstructor(
         playerClass, Integer.TYPE, Boolean.TYPE, Boolean.TYPE, Integer.TYPE)
@@ -751,7 +773,119 @@ public final class KryoSaveCompatibilityProbe {
     negotiationClass.getDeclaredMethod("l", Boolean.TYPE).invoke(null, false);
 
     return "countries=224 state=true loanCodes=0/2 listedCode=2 compatible=true "
-        + "offer=accepted counterOffer=2500 salary=200 completedFlag=true";
+        + "offer=accepted counterOffer=2500 salary=200 marketFields=true completedFlag=true";
+  }
+
+  private static String validateAiSquadManagerBehavior(ClassLoader loader, Object career)
+      throws Exception {
+    Class<?> managerClass = loader.loadClass("best.ag");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> leagueStageClass = loader.loadClass("f.s");
+    Class<?> persistenceClass = loader.loadClass("c.a");
+
+    Object previousCareer = readStaticField(persistenceClass, "SR");
+    Object countries = readField(career, "ao");
+    Object clubs = readField(career, "aj");
+    Object nationalTeams = readField(career, "ap");
+    Object coaches = readField(career, "al");
+    Object coachChanges = readField(career, "at");
+    try {
+      setStaticField(persistenceClass, "SR", career);
+      setField(career, "ao", new ArrayList<Object>());
+      setField(career, "aj", new ArrayList<Object>());
+      setField(career, "ap", new ArrayList<Object>());
+      setField(career, "al", new ArrayList<Object>());
+      setField(career, "at", new ArrayList<Object>());
+      managerClass.getDeclaredMethod("jO").invoke(null);
+      managerClass.getDeclaredMethod("jQ").invoke(null);
+    } finally {
+      setField(career, "ao", countries);
+      setField(career, "aj", clubs);
+      setField(career, "ap", nationalTeams);
+      setField(career, "al", coaches);
+      setField(career, "at", coachChanges);
+      setStaticField(persistenceClass, "SR", previousCareer);
+    }
+
+    Object balancedClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(balancedClub, "mU", 71);
+    List<Object> balancedPlayers = castList(
+        clubClass.getDeclaredMethod("kc").invoke(balancedClub));
+    for (int index = 0; index < 2; index++) {
+      balancedPlayers.add(createAiMarketPlayer(
+          playerClass, clubClass, balancedClub, 0, false));
+    }
+
+    java.lang.reflect.Method processClub = managerClass.getDeclaredMethod(
+        "a", clubClass, Integer.TYPE, Boolean.TYPE);
+    processClub.setAccessible(true);
+    processClub.invoke(null, balancedClub, 12, true);
+    if (balancedPlayers.size() != 2) {
+      throw new IllegalStateException("Balanced squad was changed by market maintenance");
+    }
+    for (Object player : balancedPlayers) {
+      assertSame(balancedClub, playerClass.getDeclaredMethod("fg").invoke(player),
+          "balanced player club");
+    }
+
+    Object loanOnlyClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(loanOnlyClub, "mU", 72);
+    List<Object> loanPlayers = castList(
+        clubClass.getDeclaredMethod("kc").invoke(loanOnlyClub));
+    for (int index = 0; index < 5; index++) {
+      loanPlayers.add(createAiMarketPlayer(
+          playerClass, clubClass, loanOnlyClub, 0, true));
+    }
+    java.lang.reflect.Method transferSurplus = managerClass.getDeclaredMethod(
+        "a", clubClass, Boolean.TYPE, Boolean.TYPE);
+    transferSurplus.setAccessible(true);
+    transferSurplus.invoke(null, loanOnlyClub, true, true);
+    transferSurplus.invoke(null, loanOnlyClub, false, false);
+    if (loanPlayers.size() != 5) {
+      throw new IllegalStateException("Loan-only squad was changed by market maintenance");
+    }
+    for (Object player : loanPlayers) {
+      assertSame(loanOnlyClub, playerClass.getDeclaredMethod("fg").invoke(player),
+          "loan player club");
+      assertBoolean(playerClass, player, "gl", true);
+    }
+
+    Object userClub = clubClass.getDeclaredConstructor().newInstance();
+    setField(userClub, "mU", 73);
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(userClub, Boolean.TRUE);
+    List<Object> userPlayers = castList(clubClass.getDeclaredMethod("kc").invoke(userClub));
+    for (int index = 0; index < 5; index++) {
+      userPlayers.add(createAiMarketPlayer(
+          playerClass, clubClass, userClub, 0, false));
+    }
+    Object leagueStage = leagueStageClass.getDeclaredConstructor().newInstance();
+    List<Object> leagueClubs = castList(leagueStageClass.getDeclaredMethod("yK")
+        .invoke(leagueStage));
+    leagueClubs.add(userClub);
+    leagueClubs.add(balancedClub);
+    managerClass.getDeclaredMethod("b", leagueStageClass).invoke(null, leagueStage);
+    if (userPlayers.size() != 5 || balancedPlayers.size() != 2) {
+      throw new IllegalStateException("League maintenance changed a protected squad");
+    }
+    for (Object player : userPlayers) {
+      assertSame(userClub, playerClass.getDeclaredMethod("fg").invoke(player),
+          "user player club");
+    }
+
+    return "entryPoints=true balancedPlayers=2 loanProtected=5 userProtected=5";
+  }
+
+  private static Object createAiMarketPlayer(
+      Class<?> playerClass, Class<?> clubClass, Object club, int position, boolean onLoan)
+      throws Exception {
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, club);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, position);
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 50);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    playerClass.getDeclaredMethod("i", Boolean.class).invoke(player, Boolean.valueOf(onLoan));
+    return player;
   }
 
   @SuppressWarnings("unchecked")

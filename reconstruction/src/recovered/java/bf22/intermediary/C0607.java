@@ -40,9 +40,9 @@ public class C0607 extends DefaultTableCellRenderer {
          if (j == 3) {
             this.setHorizontalAlignment(2);
             this.setText(var7.getNome());
-            if (var7.gm()) {
+            if (var7.isWorldClassPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrelared.png")));
-            } else if (var7.ff()) {
+            } else if (var7.isStarPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrela.png")));
             }
          }
@@ -56,9 +56,9 @@ public class C0607 extends DefaultTableCellRenderer {
             if (j == 5) {
                this.setText(Integer.toString(var7.getOverallStrength()));
             } else if (j == 6) {
-               this.setText(ClubFinances.a(var7.fj(), 0));
+               this.setText(ClubFinances.a(var7.getSalary(), 0));
             } else if (j == 7) {
-               this.setText(ClubFinances.a(var7.fk(), 0));
+               this.setText(ClubFinances.a(var7.getMarketValue(), 0));
             } else if (j == 8) {
                this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
             } else if (j == 9) {
@@ -68,10 +68,10 @@ public class C0607 extends DefaultTableCellRenderer {
             } else if (j == 11) {
                this.setText(Integer.toString(var7.getIdade()));
             } else if (j == 12) {
-               if (var7.ft()) {
+               if (var7.isTransferListed()) {
                   this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
                }
-            } else if (j == 13 && var7.fz()) {
+            } else if (j == 13 && var7.isAvailableForLoan()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
             }
          } else if (j == 5) {
@@ -89,9 +89,9 @@ public class C0607 extends DefaultTableCellRenderer {
          } else if (j == 11) {
             this.setText(Integer.toString(var7.getPassing()));
          } else if (j == 12) {
-            this.setText(ClubFinances.a(var7.fj(), 0));
+            this.setText(ClubFinances.a(var7.getSalary(), 0));
          } else if (j == 13) {
-            this.setText(ClubFinances.a(var7.fk(), 0));
+            this.setText(ClubFinances.a(var7.getMarketValue(), 0));
          } else if (j == 14) {
             this.setText(GameConstants.qN[var7.getCr1()] + "/" + GameConstants.qN[var7.getCr2()]);
          } else if (j == 15) {
@@ -101,10 +101,10 @@ public class C0607 extends DefaultTableCellRenderer {
          } else if (j == 17) {
             this.setText(Integer.toString(var7.getIdade()));
          } else if (j == 18) {
-            if (var7.ft()) {
+            if (var7.isTransferListed()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
             }
-         } else if (j == 19 && var7.fz()) {
+         } else if (j == 19 && var7.isAvailableForLoan()) {
             this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/iconchecked.png")));
          }
       }

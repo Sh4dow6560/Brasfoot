@@ -50,7 +50,7 @@ public class C0185 extends JPanel {
 
    private void mK() {
       this.uF.setText(this.CY.getNome());
-      this.uG.setText("Valor do passe: " + ClubFinances.c(this.CY.fk()));
+      this.uG.setText("Valor do passe: " + ClubFinances.c(this.CY.getMarketValue()));
    }
 
    public static boolean B(String string) {
@@ -100,7 +100,7 @@ public class C0185 extends JPanel {
                   TransferNegotiation.setTransferCompleted(true);
                   this.ub.dispose();
                }
-            } else if (this.CY.ft() && var3 >= this.CY.fl() && !this.CZ) {
+            } else if (this.CY.isTransferListed() && var3 >= this.CY.getAskingPrice() && !this.CZ) {
                this.oM();
             } else {
                int var14 = 0;
@@ -122,7 +122,7 @@ public class C0185 extends JPanel {
                      this.ub, "Para jogar no seu time\no jogador quer um salário de:\n" + var7 + "\n" + "Deseja aceitar?", "Deseja aumento de salário", 0
                   );
                   if (var2 == 0) {
-                     this.CY.ae(TransferNegotiation.getRequestedSalary());
+                     this.CY.setSalary(TransferNegotiation.getRequestedSalary());
                      var14 = 1;
                   }
                } else if (var14 == 7) {
@@ -145,7 +145,7 @@ public class C0185 extends JPanel {
                   );
                   if (var2 == 0) {
                      if (var10 > 0) {
-                        this.CY.ae(var10);
+                        this.CY.setSalary(var10);
                      }
 
                      var14 = 1;

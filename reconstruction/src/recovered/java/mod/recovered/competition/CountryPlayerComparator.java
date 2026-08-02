@@ -10,11 +10,11 @@ class CountryPlayerComparator implements Comparator<Player> {
       int var4 = player2.getOverallStrength();
       byte var5 = 0;
       byte var6 = 0;
-      if (player.ff()) {
+      if (player.isStarPlayer()) {
          var5 = 1;
       }
 
-      if (player2.ff()) {
+      if (player2.isStarPlayer()) {
          var6 = 1;
       }
 

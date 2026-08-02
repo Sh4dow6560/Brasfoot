@@ -48,8 +48,8 @@ public class C0794 {
          var1 = 0.1;
       }
 
-      int var3 = (int)Math.round(this.U.fk() * C0272.qq());
-      return this.oq <= this.U.fk() + var3;
+      int var3 = (int)Math.round(this.U.getMarketValue() * C0272.qq());
+      return this.oq <= this.U.getMarketValue() + var3;
    }
 
    private void iy() {

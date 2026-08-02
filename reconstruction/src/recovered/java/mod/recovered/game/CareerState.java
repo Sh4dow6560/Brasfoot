@@ -470,8 +470,8 @@ public class CareerState implements Serializable {
 
       GamePersistence.coachJobMarket.zi();
       GamePersistence.coachJobMarket.zj();
-      AiSquadManager.jO();
-      AiSquadManager.jQ();
+      AiSquadManager.runSeasonSquadMaintenance();
+      AiSquadManager.reviewCoachPerformance();
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          this.ac();
       }
@@ -1523,8 +1523,8 @@ public class CareerState implements Serializable {
    private void av() {
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
          for (int var2 = 0; var2 < ((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().size(); var2++) {
-            if (((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2)).ft()) {
-               new C0794((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2), ((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2)).fl(), true, true);
+            if (((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2)).isTransferListed()) {
+               new C0794((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2), ((Player)((Club)GamePersistence.careerState.aN().get(var1)).getSeniorPlayers().get(var2)).getAskingPrice(), true, true);
             }
          }
       }

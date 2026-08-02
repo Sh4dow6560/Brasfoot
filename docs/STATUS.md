@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 83 classes e 459 membros mapeados possuem nomes validos ou
+- Legibilidade: 83 classes e 490 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -74,6 +74,14 @@
   avaliacao de proposta, interesse do jogador e reposicao do elenco vendedor.
   Um cenario valida proposta aceita, contraproposta de 2.500, salario de 200 e
   os codigos deterministas de rejeicao sem alterar a carreira real.
+- Dados de mercado: `Player` expoe estrela, destaque mundial, salario, valor
+  de mercado, preco pedido, lista de transferencias e disponibilidade para
+  emprestimo, incluindo getters, setters e restauracao do preco pelo valor.
+- Mercado da IA: `AiSquadManager` identifica as cinco fases de manutencao da
+  temporada, revisao de tecnicos, equilibrio de ligas e clubes avulsos,
+  reposicao de carencias e movimentacao de destaques. Um cenario executa todos
+  os pontos de entrada e confirma a protecao de elencos equilibrados,
+  jogadores emprestados e clubes controlados pelo usuario.
 - Paises: 48 consultas que dependiam dos nomes internos `P0...P223`, perdidos
   ao recompilar o enum, agora usam o mesmo indice numerico do bytecode. O fluxo
   de negociacao exercita essa correcao e o contrato binario permanece intacto.
@@ -89,5 +97,5 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: recuperar a manutencao automatica de elenco e as decisoes de
-  compra e venda executadas por `AiSquadManager`.
+- Proxima fase: recuperar filtros de busca, registros e historico do mercado
+  em `PlayerSearchCriteria` e `PlayerTransferRecord`.

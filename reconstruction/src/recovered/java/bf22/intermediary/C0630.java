@@ -26,9 +26,9 @@ public class C0630 extends DefaultTableCellRenderer {
          } else if (j == 1) {
             this.setHorizontalAlignment(2);
             this.setText(var7.getNome());
-            if (var7.gm()) {
+            if (var7.isWorldClassPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrelared.png")));
-            } else if (var7.ff()) {
+            } else if (var7.isStarPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrela.png")));
             }
          } else if (j == 2) {
@@ -53,9 +53,9 @@ public class C0630 extends DefaultTableCellRenderer {
          } else if (j == 1) {
             this.setHorizontalAlignment(2);
             this.setText(var7.getNome());
-            if (var7.gm()) {
+            if (var7.isWorldClassPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrelared.png")));
-            } else if (var7.ff()) {
+            } else if (var7.isStarPlayer()) {
                this.setIcon(new ImageIcon(this.getClass().getResource("/aicons/estrela.png")));
             }
          } else if (j == 2) {

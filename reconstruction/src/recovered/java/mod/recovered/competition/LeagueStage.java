@@ -677,12 +677,12 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       this.Zf++;
       if (this.b() == 1 && this.Zd == 0 && this.Zf == this.zk()) {
          GamePersistence.coachJobMarket.zj();
-         AiSquadManager.b(this);
+         AiSquadManager.balanceLeagueStageSquads(this);
       }
 
       if (this.Zf > this.Ze) {
          if (this.b() == 1 && this.Zd > 0) {
-            AiSquadManager.b(this);
+            AiSquadManager.balanceLeagueStageSquads(this);
          }
 
          if (this.Zd > 0) {

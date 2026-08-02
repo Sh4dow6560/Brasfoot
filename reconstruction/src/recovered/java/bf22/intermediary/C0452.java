@@ -456,11 +456,11 @@ public class C0452 extends JPanel {
             + "<b>"
             + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Passe:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.yK.fk())
+            + ClubFinances.c(this.yK.getMarketValue())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
             + "Salário:"
             + "</b>&nbsp;"
-            + ClubFinances.c(this.yK.fj())
+            + ClubFinances.c(this.yK.getSalary())
             + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
             + "<b>"
             + GameConstants.qM[this.yK.getCr1()]
@@ -569,8 +569,8 @@ public class C0452 extends JPanel {
          this.FN.setEnabled(false);
          this.MK.setEnabled(false);
       } else if (this.yK != null) {
-         this.MJ.setEnabled(this.yK.fz());
-         this.FN.setEnabled(this.yK.ft());
+         this.MJ.setEnabled(this.yK.isAvailableForLoan());
+         this.FN.setEnabled(this.yK.isTransferListed());
          this.MK.setEnabled(true);
       }
    }
@@ -628,7 +628,7 @@ public class C0452 extends JPanel {
 
       for (int var4 = 0; var4 < this.uk.getSeniorPlayers().size(); var4++) {
          ((Player)this.uk.getSeniorPlayers().get(var4)).a((ImageIcon)null);
-         var2 += ((Player)this.uk.getSeniorPlayers().get(var4)).fk();
+         var2 += ((Player)this.uk.getSeniorPlayers().get(var4)).getMarketValue();
       }
 
       this.MT.setText("Valor do elenco: " + ClubFinances.a(var2, 0));

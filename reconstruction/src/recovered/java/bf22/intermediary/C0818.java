@@ -194,8 +194,8 @@ public class C0818 extends JPanel {
       this.OX.setText(player.gn());
       this.OV.setText(player.gx());
       this.OW.setText(player.k(c0713));
-      this.Pb.setText(ClubFinances.c(player.fk()));
-      this.OY.setText(ClubFinances.c(player.fj()));
+      this.Pb.setText(ClubFinances.c(player.getMarketValue()));
+      this.OY.setText(ClubFinances.c(player.getSalary()));
       this.yA.setText(var7 + " " + var8);
       this.yB.setText(var6 + " " + var5);
    }

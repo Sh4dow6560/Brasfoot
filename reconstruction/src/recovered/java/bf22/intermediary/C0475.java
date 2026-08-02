@@ -94,7 +94,7 @@ public class C0475 extends JPanel {
       int[] var1 = new int[6];
       this.MO.setText("<html><b>" + this.uz.getNome() + " - " + GameConstants.rI[this.uz.getPosicao()] + "</b></html>");
       this.MO.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png")));
-      this.Nh.setText(ClubFinances.c(this.uz.fl()));
+      this.Nh.setText(ClubFinances.c(this.uz.getAskingPrice()));
       this.zO.setText(this.uz.getClub().getNome());
       this.zO.setIcon(this.uz.getClub().kU());
       var1 = this.uz.gw();
@@ -137,11 +137,11 @@ public class C0475 extends JPanel {
          + "<b>"
          + "</b><br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>Passe:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.fk())
+         + ClubFinances.c(this.uz.getMarketValue())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n<b>"
          + "Salário:"
          + "</b>&nbsp;"
-         + ClubFinances.c(this.uz.fj())
+         + ClubFinances.c(this.uz.getSalary())
          + "<br>\n</p>\n<p style=\\\"padding:5; font-size:20\\\">\n"
          + "<b>"
          + GameConstants.qM[this.uz.getCr1()]
