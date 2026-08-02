@@ -113,10 +113,10 @@ public class C0137 extends JPanel {
       this.ub = jDialog;
       this.Db = c0827;
       this.Dg = bl;
-      this.De = c0827.tR().getHomeClub().jZ();
-      this.Df = c0827.tR().getAwayClub().jZ();
+      this.De = c0827.tR().getHomeClub().isUserControlled();
+      this.Df = c0827.tR().getAwayClub().isUserControlled();
       this.zu = c0827.tR().getHomeClub();
-      if (c0827.tR().getAwayClub().jZ() && !c0827.tR().getHomeClub().jZ()) {
+      if (c0827.tR().getAwayClub().isUserControlled() && !c0827.tR().getHomeClub().isUserControlled()) {
          this.zu = c0827.tR().getAwayClub();
          this.Di = 2;
       }
@@ -133,7 +133,7 @@ public class C0137 extends JPanel {
       this.DB.setText(this.V(this.AE));
       this.DC.setText(this.V(this.Dc));
       this.ok();
-      if (this.zu.jZ()) {
+      if (this.zu.isUserControlled()) {
          this.Dj = true;
       }
 
@@ -188,7 +188,7 @@ public class C0137 extends JPanel {
    }
 
    private void dc(int i) {
-      if (this.zu.jZ()) {
+      if (this.zu.isUserControlled()) {
          this.pc();
       }
 
@@ -201,7 +201,7 @@ public class C0137 extends JPanel {
 
       this.cS(-1);
       this.pd();
-      if (this.zu.jZ()) {
+      if (this.zu.isUserControlled()) {
          this.Dj = true;
       } else {
          this.Dj = false;
@@ -564,7 +564,7 @@ public class C0137 extends JPanel {
          this.Dc.add(var13);
       }
 
-      if (!this.Db.tR().getHomeClub().jZ() && !this.Db.tR().getAwayClub().jZ()) {
+      if (!this.Db.tR().getHomeClub().isUserControlled() && !this.Db.tR().getAwayClub().isUserControlled()) {
          for (int var12 = 1; var12 <= 2; var12++) {
             ArrayList var16 = this.dd(var12);
             ArrayList var3 = this.AE;
@@ -714,7 +714,7 @@ public class C0137 extends JPanel {
    }
 
    private void pc() {
-      if (this.zu.jZ()) {
+      if (this.zu.isUserControlled()) {
          this.zu.kj()[1] = this.Do.getSelectedIndex();
          this.zu.kj()[2] = this.Dp.getSelectedIndex();
          this.zu.kj()[3] = this.Dn.getSelectedIndex();
@@ -738,8 +738,8 @@ public class C0137 extends JPanel {
       }
 
       this.Cg.setText("");
-      if (this.Db.tR().ev() != null) {
-         this.Cg.setText(this.Db.tR().ev().dS());
+      if (this.Db.tR().getStadium() != null) {
+         this.Cg.setText(this.Db.tR().getStadium().dS());
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
          this.Dy.setToolTipText(this.Db.tR().hV());
          this.Dz.setText(ClubFinances.a(this.Db.tR().hN(), 0));
@@ -814,7 +814,7 @@ public class C0137 extends JPanel {
    }
 
    private void pf() {
-      if (this.zu.jZ()) {
+      if (this.zu.isUserControlled()) {
          this.Dt.setVisible(false);
          this.Du.setVisible(false);
          this.Dr.setVisible(false);

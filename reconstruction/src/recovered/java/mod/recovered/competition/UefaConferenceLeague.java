@@ -624,7 +624,7 @@ public class UefaConferenceLeague extends Competition implements Serializable {
 
    public void b(ArrayList arrayList, int i) {
       for (int var3 = 0; var3 < arrayList.size(); var3++) {
-         if (((Club)arrayList.get(var3)).jZ()) {
+         if (((Club)arrayList.get(var3)).isUserControlled()) {
             if (i == 0) {
                new C0799(((Club)arrayList.get(var3)).getCoach(), 35, 90, "", "");
             } else {

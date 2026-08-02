@@ -21,7 +21,7 @@ public class CoachJobMarket implements Serializable {
 
    public void L(ArrayList arrayList) {
       for (int var2 = 0; var2 < arrayList.size(); var2++) {
-         if (!((Club)arrayList.get(var2)).jZ()) {
+         if (!((Club)arrayList.get(var2)).isUserControlled()) {
             this.d(this.Jg, ((Club)arrayList.get(var2)).getPais());
             this.d(this.Jh, ((Club)arrayList.get(var2)).getPais());
          }
@@ -44,7 +44,7 @@ public class CoachJobMarket implements Serializable {
 
       for (int var6 = 0; var6 < this.Jg.size(); var6++) {
          Club var7 = GamePersistence.careerState.s((Integer)this.Jg.get(var6)).jn();
-         if (var7 != null && !var7.jZ()) {
+         if (var7 != null && !var7.isUserControlled()) {
             var3.add(var7);
          }
       }
@@ -59,8 +59,8 @@ public class CoachJobMarket implements Serializable {
          var4.add(5);
          int[][] var15 = new int[][]{{2, 1, 1, 1, 1}, {2, 2, 1, 1, 1}, {3, 2, 2, 1, 1}, {4, 3, 2, 2, 1}, {5, 4, 5, 3, 2}, {5, 4, 4, 3, 2}};
          int var16 = coach.getReputacao();
-         if (coach.fg() != null && coach.fg().getReputacao() > var16) {
-            var16 = coach.fg().getReputacao();
+         if (coach.getClub() != null && coach.getClub().getReputacao() > var16) {
+            var16 = coach.getClub().getReputacao();
          }
 
          int[] var8 = var15[var16];
@@ -128,11 +128,11 @@ public class CoachJobMarket implements Serializable {
             Club var23 = null;
 
             for (int var14 = 0; var14 < var3.size(); var14++) {
-               if (((Club)var3.get(var14)).getPais() == var17 && !((Club)var3.get(var14)).jZ() && !var5.contains(var3.get(var14))) {
+               if (((Club)var3.get(var14)).getPais() == var17 && !((Club)var3.get(var14)).isUserControlled() && !var5.contains(var3.get(var14))) {
                   var23 = (Club)var3.get(var14);
                   if (((Club)var3.get(var14)).getNivel() < 18) {
                      var21 = true;
-                  } else if (var18 != null && var18.fg() != null && var18.fg().getReputacao() >= 3) {
+                  } else if (var18 != null && var18.getClub() != null && var18.getClub().getReputacao() >= 3) {
                      var21 = true;
                   }
                }
@@ -170,7 +170,7 @@ public class CoachJobMarket implements Serializable {
             }
 
             for (int var5 = var1; var5 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var3)).eb().get(var4)).yi().yK().size(); var5++) {
-               var2.add(((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).lk());
+               var2.add(((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).getClubId());
             }
 
             this.M(var2);
@@ -203,7 +203,7 @@ public class CoachJobMarket implements Serializable {
       }
 
       boolean var6 = false;
-      if (coach.jZ() && (coach.lG() < 2 || coach.getReputacao() > 3)) {
+      if (coach.isUserControlled() && (coach.lG() < 2 || coach.getReputacao() > 3)) {
          var6 = true;
       }
 
@@ -234,7 +234,7 @@ public class CoachJobMarket implements Serializable {
 
    public void zw() {
       for (int var2 = 0; var2 < GamePersistence.careerState.M().size(); var2++) {
-         if (((Coach)GamePersistence.careerState.M().get(var2)).jZ() && ((Coach)GamePersistence.careerState.M().get(var2)).fg() != null) {
+         if (((Coach)GamePersistence.careerState.M().get(var2)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var2)).getClub() != null) {
             ArrayList var1 = this.b((Coach)GamePersistence.careerState.M().get(var2), true);
             if (var1 != null && var1.size() > 0) {
                MainWindow.a(var1, (Coach)GamePersistence.careerState.M().get(var2), 0);
@@ -272,7 +272,7 @@ public class CoachJobMarket implements Serializable {
          for (int var9 = 0; var9 < var8.length; var9++) {
             if (var8[var9] != null) {
                for (int var10 = 0; var10 < var8[var9].yK().size(); var10++) {
-                  if (!((Club)var8[var9].yK().get(var10)).jZ()) {
+                  if (!((Club)var8[var9].yK().get(var10)).isUserControlled()) {
                      var3.add((Club)var8[var9].yK().get(var10));
                   }
                }
@@ -282,7 +282,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.aY() != null && GamePersistence.careerState.aY().yd() != null) {
          for (int var17 = 0; var17 < GamePersistence.careerState.aY().yd().yK().size(); var17++) {
-            if (!((Club)GamePersistence.careerState.aY().yd().yK().get(var17)).jZ()) {
+            if (!((Club)GamePersistence.careerState.aY().yd().yK().get(var17)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.aY().yd().yK().get(var17));
             }
          }
@@ -292,7 +292,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.ba() != null && GamePersistence.careerState.ba().yd() != null) {
          for (int var18 = 0; var18 < GamePersistence.careerState.ba().yd().yK().size(); var18++) {
-            if (!((Club)GamePersistence.careerState.ba().yd().yK().get(var18)).jZ()) {
+            if (!((Club)GamePersistence.careerState.ba().yd().yK().get(var18)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.ba().yd().yK().get(var18));
             }
          }
@@ -302,7 +302,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.aZ() != null && GamePersistence.careerState.aZ().yd() != null) {
          for (int var19 = 0; var19 < GamePersistence.careerState.aZ().yd().yK().size(); var19++) {
-            if (!((Club)GamePersistence.careerState.aZ().yd().yK().get(var19)).jZ()) {
+            if (!((Club)GamePersistence.careerState.aZ().yd().yK().get(var19)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.aZ().yd().yK().get(var19));
             }
          }
@@ -312,7 +312,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.be() != null && GamePersistence.careerState.be().yd() != null) {
          for (int var20 = 0; var20 < GamePersistence.careerState.be().yd().yK().size(); var20++) {
-            if (!((Club)GamePersistence.careerState.be().yd().yK().get(var20)).jZ()) {
+            if (!((Club)GamePersistence.careerState.be().yd().yK().get(var20)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.be().yd().yK().get(var20));
             }
          }
@@ -322,7 +322,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.bf() != null && GamePersistence.careerState.bf().yd() != null) {
          for (int var21 = 0; var21 < GamePersistence.careerState.bf().yd().yK().size(); var21++) {
-            if (!((Club)GamePersistence.careerState.bf().yd().yK().get(var21)).jZ()) {
+            if (!((Club)GamePersistence.careerState.bf().yd().yK().get(var21)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.bf().yd().yK().get(var21));
             }
          }
@@ -332,7 +332,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.bX() != null && GamePersistence.careerState.bX().yd() != null) {
          for (int var22 = 0; var22 < GamePersistence.careerState.bX().yd().yK().size(); var22++) {
-            if (!((Club)GamePersistence.careerState.bX().yd().yK().get(var22)).jZ()) {
+            if (!((Club)GamePersistence.careerState.bX().yd().yK().get(var22)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.bX().yd().yK().get(var22));
             }
          }
@@ -342,7 +342,7 @@ public class CoachJobMarket implements Serializable {
 
       if (GamePersistence.careerState.bg() != null && GamePersistence.careerState.bg().yd() != null) {
          for (int var23 = 0; var23 < GamePersistence.careerState.bg().yd().yK().size(); var23++) {
-            if (!((Club)GamePersistence.careerState.bg().yd().yK().get(var23)).jZ()) {
+            if (!((Club)GamePersistence.careerState.bg().yd().yK().get(var23)).isUserControlled()) {
                var3.add((Club)GamePersistence.careerState.bg().yd().yK().get(var23));
             }
          }
@@ -355,8 +355,8 @@ public class CoachJobMarket implements Serializable {
          int[][] var24 = new int[][]{{2, 1, 1, -1, -1}, {2, 2, 1, 1, 1}, {3, 2, 2, 1, 1}, {4, 3, 2, 2, 1}, {5, 4, 5, 3, 2}, {5, 4, 4, 3, 2}};
          int[][] var26 = new int[][]{{-1, -1, -1, -1, -1}, {2, 2, 1, 1, 1, 1}, {2, 2, 1, 1, 1, 1}, {4, 3, 2, 2, 2, 1}, {5, 4, 4, 3, 2, 1}, {5, 5, 4, 4, 3, 2}};
          int var28 = coach.getReputacao();
-         if (coach.fg() != null && coach.fg().getReputacao() > var28) {
-            var28 = coach.fg().getReputacao();
+         if (coach.getClub() != null && coach.getClub().getReputacao() > var28) {
+            var28 = coach.getClub().getReputacao();
          }
 
          int[] var11 = var24[var28];
@@ -366,11 +366,11 @@ public class CoachJobMarket implements Serializable {
             int[] var13 = new int[6];
             CountryCompetitions var14 = GamePersistence.careerState.s(coach.lE());
             int var15 = var14.gg();
-            if (coach.fg() != null) {
-               if (coach.fg().gg() == 0) {
+            if (coach.getClub() != null) {
+               if (coach.getClub().gg() == 0) {
                   var12[0] = 12;
                   var12[0] = 7;
-               } else if (coach.fg().gg() == 1) {
+               } else if (coach.getClub().gg() == 1) {
                   var12[0] = 9;
                   var12[1] = 10;
                }
@@ -472,11 +472,11 @@ public class CoachJobMarket implements Serializable {
          Club var31 = null;
 
          for (int var34 = 0; var34 < var3.size(); var34++) {
-            if (((Club)var3.get(var34)).getPais() == var25 && !((Club)var3.get(var34)).jZ() && !var2.contains(var3.get(var34))) {
+            if (((Club)var3.get(var34)).getPais() == var25 && !((Club)var3.get(var34)).isUserControlled() && !var2.contains(var3.get(var34))) {
                var31 = (Club)var3.get(var34);
                if (((Club)var3.get(var34)).getNivel() < 18) {
                   var30 = true;
-               } else if (var27 != null && var27.fg() != null && var27.fg().getReputacao() >= 3) {
+               } else if (var27 != null && var27.getClub() != null && var27.getClub().getReputacao() >= 3) {
                   var30 = true;
                }
             }
@@ -500,7 +500,7 @@ public class CoachJobMarket implements Serializable {
 
       for (int var2 = 0; var2 < this.Jl.size(); var2++) {
          Club var3 = GamePersistence.careerState.x((Integer)this.Jl.get(var2));
-         if (var3 != null && !var3.jZ()) {
+         if (var3 != null && !var3.isUserControlled()) {
             var1.add(var3);
          }
       }
@@ -513,7 +513,7 @@ public class CoachJobMarket implements Serializable {
 
       for (int var2 = 0; var2 < this.Jh.size(); var2++) {
          Club var3 = GamePersistence.careerState.s((Integer)this.Jh.get(var2)).jn();
-         if (var3 != null && !var3.jZ()) {
+         if (var3 != null && !var3.isUserControlled()) {
             var1.add(var3);
          }
       }

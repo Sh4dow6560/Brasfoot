@@ -598,7 +598,7 @@ public class CountryCompetitions implements Serializable {
       int var7 = this.jc();
 
       for (int var8 = 0; var8 < GamePersistence.careerState.L().size(); var8++) {
-         if (!((Coach)GamePersistence.careerState.L().get(var8)).jZ() && ((Coach)GamePersistence.careerState.L().get(var8)).jo() == null) {
+         if (!((Coach)GamePersistence.careerState.L().get(var8)).isUserControlled() && ((Coach)GamePersistence.careerState.L().get(var8)).jo() == null) {
             if (((Coach)GamePersistence.careerState.L().get(var8)).lE() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 5) {
                var1.add((Coach)GamePersistence.careerState.L().get(var8));
             }
@@ -642,7 +642,7 @@ public class CountryCompetitions implements Serializable {
 
    public void z(boolean bl) {
       this.jo().getSeniorPlayers().clear();
-      if ((bl || this.jo().getCoach() == null) && !this.jo().jZ()) {
+      if ((bl || this.jo().getCoach() == null) && !this.jo().isUserControlled()) {
          Coach var2 = this.ji();
          if (var2 != null) {
             this.g(var2);
@@ -660,7 +660,7 @@ public class CountryCompetitions implements Serializable {
       ArrayList var6 = new ArrayList();
 
       for (int var7 = 0; var7 < GamePersistence.careerState.O().size(); var7++) {
-         if (((Player)GamePersistence.careerState.O().get(var7)).getPais() == this.pais && ((Player)GamePersistence.careerState.O().get(var7)).fg() != null) {
+         if (((Player)GamePersistence.careerState.O().get(var7)).getPais() == this.pais && ((Player)GamePersistence.careerState.O().get(var7)).getClub() != null) {
             var5.add((Player)GamePersistence.careerState.O().get(var7));
          }
       }
@@ -1014,10 +1014,10 @@ public class CountryCompetitions implements Serializable {
       int[][] var8 = new int[][]{{0, 1, -1, -1, -1, -1}, {1, 2, -1, -1, -1, -1}, {2, 8, -1, -1, -1, -1}, {3, 8, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1}};
       int[][] var9 = new int[][]{{0, -1, -1, -1, -1, -1}, {1, -1, -1, -1, -1, -1}, {8, 8, -1, -1, -1, -1}, {8, 8, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1}};
       int var10 = -1;
-      if (coach.fg() == null) {
+      if (coach.getClub() == null) {
          var10 = coach.lG();
       } else {
-         var10 = coach.fg().getDivisao() - 1;
+         var10 = coach.getClub().getDivisao() - 1;
       }
 
       if (var10 < 0) {
@@ -1052,7 +1052,7 @@ public class CountryCompetitions implements Serializable {
             if (var11[var13] >= 0 && var11[var13] < this.ds.size()) {
                if (((NationalLeague)this.ds.get(var11[var13])).yi().yK().size() > 0) {
                   ((NationalLeague)this.ds.get(var11[var13])).yi().b(arrayList, coach, bl);
-               } else if (!coach.jZ()) {
+               } else if (!coach.isUserControlled()) {
                   this.a(arrayList, coach, bl);
                }
             }
@@ -1064,7 +1064,7 @@ public class CountryCompetitions implements Serializable {
       ArrayList var4 = new ArrayList();
 
       for (int var5 = 0; var5 < this.ek().size(); var5++) {
-         if (!((Club)this.ek().get(var5)).jZ() && this.ek().get(var5) != coach.lF()) {
+         if (!((Club)this.ek().get(var5)).isUserControlled() && this.ek().get(var5) != coach.lF()) {
             var4.add((Club)this.ek().get(var5));
          }
       }
@@ -1147,7 +1147,7 @@ public class CountryCompetitions implements Serializable {
 
       this.jo().h(coach);
       coach.z(this.jo());
-      this.jo().k(coach.jZ());
+      this.jo().k(coach.isUserControlled());
    }
 
    public void a(NationalCup c0942) {
@@ -1158,7 +1158,7 @@ public class CountryCompetitions implements Serializable {
 
    public boolean ju() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getCompetition() == this.hu && (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().jZ())) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getCompetition() == this.hu && (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().isUserControlled() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().isUserControlled())) {
             return true;
          }
       }
@@ -1169,7 +1169,7 @@ public class CountryCompetitions implements Serializable {
    public boolean ei() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
          for (int var2 = 0; var2 < ((NationalLeague)this.ds.get(var1)).yi().yK().size(); var2++) {
-            if (((Club)((NationalLeague)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
+            if (((Club)((NationalLeague)this.ds.get(var1)).yi().yK().get(var2)).isUserControlled()) {
                return true;
             }
          }

@@ -15,13 +15,13 @@ public class C0623 extends DefaultTableCellRenderer {
       this.setIcon(null);
       this.setText("");
       C0810 var7 = (C0810)object;
-      if (var7.fg() != null) {
+      if (var7.getClub() != null) {
          this.setBackground(var7.getCorF());
          if (j == 1) {
-            this.setIcon(var7.fg().kU());
+            this.setIcon(var7.getClub().kU());
          } else if (j == 2) {
             this.setHorizontalAlignment(2);
-            this.setText(var7.fg().getNome());
+            this.setText(var7.getClub().getNome());
          } else if (j == 3) {
             this.setText(Integer.toString(var7.ta()[0]));
          } else if (j == 4) {

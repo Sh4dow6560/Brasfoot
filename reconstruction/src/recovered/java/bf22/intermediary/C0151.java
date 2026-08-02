@@ -199,8 +199,8 @@ public class C0151 extends JPanel {
       var0 = JOptionPane.showConfirmDialog(null, "Deseja marcar amistosos?", "Amistosos de início de temporada", 0);
       if (var0 == 0) {
          for (int var1 = 0; var1 < GamePersistence.careerState.M().size(); var1++) {
-            if (((Coach)GamePersistence.careerState.M().get(var1)).fg() != null) {
-               MainWindow.w(((Coach)GamePersistence.careerState.M().get(var1)).fg());
+            if (((Coach)GamePersistence.careerState.M().get(var1)).getClub() != null) {
+               MainWindow.w(((Coach)GamePersistence.careerState.M().get(var1)).getClub());
             }
          }
 

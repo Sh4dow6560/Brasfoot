@@ -31,7 +31,7 @@ public class C0825 implements Serializable {
    public boolean tN() {
       boolean var1 = false;
       if (this.Pn != null) {
-         if (this.Pn.jZ()) {
+         if (this.Pn.isUserControlled()) {
             if (this.Pn.kw() < 35) {
                this.U.r(this.Pn);
                var1 = true;

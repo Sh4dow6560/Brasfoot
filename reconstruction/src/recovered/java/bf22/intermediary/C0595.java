@@ -18,8 +18,8 @@ public class C0595 extends DefaultTableCellRenderer {
       C0784 var7 = (C0784)object;
       if (var7 != null) {
          if (j == 0) {
-            if (var7.fg() != null) {
-               this.setText(GameConstants.y(var7.b(), var7.fg().getPais()));
+            if (var7.getClub() != null) {
+               this.setText(GameConstants.y(var7.b(), var7.getClub().getPais()));
             }
          } else if (j == 1) {
             if (var7.uC() == 1) {

@@ -182,7 +182,7 @@ public class C0208 extends JPanel {
                if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b() == 7) {
                   Object var6 = null;
                   var13.p(var13.tR().ik());
-               } else if (var13.tR().ev() == null) {
+               } else if (var13.tR().getStadium() == null) {
                   if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().b() == 4) {
                      if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() instanceof UefaChampionsLeague) {
                         var13.p(UefaChampionsLeague.yD());
@@ -266,8 +266,8 @@ public class C0208 extends JPanel {
       this.Ho.setText(" " + ((C0827)vK.get(this.GW)).tR().getAwayClub().getNome());
       this.Hh.setIcon(((C0827)vK.get(this.GW)).tR().getHomeClub().kP());
       this.Hi.setIcon(((C0827)vK.get(this.GW)).tR().getAwayClub().kP());
-      if (((C0827)vK.get(this.GW)).tR().ev() != null) {
-         this.Hl.setText(((C0827)vK.get(this.GW)).tR().ev().dS());
+      if (((C0827)vK.get(this.GW)).tR().getStadium() != null) {
+         this.Hl.setText(((C0827)vK.get(this.GW)).tR().getStadium().dS());
          this.Hm.setText(Integer.toString(((C0827)vK.get(this.GW)).hU()));
       } else if (((C0827)vK.get(this.GW)).ik() != null) {
          this.Hl.setText(((C0827)vK.get(this.GW)).ik());
@@ -431,7 +431,7 @@ public class C0208 extends JPanel {
    }
 
    private void g(Match c0675) {
-      if (!c0675.getHomeClub().jZ() && !c0675.getAwayClub().jZ()) {
+      if (!c0675.getHomeClub().isUserControlled() && !c0675.getAwayClub().isUserControlled()) {
          ArrayList var5 = new ArrayList();
          var5.addAll(c0675.getHomePlayersOnField());
          Collections.sort(var5, C1007.abg);
@@ -441,7 +441,7 @@ public class C0208 extends JPanel {
          Collections.sort(var3, C1007.abg);
          zE = var3;
       } else {
-         if (c0675.getHomeClub().jZ()) {
+         if (c0675.getHomeClub().isUserControlled()) {
             this.a(c0675, c0675.getHomeClub());
          } else {
             ArrayList var2 = new ArrayList();
@@ -450,7 +450,7 @@ public class C0208 extends JPanel {
             zD = var2;
          }
 
-         if (c0675.getAwayClub().jZ()) {
+         if (c0675.getAwayClub().isUserControlled()) {
             this.a(c0675, c0675.getAwayClub());
          } else {
             ArrayList var4 = new ArrayList();
@@ -490,7 +490,7 @@ public class C0208 extends JPanel {
 
       for (int var1 = 0; var1 < vK.size(); var1++) {
          if (((C0827)vK.get(var1)).tR() != null && ((C0827)vK.get(var1)).tR().hS() && ((C0827)vK.get(var1)).tR().hk()) {
-            if (!((C0827)vK.get(var1)).tR().getHomeClub().jZ() && !((C0827)vK.get(var1)).tR().getAwayClub().jZ()) {
+            if (!((C0827)vK.get(var1)).tR().getHomeClub().isUserControlled() && !((C0827)vK.get(var1)).tR().getAwayClub().isUserControlled()) {
                if (GamePersistence.careerState.getVerDecisaoPenNaoHumano() == 1) {
                   GY.add(((C0827)vK.get(var1)).tR());
                }
@@ -707,7 +707,7 @@ public class C0208 extends JPanel {
             if (c0667.getType() == 1) {
                if (c0667.getSubtype() == 3 && c0827.ei()) {
                   this.dk(4);
-                  if (!c0667.getClub().jZ()) {
+                  if (!c0667.getClub().isUserControlled()) {
                      this.b(c0827, c0667);
                   } else {
                      this.a(c0827, c0667);
@@ -717,7 +717,7 @@ public class C0208 extends JPanel {
                } else {
                   c0827.dJ(var5);
                   if (c0827.ei()) {
-                     if (c0667.getClub().jZ()) {
+                     if (c0667.getClub().isUserControlled()) {
                         this.dk(2);
                      } else {
                         this.dk(3);
@@ -730,7 +730,7 @@ public class C0208 extends JPanel {
                      this.dk(6);
                   }
 
-                  if (c0667.getClub().jZ()) {
+                  if (c0667.getClub().isUserControlled()) {
                      GS.e(i, false);
                   }
                }
@@ -739,7 +739,7 @@ public class C0208 extends JPanel {
                   this.dk(5);
                }
 
-               if (c0667.getClub().jZ()) {
+               if (c0667.getClub().isUserControlled()) {
                   GS.e(i, false);
                }
             }

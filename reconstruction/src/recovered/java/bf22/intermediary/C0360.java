@@ -124,8 +124,8 @@ public class C0360 extends JPanel {
 
    private void rT() {
       if (this.w == 0) {
-         if (this.Es.fg() != null) {
-            this.Es.fg().kE();
+         if (this.Es.getClub() != null) {
+            this.Es.getClub().kE();
          }
 
          GamePersistence.careerState.a(this.Em, this.Em.getCoach(), this.Es);

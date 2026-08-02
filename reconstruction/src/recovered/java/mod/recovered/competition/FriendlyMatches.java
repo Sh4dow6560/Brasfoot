@@ -66,7 +66,7 @@ public class FriendlyMatches extends Competition implements Serializable {
          return 2;
       }
 
-      if (club2.jZ()) {
+      if (club2.isUserControlled()) {
          return 1;
       }
 
@@ -121,7 +121,7 @@ public class FriendlyMatches extends Competition implements Serializable {
          var5 = club;
       }
 
-      new Match(null, 0, var4, var5, j, GamePersistence.careerState.bv(), var4.ev());
+      new Match(null, 0, var4, var5, j, GamePersistence.careerState.bv(), var4.getStadium());
    }
 
    public static int xY() {

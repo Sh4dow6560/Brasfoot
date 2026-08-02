@@ -62,15 +62,15 @@ public abstract class C0990 {
 
    public static void Ah() {
       for (int var0 = 0; var0 < GamePersistence.careerState.O().size(); var0++) {
-         ((Player)GamePersistence.careerState.O().get(var0)).fg();
+         ((Player)GamePersistence.careerState.O().get(var0)).getClub();
       }
 
       for (int var1 = 0; var1 < GamePersistence.careerState.Q().size(); var1++) {
-         ((Player)GamePersistence.careerState.Q().get(var1)).fg();
+         ((Player)GamePersistence.careerState.Q().get(var1)).getClub();
       }
 
       for (int var2 = 0; var2 < GamePersistence.careerState.L().size(); var2++) {
-         ((Coach)GamePersistence.careerState.L().get(var2)).fg();
+         ((Coach)GamePersistence.careerState.L().get(var2)).getClub();
       }
    }
 

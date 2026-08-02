@@ -155,7 +155,7 @@ public class C0554 extends JPanel {
             var1.add(
                new C0721(
                   ((Player)GamePersistence.careerState.O().get(var2)).getNome(),
-                  ((Player)GamePersistence.careerState.O().get(var2)).fg(),
+                  ((Player)GamePersistence.careerState.O().get(var2)).getClub(),
                   ((Player)GamePersistence.careerState.O().get(var2)).gy(),
                   ((Player)GamePersistence.careerState.O().get(var2)).gz()
                )

@@ -22,7 +22,7 @@ public class C0592 extends DefaultTableCellRenderer {
       MatteBorder var7 = BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(204, 204, 204));
       super.setBorder(var7);
       C0810 var8 = (C0810)object;
-      if (var8.fg() == null && !var8.te()) {
+      if (var8.getClub() == null && !var8.te()) {
          if (var8.tb()) {
             if (j == 2) {
                this.setHorizontalAlignment(2);
@@ -50,15 +50,15 @@ public class C0592 extends DefaultTableCellRenderer {
          this.setHorizontalAlignment(2);
          this.setText(var8.tc());
       } else if (j == 1) {
-         if (var8.fg() != null) {
+         if (var8.getClub() != null) {
             ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aiconsc/" + GameConstants.pr[var8.td()] + ".png"));
             this.setIcon(var9);
          }
       } else if (j == 2) {
-         if (var8.fg() != null) {
-            this.setIcon(var8.fg().kU());
+         if (var8.getClub() != null) {
+            this.setIcon(var8.getClub().kU());
             this.setHorizontalAlignment(2);
-            this.setText(var8.fg().getNome());
+            this.setText(var8.getClub().getNome());
          } else {
             this.setText(var8.getInfo());
          }

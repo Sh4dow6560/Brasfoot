@@ -103,7 +103,7 @@ public class C0186 extends JPanel {
       } else if (this.ul != this.uk) {
          JOptionPane.showMessageDialog(this.ub, "Amistoso marcado.", "Amistoso", 2);
          FriendlyMatches.b(this.ul, this.uk, this.uq.getSelectedIndex(), (Integer)this.un.get(this.up.getSelectedIndex()));
-         if (!this.uk.jZ()) {
+         if (!this.uk.isUserControlled()) {
             CountryCompetitions var1 = GamePersistence.careerState.s(this.uk.getPais());
             var1.z(false);
          }

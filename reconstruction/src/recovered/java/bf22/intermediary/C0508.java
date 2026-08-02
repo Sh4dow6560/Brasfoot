@@ -13,7 +13,7 @@ class C0508 implements ListSelectionListener {
    public void valueChanged(ListSelectionEvent listSelectionEvent) {
       if (!listSelectionEvent.getValueIsAdjusting() && C0545.f(this.afy).getSelectedRow() >= 0) {
          int var2 = C0545.f(this.afy).convertRowIndexToModel(C0545.f(this.afy).getSelectedRow());
-         C0545.a(this.afy, ((C0785)C0545.g(this.afy).get(var2)).fg());
+         C0545.a(this.afy, ((C0785)C0545.g(this.afy).get(var2)).getClub());
       }
    }
 }

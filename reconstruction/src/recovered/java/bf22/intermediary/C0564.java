@@ -79,7 +79,7 @@ public class C0564 extends JPanel {
          boolean var4 = false;
          if (this.vl == -1) {
             var4 = true;
-         } else if (((Player)GamePersistence.careerState.O().get(var3)).fg() != null && ((Player)GamePersistence.careerState.O().get(var3)).fg().getPais() == this.vl) {
+         } else if (((Player)GamePersistence.careerState.O().get(var3)).getClub() != null && ((Player)GamePersistence.careerState.O().get(var3)).getClub().getPais() == this.vl) {
             var4 = true;
          }
 
@@ -87,7 +87,7 @@ public class C0564 extends JPanel {
             int var5 = ((Player)GamePersistence.careerState.O().get(var3)).gs();
             if (var5 > 0) {
                int var6 = ((Player)GamePersistence.careerState.O().get(var3)).gu();
-               var2.add(new C0721(((Player)GamePersistence.careerState.O().get(var3)).getNome(), ((Player)GamePersistence.careerState.O().get(var3)).fg(), var5, var6));
+               var2.add(new C0721(((Player)GamePersistence.careerState.O().get(var3)).getNome(), ((Player)GamePersistence.careerState.O().get(var3)).getClub(), var5, var6));
             }
          }
       }

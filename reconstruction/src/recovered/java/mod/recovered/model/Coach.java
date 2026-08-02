@@ -19,11 +19,11 @@ import java.util.Random;
 public class Coach implements Serializable {
    private static final long serialVersionUID = 1L;
    private String dm;
-   private Boolean mW = false;
+   private Boolean userControlled = false;
    private int nU = -1;
-   private transient Club nV = null;
+   private transient Club club = null;
    private transient Club nW = null;
-   private int bW = -1;
+   private int clubId = -1;
    private int nX = -1;
    private int nY = 0;
    private int bf = -1;
@@ -52,31 +52,31 @@ public class Coach implements Serializable {
       this.nU = GamePersistence.careerState.bU();
    }
 
-   public Boolean jZ() {
-      return this.mW;
+   public Boolean isUserControlled() {
+      return this.userControlled;
    }
 
    public void k(Boolean boolean_) {
-      this.mW = boolean_;
+      this.userControlled = boolean_;
    }
 
-   public Club fg() {
-      Club var1 = this.nV;
-      if (var1 == null && this.bW >= 0) {
-         var1 = GamePersistence.careerState.x(this.bW);
-         this.nV = var1;
+   public Club getClub() {
+      Club var1 = this.club;
+      if (var1 == null && this.clubId >= 0) {
+         var1 = GamePersistence.careerState.x(this.clubId);
+         this.club = var1;
          return var1;
       } else {
-         return this.bW == -1 ? null : var1;
+         return this.clubId == -1 ? null : var1;
       }
    }
 
    public void n(Club club) {
-      this.nV = club;
+      this.club = club;
       if (club != null) {
-         this.bW = club.lk();
+         this.clubId = club.getClubId();
       } else {
-         this.bW = -1;
+         this.clubId = -1;
       }
    }
 
@@ -102,7 +102,7 @@ public class Coach implements Serializable {
    public void B(Club club) {
       this.nW = club;
       if (club != null) {
-         this.nX = club.lk();
+         this.nX = club.getClubId();
       } else {
          this.nX = -1;
       }
@@ -127,7 +127,7 @@ public class Coach implements Serializable {
    public C0728 C(Club club) {
       for (int var2 = 0; var2 < this.ob.size(); var2++) {
          try {
-            if (((C0728)this.ob.get(var2)).ct() == club.lk() && ((C0728)this.ob.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
+            if (((C0728)this.ob.get(var2)).ct() == club.getClubId() && ((C0728)this.ob.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
                return (C0728)this.ob.get(var2);
             }
          } catch (Exception var4) {
@@ -173,7 +173,7 @@ public class Coach implements Serializable {
          var14 = c0675.getCompetition().b();
       }
 
-      if (c0675.getHomeClub() == this.fg()) {
+      if (c0675.getHomeClub() == this.getClub()) {
          var4 = c0675.getHomeGoals();
          var5 = c0675.getAwayGoals();
          if (c0675.getHomeClub().A(c0675.getAwayClub())) {
@@ -184,7 +184,7 @@ public class Coach implements Serializable {
          if (!bl) {
             var13 = c0675.getHomeClub().p(c0675.getCompetition());
          }
-      } else if (c0675.getAwayClub() == this.fg()) {
+      } else if (c0675.getAwayClub() == this.getClub()) {
          var4 = c0675.getAwayGoals();
          var5 = c0675.getHomeGoals();
          var8 = true;
@@ -261,7 +261,7 @@ public class Coach implements Serializable {
 
       if (!var15) {
          if (var14 == 1) {
-            if (this.jZ() && this.fg() != null && this.fg().kb() < 0L) {
+            if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
                this.cj(-10);
             }
 
@@ -279,7 +279,7 @@ public class Coach implements Serializable {
             var22 = var28;
          } else if (var14 != 3 && var14 != 10) {
             if (var14 != 4 && var14 != 6) {
-               if (this.jZ() && this.fg() != null && this.fg().kb() < 0L) {
+               if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
                   this.cj(-5);
                }
 
@@ -296,7 +296,7 @@ public class Coach implements Serializable {
                var21 = var42;
                var22 = var48;
             } else {
-               if (this.jZ() && this.fg() != null && this.fg().kb() < 0L) {
+               if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
                   this.cj(-5);
                }
 
@@ -314,7 +314,7 @@ public class Coach implements Serializable {
                var22 = var47;
             }
          } else {
-            if (this.jZ() && this.fg() != null && this.fg().kb() < 0L) {
+            if (this.isUserControlled() && this.getClub() != null && this.getClub().kb() < 0L) {
                this.cj(-5);
             }
 
@@ -367,7 +367,7 @@ public class Coach implements Serializable {
          }
 
          if (var9) {
-            if (this.jZ() && c0675.ic() && !bl) {
+            if (this.isUserControlled() && c0675.ic() && !bl) {
                new C0799(this, 27, 81, "", "");
             }
 
@@ -386,10 +386,10 @@ public class Coach implements Serializable {
 
          if (var9) {
             if (c0675.ic()) {
-               if (this.jZ() && !bl) {
+               if (this.isUserControlled() && !bl) {
                   new C0799(this, 6, 46, "", "");
                }
-            } else if (!var8 && this.jZ() && !bl) {
+            } else if (!var8 && this.isUserControlled() && !bl) {
                new C0799(this, 5, 47 + new Random().nextInt(2), "", "");
             }
 
@@ -429,15 +429,15 @@ public class Coach implements Serializable {
       int var3 = 0;
       boolean var4 = false;
       Club var5 = null;
-      if (c0675.getHomeClub() == this.fg()) {
+      if (c0675.getHomeClub() == this.getClub()) {
          var2 = c0675.getHomeGoals();
          var3 = c0675.getAwayGoals();
-         var5 = this.fg();
-      } else if (c0675.getAwayClub() == this.fg()) {
+         var5 = this.getClub();
+      } else if (c0675.getAwayClub() == this.getClub()) {
          var2 = c0675.getAwayGoals();
          var3 = c0675.getHomeGoals();
          var4 = true;
-         var5 = this.fg();
+         var5 = this.getClub();
       } else if (c0675.getHomeClub() == this.hy) {
          var2 = c0675.getHomeGoals();
          var3 = c0675.getAwayGoals();
@@ -621,9 +621,9 @@ public class Coach implements Serializable {
    }
 
    public void lN() {
-      this.B(this.fg());
-      this.bf = this.fg().getPais();
-      this.nY = this.fg().getDivisao() - 1;
+      this.B(this.getClub());
+      this.bf = this.getClub().getPais();
+      this.nY = this.getClub().getDivisao() - 1;
    }
 
    public void b(Club club, Player player) {
@@ -649,30 +649,30 @@ public class Coach implements Serializable {
       var2.d(coach);
       Calendar var3 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
       var2.a().set(var3.get(1), var3.get(2), var3.get(5));
-      if (this.fg() != null) {
-         var2.C(this.fg().lk());
+      if (this.getClub() != null) {
+         var2.C(this.getClub().getClubId());
       }
 
       GamePersistence.careerState.bn().add(var2);
       this.lN();
-      if (this.jZ()) {
-         if (this.fg().getPais() == 29) {
-            GamePersistence.careerState.u(this.fg().getEstado());
+      if (this.isUserControlled()) {
+         if (this.getClub().getPais() == 29) {
+            GamePersistence.careerState.u(this.getClub().getEstado());
          }
 
-         GamePersistence.careerState.v(this.fg().getPais());
-         this.fg().k(false);
-         this.fg().lg();
-         this.fg().M(true);
-         GamePersistence.careerState.aN().remove(this.fg());
+         GamePersistence.careerState.v(this.getClub().getPais());
+         this.getClub().k(false);
+         this.getClub().lg();
+         this.getClub().M(true);
+         GamePersistence.careerState.aN().remove(this.getClub());
          this.T(null);
       }
 
-      if (this.fg() != null && this.fg().getFinances() != null) {
-         this.fg().getFinances().V(0);
+      if (this.getClub() != null && this.getClub().getFinances() != null) {
+         this.getClub().getFinances().V(0);
       }
 
-      this.fg().h(null);
+      this.getClub().h(null);
       this.n(null);
    }
 
@@ -683,13 +683,13 @@ public class Coach implements Serializable {
       this.og = 85;
       this.oi = 0;
       club.lg();
-      if (this.jZ()) {
+      if (this.isUserControlled()) {
          club.k(true);
          GamePersistence.careerState.aN().add(club);
          club.ks();
          new C0799(this, 0, 74, club.getNome(), "");
-         if (club.ev() != null) {
-            club.ev().i(club);
+         if (club.getStadium() != null) {
+            club.getStadium().i(club);
          }
 
          for (int var2 = 0; var2 < club.getSeniorPlayers().size(); var2++) {
@@ -755,7 +755,7 @@ public class Coach implements Serializable {
          if (GameConstants.fs(var4)) {
             this.D(this.hy);
          } else {
-            this.D(this.fg());
+            this.D(this.getClub());
          }
 
          this.q(c0713);
@@ -763,8 +763,8 @@ public class Coach implements Serializable {
    }
 
    public void fh() {
-      if (this.nV != null) {
-         this.bW = this.nV.lk();
+      if (this.club != null) {
+         this.clubId = this.club.getClubId();
       }
    }
 
@@ -775,10 +775,10 @@ public class Coach implements Serializable {
       var4.k(GamePersistence.careerState.getSeasonNumber());
       if (var2 == 7) {
          if (this.jo() != null) {
-            var4.C(this.jo().lk());
+            var4.C(this.jo().getClubId());
          }
-      } else if (this.fg() != null) {
-         var4.C(this.fg().lk());
+      } else if (this.getClub() != null) {
+         var4.C(this.getClub().getClubId());
       }
 
       var4.a(c0713.b());
@@ -798,8 +798,8 @@ public class Coach implements Serializable {
             this.cj(10);
          }
       } else if (c0713.b() == 11) {
-         if (this.fg() != null) {
-            var4.R(this.fg().getPais());
+         if (this.getClub() != null) {
+            var4.R(this.getClub().getPais());
          }
 
          this.ck(10);
@@ -821,20 +821,20 @@ public class Coach implements Serializable {
       }
 
       this.cA.add(var4);
-      if (this.jZ() && this.fg() != null) {
+      if (this.isUserControlled() && this.getClub() != null) {
          String var5 = "";
          if (var2 == 4) {
-            if (this.fg().gg() == 0) {
+            if (this.getClub().gg() == 0) {
                var5 = " da Liga dos Campeões";
-            } else if (this.fg().gg() == 1) {
+            } else if (this.getClub().gg() == 1) {
                var5 = " da Libertadores";
-            } else if (this.fg().gg() == 2) {
+            } else if (this.getClub().gg() == 2) {
                var5 = " da Liga dos Campeões da África";
-            } else if (this.fg().gg() == 3) {
+            } else if (this.getClub().gg() == 3) {
                var5 = " da Liga dos Campeões da Ásia";
-            } else if (this.fg().gg() == 4) {
+            } else if (this.getClub().gg() == 4) {
                var5 = " da Liga dos Campeões da Concacaf";
-            } else if (this.fg().gg() == 5) {
+            } else if (this.getClub().gg() == 5) {
                var5 = " da Liga dos Campeões da Oceania";
             }
 
@@ -992,6 +992,6 @@ public class Coach implements Serializable {
    }
 
    public boolean Av() {
-      return this.fg() != null ? this.fg().kn() : false;
+      return this.getClub() != null ? this.getClub().kn() : false;
    }
 }

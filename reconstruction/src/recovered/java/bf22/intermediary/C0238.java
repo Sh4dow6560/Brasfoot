@@ -135,8 +135,8 @@ public class C0238 extends JPanel {
       Player var2 = c0680.iA();
       this.FW = (int)Math.round(var2.fk() * 0.5);
       this.Gi.setText("Lance mínimo: " + ClubFinances.c(this.FW));
-      this.Gk.setText(var2.fg().getNome() + " está leiloando o jogador:");
-      this.Fq.setIcon(c0680.iA().fg().kP());
+      this.Gk.setText(var2.getClub().getNome() + " está leiloando o jogador:");
+      this.Fq.setIcon(c0680.iA().getClub().kP());
       this.Gj.setText(" " + GameConstants.rI[c0680.iA().getPosicao()] + "(" + GameConstants.rK[c0680.iA().getLado()] + ") - " + c0680.iA().getNome());
       ImageIcon var3 = new ImageIcon(this.getClass().getResource("/aflags/" + c0680.iA().getPais() + ".png"));
       this.Gm.setIcon(var3);

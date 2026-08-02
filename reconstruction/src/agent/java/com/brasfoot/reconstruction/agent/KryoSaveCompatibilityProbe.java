@@ -423,6 +423,40 @@ public final class KryoSaveCompatibilityProbe {
     assertBoolean(playerClass, player, "gF", true);
 
     Object club = clubClass.getDeclaredConstructor().newInstance();
+    setField(club, "mU", 17);
+    assertInteger(clubClass, club, "lk", 17);
+    clubClass.getDeclaredMethod("k", Boolean.class).invoke(club, Boolean.TRUE);
+    assertBoolean(clubClass, club, "jZ", true);
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, club);
+    assertSame(club, playerClass.getDeclaredMethod("fg").invoke(player),
+        "player club");
+
+    Class<?> coachClass = loader.loadClass("best.al");
+    Object coach = coachClass.getDeclaredConstructor().newInstance();
+    coachClass.getDeclaredMethod("n", clubClass).invoke(coach, club);
+    coachClass.getDeclaredMethod("k", Boolean.class).invoke(coach, Boolean.TRUE);
+    assertSame(club, coachClass.getDeclaredMethod("fg").invoke(coach), "coach club");
+    assertBoolean(coachClass, coach, "jZ", true);
+
+    Class<?> stadiumClass = loader.loadClass("best.v");
+    Object stadium = stadiumClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("a", stadiumClass).invoke(club, stadium);
+    assertSame(stadium, clubClass.getDeclaredMethod("ev").invoke(club), "club stadium");
+    Class<?> matchClass = loader.loadClass("best.I");
+    Object match = matchClass.getDeclaredConstructor().newInstance();
+    setField(match, "dH", stadium);
+    assertSame(stadium, matchClass.getDeclaredMethod("ev").invoke(match), "match stadium");
+
+    Class<?> archivedClubStatsClass = loader.loadClass("components.ah");
+    Object archivedClubStats = archivedClubStatsClass.getDeclaredConstructor().newInstance();
+    setField(archivedClubStats, "mU", 17);
+    assertInteger(archivedClubStatsClass, archivedClubStats, "lk", 17);
+    Class<?> clubReferenceClass = loader.loadClass("best.an");
+    Object clubReference = clubReferenceClass.getDeclaredConstructor().newInstance();
+    setField(clubReference, "cg", club);
+    assertSame(club, clubReferenceClass.getDeclaredMethod("fg").invoke(clubReference),
+        "shared club reference");
+
     ArrayList<Object> seniorPlayers = new ArrayList<Object>();
     ArrayList<Object> youthPlayers = new ArrayList<Object>();
     ArrayList<Object> startingLineup = new ArrayList<Object>();
@@ -449,6 +483,7 @@ public final class KryoSaveCompatibilityProbe {
       throw new IllegalStateException("New club unexpectedly has a lineup preset");
     }
     return "overall=72 tacticalPosition=19 attributes=7 outOfPosition=true "
+        + "clubId=17 playerClub=true coachClub=true userControlled=true stadiums=2 "
         + "seniorPlayers=1 lineupReady=true finances=true";
   }
 

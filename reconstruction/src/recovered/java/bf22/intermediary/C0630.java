@@ -33,8 +33,8 @@ public class C0630 extends DefaultTableCellRenderer {
             }
          } else if (j == 2) {
             this.setHorizontalAlignment(2);
-            if (var7.fg() != null) {
-               this.setText(var7.fg().getNome());
+            if (var7.getClub() != null) {
+               this.setText(var7.getClub().getNome());
             }
          } else if (j == 3) {
             this.setHorizontalAlignment(0);
@@ -60,8 +60,8 @@ public class C0630 extends DefaultTableCellRenderer {
             }
          } else if (j == 2) {
             this.setHorizontalAlignment(2);
-            if (var7.fg() != null) {
-               this.setText(var7.fg().getNome());
+            if (var7.getClub() != null) {
+               this.setText(var7.getClub().getNome());
             }
          } else if (j == 3) {
             this.setHorizontalAlignment(0);

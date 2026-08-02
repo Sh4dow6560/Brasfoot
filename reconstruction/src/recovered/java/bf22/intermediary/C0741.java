@@ -520,7 +520,7 @@ public class C0741 implements Serializable {
    public boolean ei() {
       for (int var1 = 0; var1 < this.ds.size(); var1++) {
          for (int var2 = 0; var2 < ((StateChampionship)this.ds.get(var1)).yi().yK().size(); var2++) {
-            if (((Club)((StateChampionship)this.ds.get(var1)).yi().yK().get(var2)).jZ()) {
+            if (((Club)((StateChampionship)this.ds.get(var1)).yi().yK().get(var2)).isUserControlled()) {
                return true;
             }
          }

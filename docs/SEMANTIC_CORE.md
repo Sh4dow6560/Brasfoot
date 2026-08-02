@@ -99,8 +99,10 @@ estaduais, regionais e supercopas.
 `Player` identifica diretamente forca geral, posicao tatica, atleta da base,
 velocidade, habilidade de goleiro, tecnica, passe, desarme, armacao,
 finalizacao e atuacao fora de posicao. `Club` identifica elenco principal e
-da base, titulares, banco, tecnico, financas, esquema e estado da escalacao.
-Um cenario executado no JAR final valida esses acessos e suas identidades.
+da base, titulares, banco, tecnico, financas, esquema, ID, controle do usuario
+e estado da escalacao. Jogador, tecnico e componentes auxiliares usam
+`getClub`; clube, partida e obra usam `getStadium`. Um cenario executado no
+JAR final valida esses acessos e suas identidades.
 
 Os demais nomes semanticos de configuracao, comparadores e utilitarios ficam
 registrados em `reconstruction/config/semantic-names.json`.

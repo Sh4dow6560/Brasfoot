@@ -19,7 +19,7 @@ public class C0827 {
 
    public void n(Match c0675) {
       this.zz = c0675;
-      if (c0675.getHomeClub().jZ() || c0675.getAwayClub().jZ()) {
+      if (c0675.getHomeClub().isUserControlled() || c0675.getAwayClub().isUserControlled()) {
          this.Pt = true;
       }
    }

@@ -147,7 +147,7 @@ public class NationalLeague extends Competition implements Serializable {
          for (int var6 = 0; var6 < this.ZW.size(); var6++) {
             if (((C0722)this.ZW.get(var6)).E() == var2[var5] && ((C0722)this.ZW.get(var6)).D() >= var3 && !var4.lV().contains(((C0722)this.ZW.get(var6)).x())) {
                var4.lV().add(((C0722)this.ZW.get(var6)).x());
-               var4.lW().add(((C0722)this.ZW.get(var6)).x().fg());
+               var4.lW().add(((C0722)this.ZW.get(var6)).x().getClub());
                break;
             }
          }
@@ -236,7 +236,7 @@ public class NationalLeague extends Competition implements Serializable {
                && ((C0691)this.ZZ.get(var5)).iR() <= var2[var4]
                && !var3.lV().contains(((C0691)this.ZZ.get(var5)).x())) {
                var3.lV().add(((C0691)this.ZZ.get(var5)).x());
-               var3.lW().add(((C0691)this.ZZ.get(var5)).x().fg());
+               var3.lW().add(((C0691)this.ZZ.get(var5)).x().getClub());
                break;
             }
          }

@@ -138,9 +138,9 @@ public class PlayerSearchCriteria {
                                     } else if (this.mk >= 0 && player.getPais() != this.mk) {
                                        return false;
                                     } else if (this.ml >= 0
-                                       && player.fg() != null
+                                       && player.getClub() != null
                                        && this.ml < this.mS.size()
-                                       && player.fg().getPais() != (Integer)this.mS.get(this.ml)) {
+                                       && player.getClub().getPais() != (Integer)this.mS.get(this.ml)) {
                                        return false;
                                     } else if (this.mL && !player.ff()) {
                                        return false;

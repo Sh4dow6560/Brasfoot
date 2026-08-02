@@ -86,7 +86,7 @@ public class C0401 extends JPanel {
       } else {
          for (int var3 = GamePersistence.careerState.bo().size() - 1; var3 >= 0; var3--) {
             if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).x() != null
-               && (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).lZ() == this.uk.lk() || ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).ma() == this.uk.lk())) {
+               && (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).lZ() == this.uk.getClubId() || ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).ma() == this.uk.getClubId())) {
                this.uK.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3));
             }
          }

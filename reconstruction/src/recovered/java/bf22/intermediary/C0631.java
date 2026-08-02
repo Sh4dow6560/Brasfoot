@@ -18,9 +18,9 @@ public class C0631 extends DefaultTableCellRenderer {
       C0813 var7 = (C0813)object;
       if (var7 != null) {
          if (j == 0) {
-            this.setIcon(var7.fg().kU());
-            if (var7.fg() != null) {
-               this.setText(var7.fg().getNome());
+            this.setIcon(var7.getClub().kU());
+            if (var7.getClub() != null) {
+               this.setText(var7.getClub().getNome());
             }
          } else if (j == 1) {
             if (var7.tj() != null) {

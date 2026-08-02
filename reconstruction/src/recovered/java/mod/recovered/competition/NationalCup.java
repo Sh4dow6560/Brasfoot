@@ -312,7 +312,7 @@ public class NationalCup extends Competition implements Serializable {
          }
 
          for (int var4 = 0; var4 < GamePersistence.careerState.M().size(); var4++) {
-            if (((Coach)GamePersistence.careerState.M().get(var4)).fg() != null && ((Coach)GamePersistence.careerState.M().get(var4)).fg().getPais() == 29) {
+            if (((Coach)GamePersistence.careerState.M().get(var4)).getClub() != null && ((Coach)GamePersistence.careerState.M().get(var4)).getClub().getPais() == 29) {
                new C0799((Coach)GamePersistence.careerState.M().get(var4), 23, 75, "", var1);
             }
          }

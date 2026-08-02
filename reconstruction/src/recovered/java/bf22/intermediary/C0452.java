@@ -231,7 +231,7 @@ public class C0452 extends JPanel {
       if (!GamePersistence.isRegisteredVersion()) {
          JOptionPane.showMessageDialog(this.ub, "Apenas na versão registrada é possível fazer oferta em qualquer jogador.", "Oferta", 2);
       } else if (TransferNegotiation.d(this.sE(), this.ul)) {
-         if (this.sE().fg() == this.ul) {
+         if (this.sE().getClub() == this.ul) {
             JOptionPane.showMessageDialog(this.ub, "Jogador do time", "Proposta", 2);
          } else if (this.ul.getSeniorPlayers().size() >= 35) {
             JOptionPane.showMessageDialog(this.ub, "Limite de 32 jogadores alcançado", "Limite de jogadores", 2);

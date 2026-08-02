@@ -76,7 +76,7 @@ public class C0493 extends JPanel {
       if (this.MD.getSelectedRowCount() > 0) {
          int var1 = this.MD.getSelectedRow();
          this.Es = (Coach)GamePersistence.careerState.M().get(var1);
-         if (this.Es.fg() != null) {
+         if (this.Es.getClub() != null) {
             JOptionPane.showMessageDialog(this.ub, "Para remover um técnico é necessário antes demiti-lo do time.", "Remover técnico", 2);
          } else {
             int var2 = -1;

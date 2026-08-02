@@ -19,7 +19,7 @@ public class C0721 {
    public C0721(CompetitionPlayerStats c0720) {
       if (c0720.x() != null) {
          this.nome = c0720.x().getNome();
-         this.X = c0720.x().fg();
+         this.X = c0720.x().getClub();
          this.g = c0720.y();
          this.T = c0720.A();
       }

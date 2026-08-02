@@ -36,12 +36,12 @@ public class C0600 extends DefaultTableCellRenderer {
          if (var7.fn() > 0) {
             this.setText(Integer.toString(var7.fn()));
             if (!bl) {
-               if (var7.fg() != null) {
-                  this.setForeground(var7.fg().kC());
+               if (var7.getClub() != null) {
+                  this.setForeground(var7.getClub().kC());
                }
 
-               if (var7.fg() != null) {
-                  this.setBackground(var7.fg().kB());
+               if (var7.getClub() != null) {
+                  this.setBackground(var7.getClub().kB());
                }
             }
          }

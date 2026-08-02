@@ -455,29 +455,29 @@ public class MatchEngine {
       }
 
       if (this.match != null && this.match.getCompetition().b() == 4) {
-         if (player.fg() != null && player.fg().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.75);
-         } else if (player.fg() != null && player.fg().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
             var2 = (int)Math.round(var2 * 0.85);
-         } else if (player.fg() != null && player.fg().getPais() == 29) {
+         } else if (player.getClub() != null && player.getClub().getPais() == 29) {
             var2 = (int)Math.round(var2 * 0.9);
          }
       }
 
       if (this.match != null && this.match.getCompetition().b() == 5) {
-         if (player.fg() != null && player.fg().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.55);
-         } else if (player.fg() != null && player.fg().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
             var2 = (int)Math.round(var2 * 0.75);
-         } else if (player.fg() != null && player.fg().gg() != 0) {
+         } else if (player.getClub() != null && player.getClub().gg() != 0) {
             var2 = (int)Math.round(var2 * 0.9);
          }
       }
 
       if (this.match != null && this.match.getCompetition().b() == 1) {
-         if (player.fg() != null && player.fg().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.85);
-         } else if (player.fg() != null && player.fg().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
             var2 = (int)Math.round(var2 * 0.95);
          }
       }
@@ -486,8 +486,8 @@ public class MatchEngine {
          && (this.match.getCompetition().b() == 3 || this.match.getCompetition().b() == 2)
          && this.match.getHomeClub().getReputacao() < 3
          && this.match.getAwayClub().getReputacao() >= 3
-         && player.fg() != null
-         && player.fg().equals(this.match.getAwayClub())) {
+         && player.getClub() != null
+         && player.getClub().equals(this.match.getAwayClub())) {
          var2 = (int)Math.round(var2 * 0.8);
       }
 
@@ -569,7 +569,7 @@ public class MatchEngine {
       }
 
       int var9 = 0;
-      if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
+      if (this.clubs[0].isUserControlled() || this.clubs[1].isUserControlled()) {
          var9 = this.countDefenders(this.getOpposingTeamIndex());
          if (var9 == 0) {
             var7 = 0.1;
@@ -630,7 +630,7 @@ public class MatchEngine {
       double var12 = 1.0 + this.b(var8, var6);
       double var10 = 1.0 + this.b(var2, var4);
       int var14 = 0;
-      if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
+      if (this.clubs[0].isUserControlled() || this.clubs[1].isUserControlled()) {
          var14 = this.countDefenders(this.getOpposingTeamIndex());
          if (var14 == 0) {
             var12 = (int)Math.round(var12 * 0.2);
@@ -1007,7 +1007,7 @@ public class MatchEngine {
          Player var8 = this.selectAssistProvider(player);
          if (var8 != null && var8 != player) {
             var8.gB().gV();
-            if (var8.fg() != null && !var8.isYouthPlayer()) {
+            if (var8.getClub() != null && !var8.isYouthPlayer()) {
                var8.a(8, c0667.getClub(), this.match.getCompetition());
             }
 
@@ -1059,7 +1059,7 @@ public class MatchEngine {
       boolean var14 = false;
       if (var3 == 3) {
          c0667.setConfirmed(true);
-         if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
+         if (this.clubs[0].isUserControlled() || this.clubs[1].isUserControlled()) {
             var14 = true;
             var3 = 3;
             c0667.setConfirmed(false);

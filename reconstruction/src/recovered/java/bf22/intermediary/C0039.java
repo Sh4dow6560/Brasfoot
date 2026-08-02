@@ -172,13 +172,13 @@ public class C0039 extends JPanel {
             if (this.yo != null) {
                this.yG.setText(this.yo.iN());
                this.yE.setText(this.yo.iO());
-               this.yC.setText(this.yo.be(this.ym.lk()));
-               this.yD.setText(this.yo.be(this.yn.lk()));
-               this.yw.setText(this.yo.bf(this.ym.lk()));
-               this.yx.setText(this.yo.bf(this.yn.lk()));
-               String[] var4 = this.yo.bg(this.ym.lk());
+               this.yC.setText(this.yo.be(this.ym.getClubId()));
+               this.yD.setText(this.yo.be(this.yn.getClubId()));
+               this.yw.setText(this.yo.bf(this.ym.getClubId()));
+               this.yx.setText(this.yo.bf(this.yn.getClubId()));
+               String[] var4 = this.yo.bg(this.ym.getClubId());
                this.yy.setText(var4[0]);
-               String[] var3 = this.yo.bg(this.yn.lk());
+               String[] var3 = this.yo.bg(this.yn.getClubId());
                this.yz.setText(var3[0]);
             }
 

@@ -623,13 +623,13 @@ public class ScheduleDay implements Serializable {
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
             if (!bl) {
-               if (((Coach)GamePersistence.careerState.M().get(var3)).jZ() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
+               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
                   ArrayList var2 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), bl);
                   if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                      MainWindow.a(var2, (Coach)GamePersistence.careerState.M().get(var3), 1);
                   }
                }
-            } else if (((Coach)GamePersistence.careerState.M().get(var3)).jZ()) {
+            } else if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled()) {
                ArrayList var4 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), bl);
                if (!GamePersistence.careerState.bD() && var4 != null && var4.size() > 0) {
                   MainWindow.a(var4, (Coach)GamePersistence.careerState.M().get(var3), 1);

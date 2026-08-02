@@ -335,14 +335,14 @@ public class C0078 extends JPanel {
       for (int var12 = 0; var12 < this.wU.ms().size(); var12++) {
          this.wU.mv();
          String var9 = "";
-         if (((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg() != null) {
+         if (((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getClub() != null) {
             if (GameConstants.fs(this.wU.b())) {
                var9 = C0696.bl(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getPais());
                ImageIcon var10 = new ImageIcon(this.getClass().getResource("/aflags/" + ((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getPais() + ".png"));
                var2[var12].setIcon(var10);
             } else {
-               var9 = ((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg().getNome();
-               var2[var12].setIcon(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().fg().kU());
+               var9 = ((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getClub().getNome();
+               var2[var12].setIcon(((CompetitionPlayerStats)this.wU.ms().get(var12)).x().getClub().kU());
             }
          } else {
             var2[var12].setIcon(null);
@@ -397,8 +397,8 @@ public class C0078 extends JPanel {
          JLabel[] var1 = new JLabel[]{this.xB, this.xC, this.xD};
 
          for (int var2 = 0; var2 < this.wU.mE().cT().size(); var2++) {
-            var1[var2].setText(((C0707)this.wU.mE().cT().get(var2)).fg().getNome() + " (" + Integer.toString(((C0707)this.wU.mE().cT().get(var2)).lX()) + ")");
-            var1[var2].setIcon(((C0707)this.wU.mE().cT().get(var2)).fg().kU());
+            var1[var2].setText(((C0707)this.wU.mE().cT().get(var2)).getClub().getNome() + " (" + Integer.toString(((C0707)this.wU.mE().cT().get(var2)).lX()) + ")");
+            var1[var2].setIcon(((C0707)this.wU.mE().cT().get(var2)).getClub().kU());
             if (var2 == var1.length - 1) {
                break;
             }
@@ -423,9 +423,9 @@ public class C0078 extends JPanel {
                var5 = C0696.bl(((C0690)this.wU.mD().get(var4)).x().getPais());
                ImageIcon var6 = new ImageIcon(this.getClass().getResource("/aflags/" + ((C0690)this.wU.mD().get(var4)).x().getPais() + ".png"));
                var1[var4].setIcon(var6);
-            } else if (((C0690)this.wU.mD().get(var4)).x().fg() != null) {
-               var5 = ((C0690)this.wU.mD().get(var4)).x().fg().getNome();
-               var1[var4].setIcon(((C0690)this.wU.mD().get(var4)).x().fg().kU());
+            } else if (((C0690)this.wU.mD().get(var4)).x().getClub() != null) {
+               var5 = ((C0690)this.wU.mD().get(var4)).x().getClub().getNome();
+               var1[var4].setIcon(((C0690)this.wU.mD().get(var4)).x().getClub().kU());
             } else {
                var1[var4].setIcon(null);
             }
@@ -511,37 +511,37 @@ public class C0078 extends JPanel {
    }
 
    private void a(C0810 c0810) {
-      if (this.wK.contains(c0810.fg())) {
+      if (this.wK.contains(c0810.getClub())) {
          c0810.dF(1);
-         if (this.xd.contains(c0810.fg())) {
+         if (this.xd.contains(c0810.getClub())) {
             c0810.dF(101);
-         } else if (this.xe.contains(c0810.fg())) {
+         } else if (this.xe.contains(c0810.getClub())) {
             c0810.dF(102);
-         } else if (this.xf.contains(c0810.fg())) {
+         } else if (this.xf.contains(c0810.getClub())) {
             c0810.dF(106);
-         } else if (this.xg.contains(c0810.fg())) {
+         } else if (this.xg.contains(c0810.getClub())) {
             c0810.dF(106);
          }
-      } else if (this.xc.contains(c0810.fg())) {
+      } else if (this.xc.contains(c0810.getClub())) {
          c0810.dF(3);
-         if (this.xd.contains(c0810.fg())) {
+         if (this.xd.contains(c0810.getClub())) {
             c0810.dF(301);
-         } else if (this.xe.contains(c0810.fg())) {
+         } else if (this.xe.contains(c0810.getClub())) {
             c0810.dF(302);
-         } else if (this.xf.contains(c0810.fg())) {
+         } else if (this.xf.contains(c0810.getClub())) {
             c0810.dF(306);
-         } else if (this.xg.contains(c0810.fg())) {
+         } else if (this.xg.contains(c0810.getClub())) {
             c0810.dF(106);
          }
-      } else if (this.xd.contains(c0810.fg())) {
+      } else if (this.xd.contains(c0810.getClub())) {
          c0810.dF(4);
-      } else if (this.xe.contains(c0810.fg())) {
+      } else if (this.xe.contains(c0810.getClub())) {
          c0810.dF(5);
-      } else if (this.xf.contains(c0810.fg())) {
+      } else if (this.xf.contains(c0810.getClub())) {
          c0810.dF(2);
-      } else if (this.xg.contains(c0810.fg())) {
+      } else if (this.xg.contains(c0810.getClub())) {
          c0810.dF(6);
-      } else if (this.aeP.contains(c0810.fg())) {
+      } else if (this.aeP.contains(c0810.getClub())) {
          c0810.dF(12000);
       }
    }
@@ -957,7 +957,7 @@ public class C0078 extends JPanel {
    }
 
    private void b(C0810 c0810) {
-      if (c0810.fg() != null) {
+      if (c0810.getClub() != null) {
          this.a(c0810);
          if (this.wU != null) {
             c0810.a(this.wU.b());

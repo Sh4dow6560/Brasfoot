@@ -20,8 +20,8 @@ public class C0617 extends DefaultTableCellRenderer {
       } else if (j == 1) {
          this.setText(var7.x().getNome());
       } else if (j == 2) {
-         if (var7.x().fg() != null) {
-            this.setText(var7.x().fg().getNome());
+         if (var7.x().getClub() != null) {
+            this.setText(var7.x().getClub().getNome());
          }
       } else if (j == 3) {
          this.setText(String.format("%.2f", var7.F()));

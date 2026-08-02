@@ -77,7 +77,7 @@ public class C0475 extends JPanel {
       this.Ne = new ArrayList();
 
       for (int var1 = 0; var1 < GamePersistence.careerState.aN().size(); var1++) {
-         if (GamePersistence.careerState.aN().get(var1) != this.uz.fg() && ((Club)GamePersistence.careerState.aN().get(var1)).kb() > this.Nc.lY()) {
+         if (GamePersistence.careerState.aN().get(var1) != this.uz.getClub() && ((Club)GamePersistence.careerState.aN().get(var1)).kb() > this.Nc.lY()) {
             this.Nd.add((Club)GamePersistence.careerState.aN().get(var1));
          }
       }
@@ -95,8 +95,8 @@ public class C0475 extends JPanel {
       this.MO.setText("<html><b>" + this.uz.getNome() + " - " + GameConstants.rI[this.uz.getPosicao()] + "</b></html>");
       this.MO.setIcon(new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png")));
       this.Nh.setText(ClubFinances.c(this.uz.fl()));
-      this.zO.setText(this.uz.fg().getNome());
-      this.zO.setIcon(this.uz.fg().kU());
+      this.zO.setText(this.uz.getClub().getNome());
+      this.zO.setIcon(this.uz.getClub().kU());
       var1 = this.uz.gw();
       String var2 = "";
       if (this.uz.fP()) {

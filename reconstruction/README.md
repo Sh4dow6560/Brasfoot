@@ -75,4 +75,6 @@ unicos entre os demais metodos sem argumentos, execute
 `applySemanticMemberMappings` antes de `generateMappings`. A tarefa atualiza
 as referencias nas 1.032 fontes, valida a migracao e mantem uma copia de
 seguranca transacional em `build/generated`. Membros de instancia ambiguos
-continuam exigindo migracao dirigida pelo tipo.
+continuam exigindo migracao dirigida pelo tipo. Um grupo repetido sem
+argumentos pode ser migrado junto quando todos os membros do grupo estiverem
+explicitamente configurados com o mesmo nome semantico.

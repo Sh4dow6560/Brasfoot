@@ -44,13 +44,15 @@
   data e agenda tambem estao nomeados.
 - `Player` e `Club` agora identificam forca geral, posicao tatica, sete
   atributos individuais, elencos principal/base, titulares, banco, tecnico,
-  financas e esquema. Esses contratos possuem cenario funcional no JAR final.
+  financas, esquema, IDs, controle do usuario, vinculos e estadio. Esses
+  contratos possuem cenario funcional no JAR final.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
-  colisao equivalente de forma transacional. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 333 membros
+  colisao equivalente de forma transacional. Metodos repetidos sem argumentos
+  podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
+  cobrem a persistencia central, o estado essencial de `Match` e 362 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 

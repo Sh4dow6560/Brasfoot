@@ -4,24 +4,24 @@ import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 
 public class C0813 {
-   private Club cg = null;
+   private Club club = null;
    private Coach Oi = null;
    private Coach Oj = null;
    private int Fp = 1;
 
    public C0813(Club club, Coach coach, Coach coach2, int i) {
-      this.cg = club;
+      this.club = club;
       this.Oi = coach;
       this.Oj = coach2;
       this.Fp = i;
    }
 
-   public Club fg() {
-      return this.cg;
+   public Club getClub() {
+      return this.club;
    }
 
    public void n(Club club) {
-      this.cg = club;
+      this.club = club;
    }
 
    public Coach tj() {

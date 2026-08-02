@@ -22,8 +22,8 @@ public class C0599 extends DefaultTableCellRenderer {
       if (var7.tR() != null) {
          if (j == 0) {
             this.setHorizontalAlignment(0);
-            if (var7.tR().ev() != null) {
-               this.setText(var7.tR().ev().dS() + " | " + Integer.toString(var7.hU()));
+            if (var7.tR().getStadium() != null) {
+               this.setText(var7.tR().getStadium().dS() + " | " + Integer.toString(var7.hU()));
             } else if (var7.ik() != null) {
                this.setText(var7.ik());
             }
@@ -71,7 +71,7 @@ public class C0599 extends DefaultTableCellRenderer {
                }
 
                boolean var11 = true;
-               if (var7.tV().getType() == 6 && !var7.tR().getHomeClub().jZ() && !var7.tR().getAwayClub().jZ()) {
+               if (var7.tV().getType() == 6 && !var7.tR().getHomeClub().isUserControlled() && !var7.tR().getAwayClub().isUserControlled()) {
                   var11 = false;
                }
 

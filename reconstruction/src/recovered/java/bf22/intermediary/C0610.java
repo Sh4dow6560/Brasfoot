@@ -32,9 +32,9 @@ public class C0610 extends DefaultTableCellRenderer {
                super.setBackground(Color.BLACK);
                super.setForeground(Color.white);
                this.setText(var7.sT());
-            } else if (var7.fg() != null) {
-               this.setIcon(var7.fg().kU());
-               this.setText(var7.fg().getNome());
+            } else if (var7.getClub() != null) {
+               this.setIcon(var7.getClub().kU());
+               this.setText(var7.getClub().getNome());
             }
          }
       }

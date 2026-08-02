@@ -5,6 +5,7 @@ import com.brasfoot.reconstruction.ArchiveService.ClassInfo;
 import com.brasfoot.reconstruction.ArchiveService.MemberInfo;
 import com.brasfoot.reconstruction.ProjectContext.FieldSemanticName;
 import com.brasfoot.reconstruction.ProjectContext.MethodSemanticName;
+import com.brasfoot.reconstruction.ProjectContext.SemanticNames;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileVisitResult;
@@ -103,13 +104,16 @@ final class SemanticMemberSourceMigrationService {
   private List<MemberMigration> pendingMigrations(TinyState current, ArchiveData game)
       throws IOException {
     List<MemberMigration> migrations = new ArrayList<>();
-    for (FieldSemanticName field : context.semanticNames().fields()) {
+    SemanticNames semanticNames = context.semanticNames();
+    Map<String, String> coalescedZeroArgumentNames = coalescedZeroArgumentNames(
+        game, semanticNames.methods());
+    for (FieldSemanticName field : semanticNames.fields()) {
       addPending(migrations, current, game, "field", field.owner(), field.name(),
-          field.descriptor(), field.named());
+          field.descriptor(), field.named(), null);
     }
-    for (MethodSemanticName method : context.semanticNames().methods()) {
+    for (MethodSemanticName method : semanticNames.methods()) {
       addPending(migrations, current, game, "method", method.owner(), method.name(),
-          method.descriptor(), method.named());
+          method.descriptor(), method.named(), coalescedZeroArgumentNames.get(method.name()));
     }
     migrations.sort((left, right) -> left.key().compareTo(right.key()));
     return migrations;
@@ -123,7 +127,8 @@ final class SemanticMemberSourceMigrationService {
       String owner,
       String officialName,
       String descriptor,
-      String desiredName) {
+      String desiredName,
+      String coalescedZeroArgumentName) {
     String ownerNamed = current.classes().get(owner);
     if (ownerNamed == null) {
       throw new IllegalStateException("Semantic member owner is absent from mappings: " + owner);
@@ -154,12 +159,13 @@ final class SemanticMemberSourceMigrationService {
     boolean globalZeroArgumentReferences = !externalReferences
         && "method".equals(kind)
         && Type.getArgumentTypes(descriptor).length == 0
-        && game.classes().values().stream()
-            .flatMap(classInfo -> classInfo.members().stream())
-            .filter(candidate -> candidate.kind().equals(kind))
-            .filter(candidate -> candidate.name().equals(officialName))
-            .filter(candidate -> Type.getArgumentTypes(candidate.descriptor()).length == 0)
-            .count() == 1;
+        && (game.classes().values().stream()
+                .flatMap(classInfo -> classInfo.members().stream())
+                .filter(candidate -> candidate.kind().equals(kind))
+                .filter(candidate -> candidate.name().equals(officialName))
+                .filter(candidate -> Type.getArgumentTypes(candidate.descriptor()).length == 0)
+                .count() == 1
+            || desiredName.equals(coalescedZeroArgumentName));
     if (!externalReferences && !privateMember && !globalInstanceReferences
         && !globalZeroArgumentReferences) {
       throw new IllegalStateException("Automatic source migration requires a static member, "
@@ -177,6 +183,46 @@ final class SemanticMemberSourceMigrationService {
     migrations.add(new MemberMigration(
         owner, ownerNamed, kind, officialName, descriptor, currentName, desiredName,
         externalReferences, globalInstanceReferences, globalZeroArgumentReferences));
+  }
+
+  private Map<String, String> coalescedZeroArgumentNames(
+      ArchiveData game, List<MethodSemanticName> semanticMethods) {
+    Map<String, String> desiredByMember = new HashMap<>();
+    for (MethodSemanticName method : semanticMethods) {
+      desiredByMember.put(memberKey(
+          method.owner(), "method", method.name(), method.descriptor()), method.named());
+    }
+    Map<String, List<String>> membersByName = new HashMap<>();
+    for (ClassInfo classInfo : game.classes().values()) {
+      for (MemberInfo member : classInfo.members()) {
+        if (!"method".equals(member.kind()) || member.name().startsWith("<")
+            || Type.getArgumentTypes(member.descriptor()).length != 0) {
+          continue;
+        }
+        membersByName.computeIfAbsent(member.name(), ignored -> new ArrayList<>()).add(
+            memberKey(classInfo.name(), "method", member.name(), member.descriptor()));
+      }
+    }
+    Map<String, String> coalesced = new HashMap<>();
+    for (Map.Entry<String, List<String>> entry : membersByName.entrySet()) {
+      if (entry.getValue().size() < 2) {
+        continue;
+      }
+      Set<String> desiredNames = new LinkedHashSet<>();
+      boolean fullyMapped = true;
+      for (String member : entry.getValue()) {
+        String desiredName = desiredByMember.get(member);
+        if (desiredName == null) {
+          fullyMapped = false;
+          break;
+        }
+        desiredNames.add(desiredName);
+      }
+      if (fullyMapped && desiredNames.size() == 1) {
+        coalesced.put(entry.getKey(), desiredNames.iterator().next());
+      }
+    }
+    return coalesced;
   }
 
   private String migrateExternalReferences(String source, List<MemberMigration> migrations) {

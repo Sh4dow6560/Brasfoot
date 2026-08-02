@@ -226,7 +226,7 @@ public class Stadium implements Serializable {
    }
 
    public static void c(Match c0675) {
-      c0675.ev().b(c0675);
+      c0675.getStadium().b(c0675);
    }
 
    public static int[] a(int i, Club club) {

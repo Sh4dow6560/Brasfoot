@@ -294,7 +294,7 @@ public class C0435 extends JPanel {
          var1 = (Club)GamePersistence.careerState.aN().get(0);
       }
 
-      if (var1 != null && var1.jZ()) {
+      if (var1 != null && var1.isUserControlled()) {
          String var2 = var1.getCoach().dS();
          int var3 = -1;
          var3 = JOptionPane.showConfirmDialog(this.Br, var2 + " deseja ser demitido do " + var1.getNome(), "Pedido de demissão", 0);
@@ -518,7 +518,7 @@ public class C0435 extends JPanel {
 
    private int sc() {
       for (int var1 = 0; var1 < this.vK.size(); var1++) {
-         if (((C0831)this.vK.get(var1)).tR() != null && (((C0831)this.vK.get(var1)).tR().getHomeClub().jZ() || ((C0831)this.vK.get(var1)).tR().getAwayClub().jZ())) {
+         if (((C0831)this.vK.get(var1)).tR() != null && (((C0831)this.vK.get(var1)).tR().getHomeClub().isUserControlled() || ((C0831)this.vK.get(var1)).tR().getAwayClub().isUserControlled())) {
             return var1;
          }
       }
@@ -617,7 +617,7 @@ public class C0435 extends JPanel {
 
    public void sd() {
       for (int var1 = 0; var1 < GamePersistence.careerState.getCurrentMatches().size(); var1++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().jZ()) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getHomeClub().isUserControlled() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var1)).getAwayClub().isUserControlled()) {
             this.KS = (Match)GamePersistence.careerState.getCurrentMatches().get(var1);
             break;
          }
@@ -666,8 +666,8 @@ public class C0435 extends JPanel {
          this.zO.setBackground(c0675.getHomeClub().kB());
          this.zP.setForeground(c0675.getAwayClub().kC());
          this.zP.setBackground(c0675.getAwayClub().kB());
-         if (c0675.ev() != null) {
-            this.Cg.setText(c0675.ev().dS());
+         if (c0675.getStadium() != null) {
+            this.Cg.setText(c0675.getStadium().dS());
             this.Dz.setText(ClubFinances.a(c0675.hN(), 0));
             this.Dy.setText(Integer.toString(c0675.hU()));
             this.Dy.setToolTipText(c0675.hV());

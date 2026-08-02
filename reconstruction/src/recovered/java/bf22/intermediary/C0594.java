@@ -20,8 +20,8 @@ public class C0594 extends DefaultTableCellRenderer {
          if (j == 0) {
             this.setText(Integer.toString(i + 1));
          } else if (j == 1) {
-            this.setText(var7.fg().getNome());
-            this.setIcon(var7.fg().kU());
+            this.setText(var7.getClub().getNome());
+            this.setIcon(var7.getClub().kU());
          } else if (j == 2) {
             if (var7.b() == 0) {
                this.setText(GameConstants.pZ[var7.uy()]);

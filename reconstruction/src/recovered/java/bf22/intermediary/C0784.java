@@ -3,17 +3,17 @@ package bf22.intermediary;
 import mod.recovered.model.Club;
 
 public class C0784 {
-   private Club cg = null;
+   private Club club = null;
    private int w = 0;
    private int[] Re = new int[3];
    private int Rf;
 
-   public Club fg() {
-      return this.cg;
+   public Club getClub() {
+      return this.club;
    }
 
    public void n(Club club) {
-      this.cg = club;
+      this.club = club;
    }
 
    public int b() {

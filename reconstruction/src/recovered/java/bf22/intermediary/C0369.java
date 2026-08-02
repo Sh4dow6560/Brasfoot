@@ -58,8 +58,8 @@ public class C0369 extends JPanel {
       this.ub = jDialog;
       this.KA = coach;
       if (coach != null) {
-         if (coach.fg() != null) {
-            this.vk = coach.fg().getPais();
+         if (coach.getClub() != null) {
+            this.vk = coach.getClub().getPais();
          } else {
             this.vk = coach.bz();
          }
@@ -130,8 +130,8 @@ public class C0369 extends JPanel {
 
          for (int var4 = 0; var4 < GamePersistence.careerState.L().size(); var4++) {
             var3 = (byte)-1;
-            if (((Coach)GamePersistence.careerState.L().get(var4)).fg() != null) {
-               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).fg().getPais();
+            if (((Coach)GamePersistence.careerState.L().get(var4)).getClub() != null) {
+               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).getClub().getPais();
             } else {
                var3 = ((Coach)GamePersistence.careerState.L().get(var4)).bz();
             }

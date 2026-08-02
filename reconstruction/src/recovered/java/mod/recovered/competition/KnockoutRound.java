@@ -458,10 +458,10 @@ public class KnockoutRound implements Serializable {
 
    private void V(Club club) {
       this.fl(this.c(this.w, this.oj, false));
-      if (club != null && this.aam > 0 && club.jZ()) {
+      if (club != null && this.aam > 0 && club.isUserControlled()) {
          club.v(this.aam, 3);
          KnockoutStage var2 = this.zT();
-         if (club.getCoach() != null && club.getCoach().jZ() && var2 != null) {
+         if (club.getCoach() != null && club.getCoach().isUserControlled() && var2 != null) {
             new C0799(club.getCoach(), 26, 79, var2.getNome(), ClubFinances.c(this.aam));
          }
       }

@@ -122,7 +122,7 @@ public class C0223 extends JPanel {
          C0729 var6 = new C0729(true, var1);
          this.Fj.add(var6);
          var6.e(this.CY.gx());
-         if (this.CY.fL() > 0 && this.CY.fg() != null) {
+         if (this.CY.fL() > 0 && this.CY.getClub() != null) {
             C0729 var4 = new C0729();
             var4.D(this.CY.fL());
             this.Fj.add(var4);

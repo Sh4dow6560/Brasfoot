@@ -36,7 +36,7 @@ public abstract class C0737 {
             var2 = ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition().el();
          }
 
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().jZ()) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().isUserControlled() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().isUserControlled()) {
             var0 = true;
             break;
          }
@@ -62,7 +62,7 @@ public abstract class C0737 {
       boolean[] var3 = GamePersistence.careerState.getVerJint();
 
       for (int var4 = 0; var4 < GamePersistence.careerState.getCurrentMatches().size(); var4++) {
-         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() == c0713 && (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().jZ() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().jZ())) {
+         if (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getCompetition() == c0713 && (((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getHomeClub().isUserControlled() || ((Match)GamePersistence.careerState.getCurrentMatches().get(var4)).getAwayClub().isUserControlled())) {
             return true;
          }
       }
@@ -394,7 +394,7 @@ public abstract class C0737 {
       for (int var1 = 0; var1 < GamePersistence.careerState.bV().length; var1++) {
          if (GamePersistence.careerState.bV()[var1] != null) {
             for (int var2 = 0; var2 < GamePersistence.careerState.M().size(); var2++) {
-               Club var3 = ((Coach)GamePersistence.careerState.M().get(var2)).fg();
+               Club var3 = ((Coach)GamePersistence.careerState.M().get(var2)).getClub();
                if (var3 != null && var3.getPais() == 29 && d(var3.getEstado(), var1)) {
                   var0 = true;
                } else if (var3 == null
@@ -416,7 +416,7 @@ public abstract class C0737 {
       boolean var2 = true;
 
       for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
-         Club var4 = ((Coach)GamePersistence.careerState.M().get(var3)).fg();
+         Club var4 = ((Coach)GamePersistence.careerState.M().get(var3)).getClub();
          if (var4 != null && var4.getPais() == 29) {
             var1 = true;
             if (var4.getEstado() != 18) {

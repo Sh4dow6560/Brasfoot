@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import mod.recovered.model.Club;
 
 public class C0810 {
-   private Club cg = null;
+   private Club club = null;
    private String info;
    private boolean NM;
    private Color NN = null;
@@ -29,12 +29,12 @@ public class C0810 {
       this.NS = club;
    }
 
-   public Club fg() {
-      return this.cg;
+   public Club getClub() {
+      return this.club;
    }
 
    public void n(Club club) {
-      this.cg = club;
+      this.club = club;
    }
 
    public String getInfo() {

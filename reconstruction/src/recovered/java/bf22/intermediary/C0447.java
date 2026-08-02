@@ -130,7 +130,7 @@ public class C0447 extends JPanel {
       this.Lv.clear();
       this.nt();
       ArrayList var1 = new ArrayList();
-      int var2 = this.uk.lk();
+      int var2 = this.uk.getClubId();
 
       for (int var3 = 0; var3 < GamePersistence.careerState.L().size(); var3++) {
          for (int var4 = 0; var4 < ((Coach)GamePersistence.careerState.L().get(var3)).lO().size(); var4++) {

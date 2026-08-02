@@ -24,7 +24,7 @@ public class C0680 {
       Collections.shuffle(var1);
 
       for (int var2 = 0; var2 < var1.size(); var2++) {
-         if (!((Club)var1.get(var2)).jZ() && ((Club)var1.get(var2)).kw() >= 21) {
+         if (!((Club)var1.get(var2)).isUserControlled() && ((Club)var1.get(var2)).kw() >= 21) {
             Player var3 = ((Club)var1.get(var2)).kv();
             if (var3 != null) {
                this.gE = var3;

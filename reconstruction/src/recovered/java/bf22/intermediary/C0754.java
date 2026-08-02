@@ -42,9 +42,9 @@ public class C0754 extends JPanel {
          this.mJ();
          this.uF.setText(GameConstants.rI[c0825.x().getPosicao()] + " - " + c0825.x().getNome());
          this.Qn.setText(ScheduleDay.a(c0825.tO()));
-         if (c0825.x().fg() != null) {
-            this.zO.setText(c0825.x().fg().getNome());
-            this.zO.setIcon(c0825.x().fg().kU());
+         if (c0825.x().getClub() != null) {
+            this.zO.setText(c0825.x().getClub().getNome());
+            this.zO.setIcon(c0825.x().getClub().kU());
          }
 
          this.mH();

@@ -29,8 +29,8 @@ public class C0593 extends DefaultTableCellRenderer {
          } else if (j == 1) {
             this.setText(var7.dS());
          } else if (j == 2) {
-            if (var7.fg() != null) {
-               this.setText(var7.fg().getNome());
+            if (var7.getClub() != null) {
+               this.setText(var7.getClub().getNome());
             }
          } else if (j == 3) {
             if (this.w == 0) {

@@ -742,6 +742,7 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	f	Ljava/lang/Boolean;	fb	fb	youthPlayer
 	m	()Ljava/lang/Boolean;	fC	fC	isYouthPlayer
 	m	()I	fT	fT	getTacticalPosition
+	m	()Lbest/ah;	fg	fg	getClub
 	m	()I	fi	fi	getOverallStrength
 	m	()Z	gF	gF	isOutOfPosition
 	m	()I	gJ	gJ	getSpeed
@@ -777,6 +778,7 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	f	[I	gc	gc	misplacedPasses
 	f	[I	gd	gd	fouls
 	f	Lc/b;	go	go	matchEngine
+	m	()Lbest/v;	ev	ev	getStadium
 	m	()[I	hA	hA	getShots
 	m	()[I	hB	hB	getTackles
 	m	()[I	hC	hC	getMisplacedPasses
@@ -833,6 +835,7 @@ c	best/af	bf22/intermediary/C0699	mod/recovered/transfer/PlayerSearchCriteria
 c	best/ag	bf22/intermediary/C0700	mod/recovered/transfer/AiSquadManager
 c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	f	Lbest/v;	dH	dH	stadium
+	f	I	mU	mU	clubId
 	f	Ljava/lang/Boolean;	mW	mW	userControlled
 	f	Lbest/al;	mZ	mZ	coach
 	f	I	na	na	coachId
@@ -844,6 +847,8 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	f	Z	nv	nv	lineupReady
 	f	Lbest/C;	nx	nx	finances
 	f	Lcomponents/ag;	nz	nz	lineupPreset
+	m	()Lbest/v;	ev	ev	getStadium
+	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
 	m	()Lbest/C;	kL	kL	getFinances
 	m	()Lcomponents/ag;	kX	kX	getLineupPreset
 	m	()Ljava/util/ArrayList;	kY	kY	getStartingLineup
@@ -852,13 +857,21 @@ c	best/ah	bf22/intermediary/C0701	mod/recovered/model/Club
 	m	()Ljava/util/ArrayList;	kc	kc	getSeniorPlayers
 	m	()Z	kf	kf	isLineupReady
 	m	()Ljava/util/ArrayList;	ky	ky	getYouthPlayers
+	m	()I	lk	lk	getClubId
 c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
 	m	(Lbest/F;Lbest/F;)I	a	a	compare
 c	best/aj	bf22/intermediary/C0703	bf22/intermediary/C0703
 c	best/ak	bf22/intermediary/C0704	bf22/intermediary/C0704
 c	best/al	bf22/intermediary/C0705	mod/recovered/model/Coach
+	f	I	bW	bW	clubId
+	f	Ljava/lang/Boolean;	mW	mW	userControlled
+	f	Lbest/ah;	nV	nV	club
+	m	()Lbest/ah;	fg	fg	getClub
+	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
 c	best/am	bf22/intermediary/C0706	bf22/intermediary/C0706
 c	best/an	bf22/intermediary/C0707	bf22/intermediary/C0707
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	best/ao	bf22/intermediary/C0708	bf22/intermediary/C0708
 c	best/ap	bf22/intermediary/C0709	mod/recovered/transfer/PlayerTransferRecord
 c	best/aq	bf22/intermediary/C0710	mod/recovered/core/GameConstants
@@ -1037,8 +1050,14 @@ c	components/aa	bf22/intermediary/C0781	bf22/intermediary/C0781
 c	components/ab	bf22/intermediary/C0782	bf22/intermediary/C0782
 c	components/ac	bf22/intermediary/C0783	bf22/intermediary/C0783
 c	components/ad	bf22/intermediary/C0784	bf22/intermediary/C0784
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/ae	bf22/intermediary/C0785	bf22/intermediary/C0785
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/af	bf22/intermediary/C0786	bf22/intermediary/C0786
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/ag	bf22/intermediary/C0787	mod/recovered/team/LineupPreset
 	f	Ljava/util/ArrayList;	Ri	Ri	positions
 	f	Ljava/lang/String;	nome	nome	name
@@ -1048,13 +1067,19 @@ c	components/ag	bf22/intermediary/C0787	mod/recovered/team/LineupPreset
 	m	()Ljava/util/ArrayList;	uH	uH	getPlayers
 	m	()Ljava/util/ArrayList;	uI	uI	getPositions
 c	components/ah	bf22/intermediary/C0788	bf22/intermediary/C0788
+	f	I	mU	mU	clubId
+	m	()I	lk	lk	getClubId
 c	components/ai	bf22/intermediary/C0789	bf22/intermediary/C0789
 c	components/aj	bf22/intermediary/C0790	bf22/intermediary/C0790
 c	components/ak	bf22/intermediary/C0791	bf22/intermediary/C0791
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/al	bf22/intermediary/C0792	bf22/intermediary/C0792
 c	components/am	bf22/intermediary/C0793	bf22/intermediary/C0793
 c	components/an	bf22/intermediary/C0794	bf22/intermediary/C0794
 c	components/ao	bf22/intermediary/C0795	bf22/intermediary/C0795
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/ap	bf22/intermediary/C0796	bf22/intermediary/C0796
 c	components/aq	bf22/intermediary/C0797	bf22/intermediary/C0797
 c	components/ar	bf22/intermediary/C0798	mod/recovered/CrashLogHandler
@@ -1074,9 +1099,13 @@ c	components/b	bf22/intermediary/C0807	bf22/intermediary/C0807
 c	components/c	bf22/intermediary/C0808	bf22/intermediary/C0808
 c	components/d	bf22/intermediary/C0809	bf22/intermediary/C0809
 c	components/e	bf22/intermediary/C0810	bf22/intermediary/C0810
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/f	bf22/intermediary/C0811	bf22/intermediary/C0811
 c	components/g	bf22/intermediary/C0812	bf22/intermediary/C0812
 c	components/h	bf22/intermediary/C0813	bf22/intermediary/C0813
+	f	Lbest/ah;	cg	cg	club
+	m	()Lbest/ah;	fg	fg	getClub
 c	components/i	bf22/intermediary/C0814	bf22/intermediary/C0814
 	m	()Z	to	method_kw_to	method_kw_to
 c	components/j	bf22/intermediary/C0815	bf22/intermediary/C0815

@@ -22,9 +22,9 @@ public class C0604 extends DefaultTableCellRenderer {
             this.setText(var7.dS());
             ImageIcon var8 = new ImageIcon(this.getClass().getResource("/aflags/" + var7.lE() + ".png"));
             this.setIcon(var8);
-         } else if (j == 1 && var7.fg() != null) {
-            this.setText(var7.fg().getNome());
-            this.setIcon(var7.fg().kU());
+         } else if (j == 1 && var7.getClub() != null) {
+            this.setText(var7.getClub().getNome());
+            this.setIcon(var7.getClub().kU());
          }
       }
 

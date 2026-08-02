@@ -91,7 +91,7 @@ public class C0686 implements Serializable {
 
    public void a(Club club, Club club2, int i, int j, int k) {
       boolean var6 = true;
-      if (club.lk() == this.iL()) {
+      if (club.getClubId() == this.iL()) {
          var6 = true;
       } else {
          var6 = false;
@@ -161,14 +161,14 @@ public class C0686 implements Serializable {
    }
 
    public boolean a(Club club, Club club2) {
-      return this.gV == club.lk() && this.gW == club2.lk() ? true : this.gW == club.lk() && this.gV == club2.lk();
+      return this.gV == club.getClubId() && this.gW == club2.getClubId() ? true : this.gW == club.getClubId() && this.gV == club2.getClubId();
    }
 
    public Club y(Club club) {
-      if (this.gV == club.lk()) {
+      if (this.gV == club.getClubId()) {
          return GamePersistence.careerState.x(this.gW);
       } else {
-         return this.gW == club.lk() ? GamePersistence.careerState.x(this.gV) : null;
+         return this.gW == club.getClubId() ? GamePersistence.careerState.x(this.gV) : null;
       }
    }
 

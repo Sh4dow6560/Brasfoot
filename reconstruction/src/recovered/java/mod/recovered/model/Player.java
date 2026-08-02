@@ -109,14 +109,14 @@ public class Player implements Serializable {
 
    public void fd() {
       this.fp++;
-      if (!this.gm() && this.fp >= 2 && this.fg() != null && this.em < 35) {
-         if (this.fg().gg() == 0) {
-            if (this.fg().getPais() == 1 || this.fg().getPais() == 65 || this.fg().getPais() == 97) {
+      if (!this.gm() && this.fp >= 2 && this.getClub() != null && this.em < 35) {
+         if (this.getClub().gg() == 0) {
+            if (this.getClub().getPais() == 1 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
                this.j(true);
-            } else if ((this.fg().getPais() == 104 || this.fg().getPais() == 72 || this.fg().getPais() == 154) && this.fp >= 3) {
+            } else if ((this.getClub().getPais() == 104 || this.getClub().getPais() == 72 || this.getClub().getPais() == 154) && this.fp >= 3) {
                this.j(true);
             }
-         } else if (this.fg().getPais() == 29 && this.fp >= 4) {
+         } else if (this.getClub().getPais() == 29 && this.fp >= 4) {
             this.j(true);
          }
       }
@@ -217,7 +217,7 @@ public class Player implements Serializable {
       this.en = i;
    }
 
-   public Club fg() {
+   public Club getClub() {
       Club var1 = this.club;
       if (var1 == null && this.clubId >= 0) {
          var1 = GamePersistence.careerState.x(this.clubId);
@@ -230,14 +230,14 @@ public class Player implements Serializable {
 
    public void fh() {
       if (this.club != null) {
-         this.clubId = this.club.lk();
+         this.clubId = this.club.getClubId();
       }
    }
 
    public void n(Club club) {
       this.club = club;
       if (club != null) {
-         this.clubId = club.lk();
+         this.clubId = club.getClubId();
       } else {
          this.clubId = -1;
       }
@@ -369,8 +369,8 @@ public class Player implements Serializable {
 
    public void fr() {
       boolean var1 = false;
-      if (this.fg() != null) {
-         var1 = this.fg().jZ();
+      if (this.getClub() != null) {
+         var1 = this.getClub().isUserControlled();
       }
 
       if (this.eL) {
@@ -572,14 +572,14 @@ public class Player implements Serializable {
    }
 
    public void fI() {
-      if (this.fg() != null) {
-         int var1 = this.fg().getDivisao();
-         int var2 = this.fg().getNivel();
-         int var3 = this.fg().getPais();
+      if (this.getClub() != null) {
+         int var1 = this.getClub().getDivisao();
+         int var2 = this.getClub().getNivel();
+         int var3 = this.getClub().getPais();
          int var4 = 1;
          byte var5 = 1;
          int var6 = 0;
-         if (this.fg().kn()) {
+         if (this.getClub().kn()) {
             switch (var1) {
                case 1:
                   var4 = 20;
@@ -594,7 +594,7 @@ public class Player implements Serializable {
                   var5 = 1;
             }
          } else {
-            switch (this.fg().getReputacao()) {
+            switch (this.getClub().getReputacao()) {
                case 1:
                   var4 = 5;
                   var5 = 1;
@@ -998,9 +998,9 @@ public class Player implements Serializable {
    public void fJ() {
       int var1 = 0;
       int var2 = 350;
-      if (this.fg() != null) {
-         if (this.fg().ki()) {
-            int var9 = this.fg().getDivisao();
+      if (this.getClub() != null) {
+         if (this.getClub().ki()) {
+            int var9 = this.getClub().getDivisao();
             if (var9 == 1) {
                var2 = 750;
             } else if (var9 == 2) {
@@ -1011,7 +1011,7 @@ public class Player implements Serializable {
                var2 = 450;
             }
          } else {
-            int var3 = this.fg().getDivisao();
+            int var3 = this.getClub().getDivisao();
             if (var3 == 1) {
                var2 = 600;
             } else if (var3 == 2) {
@@ -1023,7 +1023,7 @@ public class Player implements Serializable {
             }
          }
 
-         if (this.fg().getNivel() > 20) {
+         if (this.getClub().getNivel() > 20) {
             var2 += 50;
          }
       }
@@ -1079,8 +1079,8 @@ public class Player implements Serializable {
       int var4 = 366;
       byte var5 = 0;
       int var6 = C0696.valueOf("P" + Integer.toString(this.pais)).gg();
-      if (this.fg() != null) {
-         var2 = this.fg().getNivel();
+      if (this.getClub() != null) {
+         var2 = this.getClub().getNivel();
       } else {
          var2 = 10;
       }
@@ -1216,7 +1216,7 @@ public class Player implements Serializable {
          var5 = false;
       }
 
-      return !bl && this.fg() != null && this.fg().jZ() && this.eJ < GamePersistence.careerState.getCurrentDate().getTime().getTime() ? false : var5;
+      return !bl && this.getClub() != null && this.getClub().isUserControlled() && this.eJ < GamePersistence.careerState.getCurrentDate().getTime().getTime() ? false : var5;
    }
 
    public boolean d(Match c0675) {
@@ -1354,7 +1354,7 @@ public class Player implements Serializable {
    }
 
    public void fV() {
-      if (this.fg() != null) {
+      if (this.getClub() != null) {
          if (this.em < 32) {
             this.fW();
          } else {
@@ -1385,13 +1385,13 @@ public class Player implements Serializable {
    }
 
    private void f(double d) {
-      int var3 = this.fg().bQ(this.getPosicao());
+      int var3 = this.getClub().bQ(this.getPosicao());
       boolean var4 = true;
       if (GamePersistence.careerState.bO() == 3) {
          var4 = false;
       }
 
-      if (this.fg().jZ() != null && this.fg().jZ() && !this.fg().ll() && this.fg().lm() == 1) {
+      if (this.getClub().isUserControlled() != null && this.getClub().isUserControlled() && !this.getClub().ll() && this.getClub().lm() == 1) {
          var4 = false;
       }
 
@@ -1411,8 +1411,8 @@ public class Player implements Serializable {
 
    private boolean b(double d, int i) {
       int var4 = 100;
-      if (this.fg().kn()) {
-         int var5 = this.fg().getDivisao();
+      if (this.getClub().kn()) {
+         int var5 = this.getClub().getDivisao();
          int[][] var6 = new int[][]{
             {30, 30, 30, 30, 30, 30},
             {80, 85, 90, 95, 100, 100},
@@ -1421,76 +1421,76 @@ public class Player implements Serializable {
             {25, 30, 30, 30, 50, 60},
             {30, 30, 30, 30, 30, 30}
          };
-         if (this.fg().getReputacao() < 0 || this.fg().getReputacao() > 5) {
-            this.fg().setReputacao(1);
+         if (this.getClub().getReputacao() < 0 || this.getClub().getReputacao() > 5) {
+            this.getClub().setReputacao(1);
          }
 
-         var4 = var6[this.fg().getDivisao()][this.fg().getReputacao()];
-      } else if (this.fg().getReputacao() == 5) {
+         var4 = var6[this.getClub().getDivisao()][this.getClub().getReputacao()];
+      } else if (this.getClub().getReputacao() == 5) {
          var4 = 100;
-      } else if (this.fg().getReputacao() == 4) {
+      } else if (this.getClub().getReputacao() == 4) {
          var4 = 100;
-      } else if (this.fg().getReputacao() == 3) {
+      } else if (this.getClub().getReputacao() == 3) {
          var4 = 70;
-      } else if (this.fg().getReputacao() == 2) {
+      } else if (this.getClub().getReputacao() == 2) {
          var4 = 40;
-      } else if (this.fg().getReputacao() == 1) {
+      } else if (this.getClub().getReputacao() == 1) {
          var4 = 30;
       } else {
          var4 = 20;
       }
 
       byte var8 = 100;
-      if (this.fg().gg() == 0) {
-         if (this.fg().getPais() == 3 || this.fg().getPais() == 72 || this.fg().getPais() == 104 || this.fg().getPais() == 65 || this.fg().getPais() == 97) {
+      if (this.getClub().gg() == 0) {
+         if (this.getClub().getPais() == 3 || this.getClub().getPais() == 72 || this.getClub().getPais() == 104 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
             var8 = 95;
-         } else if (this.fg().getPais() == 154 || this.fg().getPais() == 85) {
+         } else if (this.getClub().getPais() == 154 || this.getClub().getPais() == 85) {
             var8 = 90;
-         } else if (this.fg().getPais() != 21 && this.fg().getPais() != 162) {
+         } else if (this.getClub().getPais() != 21 && this.getClub().getPais() != 162) {
             var8 = 70;
          } else {
             var8 = 80;
          }
-      } else if (this.fg().gg() == 1) {
-         if (this.fg().getPais() == 29 || this.fg().getPais() == 11) {
+      } else if (this.getClub().gg() == 1) {
+         if (this.getClub().getPais() == 29 || this.getClub().getPais() == 11) {
             var8 = 90;
-         } else if (this.fg().getPais() == 195 || this.fg().getPais() == 46) {
+         } else if (this.getClub().getPais() == 195 || this.getClub().getPais() == 46) {
             var8 = 80;
-         } else if (this.fg().getPais() == 195 || this.fg().getPais() == 46 || this.fg().getPais() == 42) {
+         } else if (this.getClub().getPais() == 195 || this.getClub().getPais() == 46 || this.getClub().getPais() == 42) {
             var8 = 80;
-         } else if (this.fg().getPais() != 151 && this.fg().getPais() != 150) {
+         } else if (this.getClub().getPais() != 151 && this.getClub().getPais() != 150) {
             var8 = 60;
          } else {
             var8 = 70;
          }
-      } else if (this.fg().gg() == 2) {
-         if (this.fg().getPais() == 10 || this.fg().getPais() == 129 || this.fg().getPais() == 57) {
+      } else if (this.getClub().gg() == 2) {
+         if (this.getClub().getPais() == 10 || this.getClub().getPais() == 129 || this.getClub().getPais() == 57) {
             var8 = 75;
-         } else if (this.fg().getPais() != 141 && this.fg().getPais() != 169 && this.fg().getPais() != 190) {
+         } else if (this.getClub().getPais() != 141 && this.getClub().getPais() != 169 && this.getClub().getPais() != 190) {
             var8 = 60;
          } else {
             var8 = 70;
          }
-      } else if (this.fg().gg() == 3) {
-         if (this.fg().getPais() == 107 || this.fg().getPais() == 49) {
+      } else if (this.getClub().gg() == 3) {
+         if (this.getClub().getPais() == 107 || this.getClub().getPais() == 49) {
             var8 = 75;
-         } else if (this.fg().getPais() != 98 && this.fg().getPais() != 9 && this.fg().getPais() != 59 && this.fg().getPais() != 43) {
+         } else if (this.getClub().getPais() != 98 && this.getClub().getPais() != 9 && this.getClub().getPais() != 59 && this.getClub().getPais() != 43) {
             var8 = 60;
          } else {
             var8 = 70;
          }
-      } else if (this.fg().gg() == 4) {
-         if (this.fg().getPais() == 131) {
+      } else if (this.getClub().gg() == 4) {
+         if (this.getClub().getPais() == 131) {
             var8 = 80;
-         } else if (this.fg().getPais() == 68) {
+         } else if (this.getClub().getPais() == 68) {
             var8 = 70;
-         } else if (this.fg().getPais() == 51) {
+         } else if (this.getClub().getPais() == 51) {
             var8 = 65;
          } else {
             var8 = 55;
          }
-      } else if (this.fg().gg() == 5) {
-         if (this.fg().getPais() == 143) {
+      } else if (this.getClub().gg() == 5) {
+         if (this.getClub().getPais() == 143) {
             var8 = 60;
          } else {
             var8 = 45;
@@ -1525,13 +1525,13 @@ public class Player implements Serializable {
       double var1 = 50.0;
       int var3 = 15;
       double var4 = 0.0;
-      if (this.fg() != null) {
-         var3 = this.fg().getNivel();
-         if (!this.fg().kn()) {
+      if (this.getClub() != null) {
+         var3 = this.getClub().getNivel();
+         if (!this.getClub().kn()) {
             var4 = 0.03;
-            if (this.fg().getReputacao() >= 4) {
+            if (this.getClub().getReputacao() >= 4) {
                var3 = 20;
-            } else if (this.fg().getReputacao() == 3) {
+            } else if (this.getClub().getReputacao() == 3) {
                var3 = 18;
             } else {
                var3 = 12;
@@ -1614,23 +1614,23 @@ public class Player implements Serializable {
          var6 += 0.01;
       }
 
-      if (this.fg().gg() != 2 && this.fg().gg() != 3) {
-         if (this.fg().gg() == 5) {
+      if (this.getClub().gg() != 2 && this.getClub().gg() != 3) {
+         if (this.getClub().gg() == 5) {
             if (var6 > 0.06) {
                var6 -= 0.04;
             }
-         } else if (this.fg().gg() == 4) {
-            if (this.fg().getPais() != 131 && var6 > 0.06) {
+         } else if (this.getClub().gg() == 4) {
+            if (this.getClub().getPais() != 131 && var6 > 0.06) {
                var6 -= 0.03;
             }
-         } else if (this.fg().gg() == 1) {
-            if ((this.fg().getPais() != 29 || this.fg().getPais() != 11 || this.fg().getPais() != 42 || this.fg().getPais() != 195) && var6 > 0.06) {
+         } else if (this.getClub().gg() == 1) {
+            if ((this.getClub().getPais() != 29 || this.getClub().getPais() != 11 || this.getClub().getPais() != 42 || this.getClub().getPais() != 195) && var6 > 0.06) {
                var6 -= 0.02;
             }
-         } else if (this.fg().gg() == 0) {
-            if (this.fg().getPais() == 3 || this.fg().getPais() == 72 || this.fg().getPais() == 104 || this.fg().getPais() == 65 || this.fg().getPais() == 97) {
+         } else if (this.getClub().gg() == 0) {
+            if (this.getClub().getPais() == 3 || this.getClub().getPais() == 72 || this.getClub().getPais() == 104 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
                var6 += 0.01;
-            } else if (this.fg().getPais() != 154 && this.fg().getPais() != 85 && this.fg().getPais() != 21) {
+            } else if (this.getClub().getPais() != 154 && this.getClub().getPais() != 85 && this.getClub().getPais() != 21) {
                if (var6 > 0.06) {
                   var6 -= 0.02;
                }
@@ -1653,7 +1653,7 @@ public class Player implements Serializable {
 
       this.eM += var6;
       int var8 = 100;
-      if (this.fg().kn()) {
+      if (this.getClub().kn()) {
          int[][] var9 = new int[][]{
             {30, 30, 30, 30, 30, 30},
             {80, 85, 90, 95, 100, 100},
@@ -1662,76 +1662,76 @@ public class Player implements Serializable {
             {25, 30, 30, 30, 50, 60},
             {30, 30, 30, 30, 30, 30}
          };
-         if (this.fg().getReputacao() < 0 || this.fg().getReputacao() > 5) {
-            this.fg().setReputacao(1);
+         if (this.getClub().getReputacao() < 0 || this.getClub().getReputacao() > 5) {
+            this.getClub().setReputacao(1);
          }
 
-         var8 = var9[this.fg().getDivisao()][this.fg().getReputacao()];
-      } else if (this.fg().getReputacao() == 5) {
+         var8 = var9[this.getClub().getDivisao()][this.getClub().getReputacao()];
+      } else if (this.getClub().getReputacao() == 5) {
          var8 = 100;
-      } else if (this.fg().getReputacao() == 4) {
+      } else if (this.getClub().getReputacao() == 4) {
          var8 = 100;
-      } else if (this.fg().getReputacao() == 3) {
+      } else if (this.getClub().getReputacao() == 3) {
          var8 = 65;
-      } else if (this.fg().getReputacao() == 2) {
+      } else if (this.getClub().getReputacao() == 2) {
          var8 = 40;
-      } else if (this.fg().getReputacao() == 1) {
+      } else if (this.getClub().getReputacao() == 1) {
          var8 = 30;
       } else {
          var8 = 20;
       }
 
       byte var14 = 100;
-      if (this.fg().gg() == 0) {
-         if (this.fg().getPais() == 3 || this.fg().getPais() == 72 || this.fg().getPais() == 104 || this.fg().getPais() == 65 || this.fg().getPais() == 97) {
+      if (this.getClub().gg() == 0) {
+         if (this.getClub().getPais() == 3 || this.getClub().getPais() == 72 || this.getClub().getPais() == 104 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
             var14 = 95;
-         } else if (this.fg().getPais() == 154 || this.fg().getPais() == 85) {
+         } else if (this.getClub().getPais() == 154 || this.getClub().getPais() == 85) {
             var14 = 90;
-         } else if (this.fg().getPais() != 21 && this.fg().getPais() != 162) {
+         } else if (this.getClub().getPais() != 21 && this.getClub().getPais() != 162) {
             var14 = 70;
          } else {
             var14 = 80;
          }
-      } else if (this.fg().gg() == 1) {
-         if (this.fg().getPais() == 29 || this.fg().getPais() == 11) {
+      } else if (this.getClub().gg() == 1) {
+         if (this.getClub().getPais() == 29 || this.getClub().getPais() == 11) {
             var14 = 90;
-         } else if (this.fg().getPais() == 195 || this.fg().getPais() == 46) {
+         } else if (this.getClub().getPais() == 195 || this.getClub().getPais() == 46) {
             var14 = 80;
-         } else if (this.fg().getPais() == 195 || this.fg().getPais() == 46 || this.fg().getPais() == 42) {
+         } else if (this.getClub().getPais() == 195 || this.getClub().getPais() == 46 || this.getClub().getPais() == 42) {
             var14 = 80;
-         } else if (this.fg().getPais() != 151 && this.fg().getPais() != 150) {
+         } else if (this.getClub().getPais() != 151 && this.getClub().getPais() != 150) {
             var14 = 60;
          } else {
             var14 = 70;
          }
-      } else if (this.fg().gg() == 2) {
-         if (this.fg().getPais() == 10 || this.fg().getPais() == 129 || this.fg().getPais() == 57) {
+      } else if (this.getClub().gg() == 2) {
+         if (this.getClub().getPais() == 10 || this.getClub().getPais() == 129 || this.getClub().getPais() == 57) {
             var14 = 75;
-         } else if (this.fg().getPais() != 141 && this.fg().getPais() != 169 && this.fg().getPais() != 190) {
+         } else if (this.getClub().getPais() != 141 && this.getClub().getPais() != 169 && this.getClub().getPais() != 190) {
             var14 = 60;
          } else {
             var14 = 70;
          }
-      } else if (this.fg().gg() == 3) {
-         if (this.fg().getPais() == 107 || this.fg().getPais() == 49) {
+      } else if (this.getClub().gg() == 3) {
+         if (this.getClub().getPais() == 107 || this.getClub().getPais() == 49) {
             var14 = 75;
-         } else if (this.fg().getPais() != 98 && this.fg().getPais() != 9 && this.fg().getPais() != 59 && this.fg().getPais() != 43) {
+         } else if (this.getClub().getPais() != 98 && this.getClub().getPais() != 9 && this.getClub().getPais() != 59 && this.getClub().getPais() != 43) {
             var14 = 60;
          } else {
             var14 = 70;
          }
-      } else if (this.fg().gg() == 4) {
-         if (this.fg().getPais() == 131) {
+      } else if (this.getClub().gg() == 4) {
+         if (this.getClub().getPais() == 131) {
             var14 = 80;
-         } else if (this.fg().getPais() == 68) {
+         } else if (this.getClub().getPais() == 68) {
             var14 = 70;
-         } else if (this.fg().getPais() == 51) {
+         } else if (this.getClub().getPais() == 51) {
             var14 = 65;
          } else {
             var14 = 55;
          }
-      } else if (this.fg().gg() == 5) {
-         if (this.fg().getPais() == 143) {
+      } else if (this.getClub().gg() == 5) {
+         if (this.getClub().getPais() == 143) {
             var14 = 60;
          } else {
             var14 = 45;
@@ -1774,16 +1774,16 @@ public class Player implements Serializable {
    }
 
    private void fX() {
-      int var1 = this.fg().getDivisao();
+      int var1 = this.getClub().getDivisao();
       double var2 = 0.0;
       double var4 = 50.0;
-      int var6 = this.fg().getNivel();
+      int var6 = this.getClub().getNivel();
       double var7 = 0.0;
       double var9 = this.em - 31;
-      if (!this.fg().kn()) {
-         if (this.fg().getReputacao() >= 4) {
+      if (!this.getClub().kn()) {
+         if (this.getClub().getReputacao() >= 4) {
             var1 = 1;
-         } else if (this.fg().getReputacao() >= 3) {
+         } else if (this.getClub().getReputacao() >= 3) {
             var1 = 2;
          } else {
             var1 = 3;
@@ -1830,7 +1830,7 @@ public class Player implements Serializable {
    }
 
    public void fY() {
-      if (this.fg() != null && this.em <= 20) {
+      if (this.getClub() != null && this.em <= 20) {
          double var1 = 0.01;
          double var3 = 40.0;
          if (this.em <= 17) {
@@ -1947,8 +1947,8 @@ public class Player implements Serializable {
    }
 
    public void ge() {
-      if (this.fg() != null && !this.eX) {
-         if (this.fg().jZ()) {
+      if (this.getClub() != null && !this.eX) {
+         if (this.getClub().isUserControlled()) {
             this.eY = false;
          }
 
@@ -2011,10 +2011,10 @@ public class Player implements Serializable {
             }
 
             if (var1) {
-               if (!this.fg().jZ()) {
+               if (!this.getClub().isUserControlled()) {
                   this.a(null, -1, true);
                } else {
-                  new C0799(this.fg().getCoach(), 34, 89, "", this.getNome());
+                  new C0799(this.getClub().getCoach(), 34, 89, "", this.getNome());
                }
             }
          }
@@ -2024,7 +2024,7 @@ public class Player implements Serializable {
    public boolean a(String string, int i, boolean bl) {
       boolean var4 = false;
       boolean var5 = false;
-      Club var6 = this.fg();
+      Club var6 = this.getClub();
       if (var6 == null) {
          return false;
       }
@@ -2063,7 +2063,7 @@ public class Player implements Serializable {
       int[] var12 = new int[]{2, 3, 3, 6, 4};
       int var14 = 0;
       var14 = var6.bS(this.en) - 1;
-      if (!var6.jZ()) {
+      if (!var6.isUserControlled()) {
          i = this.en;
          if (var14 < var12[this.en]) {
             var5 = true;
@@ -2076,7 +2076,7 @@ public class Player implements Serializable {
       }
 
       boolean var16 = false;
-      if (var6.kx() >= 20 && var6.jZ()) {
+      if (var6.kx() >= 20 && var6.isUserControlled()) {
          var5 = true;
       }
 
@@ -2089,7 +2089,7 @@ public class Player implements Serializable {
          var10 = 5;
       }
 
-      if (var6.jZ()) {
+      if (var6.isUserControlled()) {
          var10 = 0;
       }
 
@@ -2135,7 +2135,7 @@ public class Player implements Serializable {
       if (var4) {
          Coach var18 = new Coach(this.dm);
          GamePersistence.careerState.a(var18);
-         var18.b(this.fg(), this);
+         var18.b(this.getClub(), this);
       }
 
       return true;
@@ -2148,7 +2148,7 @@ public class Player implements Serializable {
          this.dm = au(this.pais);
       }
 
-      Club var2 = this.fg();
+      Club var2 = this.getClub();
       int var3 = 4;
       int[] var4 = new int[]{1, 4, 5, 6, 6, 6};
       if (var2 != null && this.em >= 20) {
@@ -2166,7 +2166,7 @@ public class Player implements Serializable {
                   a(var2, -1, null, 0, null, true);
                }
             }
-         } else if (!var2.jZ()) {
+         } else if (!var2.isUserControlled()) {
             a(var2, -1, this, 0, null, true);
          }
       }
@@ -2518,7 +2518,7 @@ public class Player implements Serializable {
    }
 
    public int gh() {
-      return this.fg() != null ? this.fg().gg() : -1;
+      return this.getClub() != null ? this.getClub().gg() : -1;
    }
 
    public Player(C0914 c0914, boolean bl, Club club) {
@@ -2569,7 +2569,7 @@ public class Player implements Serializable {
    public C0729 o(Club club) {
       if (this.eT != null) {
          for (int var2 = 0; var2 < this.eT.size(); var2++) {
-            if (((C0729)this.eT.get(var2)).ct() == club.lk() && ((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
+            if (((C0729)this.eT.get(var2)).ct() == club.getClubId() && ((C0729)this.eT.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
                return (C0729)this.eT.get(var2);
             }
          }
@@ -2620,21 +2620,21 @@ public class Player implements Serializable {
          var2 += 20;
       }
 
-      if (this.fg() != null && this.fg().getCoach() != null && this.fg().getCoach().jZ() && var2 >= 8) {
+      if (this.getClub() != null && this.getClub().getCoach() != null && this.getClub().getCoach().isUserControlled() && var2 >= 8) {
          if (var2 < 15) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(3) + 23, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(3) + 23, this.getNome(), "");
          } else if (var2 < 22) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 26, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(2) + 26, this.getNome(), "");
          } else if (var2 < 29) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 28, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(2) + 28, this.getNome(), "");
          } else if (var2 < 43) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 30, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(4) + 30, this.getNome(), "");
          } else if (var2 < 55) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(2) + 34, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(2) + 34, this.getNome(), "");
          } else if (var2 < 70) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 36, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(4) + 36, this.getNome(), "");
          } else if (var2 >= 70) {
-            new C0799(this.fg().getCoach(), 3, new Random().nextInt(4) + 40, this.getNome(), "");
+            new C0799(this.getClub().getCoach(), 3, new Random().nextInt(4) + 40, this.getNome(), "");
          }
       }
 
@@ -2674,9 +2674,9 @@ public class Player implements Serializable {
                }
             }
 
-            if (this.fg() != null && this.fg().getCoach() != null && this.fg().getCoach().jZ()) {
+            if (this.getClub() != null && this.getClub().getCoach() != null && this.getClub().getCoach().isUserControlled()) {
                if (var6 == 2) {
-                  new C0799(this.fg().getCoach(), 1, new Random().nextInt(6) + 10, this.getNome(), "");
+                  new C0799(this.getClub().getCoach(), 1, new Random().nextInt(6) + 10, this.getNome(), "");
                } else if (var6 > 1) {
                   byte var7 = 1;
                   int var8 = 5;
@@ -2688,7 +2688,7 @@ public class Player implements Serializable {
                      var8 = new Random().nextInt(2) + 0;
                   }
 
-                  new C0799(true, 1, this.fg(), this, this.fg().getCoach(), var7, var8, this.getNome(), "");
+                  new C0799(true, 1, this.getClub(), this, this.getClub().getCoach(), var7, var8, this.getNome(), "");
                }
             }
 
@@ -3041,7 +3041,7 @@ public class Player implements Serializable {
 
       this.eN = var21;
       this.eU.add(new C0676(c0675, this.eN));
-      if (this.fg() != null) {
+      if (this.getClub() != null) {
          this.a(100, club, var21);
       }
 
@@ -3097,7 +3097,7 @@ public class Player implements Serializable {
    }
 
    public void c(Club club, int i) {
-      Club var3 = this.fg();
+      Club var3 = this.getClub();
       this.n(club);
       this.ew = 0;
       this.eW = false;
@@ -3108,8 +3108,8 @@ public class Player implements Serializable {
       PlayerTransferRecord var5 = new PlayerTransferRecord();
       var5.a(this);
       var5.f(var4.get(5), var4.get(2), var4.get(1));
-      var5.cs(var3.lk());
-      var5.cr(club.lk());
+      var5.cs(var3.getClubId());
+      var5.cr(club.getClubId());
       var5.cq(i);
       this.ag(i);
       GamePersistence.careerState.bo().add(var5);
@@ -3119,8 +3119,8 @@ public class Player implements Serializable {
    }
 
    public void a(Club club, int i, boolean bl, boolean bl2, boolean bl3) {
-      Club var6 = this.fg();
-      this.am(var6.lk());
+      Club var6 = this.getClub();
+      this.am(var6.getClubId());
       this.n(club);
       if (!var6.equals(club)) {
          this.ew = 0;
@@ -3162,14 +3162,14 @@ public class Player implements Serializable {
                var6.getFinances();
             }
 
-            if (var6.jZ()) {
+            if (var6.isUserControlled()) {
                var6.v(i, 1);
                if (var8 > 0) {
                   var6.w(var8, 8);
                }
             }
 
-            if (club.jZ()) {
+            if (club.isUserControlled()) {
                club.w(i, 1);
             }
          }
@@ -3189,15 +3189,15 @@ public class Player implements Serializable {
             var6.kz();
          }
 
-         if (var6.jZ() && club.jZ()) {
+         if (var6.isUserControlled() && club.isUserControlled()) {
             this.e(true);
          }
 
          PlayerTransferRecord var12 = new PlayerTransferRecord();
          var12.a(this);
          var12.f(var7.get(5), var7.get(2), var7.get(1));
-         var12.cs(var6.lk());
-         var12.cr(club.lk());
+         var12.cs(var6.getClubId());
+         var12.cr(club.getClubId());
          var12.cq(i);
          GamePersistence.careerState.bo().add(var12);
          var6.getSeniorPlayers().remove(this);
@@ -3206,7 +3206,7 @@ public class Player implements Serializable {
          }
 
          club.getSeniorPlayers().add(this);
-         if (club.jZ() && var6.jZ()) {
+         if (club.isUserControlled() && var6.isUserControlled()) {
             var6.I(false);
          }
 
@@ -3227,8 +3227,8 @@ public class Player implements Serializable {
       this.fk.setStringPainted(true);
       if (color != null) {
          this.fk.setForeground(color);
-      } else if (this.fg() != null) {
-         this.fk.setForeground(this.fg().kB());
+      } else if (this.getClub() != null) {
+         this.fk.setForeground(this.getClub().kB());
       }
 
       return this.fk;
@@ -3374,7 +3374,7 @@ public class Player implements Serializable {
    }
 
    public void q(Club club) {
-      new C0825(this, this.fg());
+      new C0825(this, this.getClub());
       this.a(club, 0, false, true, false);
    }
 

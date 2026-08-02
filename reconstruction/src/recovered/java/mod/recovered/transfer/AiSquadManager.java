@@ -26,12 +26,12 @@ public abstract class AiSquadManager {
    public static void jP() {
       for (int var0 = 0; var0 < GamePersistence.careerState.aG().size(); var0++) {
          if (((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn() != null) {
-            if (!((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().jZ()) {
+            if (!((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().isUserControlled()) {
                ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).z(false);
             } else {
                for (int var1 = 2; var1 < ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().size(); var1++) {
-                  if (((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().get(var1)).fg() == null) {
-                     ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().remove(((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().get(var1)).fg());
+                  if (((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().get(var1)).getClub() == null) {
+                     ((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().remove(((Player)((CountryCompetitions)GamePersistence.careerState.aG().get(var0)).jn().getSeniorPlayers().get(var1)).getClub());
                   }
                }
             }
@@ -43,7 +43,7 @@ public abstract class AiSquadManager {
       GamePersistence.careerState.bn().clear();
 
       for (int var0 = 0; var0 < GamePersistence.careerState.L().size(); var0++) {
-         if (((Coach)GamePersistence.careerState.L().get(var0)).fg() != null) {
+         if (((Coach)GamePersistence.careerState.L().get(var0)).getClub() != null) {
             ((Coach)GamePersistence.careerState.L().get(var0)).lS();
          }
       }
@@ -51,7 +51,7 @@ public abstract class AiSquadManager {
       Coach var4 = null;
 
       for (int var1 = 0; var1 < GamePersistence.careerState.L().size(); var1++) {
-         if (((Coach)GamePersistence.careerState.L().get(var1)).fg() != null && !((Coach)GamePersistence.careerState.L().get(var1)).jZ() && ((Coach)GamePersistence.careerState.L().get(var1)).lR() >= 1) {
+         if (((Coach)GamePersistence.careerState.L().get(var1)).getClub() != null && !((Coach)GamePersistence.careerState.L().get(var1)).isUserControlled() && ((Coach)GamePersistence.careerState.L().get(var1)).lR() >= 1) {
             var4 = (Coach)GamePersistence.careerState.L().get(var1);
             int var2 = 0;
 
@@ -63,7 +63,7 @@ public abstract class AiSquadManager {
             }
 
             if (new Random().nextInt(90) + 1 > var2) {
-               ((Coach)GamePersistence.careerState.L().get(var1)).fg().kE();
+               ((Coach)GamePersistence.careerState.L().get(var1)).getClub().kE();
             }
          }
       }
@@ -71,7 +71,7 @@ public abstract class AiSquadManager {
 
    public static void jR() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
-         if (!((Club)GamePersistence.careerState.P().get(var0)).jZ()) {
+         if (!((Club)GamePersistence.careerState.P().get(var0)).isUserControlled()) {
             ((Club)GamePersistence.careerState.P().get(var0)).ku();
          }
       }
@@ -81,7 +81,7 @@ public abstract class AiSquadManager {
       for (int var0 = 0; var0 < GamePersistence.careerState.N().size(); var0++) {
          for (int var1 = 0; var1 < ((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().size(); var1++) {
             for (int var2 = 0; var2 < ((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().size(); var2++) {
-               if (!((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).jZ()) {
+               if (!((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2)).isUserControlled()) {
                   a((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var0)).eb().get(var1)).yi().yK().get(var2), var2, true);
                }
             }
@@ -91,7 +91,7 @@ public abstract class AiSquadManager {
 
    public static void b(LeagueStage c0955) {
       for (int var1 = 0; var1 < c0955.yK().size(); var1++) {
-         if (!((Club)c0955.yK().get(var1)).jZ()) {
+         if (!((Club)c0955.yK().get(var1)).isUserControlled()) {
             a((Club)c0955.yK().get(var1), var1, true);
          }
       }
@@ -103,7 +103,7 @@ public abstract class AiSquadManager {
 
       for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
          var0 = false;
-         if (!((Club)GamePersistence.careerState.P().get(var2)).jZ()) {
+         if (!((Club)GamePersistence.careerState.P().get(var2)).isUserControlled()) {
             if (((Club)GamePersistence.careerState.P().get(var2)).gg() != 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 5) {
                var0 = true;
             } else if (((Club)GamePersistence.careerState.P().get(var2)).gg() == 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 4) {
@@ -142,7 +142,7 @@ public abstract class AiSquadManager {
 
    private static void jU() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
-         if (!((Club)GamePersistence.careerState.P().get(var0)).kn() && !((Club)GamePersistence.careerState.P().get(var0)).jZ()) {
+         if (!((Club)GamePersistence.careerState.P().get(var0)).kn() && !((Club)GamePersistence.careerState.P().get(var0)).isUserControlled()) {
             a((Club)GamePersistence.careerState.P().get(var0), var0, false);
          }
       }

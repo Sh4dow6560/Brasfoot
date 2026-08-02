@@ -23,11 +23,11 @@ public class C0801 extends JPanel {
    public C0801(C0810 c0810) {
       this.mJ();
       this.Sg.setText(c0810.tc());
-      if (c0810.fg() != null) {
-         this.uF.setText(c0810.fg().getNome());
-         this.uF.setIcon(c0810.fg().kU());
+      if (c0810.getClub() != null) {
+         this.uF.setText(c0810.getClub().getNome());
+         this.uF.setIcon(c0810.getClub().kU());
          if (c0810.b() == 4 || c0810.b() == 6 || c0810.b() == 12) {
-            this.uF.setToolTipText(C0696.bl(c0810.fg().getPais()));
+            this.uF.setToolTipText(C0696.bl(c0810.getClub().getPais()));
          }
       }
 

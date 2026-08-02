@@ -621,7 +621,7 @@ public class C0272 extends JPanel {
             this.yt.setIcon(this.Hv.K(true));
          }
 
-         if (this.bv.ev() == null) {
+         if (this.bv.getStadium() == null) {
             if (!this.yp) {
                var8 = " (campo neutro)";
             } else {
@@ -930,13 +930,13 @@ public class C0272 extends JPanel {
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
             if (!var1) {
-               if (((Coach)GamePersistence.careerState.M().get(var3)).jZ() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
+               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
                   ArrayList var2 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), var1);
                   if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                      MainWindow.a(var2, (Coach)GamePersistence.careerState.M().get(var3), 1);
                   }
                }
-            } else if (((Coach)GamePersistence.careerState.M().get(var3)).jZ()) {
+            } else if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled()) {
                ArrayList var4 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), var1);
                if (!GamePersistence.careerState.bD() && var4 != null && var4.size() > 0) {
                   MainWindow.a(var4, (Coach)GamePersistence.careerState.M().get(var3), 1);
@@ -1097,7 +1097,7 @@ public class C0272 extends JPanel {
    private void qT() {
       Club var1 = this.zu;
       if (this.yp) {
-         var1 = this.zu.getCoach().fg();
+         var1 = this.zu.getCoach().getClub();
       }
 
       if (var1 != null) {
@@ -1120,7 +1120,7 @@ public class C0272 extends JPanel {
    private void qU() {
       Club var1 = this.zu;
       if (this.yp) {
-         var1 = this.zu.getCoach().fg();
+         var1 = this.zu.getCoach().getClub();
       }
 
       if (var1 != null) {
@@ -1263,7 +1263,7 @@ public class C0272 extends JPanel {
    public void ra() {
       if (!this.yp) {
          JDialog var1 = new JDialog(this.Br);
-         C0171 var2 = new C0171(var1, this.zu.ev(), this.tR, this.zu);
+         C0171 var2 = new C0171(var1, this.zu.getStadium(), this.tR, this.zu);
          var1.add(var2);
          var1.setSize(598, 328);
          var1.setPreferredSize(new Dimension(598, 328));
@@ -1450,7 +1450,7 @@ public class C0272 extends JPanel {
       int var2 = this.zu.getSeniorPlayers().size();
       Club var3 = this.zu;
       if (this.yp) {
-         var3 = this.zu.getCoach().fg();
+         var3 = this.zu.getCoach().getClub();
       } else if (club != null) {
          var3 = club;
       }
@@ -1469,7 +1469,7 @@ public class C0272 extends JPanel {
    public void ad(boolean bl) {
       Club var2 = null;
       if (!bl) {
-         var2 = this.zu.getCoach().fg();
+         var2 = this.zu.getCoach().getClub();
       } else {
          var2 = this.zu.getCoach().jo();
       }
@@ -1489,9 +1489,9 @@ public class C0272 extends JPanel {
    }
 
    public void re() {
-      Club var1 = this.zu.getCoach().fg();
+      Club var1 = this.zu.getCoach().getClub();
       if (var1 != null) {
-         MainWindow.w(this.zu.getCoach().fg());
+         MainWindow.w(this.zu.getCoach().getClub());
       }
 
       this.qx();

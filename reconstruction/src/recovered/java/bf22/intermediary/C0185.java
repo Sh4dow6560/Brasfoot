@@ -85,10 +85,10 @@ public class C0185 extends JPanel {
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) > 0) {
          int var3 = Integer.parseInt(var1);
          if (this.ul.kb() >= var3) {
-            if (this.CY.fg().jZ()) {
+            if (this.CY.getClub().isUserControlled()) {
                int var4 = Integer.parseInt(var1);
                String var5 = this.ul.getNome();
-               String var6 = this.CY.fg().getCoach().dS();
+               String var6 = this.CY.getClub().getCoach().dS();
                var2 = JOptionPane.showConfirmDialog(this.ub, var6 + " proposta pelo seu jogador\n" + "Deseja aceitar?", "Proposta de compra", 0);
                if (var2 == 0) {
                   if (!this.CZ) {
@@ -127,7 +127,7 @@ public class C0185 extends JPanel {
                   }
                } else if (var14 == 7) {
                   var16 = TransferNegotiation.cN();
-                  String var18 = this.CY.fg().getNome();
+                  String var18 = this.CY.getClub().getNome();
                   String var8 = "";
                   String var9 = "";
                   int var10 = 0;
@@ -154,7 +154,7 @@ public class C0185 extends JPanel {
 
                if (var14 == 1) {
                   if (!this.CZ) {
-                     Club var19 = this.CY.fg();
+                     Club var19 = this.CY.getClub();
                      this.CY.a(this.ul, var16, false, false, false);
                      TransferNegotiation.a(var19, this.CY);
                   } else {

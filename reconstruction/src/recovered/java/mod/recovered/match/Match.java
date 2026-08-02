@@ -184,7 +184,7 @@ public class Match implements Serializable {
       this.scheduleIndex = j;
       this.competition = c0713;
       if (stadium == null) {
-         this.stadium = this.homeClub.ev();
+         this.stadium = this.homeClub.getStadium();
       } else {
          this.stadium = stadium;
       }
@@ -382,7 +382,7 @@ public class Match implements Serializable {
 
    public void hf() {
       int var1 = this.competition.b();
-      if (var1 != 7 && var1 != 5 && this.getHomeClub().jZ()) {
+      if (var1 != 7 && var1 != 5 && this.getHomeClub().isUserControlled()) {
          this.getHomeClub().v(this.fE, 5);
       }
    }
@@ -404,7 +404,7 @@ public class Match implements Serializable {
       if (var2 != null) {
          var2.a(this.homeClub, this.awayClub, this.homeGoals, this.awayGoals, var1);
       } else {
-         new C0686(this.homeClub.lk(), this.awayClub.lk(), this.homeGoals, this.awayGoals, var1);
+         new C0686(this.homeClub.getClubId(), this.awayClub.getClubId(), this.homeGoals, this.awayGoals, var1);
       }
 
       this.homeClub.e(this);
@@ -664,10 +664,10 @@ public class Match implements Serializable {
       if (var4 == 3) {
          ArrayList var6 = null;
          byte var7 = 0;
-         if (player.fg() == this.homeClub) {
+         if (player.getClub() == this.homeClub) {
             var6 = this.awayPlayersOnField;
             var7 = 1;
-         } else if (player.fg() == this.awayClub) {
+         } else if (player.getClub() == this.awayClub) {
             var6 = this.homePlayersOnField;
             var7 = 0;
          }
@@ -753,17 +753,17 @@ public class Match implements Serializable {
                player.p(club);
             }
 
-            if (var8 != null && !club.jZ()) {
+            if (var8 != null && !club.isUserControlled()) {
                var8.remove(player);
             }
 
-            if (c0675 != null && club != null && c0675.fR[var10] > 0 && !club.jZ()) {
+            if (c0675 != null && club != null && c0675.fR[var10] > 0 && !club.isUserControlled()) {
                a(var10, false, c0675, player, k, l, true);
             }
          }
       } else if (var8 != null) {
          var8.remove(player);
-         if (player.getTacticalPosition() <= 13 && !club.jZ() && c0675.fR[var10] > 0) {
+         if (player.getTacticalPosition() <= 13 && !club.isUserControlled() && c0675.fR[var10] > 0) {
             a(var10, true, c0675, player, k, l, false);
          }
       }
@@ -879,7 +879,7 @@ public class Match implements Serializable {
    public void m(int i, int j) {
       boolean var3 = false;
       if (i == 2) {
-         if (!this.homeClub.jZ() && this.fR[0] > 0) {
+         if (!this.homeClub.isUserControlled() && this.fR[0] > 0) {
             if (j == 0 && this.n(1, 1)) {
                if (new Random().nextInt(100) > 50) {
                   var3 = this.a(2, 0, i, j, this.getHomePlayersOnField());
@@ -893,7 +893,7 @@ public class Match implements Serializable {
             }
          }
 
-         if (!var3 && !this.awayClub.jZ() && this.fR[1] > 0) {
+         if (!var3 && !this.awayClub.isUserControlled() && this.fR[1] > 0) {
             if (j == 0 && this.n(2, 2)) {
                if (new Random().nextInt(100) > 50) {
                   this.a(2, 1, i, j, this.getAwayPlayersOnField());
@@ -981,7 +981,7 @@ public class Match implements Serializable {
 
       boolean var5 = false;
       if (var3 > var4) {
-         if (!this.homeClub.jZ() && this.fR[0] > 0) {
+         if (!this.homeClub.isUserControlled() && this.fR[0] > 0) {
             for (int var6 = 0; var6 < this.homePlayersOnField.size(); var6++) {
                if (((Player)this.homePlayersOnField.get(var6)).getTacticalPosition() != 1) {
                   if (((Player)this.homePlayersOnField.get(var6)).fp() < 75) {
@@ -997,7 +997,7 @@ public class Match implements Serializable {
             }
          }
 
-         if (!var5 && !this.awayClub.jZ() && this.fR[1] > 0) {
+         if (!var5 && !this.awayClub.isUserControlled() && this.fR[1] > 0) {
             for (int var8 = 0; var8 < this.awayPlayersOnField.size(); var8++) {
                if (((Player)this.awayPlayersOnField.get(var8)).getTacticalPosition() != 1) {
                   if (((Player)this.awayPlayersOnField.get(var8)).fp() < 75) {
@@ -1200,13 +1200,13 @@ public class Match implements Serializable {
          }
       }
 
-      if (this.ev() != null) {
-         this.ev().b(this);
+      if (this.getStadium() != null) {
+         this.getStadium().b(this);
       } else if (this.il() != null) {
          this.il().b(this);
       }
 
-      if (!this.getHomeClub().jZ() && !this.getAwayClub().jZ()) {
+      if (!this.getHomeClub().isUserControlled() && !this.getAwayClub().isUserControlled()) {
          this.fQ[0] = new Random().nextInt(3);
          this.fQ[1] = new Random().nextInt(5) + 1;
 
@@ -1445,7 +1445,7 @@ public class Match implements Serializable {
       return this.events;
    }
 
-   public Stadium ev() {
+   public Stadium getStadium() {
       return this.stadium;
    }
 

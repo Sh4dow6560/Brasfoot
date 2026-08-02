@@ -25,7 +25,7 @@ public class CompetitionSeasonResult implements Serializable {
    public CompetitionSeasonResult(Competition c0713, CompetitionStage c0678, Club club, Club club2) {
       this.ae = GamePersistence.careerState.getSeasonNumber();
       if (club != null) {
-         this.bQ = club.lk();
+         this.bQ = club.getClubId();
       }
 
       if (club != null && club.getCoach() != null) {
@@ -33,7 +33,7 @@ public class CompetitionSeasonResult implements Serializable {
       }
 
       if (club2 != null) {
-         this.bR = club2.lk();
+         this.bR = club2.getClubId();
       }
 
       if (club2 != null && club2.getCoach() != null) {
@@ -56,8 +56,8 @@ public class CompetitionSeasonResult implements Serializable {
             this.bS = var7.getNome();
          }
 
-         if (var7 != null && var7.fg() != null) {
-            this.bT = var7.fg().lk();
+         if (var7 != null && var7.getClub() != null) {
+            this.bT = var7.getClub().getClubId();
          }
 
          if (c0678 != null && c0678.b() == 1 && c0678.ip() == 1) {
@@ -65,7 +65,7 @@ public class CompetitionSeasonResult implements Serializable {
          }
       }
 
-      if (club != null && club.jZ() && c0713 != null) {
+      if (club != null && club.isUserControlled() && c0713 != null) {
          MainWindow.a(club, c0713, var5);
       }
 

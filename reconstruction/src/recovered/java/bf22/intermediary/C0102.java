@@ -314,7 +314,7 @@ public class C0102 extends JPanel {
 
       if (var3) {
          for (int var4 = 0; var4 < ((NationalLeague)this.Bs.eb().get(i)).yi().yK().size(); var4++) {
-            if (!((Club)((NationalLeague)this.Bs.eb().get(i)).yi().yK().get(var4)).jZ()) {
+            if (!((Club)((NationalLeague)this.Bs.eb().get(i)).yi().yK().get(var4)).isUserControlled()) {
                this.Bu[i].addItem(((NationalLeague)this.Bs.eb().get(i)).yi().yK().get(var4));
                var2++;
             }
@@ -328,7 +328,7 @@ public class C0102 extends JPanel {
          Collections.sort(this.Bs.jg(), C1007.VS);
 
          for (int var5 = 0; var5 < this.Bs.jg().size(); var5++) {
-            if (!((Club)this.Bs.jg().get(var5)).jZ() && ((Club)this.Bs.jg().get(var5)).getDivisao() == 0 && ((Club)this.Bs.jg().get(var5)).kg()) {
+            if (!((Club)this.Bs.jg().get(var5)).isUserControlled() && ((Club)this.Bs.jg().get(var5)).getDivisao() == 0 && ((Club)this.Bs.jg().get(var5)).kg()) {
                this.Bu[i].addItem(this.Bs.jg().get(var5));
                var2++;
             }

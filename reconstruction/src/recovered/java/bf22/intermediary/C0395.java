@@ -67,7 +67,7 @@ public class C0395 extends JPanel {
    }
 
    public void s(Player player) {
-      this.zu = player.fg();
+      this.zu = player.getClub();
    }
 
    private void mK() {

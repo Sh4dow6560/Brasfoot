@@ -19,7 +19,7 @@ import mod.recovered.model.Player;
 public class C0795 {
    private Player U = null;
    private ImageIcon RC = null;
-   private Club cg = null;
+   private Club club = null;
    private ImageIcon AH = new ImageIcon(this.getClass().getResource("/aicons/camisav.png"));
    private ImageIcon AJ = new ImageIcon(this.getClass().getResource("/aicons/camisat.png"));
    private ImageIcon AI = new ImageIcon(this.getClass().getResource("/aicons/camisag.png"));
@@ -548,7 +548,7 @@ public class C0795 {
 
    public void vg() {
       this.U = null;
-      this.cg = null;
+      this.club = null;
       this.RC = null;
    }
 
@@ -631,8 +631,8 @@ public class C0795 {
             var15.drawImage(var8, var17, var18, null);
             if (((C0795)arrayList.get(var16)).x() != null) {
                String var19 = "";
-               if (((C0795)arrayList.get(var16)).fg() != null) {
-                  var19 = ((C0795)arrayList.get(var16)).fg().getNome();
+               if (((C0795)arrayList.get(var16)).getClub() != null) {
+                  var19 = ((C0795)arrayList.get(var16)).getClub().getNome();
                }
 
                var15.drawImage(a(((C0795)arrayList.get(var16)).x(), 3, var16, var19), var17 - 50, var18 + 47, null);
@@ -648,10 +648,10 @@ public class C0795 {
    }
 
    public void n(Club club) {
-      this.cg = club;
+      this.club = club;
    }
 
-   public Club fg() {
-      return this.cg;
+   public Club getClub() {
+      return this.club;
    }
 }

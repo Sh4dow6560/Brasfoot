@@ -1284,14 +1284,14 @@ public class C0065 extends JPanel {
       }
 
       for (int var21 = 0; var21 < this.vS.size(); var21++) {
-         if (this.wK.contains(((C0810)this.vS.get(var21)).fg())) {
+         if (this.wK.contains(((C0810)this.vS.get(var21)).getClub())) {
             ((C0810)this.vS.get(var21)).dF(1);
          }
       }
 
       if (var2.size() > 0) {
          for (int var22 = 0; var22 < this.vS.size(); var22++) {
-            if (var2.contains(((C0810)this.vS.get(var22)).fg())) {
+            if (var2.contains(((C0810)this.vS.get(var22)).getClub())) {
                ((C0810)this.vS.get(var22)).dF(2);
             }
          }
@@ -1299,7 +1299,7 @@ public class C0065 extends JPanel {
 
       if (var4.size() > 0) {
          for (int var23 = 0; var23 < this.vS.size(); var23++) {
-            if (var4.contains(((C0810)this.vS.get(var23)).fg())) {
+            if (var4.contains(((C0810)this.vS.get(var23)).getClub())) {
                ((C0810)this.vS.get(var23)).dF(4);
             }
          }
@@ -1307,7 +1307,7 @@ public class C0065 extends JPanel {
 
       if (var3.size() > 0) {
          for (int var24 = 0; var24 < this.vS.size(); var24++) {
-            if (var3.contains(((C0810)this.vS.get(var24)).fg())) {
+            if (var3.contains(((C0810)this.vS.get(var24)).getClub())) {
                ((C0810)this.vS.get(var24)).dF(5);
             }
          }
@@ -1377,7 +1377,7 @@ public class C0065 extends JPanel {
             }
 
             for (int var10 = 0; var10 < this.vS.size(); var10++) {
-               if (var5.contains(((C0810)this.vS.get(var10)).fg())) {
+               if (var5.contains(((C0810)this.vS.get(var10)).getClub())) {
                   ((C0810)this.vS.get(var10)).dF(3);
                }
             }

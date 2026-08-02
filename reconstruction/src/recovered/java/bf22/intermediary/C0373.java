@@ -40,11 +40,11 @@ public class C0373 extends JPanel {
       if (c0827.tR().getHomeClub() == c0667.getClub()) {
          this.JQ = 1;
          this.JR = 2;
-         this.JS = c0827.tR().getHomeClub().jZ();
+         this.JS = c0827.tR().getHomeClub().isUserControlled();
       } else if (c0827.tR().getAwayClub() == c0667.getClub()) {
          this.JQ = 2;
          this.JR = 1;
-         this.JS = c0827.tR().getAwayClub().jZ();
+         this.JS = c0827.tR().getAwayClub().isUserControlled();
       }
 
       this.JP = c0827.tR().aT(this.JR);
