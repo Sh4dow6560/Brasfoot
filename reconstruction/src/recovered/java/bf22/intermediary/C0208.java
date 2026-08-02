@@ -637,7 +637,7 @@ public class C0208 extends JPanel {
 
       for (int var2 = 0; var2 < vK.size(); var2++) {
          if (((C0827)vK.get(var2)).ei()) {
-            ((C0827)vK.get(var2)).tR().m(2, 0);
+            ((C0827)vK.get(var2)).tR().evaluateScoreBasedSubstitutions(2, 0);
          }
       }
 

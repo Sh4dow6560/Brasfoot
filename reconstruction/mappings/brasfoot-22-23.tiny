@@ -788,7 +788,10 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	f	Ljava/util/ArrayList;	fI	fI	awayBench
 	f	Ljava/util/ArrayList;	fJ	fJ	homePlayersOnField
 	f	Ljava/util/ArrayList;	fK	fK	awayPlayersOnField
+	f	Ljava/util/ArrayList;	fL	fL	homeSubstitutesUsed
+	f	Ljava/util/ArrayList;	fM	fM	awaySubstitutesUsed
 	f	Ljava/util/ArrayList;	fN	fN	events
+	f	[I	fR	fR	remainingSubstitutions
 	f	[I	fW	fW	possessionPercentages
 	f	[I	fY	fY	shots
 	f	[I	fZ	fZ	shotsOnTarget
@@ -801,6 +804,10 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	f	[I	gc	gc	misplacedPasses
 	f	[I	gd	gd	fouls
 	f	Lc/b;	go	go	matchEngine
+	m	(IIIILjava/util/ArrayList;)Z	a	a	attemptAutomaticSubstitution
+	m	(ILbest/F;Lbest/F;III)Lbest/A;	a	a	performSubstitution
+	m	(I)I	aR	aR	getRemainingSubstitutions
+	m	(I)V	aS	aS	consumeSubstitution
 	m	()Lbest/v;	ev	ev	getStadium
 	m	()[I	hA	hA	getShots
 	m	()[I	hB	hB	getTackles
@@ -813,6 +820,7 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	m	()[I	hZ	hZ	getShotsOnTarget
 	m	()Lbest/ah;	hc	hc	getHomeClub
 	m	()Lbest/ah;	hd	hd	getAwayClub
+	m	()Z	hj	hj	isScoreTied
 	m	()Ljava/util/ArrayList;	hl	hl	getHomeStartingLineup
 	m	()Ljava/util/ArrayList;	hm	hm	getAwayStartingLineup
 	m	()Ljava/util/ArrayList;	hn	hn	getHomeBench
@@ -827,7 +835,12 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	m	()Lbest/at;	hy	hy	getCompetition
 	m	()[I	hz	hz	getPossessionPercentages
 	m	()[I	ia	ia	getShotsOffTarget
-	m	()Ljava/util/ArrayList;	if	method_kw_if	method_kw_if
+	m	()Ljava/util/ArrayList;	ie	ie	getHomeSubstitutesUsed
+	m	()Ljava/util/ArrayList;	if	method_kw_if	getAwaySubstitutesUsed
+	m	(II)V	l	l	applyEnergyDrain
+	m	(II)V	m	m	evaluateScoreBasedSubstitutions
+	m	(II)Z	n	n	isTeamTrailingBy
+	m	(II)V	o	o	evaluateFatigueSubstitutions
 c	best/J	bf22/intermediary/C0676	bf22/intermediary/C0676
 c	best/K	bf22/intermediary/C0677	bf22/intermediary/C0677
 c	best/L	bf22/intermediary/C0678	mod/recovered/competition/CompetitionStage

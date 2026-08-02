@@ -36,13 +36,13 @@ public class Match implements Serializable {
    private ArrayList awayBench = new ArrayList();
    private ArrayList homePlayersOnField = new ArrayList();
    private ArrayList awayPlayersOnField = new ArrayList();
-   private ArrayList fL = new ArrayList();
-   private ArrayList fM = new ArrayList();
+   private ArrayList homeSubstitutesUsed = new ArrayList();
+   private ArrayList awaySubstitutesUsed = new ArrayList();
    private ArrayList events = new ArrayList();
    private int fO = 0;
    private int fP = 0;
    private int[] fQ = new int[]{0, 0, -1};
-   private int[] fR = new int[]{5, 5};
+   private int[] remainingSubstitutions = new int[]{5, 5};
    private int fS = 0;
    private int fT = 0;
    private int fU = 0;
@@ -87,8 +87,8 @@ public class Match implements Serializable {
       this.awayBench.clear();
       this.homePlayersOnField.clear();
       this.awayPlayersOnField.clear();
-      this.fL.clear();
-      this.fM.clear();
+      this.homeSubstitutesUsed.clear();
+      this.awaySubstitutesUsed.clear();
    }
 
    public String ha() {
@@ -461,14 +461,14 @@ public class Match implements Serializable {
          }
       }
 
-      for (int var3 = 0; var3 < this.fL.size(); var3++) {
-         ((Player)this.fL.get(var3)).b(this.competition, this.getHomeClub());
-         ((Player)this.fL.get(var3)).a(this.competition, this, 0, 1, this.getHomeClub());
+      for (int var3 = 0; var3 < this.homeSubstitutesUsed.size(); var3++) {
+         ((Player)this.homeSubstitutesUsed.get(var3)).b(this.competition, this.getHomeClub());
+         ((Player)this.homeSubstitutesUsed.get(var3)).a(this.competition, this, 0, 1, this.getHomeClub());
       }
 
-      for (int var4 = 0; var4 < this.fM.size(); var4++) {
-         ((Player)this.fM.get(var4)).b(this.competition, this.getAwayClub());
-         ((Player)this.fM.get(var4)).a(this.competition, this, 1, 0, this.getAwayClub());
+      for (int var4 = 0; var4 < this.awaySubstitutesUsed.size(); var4++) {
+         ((Player)this.awaySubstitutesUsed.get(var4)).b(this.competition, this.getAwayClub());
+         ((Player)this.awaySubstitutesUsed.get(var4)).a(this.competition, this, 1, 0, this.getAwayClub());
       }
 
       for (int var5 = 0; var5 < this.events.size(); var5++) {
@@ -568,7 +568,7 @@ public class Match implements Serializable {
       }
 
       if (j % 7 == 0) {
-         c0675.l(i, j);
+         c0675.applyEnergyDrain(i, j);
       }
 
       if (i == 1) {
@@ -620,7 +620,7 @@ public class Match implements Serializable {
             a(5, -1, c0675, var19, var6, null, i, j);
          }
       } else if (i == 2 && j >= 5) {
-         c0675.m(i, j);
+         c0675.evaluateScoreBasedSubstitutions(i, j);
       }
    }
 
@@ -757,13 +757,13 @@ public class Match implements Serializable {
                var8.remove(player);
             }
 
-            if (c0675 != null && club != null && c0675.fR[var10] > 0 && !club.isUserControlled()) {
+            if (c0675 != null && club != null && c0675.remainingSubstitutions[var10] > 0 && !club.isUserControlled()) {
                a(var10, false, c0675, player, k, l, true);
             }
          }
       } else if (var8 != null) {
          var8.remove(player);
-         if (player.getTacticalPosition() <= 13 && !club.isUserControlled() && c0675.fR[var10] > 0) {
+         if (player.getTacticalPosition() <= 13 && !club.isUserControlled() && c0675.remainingSubstitutions[var10] > 0) {
             a(var10, true, c0675, player, k, l, false);
          }
       }
@@ -810,16 +810,16 @@ public class Match implements Serializable {
          if (var10 != null) {
             if (bl2) {
                if (var9.getPosicao() == 0 || var10.getPosicao() != 0) {
-                  c0675.a(i, var9, var10, j, k, player.getTacticalPosition());
+                  c0675.performSubstitution(i, var9, var10, j, k, player.getTacticalPosition());
                }
             } else {
-               c0675.a(i, var9, var10, j, k, player.getTacticalPosition());
+               c0675.performSubstitution(i, var9, var10, j, k, player.getTacticalPosition());
             }
          }
       }
    }
 
-   public MatchEvent a(int i, Player player, Player player2, int j, int k, int l) {
+   public MatchEvent performSubstitution(int i, Player player, Player player2, int j, int k, int l) {
       MatchEvent var7 = null;
       ArrayList var8 = null;
       ArrayList var9 = null;
@@ -829,13 +829,13 @@ public class Match implements Serializable {
          if (i == 0) {
             var8 = this.getHomePlayersOnField();
             var9 = this.getHomeBench();
-            var10 = this.fL;
-            this.aS(0);
+            var10 = this.homeSubstitutesUsed;
+            this.consumeSubstitution(0);
          } else if (i == 1) {
             var8 = this.getAwayPlayersOnField();
             var9 = this.getAwayBench();
-            this.aS(1);
-            var10 = this.fM;
+            this.consumeSubstitution(1);
+            var10 = this.awaySubstitutesUsed;
             var11 = this.getAwayClub();
          }
 
@@ -858,7 +858,7 @@ public class Match implements Serializable {
       return var7;
    }
 
-   public void l(int i, int j) {
+   public void applyEnergyDrain(int i, int j) {
       for (int var3 = 0; var3 < this.homePlayersOnField.size(); var3++) {
          if (((Player)this.homePlayersOnField.get(var3)).getTacticalPosition() != 1) {
             ((Player)this.homePlayersOnField.get(var3)).reduceEnergyAfterMatch();
@@ -876,40 +876,40 @@ public class Match implements Serializable {
       }
    }
 
-   public void m(int i, int j) {
+   public void evaluateScoreBasedSubstitutions(int i, int j) {
       boolean var3 = false;
       if (i == 2) {
-         if (!this.homeClub.isUserControlled() && this.fR[0] > 0) {
-            if (j == 0 && this.n(1, 1)) {
+         if (!this.homeClub.isUserControlled() && this.remainingSubstitutions[0] > 0) {
+            if (j == 0 && this.isTeamTrailingBy(1, 1)) {
                if (new Random().nextInt(100) > 50) {
-                  var3 = this.a(2, 0, i, j, this.getHomePlayersOnField());
+                  var3 = this.attemptAutomaticSubstitution(2, 0, i, j, this.getHomePlayersOnField());
                }
             } else if (j != this.gn[0][0] && j != this.gn[0][1] && j != this.gn[0][2]) {
                if (j == this.gm[0][0] || j == this.gm[0][1] || j == this.gm[0][2] || j == this.gm[0][3]) {
-                  var3 = this.a(1, 0, i, j, this.getHomePlayersOnField());
+                  var3 = this.attemptAutomaticSubstitution(1, 0, i, j, this.getHomePlayersOnField());
                }
-            } else if (this.n(1, 1) || this.hj()) {
-               var3 = this.a(2, 0, i, j, this.getHomePlayersOnField());
+            } else if (this.isTeamTrailingBy(1, 1) || this.isScoreTied()) {
+               var3 = this.attemptAutomaticSubstitution(2, 0, i, j, this.getHomePlayersOnField());
             }
          }
 
-         if (!var3 && !this.awayClub.isUserControlled() && this.fR[1] > 0) {
-            if (j == 0 && this.n(2, 2)) {
+         if (!var3 && !this.awayClub.isUserControlled() && this.remainingSubstitutions[1] > 0) {
+            if (j == 0 && this.isTeamTrailingBy(2, 2)) {
                if (new Random().nextInt(100) > 50) {
-                  this.a(2, 1, i, j, this.getAwayPlayersOnField());
+                  this.attemptAutomaticSubstitution(2, 1, i, j, this.getAwayPlayersOnField());
                }
             } else if (j != this.gn[1][0] && j != this.gn[1][1] && j != this.gn[1][2]) {
                if (j == this.gm[1][0] || j == this.gm[1][1] || j == this.gm[1][2] || j == this.gm[1][3]) {
-                  this.a(1, 1, i, j, this.getAwayPlayersOnField());
+                  this.attemptAutomaticSubstitution(1, 1, i, j, this.getAwayPlayersOnField());
                }
-            } else if (this.n(2, 1)) {
-               this.a(2, 1, i, j, this.getAwayPlayersOnField());
+            } else if (this.isTeamTrailingBy(2, 1)) {
+               this.attemptAutomaticSubstitution(2, 1, i, j, this.getAwayPlayersOnField());
             }
          }
       }
    }
 
-   public boolean a(int i, int j, int k, int l, ArrayList arrayList) {
+   public boolean attemptAutomaticSubstitution(int i, int j, int k, int l, ArrayList arrayList) {
       if (i == 1) {
          byte var6 = 60;
          int var7 = 0;
@@ -931,9 +931,9 @@ public class Match implements Serializable {
          int var10 = 0;
          if (arrayList.size() > 0) {
             var10 = var9.nextInt(arrayList.size());
-            ArrayList var12 = this.fL;
+            ArrayList var12 = this.homeSubstitutesUsed;
             if (j == 2) {
-               var12 = this.fM;
+               var12 = this.awaySubstitutesUsed;
             }
 
             if (var12.contains(arrayList.get(var10))) {
@@ -950,11 +950,11 @@ public class Match implements Serializable {
       return false;
    }
 
-   private boolean hj() {
+   private boolean isScoreTied() {
       return this.homeGoals == this.awayGoals;
    }
 
-   private boolean n(int i, int j) {
+   private boolean isTeamTrailingBy(int i, int j) {
       if (i == 1) {
          if (this.awayGoals - this.homeGoals >= j) {
             return true;
@@ -966,7 +966,7 @@ public class Match implements Serializable {
       return false;
    }
 
-   public void o(int i, int j) {
+   public void evaluateFatigueSubstitutions(int i, int j) {
       int var3 = new Random().nextInt(100) + 1;
       byte var4 = 50;
       if (j < 10) {
@@ -981,7 +981,7 @@ public class Match implements Serializable {
 
       boolean var5 = false;
       if (var3 > var4) {
-         if (!this.homeClub.isUserControlled() && this.fR[0] > 0) {
+         if (!this.homeClub.isUserControlled() && this.remainingSubstitutions[0] > 0) {
             for (int var6 = 0; var6 < this.homePlayersOnField.size(); var6++) {
                if (((Player)this.homePlayersOnField.get(var6)).getTacticalPosition() != 1) {
                   if (((Player)this.homePlayersOnField.get(var6)).getEnergy() < 75) {
@@ -997,7 +997,7 @@ public class Match implements Serializable {
             }
          }
 
-         if (!var5 && !this.awayClub.isUserControlled() && this.fR[1] > 0) {
+         if (!var5 && !this.awayClub.isUserControlled() && this.remainingSubstitutions[1] > 0) {
             for (int var8 = 0; var8 < this.awayPlayersOnField.size(); var8++) {
                if (((Player)this.awayPlayersOnField.get(var8)).getTacticalPosition() != 1) {
                   if (((Player)this.awayPlayersOnField.get(var8)).getEnergy() < 75) {
@@ -1229,7 +1229,7 @@ public class Match implements Serializable {
             }
          }
 
-         this.m(2, 0);
+         this.evaluateScoreBasedSubstitutions(2, 0);
 
          for (int var6 = 0; var6 < 45 + this.fQ[1]; var6++) {
             a(this, 2, var6);
@@ -1389,12 +1389,12 @@ public class Match implements Serializable {
       this.awayGoals++;
    }
 
-   public int aR(int i) {
-      return this.fR[i];
+   public int getRemainingSubstitutions(int i) {
+      return this.remainingSubstitutions[i];
    }
 
-   public void aS(int i) {
-      this.fR[i]--;
+   public void consumeSubstitution(int i) {
+      this.remainingSubstitutions[i]--;
    }
 
    public Competition getCompetition() {
@@ -1693,12 +1693,12 @@ public class Match implements Serializable {
       return this.gl;
    }
 
-   public ArrayList ie() {
-      return this.fL;
+   public ArrayList getHomeSubstitutesUsed() {
+      return this.homeSubstitutesUsed;
    }
 
-   public ArrayList method_kw_if() {
-      return this.fM;
+   public ArrayList getAwaySubstitutesUsed() {
+      return this.awaySubstitutesUsed;
    }
 
    public String ig() {

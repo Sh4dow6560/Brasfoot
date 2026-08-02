@@ -58,7 +58,9 @@ da casa e visitante, placar, estadio, titulares, reservas, jogadores em campo,
 eventos, posse, finalizacoes, chutes no gol, chutes para fora, desarmes, passes
 errados e faltas. A API funcional inclui os respectivos acessos, incrementos
 de placar, `getEvents`, `getScheduleIndex`, `getMatchEngine` e
-`recalculateScoreFromEvents`.
+`recalculateScoreFromEvents`. O fluxo nomeado de substituicoes cobre limite,
+jogadores utilizados, troca efetiva, desgaste e decisoes automaticas por
+placar ou fadiga.
 
 `MatchEngine` identifica a partida processada, os dois clubes, o time ativo,
 o atacante selecionado, posses, gols, chutes, avancos e desarmes por setor. A

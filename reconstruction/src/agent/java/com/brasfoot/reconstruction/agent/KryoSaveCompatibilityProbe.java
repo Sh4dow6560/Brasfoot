@@ -43,6 +43,7 @@ public final class KryoSaveCompatibilityProbe {
       CalendarSummary calendar = validateCalendar(roots[0]);
       String matchEventApi = validateMatchEventBehavior(loader);
       String matchStateApi = validateMatchStateBehavior(loader);
+      String substitutionApi = validateSubstitutionBehavior(loader);
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
@@ -83,6 +84,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("MATCH_EVENT_API " + matchEventApi);
       System.out.println("MATCH_STATE " + matches.toLogLine());
       System.out.println("MATCH_STATE_API " + matchStateApi);
+      System.out.println("SUBSTITUTION_API " + substitutionApi);
       System.out.println("MATCH_ENGINE_API " + matchEngineApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
@@ -236,6 +238,81 @@ public final class KryoSaveCompatibilityProbe {
     assertInteger(matchClass, restored, "hw", 1);
     return "scheduleIndex=42 score=2x1 events=4 stats=true transientEngine=true "
         + "roundTrip=true";
+  }
+
+  private static String validateSubstitutionBehavior(ClassLoader loader) throws Exception {
+    Class<?> matchClass = loader.loadClass("best.I");
+    Class<?> eventClass = loader.loadClass("best.A");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Object match = matchClass.getDeclaredConstructor().newInstance();
+    Object homeClub = clubClass.getDeclaredConstructor().newInstance();
+    Object awayClub = clubClass.getDeclaredConstructor().newInstance();
+    Object outgoing = playerClass.getDeclaredConstructor().newInstance();
+    Object incoming = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(outgoing, 19);
+    playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(incoming, -1);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(incoming, 24);
+
+    ArrayList<Object> homePlayers = new ArrayList<Object>();
+    ArrayList<Object> homeBench = new ArrayList<Object>();
+    ArrayList<Object> homeSubstitutesUsed = new ArrayList<Object>();
+    ArrayList<Object> awaySubstitutesUsed = new ArrayList<Object>();
+    ArrayList<Object> events = new ArrayList<Object>();
+    homePlayers.add(outgoing);
+    homeBench.add(incoming);
+    setField(match, "fz", homeClub);
+    setField(match, "fA", awayClub);
+    setField(match, "fJ", homePlayers);
+    setField(match, "fH", homeBench);
+    setField(match, "fL", homeSubstitutesUsed);
+    setField(match, "fM", awaySubstitutesUsed);
+    setField(match, "fN", events);
+    setField(match, "fR", new int[]{5, 5});
+
+    Object event = matchClass.getDeclaredMethod(
+        "a", Integer.TYPE, playerClass, playerClass,
+        Integer.TYPE, Integer.TYPE, Integer.TYPE)
+        .invoke(match, 0, outgoing, incoming, 2, 63, -1);
+    if (event == null || !eventClass.isInstance(event)) {
+      throw new IllegalStateException("Match substitution did not create an event");
+    }
+    assertInteger(eventClass, event, "b", 6);
+    assertSame(outgoing, eventClass.getDeclaredMethod("eo").invoke(event),
+        "substituted player");
+    assertSame(incoming, eventClass.getDeclaredMethod("ep").invoke(event),
+        "replacement player");
+    if (homePlayers.size() != 1 || homePlayers.get(0) != incoming
+        || homeBench.contains(incoming) || !homeSubstitutesUsed.contains(incoming)) {
+      throw new IllegalStateException("Match substitution did not update squad lists");
+    }
+    assertInteger(playerClass, incoming, "fT", 19);
+    int remaining = ((Integer)matchClass.getDeclaredMethod("aR", Integer.TYPE)
+        .invoke(match, 0)).intValue();
+    if (remaining != 4) {
+      throw new IllegalStateException("Home substitutions remaining was " + remaining);
+    }
+    assertSame(homeSubstitutesUsed, matchClass.getDeclaredMethod("ie").invoke(match),
+        "home substitutes used");
+    assertSame(awaySubstitutesUsed, matchClass.getDeclaredMethod("if").invoke(match),
+        "away substitutes used");
+    if (events.size() != 1 || events.get(0) != event) {
+      throw new IllegalStateException("Substitution event was not attached to the match");
+    }
+    if (!((Boolean)invokePrivate(matchClass, match, "hj")).booleanValue()) {
+      throw new IllegalStateException("New match was not tied");
+    }
+    setField(match, "fC", 2);
+    java.lang.reflect.Method trailingBy = matchClass.getDeclaredMethod(
+        "n", Integer.TYPE, Integer.TYPE);
+    trailingBy.setAccessible(true);
+    if (!((Boolean)trailingBy.invoke(match, 1, 1)).booleanValue()) {
+      throw new IllegalStateException("Match did not detect the trailing home team");
+    }
+    matchClass.getDeclaredMethod("l", Integer.TYPE, Integer.TYPE).invoke(match, 1, 7);
+    assertInteger(playerClass, incoming, "fp", 98);
+    return "remaining=4 eventType=6 lists=true tacticalPosition=19 "
+        + "scoreState=true energy=98";
   }
 
   private static String validateMatchEngineBehavior(ClassLoader loader, Object career)

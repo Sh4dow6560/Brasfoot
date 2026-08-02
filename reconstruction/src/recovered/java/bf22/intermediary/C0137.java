@@ -175,7 +175,7 @@ public class C0137 extends JPanel {
    }
 
    private void oP() {
-      this.DA.setText("Substituições restantes: " + Integer.toString(this.Db.tR().aR(this.Di - 1)));
+      this.DA.setText("Substituições restantes: " + Integer.toString(this.Db.tR().getRemainingSubstitutions(this.Di - 1)));
    }
 
    private void oQ() {
@@ -476,7 +476,7 @@ public class C0137 extends JPanel {
          var4 = this.Dc;
       }
 
-      if (this.Db.tR().aR(this.Di - 1) > 0 && ((C0795)var4.get(i)).x() != null && ((C0795)var4.get(j)).x() != null) {
+      if (this.Db.tR().getRemainingSubstitutions(this.Di - 1) > 0 && ((C0795)var4.get(i)).x() != null && ((C0795)var4.get(j)).x() != null) {
          int var5 = i;
          int var6 = j;
          if (i < j) {
@@ -489,7 +489,7 @@ public class C0137 extends JPanel {
             var7 = 1;
          }
 
-         var3 = this.Db.tR().a(this.Di - 1, ((C0795)var4.get(var6)).x(), ((C0795)var4.get(var5)).x(), this.dB, var7, -1);
+         var3 = this.Db.tR().performSubstitution(this.Di - 1, ((C0795)var4.get(var6)).x(), ((C0795)var4.get(var5)).x(), this.dB, var7, -1);
          if (var3 != null) {
             var3.setDone(true);
          }
@@ -672,10 +672,10 @@ public class C0137 extends JPanel {
       ArrayList var3 = new ArrayList();
       if (i == 1) {
          var3.addAll(this.Db.tR().getHomeBench());
-         var3.addAll(this.Db.tR().ie());
+         var3.addAll(this.Db.tR().getHomeSubstitutesUsed());
       } else if (i == 2) {
          var3.addAll(this.Db.tR().getAwayBench());
-         var3.addAll(this.Db.tR().method_kw_if());
+         var3.addAll(this.Db.tR().getAwaySubstitutesUsed());
       }
 
       for (int var4 = 0; var4 < this.Db.tR().getEvents().size(); var4++) {

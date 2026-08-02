@@ -51,13 +51,16 @@
 - Setters semanticamente nomeados alteram forca geral, posicao tatica, os sete
   atributos e energia. Referencias ambiguas foram migradas de forma dirigida
   pelo tipo e recompiladas em conjunto.
+- `Match` identifica o estado e o fluxo de substituicoes, incluindo limites,
+  listas de jogadores utilizados, desgaste e decisoes automaticas por placar
+  ou fadiga. Um cenario deterministico exercita a troca no JAR final.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 385 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 398 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
