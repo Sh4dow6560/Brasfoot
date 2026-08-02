@@ -42,7 +42,7 @@ public class CountryCompetitions implements Serializable {
    }
 
    public CountryCompetitions(int i) {
-      this.hB = C0696.valueOf("P" + i).getNome();
+      this.hB = C0696.values()[i].getNome();
       this.pais = i;
       this.hr = new Random().nextInt(50000);
    }
@@ -436,11 +436,11 @@ public class CountryCompetitions implements Serializable {
    }
 
    public int gg() {
-      return C0696.valueOf("P" + Integer.toString(this.pais)).gg();
+      return C0696.values()[this.pais].gg();
    }
 
    public String jf() {
-      return C0696.valueOf("P" + Integer.toString(this.pais)).getNome();
+      return C0696.values()[this.pais].getNome();
    }
 
    public ArrayList jg() {
@@ -979,7 +979,7 @@ public class CountryCompetitions implements Serializable {
    }
 
    public void jm() {
-      this.hA = C0696.valueOf("P" + Integer.toString(this.pais)).getNivel();
+      this.hA = C0696.values()[this.pais].getNivel();
    }
 
    public Club jn() {
@@ -992,8 +992,8 @@ public class CountryCompetitions implements Serializable {
          this.hy = var1;
          var1.bX(GamePersistence.careerState.bH());
          GamePersistence.careerState.bI();
-         int[] var2 = C0696.valueOf("P" + Integer.toString(this.jc())).jB();
-         int[] var3 = C0696.valueOf("P" + Integer.toString(this.jc())).jC();
+         int[] var2 = C0696.values()[this.jc()].jB();
+         int[] var3 = C0696.values()[this.jc()].jC();
          this.hy.d(new Color(var2[0], var2[1], var2[2]));
          this.hy.c(new Color(var3[0], var3[1], var3[2]));
          this.hy.ln();

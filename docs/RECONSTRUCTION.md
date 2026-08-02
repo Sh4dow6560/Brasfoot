@@ -10,6 +10,9 @@
   Vineflower.
 - Reparos de descompilacao versionados e reproduziveis, com validacao exata do
   numero de ocorrencias alteradas.
+- As consultas ao enum de 224 paises usam o ID ordinal original, pois a
+  recompilacao Java nao preserva os nomes internos `P0...P223` gravados pelo
+  ofuscador. A mudanca nao adiciona membros nem altera o contrato binario.
 - As 1.032 classes do Brasfoot foram promovidas, compiladas em conjunto para
   Java 8 e sobrepostas no build hibrido.
 - As seis classes do carregador Eclipse Jar-in-Jar foram identificadas como
@@ -60,19 +63,23 @@
 - `Player` e `PlayerLoan` identificam renovacao contratual, movimentacao entre
   clubes, emprestimo, vencimento e retorno ao clube de origem. O cenario
   funcional limpa os registros sinteticos e preserva o save byte a byte.
+- `TransferNegotiation` identifica estado, destino, valores, avaliacao de
+  proposta, contraproposta, salario, emprestimo, venda listada e reposicao de
+  elenco. O cenario funcional cobre os principais codigos de retorno e nao
+  modifica os dados persistidos usados no round-trip.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
 - `applySemanticMemberMappings` migra membros estaticos, membros privados,
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 424 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 459 membros
   recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Nomeacao semantica da negociacao de transferencias e manutencao da IA.
+1. Nomeacao semantica da manutencao de elenco e das decisoes de mercado da IA.
 2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
 3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
 4. Atualizacao de dados 2026.

@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 83 classes e 424 membros mapeados possuem nomes validos ou
+- Legibilidade: 83 classes e 459 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -68,6 +68,15 @@
   clube de origem, vencimento e notificacao de falha. Um cenario valida
   renovacao de 30+15 dias, emprestimo de 365 dias e retorno com 180 dias,
   removendo os registros sinteticos antes do round-trip do save.
+- Mercado: `TransferNegotiation` identifica jogador, clubes de origem e
+  destino, valores, modo, limite de elenco, salario pedido, contraproposta e
+  conclusao. A API nomeada cobre busca de destino, emprestimo, venda listada,
+  avaliacao de proposta, interesse do jogador e reposicao do elenco vendedor.
+  Um cenario valida proposta aceita, contraproposta de 2.500, salario de 200 e
+  os codigos deterministas de rejeicao sem alterar a carreira real.
+- Paises: 48 consultas que dependiam dos nomes internos `P0...P223`, perdidos
+  ao recompilar o enum, agora usam o mesmo indice numerico do bytecode. O fluxo
+  de negociacao exercita essa correcao e o contrato binario permanece intacto.
 - Mutacoes de jogador: os ajustes de forca geral, posicao tatica, sete
   atributos e energia possuem setters semanticos. A migracao foi dirigida pelo
   tipo para nao alterar metodos homonimos de outras classes, e todos os setters
@@ -80,5 +89,5 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: nomear selecao de destinos, avaliacao de propostas e
-  manutencao automatica de elenco usadas pelo mercado.
+- Proxima fase: recuperar a manutencao automatica de elenco e as decisoes de
+  compra e venda executadas por `AiSquadManager`.

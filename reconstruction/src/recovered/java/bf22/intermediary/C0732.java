@@ -44,10 +44,10 @@ public abstract class C0732 {
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
          CountryInfo var1 = new CountryInfo();
          var1.setPais(var0);
-         var1.setNome(C0696.valueOf("P" + var0).getNome());
-         var1.s(f(C0696.valueOf("P" + var0).getNome()));
-         var1.r(C0696.valueOf("P" + var0).jA());
-         var1.bn(C0696.valueOf("P" + var0).gg());
+         var1.setNome(C0696.values()[var0].getNome());
+         var1.s(f(C0696.values()[var0].getNome()));
+         var1.r(C0696.values()[var0].jA());
+         var1.bn(C0696.values()[var0].gg());
          var1.bo(var0);
          cF.add(var1);
       }
@@ -83,7 +83,7 @@ public abstract class C0732 {
       C0884.iD();
 
       for (int var0 = 0; var0 < cZ().size(); var0++) {
-         ((C0915)cZ().get(var0)).setNomep(f(C0696.valueOf("P" + Integer.toString(((C0915)cZ().get(var0)).getPais())).getNome()));
+         ((C0915)cZ().get(var0)).setNomep(f(C0696.values()[((C0915)cZ().get(var0)).getPais()].getNome()));
       }
    }
 
@@ -120,7 +120,7 @@ public abstract class C0732 {
    }
 
    public static void a(C0915 c0915) {
-      c0915.setNomep(f(C0696.valueOf("P" + Integer.toString(c0915.getPais())).getNome()));
+      c0915.setNomep(f(C0696.values()[c0915.getPais()].getNome()));
    }
 
    public static void cX() {

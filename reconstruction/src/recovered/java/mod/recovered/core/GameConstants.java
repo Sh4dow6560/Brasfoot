@@ -896,7 +896,7 @@ public final class GameConstants {
    public static final int tO = 5;
 
    public static final int ct(int i) {
-      return C0696.valueOf("P" + Integer.toString(i)).gg();
+      return C0696.values()[i].gg();
    }
 
    public static final String y(int i, int j) {

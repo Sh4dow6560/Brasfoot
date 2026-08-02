@@ -310,7 +310,7 @@ public class C0272 extends JPanel {
       var14 = (Player)var2.get(var11);
       if (var14 != null) {
          TransferNegotiation var5 = new TransferNegotiation(var14, var14.fk(), true, true, 0);
-         Club var6 = var5.a(true, bl);
+         Club var6 = var5.findDestination(true, bl);
          int var7 = (int)(var14.fk() + Math.round(var14.fk() * 0.3));
          if (var6 != null) {
             JDialog var8 = new JDialog(this.Br);

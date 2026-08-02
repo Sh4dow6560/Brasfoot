@@ -39,7 +39,7 @@ public class C0877 extends DefaultTableCellRenderer {
          this.setText((String)object);
          this.setIcon(null);
       } else if (j == 4) {
-         String var10 = C0696.valueOf("P" + object).jA();
+         String var10 = C0696.values()[(Integer)object].jA();
          this.setText(var10);
          ImageIcon var11 = new ImageIcon(this.getClass().getResource("/aflags/" + object + ".png"));
          this.setIcon(var11);

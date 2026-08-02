@@ -43,7 +43,7 @@ public class C0193 extends JPanel {
       this.uC.addActionListener(new C0195(this));
       this.gF = j;
       ImageIcon var4 = new ImageIcon(this.getClass().getResource("/aflags/" + i + ".png"));
-      String var5 = "Configurar Ligas - " + C0696.valueOf("P" + i).getNome() + " - " + Integer.toString(this.gF) + " times";
+      String var5 = "Configurar Ligas - " + C0696.values()[i].getNome() + " - " + Integer.toString(this.gF) + " times";
       this.vf.setText(var5);
       this.vf.setIcon(var4);
 

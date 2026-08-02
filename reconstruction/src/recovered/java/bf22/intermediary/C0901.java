@@ -594,7 +594,7 @@ public class C0901 extends JFrame {
       ImageIcon var3 = new ImageIcon(this.getClass().getResource("/aflags/" + Integer.toString(this.Uu.getPais()) + ".png"));
       this.Vc.setIcon(var3);
       this.MQ.setForeground(var1);
-      String var4 = C0696.valueOf("P" + this.Uu.getPais()).getNome();
+      String var4 = C0696.values()[this.Uu.getPais()].getNome();
       this.MQ.setText(var4);
       if (this.Uu.getPais() == 29) {
          this.MM.setVisible(true);

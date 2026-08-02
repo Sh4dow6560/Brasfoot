@@ -404,7 +404,7 @@ public abstract class C0734 {
       }
 
       GamePersistence.careerState.bG.addAll(var2.leagues);
-      String var10 = C0696.valueOf("P" + Integer.toString(i)).jA() + ".cfg";
+      String var10 = C0696.values()[i].jA() + ".cfg";
 
       try {
          FileOutputStream var5 = new FileOutputStream(System.getProperty("user.dir") + "/conf_ligas_nacionais/" + var10);

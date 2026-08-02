@@ -24,7 +24,7 @@ public class C0603 extends DefaultTableCellRenderer {
 
             this.setText(var7.getNome());
          } else if (j == 1) {
-            String var8 = C0696.valueOf("P" + var7.getPais()).getNome();
+            String var8 = C0696.values()[var7.getPais()].getNome();
             this.setText(var8);
             ImageIcon var9 = new ImageIcon(this.getClass().getResource("/aflags/" + var7.getPais() + ".png"));
             this.setIcon(var9);

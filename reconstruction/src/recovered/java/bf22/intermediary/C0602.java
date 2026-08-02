@@ -31,7 +31,7 @@ public class C0602 extends DefaultTableCellRenderer {
          this.setText(null);
          this.setHorizontalAlignment(0);
       } else if (j == 1) {
-         String var9 = C0696.valueOf("P" + object).getNome();
+         String var9 = C0696.values()[(Integer)object].getNome();
          this.setText(var9);
          ImageIcon var10 = new ImageIcon(this.getClass().getResource("/aflags/" + object + ".png"));
          this.setIcon(var10);

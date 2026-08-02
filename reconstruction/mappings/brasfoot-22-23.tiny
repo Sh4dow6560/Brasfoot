@@ -981,6 +981,41 @@ c	best/i	bf22/intermediary/C0727	mod/recovered/competition/CompetitionSeasonResu
 c	best/j	bf22/intermediary/C0728	bf22/intermediary/C0728
 c	best/k	bf22/intermediary/C0729	bf22/intermediary/C0729
 c	best/l	bf22/intermediary/C0730	mod/recovered/transfer/TransferNegotiation
+	f	Lbest/F;	U	U	player
+	f	I	ci	ci	requestedFee
+	f	Lbest/ah;	ck	ck	sourceClub
+	f	Lbest/ah;	cl	cl	destinationClub
+	f	I	cm	cm	agreedFee
+	f	I	cq	cq	sourceRegionCode
+	f	I	cs	cs	transferMode
+	f	Lbest/ah;	ct	ct	sellerClub
+	f	I	cu	cu	requestedSalary
+	f	I	cv	cv	counterOfferFee
+	f	Z	cw	cw	transferCompleted
+	f	I	cx	cx	maxDestinationSquadSize
+	m	(I)V	F	F	setAgreedFee
+	m	(Lbest/F;Lbest/ah;)I	a	a	tryLoanPlayer
+	m	(Lbest/F;Lbest/ah;I)I	a	a	evaluateTransferOffer
+	m	(Lbest/ah;Lbest/F;)V	a	a	replenishSquadAfterTransfer
+	m	(Lbest/ah;[I)V	a	a	recruitPlayerForNeed
+	m	(Ljava/util/ArrayList;Z)Lbest/ah;	a	a	findDestinationInCompetitions
+	m	(Ljava/util/ArrayList;[I)Lbest/F;	a	a	findRecruitmentCandidate
+	m	(ZZ)Lbest/ah;	a	a	findDestination
+	m	(Lbest/F;Lbest/ah;)I	b	b	tryListedTransfer
+	m	(Lbest/ah;I)V	b	b	selectDestination
+	m	(Lbest/F;Lbest/ah;)I	c	c	evaluatePlayerInterest
+	m	()Lbest/ah;	cH	cH	findAnyDestinationCandidate
+	m	()Lbest/ah;	cI	cI	findEliteDestination
+	m	()Lbest/ah;	cJ	cJ	findExpandedDestination
+	m	()Lbest/ah;	cK	cK	getDestinationClub
+	m	()I	cL	cL	getAgreedFee
+	m	()I	cM	cM	getRequestedSalary
+	m	()I	cN	cN	getCounterOfferFee
+	m	()Z	cO	cO	isTransferCompleted
+	m	(Lbest/F;Lbest/ah;)Z	d	d	canPlayerJoinClub
+	m	(Lbest/ah;)V	g	g	setDestinationClub
+	m	(Z)Lbest/ah;	k	k	findAnyDestination
+	m	(Z)V	l	l	setTransferCompleted
 c	best/m	bf22/intermediary/C0731	bf22/intermediary/C0731
 c	best/n	bf22/intermediary/C0732	bf22/intermediary/C0732
 c	best/o	bf22/intermediary/C0733	bf22/intermediary/C0733

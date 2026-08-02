@@ -149,7 +149,7 @@ public class C0231 extends JPanel {
       }
 
       if (this.FR.getSelectedRow() >= 0 && this.FL != null) {
-         TransferNegotiation.l(false);
+         TransferNegotiation.setTransferCompleted(false);
          if (this.Af.getYouthPlayers().size() < 20) {
             JDialog var1 = new JDialog(this.ub);
             C0185 var2 = new C0185(var1, this.FL, this.Af, true);
@@ -161,7 +161,7 @@ public class C0231 extends JPanel {
             var1.setLocationRelativeTo(null);
             var1.setUndecorated(true);
             var1.setVisible(true);
-            if (TransferNegotiation.cO()) {
+            if (TransferNegotiation.isTransferCompleted()) {
                this.pJ();
             }
          } else {

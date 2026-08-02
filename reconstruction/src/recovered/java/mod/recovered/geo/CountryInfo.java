@@ -344,7 +344,7 @@ public class CountryInfo {
    public static String br(int i) {
       String var1 = bp(i);
       if (var1 == null) {
-         var1 = bq(i) + " " + C0696.valueOf("P" + i).getNome();
+         var1 = bq(i) + " " + C0696.values()[i].getNome();
       }
 
       return "Campeonato " + var1;
@@ -353,20 +353,20 @@ public class CountryInfo {
    public static String bs(int i) {
       String var1 = bp(i);
       if (var1 == null) {
-         var1 = C0696.valueOf("P" + i).getNome();
+         var1 = C0696.values()[i].getNome();
       }
 
       return var1;
    }
 
    public static String bt(int i) {
-      return bq(i) + " " + C0696.valueOf("P" + i).getNome();
+      return bq(i) + " " + C0696.values()[i].getNome();
    }
 
    public static String bu(int i) {
       String var1 = bp(i);
       if (var1 == null) {
-         var1 = C0696.valueOf("P" + i).getNome();
+         var1 = C0696.values()[i].getNome();
       }
 
       return var1;

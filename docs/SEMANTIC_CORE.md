@@ -79,6 +79,14 @@ formulas de forca de meio-campo, ataque, goleiro, atacante e defesa.
 | `transfer/PlayerLoan` | `components/t` | prazo e retorno de jogador emprestado |
 | `manager/CoachChangeRecord` | `best/u` | historico de troca de tecnicos |
 
+`TransferNegotiation` expoe jogador, origem, destino, valor solicitado, valor
+acordado, modo da transferencia, limite do elenco comprador, salario pedido,
+contraproposta e estado de conclusao. Os fluxos nomeados cobrem busca de
+destino, emprestimo, venda listada, avaliacao de oferta, interesse do jogador,
+compatibilidade entre clube e atleta e reposicao do elenco vendedor. Um teste
+executado no JAR final valida os estados de aceite, recusa, contraproposta e
+pedido salarial sem efetivar uma transferencia na carreira de referencia.
+
 ## Torneios Concretos
 
 O pacote `competition` tambem contem nomes diretos para as competicoes

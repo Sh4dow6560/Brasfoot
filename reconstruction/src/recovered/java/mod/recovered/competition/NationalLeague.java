@@ -576,12 +576,12 @@ public class NationalLeague extends Competition implements Serializable {
    @Override
    public String[] mA() {
       String[] var1 = new String[]{"", ""};
-      String var2 = "tr_nacional_" + C0696.valueOf("P" + Integer.toString(this.KR.jc())).jA() + "_d" + Integer.toString(this.divisao);
+      String var2 = "tr_nacional_" + C0696.values()[this.KR.jc()].jA() + "_d" + Integer.toString(this.divisao);
       String var3 = "tr_nacionalgenerico";
       if (GameConstants.w(var2)) {
          var1[0] = var2;
       } else if (this.divisao == 1) {
-         var2 = "tr_nacional_" + C0696.valueOf("P" + Integer.toString(this.KR.jc())).jA();
+         var2 = "tr_nacional_" + C0696.values()[this.KR.jc()].jA();
          if (GameConstants.w(var2)) {
             var1[0] = var2;
          } else {

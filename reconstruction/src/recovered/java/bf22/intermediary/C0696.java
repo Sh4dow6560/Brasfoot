@@ -241,18 +241,18 @@ public enum C0696 {
 
    public static void At() {
       for (int var0 = 0; var0 < 221; var0++) {
-         if (valueOf("P" + var0).gg() == 5) {
-            System.out.println("public final static int " + valueOf("P" + var0).getNome() + " = " + var0 + ";");
+         if (values()[var0].gg() == 5) {
+            System.out.println("public final static int " + values()[var0].getNome() + " = " + var0 + ";");
          }
       }
    }
 
    public static String bl(int i) {
-      return valueOf("P" + Integer.toString(i)).getNome();
+      return values()[i].getNome();
    }
 
    public static int fn(int i) {
-      return valueOf("P" + Integer.toString(i)).getNivel();
+      return values()[i].getNivel();
    }
 
    C0696(String string2, String string3, int j, int k, int l, int[] is, int[] js) {

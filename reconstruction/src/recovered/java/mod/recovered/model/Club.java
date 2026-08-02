@@ -678,7 +678,7 @@ public class Club implements Serializable {
    }
 
    public int gg() {
-      return C0696.valueOf("P" + Integer.toString(this.pais)).gg();
+      return C0696.values()[this.pais].gg();
    }
 
    public void u(int i, int j) {
@@ -1152,7 +1152,7 @@ public class Club implements Serializable {
             }
 
             int[] var5 = new int[]{var3, var4};
-            TransferNegotiation.a(this, var5);
+            TransferNegotiation.recruitPlayerForNeed(this, var5);
          }
       }
    }
@@ -1678,7 +1678,7 @@ public class Club implements Serializable {
                }
             }
          } else {
-            String var9 = C0696.valueOf("P" + this.getPais()).jA();
+            String var9 = C0696.values()[this.getPais()].jA();
             BufferedImage var11 = null;
             File var5 = new File(System.getProperty("user.dir") + GameConstants.ty[i - 1] + var9 + ".png");
             if (var5.exists() && !var5.isDirectory()) {
@@ -1790,7 +1790,7 @@ public class Club implements Serializable {
             }
          }
       } else {
-         String var9 = C0696.valueOf("P" + this.getPais()).jA();
+         String var9 = C0696.values()[this.getPais()].jA();
          BufferedImage var10 = null;
          File var4 = new File(System.getProperty("user.dir") + "/selecoes/escudos/" + var9 + ".png");
          if (var4.exists() && !var4.isDirectory()) {
@@ -1804,7 +1804,7 @@ public class Club implements Serializable {
                this.nF = new ImageIcon(var10);
             }
          } else {
-            String var5 = C0696.valueOf("P" + this.getPais()).jA();
+            String var5 = C0696.values()[this.getPais()].jA();
             ImageIcon var6 = new ImageIcon(this.getClass().getResource("/aflags/" + this.getPais() + ".png"));
             if (bl) {
                var6 = new ImageIcon(this.getClass().getResource("/aflagslarge/flag_" + this.getPais() + ".png"));
@@ -1835,7 +1835,7 @@ public class Club implements Serializable {
             this.kR();
          }
       } else {
-         String var5 = C0696.valueOf("P" + this.getPais()).jA();
+         String var5 = C0696.values()[this.getPais()].jA();
          ImageIcon var6 = new ImageIcon(this.getClass().getResource("/aflags/" + this.getPais() + ".png"));
          this.nE = var6;
       }

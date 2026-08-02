@@ -47,6 +47,7 @@ public final class KryoSaveCompatibilityProbe {
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
       String lineupApi = validateLineupBehavior(loader);
       String contractLoanApi = validateContractAndLoanBehavior(loader, roots[0]);
+      String transferNegotiationApi = validateTransferNegotiationBehavior(loader);
       String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
@@ -90,6 +91,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("MATCH_ENGINE_API " + matchEngineApi);
       System.out.println("LINEUP_API " + lineupApi);
       System.out.println("CONTRACT_LOAN_API " + contractLoanApi);
+      System.out.println("TRANSFER_NEGOTIATION_API " + transferNegotiationApi);
       System.out.println("PLAYER_CLUB_API " + playerClubApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
@@ -636,6 +638,120 @@ public final class KryoSaveCompatibilityProbe {
         loanRecords.remove(loanRecords.size() - 1);
       }
     }
+  }
+
+  private static String validateTransferNegotiationBehavior(ClassLoader loader)
+      throws Exception {
+    Class<?> negotiationClass = loader.loadClass("best.l");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> countryClass = loader.loadClass("best.ac");
+    Object[] countries = (Object[])countryClass.getDeclaredMethod("values").invoke(null);
+    if (countries.length != 224) {
+      throw new IllegalStateException("Expected 224 countries, got " + countries.length);
+    }
+    for (int index = 0; index < countries.length; index++) {
+      int id = ((Integer)countryClass.getDeclaredMethod("getId")
+          .invoke(countries[index])).intValue();
+      if (id != index) {
+        throw new IllegalStateException(
+            "Country ordinal " + index + " contains id " + id);
+      }
+    }
+    Object player = playerClass.getDeclaredConstructor().newInstance();
+    Object sourceClub = clubClass.getDeclaredConstructor().newInstance();
+    Object destinationClub = clubClass.getDeclaredConstructor().newInstance();
+    Object salaryClub = clubClass.getDeclaredConstructor().newInstance();
+
+    setField(sourceClub, "mU", 61);
+    setField(destinationClub, "mU", 62);
+    setField(salaryClub, "mU", 63);
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(sourceClub, 2);
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(destinationClub, 2);
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(salaryClub, 29);
+    clubClass.getDeclaredMethod("setReputacao", Integer.TYPE).invoke(sourceClub, 4);
+    clubClass.getDeclaredMethod("setReputacao", Integer.TYPE).invoke(destinationClub, 4);
+    clubClass.getDeclaredMethod("setReputacao", Integer.TYPE).invoke(salaryClub, 3);
+    clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(destinationClub, 1);
+    clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(salaryClub, 2);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(destinationClub, 10_000L);
+    clubClass.getDeclaredMethod("e", Long.TYPE).invoke(salaryClub, 10_000L);
+
+    playerClass.getDeclaredMethod("n", clubClass).invoke(player, sourceClub);
+    playerClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(player, 2);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 2);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    playerClass.getDeclaredMethod("ad", Integer.TYPE).invoke(player, 50);
+    playerClass.getDeclaredMethod("ae", Integer.TYPE).invoke(player, 100);
+    playerClass.getDeclaredMethod("af", Integer.TYPE).invoke(player, 1_000);
+    playerClass.getDeclaredMethod("ag", Integer.TYPE).invoke(player, 1_200);
+    playerClass.getDeclaredMethod("g", Boolean.class).invoke(player, Boolean.TRUE);
+    playerClass.getDeclaredMethod("c", Boolean.class).invoke(player, Boolean.TRUE);
+    castList(clubClass.getDeclaredMethod("kc").invoke(sourceClub)).add(player);
+
+    Object negotiation = negotiationClass.getDeclaredConstructor(
+        playerClass, Integer.TYPE, Boolean.TYPE, Boolean.TYPE, Integer.TYPE)
+        .newInstance(player, 1_250, false, false, 2);
+    assertSame(player, readField(negotiation, "U"), "negotiation player");
+    assertSame(sourceClub, readField(negotiation, "ck"), "negotiation source club");
+    assertFieldInteger(negotiation, "ci", 1_250);
+    assertFieldInteger(negotiation, "cs", 2);
+    assertFieldInteger(negotiation, "cx", 32);
+    if (negotiationClass.getDeclaredMethod("cK").invoke(negotiation) != null) {
+      throw new IllegalStateException("New negotiation unexpectedly selected a destination");
+    }
+    assertInteger(negotiationClass, negotiation, "cL", 0);
+    negotiationClass.getDeclaredMethod("g", clubClass).invoke(negotiation, destinationClub);
+    negotiationClass.getDeclaredMethod("F", Integer.TYPE).invoke(negotiation, 1_250);
+    assertSame(destinationClub, negotiationClass.getDeclaredMethod("cK").invoke(negotiation),
+        "negotiation destination club");
+    assertInteger(negotiationClass, negotiation, "cL", 1_250);
+
+    int nullLoan = ((Integer)negotiationClass.getDeclaredMethod(
+        "a", playerClass, clubClass).invoke(null, null, null)).intValue();
+    int sameClubLoan = ((Integer)negotiationClass.getDeclaredMethod(
+        "a", playerClass, clubClass).invoke(null, player, sourceClub)).intValue();
+    if (nullLoan != 0 || sameClubLoan != 2) {
+      throw new IllegalStateException("Loan validation returned unexpected status codes");
+    }
+    int sameClubTransfer = ((Integer)negotiationClass.getDeclaredMethod(
+        "b", playerClass, clubClass).invoke(null, player, sourceClub)).intValue();
+    if (sameClubTransfer != 2) {
+      throw new IllegalStateException("Listed transfer did not reject the current club");
+    }
+    assertBoolean(negotiationClass, null, "cO", false);
+
+    boolean compatible = ((Boolean)negotiationClass.getDeclaredMethod(
+        "d", playerClass, clubClass).invoke(null, player, destinationClub)).booleanValue();
+    int interest = ((Integer)negotiationClass.getDeclaredMethod(
+        "c", playerClass, clubClass).invoke(null, player, destinationClub)).intValue();
+    if (!compatible || interest != 0) {
+      throw new IllegalStateException("Compatible destination was rejected");
+    }
+    int acceptedOffer = ((Integer)negotiationClass.getDeclaredMethod(
+        "a", playerClass, clubClass, Integer.TYPE)
+        .invoke(null, player, destinationClub, 3_000)).intValue();
+    int counterOffer = ((Integer)negotiationClass.getDeclaredMethod(
+        "a", playerClass, clubClass, Integer.TYPE)
+        .invoke(null, player, destinationClub, 100)).intValue();
+    if (acceptedOffer != 1 || counterOffer != 7) {
+      throw new IllegalStateException("Transfer offer evaluation returned unexpected status");
+    }
+    assertInteger(negotiationClass, null, "cN", 2_500);
+
+    int salaryRequest = ((Integer)negotiationClass.getDeclaredMethod(
+        "a", playerClass, clubClass, Integer.TYPE)
+        .invoke(null, player, salaryClub, 3_000)).intValue();
+    if (salaryRequest != 6) {
+      throw new IllegalStateException("Salary negotiation returned status " + salaryRequest);
+    }
+    assertInteger(negotiationClass, null, "cM", 200);
+    negotiationClass.getDeclaredMethod("l", Boolean.TYPE).invoke(null, true);
+    assertBoolean(negotiationClass, null, "cO", true);
+    negotiationClass.getDeclaredMethod("l", Boolean.TYPE).invoke(null, false);
+
+    return "countries=224 state=true loanCodes=0/2 listedCode=2 compatible=true "
+        + "offer=accepted counterOffer=2500 salary=200 completedFlag=true";
   }
 
   @SuppressWarnings("unchecked")

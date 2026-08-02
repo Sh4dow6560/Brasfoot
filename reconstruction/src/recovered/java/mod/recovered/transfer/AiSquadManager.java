@@ -125,16 +125,16 @@ public abstract class AiSquadManager {
 
       for (int var6 = 0; var6 < var1.size(); var6++) {
          TransferNegotiation var7 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
-         var7.a(false, false);
-         if (var7.cK() != null) {
-            ((Player)var1.get(var6)).moveToClub(var7.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
+         var7.findDestination(false, false);
+         if (var7.getDestinationClub() != null) {
+            ((Player)var1.get(var6)).moveToClub(var7.getDestinationClub(), ((Player)var1.get(var6)).fk(), false, false, false);
          }
 
-         if (var7.cK() == null) {
+         if (var7.getDestinationClub() == null) {
             TransferNegotiation var4 = new TransferNegotiation((Player)var1.get(var6), ((Player)var1.get(var6)).fk(), false, true, 2);
-            var4.k(false);
-            if (var4.cK() != null) {
-               ((Player)var1.get(var6)).moveToClub(var4.cK(), ((Player)var1.get(var6)).fk(), false, false, false);
+            var4.findAnyDestination(false);
+            if (var4.getDestinationClub() != null) {
+               ((Player)var1.get(var6)).moveToClub(var4.getDestinationClub(), ((Player)var1.get(var6)).fk(), false, false, false);
             }
          }
       }
@@ -269,13 +269,13 @@ public abstract class AiSquadManager {
 
          TransferNegotiation var14 = new TransferNegotiation(var3, var3.fk(), false, true, var13);
          if (var19) {
-            var14.a(false, false);
+            var14.findDestination(false, false);
          } else {
-            var14.k(false);
+            var14.findAnyDestination(false);
          }
 
-         if (var14.cK() != null) {
-            var3.moveToClub(var14.cK(), var3.fk(), false, false, false);
+         if (var14.getDestinationClub() != null) {
+            var3.moveToClub(var14.getDestinationClub(), var3.fk(), false, false, false);
          }
       }
    }

@@ -187,9 +187,9 @@ public class C0452 extends JPanel {
    }
 
    private void sz() {
-      TransferNegotiation.l(false);
+      TransferNegotiation.setTransferCompleted(false);
       int var1 = 0;
-      var1 = TransferNegotiation.a(this.yK, this.ul);
+      var1 = TransferNegotiation.tryLoanPlayer(this.yK, this.ul);
       String[] var2 = new String[]{
          "Não foi possível emprestar",
          "Empréstimo realizado",
@@ -208,9 +208,9 @@ public class C0452 extends JPanel {
    }
 
    private void oM() {
-      TransferNegotiation.l(false);
+      TransferNegotiation.setTransferCompleted(false);
       int var1 = 0;
-      var1 = TransferNegotiation.b(this.yK, this.ul);
+      var1 = TransferNegotiation.tryListedTransfer(this.yK, this.ul);
       String[] var2 = new String[]{
          "Não está à venda",
          "Compra realizada",
@@ -230,13 +230,13 @@ public class C0452 extends JPanel {
    private void sA() {
       if (!GamePersistence.isRegisteredVersion()) {
          JOptionPane.showMessageDialog(this.ub, "Apenas na versão registrada é possível fazer oferta em qualquer jogador.", "Oferta", 2);
-      } else if (TransferNegotiation.d(this.sE(), this.ul)) {
+      } else if (TransferNegotiation.canPlayerJoinClub(this.sE(), this.ul)) {
          if (this.sE().getClub() == this.ul) {
             JOptionPane.showMessageDialog(this.ub, "Jogador do time", "Proposta", 2);
          } else if (this.ul.getSeniorPlayers().size() >= 35) {
             JOptionPane.showMessageDialog(this.ub, "Limite de 32 jogadores alcançado", "Limite de jogadores", 2);
          } else if (this.sE() != null) {
-            TransferNegotiation.l(false);
+            TransferNegotiation.setTransferCompleted(false);
             JDialog var1 = new JDialog(this.ub);
             C0185 var2 = new C0185(var1, this.sE(), this.ul, false);
             var1.add(var2);
@@ -247,7 +247,7 @@ public class C0452 extends JPanel {
             var1.setLocationRelativeTo(null);
             var1.setUndecorated(true);
             var1.setVisible(true);
-            if (TransferNegotiation.cO()) {
+            if (TransferNegotiation.isTransferCompleted()) {
                this.sH();
                this.zj.addNotify();
             }
@@ -613,11 +613,11 @@ public class C0452 extends JPanel {
 
       this.MR.setText(GameConstants.pZ[this.uk.getReputacao()]);
       this.Fq.setIcon(this.uk.kP());
-      this.MQ.setText(C0696.valueOf("P" + this.uk.getPais()).getNome());
+      this.MQ.setText(C0696.values()[this.uk.getPais()].getNome());
       ImageIcon var1 = new ImageIcon(this.getClass().getResource("/aflags/" + this.uk.getPais() + ".png"));
       this.MQ.setIcon(var1);
       if (this.uk.getPais() == 29) {
-         this.MQ.setText(C0696.valueOf("P" + this.uk.getPais()).getNome() + " (" + GameConstants.rX[this.uk.getEstado()] + ")");
+         this.MQ.setText(C0696.values()[this.uk.getPais()].getNome() + " (" + GameConstants.rX[this.uk.getEstado()] + ")");
       } else {
          this.MM.setVisible(false);
       }

@@ -147,7 +147,7 @@ public class C0360 extends JPanel {
          var1 = this.Em.getNome();
          var2 = this.Em.kU();
       } else {
-         var1 = C0696.valueOf("P" + this.Em.getPais()).getNome();
+         var1 = C0696.values()[this.Em.getPais()].getNome();
          var2 = new ImageIcon(this.getClass().getResource("/aflags/" + this.Em.getPais() + ".png"));
       }
 

@@ -1078,7 +1078,7 @@ public class Player implements Serializable {
       int var3 = 10;
       int var4 = 366;
       byte var5 = 0;
-      int var6 = C0696.valueOf("P" + Integer.toString(this.pais)).gg();
+      int var6 = C0696.values()[this.pais].gg();
       if (this.getClub() != null) {
          var2 = this.getClub().getNivel();
       } else {
@@ -1183,7 +1183,7 @@ public class Player implements Serializable {
    }
 
    public int fN() {
-      return C0696.valueOf("P" + Integer.toString(this.pais)).gg();
+      return C0696.values()[this.pais].gg();
    }
 
    public boolean fO() {
@@ -2391,7 +2391,7 @@ public class Player implements Serializable {
       }
 
       int var1 = i;
-      int var2 = C0696.valueOf("P" + Integer.toString(i)).gg();
+      int var2 = C0696.values()[i].gg();
       short var3 = 0;
       short var4 = 0;
       String var5 = new String();
@@ -2514,7 +2514,7 @@ public class Player implements Serializable {
    }
 
    public int gg() {
-      return C0696.valueOf("P" + Integer.toString(this.pais)).gg();
+      return C0696.values()[this.pais].gg();
    }
 
    public int gh() {

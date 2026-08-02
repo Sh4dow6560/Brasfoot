@@ -147,7 +147,7 @@ public class C0217 extends JPanel {
                var11 = GamePersistence.careerState.x(c0708.ct()).getPais();
             }
 
-            String var14 = var2[1][0] + "_" + C0696.valueOf("P" + Integer.toString(var11)).jA();
+            String var14 = var2[1][0] + "_" + C0696.values()[var11].jA();
             return this.w(var14) ? var14 : var2[1][0];
          } else {
             return var2[1][1];
@@ -158,7 +158,7 @@ public class C0217 extends JPanel {
             var10 = GamePersistence.careerState.x(c0708.ct()).getPais();
          }
 
-         String var13 = var2[2][0] + "_" + C0696.valueOf("P" + Integer.toString(var10)).jA();
+         String var13 = var2[2][0] + "_" + C0696.values()[var10].jA();
          return this.w(var13) ? var13 : var2[2][0];
       } else if (var3 == 11) {
          int var9 = -1;
@@ -166,7 +166,7 @@ public class C0217 extends JPanel {
             var9 = GamePersistence.careerState.x(c0708.ct()).getPais();
          }
 
-         String var12 = var2[11][0] + "_" + C0696.valueOf("P" + Integer.toString(var9)).jA();
+         String var12 = var2[11][0] + "_" + C0696.values()[var9].jA();
          return this.w(var12) ? var12 : var2[11][0];
       } else if (var3 == 3) {
          if (var4 == 1) {

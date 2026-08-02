@@ -368,7 +368,7 @@ public class NationalCup extends Competition implements Serializable {
    @Override
    public String[] mA() {
       String[] var1 = new String[]{"", ""};
-      String var2 = "tr_copa_" + C0696.valueOf("P" + Integer.toString(this.KR.jc())).jA();
+      String var2 = "tr_copa_" + C0696.values()[this.KR.jc()].jA();
       String var3 = "tr_copa";
       if (GameConstants.w(var2)) {
          var1[0] = var2;

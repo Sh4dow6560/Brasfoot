@@ -14,7 +14,7 @@ public class C0892 extends DefaultTableCellRenderer {
       super.setBackground(Color.YELLOW);
       super.setForeground(Color.BLACK);
       if (j == 1) {
-         String var7 = C0696.valueOf("P" + object).getNome();
+         String var7 = C0696.values()[(Integer)object].getNome();
          this.setText(var7);
          ImageIcon var8 = new ImageIcon(this.getClass().getResource("/aflags/" + object + ".png"));
          this.setIcon(var8);

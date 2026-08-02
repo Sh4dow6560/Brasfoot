@@ -91,7 +91,7 @@ public class NationalSuperCup extends Competition implements Serializable {
    @Override
    public String[] mA() {
       String[] var1 = new String[]{"", ""};
-      String var2 = "tr_supercopa_" + C0696.valueOf("P" + Integer.toString(this.pais)).jA();
+      String var2 = "tr_supercopa_" + C0696.values()[this.pais].jA();
       String var3 = "tr_supercopa_generico";
       if (GameConstants.w(var2)) {
          var1[0] = var2;
