@@ -43,7 +43,7 @@ public final class KryoSaveCompatibilityProbe {
       CalendarSummary calendar = validateCalendar(roots[0]);
       String matchEventApi = validateMatchEventBehavior(loader);
       String matchStateApi = validateMatchStateBehavior(loader);
-      String matchEngineApi = validateMatchEngineBehavior(loader);
+      String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
       MatchStateSummary matches = new MatchStateSummary();
@@ -236,12 +236,14 @@ public final class KryoSaveCompatibilityProbe {
         + "roundTrip=true";
   }
 
-  private static String validateMatchEngineBehavior(ClassLoader loader) throws Exception {
+  private static String validateMatchEngineBehavior(ClassLoader loader, Object career)
+      throws Exception {
     Class<?> engineClass = loader.loadClass("c.b");
     Class<?> matchClass = loader.loadClass("best.I");
     Class<?> eventClass = loader.loadClass("best.A");
     Class<?> clubClass = loader.loadClass("best.ah");
     Class<?> playerClass = loader.loadClass("best.F");
+    loader.loadClass("best.M").getDeclaredConstructor(Boolean.TYPE).newInstance(true);
     Object engine = engineClass.getDeclaredConstructor().newInstance();
     Object match = matchClass.getDeclaredConstructor().newInstance();
     Object homeClub = clubClass.getDeclaredConstructor().newInstance();
@@ -250,6 +252,8 @@ public final class KryoSaveCompatibilityProbe {
     Object defender = playerClass.getDeclaredConstructor().newInstance();
     playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(attacker, 19);
     playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(defender, 3);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(attacker, 4);
+    playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(defender, 2);
     ArrayList<Object> homePlayers = new ArrayList<Object>();
     ArrayList<Object> awayPlayers = new ArrayList<Object>();
     homePlayers.add(attacker);
@@ -259,6 +263,7 @@ public final class KryoSaveCompatibilityProbe {
     setField(match, "fA", awayClub);
     setField(match, "fJ", homePlayers);
     setField(match, "fK", awayPlayers);
+    setField(match, "fx", loader.loadClass("f.a").getDeclaredConstructor().newInstance());
     setField(engine, "zz", match);
     setField(engine, "TA", Array.newInstance(clubClass, 2));
     Object clubs = readField(engine, "TA");
@@ -273,6 +278,7 @@ public final class KryoSaveCompatibilityProbe {
     setField(engine, "TN", new int[]{6, 7});
     setField(engine, "TO", new int[]{8, 9});
     setField(engine, "TP", new int[]{10, 11});
+    setStaticField(loader.loadClass("c.a"), "SR", career);
 
     for (int index = 0; index < 32; index++) {
       int selected = ((Integer)engineClass.getDeclaredMethod("vN").invoke(engine)).intValue();
@@ -305,6 +311,47 @@ public final class KryoSaveCompatibilityProbe {
     assertSame(readField(engine, "TP"), engineClass.getDeclaredMethod("wh").invoke(engine),
         "engine defensive tackles");
 
+    double playerStrength = ((Double)engineClass.getDeclaredMethod("B", playerClass)
+        .invoke(engine, attacker)).doubleValue();
+    if (playerStrength <= 0.0) {
+      throw new IllegalStateException("Match engine produced non-positive player strength");
+    }
+    assertClose(((Double)invokePrivateWithArgument(
+        engineClass, engine, "ez", Integer.TYPE, 0)).doubleValue(), 0.01,
+        "midfield strength");
+    double attackingStrength = ((Double)invokePrivateWithArgument(
+        engineClass, engine, "eA", Integer.TYPE, 0)).doubleValue();
+    if (attackingStrength <= 0.0) {
+      throw new IllegalStateException("Match engine produced non-positive attacking strength");
+    }
+    assertClose(((Double)invokePrivateWithArgument(
+        engineClass, engine, "eB", Integer.TYPE, 1)).doubleValue(), 0.1,
+        "goalkeeper fallback strength");
+    double selectedAttackerStrength = ((Double)invokePrivateWithArgument(
+        engineClass, engine, "eC", Integer.TYPE, 0)).doubleValue();
+    if (selectedAttackerStrength <= 0.0 || readField(engine, "TE") == null) {
+      throw new IllegalStateException("Match engine did not select an attacker");
+    }
+    int defenders = ((Integer)invokePrivateWithArgument(
+        engineClass, engine, "eD", Integer.TYPE, 1)).intValue();
+    if (defenders != 1) {
+      throw new IllegalStateException("Match engine counted " + defenders + " defenders");
+    }
+    assertClose(((Double)invokePrivateWithArgument(
+        engineClass, engine, "eE", Integer.TYPE, 1)).doubleValue(), 0.01,
+        "defensive strength");
+    invokePrivateWithArgument(engineClass, engine, "eF", Integer.TYPE, 0);
+    invokePrivateWithArgument(engineClass, engine, "eF", Integer.TYPE, 1);
+    int[] possessionPercentages = (int[])matchClass.getDeclaredMethod("hz").invoke(match);
+    if (possessionPercentages[0] + possessionPercentages[1] != 100) {
+      throw new IllegalStateException("Match engine possession does not total 100 percent");
+    }
+    Object assistProvider = engineClass.getDeclaredMethod("C", playerClass)
+        .invoke(engine, attacker);
+    if (assistProvider != null && assistProvider != attacker) {
+      throw new IllegalStateException("Match engine selected an unknown assist provider");
+    }
+
     Object goal = eventClass.getDeclaredConstructor().newInstance();
     eventClass.getDeclaredMethod("k", clubClass).invoke(goal, homeClub);
     engineClass.getDeclaredMethod("a", eventClass, playerClass).invoke(engine, goal, attacker);
@@ -325,7 +372,7 @@ public final class KryoSaveCompatibilityProbe {
       throw new IllegalStateException("Match engine selected invalid fallback position");
     }
     return "activeSwitch=true randomTeamBounds=true score=1x0 goalCounts=1/0 "
-        + "phaseCounters=true";
+        + "phaseCounters=true strengths=true possession=100";
   }
 
   private static Object invokePrivate(
@@ -333,6 +380,14 @@ public final class KryoSaveCompatibilityProbe {
     java.lang.reflect.Method declared = owner.getDeclaredMethod(method, parameterTypes);
     declared.setAccessible(true);
     return declared.invoke(value);
+  }
+
+  private static Object invokePrivateWithArgument(
+      Class<?> owner, Object value, String method, Class<?> parameterType, Object argument)
+      throws Exception {
+    java.lang.reflect.Method declared = owner.getDeclaredMethod(method, parameterType);
+    declared.setAccessible(true);
+    return declared.invoke(value, argument);
   }
 
   private static Object createMatchEvent(
@@ -354,6 +409,12 @@ public final class KryoSaveCompatibilityProbe {
     int actual = readInt(value, field);
     if (actual != expected) {
       throw new IllegalStateException(field + " contained " + actual + " instead of " + expected);
+    }
+  }
+
+  private static void assertClose(double actual, double expected, String description) {
+    if (Math.abs(actual - expected) > 0.000_001) {
+      throw new IllegalStateException(description + " was " + actual + " instead of " + expected);
     }
   }
 
@@ -519,6 +580,12 @@ public final class KryoSaveCompatibilityProbe {
     Field field = owner.getClass().getDeclaredField(name);
     field.setAccessible(true);
     field.set(owner, value);
+  }
+
+  private static void setStaticField(Class<?> owner, String name, Object value) throws Exception {
+    Field field = owner.getDeclaredField(name);
+    field.setAccessible(true);
+    field.set(null, value);
   }
 
   private static Object[] read(byte[] bytes, ClassLoader loader) {

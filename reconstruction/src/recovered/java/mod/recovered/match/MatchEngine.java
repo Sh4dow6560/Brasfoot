@@ -227,7 +227,7 @@ public class MatchEngine {
       return this.activeTeamIndex == 1 ? 0 : 1;
    }
 
-   private double ez(int i) {
+   private double calculateMidfieldStrength(int i) {
       ArrayList var2 = null;
       if (i == 0) {
          var2 = this.match.getHomePlayersOnField();
@@ -247,7 +247,7 @@ public class MatchEngine {
 
       for (int var10 = 0; var10 < var2.size(); var10++) {
          if (var7 < 5 && ((Player)var2.get(var10)).fT() >= 10 && ((Player)var2.get(var10)).fT() <= 17) {
-            var5 += this.B((Player)var2.get(var10));
+            var5 += this.calculatePlayerStrength((Player)var2.get(var10));
             var7++;
          }
       }
@@ -260,7 +260,7 @@ public class MatchEngine {
       return var8;
    }
 
-   private double eA(int i) {
+   private double calculateAttackingStrength(int i) {
       ArrayList var2 = null;
       if (i == 0) {
          var2 = this.match.getHomePlayersOnField();
@@ -274,7 +274,7 @@ public class MatchEngine {
 
       for (int var8 = 0; var8 < var2.size(); var8++) {
          if (var5 < 3 && ((Player)var2.get(var8)).fT() >= 19 && ((Player)var2.get(var8)).fT() <= 25) {
-            var3 += this.B((Player)var2.get(var8));
+            var3 += this.calculatePlayerStrength((Player)var2.get(var8));
             var5++;
          }
       }
@@ -287,7 +287,7 @@ public class MatchEngine {
       return var6;
    }
 
-   private double eB(int i) {
+   private double calculateGoalkeeperStrength(int i) {
       ArrayList var2 = null;
       if (i == 0) {
          var2 = this.match.getHomePlayersOnField();
@@ -301,7 +301,7 @@ public class MatchEngine {
       for (int var6 = 0; var6 < var2.size(); var6++) {
          if (((Player)var2.get(var6)).fT() == 1) {
             var3 = (Player)var2.get(var6);
-            var4 = this.B((Player)var2.get(var6));
+            var4 = this.calculatePlayerStrength((Player)var2.get(var6));
             break;
          }
       }
@@ -313,17 +313,17 @@ public class MatchEngine {
       return var4;
    }
 
-   private double eC(int i) {
+   private double calculateSelectedAttackerStrength(int i) {
       double var2 = 0.1;
       this.selectedAttacker = this.selectAttacker();
       if (this.selectedAttacker != null) {
-         var2 = this.B(this.selectedAttacker);
+         var2 = this.calculatePlayerStrength(this.selectedAttacker);
       }
 
       return var2;
    }
 
-   private int eD(int i) {
+   private int countDefenders(int i) {
       ArrayList var2 = null;
       int var3 = 0;
       if (i == 0) {
@@ -341,7 +341,7 @@ public class MatchEngine {
       return var3;
    }
 
-   private double eE(int i) {
+   private double calculateDefensiveStrength(int i) {
       ArrayList var2 = null;
       if (i == 0) {
          var2 = this.match.getHomePlayersOnField();
@@ -355,7 +355,7 @@ public class MatchEngine {
 
       for (int var8 = 0; var8 < var2.size(); var8++) {
          if (var5 < 5 && ((Player)var2.get(var8)).fT() >= 2 && ((Player)var2.get(var8)).fT() <= 9) {
-            var3 += this.B((Player)var2.get(var8));
+            var3 += this.calculatePlayerStrength((Player)var2.get(var8));
             var5++;
          }
       }
@@ -368,7 +368,7 @@ public class MatchEngine {
       return var6;
    }
 
-   public double B(Player player) {
+   public double calculatePlayerStrength(Player player) {
       int var2 = player.fi();
       if (GamePersistence.careerState.isHabilidadeIndividual()) {
          var2 = 0;
@@ -494,7 +494,7 @@ public class MatchEngine {
       return var2 / 10.0;
    }
 
-   private void eF(int i) {
+   private void recordPossession(int i) {
       this.match.hY()[i]++;
       int var2 = GameConstants.A(this.match.hY()[0], this.match.hY()[0] + this.match.hY()[1]);
       int var3 = GameConstants.A(this.match.hY()[1], this.match.hY()[0] + this.match.hY()[1]);
@@ -504,8 +504,8 @@ public class MatchEngine {
 
    public int resolvePossessionWinner() {
       double[] var1 = new double[]{0.1, 0.1};
-      var1[this.activeTeamIndex] = this.ez(this.activeTeamIndex);
-      var1[this.getOpposingTeamIndex()] = this.ez(this.getOpposingTeamIndex());
+      var1[this.activeTeamIndex] = this.calculateMidfieldStrength(this.activeTeamIndex);
+      var1[this.getOpposingTeamIndex()] = this.calculateMidfieldStrength(this.getOpposingTeamIndex());
       double var2 = 1.0 + this.a(var1[this.activeTeamIndex], var1[this.getOpposingTeamIndex()]);
       double var4 = 1.0 + this.a(var1[this.getOpposingTeamIndex()], var1[this.activeTeamIndex]);
       if (!this.homeAdvantageDisabled && this.activeTeamIndex == 0) {
@@ -530,22 +530,22 @@ public class MatchEngine {
          this.possessionWins[this.activeTeamIndex]++;
          var8 = this.activeTeamIndex;
          this.midfieldAdvances[this.activeTeamIndex]++;
-         this.eF(this.activeTeamIndex);
+         this.recordPossession(this.activeTeamIndex);
       } else if (var7 == 1) {
          this.TQ[this.activeTeamIndex]++;
          this.possessionWins[this.getOpposingTeamIndex()]++;
          var8 = this.getOpposingTeamIndex();
          this.midfieldTackles[this.getOpposingTeamIndex()]++;
-         this.eF(this.getOpposingTeamIndex());
+         this.recordPossession(this.getOpposingTeamIndex());
       }
 
       return var8;
    }
 
    public int resolveAttackOutcome() {
-      double var1 = this.eE(this.getOpposingTeamIndex());
+      double var1 = this.calculateDefensiveStrength(this.getOpposingTeamIndex());
       this.TF = var1;
-      double var3 = this.eA(this.activeTeamIndex);
+      double var3 = this.calculateAttackingStrength(this.activeTeamIndex);
       double var5 = 1.0 + this.a(var3, var1);
       double var7 = 1.0 + this.a(var1, var3);
       if (var1 == 0.0) {
@@ -570,7 +570,7 @@ public class MatchEngine {
 
       int var9 = 0;
       if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
-         var9 = this.eD(this.getOpposingTeamIndex());
+         var9 = this.countDefenders(this.getOpposingTeamIndex());
          if (var9 == 0) {
             var7 = 0.1;
          } else if (var9 == 1) {
@@ -622,16 +622,16 @@ public class MatchEngine {
 
    public MatchEvent resolveShot() {
       MatchEvent var1 = null;
-      double var2 = this.eE(this.getOpposingTeamIndex());
+      double var2 = this.calculateDefensiveStrength(this.getOpposingTeamIndex());
       this.TF = var2;
-      double var4 = this.eA(this.activeTeamIndex);
-      double var6 = this.eC(this.activeTeamIndex);
-      double var8 = this.eB(this.getOpposingTeamIndex());
+      double var4 = this.calculateAttackingStrength(this.activeTeamIndex);
+      double var6 = this.calculateSelectedAttackerStrength(this.activeTeamIndex);
+      double var8 = this.calculateGoalkeeperStrength(this.getOpposingTeamIndex());
       double var12 = 1.0 + this.b(var8, var6);
       double var10 = 1.0 + this.b(var2, var4);
       int var14 = 0;
       if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
-         var14 = this.eD(this.getOpposingTeamIndex());
+         var14 = this.countDefenders(this.getOpposingTeamIndex());
          if (var14 == 0) {
             var12 = (int)Math.round(var12 * 0.2);
          } else if (var14 == 1) {
@@ -802,7 +802,7 @@ public class MatchEngine {
       return var1;
    }
 
-   public Player C(Player player) {
+   public Player selectAssistProvider(Player player) {
       if (new Random().nextInt(100) > 80) {
          return null;
       }
@@ -1004,7 +1004,7 @@ public class MatchEngine {
       }
 
       if (var3 != 3 && var3 != 2 && var3 != 5 && var3 != 4) {
-         Player var8 = this.C(player);
+         Player var8 = this.selectAssistProvider(player);
          if (var8 != null && var8 != player) {
             var8.gB().gV();
             if (var8.fg() != null && !var8.fC()) {

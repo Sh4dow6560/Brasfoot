@@ -31,7 +31,9 @@
   que `MatchEngine` continua transitorio.
 - O fluxo basico de `MatchEngine` possui cenario isolado para alternancia do
   time ativo, selecao dentro dos limites, registro de gol e contadores de
-  chutes, avancos e desarmes por setor.
+  chutes, avancos e desarmes por setor. O mesmo cenario valida as formulas de
+  forca por setor, contagem de defensores, posse total de 100% e selecao de
+  assistente.
 - A expansao de estadio possui cenario funcional isolado que confirma aumento
   de capacidade, consumo dos lugares pendentes e idempotencia.
 - 82 classes ja possuem nomes semanticos. O nucleo legivel cobre
@@ -42,9 +44,10 @@
   data e agenda tambem estao nomeados.
 - `applySemanticSourceMappings` migra referencias e imports de forma
   deterministica antes de atualizar o mapeamento Tiny.
-- `applySemanticMemberMappings` migra membros estaticos, campos privados e
+- `applySemanticMemberMappings` migra membros estaticos, membros privados e
   metodos de instancia globalmente unicos de forma transacional. Os lotes ja
-  cobrem a persistencia central e o estado essencial de `Match`.
+  cobrem a persistencia central, o estado essencial de `Match` e 290 membros
+  recuperados no total.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases

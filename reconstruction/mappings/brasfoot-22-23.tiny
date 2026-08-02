@@ -929,7 +929,16 @@ c	c/b	bf22/intermediary/C0746	mod/recovered/match/MatchEngine
 	f	[I	fX	fX	possessionWins
 	f	[I	zA	zA	goalCounts
 	f	Lbest/I;	zz	zz	match
+	m	(Lbest/F;)D	B	B	calculatePlayerStrength
+	m	(Lbest/F;)Lbest/F;	C	C	selectAssistProvider
 	m	(Lbest/A;Lbest/F;)V	a	a	recordGoalEvent
+	m	(I)D	eA	eA	calculateAttackingStrength
+	m	(I)D	eB	eB	calculateGoalkeeperStrength
+	m	(I)D	eC	eC	calculateSelectedAttackerStrength
+	m	(I)I	eD	eD	countDefenders
+	m	(I)D	eE	eE	calculateDefensiveStrength
+	m	(I)V	eF	eF	recordPossession
+	m	(I)D	ez	ez	calculateMidfieldStrength
 	m	()I	vN	vN	selectRandomTeamIndex
 	m	()Lbest/A;	vO	vO	simulatePossession
 	m	()V	vP	vP	switchActiveTeam

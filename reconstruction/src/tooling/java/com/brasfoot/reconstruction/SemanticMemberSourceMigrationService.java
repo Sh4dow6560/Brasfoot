@@ -142,8 +142,7 @@ final class SemanticMemberSourceMigrationService {
       throw new IllegalStateException("Semantic member is absent from game: " + key);
     }
     boolean externalReferences = (member.access() & Opcodes.ACC_STATIC) != 0;
-    boolean privateField = "field".equals(kind)
-        && (member.access() & Opcodes.ACC_PRIVATE) != 0;
+    boolean privateMember = (member.access() & Opcodes.ACC_PRIVATE) != 0;
     boolean globalInstanceReferences = !externalReferences
         && "method".equals(kind)
         && game.classes().values().stream()
@@ -151,9 +150,9 @@ final class SemanticMemberSourceMigrationService {
             .filter(candidate -> candidate.kind().equals(kind))
             .filter(candidate -> candidate.name().equals(officialName))
             .count() == 1;
-    if (!externalReferences && !privateField && !globalInstanceReferences) {
+    if (!externalReferences && !privateMember && !globalInstanceReferences) {
       throw new IllegalStateException("Automatic source migration requires a static member, "
-          + "a private field, or a globally unique instance method: " + key);
+          + "a private member, or a globally unique instance method: " + key);
     }
     long sameNameMembers = ownerInfo.members().stream()
         .filter(candidate -> candidate.kind().equals(kind))
