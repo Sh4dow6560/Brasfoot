@@ -120,25 +120,25 @@ public class MatchEngine {
       {1.0, 1.0, 1.0},
       {1.0, 1.0, 1.0}
    };
-   private Match zz = null;
-   private Club[] TA = null;
-   private int TB = 0;
-   private int TC = 0;
-   private boolean TD = false;
-   Player TE = null;
+   private Match match = null;
+   private Club[] clubs = null;
+   private int activeTeamIndex = 0;
+   private int simulatedPossessions = 0;
+   private boolean homeAdvantageDisabled = false;
+   Player selectedAttacker = null;
    private double TF = 0.0;
-   private int[] zA = new int[2];
-   private int[] TG = new int[2];
+   private int[] goalCounts = new int[2];
+   private int[] shotCounts = new int[2];
    private int[] TH = new int[2];
    private int[] TI = new int[2];
    private int[] TJ = new int[2];
    private int[] TK = new int[2];
    private int[] TL = new int[2];
-   private int[] TM = new int[2];
-   private int[] TN = new int[2];
-   private int[] TO = new int[2];
-   private int[] TP = new int[2];
-   private int[] fX = new int[2];
+   private int[] attackingAdvances = new int[2];
+   private int[] midfieldAdvances = new int[2];
+   private int[] midfieldTackles = new int[2];
+   private int[] defensiveTackles = new int[2];
+   private int[] possessionWins = new int[2];
    private int[] TQ = new int[2];
    private int[] TR = new int[2];
    private int[] TS = new int[3];
@@ -149,17 +149,17 @@ public class MatchEngine {
    private static final double[] TX = new double[]{0.5, 40.55, 15.0};
    int[] TY = new int[]{1, 22, 24, 11, 13, 14, 16, 2, 9, 3, 5};
 
-   public int vN() {
+   public int selectRandomTeamIndex() {
       boolean var1 = this.Tn.nextBoolean();
       return var1 ? 0 : 1;
    }
 
    public MatchEngine(Match c0675) {
-      this.zz = c0675;
+      this.match = c0675;
       Club[] var2 = new Club[]{c0675.getHomeClub(), c0675.getAwayClub()};
-      this.TA = var2;
-      this.TB = this.vN();
-      this.TD = c0675.hX();
+      this.clubs = var2;
+      this.activeTeamIndex = this.selectRandomTeamIndex();
+      this.homeAdvantageDisabled = c0675.hX();
       if (c0675.getHomePlayersOnField().size() == 0) {
          System.out.println("erro escala: " + c0675.getHomeClub().getNome());
          GamePersistence.careerState.bN = true;
@@ -192,50 +192,50 @@ public class MatchEngine {
    public MatchEngine() {
    }
 
-   public MatchEvent vO() {
+   public MatchEvent simulatePossession() {
       MatchEvent var1 = null;
-      this.TC++;
-      int var2 = this.vR();
-      if (var2 == this.TB) {
-         if (this.vS() == 0) {
-            this.zz.getShots()[this.TB]++;
-            var1 = this.vT();
+      this.simulatedPossessions++;
+      int var2 = this.resolvePossessionWinner();
+      if (var2 == this.activeTeamIndex) {
+         if (this.resolveAttackOutcome() == 0) {
+            this.match.getShots()[this.activeTeamIndex]++;
+            var1 = this.resolveShot();
          } else if (this.To.nextInt(100) < 50) {
-            this.zz.getTackles()[this.vQ()]++;
+            this.match.getTackles()[this.getOpposingTeamIndex()]++;
          } else {
-            this.zz.getMisplacedPasses()[this.TB]++;
+            this.match.getMisplacedPasses()[this.activeTeamIndex]++;
          }
       } else if (this.To.nextInt(100) < 50) {
-         this.zz.getTackles()[this.vQ()]++;
+         this.match.getTackles()[this.getOpposingTeamIndex()]++;
       } else {
-         this.zz.getMisplacedPasses()[this.TB]++;
+         this.match.getMisplacedPasses()[this.activeTeamIndex]++;
       }
 
-      this.vP();
+      this.switchActiveTeam();
       return var1;
    }
 
-   private void vP() {
-      if (this.TB == 1) {
-         this.TB = 0;
-      } else if (this.TB == 0) {
-         this.TB = 1;
+   private void switchActiveTeam() {
+      if (this.activeTeamIndex == 1) {
+         this.activeTeamIndex = 0;
+      } else if (this.activeTeamIndex == 0) {
+         this.activeTeamIndex = 1;
       }
    }
 
-   private int vQ() {
-      return this.TB == 1 ? 0 : 1;
+   private int getOpposingTeamIndex() {
+      return this.activeTeamIndex == 1 ? 0 : 1;
    }
 
    private double ez(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
-      int var3 = this.TA[i].kj()[2];
+      int var3 = this.clubs[i].kj()[2];
       double[] var4 = new double[]{0.0, 0.04, 0.08};
       if (var3 >= var4.length) {
          var3 = 2;
@@ -263,9 +263,9 @@ public class MatchEngine {
    private double eA(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -290,9 +290,9 @@ public class MatchEngine {
    private double eB(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
       Player var3 = null;
@@ -315,9 +315,9 @@ public class MatchEngine {
 
    private double eC(int i) {
       double var2 = 0.1;
-      this.TE = this.vU();
-      if (this.TE != null) {
-         var2 = this.B(this.TE);
+      this.selectedAttacker = this.selectAttacker();
+      if (this.selectedAttacker != null) {
+         var2 = this.B(this.selectedAttacker);
       }
 
       return var2;
@@ -327,9 +327,9 @@ public class MatchEngine {
       ArrayList var2 = null;
       int var3 = 0;
       if (i == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
       for (int var4 = 0; var4 < var2.size(); var4++) {
@@ -344,9 +344,9 @@ public class MatchEngine {
    private double eE(int i) {
       ArrayList var2 = null;
       if (i == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -434,27 +434,27 @@ public class MatchEngine {
          var2 = 1;
       }
 
-      if (this.zz != null && this.zz.getCompetition().b() == 7) {
-         if (this.zz.getHomeClub() != null && player.getPais() == this.zz.getHomeClub().getPais()) {
-            if (this.zz.getHomeClub().getReputacao() < 3) {
+      if (this.match != null && this.match.getCompetition().b() == 7) {
+         if (this.match.getHomeClub() != null && player.getPais() == this.match.getHomeClub().getPais()) {
+            if (this.match.getHomeClub().getReputacao() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.zz.getHomeClub().getReputacao() == 3) {
+            } else if (this.match.getHomeClub().getReputacao() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.zz.getHomeClub().getReputacao() == 4) {
+            } else if (this.match.getHomeClub().getReputacao() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
-         } else if (this.zz.getAwayClub() != null && player.getPais() == this.zz.getAwayClub().getPais()) {
-            if (this.zz.getAwayClub().getReputacao() < 3) {
+         } else if (this.match.getAwayClub() != null && player.getPais() == this.match.getAwayClub().getPais()) {
+            if (this.match.getAwayClub().getReputacao() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.zz.getAwayClub().getReputacao() == 3) {
+            } else if (this.match.getAwayClub().getReputacao() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.zz.getAwayClub().getReputacao() == 4) {
+            } else if (this.match.getAwayClub().getReputacao() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
          }
       }
 
-      if (this.zz != null && this.zz.getCompetition().b() == 4) {
+      if (this.match != null && this.match.getCompetition().b() == 4) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.75);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -464,7 +464,7 @@ public class MatchEngine {
          }
       }
 
-      if (this.zz != null && this.zz.getCompetition().b() == 5) {
+      if (this.match != null && this.match.getCompetition().b() == 5) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.55);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -474,7 +474,7 @@ public class MatchEngine {
          }
       }
 
-      if (this.zz != null && this.zz.getCompetition().b() == 1) {
+      if (this.match != null && this.match.getCompetition().b() == 1) {
          if (player.fg() != null && player.fg().getReputacao() < 3) {
             var2 = (int)Math.round(var2 * 0.85);
          } else if (player.fg() != null && player.fg().getReputacao() == 3) {
@@ -482,12 +482,12 @@ public class MatchEngine {
          }
       }
 
-      if (this.zz != null
-         && (this.zz.getCompetition().b() == 3 || this.zz.getCompetition().b() == 2)
-         && this.zz.getHomeClub().getReputacao() < 3
-         && this.zz.getAwayClub().getReputacao() >= 3
+      if (this.match != null
+         && (this.match.getCompetition().b() == 3 || this.match.getCompetition().b() == 2)
+         && this.match.getHomeClub().getReputacao() < 3
+         && this.match.getAwayClub().getReputacao() >= 3
          && player.fg() != null
-         && player.fg().equals(this.zz.getAwayClub())) {
+         && player.fg().equals(this.match.getAwayClub())) {
          var2 = (int)Math.round(var2 * 0.8);
       }
 
@@ -495,24 +495,24 @@ public class MatchEngine {
    }
 
    private void eF(int i) {
-      this.zz.hY()[i]++;
-      int var2 = GameConstants.A(this.zz.hY()[0], this.zz.hY()[0] + this.zz.hY()[1]);
-      int var3 = GameConstants.A(this.zz.hY()[1], this.zz.hY()[0] + this.zz.hY()[1]);
-      this.zz.getPossessionPercentages()[0] = var2;
-      this.zz.getPossessionPercentages()[1] = var3;
+      this.match.hY()[i]++;
+      int var2 = GameConstants.A(this.match.hY()[0], this.match.hY()[0] + this.match.hY()[1]);
+      int var3 = GameConstants.A(this.match.hY()[1], this.match.hY()[0] + this.match.hY()[1]);
+      this.match.getPossessionPercentages()[0] = var2;
+      this.match.getPossessionPercentages()[1] = var3;
    }
 
-   public int vR() {
+   public int resolvePossessionWinner() {
       double[] var1 = new double[]{0.1, 0.1};
-      var1[this.TB] = this.ez(this.TB);
-      var1[this.vQ()] = this.ez(this.vQ());
-      double var2 = 1.0 + this.a(var1[this.TB], var1[this.vQ()]);
-      double var4 = 1.0 + this.a(var1[this.vQ()], var1[this.TB]);
-      if (!this.TD && this.TB == 0) {
+      var1[this.activeTeamIndex] = this.ez(this.activeTeamIndex);
+      var1[this.getOpposingTeamIndex()] = this.ez(this.getOpposingTeamIndex());
+      double var2 = 1.0 + this.a(var1[this.activeTeamIndex], var1[this.getOpposingTeamIndex()]);
+      double var4 = 1.0 + this.a(var1[this.getOpposingTeamIndex()], var1[this.activeTeamIndex]);
+      if (!this.homeAdvantageDisabled && this.activeTeamIndex == 0) {
          var2 += 0.3;
       }
 
-      int var10000 = this.TA[this.TB].kj()[1];
+      int var10000 = this.clubs[this.activeTeamIndex].kj()[1];
       if (var2 < 0.2) {
          var2 = 0.2;
       }
@@ -526,33 +526,33 @@ public class MatchEngine {
       var7 = this.b(Tg, var6);
       int var8 = 0;
       if (var7 == 0) {
-         this.TQ[this.vQ()]++;
-         this.fX[this.TB]++;
-         var8 = this.TB;
-         this.TN[this.TB]++;
-         this.eF(this.TB);
+         this.TQ[this.getOpposingTeamIndex()]++;
+         this.possessionWins[this.activeTeamIndex]++;
+         var8 = this.activeTeamIndex;
+         this.midfieldAdvances[this.activeTeamIndex]++;
+         this.eF(this.activeTeamIndex);
       } else if (var7 == 1) {
-         this.TQ[this.TB]++;
-         this.fX[this.vQ()]++;
-         var8 = this.vQ();
-         this.TO[this.vQ()]++;
-         this.eF(this.vQ());
+         this.TQ[this.activeTeamIndex]++;
+         this.possessionWins[this.getOpposingTeamIndex()]++;
+         var8 = this.getOpposingTeamIndex();
+         this.midfieldTackles[this.getOpposingTeamIndex()]++;
+         this.eF(this.getOpposingTeamIndex());
       }
 
       return var8;
    }
 
-   public int vS() {
-      double var1 = this.eE(this.vQ());
+   public int resolveAttackOutcome() {
+      double var1 = this.eE(this.getOpposingTeamIndex());
       this.TF = var1;
-      double var3 = this.eA(this.TB);
+      double var3 = this.eA(this.activeTeamIndex);
       double var5 = 1.0 + this.a(var3, var1);
       double var7 = 1.0 + this.a(var1, var3);
       if (var1 == 0.0) {
          var7 = 0.1;
       }
 
-      if (!this.TD && this.TB == 0) {
+      if (!this.homeAdvantageDisabled && this.activeTeamIndex == 0) {
          var5 += 0.3;
       }
 
@@ -569,8 +569,8 @@ public class MatchEngine {
       }
 
       int var9 = 0;
-      if (this.TA[0].jZ() || this.TA[1].jZ()) {
-         var9 = this.eD(this.vQ());
+      if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
+         var9 = this.eD(this.getOpposingTeamIndex());
          if (var9 == 0) {
             var7 = 0.1;
          } else if (var9 == 1) {
@@ -582,9 +582,9 @@ public class MatchEngine {
       int var11 = -1;
       var11 = this.b(Th, var10);
       if (var11 == 0) {
-         this.TM[this.TB]++;
+         this.attackingAdvances[this.activeTeamIndex]++;
       } else if (var11 == 1) {
-         this.TP[this.vQ()]++;
+         this.defensiveTackles[this.getOpposingTeamIndex()]++;
       }
 
       return var11;
@@ -620,18 +620,18 @@ public class MatchEngine {
       return var5 / 12.0;
    }
 
-   public MatchEvent vT() {
+   public MatchEvent resolveShot() {
       MatchEvent var1 = null;
-      double var2 = this.eE(this.vQ());
+      double var2 = this.eE(this.getOpposingTeamIndex());
       this.TF = var2;
-      double var4 = this.eA(this.TB);
-      double var6 = this.eC(this.TB);
-      double var8 = this.eB(this.vQ());
+      double var4 = this.eA(this.activeTeamIndex);
+      double var6 = this.eC(this.activeTeamIndex);
+      double var8 = this.eB(this.getOpposingTeamIndex());
       double var12 = 1.0 + this.b(var8, var6);
       double var10 = 1.0 + this.b(var2, var4);
       int var14 = 0;
-      if (this.TA[0].jZ() || this.TA[1].jZ()) {
-         var14 = this.eD(this.vQ());
+      if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
+         var14 = this.eD(this.getOpposingTeamIndex());
          if (var14 == 0) {
             var12 = (int)Math.round(var12 * 0.2);
          } else if (var14 == 1) {
@@ -639,28 +639,28 @@ public class MatchEngine {
          }
       }
 
-      if (!this.TD) {
-         if (this.TB == 0) {
+      if (!this.homeAdvantageDisabled) {
+         if (this.activeTeamIndex == 0) {
             var12 += 0.1;
             var10 = var12 + 0.1;
          }
 
-         if (this.TB == 1) {
+         if (this.activeTeamIndex == 1) {
             var12 -= 0.1;
             var10 = var12 - 0.1;
          }
       }
 
       double[] var15 = TU;
-      if (this.zA[this.TB] >= 6) {
+      if (this.goalCounts[this.activeTeamIndex] >= 6) {
          var15 = TX;
-      } else if (this.zA[this.TB] >= 5) {
+      } else if (this.goalCounts[this.activeTeamIndex] >= 5) {
          var15 = TW;
-      } else if (this.zA[this.TB] >= 3) {
+      } else if (this.goalCounts[this.activeTeamIndex] >= 3) {
          var15 = TV;
       }
 
-      if (this.zA[this.TB] >= 2 && this.TA[this.vQ()].getReputacao() - this.TA[this.TB].getReputacao() >= 2) {
+      if (this.goalCounts[this.activeTeamIndex] >= 2 && this.clubs[this.getOpposingTeamIndex()].getReputacao() - this.clubs[this.activeTeamIndex].getReputacao() >= 2) {
          var15 = TW;
       }
 
@@ -675,19 +675,19 @@ public class MatchEngine {
       double[] var16 = new double[]{1.0, var12, var10};
       int var17 = -1;
       var17 = this.a(var15, var16);
-      this.TG[this.TB]++;
+      this.shotCounts[this.activeTeamIndex]++;
       if (var17 == 0) {
-         var1 = new MatchEvent(this.TB);
-         var1.setClub(this.TA[this.TB]);
-         this.a(var1, this.TE);
-         this.zz.getShotsOnTarget()[this.TB]++;
+         var1 = new MatchEvent(this.activeTeamIndex);
+         var1.setClub(this.clubs[this.activeTeamIndex]);
+         this.recordGoalEvent(var1, this.selectedAttacker);
+         this.match.getShotsOnTarget()[this.activeTeamIndex]++;
       } else if (var17 == 1) {
-         this.zz.getShotsOnTarget()[this.TB]++;
-         if (this.TE != null) {
-            this.TE.gB().tL();
+         this.match.getShotsOnTarget()[this.activeTeamIndex]++;
+         if (this.selectedAttacker != null) {
+            this.selectedAttacker.gB().tL();
          }
       } else if (var17 == 2) {
-         this.zz.getShotsOffTarget()[this.TB]++;
+         this.match.getShotsOffTarget()[this.activeTeamIndex]++;
       }
 
       return var1;
@@ -737,13 +737,13 @@ public class MatchEngine {
       return ds.length;
    }
 
-   public Player vU() {
+   public Player selectAttacker() {
       Player var1 = null;
       ArrayList var2 = null;
-      if (this.TB == 0) {
-         var2 = this.zz.getHomePlayersOnField();
+      if (this.activeTeamIndex == 0) {
+         var2 = this.match.getHomePlayersOnField();
       } else {
-         var2 = this.zz.getAwayPlayersOnField();
+         var2 = this.match.getAwayPlayersOnField();
       }
 
       double var3 = 0.0;
@@ -810,12 +810,12 @@ public class MatchEngine {
       Player var2 = null;
       ArrayList var3 = null;
       int var4 = 0;
-      if (this.TB == 0) {
-         var3 = this.zz.getHomePlayersOnField();
-         var4 = this.zz.getHomeClub().kj()[2];
+      if (this.activeTeamIndex == 0) {
+         var3 = this.match.getHomePlayersOnField();
+         var4 = this.match.getHomeClub().kj()[2];
       } else {
-         var3 = this.zz.getAwayPlayersOnField();
-         var4 = this.zz.getAwayClub().kj()[2];
+         var3 = this.match.getAwayPlayersOnField();
+         var4 = this.match.getAwayClub().kj()[2];
       }
 
       double var5 = 0.0;
@@ -907,13 +907,13 @@ public class MatchEngine {
       return var2;
    }
 
-   public Player vV() {
+   public Player selectDefender() {
       Object var1 = null;
       ArrayList var2 = null;
-      if (this.TB == 0) {
-         var2 = this.zz.getAwayPlayersOnField();
+      if (this.activeTeamIndex == 0) {
+         var2 = this.match.getAwayPlayersOnField();
       } else {
-         var2 = this.zz.getHomePlayersOnField();
+         var2 = this.match.getHomePlayersOnField();
       }
 
       double var3 = 0.0;
@@ -940,7 +940,7 @@ public class MatchEngine {
       return (Player)var1;
    }
 
-   public int vW() {
+   public int selectFallbackPosition() {
       double var1 = 0.0;
 
       for (int var3 = 0; var3 < this.TY.length; var3++) {
@@ -965,7 +965,7 @@ public class MatchEngine {
       return -1;
    }
 
-   public void a(MatchEvent c0667, Player player) {
+   public void recordGoalEvent(MatchEvent c0667, Player player) {
       c0667.setType(1);
       c0667.setPrimaryPlayer(player);
       byte var3 = 1;
@@ -986,17 +986,17 @@ public class MatchEngine {
 
       if (player == null) {
          ArrayList var5 = null;
-         if (this.TB == 0) {
-            var5 = this.zz.getHomePlayersOnField();
+         if (this.activeTeamIndex == 0) {
+            var5 = this.match.getHomePlayersOnField();
          } else {
-            var5 = this.zz.getAwayPlayersOnField();
+            var5 = this.match.getAwayPlayersOnField();
          }
 
          if (var5.size() == 0) {
-            Club.a(this.TA[this.TB], this.zz, this.TB + 1, -1, true);
+            Club.a(this.clubs[this.activeTeamIndex], this.match, this.activeTeamIndex + 1, -1, true);
          }
 
-         player = this.vU();
+         player = this.selectAttacker();
       }
 
       if (player != null && var3 != 3 && var3 != 2) {
@@ -1008,7 +1008,7 @@ public class MatchEngine {
          if (var8 != null && var8 != player) {
             var8.gB().gV();
             if (var8.fg() != null && !var8.fC()) {
-               var8.a(8, c0667.getClub(), this.zz.getCompetition());
+               var8.a(8, c0667.getClub(), this.match.getCompetition());
             }
 
             c0667.setSecondaryPlayer(var8);
@@ -1017,21 +1017,21 @@ public class MatchEngine {
 
       if (player != null && var3 == 5) {
          ArrayList var9 = null;
-         if (this.TB == 0) {
-            var9 = this.zz.getHomePlayersOnField();
+         if (this.activeTeamIndex == 0) {
+            var9 = this.match.getHomePlayersOnField();
          } else {
-            var9 = this.zz.getAwayPlayersOnField();
+            var9 = this.match.getAwayPlayersOnField();
          }
 
-         if (this.TA[this.TB].lq() != null && var9.contains(this.TA[this.TB].lq())) {
-            c0667.setPrimaryPlayer(this.TA[this.TB].lq());
+         if (this.clubs[this.activeTeamIndex].lq() != null && var9.contains(this.clubs[this.activeTeamIndex].lq())) {
+            c0667.setPrimaryPlayer(this.clubs[this.activeTeamIndex].lq());
          } else if (player.getPosicao() == 0) {
             var3 = 1;
          }
       }
 
       if (var3 == 2) {
-         Player var11 = this.vV();
+         Player var11 = this.selectDefender();
          if (var11 != null) {
             c0667.setPrimaryPlayer(var11);
             var11.gB().tE();
@@ -1045,21 +1045,21 @@ public class MatchEngine {
 
       if (var3 == 3 || var3 == 4) {
          ArrayList var12 = null;
-         if (this.TB == 0) {
-            var12 = this.zz.getHomePlayersOnField();
+         if (this.activeTeamIndex == 0) {
+            var12 = this.match.getHomePlayersOnField();
          } else {
-            var12 = this.zz.getAwayPlayersOnField();
+            var12 = this.match.getAwayPlayersOnField();
          }
 
-         if (this.TA[this.TB].ke() != null && var12.contains(this.TA[this.TB].ke())) {
-            c0667.setPrimaryPlayer(this.TA[this.TB].ke());
+         if (this.clubs[this.activeTeamIndex].ke() != null && var12.contains(this.clubs[this.activeTeamIndex].ke())) {
+            c0667.setPrimaryPlayer(this.clubs[this.activeTeamIndex].ke());
          }
       }
 
       boolean var14 = false;
       if (var3 == 3) {
          c0667.setConfirmed(true);
-         if (this.TA[0].jZ() || this.TA[1].jZ()) {
+         if (this.clubs[0].jZ() || this.clubs[1].jZ()) {
             var14 = true;
             var3 = 3;
             c0667.setConfirmed(false);
@@ -1067,11 +1067,11 @@ public class MatchEngine {
       }
 
       if (!var14) {
-         this.zA[this.TB]++;
-         if (this.TB == 0) {
-            this.zz.incrementHomeGoals();
+         this.goalCounts[this.activeTeamIndex]++;
+         if (this.activeTeamIndex == 0) {
+            this.match.incrementHomeGoals();
          } else {
-            this.zz.incrementAwayGoals();
+            this.match.incrementAwayGoals();
          }
 
          if (player != null) {
@@ -1083,15 +1083,15 @@ public class MatchEngine {
    }
 
    public void eG(int i) {
-      this.zA[i]++;
+      this.goalCounts[i]++;
    }
 
-   public int[] vX() {
-      return this.zA;
+   public int[] getGoalCounts() {
+      return this.goalCounts;
    }
 
-   public int[] vY() {
-      return this.TG;
+   public int[] getShotCounts() {
+      return this.shotCounts;
    }
 
    public int[] vZ() {
@@ -1114,24 +1114,24 @@ public class MatchEngine {
       return this.TL;
    }
 
-   public int[] we() {
-      return this.TM;
+   public int[] getAttackingAdvances() {
+      return this.attackingAdvances;
    }
 
-   public int[] wf() {
-      return this.TN;
+   public int[] getMidfieldAdvances() {
+      return this.midfieldAdvances;
    }
 
-   public int[] wg() {
-      return this.TO;
+   public int[] getMidfieldTackles() {
+      return this.midfieldTackles;
    }
 
-   public int[] wh() {
-      return this.TP;
+   public int[] getDefensiveTackles() {
+      return this.defensiveTackles;
    }
 
    public int[] hY() {
-      return this.fX;
+      return this.possessionWins;
    }
 
    public int[] wi() {

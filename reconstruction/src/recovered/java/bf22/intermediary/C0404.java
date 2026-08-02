@@ -120,7 +120,7 @@ public class C0404 extends JPanel {
 
          for (int var22 = 0; var22 < 45 + var21[0]; var22++) {
             MatchEvent var23 = null;
-            var23 = var20.vO();
+            var23 = var20.simulatePossession();
             if (var23 != null) {
                var23.setMinute(var22);
                var23.setPeriod(1);
@@ -130,7 +130,7 @@ public class C0404 extends JPanel {
 
          for (int var28 = 0; var28 < 45 + var21[1]; var28++) {
             MatchEvent var43 = null;
-            var43 = var20.vO();
+            var43 = var20.simulatePossession();
             if (var43 != null) {
                var43.setMinute(var28);
                var43.setPeriod(2);
@@ -138,47 +138,47 @@ public class C0404 extends JPanel {
             }
          }
 
-         var7[0] += var20.vX()[0];
-         var7[1] += var20.vX()[1];
-         if (var20.vX()[0] > var20.vX()[1]) {
+         var7[0] += var20.getGoalCounts()[0];
+         var7[1] += var20.getGoalCounts()[1];
+         if (var20.getGoalCounts()[0] > var20.getGoalCounts()[1]) {
             var6[0]++;
-         } else if (var20.vX()[1] > var20.vX()[0]) {
+         } else if (var20.getGoalCounts()[1] > var20.getGoalCounts()[0]) {
             var6[1]++;
          } else {
             var15++;
          }
 
-         if (var20.vX()[0] > var14[0]) {
-            var14[0] = var20.vX()[0];
+         if (var20.getGoalCounts()[0] > var14[0]) {
+            var14[0] = var20.getGoalCounts()[0];
          }
 
-         if (var20.vX()[1] > var14[1]) {
-            var14[1] = var20.vX()[1];
+         if (var20.getGoalCounts()[1] > var14[1]) {
+            var14[1] = var20.getGoalCounts()[1];
          }
 
-         var8[0] += var20.vY()[0];
-         var8[1] += var20.vY()[1];
+         var8[0] += var20.getShotCounts()[0];
+         var8[1] += var20.getShotCounts()[1];
          var9[0] += var20.hY()[0];
          var9[1] += var20.hY()[1];
-         var10[0] += var20.wf()[0];
-         var10[1] += var20.wf()[1];
-         var11[0] += var20.we()[0];
-         var11[1] += var20.we()[1];
-         var12[0] += var20.wg()[0];
-         var12[1] += var20.wg()[1];
-         var13[0] += var20.wh()[0];
-         var13[1] += var20.wh()[1];
+         var10[0] += var20.getMidfieldAdvances()[0];
+         var10[1] += var20.getMidfieldAdvances()[1];
+         var11[0] += var20.getAttackingAdvances()[0];
+         var11[1] += var20.getAttackingAdvances()[1];
+         var12[0] += var20.getMidfieldTackles()[0];
+         var12[1] += var20.getMidfieldTackles()[1];
+         var13[0] += var20.getDefensiveTackles()[0];
+         var13[1] += var20.getDefensiveTackles()[1];
          if (var18 == i - 1) {
-            int[] var29 = var20.vX();
+            int[] var29 = var20.getGoalCounts();
             this.GJ.setText(var19.getHomeClub().getNome() + Integer.toString(var29[0]) + " x " + Integer.toString(var29[1]) + var19.getAwayClub().getNome());
             String var45 = "<html>";
-            var45 = var45 + "<br>Placar:" + Integer.toString(var20.vX()[0]) + " x " + Integer.toString(var20.vX()[1]);
+            var45 = var45 + "<br>Placar:" + Integer.toString(var20.getGoalCounts()[0]) + " x " + Integer.toString(var20.getGoalCounts()[1]);
             var45 = var45 + "<br>Venceu meio: " + Integer.toString(var20.hY()[0]) + "/" + Integer.toString(var20.hY()[1]);
-            var45 = var45 + "<br>Avancos no meio: " + Integer.toString(var20.wf()[0]) + "/" + Integer.toString(var20.wf()[1]);
-            var45 = var45 + "<br>Desarmes no meio: " + Integer.toString(var20.wg()[0]) + "/" + Integer.toString(var20.wg()[1]);
-            var45 = var45 + "<br>Avancos Ataque:" + Integer.toString(var20.we()[0]) + "/" + Integer.toString(var20.we()[1]);
-            var45 = var45 + "<br>Desarmes defesa:" + Integer.toString(var20.wh()[0]) + "/" + Integer.toString(var20.wh()[1]);
-            var45 = var45 + "<br>Chutes totais:" + Integer.toString(var20.vY()[0]) + "/" + Integer.toString(var20.vY()[1]);
+            var45 = var45 + "<br>Avancos no meio: " + Integer.toString(var20.getMidfieldAdvances()[0]) + "/" + Integer.toString(var20.getMidfieldAdvances()[1]);
+            var45 = var45 + "<br>Desarmes no meio: " + Integer.toString(var20.getMidfieldTackles()[0]) + "/" + Integer.toString(var20.getMidfieldTackles()[1]);
+            var45 = var45 + "<br>Avancos Ataque:" + Integer.toString(var20.getAttackingAdvances()[0]) + "/" + Integer.toString(var20.getAttackingAdvances()[1]);
+            var45 = var45 + "<br>Desarmes defesa:" + Integer.toString(var20.getDefensiveTackles()[0]) + "/" + Integer.toString(var20.getDefensiveTackles()[1]);
+            var45 = var45 + "<br>Chutes totais:" + Integer.toString(var20.getShotCounts()[0]) + "/" + Integer.toString(var20.getShotCounts()[1]);
             var45 = var45 + "</html>";
             this.yA.setText(var45);
             String var24 = "<html>";

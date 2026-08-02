@@ -43,6 +43,7 @@ public final class KryoSaveCompatibilityProbe {
       CalendarSummary calendar = validateCalendar(roots[0]);
       String matchEventApi = validateMatchEventBehavior(loader);
       String matchStateApi = validateMatchStateBehavior(loader);
+      String matchEngineApi = validateMatchEngineBehavior(loader);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
       MatchStateSummary matches = new MatchStateSummary();
@@ -81,6 +82,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("MATCH_EVENT_API " + matchEventApi);
       System.out.println("MATCH_STATE " + matches.toLogLine());
       System.out.println("MATCH_STATE_API " + matchStateApi);
+      System.out.println("MATCH_ENGINE_API " + matchEngineApi);
       System.out.println("STADIUM_EXPANSION " + stadiumExpansion);
       System.out.println("ROUNDTRIP originalBytes=" + original.length
           + " outputBytes=" + roundTrip.length
@@ -234,6 +236,105 @@ public final class KryoSaveCompatibilityProbe {
         + "roundTrip=true";
   }
 
+  private static String validateMatchEngineBehavior(ClassLoader loader) throws Exception {
+    Class<?> engineClass = loader.loadClass("c.b");
+    Class<?> matchClass = loader.loadClass("best.I");
+    Class<?> eventClass = loader.loadClass("best.A");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> playerClass = loader.loadClass("best.F");
+    Object engine = engineClass.getDeclaredConstructor().newInstance();
+    Object match = matchClass.getDeclaredConstructor().newInstance();
+    Object homeClub = clubClass.getDeclaredConstructor().newInstance();
+    Object awayClub = clubClass.getDeclaredConstructor().newInstance();
+    Object attacker = playerClass.getDeclaredConstructor().newInstance();
+    Object defender = playerClass.getDeclaredConstructor().newInstance();
+    playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(attacker, 19);
+    playerClass.getDeclaredMethod("as", Integer.TYPE).invoke(defender, 3);
+    ArrayList<Object> homePlayers = new ArrayList<Object>();
+    ArrayList<Object> awayPlayers = new ArrayList<Object>();
+    homePlayers.add(attacker);
+    awayPlayers.add(defender);
+
+    setField(match, "fz", homeClub);
+    setField(match, "fA", awayClub);
+    setField(match, "fJ", homePlayers);
+    setField(match, "fK", awayPlayers);
+    setField(engine, "zz", match);
+    setField(engine, "TA", Array.newInstance(clubClass, 2));
+    Object clubs = readField(engine, "TA");
+    Array.set(clubs, 0, homeClub);
+    Array.set(clubs, 1, awayClub);
+    setField(engine, "TB", 0);
+    setField(engine, "TC", 0);
+    setField(engine, "TD", false);
+    setField(engine, "TE", attacker);
+    setField(engine, "TG", new int[]{2, 3});
+    setField(engine, "TM", new int[]{4, 5});
+    setField(engine, "TN", new int[]{6, 7});
+    setField(engine, "TO", new int[]{8, 9});
+    setField(engine, "TP", new int[]{10, 11});
+
+    for (int index = 0; index < 32; index++) {
+      int selected = ((Integer)engineClass.getDeclaredMethod("vN").invoke(engine)).intValue();
+      if (selected < 0 || selected > 1) {
+        throw new IllegalStateException("Match engine selected invalid team index " + selected);
+      }
+    }
+    int opposing = ((Integer)invokePrivate(engineClass, engine, "vQ")).intValue();
+    if (opposing != 1) {
+      throw new IllegalStateException("Match engine returned invalid opposing team");
+    }
+    invokePrivate(engineClass, engine, "vP");
+    assertFieldInteger(engine, "TB", 1);
+    opposing = ((Integer)invokePrivate(engineClass, engine, "vQ")).intValue();
+    if (opposing != 0) {
+      throw new IllegalStateException("Match engine did not switch active team");
+    }
+    setField(engine, "TB", 0);
+
+    assertSame(readField(engine, "zA"), engineClass.getDeclaredMethod("vX").invoke(engine),
+        "engine goal counts");
+    assertSame(readField(engine, "TG"), engineClass.getDeclaredMethod("vY").invoke(engine),
+        "engine shot counts");
+    assertSame(readField(engine, "TM"), engineClass.getDeclaredMethod("we").invoke(engine),
+        "engine attacking advances");
+    assertSame(readField(engine, "TN"), engineClass.getDeclaredMethod("wf").invoke(engine),
+        "engine midfield advances");
+    assertSame(readField(engine, "TO"), engineClass.getDeclaredMethod("wg").invoke(engine),
+        "engine midfield tackles");
+    assertSame(readField(engine, "TP"), engineClass.getDeclaredMethod("wh").invoke(engine),
+        "engine defensive tackles");
+
+    Object goal = eventClass.getDeclaredConstructor().newInstance();
+    eventClass.getDeclaredMethod("k", clubClass).invoke(goal, homeClub);
+    engineClass.getDeclaredMethod("a", eventClass, playerClass).invoke(engine, goal, attacker);
+    assertInteger(eventClass, goal, "b", 1);
+    if (eventClass.getDeclaredMethod("eo").invoke(goal) == null) {
+      throw new IllegalStateException("Goal event has no primary player");
+    }
+    assertInteger(matchClass, match, "hu", 1);
+    assertInteger(matchClass, match, "hw", 0);
+    assertIntArray((int[])engineClass.getDeclaredMethod("vX").invoke(engine),
+        new int[]{1, 0}, "engine goal counts");
+    int fallbackPosition = ((Integer)engineClass.getDeclaredMethod("vW").invoke(engine)).intValue();
+    boolean knownPosition = false;
+    for (int candidate : (int[])readField(engine, "TY")) {
+      knownPosition |= candidate == fallbackPosition;
+    }
+    if (!knownPosition) {
+      throw new IllegalStateException("Match engine selected invalid fallback position");
+    }
+    return "activeSwitch=true randomTeamBounds=true score=1x0 goalCounts=1/0 "
+        + "phaseCounters=true";
+  }
+
+  private static Object invokePrivate(
+      Class<?> owner, Object value, String method, Class<?>... parameterTypes) throws Exception {
+    java.lang.reflect.Method declared = owner.getDeclaredMethod(method, parameterTypes);
+    declared.setAccessible(true);
+    return declared.invoke(value);
+  }
+
   private static Object createMatchEvent(
       Class<?> eventClass, Class<?> clubClass, Object club, int type) throws Exception {
     Object event = eventClass.getDeclaredConstructor().newInstance();
@@ -246,6 +347,14 @@ public final class KryoSaveCompatibilityProbe {
       Class<?> matchClass, Object match, String method, String field) throws Exception {
     assertSame(readField(match, field), matchClass.getDeclaredMethod(method).invoke(match),
         "match list " + field);
+  }
+
+  private static void assertFieldInteger(Object value, String field, int expected)
+      throws Exception {
+    int actual = readInt(value, field);
+    if (actual != expected) {
+      throw new IllegalStateException(field + " contained " + actual + " instead of " + expected);
+    }
   }
 
   private static void assertSame(Object expected, Object actual, String description) {

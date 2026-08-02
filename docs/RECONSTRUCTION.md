@@ -29,6 +29,9 @@
   indice do calendario, escalacoes, placar, eventos e arrays de estatisticas.
   Um cenario isolado recalcula um placar de 2x1 a partir dos eventos e confirma
   que `MatchEngine` continua transitorio.
+- O fluxo basico de `MatchEngine` possui cenario isolado para alternancia do
+  time ativo, selecao dentro dos limites, registro de gol e contadores de
+  chutes, avancos e desarmes por setor.
 - A expansao de estadio possui cenario funcional isolado que confirma aumento
   de capacidade, consumo dos lugares pendentes e idempotencia.
 - 82 classes ja possuem nomes semanticos. O nucleo legivel cobre

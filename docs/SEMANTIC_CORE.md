@@ -60,6 +60,11 @@ errados e faltas. A API funcional inclui os respectivos acessos, incrementos
 de placar, `getEvents`, `getScheduleIndex`, `getMatchEngine` e
 `recalculateScoreFromEvents`.
 
+`MatchEngine` identifica a partida processada, os dois clubes, o time ativo,
+o atacante selecionado, posses, gols, chutes, avancos e desarmes por setor. A
+API nomeada cobre selecao inicial, alternancia de posse, disputa, avanco,
+finalizacao, escolha de atacante/defensor e registro do evento de gol.
+
 ## Transferencias
 
 | Fonte | Classe oficial | Papel |

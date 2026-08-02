@@ -1146,7 +1146,7 @@ public class Match implements Serializable {
 
       a(this, j, i);
       MatchEvent var4 = null;
-      var4 = var3.vO();
+      var4 = var3.simulatePossession();
       if (var4 != null) {
          var4.setMinute(i);
          var4.setPeriod(j);
@@ -1213,7 +1213,7 @@ public class Match implements Serializable {
          for (int var3 = 0; var3 < 45 + this.fQ[0]; var3++) {
             a(this, 1, var3);
             MatchEvent var4 = null;
-            var4 = var1.vO();
+            var4 = var1.simulatePossession();
             if (var4 != null) {
                var4.setMinute(var3);
                var4.setPeriod(1);
@@ -1234,7 +1234,7 @@ public class Match implements Serializable {
          for (int var6 = 0; var6 < 45 + this.fQ[1]; var6++) {
             a(this, 2, var6);
             MatchEvent var9 = null;
-            var9 = var1.vO();
+            var9 = var1.simulatePossession();
             if (var9 != null) {
                var9.setMinute(var6);
                var9.setPeriod(2);

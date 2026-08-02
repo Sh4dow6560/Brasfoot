@@ -3231,7 +3231,7 @@
       "namedName": "bf22/intermediary/C0404",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "058104E8A923A4BE071948AD83ACABA042964348137816CE3222F35E316C6754"
+      "sourceSha256": "CD79A3A3BBCD51C16F3FBF28C2F36C7F2DEFCBB7970DCCCE0B9B8C1B8F9AF476"
     },
     {
       "officialName": "a/hG",
@@ -5399,7 +5399,7 @@
       "namedName": "mod/recovered/match/Match",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "B29F9EDC8AF7C212E4A2A950AF4014E448CAE323682B7990F01969A22CF164EF"
+      "sourceSha256": "3573B52D185AB19A1B371387CEEC608A8F3A132A368602A57B416C2D89FCF74E"
     },
     {
       "officialName": "best/J",
@@ -5967,7 +5967,7 @@
       "namedName": "mod/recovered/match/MatchEngine",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "5F600141BA9B7A446D833656E08E99AB37F9C5E7D1874E27ECA92FFDD2BFF774"
+      "sourceSha256": "C4D1F5A9F7769E39FF31D76EC5BB304DF3817307ABD9BBEB3940D265F3C1106C"
     },
     {
       "officialName": "components/A",

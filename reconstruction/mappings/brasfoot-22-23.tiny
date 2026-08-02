@@ -916,6 +916,36 @@ c	c/a	bf22/intermediary/C0745	mod/recovered/save/GamePersistence
 	m	()Z	vL	vL	isRegisteredVersion
 	m	()Lest/Options;	vM	vM	getOptions
 c	c/b	bf22/intermediary/C0746	mod/recovered/match/MatchEngine
+	f	[Lbest/ah;	TA	TA	clubs
+	f	I	TB	TB	activeTeamIndex
+	f	I	TC	TC	simulatedPossessions
+	f	Z	TD	TD	homeAdvantageDisabled
+	f	Lbest/F;	TE	TE	selectedAttacker
+	f	[I	TG	TG	shotCounts
+	f	[I	TM	TM	attackingAdvances
+	f	[I	TN	TN	midfieldAdvances
+	f	[I	TO	TO	midfieldTackles
+	f	[I	TP	TP	defensiveTackles
+	f	[I	fX	fX	possessionWins
+	f	[I	zA	zA	goalCounts
+	f	Lbest/I;	zz	zz	match
+	m	(Lbest/A;Lbest/F;)V	a	a	recordGoalEvent
+	m	()I	vN	vN	selectRandomTeamIndex
+	m	()Lbest/A;	vO	vO	simulatePossession
+	m	()V	vP	vP	switchActiveTeam
+	m	()I	vQ	vQ	getOpposingTeamIndex
+	m	()I	vR	vR	resolvePossessionWinner
+	m	()I	vS	vS	resolveAttackOutcome
+	m	()Lbest/A;	vT	vT	resolveShot
+	m	()Lbest/F;	vU	vU	selectAttacker
+	m	()Lbest/F;	vV	vV	selectDefender
+	m	()I	vW	vW	selectFallbackPosition
+	m	()[I	vX	vX	getGoalCounts
+	m	()[I	vY	vY	getShotCounts
+	m	()[I	we	we	getAttackingAdvances
+	m	()[I	wf	wf	getMidfieldAdvances
+	m	()[I	wg	wg	getMidfieldTackles
+	m	()[I	wh	wh	getDefensiveTackles
 c	components/A	bf22/intermediary/C0747	bf22/intermediary/C0747
 c	components/B	bf22/intermediary/C0748	bf22/intermediary/C0748
 c	components/C	bf22/intermediary/C0749	bf22/intermediary/C0749

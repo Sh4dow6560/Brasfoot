@@ -78,6 +78,7 @@ final class FullSaveCompatibilityService {
         || !log.contains("MATCH_EVENT_API ")
         || !log.contains("MATCH_STATE count=")
         || !log.contains("MATCH_STATE_API ")
+        || !log.contains("MATCH_ENGINE_API ")
         || !log.contains("STADIUM_EXPANSION ")
         || !log.contains("ROUNDTRIP ")) {
       throw new IllegalStateException("Full save did not complete a Kryo round-trip:\n" + log);

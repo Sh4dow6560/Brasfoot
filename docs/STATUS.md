@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 82 classes e 251 membros mapeados possuem nomes validos ou
+- Legibilidade: 82 classes e 281 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -40,11 +40,15 @@
   sete grupos de estatisticas. O save valida 2.312 partidas, 652 gols e a
   ligacao exata com os 3.116 eventos. Os acessos e incrementos essenciais
   tambem sao executados diretamente no JAR final.
+- Simulacao: `MatchEngine` agora identifica partida, clubes, time ativo,
+  posses simuladas, vantagem de mando, atacante selecionado, gols, chutes,
+  avancos e desarmes por setor. O fluxo de alternancia e registro de gol passa
+  por um cenario funcional deterministico.
 - Estadios: `StadiumExpansionProject` e o processamento correspondente em
   `CareerState` estao nomeados. Um teste funcional confirma aplicacao unica de
   70 lugares, preservacao da data e round-trip Kryo.
 - Migracao: membros estaticos, campos privados e metodos de instancia com nome
   globalmente unico podem ser aplicados de forma transacional nas 1.032
   fontes, com backup e verificacao de referencias.
-- Proxima fase: tornar legiveis as regras internas de simulacao e estatisticas
-  de partidas antes de implementar novas mecanicas.
+- Proxima fase: nomear as formulas de forca e selecao de jogadores usadas em
+  cada etapa da simulacao antes de implementar novas mecanicas.
