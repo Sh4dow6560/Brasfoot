@@ -80,8 +80,8 @@ public class C0536 extends JPanel {
 
       var2 = this.uz.gw();
       String var3 = "";
-      if (this.uz.fP() && this.uz.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
-         var3 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
+      if (this.uz.isInjured() && this.uz.getInjuryEndTimeMillis() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+         var3 = "Fim contusão: " + ScheduleDay.a(this.uz.getInjuryEndTimeMillis());
       }
 
       String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";

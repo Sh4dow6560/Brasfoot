@@ -45,7 +45,7 @@ public class C0343 extends JPanel {
       }
 
       this.uF.setText(this.CY.getNome());
-      this.uG.setText("Contrato até: " + this.CY.fQ());
+      this.uG.setText("Contrato até: " + this.CY.getContractEndDateLabel());
       this.Ec.setText("Salário atual: " + ClubFinances.c(this.CY.fj()));
       this.Bf.setSelectedIndex(0);
       this.IE.setModel(new SpinnerNumberModel(this.CY.fj(), 1, 100000000, 1000));
@@ -95,7 +95,7 @@ public class C0343 extends JPanel {
       int[] var4 = new int[]{10, 12, 15, 5};
       int var5 = this.CY.fj() - Math.round(this.CY.fj() * var3[var2] / 100);
       int var6 = this.CY.fj() + Math.round(this.CY.fj() * var4[var2] / 100);
-      if (this.CY.fR() < 60) {
+      if (this.CY.getContractDaysRemaining() < 60) {
          this.IC = var5;
          if (i < var5) {
             return false;

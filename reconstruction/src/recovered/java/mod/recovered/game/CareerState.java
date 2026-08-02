@@ -1432,7 +1432,7 @@ public class CareerState implements Serializable {
       }
 
       for (int var6 = 0; var6 < GamePersistence.careerState.O().size(); var6++) {
-         ((Player)GamePersistence.careerState.O().get(var6)).fr();
+         ((Player)GamePersistence.careerState.O().get(var6)).recoverEnergyDaily();
       }
 
       for (int var7 = 0; var7 < GamePersistence.careerState.Q().size(); var7++) {
@@ -1445,7 +1445,7 @@ public class CareerState implements Serializable {
             if (var4 != null) {
                for (int var5 = 0; var5 < var4.getSeniorPlayers().size(); var5++) {
                   if (((Player)var4.getSeniorPlayers().get(var5)).getClub() == null) {
-                     ((Player)var4.getSeniorPlayers().get(var5)).fr();
+                     ((Player)var4.getSeniorPlayers().get(var5)).recoverEnergyDaily();
                   }
                }
             }

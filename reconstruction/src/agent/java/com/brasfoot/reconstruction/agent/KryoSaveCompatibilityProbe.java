@@ -44,7 +44,7 @@ public final class KryoSaveCompatibilityProbe {
       String matchEventApi = validateMatchEventBehavior(loader);
       String matchStateApi = validateMatchStateBehavior(loader);
       String matchEngineApi = validateMatchEngineBehavior(loader, roots[0]);
-      String playerClubApi = validatePlayerAndClubBehavior(loader);
+      String playerClubApi = validatePlayerAndClubBehavior(loader, roots[0]);
       String stadiumExpansion = validateStadiumExpansion(loader);
       MatchEventSummary matchEvents = new MatchEventSummary();
       MatchStateSummary matches = new MatchStateSummary();
@@ -392,7 +392,8 @@ public final class KryoSaveCompatibilityProbe {
     return declared.invoke(value, argument);
   }
 
-  private static String validatePlayerAndClubBehavior(ClassLoader loader) throws Exception {
+  private static String validatePlayerAndClubBehavior(ClassLoader loader, Object career)
+      throws Exception {
     Class<?> playerClass = loader.loadClass("best.F");
     Class<?> clubClass = loader.loadClass("best.ah");
     Object player = playerClass.getDeclaredConstructor().newInstance();
@@ -421,6 +422,41 @@ public final class KryoSaveCompatibilityProbe {
     assertBoolean(playerClass, player, "gF", false);
     playerClass.getDeclaredMethod("setPosicao", Integer.TYPE).invoke(player, 0);
     assertBoolean(playerClass, player, "gF", true);
+
+    playerClass.getDeclaredMethod("h", Boolean.class).invoke(player, Boolean.FALSE);
+    playerClass.getDeclaredMethod("setIdade", Integer.TYPE).invoke(player, 24);
+    assertInteger(playerClass, player, "fp", 100);
+    assertInteger(playerClass, player, "fU", 72);
+    playerClass.getDeclaredMethod("fq").invoke(player);
+    assertInteger(playerClass, player, "fp", 98);
+    assertInteger(playerClass, player, "fU", 0);
+    playerClass.getDeclaredMethod("fr").invoke(player);
+    assertInteger(playerClass, player, "fp", 100);
+    assertInteger(playerClass, player, "fU", 72);
+
+    long currentTime = ((Calendar)career.getClass().getDeclaredMethod("bb")
+        .invoke(career)).getTimeInMillis();
+    long injuryEnd = currentTime + 2L * 86_400_000L;
+    setField(player, "eI", injuryEnd);
+    long returnedInjuryEnd = ((Long)playerClass.getDeclaredMethod("fo")
+        .invoke(player)).longValue();
+    if (returnedInjuryEnd != injuryEnd) {
+      throw new IllegalStateException("Player injury end time changed");
+    }
+    assertBoolean(playerClass, player, "fP", true);
+    setField(player, "eI", currentTime - 1L);
+    assertBoolean(playerClass, player, "fP", false);
+
+    setField(player, "eJ", currentTime + 10L * 86_400_000L);
+    assertInteger(playerClass, player, "fR", 10);
+    if ("contrato vencido".equals(playerClass.getDeclaredMethod("fQ").invoke(player))) {
+      throw new IllegalStateException("Future player contract was reported as expired");
+    }
+    setField(player, "eJ", currentTime - 1L);
+    assertInteger(playerClass, player, "fR", 0);
+    if (!"contrato vencido".equals(playerClass.getDeclaredMethod("fQ").invoke(player))) {
+      throw new IllegalStateException("Expired player contract was not reported");
+    }
 
     Object club = clubClass.getDeclaredConstructor().newInstance();
     setField(club, "mU", 17);
@@ -483,6 +519,7 @@ public final class KryoSaveCompatibilityProbe {
       throw new IllegalStateException("New club unexpectedly has a lineup preset");
     }
     return "overall=72 tacticalPosition=19 attributes=7 outOfPosition=true "
+        + "energy=100 effectiveStrength=72 injury=true contractDays=10 "
         + "clubId=17 playerClub=true coachClub=true userControlled=true stadiums=2 "
         + "seniorPlayers=1 lineupReady=true finances=true";
   }

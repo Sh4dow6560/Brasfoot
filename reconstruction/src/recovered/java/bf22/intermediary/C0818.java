@@ -132,15 +132,15 @@ public class C0818 extends JPanel {
    }
 
    public void a(Player player, Match c0675, Competition c0713, boolean bl) {
-      String var5 = player.fQ();
+      String var5 = player.getContractEndDateLabel();
       String var6 = "Contrato até:";
       if (player.gl()) {
          var6 = "Emprestado até:";
       }
 
       String var7 = "";
-      if (player.fP() && player.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
-         var7 = "Fim contusão: " + ScheduleDay.a(player.fo());
+      if (player.isInjured() && player.getInjuryEndTimeMillis() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+         var7 = "Fim contusão: " + ScheduleDay.a(player.getInjuryEndTimeMillis());
       }
 
       String var8 = "";

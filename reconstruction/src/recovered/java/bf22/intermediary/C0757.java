@@ -34,7 +34,7 @@ public class C0757 extends JLayeredPane {
                   + "(F:"
                   + Integer.toString(((C0795)C0132.oa().get(var3)).x().getOverallStrength())
                   + " E:"
-                  + Integer.toString(((C0795)C0132.oa().get(var3)).x().fp())
+                  + Integer.toString(((C0795)C0132.oa().get(var3)).x().getEnergy())
                   + ")"
                   + "<br><b>Posicão original:</b> "
                   + GameConstants.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]
@@ -56,7 +56,7 @@ public class C0757 extends JLayeredPane {
             return "<html>"
                + ((C0795)C0132.oa().get(var3)).x().getNome()
                + " (E:"
-               + Integer.toString(((C0795)C0132.oa().get(var3)).x().fp())
+               + Integer.toString(((C0795)C0132.oa().get(var3)).x().getEnergy())
                + ")"
                + "<br><b>Posicão original: </b>"
                + GameConstants.rH[((C0795)C0132.oa().get(var3)).x().getPosicao()]

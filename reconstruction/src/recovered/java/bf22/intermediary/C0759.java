@@ -31,7 +31,7 @@ public class C0759 extends JLayeredPane {
                   + " (F:"
                   + Integer.toString(((C0795)this.Qp.get(var3)).x().getOverallStrength())
                   + " E:"
-                  + Integer.toString(((C0795)this.Qp.get(var3)).x().fp())
+                  + Integer.toString(((C0795)this.Qp.get(var3)).x().getEnergy())
                   + ")"
                   + "<br><b>Posicão original:</b> "
                   + GameConstants.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]
@@ -51,7 +51,7 @@ public class C0759 extends JLayeredPane {
             return "<html>"
                + ((C0795)this.Qp.get(var3)).x().getNome()
                + " (E:"
-               + Integer.toString(((C0795)this.Qp.get(var3)).x().fp())
+               + Integer.toString(((C0795)this.Qp.get(var3)).x().getEnergy())
                + ")"
                + "<br><b>Posicão original:</b> "
                + GameConstants.rH[((C0795)this.Qp.get(var3)).x().getPosicao()]

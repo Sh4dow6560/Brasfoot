@@ -432,8 +432,8 @@ public class C0452 extends JPanel {
          this.MO.setIcon(var2);
          var1 = this.yK.gw();
          String var3 = "";
-         if (this.yK.fP() && this.yK.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
-            var3 = "Fim contusão: " + ScheduleDay.a(this.yK.fo());
+         if (this.yK.isInjured() && this.yK.getInjuryEndTimeMillis() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+            var3 = "Fim contusão: " + ScheduleDay.a(this.yK.getInjuryEndTimeMillis());
          }
 
          String var4 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.yK.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";

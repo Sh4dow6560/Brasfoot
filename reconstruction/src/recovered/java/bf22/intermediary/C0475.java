@@ -99,8 +99,8 @@ public class C0475 extends JPanel {
       this.zO.setIcon(this.uz.getClub().kU());
       var1 = this.uz.gw();
       String var2 = "";
-      if (this.uz.fP()) {
-         var2 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
+      if (this.uz.isInjured()) {
+         var2 = "Fim contusão: " + ScheduleDay.a(this.uz.getInjuryEndTimeMillis());
       }
 
       String var3 = "<html>\n<body><p style=\\\"padding:5; font-size:12\\\">\n<b>Força:</b>&nbsp;" + Integer.toString(this.uz.getOverallStrength()) + "&nbsp;&nbsp;&nbsp;";

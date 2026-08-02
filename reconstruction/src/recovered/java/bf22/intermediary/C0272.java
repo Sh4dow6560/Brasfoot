@@ -336,12 +336,12 @@ public class C0272 extends JPanel {
 
    private void qr() {
       for (int var1 = 0; var1 < this.zu.getSeniorPlayers().size(); var1++) {
-         ((Player)this.zu.getSeniorPlayers().get(var1)).aB(((Player)this.zu.getSeniorPlayers().get(var1)).fR());
+         ((Player)this.zu.getSeniorPlayers().get(var1)).aB(((Player)this.zu.getSeniorPlayers().get(var1)).getContractDaysRemaining());
       }
 
       if (GamePersistence.careerState.isAutoRenovaContrato()) {
          for (int var2 = 0; var2 < this.zu.getSeniorPlayers().size(); var2++) {
-            if (((Player)this.zu.getSeniorPlayers().get(var2)).fR() <= 0) {
+            if (((Player)this.zu.getSeniorPlayers().get(var2)).getContractDaysRemaining() <= 0) {
                ((Player)this.zu.getSeniorPlayers().get(var2)).a(180L, true);
             }
          }
@@ -349,13 +349,13 @@ public class C0272 extends JPanel {
 
       if (GamePersistence.careerState.getAvisoTerminoContrato() == 1 && !GamePersistence.careerState.isAutoRenovaContrato()) {
          for (int var4 = 0; var4 < this.zu.getSeniorPlayers().size(); var4++) {
-            if (((Player)this.zu.getSeniorPlayers().get(var4)).fR() <= 0) {
+            if (((Player)this.zu.getSeniorPlayers().get(var4)).getContractDaysRemaining() <= 0) {
                new C0799(this.zu.getCoach(), 17, 67, ((Player)this.zu.getSeniorPlayers().get(var4)).getNome(), "");
             }
          }
       } else if (GamePersistence.careerState.getAvisoTerminoContrato() == 2) {
          for (int var3 = 0; var3 < this.zu.getSeniorPlayers().size(); var3++) {
-            if (!((Player)this.zu.getSeniorPlayers().get(var3)).gQ() && ((Player)this.zu.getSeniorPlayers().get(var3)).fR() < 31) {
+            if (!((Player)this.zu.getSeniorPlayers().get(var3)).gQ() && ((Player)this.zu.getSeniorPlayers().get(var3)).getContractDaysRemaining() < 31) {
                ((Player)this.zu.getSeniorPlayers().get(var3)).r(true);
                new C0799(this.zu.getCoach(), 16, 66, ((Player)this.zu.getSeniorPlayers().get(var3)).getNome(), "");
             }
@@ -382,14 +382,14 @@ public class C0272 extends JPanel {
          this.If.a(this.uz, this.bv, var1, this.yp);
          new ImageIcon(this.getClass().getResource("/aflags/" + this.uz.getPais() + ".png"));
          String var3 = "";
-         String var4 = this.uz.fQ();
+         String var4 = this.uz.getContractEndDateLabel();
          String var5 = "Contrato até:";
          if (this.uz.gl()) {
             var5 = "Emprestado até:";
          }
 
-         if (this.uz.fP() && this.uz.fo() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
-            var3 = "Fim contusão: " + ScheduleDay.a(this.uz.fo());
+         if (this.uz.isInjured() && this.uz.getInjuryEndTimeMillis() > ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime()) {
+            var3 = "Fim contusão: " + ScheduleDay.a(this.uz.getInjuryEndTimeMillis());
          }
 
          int[] var6 = this.uz.e(this.bv.getCompetition());

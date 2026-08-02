@@ -5,8 +5,8 @@ import mod.recovered.model.Player;
 
 class C1014 implements Comparator<Player> {
    public int compare(Player player, Player player2) {
-      int var3 = player.fp();
-      int var4 = player2.fp();
+      int var3 = player.getEnergy();
+      int var4 = player2.getEnergy();
       int var5 = player.getPosicao();
       int var6 = player2.getPosicao();
       if (var3 == 0) {

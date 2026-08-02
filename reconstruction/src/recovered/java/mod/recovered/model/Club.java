@@ -501,15 +501,15 @@ public class Club implements Serializable {
          for (int var10 = 0; var10 <= 1; var10++) {
             if (GameConstants.sF[((Player)var8.get(var9)).getTacticalPosition()][var10] > 0) {
                if (((Player)var8.get(var9)).getPosicao() != GameConstants.sE[((Player)var8.get(var9)).getTacticalPosition()][0]) {
-                  var6 = (int)Math.round(0.7 * ((Player)var8.get(var9)).fU());
+                  var6 = (int)Math.round(0.7 * ((Player)var8.get(var9)).getEnergyAdjustedStrength());
                   if (((Player)var8.get(var9)).getTacticalPosition() == 1) {
-                     var5 = (int)Math.round(0.3 * ((Player)var8.get(var9)).fU());
+                     var5 = (int)Math.round(0.3 * ((Player)var8.get(var9)).getEnergyAdjustedStrength());
                      var7 = true;
                   }
                } else {
-                  var6 = ((Player)var8.get(var9)).fU();
+                  var6 = ((Player)var8.get(var9)).getEnergyAdjustedStrength();
                   if (((Player)var8.get(var9)).getTacticalPosition() == 1) {
-                     var5 = ((Player)var8.get(var9)).fU();
+                     var5 = ((Player)var8.get(var9)).getEnergyAdjustedStrength();
                   }
                }
 

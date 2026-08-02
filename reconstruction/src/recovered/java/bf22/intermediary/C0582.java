@@ -78,7 +78,7 @@ public class C0582 extends AbstractTableModel {
             }
 
             if (j == 6) {
-               return ((Player)this.vp.get(i)).fp();
+               return ((Player)this.vp.get(i)).getEnergy();
             }
 
             if (j == 7) {

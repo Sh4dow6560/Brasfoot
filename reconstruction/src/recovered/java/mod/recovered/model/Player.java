@@ -66,9 +66,9 @@ public class Player implements Serializable {
    private int playmaking = 0;
    private int finishing = 0;
    private double[] eH = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-   private long eI = 0L;
-   private long eJ = 0L;
-   private int eK = 100;
+   private long injuryEndTimeMillis = 0L;
+   private long contractEndTimeMillis = 0L;
+   private int energy = 100;
    private Boolean eL = false;
    private double eM = 0.0;
    private double eN = 0.0;
@@ -323,37 +323,37 @@ public class Player implements Serializable {
       this.ez = i;
    }
 
-   public long fo() {
-      return this.eI;
+   public long getInjuryEndTimeMillis() {
+      return this.injuryEndTimeMillis;
    }
 
    public void d(long l) {
-      this.eI = l;
+      this.injuryEndTimeMillis = l;
    }
 
-   public int fp() {
-      return this.eK;
+   public int getEnergy() {
+      return this.energy;
    }
 
    public void ai(int i) {
-      this.eK = i;
+      this.energy = i;
    }
 
    public void aj(int i) {
-      this.eK -= i;
-      if (this.eK < 0) {
-         this.eK = 1;
+      this.energy -= i;
+      if (this.energy < 0) {
+         this.energy = 1;
       }
    }
 
    public void ak(int i) {
-      this.eK += i;
-      if (this.eK > 100) {
-         this.eK = 100;
+      this.energy += i;
+      if (this.energy > 100) {
+         this.energy = 100;
       }
    }
 
-   public void fq() {
+   public void reduceEnergyAfterMatch() {
       if (this.em <= 20) {
          this.aj(1);
       } else if (this.em <= 25) {
@@ -367,7 +367,7 @@ public class Player implements Serializable {
       }
    }
 
-   public void fr() {
+   public void recoverEnergyDaily() {
       boolean var1 = false;
       if (this.getClub() != null) {
          var1 = this.getClub().isUserControlled();
@@ -1208,7 +1208,7 @@ public class Player implements Serializable {
          var4 = false;
       }
 
-      if (this.fP()) {
+      if (this.isInjured()) {
          return false;
       }
 
@@ -1216,7 +1216,7 @@ public class Player implements Serializable {
          var5 = false;
       }
 
-      return !bl && this.getClub() != null && this.getClub().isUserControlled() && this.eJ < GamePersistence.careerState.getCurrentDate().getTime().getTime() ? false : var5;
+      return !bl && this.getClub() != null && this.getClub().isUserControlled() && this.contractEndTimeMillis < GamePersistence.careerState.getCurrentDate().getTime().getTime() ? false : var5;
    }
 
    public boolean d(Match c0675) {
@@ -1227,22 +1227,22 @@ public class Player implements Serializable {
          var3 = false;
       }
 
-      if (this.fP()) {
+      if (this.isInjured()) {
          return false;
       } else if (var3 && this.c(var2)) {
          return false;
       } else {
-         return this.fR() < 0 ? false : var4;
+         return this.getContractDaysRemaining() < 0 ? false : var4;
       }
    }
 
-   public boolean fP() {
-      return this.eI > 0L && this.eI > GamePersistence.careerState.getCurrentDate().getTimeInMillis();
+   public boolean isInjured() {
+      return this.injuryEndTimeMillis > 0L && this.injuryEndTimeMillis > GamePersistence.careerState.getCurrentDate().getTimeInMillis();
    }
 
-   public String fQ() {
+   public String getContractEndDateLabel() {
       String var1 = "contrato vencido";
-      return this.eJ > GamePersistence.careerState.getCurrentDate().getTime().getTime() ? ScheduleDay.a(this.eJ) : var1;
+      return this.contractEndTimeMillis > GamePersistence.careerState.getCurrentDate().getTime().getTime() ? ScheduleDay.a(this.contractEndTimeMillis) : var1;
    }
 
    public int a(Date date, Date date2) {
@@ -1258,15 +1258,15 @@ public class Player implements Serializable {
       }
    }
 
-   public int fR() {
-      return this.a(GamePersistence.careerState.getCurrentDate().getTime().getTime(), this.eJ);
+   public int getContractDaysRemaining() {
+      return this.a(GamePersistence.careerState.getCurrentDate().getTime().getTime(), this.contractEndTimeMillis);
    }
 
    public ImageIcon fS() {
       ImageIcon var1 = null;
       ImageIcon var2 = null;
       boolean var3 = false;
-      if (this.eI > 0L && this.fP()) {
+      if (this.injuryEndTimeMillis > 0L && this.isInjured()) {
          var1 = new ImageIcon(this.getClass().getResource("/aicons/icontusao.png"));
          var3 = true;
       }
@@ -1349,8 +1349,8 @@ public class Player implements Serializable {
       this.tacticalPosition = i;
    }
 
-   public int fU() {
-      return Math.round(this.eK / 100 * this.overallStrength);
+   public int getEnergyAdjustedStrength() {
+      return Math.round(this.energy / 100 * this.overallStrength);
    }
 
    public void fV() {
@@ -2582,9 +2582,9 @@ public class Player implements Serializable {
       int var2 = 0;
       int var3 = new Random().nextInt(14);
       int var4 = 5 + new Random().nextInt(20);
-      if (this.eK < 10) {
+      if (this.energy < 10) {
          var2 += 5;
-      } else if (this.eK < 50) {
+      } else if (this.energy < 50) {
          var2++;
       }
 
@@ -2642,7 +2642,7 @@ public class Player implements Serializable {
          long var6 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime();
          long var8 = var2;
          var8 *= 86400000L;
-         this.eI = var6 + var8;
+         this.injuryEndTimeMillis = var6 + var8;
       }
 
       this.b(5, club);
@@ -3078,11 +3078,11 @@ public class Player implements Serializable {
    public void a(long l, boolean bl) {
       long var4 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a().getTime().getTime();
       if (!bl) {
-         var4 = this.eJ;
+         var4 = this.contractEndTimeMillis;
       }
 
       long var6 = l * 86400000L;
-      this.eJ = var4 + var6;
+      this.contractEndTimeMillis = var4 + var6;
       int var8 = (int)l;
       this.aB(var8);
       this.fr = false;
@@ -3138,9 +3138,9 @@ public class Player implements Serializable {
          Calendar var7 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
          int var8 = 0;
          if (!bl2 && !bl3) {
-            if (bl && this.eJ > 0L && var7 != null) {
+            if (bl && this.contractEndTimeMillis > 0L && var7 != null) {
                double var9 = 0.0;
-               int var11 = this.fR();
+               int var11 = this.getContractDaysRemaining();
                if (var11 > 0) {
                   if (var11 <= 30) {
                      var9 = 0.12;
@@ -3223,7 +3223,7 @@ public class Player implements Serializable {
          this.fk = new JProgressBar(1, 100);
       }
 
-      this.fk.setValue(this.eK);
+      this.fk.setValue(this.energy);
       this.fk.setStringPainted(true);
       if (color != null) {
          this.fk.setForeground(color);

@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 82 classes e 362 membros mapeados possuem nomes validos ou
+- Legibilidade: 82 classes e 373 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -51,6 +51,10 @@
   titulares, banco, tecnico, financas e esquema. Um cenario funcional valida
   esses contratos, a penalidade por atuar fora de posicao, IDs de clube,
   vinculos de jogador/tecnico, controle do usuario e estadios no JAR final.
+- Disponibilidade: energia, desgaste pos-partida, recuperacao diaria, forca
+  ajustada por energia, fim da lesao, estado de lesao, fim do contrato e dias
+  restantes possuem nomes diretos. O cenario usa a data real da carreira e
+  preserva inclusive a aritmetica inteira observada no bytecode original.
 - Estadios: `StadiumExpansionProject` e o processamento correspondente em
   `CareerState` estao nomeados. Um teste funcional confirma aplicacao unica de
   70 lugares, preservacao da data e round-trip Kryo.
@@ -59,5 +63,5 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: nomear os ajustes de atributos, vinculos jogador-clube e
-  operacoes de montagem/substituicao de elenco usadas por taticas e mercado.
+- Proxima fase: nomear os ajustes de energia/atributos e as operacoes de
+  montagem e substituicao de elenco usadas por taticas e mercado.

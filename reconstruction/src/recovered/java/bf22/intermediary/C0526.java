@@ -71,7 +71,7 @@ public class C0526 extends JPanel {
       this.Kn.addActionListener(new C0528(this));
       this.Km.setSelected(true);
       this.uE.getDocument().addDocumentListener(new C0529(this));
-      int var1 = this.CY.fR();
+      int var1 = this.CY.getContractDaysRemaining();
       if (var1 <= 0) {
          this.Nl = 0;
       } else if (var1 > 0 && var1 <= 30) {

@@ -299,7 +299,7 @@ public class C0795 {
                var24.setFont(new Font("Arial", 1, 11));
                var24.setFont(var24.getFont().deriveFont(11.0F));
                var24.drawImage(a(((C0795)arrayList.get(var27)).x(), 1, var27, ""), var28 - 52, var29 + 47, null);
-               if (((C0795)arrayList.get(var27)).x().fP()) {
+               if (((C0795)arrayList.get(var27)).x().isInjured()) {
                   var24.drawImage(var12, var28 - 15, var29 + 30, null);
                }
 
@@ -471,17 +471,17 @@ public class C0795 {
 
          var15 = var15 + " - ";
          if (!GamePersistence.careerState.isHabilidadeIndividual()) {
-            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.fp()));
+            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.getEnergy()));
          } else {
-            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + " E:" + Integer.toString(player.fp()));
+            var13 = new StringTokenizer(player.getNome() + " <br> " + var15 + " E:" + Integer.toString(player.getEnergy()));
          }
       } else if (i == 2) {
          if (!GamePersistence.careerState.isHabilidadeIndividual()) {
             var13 = new StringTokenizer(
-               player.getNome() + " <br> " + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]
+               player.getNome() + " <br> " + "F:" + Integer.toString(player.getOverallStrength()) + " E:" + Integer.toString(player.getEnergy()) + " L:" + GameConstants.rK[player.getLado()]
             );
          } else {
-            var13 = new StringTokenizer(player.getNome() + " <br> " + " E:" + Integer.toString(player.fp()) + " L:" + GameConstants.rK[player.getLado()]);
+            var13 = new StringTokenizer(player.getNome() + " <br> " + " E:" + Integer.toString(player.getEnergy()) + " L:" + GameConstants.rK[player.getLado()]);
          }
       } else if (i == 3) {
          String var25 = "";

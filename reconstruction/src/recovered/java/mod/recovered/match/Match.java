@@ -861,17 +861,17 @@ public class Match implements Serializable {
    public void l(int i, int j) {
       for (int var3 = 0; var3 < this.homePlayersOnField.size(); var3++) {
          if (((Player)this.homePlayersOnField.get(var3)).getTacticalPosition() != 1) {
-            ((Player)this.homePlayersOnField.get(var3)).fq();
+            ((Player)this.homePlayersOnField.get(var3)).reduceEnergyAfterMatch();
          } else if (i == 2) {
-            ((Player)this.homePlayersOnField.get(var3)).fq();
+            ((Player)this.homePlayersOnField.get(var3)).reduceEnergyAfterMatch();
          }
       }
 
       for (int var4 = 0; var4 < this.awayPlayersOnField.size(); var4++) {
          if (((Player)this.awayPlayersOnField.get(var4)).getTacticalPosition() != 1) {
-            ((Player)this.awayPlayersOnField.get(var4)).fq();
+            ((Player)this.awayPlayersOnField.get(var4)).reduceEnergyAfterMatch();
          } else if (i == 2) {
-            ((Player)this.awayPlayersOnField.get(var4)).fq();
+            ((Player)this.awayPlayersOnField.get(var4)).reduceEnergyAfterMatch();
          }
       }
    }
@@ -921,7 +921,7 @@ public class Match implements Serializable {
          }
 
          for (int var8 = var7; var8 < arrayList.size(); var8++) {
-            if (((Player)arrayList.get(var8)).getTacticalPosition() != 1 && ((Player)arrayList.get(var8)).fp() < var6) {
+            if (((Player)arrayList.get(var8)).getTacticalPosition() != 1 && ((Player)arrayList.get(var8)).getEnergy() < var6) {
                a(j, false, this, (Player)arrayList.get(var8), k, l, false);
                return true;
             }
@@ -984,12 +984,12 @@ public class Match implements Serializable {
          if (!this.homeClub.isUserControlled() && this.fR[0] > 0) {
             for (int var6 = 0; var6 < this.homePlayersOnField.size(); var6++) {
                if (((Player)this.homePlayersOnField.get(var6)).getTacticalPosition() != 1) {
-                  if (((Player)this.homePlayersOnField.get(var6)).fp() < 75) {
+                  if (((Player)this.homePlayersOnField.get(var6)).getEnergy() < 75) {
                      a(0, false, this, (Player)this.homePlayersOnField.get(var6), i, j, false);
                      var5 = true;
                      break;
                   }
-               } else if (i == 2 && ((Player)this.homePlayersOnField.get(var6)).fp() < 40) {
+               } else if (i == 2 && ((Player)this.homePlayersOnField.get(var6)).getEnergy() < 40) {
                   a(0, false, this, (Player)this.homePlayersOnField.get(var6), i, j, false);
                   var5 = true;
                   break;
@@ -1000,11 +1000,11 @@ public class Match implements Serializable {
          if (!var5 && !this.awayClub.isUserControlled() && this.fR[1] > 0) {
             for (int var8 = 0; var8 < this.awayPlayersOnField.size(); var8++) {
                if (((Player)this.awayPlayersOnField.get(var8)).getTacticalPosition() != 1) {
-                  if (((Player)this.awayPlayersOnField.get(var8)).fp() < 75) {
+                  if (((Player)this.awayPlayersOnField.get(var8)).getEnergy() < 75) {
                      a(1, false, this, (Player)this.awayPlayersOnField.get(var8), i, j, false);
                      break;
                   }
-               } else if (i == 2 && ((Player)this.awayPlayersOnField.get(var8)).fp() < 40) {
+               } else if (i == 2 && ((Player)this.awayPlayersOnField.get(var8)).getEnergy() < 40) {
                   a(1, false, this, (Player)this.awayPlayersOnField.get(var8), i, j, false);
                   break;
                }
