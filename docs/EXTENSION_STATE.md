@@ -13,6 +13,7 @@ Para um save `carreira.s22`, o estado fica em
 {
   "features": {
     "boardObjectives": true,
+    "clubReach": true,
     "sponsorships": true
   },
   "modules": {
@@ -31,6 +32,7 @@ Para um save `carreira.s22`, o estado fica em
 override, preservando o comportamento original. Os IDs reservados sao:
 
 - `boardObjectives`
+- `clubReach`
 - `sponsorships`
 - `supporterMembership`
 - `staffAndTraining`
@@ -60,3 +62,5 @@ Tambem executa a avaliacao mensal da diretoria, confirma idempotencia e
 restaura o modulo depois de fechar e anexar novamente o save.
 O mesmo probe valida ofertas, contrato, duracao, luvas, parcela, bonus e a
 transicao idempotente da receita legada de patrocinadores.
+Tambem valida torcida local e internacional, redes sociais, reputacao mundial,
+idempotencia mensal e restauracao do perfil `clubReach`.

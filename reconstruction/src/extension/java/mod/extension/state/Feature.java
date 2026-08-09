@@ -3,6 +3,7 @@ package mod.extension.state;
 public enum Feature {
   BOARD_OBJECTIVES("boardObjectives", false),
   SPONSORSHIPS("sponsorships", false),
+  CLUB_REACH("clubReach", false),
   SUPPORTER_MEMBERSHIP("supporterMembership", false),
   STAFF_AND_TRAINING("staffAndTraining", false),
   SCOUTING_NETWORK("scoutingNetwork", false),

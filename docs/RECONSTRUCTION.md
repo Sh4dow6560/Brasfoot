@@ -124,8 +124,9 @@
 ## Proximas Fases
 
 1. Verificacao editorial dos dados brasileiros de agosto de 2026.
-2. Objetivos da diretoria e seguranca no emprego.
-3. Patrocinadores e novas mecanicas em modulos independentes.
+2. Recuperacao e ampliacao de estadio, gramado e infraestrutura.
+3. Negociacoes de compra e emprestimo com termos avancados.
+4. Categoria de base, captacao e desenvolvimento de jovens.
 
 Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
 de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

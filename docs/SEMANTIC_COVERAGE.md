@@ -3,8 +3,8 @@
 Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome direto sao agrupadas pelo modulo semantico mais referenciado; empates permanecem nao classificados.
 
 - Classes: 87/1038 (8.4%).
-- Membros semanticos explicitos: 737/10201 (7.2%).
-- Entradas de membros emitidas no Tiny v2: 824.
+- Membros semanticos explicitos: 738/10201 (7.2%).
+- Entradas de membros emitidas no Tiny v2: 825.
 
 | Modulo | Classes | Nomeadas | Cobertura | Membros | Semanticos | Cobertura |
 |---|---:|---:|---:|---:|---:|---:|
@@ -17,7 +17,7 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 |infrastructure|1|1|100.0%|5|4|80.0%|
 |manager|5|3|60.0%|60|51|85.0%|
 |match|27|3|11.1%|847|142|16.8%|
-|model|168|5|3.0%|2416|234|9.7%|
+|model|168|5|3.0%|2416|235|9.7%|
 |named-other|18|3|16.7%|200|16|8.0%|
 |save|32|2|6.3%|247|33|13.4%|
 |stadium|1|1|100.0%|10|9|90.0%|

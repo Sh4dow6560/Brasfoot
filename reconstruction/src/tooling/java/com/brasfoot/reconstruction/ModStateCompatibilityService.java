@@ -14,7 +14,7 @@ final class ModStateCompatibilityService {
           + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
           + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
           + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
-          + "transition=true";
+          + "transition=true clubReach=true audiences=true social=true reputation=true";
 
   private final ProjectContext context;
 

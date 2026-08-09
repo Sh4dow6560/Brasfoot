@@ -48,6 +48,7 @@ import mod.recovered.finance.ClubFinances;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
+import mod.extension.ui.ClubReachAction;
 import mod.extension.ui.ModSettingsAction;
 
 public class C0272 extends JPanel {
@@ -1348,6 +1349,9 @@ public class C0272 extends JPanel {
       JMenuItem var24 = new JMenuItem("Recursos adicionais");
       var24.addActionListener(new ModSettingsAction(this));
       this.Hy.add(var24);
+      JMenuItem var25 = new JMenuItem("Torcida e alcance mundial");
+      var25.addActionListener(new ClubReachAction(this));
+      this.Hy.add(var25);
       this.Hy.addSeparator();
       JMenuItem var5 = new JMenuItem("Pedir demissão");
       var5.addActionListener(new C0322(this));

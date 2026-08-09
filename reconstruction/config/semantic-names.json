@@ -338,6 +338,7 @@
     {"owner":"est/InfoArquivoSalvoType","name":"i","descriptor":"Ljava/lang/String;","named":"nextMatch"}
   ],
   "methods": [
+    {"owner":"best/v","name":"dW","descriptor":"()I","named":"getCapacity"},
     {"owner":"best/h","name":"mg","descriptor":"()V","named":"initializeRegistrationState"},
     {"owner":"best/h","name":"mh","descriptor":"()V","named":"initializeApplication"},
     {"owner":"best/h","name":"mi","descriptor":"()V","named":"reloadLocalization"},

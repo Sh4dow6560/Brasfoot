@@ -5,6 +5,9 @@ import java.nio.file.Path;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.reach.ClubReachResult;
+import mod.extension.reach.ClubReachService;
+import mod.extension.reach.ClubReachSnapshot;
 import mod.extension.sponsorship.SponsorshipResult;
 import mod.extension.sponsorship.SponsorshipService;
 import mod.extension.sponsorship.SponsorshipSnapshot;
@@ -16,6 +19,7 @@ public final class ModRuntime {
       new BoardObjectivesService();
   private static final SponsorshipService SPONSORSHIPS =
       new SponsorshipService();
+  private static final ClubReachService CLUB_REACH = new ClubReachService();
 
   private static ModState state = ModState.empty();
   private static FeatureRegistry features = FeatureRegistry.from(state);
@@ -127,6 +131,17 @@ public final class ModRuntime {
     }
     SponsorshipResult result = SPONSORSHIPS.processMonthly(state, snapshot);
     applySponsorshipResult(result);
+    return result;
+  }
+
+  public static synchronized ClubReachResult evaluateClubReach(
+      ClubReachSnapshot snapshot) {
+    if (!features.isEnabled(Feature.CLUB_REACH)) {
+      return ClubReachResult.disabled(state, snapshot);
+    }
+    ClubReachResult result = CLUB_REACH.evaluate(state, snapshot);
+    state = result.getState();
+    features = FeatureRegistry.from(state);
     return result;
   }
 

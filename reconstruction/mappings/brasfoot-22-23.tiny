@@ -1386,6 +1386,7 @@ c	best/u	bf22/intermediary/C0739	mod/recovered/manager/CoachChangeRecord
 	m	()Ljava/lang/String;	f	f	getDateText
 c	best/v	bf22/intermediary/C0740	mod/recovered/model/Stadium
 	f	[I	do	field_kw_do	field_kw_do
+	m	()I	dW	dW	getCapacity
 c	best/w	bf22/intermediary/C0741	bf22/intermediary/C0741
 c	best/x	bf22/intermediary/C0742	bf22/intermediary/C0742
 	m	(Lcomponents/aD;Lcomponents/aD;)I	a	a	compare

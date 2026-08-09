@@ -1367,7 +1367,7 @@
       "namedName": "bf22/intermediary/C0171",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "71FCCEA40B0D209E77E1B5A87D12FFBD41DB657646E305E6E2B6CB49C999CD3E"
+      "sourceSha256": "05A410CAF390933E11D29D1F11B8C28ACAAE7870FFEB32EE964F72DF48616B09"
     },
     {
       "officialName": "a/cm",
@@ -2175,7 +2175,7 @@
       "namedName": "bf22/intermediary/C0272",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "349C1290935C6DDA08DDEA5D97F8A5BF6DF948A48850F459B291BDBD8E371283"
+      "sourceSha256": "E48709B04328B8C92977203A8D34A4A171CA3B729E91E3CB043C99EAE18F68B4"
     },
     {
       "officialName": "a/eh",
@@ -5543,7 +5543,7 @@
       "namedName": "mod/recovered/game/ScheduleDay",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "0DE9C630D28F042DD1E2239A7FE946E42FD75436BD48B1BB339E4E018203FD0C"
+      "sourceSha256": "6FB5C1EFE07B27AA31DBBED2411062D95285A448D3FA9B362C3B96E6AF8601F0"
     },
     {
       "officialName": "best/aa",
@@ -5919,7 +5919,7 @@
       "namedName": "mod/recovered/model/Stadium",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "21BCF7D61295B0A5734C16CD662177622A066986F267388D8577522F6802EC0C"
+      "sourceSha256": "0EEA4519C84E35E78D21EFFE9414DA2ED20381BD51F9D04B0F5518BDB4442586"
     },
     {
       "officialName": "best/w",
@@ -8119,7 +8119,7 @@
       "namedName": "bf22/intermediary/C1015",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "3FD6C84D6BF299DC56B060694FAEC239F2D8AE75AD8AFFD79C2235747040106B"
+      "sourceSha256": "0CCD751179D36A7AA2E98B615EDD482CF03C91407BDBEE9BB2FFF67A997EDBD7"
     },
     {
       "officialName": "h/j",

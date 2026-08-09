@@ -74,6 +74,10 @@ O modulo de patrocinadores adiciona ofertas, contratos, luvas, parcelas,
 metas, bonus e renovacoes. A integracao financeira e a transicao da receita
 legada estao em `docs/SPONSORSHIPS.md`.
 
+O modulo de torcida calcula alcance local e internacional, seguidores, socios,
+engajamento e reputacao mundial uma vez por mes. O painel, as regras e o
+fallback estao em `docs/CLUB_REACH.md`.
+
 ## Espacos De Nomes
 
 - `official`: nomes binarios originais exigidos pelo jogo.

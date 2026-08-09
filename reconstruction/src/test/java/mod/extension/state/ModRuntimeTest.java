@@ -10,6 +10,10 @@ import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.reach.ClubReachResult;
+import mod.extension.reach.ClubReachService;
+import mod.extension.reach.ClubReachSnapshot;
+import mod.extension.reach.ClubReachStatus;
 import mod.extension.sponsorship.SponsorshipResult;
 import mod.extension.sponsorship.SponsorshipService;
 import mod.extension.sponsorship.SponsorshipSnapshot;
@@ -80,6 +84,29 @@ class ModRuntimeTest {
     assertEquals(202612, contract.getContract().getEndPeriod());
   }
 
+  @Test
+  void keepsClubReachOptInAndPersistsItsProfile() throws Exception {
+    ClubReachSnapshot snapshot = clubReachSnapshot(2026, 1, 0, 0, 0, 0);
+    ModRuntime.startNewCareer();
+
+    ClubReachResult disabled = ModRuntime.evaluateClubReach(snapshot);
+    assertEquals(ClubReachStatus.DISABLED, disabled.getStatus());
+    assertTrue(ModRuntime.getState().getModule(ClubReachService.MODULE_ID).isEmpty());
+
+    ModRuntime.setFeatureEnabled(Feature.CLUB_REACH, true);
+    ClubReachResult initialized = ModRuntime.evaluateClubReach(snapshot);
+    Path save = this.directory.resolve("reach.s22");
+    Files.write(save, new byte[]{7, 8, 9});
+    assertTrue(initialized.isStateChanged());
+    assertTrue(ModRuntime.persist(save));
+
+    ModRuntime.startNewCareer();
+    ModRuntime.attach(save);
+
+    assertTrue(ModRuntime.isFeatureEnabled(Feature.CLUB_REACH));
+    assertFalse(ModRuntime.getState().getModule(ClubReachService.MODULE_ID).isEmpty());
+  }
+
   private BoardSnapshot snapshot(int year, int month, int matches, int wins) {
     return new BoardSnapshot(
         year,
@@ -102,5 +129,12 @@ class ModRuntimeTest {
       int year, int month, int season, int matches, int wins, int titles) {
     return new SponsorshipSnapshot(
         year, month, season, 101, 1, 3, 6_000_000, matches, wins, titles);
+  }
+
+  private ClubReachSnapshot clubReachSnapshot(
+      int year, int month, int matches, int wins, int losses, int titles) {
+    return new ClubReachSnapshot(
+        year, month, 1, 101, 1, 3, 80, 40_000,
+        matches, wins, losses, titles);
   }
 }

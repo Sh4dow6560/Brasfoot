@@ -157,7 +157,11 @@
   24 meses, luvas, parcelas, metas e bonus. Pagamentos entram na categoria
   financeira original, renovacoes preservam historico e a verba anual antiga
   e estornada uma unica vez ao migrar uma temporada em andamento.
+- Torcida e alcance: cada clube do usuario possui torcida local e internacional,
+  seguidores, socios-torcedores, engajamento, sentimento e reputacao mundial.
+  A evolucao mensal considera fase, titulos, reputacao, divisao e capacidade do
+  estadio, preserva 36 periodos e e idempotente.
 - Configuracao: `Recursos adicionais` no menu principal ativa ou desativa
-  objetivos da diretoria e patrocinadores sem editar o save manualmente.
-- Proxima fase: implementar o programa de socio-torcedor vinculado a
-  reputacao, fase e publico.
+  objetivos da diretoria, patrocinadores e alcance do clube sem editar o save
+  manualmente. Um painel separado exibe os indicadores atuais.
+- Proxima fase: recuperar e ampliar estadio, gramado e infraestrutura.

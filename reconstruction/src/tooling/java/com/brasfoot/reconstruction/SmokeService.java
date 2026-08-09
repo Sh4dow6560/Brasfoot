@@ -107,6 +107,10 @@ final class SmokeService {
         scheduleCalls,
         "mod/extension/sponsorship/SponsorshipBridge.processMonthly(II)I",
         "monthly sponsorship payment");
+    requireCall(
+        scheduleCalls,
+        "mod/extension/reach/ClubReachBridge.processMonthly(II)I",
+        "monthly club reach update");
 
     Set<String> clubCalls = methodCalls(hybrid, "best/ah.class");
     requireCall(
@@ -119,6 +123,10 @@ final class SmokeService {
         mainPanelCalls,
         "mod/extension/ui/ModSettingsAction.<init>(Ljava/awt/Component;)V",
         "extension settings menu");
+    requireCall(
+        mainPanelCalls,
+        "mod/extension/ui/ClubReachAction.<init>(Ljava/awt/Component;)V",
+        "club reach dashboard menu");
 
     Set<String> persistenceCalls = methodCalls(hybrid, "c/a.class");
     requireCall(

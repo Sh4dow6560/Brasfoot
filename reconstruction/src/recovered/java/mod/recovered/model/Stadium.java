@@ -287,7 +287,7 @@ public class Stadium implements Serializable {
       this.dp = bl;
    }
 
-   public int dW() {
+   public int getCapacity() {
       return this.dn[0] + this.dn[1] + this.dn[2] + this.dn[3];
    }
 

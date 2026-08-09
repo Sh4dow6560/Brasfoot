@@ -14,6 +14,9 @@ import mod.extension.state.ModRuntime;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.reach.ClubReachResult;
+import mod.extension.reach.ClubReachSnapshot;
+import mod.extension.reach.ClubReachStatus;
 import mod.extension.sponsorship.SponsorOffer;
 import mod.extension.sponsorship.SponsorshipResult;
 import mod.extension.sponsorship.SponsorshipSnapshot;
@@ -142,6 +145,23 @@ public final class ModStateCompatibilityProbe {
         || sponsorBonus.getGoalBonus() != selected.getGoalBonus()) {
       throw new IllegalStateException("Sponsorship contract processing is inconsistent");
     }
+    ModRuntime.setFeatureEnabled(Feature.CLUB_REACH, true);
+    ClubReachResult reachInitialized = ModRuntime.evaluateClubReach(
+        clubReachSnapshot(2026, 1, 0, 0, 0, 0));
+    ClubReachResult reachUpdated = ModRuntime.evaluateClubReach(
+        clubReachSnapshot(2026, 2, 6, 4, 1, 1));
+    ClubReachResult reachDuplicate = ModRuntime.evaluateClubReach(
+        clubReachSnapshot(2026, 2, 6, 4, 1, 1));
+    if (reachInitialized.getStatus() != ClubReachStatus.INITIALIZED
+        || reachUpdated.getStatus() != ClubReachStatus.UPDATED
+        || reachUpdated.getSocialFollowerDelta() <= 0L
+        || reachUpdated.getInternationalSupporterDelta() <= 0L
+        || reachUpdated.getGlobalReputationDelta() <= 0
+        || reachDuplicate.getStatus() != ClubReachStatus.ALREADY_PROCESSED
+        || reachDuplicate.getSocialFollowerDelta()
+            != reachUpdated.getSocialFollowerDelta()) {
+      throw new IllegalStateException("Club reach processing is inconsistent");
+    }
     if (!ModRuntime.persist(boardSave)) {
       throw new IllegalStateException("Extension state was not persisted");
     }
@@ -149,8 +169,10 @@ public final class ModStateCompatibilityProbe {
     ModRuntime.attach(boardSave);
     if (!ModRuntime.isFeatureEnabled(Feature.BOARD_OBJECTIVES)
         || !ModRuntime.isFeatureEnabled(Feature.SPONSORSHIPS)
+        || !ModRuntime.isFeatureEnabled(Feature.CLUB_REACH)
         || ModRuntime.getState().getModule("boardObjectives").isEmpty()
-        || ModRuntime.getState().getModule("sponsorships").isEmpty()) {
+        || ModRuntime.getState().getModule("sponsorships").isEmpty()
+        || ModRuntime.getState().getModule("clubReach").isEmpty()) {
       throw new IllegalStateException("Extension modules were not restored");
     }
     try (java.util.stream.Stream<Path> files = Files.list(root)) {
@@ -162,7 +184,7 @@ public final class ModStateCompatibilityProbe {
         + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
         + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
         + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
-        + "transition=true");
+        + "transition=true clubReach=true audiences=true social=true reputation=true");
   }
 
   private static BoardSnapshot boardSnapshot(
@@ -193,6 +215,18 @@ public final class ModStateCompatibilityProbe {
       int titles) {
     return new SponsorshipSnapshot(
         year, month, season, 101, 1, 3, 6_000_000, matches, wins, titles);
+  }
+
+  private static ClubReachSnapshot clubReachSnapshot(
+      int year,
+      int month,
+      int matches,
+      int wins,
+      int losses,
+      int titles) {
+    return new ClubReachSnapshot(
+        year, month, 1, 101, 1, 3, 80, 40_000,
+        matches, wins, losses, titles);
   }
 
   private static Path createSave(Path root, String name) throws Exception {

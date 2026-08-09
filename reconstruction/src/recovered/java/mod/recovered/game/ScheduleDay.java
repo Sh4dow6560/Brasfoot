@@ -22,6 +22,7 @@ import java.util.Date;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.extension.board.BoardObjectivesBridge;
+import mod.extension.reach.ClubReachBridge;
 import mod.extension.sponsorship.SponsorshipBridge;
 
 public class ScheduleDay implements Serializable {
@@ -610,6 +611,8 @@ public class ScheduleDay implements Serializable {
 
       if (i == 0 && this.p.get(Calendar.DAY_OF_MONTH) == 2) {
          SponsorshipBridge.processMonthly(
+            this.p.get(Calendar.YEAR), this.p.get(Calendar.MONTH) + 1);
+         ClubReachBridge.processMonthly(
             this.p.get(Calendar.YEAR), this.p.get(Calendar.MONTH) + 1);
          BoardObjectivesBridge.evaluateMonthly(
             this.p.get(Calendar.YEAR), this.p.get(Calendar.MONTH) + 1);

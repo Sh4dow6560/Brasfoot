@@ -53,7 +53,7 @@ public class C0171 extends JPanel {
    private void oA() {
       this.BX = Stadium.a(this.w, this.zY);
       int[] var1 = this.dH.dT();
-      int var2 = this.dH.dW();
+      int var2 = this.dH.getCapacity();
       String var3 = "G:"
          + Integer.toString(this.BX[0])
          + ";"
