@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.*;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.CafChampionsLeague;
@@ -21,7 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-public class C0725 {
+public class GameBootstrap {
    public static void main(String[] strings) {
       try {
          LookAndFeelInfo[] var4;
@@ -35,13 +36,13 @@ public class C0725 {
             }
          }
       } catch (ClassNotFoundException var5) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var5);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var5);
       } catch (InstantiationException var6) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var6);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var6);
       } catch (IllegalAccessException var7) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var7);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var7);
       } catch (UnsupportedLookAndFeelException var8) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var8);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var8);
       }
 
       System.out.println(Runtime.getRuntime().maxMemory());
@@ -49,11 +50,11 @@ public class C0725 {
       System.out.println(Runtime.getRuntime().freeMemory());
       new C0679(true);
       C0732.cU();
-      mh();
-      mg();
+      initializeApplication();
+      initializeRegistrationState();
    }
 
-   public static void mg() {
+   public static void initializeRegistrationState() {
       Preferences var0 = Preferences.userRoot();
       var0 = var0.node("systemacxy");
       String var1 = var0.get("n", "nf");
@@ -75,18 +76,18 @@ public class C0725 {
       return i + var3;
    }
 
-   public static void mh() {
+   public static void initializeApplication() {
       long var0 = 0L;
       long var2 = 0L;
       new GamePersistence();
       GamePersistence.careerState.bs = false;
       new C0971().wT();
       GamePersistence.preloadSoundFiles();
-      C0734.dd();
+      CareerInitializer.initializeCountryState();
       GamePersistence.careerState.bi();
    }
 
-   public static void mi() {
+   public static void reloadLocalization() {
       new C0971().wT();
    }
 
@@ -150,7 +151,7 @@ public class C0725 {
       GamePersistence.careerState.aF().yq();
    }
 
-   public static void u() {
+   public static void printScheduleDiagnostics() {
       int var0 = 0;
       var0 = 0;
       ArrayList var1 = ScheduleDay.b(100);

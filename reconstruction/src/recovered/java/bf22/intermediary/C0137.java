@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.match.MatchEvent;
 import mod.recovered.transfer.PlayerSearchCriteria;
 import mod.recovered.competition.KnockoutStage;
@@ -859,7 +860,7 @@ public class C0137 extends JPanel {
          var0[var3] = Integer.parseInt(var6);
       }
 
-      if (C0734.du() < 8) {
+      if (CareerInitializer.du() < 8) {
          C0644.ac(var1);
       }
    }

@@ -1,5 +1,6 @@
 package mod.recovered.ui;
 
+import bf22.intermediary.CompetitionResultsPanel;
 import mod.recovered.competition.NationalLeague;
 import bf22.intermediary.*;
 import mod.recovered.competition.Competition;
@@ -351,7 +352,7 @@ public class MainWindow {
 
    public static void b(int i, Competition c0713) {
       JDialog var2 = new JDialog(cC);
-      C0065 var3 = new C0065(var2, i, c0713);
+      CompetitionResultsPanel var3 = new CompetitionResultsPanel(var2, i, c0713);
       var2.add(var3);
       int var4 = gT;
       if (var4 > 800) {

@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.GameBootstrap;
 import mod.recovered.save.GamePersistence;
 import java.util.Random;
 import java.util.logging.Level;
@@ -26,13 +27,13 @@ public class C0726 {
             }
          }
       } catch (ClassNotFoundException var5) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var5);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var5);
       } catch (InstantiationException var6) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var6);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var6);
       } catch (IllegalAccessException var7) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var7);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var7);
       } catch (UnsupportedLookAndFeelException var8) {
-         Logger.getLogger(C0725.class.getName()).log(Level.SEVERE, null, var8);
+         Logger.getLogger(GameBootstrap.class.getName()).log(Level.SEVERE, null, var8);
       }
 
       mg();

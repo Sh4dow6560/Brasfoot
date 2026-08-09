@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.*;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.AfricaCupOfNations;
@@ -58,7 +59,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import mod.recovered.model.Club;
 
-public class C0065 extends JPanel {
+public class CompetitionResultsPanel extends JPanel {
    private JDialog ub;
    private ArrayList cS = new ArrayList();
    private ArrayList vS = new ArrayList();
@@ -124,7 +125,7 @@ public class C0065 extends JPanel {
    private JTable vN;
    private JComboBox wS;
 
-   public C0065(JDialog jDialog, int i, Competition c0713) {
+   public CompetitionResultsPanel(JDialog jDialog, int i, Competition c0713) {
       this.ub = jDialog;
       this.wb = c0713;
       this.mJ();

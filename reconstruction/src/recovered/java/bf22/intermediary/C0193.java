@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.geo.CountryInfo;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
@@ -113,7 +114,7 @@ public class C0193 extends JPanel {
       this.Gr.nH();
       this.Gs.nH();
       this.Gt.nH();
-      C0734.a(this.Go, this.pais);
+      CareerInitializer.replaceNationalLeagueConfigs(this.Go, this.pais);
       if (this.pais == 29) {
          GamePersistence.getOptions().setNovoFormatoCopa(this.Gp.isSelected());
          GamePersistence.saveOptions();

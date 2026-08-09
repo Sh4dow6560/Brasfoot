@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.save.GamePersistence;
 import mod.recovered.ui.MainWindow;
 import java.awt.Color;
@@ -75,7 +76,7 @@ public class C0388 extends JFrame {
 
    private void mi() {
       new GamePersistence();
-      C0734.dd();
+      CareerInitializer.initializeCountryState();
       C0732.g("Metal");
       if (C0732.db() == null) {
          new MainWindow(true);

@@ -2,28 +2,29 @@
 
 Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome direto sao agrupadas pelo modulo semantico mais referenciado; empates permanecem nao classificados.
 
-- Classes: 84/1038 (8.1%).
-- Membros semanticos explicitos: 721/10201 (7.1%).
-- Entradas de membros emitidas no Tiny v2: 808.
+- Classes: 87/1038 (8.4%).
+- Membros semanticos explicitos: 737/10201 (7.2%).
+- Entradas de membros emitidas no Tiny v2: 824.
 
 | Modulo | Classes | Nomeadas | Cobertura | Membros | Semanticos | Cobertura |
 |---|---:|---:|---:|---:|---:|---:|
-|competition|74|50|67.6%|1817|0|0.0%|
+|competition|71|50|70.4%|1718|0|0.0%|
 |config|14|6|42.9%|390|2|0.5%|
 |core|15|1|6.7%|1080|2|0.2%|
 |finance|4|1|25.0%|71|44|62.0%|
-|game|41|3|7.3%|1074|29|2.7%|
+|game|38|3|7.9%|1029|29|2.8%|
 |geo|6|1|16.7%|71|0|0.0%|
 |infrastructure|1|1|100.0%|5|4|80.0%|
 |manager|5|3|60.0%|60|51|85.0%|
 |match|27|3|11.1%|847|142|16.8%|
 |model|168|5|3.0%|2416|234|9.7%|
+|named-other|18|3|16.7%|200|16|8.0%|
 |save|32|2|6.3%|247|33|13.4%|
 |stadium|1|1|100.0%|10|9|90.0%|
 |team|2|1|50.0%|26|7|26.9%|
 |transfer|8|5|62.5%|235|161|68.5%|
-|ui|7|1|14.3%|96|0|0.0%|
-|unclassified/a|425|0|0.0%|485|0|0.0%|
+|ui|6|1|16.7%|63|0|0.0%|
+|unclassified/a|414|0|0.0%|462|0|0.0%|
 |unclassified/b|40|0|0.0%|249|0|0.0%|
 |unclassified/best|13|0|0.0%|75|0|0.0%|
 |unclassified/components|46|0|0.0%|363|3|0.8%|
@@ -52,7 +53,7 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 |`d/n`|core|2016|106|106|
 |`best/I`|match|2016|105|176|
 |`a/hk`|match|2016|98|98|
-|`a/al`|competition|2016|97|97|
+|`a/al`|named-other|2016|97|97|
 |`a/bz`|model|2016|97|97|
 |`best/Z`|competition|2016|81|81|
 |`e/t`|unclassified/e|2016|81|81|

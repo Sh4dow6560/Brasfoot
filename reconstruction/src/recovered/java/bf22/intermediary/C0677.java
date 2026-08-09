@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.save.GamePersistence;
 import java.util.Random;
 import javax.swing.JProgressBar;
@@ -291,7 +292,7 @@ public abstract class C0677 {
       C0684.eT();
       Double var10 = 2.0 * var6;
       Double var11 = 4.0 * var6;
-      C0734.dv();
+      CareerInitializer.dv();
       int var12 = (int)Math.round(var6 / var0[1]);
       int var13 = (int)Math.round(var6 / var0[2]);
 
@@ -312,7 +313,7 @@ public abstract class C0677 {
          }
       }
 
-      if (C0734.du() < 8) {
+      if (CareerInitializer.du() < 8) {
          C0137.pg();
       }
 

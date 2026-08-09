@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -41,9 +42,9 @@ public class C0127 extends JPanel {
          C0670.eS();
          C0670.eT();
          new C0054();
-         C0734.dv();
-         if (C0734.du() < 8) {
-            C0734.n(true);
+         CareerInitializer.dv();
+         if (CareerInitializer.du() < 8) {
+            CareerInitializer.n(true);
          }
       }
    }

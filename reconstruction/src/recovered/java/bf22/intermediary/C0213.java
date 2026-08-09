@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.ui.MainWindow;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -83,7 +84,7 @@ public class C0213 extends JPanel {
 
       C0698.t(null);
       C0698.u("");
-      C0734.n(false);
+      CareerInitializer.n(false);
       if (!this.Ej.getText().isEmpty() && this.Ej.getText().toString().length() > 1 && this.Ej.getText().toString().length() < 100) {
          C0698.t(this.Ej.getText().toString());
       }
@@ -104,7 +105,7 @@ public class C0213 extends JPanel {
       }
 
       C0677.in();
-      if (C0734.dt()) {
+      if (CareerInitializer.dt()) {
          C0217.pu();
          C0217.pv();
          this.pb();

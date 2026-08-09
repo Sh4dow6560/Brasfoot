@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
 import mod.recovered.ui.MainWindow;
@@ -177,7 +178,7 @@ public class C0419 extends JPanel {
       GamePersistence.careerState.setJogaIntClubes(this.Mj.isSelected());
       GamePersistence.careerState.setJogaSelecoesAll(this.Mh.isSelected());
       if (GamePersistence.careerState.bj()) {
-         C0734.dg();
+         CareerInitializer.initializeNewCareer();
          MainWindow.aY(1);
       } else {
          JOptionPane.showMessageDialog(null, "Selecione pelo menos uma liga", "", 0);

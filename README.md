@@ -62,3 +62,6 @@ Os proximos nomes triviais e a cobertura atual podem ser gerados por:
 cd .\reconstruction
 .\gradlew.bat buildSemanticCandidates semanticCoverage
 ```
+
+A comparacao estrutural de variantes e a fila priorizada de recuperacao podem
+ser atualizadas com `.\gradlew.bat recoveryStatus` no mesmo diretorio.

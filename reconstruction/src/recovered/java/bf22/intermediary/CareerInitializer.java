@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.*;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.AfcChampionsLeague;
 import mod.recovered.competition.CafChampionsLeague;
@@ -31,14 +32,14 @@ import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
 
-public abstract class C0734 {
+public abstract class CareerInitializer {
    private static boolean cM = false;
    public static Comparator cN = new C0735();
    private static int cO = 0;
 
-   public static void dd() {
+   public static void initializeCountryState() {
       if (GamePersistence.careerState.aG().size() == 0) {
-         de();
+         createCountryCompetitionRegistry();
       }
 
       GamePersistence.careerState.bC = new ArrayList();
@@ -66,10 +67,10 @@ public abstract class C0734 {
       }
 
       GamePersistence.careerState.bG = new ArrayList();
-      ds();
+      loadNationalLeagueConfigs();
    }
 
-   public static void de() {
+   public static void createCountryCompetitionRegistry() {
       GamePersistence.careerState.aG().clear();
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
@@ -78,7 +79,7 @@ public abstract class C0734 {
       }
    }
 
-   public static void w(ArrayList arrayList) {
+   public static void activateSelectedCountryCompetitions(ArrayList arrayList) {
       for (int var1 = 0; var1 < arrayList.size(); var1++) {
          if (((C0681)arrayList.get(var1)).iC()) {
             CountryCompetitions var2 = (CountryCompetitions)GamePersistence.careerState.aG().get(((C0681)arrayList.get(var1)).getPais());
@@ -96,7 +97,7 @@ public abstract class C0734 {
       }
    }
 
-   public static void x(ArrayList arrayList) {
+   public static void createClubsFromLoadedTeams(ArrayList arrayList) {
       byte var1 = 15;
       Integer var2 = -1;
       boolean var3 = false;
@@ -119,8 +120,8 @@ public abstract class C0734 {
       }
    }
 
-   public static void dg() {
-      x(GamePersistence.careerState.bF);
+   public static void initializeNewCareer() {
+      createClubsFromLoadedTeams(GamePersistence.careerState.bF);
 
       for (int var0 = 0; var0 < C0696.jz(); var0++) {
          CountryCompetitions var1 = (CountryCompetitions)GamePersistence.careerState.aG().get(var0);
@@ -131,7 +132,7 @@ public abstract class C0734 {
       GamePersistence.careerState.r(GamePersistence.careerState.getFirstSeasonYear());
       ScheduleDay.g();
       ScheduleDay.u();
-      w(GamePersistence.careerState.bF);
+      activateSelectedCountryCompetitions(GamePersistence.careerState.bF);
       if (GamePersistence.careerState.bk() || GamePersistence.careerState.X()) {
          int var2 = ScheduleDay.e(1);
          if (var2 > 0) {
@@ -141,7 +142,7 @@ public abstract class C0734 {
 
       ScheduleDay.q();
       new C0679(false);
-      dj();
+      assignClubIds();
 
       for (int var3 = 0; var3 < GamePersistence.careerState.O().size(); var3++) {
          ((Player)GamePersistence.careerState.O().get(var3)).fh();
@@ -191,7 +192,7 @@ public abstract class C0734 {
       Collections.sort(GamePersistence.careerState.P(), C1007.VS);
    }
 
-   public static void dh() {
+   public static void initializeRegionalCups() {
       boolean var0 = false;
       int[] var1 = new int[4];
       String[] var10000 = new String[]{
@@ -241,7 +242,7 @@ public abstract class C0734 {
       }
 
       new ArrayList();
-      ArrayList var7 = di();
+      ArrayList var7 = buildRegionalCupClubPool();
       boolean[] var8 = GamePersistence.careerState.getJogaRegionaisTodos();
 
       for (int var6 = 0; var6 < 4; var6++) {
@@ -254,7 +255,7 @@ public abstract class C0734 {
       GamePersistence.careerState.setJogaRegionais(var0);
    }
 
-   public static ArrayList di() {
+   public static ArrayList buildRegionalCupClubPool() {
       ArrayList var0 = new ArrayList();
       ArrayList var1 = new ArrayList();
       CountryCompetitions var2 = GamePersistence.careerState.o(29);
@@ -292,7 +293,7 @@ public abstract class C0734 {
       return var0;
    }
 
-   private static void dj() {
+   private static void assignClubIds() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
          ((Club)GamePersistence.careerState.P().get(var0)).setClubId(var0);
       }
@@ -348,7 +349,7 @@ public abstract class C0734 {
       GamePersistence.careerState.aF().yq();
    }
 
-   public static void ds() {
+   public static void loadNationalLeagueConfigs() {
       GamePersistence.careerState.bG.clear();
       File var0 = new File(System.getProperty("user.dir") + "/conf_ligas_nacionais");
       File[] var1 = var0.listFiles(new C0736());
@@ -372,19 +373,19 @@ public abstract class C0734 {
                   return;
                }
 
-               a(var3);
+               addNationalLeagueConfigs(var3);
             }
          }
       }
    }
 
-   public static void a(NationalLeagueConfigs nationalLeagueConfigs) {
+   public static void addNationalLeagueConfigs(NationalLeagueConfigs nationalLeagueConfigs) {
       for (int var1 = 0; var1 < nationalLeagueConfigs.leagues.size(); var1++) {
          GamePersistence.careerState.bG.add((NationalLeagueConfig)nationalLeagueConfigs.leagues.get(var1));
       }
    }
 
-   public static void a(NationalLeagueConfig[] nationalLeagueConfigs, int i) {
+   public static void replaceNationalLeagueConfigs(NationalLeagueConfig[] nationalLeagueConfigs, int i) {
       NationalLeagueConfigs var2 = new NationalLeagueConfigs();
 
       for (int var3 = 1; var3 < nationalLeagueConfigs.length; var3++) {
@@ -417,7 +418,7 @@ public abstract class C0734 {
       }
    }
 
-   public static void c(int i, int j, int k) {
+   public static void addDefaultNationalLeagueConfig(int i, int j, int k) {
       NationalLeagueConfig var3 = new NationalLeagueConfig();
       if (i == 1) {
          var3.setnTimes(10);

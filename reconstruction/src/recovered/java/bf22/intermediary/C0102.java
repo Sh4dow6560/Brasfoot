@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
@@ -203,7 +204,7 @@ public class C0102 extends JPanel {
          }
 
          if (GamePersistence.careerState.isJogaRegionais()) {
-            C0734.dh();
+            CareerInitializer.initializeRegionalCups();
          }
 
          this.pl();
@@ -211,7 +212,7 @@ public class C0102 extends JPanel {
          this.or();
          this.Bw.setCursor(new Cursor(3));
          if (GamePersistence.careerState.isJogaRegionais()) {
-            C0734.dh();
+            CareerInitializer.initializeRegionalCups();
          }
 
          this.pl();

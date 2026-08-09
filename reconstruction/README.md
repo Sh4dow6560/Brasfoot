@@ -110,3 +110,15 @@ Os nomes aceitos ficam separados em `config/semantic-auto-names.json`. O
 migrador usa substituicao transacional nos casos simples e JavaParser Symbol
 Solver quando nomes ofuscados colidem. Declaracoes e chamadas resolvidas devem
 coincidir com o bytecode compilado antes de qualquer fonte ser substituida.
+
+Para comparar variantes locais e gerar a fila priorizada de recuperacao:
+
+```powershell
+.\gradlew.bat analyzeReferenceVariants buildRecoveryQueue
+```
+
+`analyzeReferenceVariants` elimina diferencas causadas apenas por recompilacao,
+relocacao ou renomeacao e valida os resultados esperados declarados em
+`config/reference-variants.json`. `buildRecoveryQueue` combina os deltas reais
+com dependencias, cobertura semantica, execucao e contratos de save. O comando
+`recoveryStatus` atualiza esses relatorios junto com a cobertura semantica.

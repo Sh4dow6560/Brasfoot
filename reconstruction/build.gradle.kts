@@ -289,6 +289,32 @@ val semanticCoverage = registerToolTask("semanticCoverage", "semantic-coverage")
     outputs.file(layout.projectDirectory.file("../docs/SEMANTIC_COVERAGE.md"))
 }
 
+val analyzeReferenceVariants = registerToolTask(
+    "analyzeReferenceVariants", "analyze-reference-variants"
+) {
+    dependsOn(verifyInputs)
+    inputs.file(layout.projectDirectory.file("config/reference-variants.json"))
+    inputs.file(layout.projectDirectory.file("local.properties"))
+    outputs.file(layout.buildDirectory.file("reports/reference-variants.json"))
+    outputs.file(layout.projectDirectory.file("../docs/REFERENCE_VARIANTS.md"))
+}
+
+val buildRecoveryQueue = registerToolTask("buildRecoveryQueue", "build-recovery-queue") {
+    dependsOn(generateMappings, analyzeReferenceVariants)
+    inputs.file(layout.projectDirectory.file("config/reference-variants.json"))
+    inputs.file(layout.projectDirectory.file("config/semantic-names.json"))
+    inputs.file(layout.projectDirectory.file("config/semantic-auto-names.json"))
+    inputs.file(layout.projectDirectory.file("config/serialization-contracts.json"))
+    inputs.file(layout.projectDirectory.file("recovery-index.json"))
+    outputs.file(layout.buildDirectory.file("reports/recovery-queue.json"))
+    outputs.file(layout.projectDirectory.file("../docs/RECOVERY_QUEUE.md"))
+}
+
+tasks.register("recoveryStatus") {
+    group = "reconstruction"
+    dependsOn(semanticCoverage, analyzeReferenceVariants, buildRecoveryQueue)
+}
+
 tasks.register("compileRecovered") {
     group = "reconstruction"
     dependsOn(tasks.named(recovered.classesTaskName), tasks.named(extension.classesTaskName))

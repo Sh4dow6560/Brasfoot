@@ -63,7 +63,7 @@ c	a/ah	bf22/intermediary/C0061	bf22/intermediary/C0061
 c	a/ai	bf22/intermediary/C0062	bf22/intermediary/C0062
 c	a/aj	bf22/intermediary/C0063	bf22/intermediary/C0063
 c	a/ak	bf22/intermediary/C0064	bf22/intermediary/C0064
-c	a/al	bf22/intermediary/C0065	bf22/intermediary/C0065
+c	a/al	bf22/intermediary/C0065	bf22/intermediary/CompetitionResultsPanel
 c	a/am	bf22/intermediary/C0066	bf22/intermediary/C0066
 c	a/an	bf22/intermediary/C0067	bf22/intermediary/C0067
 c	a/ao	bf22/intermediary/C0068	bf22/intermediary/C0068
@@ -1277,8 +1277,12 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	m	(Ljava/util/ArrayList;)V	q	q	setStadiumExpansionProjects
 c	best/g	bf22/intermediary/C0724	mod/recovered/game/CoachPerformanceComparator
 	m	(Lbest/al;Lbest/al;)I	b	b	compare
-c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725
+c	best/h	bf22/intermediary/C0725	bf22/intermediary/GameBootstrap
 	m	()V	do	method_kw_do	method_kw_do
+	m	()V	mg	mg	initializeRegistrationState
+	m	()V	mh	mh	initializeApplication
+	m	()V	mi	mi	reloadLocalization
+	m	()V	u	u	printScheduleDiagnostics
 c	best/h2	bf22/intermediary/C0726	bf22/intermediary/C0726
 c	best/i	bf22/intermediary/C0727	mod/recovered/competition/CompetitionSeasonResult
 c	best/j	bf22/intermediary/C0728	mod/recovered/manager/CoachSeasonRecord
@@ -1345,8 +1349,20 @@ c	best/m	bf22/intermediary/C0731	bf22/intermediary/C0731
 c	best/n	bf22/intermediary/C0732	bf22/intermediary/C0732
 c	best/o	bf22/intermediary/C0733	bf22/intermediary/C0733
 	m	(Lbest/ad;Lbest/ad;)I	a	a	compare
-c	best/p	bf22/intermediary/C0734	bf22/intermediary/C0734
+c	best/p	bf22/intermediary/C0734	bf22/intermediary/CareerInitializer
+	m	(Lest/ArrayLigaType;)V	a	a	addNationalLeagueConfigs
+	m	([Lest/ConfigLigaType;I)V	a	a	replaceNationalLeagueConfigs
+	m	(III)V	c	c	addDefaultNationalLeagueConfig
+	m	()V	dd	dd	initializeCountryState
+	m	()V	de	de	createCountryCompetitionRegistry
+	m	()V	dg	dg	initializeNewCareer
+	m	()V	dh	dh	initializeRegionalCups
+	m	()Ljava/util/ArrayList;	di	di	buildRegionalCupClubPool
+	m	()V	dj	dj	assignClubIds
 	m	()V	do	method_kw_do	method_kw_do
+	m	()V	ds	ds	loadNationalLeagueConfigs
+	m	(Ljava/util/ArrayList;)V	w	w	activateSelectedCountryCompetitions
+	m	(Ljava/util/ArrayList;)V	x	x	createClubsFromLoadedTeams
 c	best/q	bf22/intermediary/C0735	bf22/intermediary/C0735
 	m	(Le/t;Le/t;)I	a	a	compare
 c	best/r	bf22/intermediary/C0736	bf22/intermediary/C0736

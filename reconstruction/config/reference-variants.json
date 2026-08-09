@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "variants": [
+    {
+      "id": "super-club-world-cup-2026",
+      "localProperty": "reference.super-club-world-cup",
+      "sha256": "D714ED91352226856041DB64701EBE9F723D1C4AA344DA8C506B6329E705C0A7",
+      "expectedClasses": 1039,
+      "purpose": "competition-delta-and-semantic-oracle",
+      "expectedAnalysis": {
+        "binaryIdenticalClasses": 790,
+        "structurallyEquivalentClasses": 230,
+        "behaviorChangedClasses": 12,
+        "apiChangedClasses": 6,
+        "addedClasses": ["f/O"],
+        "removedClasses": []
+      },
+      "relocations": {
+        "best/aqq": "best/aq",
+        "c/Aa": "c/a",
+        "components/yYZ": "components/y"
+      }
+    }
+  ]
+}

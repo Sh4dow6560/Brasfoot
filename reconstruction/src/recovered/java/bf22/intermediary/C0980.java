@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.save.GamePersistence;
 import mod.recovered.ui.MainWindow;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ class C0980 implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
       new GamePersistence();
-      C0734.dd();
+      CareerInitializer.initializeCountryState();
       new MainWindow(true);
    }
 }

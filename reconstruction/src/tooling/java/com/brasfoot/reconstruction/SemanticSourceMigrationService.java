@@ -188,9 +188,12 @@ final class SemanticSourceMigrationService {
           .filter(path -> path.getFileName().toString().endsWith(".java")).toList()) {
         String text = Files.readString(source, StandardCharsets.UTF_8);
         for (ClassMigration migration : migrations) {
-          if (containsIdentifier(text, simpleName(migration.currentName()))) {
+          String currentSimpleName = simpleName(migration.currentName());
+          String desiredSimpleName = simpleName(migration.desiredName());
+          if (!currentSimpleName.equals(desiredSimpleName)
+              && containsIdentifier(text, currentSimpleName)) {
             stale.add(sourceRoot.relativize(source).toString().replace('\\', '/')
-                + ":" + simpleName(migration.currentName()));
+                + ":" + currentSimpleName);
           }
         }
       }

@@ -261,11 +261,21 @@ final class SemanticMemberSourceMigrationService {
   }
 
   private String migrateOwnerReference(String source, MemberMigration migration) {
+    if ("method".equals(migration.kind())) {
+      return migrateOwnerMethodReferences(
+          source, migration.currentName(), migration.desiredName());
+    }
     String oldName = Pattern.quote(migration.currentName());
-    Pattern identifier = "method".equals(migration.kind())
-        ? Pattern.compile("(?<![A-Za-z0-9_$])" + oldName + "(?=\\s*\\()")
-        : Pattern.compile("(?<![A-Za-z0-9_$])" + oldName + "(?![A-Za-z0-9_$])");
+    Pattern identifier = Pattern.compile(
+        "(?<![A-Za-z0-9_$])" + oldName + "(?![A-Za-z0-9_$])");
     return identifier.matcher(source).replaceAll(Matcher.quoteReplacement(migration.desiredName()));
+  }
+
+  static String migrateOwnerMethodReferences(
+      String source, String currentName, String desiredName) {
+    Pattern identifier = Pattern.compile(
+        "(?<![A-Za-z0-9_$.])" + Pattern.quote(currentName) + "(?=\\s*\\()");
+    return identifier.matcher(source).replaceAll(Matcher.quoteReplacement(desiredName));
   }
 
   private void verifyMigration(Path sourceRoot, List<MemberMigration> migrations)

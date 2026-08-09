@@ -1,5 +1,6 @@
 package mod.recovered.game;
 
+import bf22.intermediary.CareerInitializer;
 import mod.recovered.transfer.PlayerLoan;
 import mod.recovered.stadium.StadiumExpansionProject;
 import mod.recovered.competition.AfcChampionsLeague;
@@ -1194,7 +1195,7 @@ public class CareerState implements Serializable {
 
    private void aj() {
       new ArrayList();
-      ArrayList var1 = C0734.di();
+      ArrayList var1 = CareerInitializer.buildRegionalCupClubPool();
 
       for (int var2 = 0; var2 < this.aZ.length; var2++) {
          if (this.aZ[var2] != null) {

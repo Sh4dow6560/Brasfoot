@@ -36,6 +36,9 @@ public final class ReconstructionTool {
       case "accept-semantic-candidates" ->
           new SemanticCandidateService(context).acceptHighConfidence();
       case "semantic-coverage" -> new SemanticCoverageService(context).build();
+      case "analyze-reference-variants" ->
+          new ReferenceVariantAnalysisService(context).build();
+      case "build-recovery-queue" -> new RecoveryQueueService(context).build();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();

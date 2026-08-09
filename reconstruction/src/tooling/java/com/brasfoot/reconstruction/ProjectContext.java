@@ -76,6 +76,14 @@ final class ProjectContext {
     return requiredPath("brasfoot." + version);
   }
 
+  Path optionalPath(String key) {
+    String value = local.getProperty(key);
+    if (value == null || value.isBlank()) {
+      return null;
+    }
+    return Path.of(value).toAbsolutePath().normalize();
+  }
+
   InputLock inputLock() {
     return inputLock;
   }
@@ -122,6 +130,10 @@ final class ProjectContext {
 
   Path serializationContractsFile() {
     return projectDir.resolve("config/serialization-contracts.json");
+  }
+
+  Path referenceVariantsFile() {
+    return projectDir.resolve("config/reference-variants.json");
   }
 
   Map<String, String> promotions() throws IOException {
