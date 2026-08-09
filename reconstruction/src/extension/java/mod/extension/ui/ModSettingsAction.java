@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mod.extension.infrastructure.StadiumInfrastructureBridge;
+import mod.extension.negotiation.AdvancedNegotiationBridge;
 import mod.extension.reach.ClubReachBridge;
 import mod.extension.sponsorship.SponsorshipBridge;
 import mod.extension.state.Feature;
@@ -34,11 +35,15 @@ public final class ModSettingsAction implements ActionListener {
     JCheckBox stadiumInfrastructure = new JCheckBox(
         "Est\u00e1dio e infraestrutura",
         ModRuntime.isFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE));
+    JCheckBox advancedNegotiations = new JCheckBox(
+        "Negocia\u00e7\u00f5es e empr\u00e9stimos avan\u00e7ados",
+        ModRuntime.isFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS));
     JPanel panel = new JPanel(new GridLayout(0, 1, 0, 6));
     panel.add(boardObjectives);
     panel.add(sponsorships);
     panel.add(clubReach);
     panel.add(stadiumInfrastructure);
+    panel.add(advancedNegotiations);
     int choice = JOptionPane.showConfirmDialog(
         this.parent,
         panel,
@@ -69,6 +74,13 @@ public final class ModSettingsAction implements ActionListener {
         Feature.STADIUM_INFRASTRUCTURE, stadiumInfrastructure.isSelected());
     if (!infrastructureWasEnabled && stadiumInfrastructure.isSelected()) {
       StadiumInfrastructureBridge.openDashboard(this.parent);
+    }
+    boolean negotiationsWereEnabled =
+        ModRuntime.isFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS);
+    ModRuntime.setFeatureEnabled(
+        Feature.ADVANCED_NEGOTIATIONS, advancedNegotiations.isSelected());
+    if (!negotiationsWereEnabled && advancedNegotiations.isSelected()) {
+      AdvancedNegotiationBridge.openDashboard(this.parent);
     }
   }
 }

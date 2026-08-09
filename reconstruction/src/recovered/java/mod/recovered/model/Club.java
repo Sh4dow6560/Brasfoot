@@ -1081,8 +1081,8 @@ public class Club implements Serializable {
    public int kq() {
       int var1 = 0;
 
-      for (int var2 = 0; var2 < GamePersistence.careerState.bt().size(); var2++) {
-         if (((PlayerLoan)GamePersistence.careerState.bt().get(var2)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.bt().get(var2)).getOriginalClub() == this) {
+      for (int var2 = 0; var2 < GamePersistence.careerState.getPlayerLoans().size(); var2++) {
+         if (((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var2)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var2)).getOriginalClub() == this) {
             var1++;
          }
       }

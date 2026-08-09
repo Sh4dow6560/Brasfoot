@@ -34,6 +34,7 @@ override, preservando o comportamento original. Os IDs reservados sao:
 - `boardObjectives`
 - `clubReach`
 - `sponsorships`
+- `stadiumInfrastructure`
 - `supporterMembership`
 - `staffAndTraining`
 - `scoutingNetwork`
@@ -64,3 +65,6 @@ O mesmo probe valida ofertas, contrato, duracao, luvas, parcela, bonus e a
 transicao idempotente da receita legada de patrocinadores.
 Tambem valida torcida local e internacional, redes sociais, reputacao mundial,
 idempotencia mensal e restauracao do perfil `clubReach`.
+O probe Java 8 e os testes unitarios validam ainda contratos de compra e
+emprestimo, parcelas, divisao salarial, vencimento, meses pulados e restauracao
+do modulo `advancedNegotiations`.

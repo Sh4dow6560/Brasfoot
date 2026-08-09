@@ -144,7 +144,7 @@ public class C0217 extends JPanel {
          if (var4 == 1) {
             int var11 = -1;
             if (c0708.ct() >= 0) {
-               var11 = GamePersistence.careerState.x(c0708.ct()).getPais();
+               var11 = GamePersistence.careerState.findClubById(c0708.ct()).getPais();
             }
 
             String var14 = var2[1][0] + "_" + C0696.values()[var11].jA();
@@ -155,7 +155,7 @@ public class C0217 extends JPanel {
       } else if (var3 == 2) {
          int var10 = -1;
          if (c0708.ct() >= 0) {
-            var10 = GamePersistence.careerState.x(c0708.ct()).getPais();
+            var10 = GamePersistence.careerState.findClubById(c0708.ct()).getPais();
          }
 
          String var13 = var2[2][0] + "_" + C0696.values()[var10].jA();
@@ -163,7 +163,7 @@ public class C0217 extends JPanel {
       } else if (var3 == 11) {
          int var9 = -1;
          if (c0708.ct() >= 0) {
-            var9 = GamePersistence.careerState.x(c0708.ct()).getPais();
+            var9 = GamePersistence.careerState.findClubById(c0708.ct()).getPais();
          }
 
          String var12 = var2[11][0] + "_" + C0696.values()[var9].jA();
@@ -172,7 +172,7 @@ public class C0217 extends JPanel {
          if (var4 == 1) {
             int var8 = -1;
             if (c0708.ct() >= 0) {
-               var8 = GamePersistence.careerState.x(c0708.ct()).getEstado();
+               var8 = GamePersistence.careerState.findClubById(c0708.ct()).getEstado();
             }
 
             String var7 = "tr_estadual_" + GameConstants.rX[var8];

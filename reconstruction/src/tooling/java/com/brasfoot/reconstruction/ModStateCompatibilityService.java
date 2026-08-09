@@ -14,7 +14,9 @@ final class ModStateCompatibilityService {
           + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
           + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
           + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
-          + "transition=true clubReach=true audiences=true social=true reputation=true";
+          + "transition=true clubReach=true audiences=true social=true reputation=true "
+          + "advancedNegotiations=true installments=true loans=true wageShare=true "
+          + "purchaseOption=true";
 
   private final ProjectContext context;
 
@@ -56,7 +58,7 @@ final class ModStateCompatibilityService {
           "Mod state compatibility probe failed:" + System.lineSeparator() + log);
     }
     ZipSupport.deleteTreeWithin(workRoot, allowedRoot);
-    System.out.println("Mod state compatibility passed on Java 8: missing, current, corrupt, "
-        + "migrated and unsupported sidecars preserve the original fallback.");
+    System.out.println("Mod state compatibility passed on Java 8: sidecar fallbacks and "
+        + "advanced negotiation contracts were preserved.");
   }
 }

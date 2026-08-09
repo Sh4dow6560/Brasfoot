@@ -17,6 +17,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import mod.recovered.finance.ClubFinances;
 import mod.recovered.model.Club;
 import mod.recovered.model.Player;
+import mod.extension.negotiation.AdvancedNegotiationBridge;
 
 public class C0185 extends JPanel {
    private JDialog ub;
@@ -84,26 +85,35 @@ public class C0185 extends JPanel {
       int var2 = -1;
       if (!var1.equals("") && var1.matches("\\d+") && B(var1) && Integer.parseInt(var1) > 0) {
          int var3 = Integer.parseInt(var1);
-         if (this.ul.getCashBalance() >= var3) {
+         if (this.CZ
+            ? this.ul.getCashBalance() >= var3
+            : AdvancedNegotiationBridge.canSubmitPurchaseOffer(this.CY, this.ul, var3)) {
             if (this.CY.getClub().isUserControlled()) {
                int var4 = Integer.parseInt(var1);
                String var5 = this.ul.getNome();
                String var6 = this.CY.getClub().getCoach().getName();
                var2 = JOptionPane.showConfirmDialog(this.ub, var6 + " proposta pelo seu jogador\n" + "Deseja aceitar?", "Proposta de compra", 0);
                if (var2 == 0) {
-                  if (!this.CZ) {
-                     this.CY.moveToClub(this.ul, var4, false, false, false);
-                  } else {
-                     this.CY.c(this.ul, var4);
+                  int var7 = AdvancedNegotiationBridge.completePurchase(
+                     this.ub, this.CY, this.ul, var4, this.CZ);
+                  if (var7 == AdvancedNegotiationBridge.NOT_HANDLED) {
+                     if (!this.CZ) {
+                        this.CY.moveToClub(this.ul, var4, false, false, false);
+                     } else {
+                        this.CY.c(this.ul, var4);
+                     }
+                     var7 = AdvancedNegotiationBridge.COMPLETED;
                   }
-
-                  TransferNegotiation.setTransferCompleted(true);
-                  this.ub.dispose();
+                  if (var7 == AdvancedNegotiationBridge.COMPLETED) {
+                     TransferNegotiation.setTransferCompleted(true);
+                     this.ub.dispose();
+                  }
                }
             } else if (this.CY.isTransferListed() && var3 >= this.CY.getAskingPrice() && !this.CZ) {
                this.oM();
             } else {
                int var14 = 0;
+               int originalSalary = this.CY.getSalary();
                int var16 = Integer.parseInt(var1);
                var14 = TransferNegotiation.evaluateTransferOffer(this.CY, this.ul, var16);
                String[] var17 = new String[]{
@@ -153,16 +163,26 @@ public class C0185 extends JPanel {
                }
 
                if (var14 == 1) {
-                  if (!this.CZ) {
-                     Club var19 = this.CY.getClub();
-                     this.CY.moveToClub(this.ul, var16, false, false, false);
-                     TransferNegotiation.replenishSquadAfterTransfer(var19, this.CY);
-                  } else {
-                     this.CY.c(this.ul, var16);
+                  Club var19 = this.CY.getClub();
+                  int var20 = AdvancedNegotiationBridge.completePurchase(
+                     this.ub, this.CY, this.ul, var16, this.CZ);
+                  if (var20 == AdvancedNegotiationBridge.NOT_HANDLED) {
+                     if (!this.CZ) {
+                        this.CY.moveToClub(this.ul, var16, false, false, false);
+                     } else {
+                        this.CY.c(this.ul, var16);
+                     }
+                     var20 = AdvancedNegotiationBridge.COMPLETED;
                   }
-
-                  TransferNegotiation.setTransferCompleted(true);
-                  this.ub.dispose();
+                  if (var20 == AdvancedNegotiationBridge.COMPLETED) {
+                     if (!this.CZ) {
+                        TransferNegotiation.replenishSquadAfterTransfer(var19, this.CY);
+                     }
+                     TransferNegotiation.setTransferCompleted(true);
+                     this.ub.dispose();
+                  } else {
+                     this.CY.setSalary(originalSalary);
+                  }
                }
             }
          } else {
@@ -175,7 +195,12 @@ public class C0185 extends JPanel {
 
    private void oM() {
       int var1 = 0;
-      var1 = TransferNegotiation.tryListedTransfer(this.CY, this.ul);
+      var1 = AdvancedNegotiationBridge.tryListedPurchase(this.ub, this.CY, this.ul);
+      if (var1 == AdvancedNegotiationBridge.NOT_HANDLED) {
+         var1 = TransferNegotiation.tryListedTransfer(this.CY, this.ul);
+      } else if (var1 == AdvancedNegotiationBridge.CANCELED) {
+         return;
+      }
       String[] var2 = new String[]{
          "Não está à venda",
          "Compra realizada",

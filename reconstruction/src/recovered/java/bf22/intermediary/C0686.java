@@ -166,9 +166,9 @@ public class C0686 implements Serializable {
 
    public Club y(Club club) {
       if (this.gV == club.getClubId()) {
-         return GamePersistence.careerState.x(this.gW);
+         return GamePersistence.careerState.findClubById(this.gW);
       } else {
-         return this.gW == club.getClubId() ? GamePersistence.careerState.x(this.gV) : null;
+         return this.gW == club.getClubId() ? GamePersistence.careerState.findClubById(this.gV) : null;
       }
    }
 
@@ -249,10 +249,10 @@ public class C0686 implements Serializable {
          var2 = GameConstants.tz[this.hb];
       }
 
-      Club var3 = GamePersistence.careerState.x(this.gV);
+      Club var3 = GamePersistence.careerState.findClubById(this.gV);
       int var4 = this.hb;
       if (i == 2) {
-         var3 = GamePersistence.careerState.x(this.gW);
+         var3 = GamePersistence.careerState.findClubById(this.gW);
          if (this.hf >= 0) {
             var2 = GameConstants.tz[this.hf];
          }

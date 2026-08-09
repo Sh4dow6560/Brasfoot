@@ -19,7 +19,7 @@ public class PlayerLoan implements Serializable {
    public PlayerLoan(Player player, Club club) {
       this.player = player;
       this.originalClub = club;
-      GamePersistence.careerState.bt().add(this);
+      GamePersistence.careerState.getPlayerLoans().add(this);
       long var3 = 366L;
       var3 *= 86400000L;
       this.endTimeMillis = GamePersistence.careerState.getCurrentTimeMillis() + var3;

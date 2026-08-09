@@ -137,7 +137,7 @@ public class C0125 extends JPanel {
    public void a(PlayerLoan c0825, int i) {
       if (c0825.returnToOriginalClub()) {
          Ag = true;
-         GamePersistence.careerState.d(c0825.getPlayer());
+         GamePersistence.careerState.removePlayerLoan(c0825.getPlayer());
          if (i == 1) {
             this.nS();
          } else {

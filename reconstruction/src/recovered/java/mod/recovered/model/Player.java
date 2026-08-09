@@ -36,7 +36,7 @@ import javax.swing.JProgressBar;
 
 public class Player implements Serializable {
    private static final long serialVersionUID = 1L;
-   private int ei = -1;
+   private int playerId = -1;
    private int ej = -1;
    private String dm;
    private Boolean starPlayer = false;
@@ -220,7 +220,7 @@ public class Player implements Serializable {
    public Club getClub() {
       Club var1 = this.club;
       if (var1 == null && this.clubId >= 0) {
-         var1 = GamePersistence.careerState.x(this.clubId);
+         var1 = GamePersistence.careerState.findClubById(this.clubId);
          this.club = var1;
          return var1;
       } else {
@@ -3112,7 +3112,7 @@ public class Player implements Serializable {
       var5.setDestinationClubId(club.getClubId());
       var5.setFee(i);
       this.setAskingPrice(i);
-      GamePersistence.careerState.bo().add(var5);
+      GamePersistence.careerState.getTransferHistory().add(var5);
       var3.getYouthPlayers().remove(this);
       club.getYouthPlayers().add(this);
       this.fk = null;
@@ -3199,7 +3199,7 @@ public class Player implements Serializable {
          var12.setSourceClubId(var6.getClubId());
          var12.setDestinationClubId(club.getClubId());
          var12.setFee(i);
-         GamePersistence.careerState.bo().add(var12);
+         GamePersistence.careerState.getTransferHistory().add(var12);
          var6.getSeniorPlayers().remove(this);
          if (var6.getSeniorPlayers().contains(this)) {
             var6.getSeniorPlayers().remove(this);
@@ -3486,12 +3486,12 @@ public class Player implements Serializable {
       return this.fp;
    }
 
-   public int gD() {
-      return this.ei;
+   public int getPlayerId() {
+      return this.playerId;
    }
 
-   public void az(int i) {
-      this.ei = i;
+   public void setPlayerId(int i) {
+      this.playerId = i;
    }
 
    public int gE() {

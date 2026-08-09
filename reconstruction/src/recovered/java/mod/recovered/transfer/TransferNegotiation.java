@@ -512,8 +512,8 @@ public class TransferNegotiation {
          byte var2 = 4;
          int var3 = 0;
 
-         for (int var4 = 0; var4 < GamePersistence.careerState.bt().size(); var4++) {
-            if (((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer().getClub() == club) {
+         for (int var4 = 0; var4 < GamePersistence.careerState.getPlayerLoans().size(); var4++) {
+            if (((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var4)).getPlayer().getClub() != null && ((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var4)).getPlayer().getClub() == club) {
                var3++;
             }
          }

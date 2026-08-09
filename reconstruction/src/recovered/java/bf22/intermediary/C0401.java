@@ -75,20 +75,20 @@ public class C0401 extends JPanel {
       this.uK.clear();
       int var1 = 0;
       if (this.GD.getSelectedIndex() == 0) {
-         for (int var2 = GamePersistence.careerState.bo().size() - 1; var2 >= 0; var2--) {
-            if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getPlayer() != null) {
-               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
+         for (int var2 = GamePersistence.careerState.getTransferHistory().size() - 1; var2 >= 0; var2--) {
+            if (((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var2)).getPlayer() != null) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var2));
                if (++var1 == 200) {
                   break;
                }
             }
          }
       } else {
-         for (int var3 = GamePersistence.careerState.bo().size() - 1; var3 >= 0; var3--) {
-            if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).getPlayer() != null
-               && (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).getDestinationClubId() == this.uk.getClubId()
-                  || ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).getSourceClubId() == this.uk.getClubId())) {
-               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3));
+         for (int var3 = GamePersistence.careerState.getTransferHistory().size() - 1; var3 >= 0; var3--) {
+            if (((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var3)).getPlayer() != null
+               && (((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var3)).getDestinationClubId() == this.uk.getClubId()
+                  || ((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var3)).getSourceClubId() == this.uk.getClubId())) {
+               this.uK.add((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var3));
             }
          }
       }

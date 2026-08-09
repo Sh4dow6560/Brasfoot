@@ -79,11 +79,11 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public Club ce() {
-      return this.bQ >= 0 ? GamePersistence.careerState.x(this.bQ) : null;
+      return this.bQ >= 0 ? GamePersistence.careerState.findClubById(this.bQ) : null;
    }
 
    public Club cf() {
-      return this.bR >= 0 ? GamePersistence.careerState.x(this.bR) : null;
+      return this.bR >= 0 ? GamePersistence.careerState.findClubById(this.bR) : null;
    }
 
    public String cg() {
@@ -91,7 +91,7 @@ public class CompetitionSeasonResult implements Serializable {
    }
 
    public Club ch() {
-      return this.bT >= 0 ? GamePersistence.careerState.x(this.bT) : null;
+      return this.bT >= 0 ? GamePersistence.careerState.findClubById(this.bT) : null;
    }
 
    public int y() {

@@ -14,6 +14,10 @@ import mod.extension.state.ModRuntime;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.negotiation.LoanTerms;
+import mod.extension.negotiation.NegotiationMonthResult;
+import mod.extension.negotiation.NegotiationPaymentType;
+import mod.extension.negotiation.PurchaseTerms;
 import mod.extension.reach.ClubReachResult;
 import mod.extension.reach.ClubReachSnapshot;
 import mod.extension.reach.ClubReachStatus;
@@ -162,6 +166,39 @@ public final class ModStateCompatibilityProbe {
             != reachUpdated.getSocialFollowerDelta()) {
       throw new IllegalStateException("Club reach processing is inconsistent");
     }
+    ModRuntime.setFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS, true);
+    ModRuntime.registerPurchaseAgreement(
+        202601,
+        7,
+        "Jogador",
+        101,
+        202,
+        new PurchaseTerms(10_000_000, 4_000_000, 3));
+    ModRuntime.registerLoanAgreement(
+        202601,
+        8,
+        "Atacante",
+        303,
+        101,
+        100_000,
+        new LoanTerms(12, 500_000, 50, 8_000_000));
+    NegotiationMonthResult negotiationMonth =
+        ModRuntime.processNegotiationMonth(202602);
+    NegotiationMonthResult duplicateNegotiationMonth =
+        ModRuntime.processNegotiationMonth(202602);
+    if (negotiationMonth.getPayments().size() != 2
+        || negotiationMonth.getPayments().get(0).getType()
+            != NegotiationPaymentType.PURCHASE_INSTALLMENT
+        || negotiationMonth.getPayments().get(0).getAmount() != 2_000_000
+        || negotiationMonth.getPayments().get(1).getType()
+            != NegotiationPaymentType.WAGE_CONTRIBUTION
+        || negotiationMonth.getPayments().get(1).getAmount() != 50_000
+        || !duplicateNegotiationMonth.getPayments().isEmpty()
+        || ModRuntime.getPurchaseAgreements().size() != 1
+        || ModRuntime.getLoanAgreements().size() != 1
+        || ModRuntime.findLoanAgreement(8).getPurchaseOptionPrice() != 8_000_000) {
+      throw new IllegalStateException("Advanced negotiation processing is inconsistent");
+    }
     if (!ModRuntime.persist(boardSave)) {
       throw new IllegalStateException("Extension state was not persisted");
     }
@@ -170,9 +207,13 @@ public final class ModStateCompatibilityProbe {
     if (!ModRuntime.isFeatureEnabled(Feature.BOARD_OBJECTIVES)
         || !ModRuntime.isFeatureEnabled(Feature.SPONSORSHIPS)
         || !ModRuntime.isFeatureEnabled(Feature.CLUB_REACH)
+        || !ModRuntime.isFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS)
         || ModRuntime.getState().getModule("boardObjectives").isEmpty()
         || ModRuntime.getState().getModule("sponsorships").isEmpty()
-        || ModRuntime.getState().getModule("clubReach").isEmpty()) {
+        || ModRuntime.getState().getModule("clubReach").isEmpty()
+        || ModRuntime.getState().getModule("advancedNegotiations").isEmpty()
+        || ModRuntime.getPurchaseAgreements().size() != 1
+        || ModRuntime.getLoanAgreements().size() != 1) {
       throw new IllegalStateException("Extension modules were not restored");
     }
     try (java.util.stream.Stream<Path> files = Files.list(root)) {
@@ -184,7 +225,9 @@ public final class ModStateCompatibilityProbe {
         + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
         + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
         + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
-        + "transition=true clubReach=true audiences=true social=true reputation=true");
+        + "transition=true clubReach=true audiences=true social=true reputation=true "
+        + "advancedNegotiations=true installments=true loans=true wageShare=true "
+        + "purchaseOption=true");
   }
 
   private static BoardSnapshot boardSnapshot(

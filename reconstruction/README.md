@@ -82,6 +82,10 @@ O modulo de estadio e infraestrutura adiciona niveis, manutencao, qualidade do
 gramado e obras com custo e prazo. A integracao com partidas agendadas e o
 fallback estao em `docs/STADIUM_INFRASTRUCTURE.md`.
 
+O modulo de negociacoes avancadas adiciona compras parceladas, emprestimos de
+6 ou 12 meses, taxa, divisao salarial e opcao de compra. O ciclo financeiro e
+o fallback estao em `docs/ADVANCED_NEGOTIATIONS.md`.
+
 ## Espacos De Nomes
 
 - `official`: nomes binarios originais exigidos pelo jogo.

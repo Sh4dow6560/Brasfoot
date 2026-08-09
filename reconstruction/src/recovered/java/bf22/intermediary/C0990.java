@@ -78,25 +78,25 @@ public abstract class C0990 {
       int var0 = 0;
 
       for (int var1 = 0; var1 < GamePersistence.careerState.O().size(); var1++) {
-         ((Player)GamePersistence.careerState.O().get(var1)).az(var0);
+         ((Player)GamePersistence.careerState.O().get(var1)).setPlayerId(var0);
          ((Player)GamePersistence.careerState.O().get(var1)).aC(1);
          var0++;
       }
 
       for (int var2 = 0; var2 < GamePersistence.careerState.Q().size(); var2++) {
-         ((Player)GamePersistence.careerState.Q().get(var2)).az(var0);
+         ((Player)GamePersistence.careerState.Q().get(var2)).setPlayerId(var0);
          ((Player)GamePersistence.careerState.Q().get(var2)).aC(2);
          var0++;
       }
 
-      for (int var3 = 0; var3 < GamePersistence.careerState.bo().size(); var3++) {
-         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var3)).capturePlayerIdentity();
+      for (int var3 = 0; var3 < GamePersistence.careerState.getTransferHistory().size(); var3++) {
+         ((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var3)).capturePlayerIdentity();
       }
    }
 
    public static void Aj() {
-      for (int var0 = 0; var0 < GamePersistence.careerState.bo().size(); var0++) {
-         ((PlayerTransferRecord)GamePersistence.careerState.bo().get(var0)).restorePlayerReference();
+      for (int var0 = 0; var0 < GamePersistence.careerState.getTransferHistory().size(); var0++) {
+         ((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var0)).restorePlayerReference();
       }
    }
 }

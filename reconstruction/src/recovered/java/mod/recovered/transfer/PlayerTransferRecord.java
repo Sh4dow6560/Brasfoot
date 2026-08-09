@@ -78,7 +78,7 @@ public class PlayerTransferRecord implements Serializable {
 
    public void capturePlayerIdentity() {
       if (this.player != null) {
-         this.playerId = this.player.gD();
+         this.playerId = this.player.getPlayerId();
          this.playerPoolType = this.player.gI();
       } else {
          this.playerId = -1;
@@ -111,7 +111,7 @@ public class PlayerTransferRecord implements Serializable {
 
       for (int index = 0; index < players.size(); index++) {
          Player candidate = (Player)players.get(index);
-         if (this.playerId == candidate.gD()) {
+         if (this.playerId == candidate.getPlayerId()) {
             this.player = candidate;
             break;
          }

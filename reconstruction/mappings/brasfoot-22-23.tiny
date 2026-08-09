@@ -787,6 +787,7 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	f	Ljava/lang/Boolean;	eW	eW	availableForLoan
 	f	Ljava/lang/Boolean;	eX	eX	onLoan
 	f	Ljava/lang/Boolean;	eY	eY	transferListed
+	f	I	ei	ei	playerId
 	f	Ljava/lang/Boolean;	ek	ek	starPlayer
 	f	Ljava/lang/Boolean;	el	el	worldClassPlayer
 	f	Lbest/ah;	eo	eo	club
@@ -813,6 +814,7 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	m	(I)V	aj	aj	decreaseEnergy
 	m	(I)V	ak	ak	increaseEnergy
 	m	(I)V	as	as	setTacticalPosition
+	m	(I)V	az	az	setPlayerId
 	m	(Ljava/lang/Boolean;)V	c	c	setTransferListed
 	m	(J)V	d	d	setInjuryEndTimeMillis
 	m	()Ljava/lang/Boolean;	fC	fC	isYouthPlayer
@@ -835,6 +837,7 @@ c	best/F	bf22/intermediary/C0672	mod/recovered/model/Player
 	m	()Ljava/lang/Boolean;	ft	ft	isTransferListed
 	m	()Ljava/lang/Boolean;	fz	fz	isAvailableForLoan
 	m	(Ljava/lang/Boolean;)V	g	g	setAvailableForLoan
+	m	()I	gD	gD	getPlayerId
 	m	()Z	gF	gF	isOutOfPosition
 	m	()I	gJ	gJ	getSpeed
 	m	()I	gK	gK	getGoalkeeping
@@ -1253,6 +1256,7 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	f	I	ae	ae	seasonNumber
 	f	I	af	af	currentScheduleIndex
 	f	Ljava/util/ArrayList;	as	as	scheduleDays
+	f	Ljava/util/ArrayList;	av	av	playerLoans
 	f	Ljava/util/ArrayList;	aw	aw	stadiumExpansionProjects
 	f	Ljava/lang/String;	bj	bj	saveName
 	f	I	rM	rM	firstSeasonYear
@@ -1267,10 +1271,14 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	m	()V	aw	aw	processCompletedStadiumExpansions
 	m	()Ljava/util/Calendar;	bb	bb	getCurrentDate
 	m	()J	bc	bc	getCurrentTimeMillis
+	m	()Ljava/util/ArrayList;	bo	bo	getTransferHistory
 	m	()Ljava/lang/String;	br	br	getSaveName
 	m	()Lest/InfoArquivoSalvoType;	bs	bs	getSavedGameInfo
+	m	()Ljava/util/ArrayList;	bt	bt	getPlayerLoans
 	m	()Ljava/util/ArrayList;	bw	bw	getStadiumExpansionProjects
+	m	(Lbest/F;)V	d	d	removePlayerLoan
 	m	(Ljava/lang/String;)V	d	d	setSaveName
+	m	(Lbest/F;)Lcomponents/t;	e	e	findPlayerLoan
 	m	()I	iU	iU	getSeasonYearOffset
 	m	(I)V	k	k	setSeasonNumber
 	m	(I)V	l	l	setCurrentScheduleIndex
@@ -1278,6 +1286,7 @@ c	best/f	bf22/intermediary/C0723	mod/recovered/game/CareerState
 	m	(Ljava/util/ArrayList;)V	n	n	setScheduleDays
 	m	()I	op	op	getFirstSeasonYear
 	m	(Ljava/util/ArrayList;)V	q	q	setStadiumExpansionProjects
+	m	(I)Lbest/ah;	x	x	findClubById
 c	best/g	bf22/intermediary/C0724	mod/recovered/game/CoachPerformanceComparator
 	m	(Lbest/al;Lbest/al;)I	b	b	compare
 c	best/h	bf22/intermediary/C0725	bf22/intermediary/GameBootstrap

@@ -3,6 +3,7 @@ package bf22.intermediary;
 import mod.recovered.game.ScheduleDay;
 import mod.recovered.competition.NationalLeague;
 import mod.recovered.transfer.TransferNegotiation;
+import mod.extension.negotiation.AdvancedNegotiationBridge;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -189,7 +190,12 @@ public class C0452 extends JPanel {
    private void sz() {
       TransferNegotiation.setTransferCompleted(false);
       int var1 = 0;
-      var1 = TransferNegotiation.tryLoanPlayer(this.yK, this.ul);
+      var1 = AdvancedNegotiationBridge.tryLoanPlayer(this.ub, this.yK, this.ul);
+      if (var1 == AdvancedNegotiationBridge.NOT_HANDLED) {
+         var1 = TransferNegotiation.tryLoanPlayer(this.yK, this.ul);
+      } else if (var1 == AdvancedNegotiationBridge.CANCELED) {
+         return;
+      }
       String[] var2 = new String[]{
          "Não foi possível emprestar",
          "Empréstimo realizado",
@@ -210,7 +216,12 @@ public class C0452 extends JPanel {
    private void oM() {
       TransferNegotiation.setTransferCompleted(false);
       int var1 = 0;
-      var1 = TransferNegotiation.tryListedTransfer(this.yK, this.ul);
+      var1 = AdvancedNegotiationBridge.tryListedPurchase(this.ub, this.yK, this.ul);
+      if (var1 == AdvancedNegotiationBridge.NOT_HANDLED) {
+         var1 = TransferNegotiation.tryListedTransfer(this.yK, this.ul);
+      } else if (var1 == AdvancedNegotiationBridge.CANCELED) {
+         return;
+      }
       String[] var2 = new String[]{
          "Não está à venda",
          "Compra realizada",

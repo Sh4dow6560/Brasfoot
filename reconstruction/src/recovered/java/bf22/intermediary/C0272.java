@@ -51,6 +51,8 @@ import mod.recovered.model.Player;
 import mod.extension.ui.ClubReachAction;
 import mod.extension.ui.ModSettingsAction;
 import mod.extension.ui.StadiumInfrastructureAction;
+import mod.extension.negotiation.AdvancedNegotiationBridge;
+import mod.extension.ui.AdvancedNegotiationAction;
 
 public class C0272 extends JPanel {
    private Club zu = null;
@@ -825,6 +827,16 @@ public class C0272 extends JPanel {
    }
 
    private void qF() {
+      int advancedResult = AdvancedNegotiationBridge.tryPurchaseLoanOption(
+         this, this.uz, this.zu);
+      if (advancedResult == AdvancedNegotiationBridge.COMPLETED) {
+         this.qJ();
+         this.qI();
+         this.qH();
+         return;
+      } else if (advancedResult != AdvancedNegotiationBridge.NOT_HANDLED) {
+         return;
+      }
       if (this.uz != null && this.uz.isOnLoan() && this.zu.getCashBalance() >= this.uz.getMarketValue()) {
          int var1 = -1;
          var1 = JOptionPane.showConfirmDialog(this, "Deseja comprar o jogador " + this.uz.getNome() + "?", "Confirmar", 0);
@@ -832,15 +844,15 @@ public class C0272 extends JPanel {
             Club var2 = null;
             Object var3 = null;
 
-            for (int var4 = 0; var4 < GamePersistence.careerState.bt().size(); var4++) {
-               if (((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getPlayer() == this.uz) {
-                  var2 = ((PlayerLoan)GamePersistence.careerState.bt().get(var4)).getOriginalClub();
-                  var3 = (PlayerLoan)GamePersistence.careerState.bt().get(var4);
+            for (int var4 = 0; var4 < GamePersistence.careerState.getPlayerLoans().size(); var4++) {
+               if (((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var4)).getPlayer() == this.uz) {
+                  var2 = ((PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var4)).getOriginalClub();
+                  var3 = (PlayerLoan)GamePersistence.careerState.getPlayerLoans().get(var4);
                   break;
                }
             }
 
-            GamePersistence.careerState.d(this.uz);
+            GamePersistence.careerState.removePlayerLoan(this.uz);
             this.uz.returnFromLoan(var2);
             this.uz.moveToClub(this.zu, this.uz.getMarketValue(), false, false, false);
             this.qJ();
@@ -851,13 +863,15 @@ public class C0272 extends JPanel {
    }
 
    private void qG() {
-      PlayerLoan var1 = GamePersistence.careerState.e(this.uz);
+      PlayerLoan var1 = GamePersistence.careerState.findPlayerLoan(this.uz);
       if (var1 != null) {
          int var2 = -1;
          var2 = JOptionPane.showConfirmDialog(this, "Deseja cancelar o empréstimo do jogador " + this.uz.getNome() + "?", "Confirmar", 0);
          if (var2 == 0) {
             if (var1.returnToOriginalClub()) {
-               GamePersistence.careerState.d(var1.getPlayer());
+               GamePersistence.careerState.removePlayerLoan(var1.getPlayer());
+               AdvancedNegotiationBridge.closeLoanAgreement(
+                  var1.getPlayer(), "canceled");
                this.pK();
                this.qI();
                this.qH();
@@ -1356,6 +1370,9 @@ public class C0272 extends JPanel {
       JMenuItem var26 = new JMenuItem("Est\u00e1dio e infraestrutura");
       var26.addActionListener(new StadiumInfrastructureAction(this));
       this.Hy.add(var26);
+      JMenuItem var27 = new JMenuItem("Negocia\u00e7\u00f5es avan\u00e7adas");
+      var27.addActionListener(new AdvancedNegotiationAction(this));
+      this.Hy.add(var27);
       this.Hy.addSeparator();
       JMenuItem var5 = new JMenuItem("Pedir demissão");
       var5.addActionListener(new C0322(this));

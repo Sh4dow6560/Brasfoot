@@ -499,7 +499,7 @@ public class CoachJobMarket implements Serializable {
       ArrayList var1 = new ArrayList();
 
       for (int var2 = 0; var2 < this.availableClubIds.size(); var2++) {
-         Club var3 = GamePersistence.careerState.x((Integer)this.availableClubIds.get(var2));
+         Club var3 = GamePersistence.careerState.findClubById((Integer)this.availableClubIds.get(var2));
          if (var3 != null && !var3.isUserControlled()) {
             var1.add(var3);
          }

@@ -2,6 +2,8 @@ package mod.extension.state;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardSnapshot;
@@ -10,6 +12,13 @@ import mod.extension.infrastructure.InfrastructureResult;
 import mod.extension.infrastructure.InfrastructureSnapshot;
 import mod.extension.infrastructure.InfrastructureUpgradeOffer;
 import mod.extension.infrastructure.StadiumInfrastructureService;
+import mod.extension.negotiation.AdvancedNegotiationService;
+import mod.extension.negotiation.LoanAgreement;
+import mod.extension.negotiation.LoanTerms;
+import mod.extension.negotiation.NegotiationMonthResult;
+import mod.extension.negotiation.NegotiationRegistration;
+import mod.extension.negotiation.PurchaseTerms;
+import mod.extension.negotiation.PurchaseAgreement;
 import mod.extension.reach.ClubReachResult;
 import mod.extension.reach.ClubReachService;
 import mod.extension.reach.ClubReachSnapshot;
@@ -27,6 +36,8 @@ public final class ModRuntime {
   private static final ClubReachService CLUB_REACH = new ClubReachService();
   private static final StadiumInfrastructureService STADIUM_INFRASTRUCTURE =
       new StadiumInfrastructureService();
+  private static final AdvancedNegotiationService ADVANCED_NEGOTIATIONS =
+      new AdvancedNegotiationService();
 
   private static ModState state = ModState.empty();
   private static FeatureRegistry features = FeatureRegistry.from(state);
@@ -192,6 +203,95 @@ public final class ModRuntime {
     return result;
   }
 
+  public static synchronized NegotiationRegistration registerPurchaseAgreement(
+      int period,
+      int playerId,
+      String playerName,
+      int sellerClubId,
+      int buyerClubId,
+      PurchaseTerms terms) {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return NegotiationRegistration.disabled(state);
+    }
+    NegotiationRegistration result = ADVANCED_NEGOTIATIONS.registerPurchase(
+        state,
+        period,
+        playerId,
+        playerName,
+        sellerClubId,
+        buyerClubId,
+        terms);
+    applyNegotiationState(result.getState());
+    return result;
+  }
+
+  public static synchronized NegotiationRegistration registerLoanAgreement(
+      int period,
+      int playerId,
+      String playerName,
+      int originalClubId,
+      int borrowerClubId,
+      int playerSalary,
+      LoanTerms terms) {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return NegotiationRegistration.disabled(state);
+    }
+    NegotiationRegistration result = ADVANCED_NEGOTIATIONS.registerLoan(
+        state,
+        period,
+        playerId,
+        playerName,
+        originalClubId,
+        borrowerClubId,
+        playerSalary,
+        terms);
+    applyNegotiationState(result.getState());
+    return result;
+  }
+
+  public static synchronized NegotiationMonthResult processNegotiationMonth(
+      int period) {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return NegotiationMonthResult.disabled(state);
+    }
+    NegotiationMonthResult result =
+        ADVANCED_NEGOTIATIONS.processMonthly(state, period);
+    applyNegotiationState(result.getState());
+    return result;
+  }
+
+  public static synchronized LoanAgreement findLoanAgreement(int playerId) {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return null;
+    }
+    return ADVANCED_NEGOTIATIONS.findLoanAgreement(state, playerId);
+  }
+
+  public static synchronized List<PurchaseAgreement> getPurchaseAgreements() {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return Collections.emptyList();
+    }
+    return ADVANCED_NEGOTIATIONS.getPurchaseAgreements(state);
+  }
+
+  public static synchronized List<LoanAgreement> getLoanAgreements() {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return Collections.emptyList();
+    }
+    return ADVANCED_NEGOTIATIONS.getLoanAgreements(state);
+  }
+
+  public static synchronized NegotiationRegistration closeLoanAgreement(
+      int period, int playerId, String reason) {
+    if (!features.isEnabled(Feature.ADVANCED_NEGOTIATIONS)) {
+      return NegotiationRegistration.disabled(state);
+    }
+    NegotiationRegistration result =
+        ADVANCED_NEGOTIATIONS.closeLoan(state, period, playerId, reason);
+    applyNegotiationState(result.getState());
+    return result;
+  }
+
   public static synchronized ModState getState() {
     return state;
   }
@@ -211,6 +311,11 @@ public final class ModRuntime {
 
   private static void applyInfrastructureResult(InfrastructureResult result) {
     state = result.getState();
+    features = FeatureRegistry.from(state);
+  }
+
+  private static void applyNegotiationState(ModState updated) {
+    state = updated;
     features = FeatureRegistry.from(state);
   }
 

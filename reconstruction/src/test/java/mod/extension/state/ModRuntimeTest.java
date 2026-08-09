@@ -14,6 +14,9 @@ import mod.extension.infrastructure.InfrastructureResult;
 import mod.extension.infrastructure.InfrastructureSnapshot;
 import mod.extension.infrastructure.InfrastructureStatus;
 import mod.extension.infrastructure.StadiumInfrastructureService;
+import mod.extension.negotiation.AdvancedNegotiationService;
+import mod.extension.negotiation.LoanTerms;
+import mod.extension.negotiation.PurchaseTerms;
 import mod.extension.reach.ClubReachResult;
 import mod.extension.reach.ClubReachService;
 import mod.extension.reach.ClubReachSnapshot;
@@ -135,6 +138,50 @@ class ModRuntimeTest {
     assertTrue(ModRuntime.isFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE));
     assertFalse(ModRuntime.getState()
         .getModule(StadiumInfrastructureService.MODULE_ID).isEmpty());
+  }
+
+  @Test
+  void keepsAdvancedNegotiationsOptInAndPersistsContracts() throws Exception {
+    ModRuntime.startNewCareer();
+
+    assertFalse(ModRuntime.registerPurchaseAgreement(
+        202601,
+        7,
+        "Jogador",
+        10,
+        20,
+        new PurchaseTerms(10_000_000, 4_000_000, 3)).isStateChanged());
+    assertTrue(ModRuntime.getState()
+        .getModule(AdvancedNegotiationService.MODULE_ID).isEmpty());
+
+    ModRuntime.setFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS, true);
+    ModRuntime.registerPurchaseAgreement(
+        202601,
+        7,
+        "Jogador",
+        10,
+        20,
+        new PurchaseTerms(10_000_000, 4_000_000, 3));
+    ModRuntime.registerLoanAgreement(
+        202601,
+        8,
+        "Atacante",
+        30,
+        40,
+        100_000,
+        new LoanTerms(12, 500_000, 50, 8_000_000));
+    Path save = this.directory.resolve("negotiations.s22");
+    Files.write(save, new byte[]{13, 14, 15});
+    assertTrue(ModRuntime.persist(save));
+
+    ModRuntime.startNewCareer();
+    ModRuntime.attach(save);
+
+    assertTrue(ModRuntime.isFeatureEnabled(Feature.ADVANCED_NEGOTIATIONS));
+    assertEquals(1, ModRuntime.getPurchaseAgreements().size());
+    assertEquals(1, ModRuntime.getLoanAgreements().size());
+    assertEquals(8_000_000,
+        ModRuntime.findLoanAgreement(8).getPurchaseOptionPrice());
   }
 
   private BoardSnapshot snapshot(int year, int month, int matches, int wins) {

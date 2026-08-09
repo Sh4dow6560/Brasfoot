@@ -63,7 +63,7 @@ public class Coach implements Serializable {
    public Club getClub() {
       Club var1 = this.club;
       if (var1 == null && this.clubId >= 0) {
-         var1 = GamePersistence.careerState.x(this.clubId);
+         var1 = GamePersistence.careerState.findClubById(this.clubId);
          this.club = var1;
          return var1;
       } else {
@@ -91,7 +91,7 @@ public class Coach implements Serializable {
    public Club getPreviousClub() {
       Club var1 = this.previousClub;
       if (var1 == null && this.previousClubId >= 0) {
-         var1 = GamePersistence.careerState.x(this.previousClubId);
+         var1 = GamePersistence.careerState.findClubById(this.previousClubId);
          this.previousClub = var1;
          return var1;
       } else {

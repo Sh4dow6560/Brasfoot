@@ -3,8 +3,8 @@
 Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome direto sao agrupadas pelo modulo semantico mais referenciado; empates permanecem nao classificados.
 
 - Classes: 87/1038 (8.4%).
-- Membros semanticos explicitos: 758/10201 (7.4%).
-- Entradas de membros emitidas no Tiny v2: 844.
+- Membros semanticos explicitos: 767/10201 (7.5%).
+- Entradas de membros emitidas no Tiny v2: 853.
 
 | Modulo | Classes | Nomeadas | Cobertura | Membros | Semanticos | Cobertura |
 |---|---:|---:|---:|---:|---:|---:|
@@ -12,12 +12,12 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 |config|14|6|42.9%|390|2|0.5%|
 |core|15|1|6.7%|1080|2|0.2%|
 |finance|4|1|25.0%|71|44|62.0%|
-|game|38|3|7.9%|1029|29|2.8%|
+|game|38|3|7.9%|1029|35|3.4%|
 |geo|6|1|16.7%|71|0|0.0%|
 |infrastructure|1|1|100.0%|5|4|80.0%|
 |manager|5|3|60.0%|60|51|85.0%|
 |match|27|3|11.1%|847|145|17.1%|
-|model|168|5|3.0%|2416|252|10.4%|
+|model|168|5|3.0%|2416|255|10.6%|
 |named-other|18|3|16.7%|200|16|8.0%|
 |save|32|2|6.3%|247|33|13.4%|
 |stadium|1|1|100.0%|10|9|90.0%|
@@ -41,9 +41,9 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 | Classe oficial | Modulo | Introduzida | Membros pendentes | Total |
 |---|---|---|---:|---:|
 |`best/aq`|core|2021|501|503|
-|`best/f`|game|2016|405|434|
+|`best/f`|game|2016|399|434|
 |`best/ac`|core|2016|245|245|
-|`best/F`|model|2016|201|279|
+|`best/F`|model|2016|198|279|
 |`a/eg`|model|2016|179|179|
 |`best/ah`|model|2016|168|220|
 |`a/ay`|competition|2016|137|137|

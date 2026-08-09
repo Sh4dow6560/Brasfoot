@@ -145,7 +145,7 @@ public class C0219 extends JPanel {
       for (int var7 = this.Es.getCompetitionAchievements().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.getCompetitionAchievements().get(var7)).b() == i) {
             var4 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).gS();
-            var5 = GamePersistence.careerState.x(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
+            var5 = GamePersistence.careerState.findClubById(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
             var6 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
@@ -160,7 +160,7 @@ public class C0219 extends JPanel {
       for (int var7 = this.Es.getCompetitionAchievements().size() - 1; var7 >= 0; var7--) {
          if (((C0708)this.Es.getCompetitionAchievements().get(var7)).b() == i && ((C0708)this.Es.getCompetitionAchievements().get(var7)).el() == j) {
             var4 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).gS();
-            var5 = GamePersistence.careerState.x(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
+            var5 = GamePersistence.careerState.findClubById(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
             var6 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }

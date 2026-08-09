@@ -12,7 +12,7 @@
 - Dependencias: as seis classes do carregador Eclipse Jar-in-Jar continuam como
   binarios externos; elas nao pertencem ao codigo do Brasfoot.
 - Reconstrucao hibrida: 1.032 classes do jogo sobrepostas por fonte recuperada
-  e 51 bytecodes novos de extensao; 1.083 overlays no total.
+  e 65 bytecodes novos de extensao; 1.097 overlays no total.
 - Integridade: 1.161 recursos e entradas nao sobrepostas permanecem
   byte-identicos ao original.
 - Serializacao: 88 contratos diretos preservam campos e `serialVersionUID`; o
@@ -27,7 +27,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 87 classes e 844 membros possuem entradas no Tiny v2; 758
+- Legibilidade: 87 classes e 853 membros possuem entradas no Tiny v2; 767
   campos e metodos tem nomes semanticos explicitos. A API central de
   persistencia agora expoe nomes diretos para estado da carreira, opcoes,
   salvar, carregar, backups e sons.
@@ -166,7 +166,12 @@
   categorias de base e estrutura comercial possuem niveis, manutencao mensal e
   obras com custo e prazo no sidecar. A qualidade do campo considera uso e
   manutencao e e sincronizada com o estadio e apenas com suas partidas futuras.
+- Negociacoes avancadas: compras aceitam pagamento integral ou entrada com 3,
+  6 ou 12 parcelas. Emprestimos aceitam prazo de 6 ou 12 meses, taxa, divisao
+  salarial e opcao de compra. O processamento mensal recupera meses pulados,
+  evita cobranca duplicada e mantem todos os contratos fora do save Kryo.
 - Configuracao: `Recursos adicionais` no menu principal ativa ou desativa
-  objetivos da diretoria, patrocinadores, alcance do clube e infraestrutura
-  sem editar o save manualmente. Paineis separados exibem os indicadores.
-- Proxima fase: recuperar e ampliar ofertas de compra e emprestimos.
+  objetivos da diretoria, patrocinadores, alcance do clube, infraestrutura e
+  negociacoes sem editar o save manualmente. Paineis separados exibem os
+  indicadores e contratos.
+- Proxima fase: recuperar e ampliar a categoria de base.

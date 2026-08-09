@@ -85,7 +85,7 @@ public class CareerState implements Serializable {
    private ArrayList scheduleDays = new ArrayList();
    private ArrayList at = new ArrayList();
    private ArrayList au = new ArrayList();
-   private ArrayList av = new ArrayList();
+   private ArrayList playerLoans = new ArrayList();
    private ArrayList stadiumExpansionProjects = new ArrayList();
    private ArrayList ax = new ArrayList();
    private ArrayList ay = new ArrayList();
@@ -372,14 +372,14 @@ public class CareerState implements Serializable {
    private void W() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < GamePersistence.careerState.bo().size(); var2++) {
-         if (((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2)).getYear() + 10 < this.getSeasonYearOffset()) {
-            var1.add((PlayerTransferRecord)GamePersistence.careerState.bo().get(var2));
+      for (int var2 = 0; var2 < GamePersistence.careerState.getTransferHistory().size(); var2++) {
+         if (((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var2)).getYear() + 10 < this.getSeasonYearOffset()) {
+            var1.add((PlayerTransferRecord)GamePersistence.careerState.getTransferHistory().get(var2));
          }
       }
 
       for (int var3 = 0; var3 < var1.size(); var3++) {
-         GamePersistence.careerState.bo().remove(var1.get(var3));
+         GamePersistence.careerState.getTransferHistory().remove(var1.get(var3));
       }
    }
 
@@ -1473,26 +1473,26 @@ public class CareerState implements Serializable {
 
    private void au() {
       ArrayList var1 = new ArrayList();
-      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
-         for (int var2 = 0; var2 < GamePersistence.careerState.av.size(); var2++) {
-            if (((PlayerLoan)this.av.get(var2)).isExpired()) {
+      if (this.playerLoans != null && GamePersistence.careerState.playerLoans.size() > 0) {
+         for (int var2 = 0; var2 < GamePersistence.careerState.playerLoans.size(); var2++) {
+            if (((PlayerLoan)this.playerLoans.get(var2)).isExpired()) {
                boolean var3 = false;
                Coach var4 = null;
-               if (((PlayerLoan)this.av.get(var2)).getPlayer().getClub() != null && ((PlayerLoan)this.av.get(var2)).getPlayer().getClub().isUserControlled()) {
+               if (((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getClub() != null && ((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getClub().isUserControlled()) {
                   var3 = true;
-                  var4 = ((PlayerLoan)this.av.get(var2)).getPlayer().getClub().getCoach();
+                  var4 = ((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getClub().getCoach();
                }
 
-               if (((PlayerLoan)this.av.get(var2)).returnToOriginalClub()) {
-                  var1.add((PlayerLoan)GamePersistence.careerState.av.get(var2));
-                  if (((PlayerLoan)this.av.get(var2)).getOriginalClub() != null && ((PlayerLoan)this.av.get(var2)).getOriginalClub().isUserControlled()) {
-                     new C0799(((PlayerLoan)this.av.get(var2)).getOriginalClub().getCoach(), 29, 83, "", ((PlayerLoan)this.av.get(var2)).getPlayer().getNome());
+               if (((PlayerLoan)this.playerLoans.get(var2)).returnToOriginalClub()) {
+                  var1.add((PlayerLoan)GamePersistence.careerState.playerLoans.get(var2));
+                  if (((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub() != null && ((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub().isUserControlled()) {
+                     new C0799(((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub().getCoach(), 29, 83, "", ((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getNome());
                   } else if (var3) {
-                     new C0799(var4, 29, 84, "", ((PlayerLoan)this.av.get(var2)).getPlayer().getNome());
+                     new C0799(var4, 29, 84, "", ((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getNome());
                   }
-               } else if (((PlayerLoan)this.av.get(var2)).getOriginalClub() != null && ((PlayerLoan)this.av.get(var2)).getOriginalClub().isUserControlled() && !((PlayerLoan)this.av.get(var2)).isReturnFailureNotified()) {
-                  new C0799(((PlayerLoan)this.av.get(var2)).getOriginalClub().getCoach(), 28, 82, "", ((PlayerLoan)this.av.get(var2)).getPlayer().getNome());
-                  ((PlayerLoan)this.av.get(var2)).setReturnFailureNotified(true);
+               } else if (((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub() != null && ((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub().isUserControlled() && !((PlayerLoan)this.playerLoans.get(var2)).isReturnFailureNotified()) {
+                  new C0799(((PlayerLoan)this.playerLoans.get(var2)).getOriginalClub().getCoach(), 28, 82, "", ((PlayerLoan)this.playerLoans.get(var2)).getPlayer().getNome());
+                  ((PlayerLoan)this.playerLoans.get(var2)).setReturnFailureNotified(true);
                }
             }
          }
@@ -1500,16 +1500,16 @@ public class CareerState implements Serializable {
 
       if (var1.size() > 0) {
          for (int var5 = 0; var5 < var1.size(); var5++) {
-            GamePersistence.careerState.av.remove(var1.get(var5));
+            GamePersistence.careerState.playerLoans.remove(var1.get(var5));
          }
       }
    }
 
-   public void d(Player player) {
+   public void removePlayerLoan(Player player) {
       int var2 = -1;
-      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
-         for (int var3 = 0; var3 < GamePersistence.careerState.av.size(); var3++) {
-            if (((PlayerLoan)GamePersistence.careerState.av.get(var3)).getPlayer() == player) {
+      if (this.playerLoans != null && GamePersistence.careerState.playerLoans.size() > 0) {
+         for (int var3 = 0; var3 < GamePersistence.careerState.playerLoans.size(); var3++) {
+            if (((PlayerLoan)GamePersistence.careerState.playerLoans.get(var3)).getPlayer() == player) {
                var2 = var3;
                break;
             }
@@ -1517,7 +1517,7 @@ public class CareerState implements Serializable {
       }
 
       if (var2 >= 0) {
-         GamePersistence.careerState.av.remove(var2);
+         GamePersistence.careerState.playerLoans.remove(var2);
       }
    }
 
@@ -1556,7 +1556,7 @@ public class CareerState implements Serializable {
       }
 
       int var2 = this.az();
-      if (this.av != null && GamePersistence.careerState.av.size() > 0) {
+      if (this.playerLoans != null && GamePersistence.careerState.playerLoans.size() > 0) {
          this.au();
       }
 
@@ -2200,7 +2200,7 @@ public class CareerState implements Serializable {
       return this.at;
    }
 
-   public ArrayList bo() {
+   public ArrayList getTransferHistory() {
       return this.au;
    }
 
@@ -2361,8 +2361,8 @@ public class CareerState implements Serializable {
       this.savedGameInfo = savedGameInfo;
    }
 
-   public ArrayList bt() {
-      return this.av;
+   public ArrayList getPlayerLoans() {
+      return this.playerLoans;
    }
 
    public ArrayList bu() {
@@ -2516,7 +2516,7 @@ public class CareerState implements Serializable {
    }
 
    public void l(ArrayList arrayList) {
-      this.av = arrayList;
+      this.playerLoans = arrayList;
    }
 
    public void m(ArrayList arrayList) {
@@ -2555,7 +2555,7 @@ public class CareerState implements Serializable {
       this.bg = i;
    }
 
-   public Club x(int i) {
+   public Club findClubById(int i) {
       Object var2 = null;
 
       for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
@@ -2794,9 +2794,9 @@ public class CareerState implements Serializable {
    public ArrayList e(Club club) {
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < this.av.size(); var3++) {
-         if (((PlayerLoan)this.av.get(var3)).getPlayer().getClub() != null && ((PlayerLoan)this.av.get(var3)).getPlayer().getClub() == club) {
-            var2.add((PlayerLoan)this.av.get(var3));
+      for (int var3 = 0; var3 < this.playerLoans.size(); var3++) {
+         if (((PlayerLoan)this.playerLoans.get(var3)).getPlayer().getClub() != null && ((PlayerLoan)this.playerLoans.get(var3)).getPlayer().getClub() == club) {
+            var2.add((PlayerLoan)this.playerLoans.get(var3));
          }
       }
 
@@ -2806,19 +2806,19 @@ public class CareerState implements Serializable {
    public ArrayList f(Club club) {
       ArrayList var2 = new ArrayList();
 
-      for (int var3 = 0; var3 < this.av.size(); var3++) {
-         if (((PlayerLoan)this.av.get(var3)).getOriginalClub() == club) {
-            var2.add((PlayerLoan)this.av.get(var3));
+      for (int var3 = 0; var3 < this.playerLoans.size(); var3++) {
+         if (((PlayerLoan)this.playerLoans.get(var3)).getOriginalClub() == club) {
+            var2.add((PlayerLoan)this.playerLoans.get(var3));
          }
       }
 
       return var2;
    }
 
-   public PlayerLoan e(Player player) {
-      for (int var2 = 0; var2 < this.av.size(); var2++) {
-         if (((PlayerLoan)this.av.get(var2)).getPlayer() == player) {
-            return (PlayerLoan)this.av.get(var2);
+   public PlayerLoan findPlayerLoan(Player player) {
+      for (int var2 = 0; var2 < this.playerLoans.size(); var2++) {
+         if (((PlayerLoan)this.playerLoans.get(var2)).getPlayer() == player) {
+            return (PlayerLoan)this.playerLoans.get(var2);
          }
       }
 
