@@ -2175,7 +2175,7 @@
       "namedName": "bf22/intermediary/C0272",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "147DAC55CF7A4ED49DEF4EF5831EEAA265239BD02E98D42A2DFC9DB70C61013B"
+      "sourceSha256": "349C1290935C6DDA08DDEA5D97F8A5BF6DF948A48850F459B291BDBD8E371283"
     },
     {
       "officialName": "a/eh",
@@ -5543,7 +5543,7 @@
       "namedName": "mod/recovered/game/ScheduleDay",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "8EE2E56F2C5888A4E8842CE18C4FE2E457F09C4FA65F5E6A97DBCBBF43CEA980"
+      "sourceSha256": "0DE9C630D28F042DD1E2239A7FE946E42FD75436BD48B1BB339E4E018203FD0C"
     },
     {
       "officialName": "best/aa",
@@ -5607,7 +5607,7 @@
       "namedName": "mod/recovered/model/Club",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "0AC99954811E222CB0543632DA90683082201635A3D03FFBB69298ED3A9384D5"
+      "sourceSha256": "B7098A7622A7E88ACC4C6A74085D19F2F7B4E3850A81CC99401EB519DB1CF471"
     },
     {
       "officialName": "best/ai",
@@ -5687,7 +5687,7 @@
       "namedName": "bf22/intermediary/C0711",
       "introducedIn": "2021",
       "status": "compile-clean",
-      "sourceSha256": "8B1C6244D041D5115E8801712EB05CB9E85F2DFA17DE60E3C6118A49B3E694E7"
+      "sourceSha256": "87B4B9D2936F78453B090A9A3E4054B1586EBE2AF46053EBF366CF330E7D00AE"
     },
     {
       "officialName": "best/as",

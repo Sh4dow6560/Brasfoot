@@ -70,6 +70,10 @@ O primeiro modulo sobre essa base implementa objetivos mensais da diretoria,
 seguranca no emprego, impacto na confianca e relatorio no inbox. As regras e
 o fallback estao em `docs/BOARD_OBJECTIVES.md`.
 
+O modulo de patrocinadores adiciona ofertas, contratos, luvas, parcelas,
+metas, bonus e renovacoes. A integracao financeira e a transicao da receita
+legada estao em `docs/SPONSORSHIPS.md`.
+
 ## Espacos De Nomes
 
 - `official`: nomes binarios originais exigidos pelo jogo.

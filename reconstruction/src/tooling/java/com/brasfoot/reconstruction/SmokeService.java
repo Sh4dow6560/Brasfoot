@@ -103,6 +103,22 @@ final class SmokeService {
         scheduleCalls,
         "mod/extension/board/BoardObjectivesBridge.evaluateMonthly(II)I",
         "monthly board evaluation");
+    requireCall(
+        scheduleCalls,
+        "mod/extension/sponsorship/SponsorshipBridge.processMonthly(II)I",
+        "monthly sponsorship payment");
+
+    Set<String> clubCalls = methodCalls(hybrid, "best/ah.class");
+    requireCall(
+        clubCalls,
+        "mod/extension/sponsorship/SponsorshipBridge.replaceLegacySeasonRevenue(Lbest/ah;)Z",
+        "legacy sponsorship replacement");
+
+    Set<String> mainPanelCalls = methodCalls(hybrid, "a/eg.class");
+    requireCall(
+        mainPanelCalls,
+        "mod/extension/ui/ModSettingsAction.<init>(Ljava/awt/Component;)V",
+        "extension settings menu");
 
     Set<String> persistenceCalls = methodCalls(hybrid, "c/a.class");
     requireCall(
@@ -121,8 +137,13 @@ final class SmokeService {
 
     Set<String> inboxTemplates = stringConstants(hybrid, "best/ar.class");
     if (!inboxTemplates.contains("Avalia\u00e7\u00e3o mensal da diretoria")
-        || !inboxTemplates.contains("A diretoria concluiu a avalia\u00e7\u00e3o mensal.")) {
-      throw new IllegalStateException("Hybrid JAR is missing board inbox templates");
+        || !inboxTemplates.contains("A diretoria concluiu a avalia\u00e7\u00e3o mensal.")
+        || !inboxTemplates.contains("Contrato de patroc\u00ednio")
+        || !inboxTemplates.contains("B\u00f4nus de patroc\u00ednio")
+        || !inboxTemplates.contains("Um novo contrato de patroc\u00ednio foi assinado.")
+        || !inboxTemplates.contains(
+            "Uma meta do contrato de patroc\u00ednio foi cumprida.")) {
+      throw new IllegalStateException("Hybrid JAR is missing extension inbox templates");
     }
     Set<String> boardBridgeCalls = methodCalls(
         hybrid, "mod/extension/board/BoardObjectivesBridge.class");

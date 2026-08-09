@@ -10,6 +10,9 @@ import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.sponsorship.SponsorshipResult;
+import mod.extension.sponsorship.SponsorshipService;
+import mod.extension.sponsorship.SponsorshipSnapshot;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -52,6 +55,31 @@ class ModRuntimeTest {
     assertFalse(ModRuntime.getState().getModule(BoardObjectivesService.MODULE_ID).isEmpty());
   }
 
+  @Test
+  void keepsSponsorshipsDisabledUntilExplicitlyEnabledAndPersistsTheContract()
+      throws Exception {
+    SponsorshipSnapshot snapshot = sponsorshipSnapshot(2026, 1, 1, 0, 0, 0);
+    ModRuntime.startNewCareer();
+    assertEquals(
+        0, ModRuntime.ensureSponsorshipOffers(snapshot).getOffers().size());
+
+    ModRuntime.setFeatureEnabled(Feature.SPONSORSHIPS, true);
+    SponsorshipResult offers = ModRuntime.ensureSponsorshipOffers(snapshot);
+    SponsorshipResult contract = ModRuntime.acceptSponsorshipOffer(
+        snapshot, offers.getOffers().get(0).getId());
+    ModRuntime.processSponsorshipMonth(snapshot);
+    Path save = this.directory.resolve("sponsor.s22");
+    Files.write(save, new byte[]{4, 5, 6});
+    assertTrue(ModRuntime.persist(save));
+
+    ModRuntime.startNewCareer();
+    ModRuntime.attach(save);
+
+    assertTrue(ModRuntime.isFeatureEnabled(Feature.SPONSORSHIPS));
+    assertFalse(ModRuntime.getState().getModule(SponsorshipService.MODULE_ID).isEmpty());
+    assertEquals(202612, contract.getContract().getEndPeriod());
+  }
+
   private BoardSnapshot snapshot(int year, int month, int matches, int wins) {
     return new BoardSnapshot(
         year,
@@ -68,5 +96,11 @@ class ModRuntimeTest {
         80,
         1_000_000L + month * 100_000L,
         month * 100_000L);
+  }
+
+  private SponsorshipSnapshot sponsorshipSnapshot(
+      int year, int month, int season, int matches, int wins, int titles) {
+    return new SponsorshipSnapshot(
+        year, month, season, 101, 1, 3, 6_000_000, matches, wins, titles);
   }
 }

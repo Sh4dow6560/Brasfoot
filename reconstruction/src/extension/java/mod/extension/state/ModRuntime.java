@@ -5,11 +5,17 @@ import java.nio.file.Path;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.sponsorship.SponsorshipResult;
+import mod.extension.sponsorship.SponsorshipService;
+import mod.extension.sponsorship.SponsorshipSnapshot;
+import mod.extension.sponsorship.SponsorshipTransition;
 
 public final class ModRuntime {
   private static final ModStateStore STORE = new ModStateStore();
   private static final BoardObjectivesService BOARD_OBJECTIVES =
       new BoardObjectivesService();
+  private static final SponsorshipService SPONSORSHIPS =
+      new SponsorshipService();
 
   private static ModState state = ModState.empty();
   private static FeatureRegistry features = FeatureRegistry.from(state);
@@ -83,6 +89,47 @@ public final class ModRuntime {
     return evaluation;
   }
 
+  public static synchronized SponsorshipResult ensureSponsorshipOffers(
+      SponsorshipSnapshot snapshot) {
+    if (!features.isEnabled(Feature.SPONSORSHIPS)) {
+      return SponsorshipResult.disabled(state);
+    }
+    SponsorshipResult result = SPONSORSHIPS.ensureOffers(state, snapshot);
+    applySponsorshipResult(result);
+    return result;
+  }
+
+  public static synchronized SponsorshipTransition prepareSponsorshipSeason(
+      SponsorshipSnapshot snapshot) {
+    if (!features.isEnabled(Feature.SPONSORSHIPS)) {
+      return new SponsorshipTransition(state, false);
+    }
+    SponsorshipTransition transition = SPONSORSHIPS.prepareSeason(state, snapshot);
+    state = transition.getState();
+    features = FeatureRegistry.from(state);
+    return transition;
+  }
+
+  public static synchronized SponsorshipResult acceptSponsorshipOffer(
+      SponsorshipSnapshot snapshot, String offerId) {
+    if (!features.isEnabled(Feature.SPONSORSHIPS)) {
+      return SponsorshipResult.disabled(state);
+    }
+    SponsorshipResult result = SPONSORSHIPS.acceptOffer(state, snapshot, offerId);
+    applySponsorshipResult(result);
+    return result;
+  }
+
+  public static synchronized SponsorshipResult processSponsorshipMonth(
+      SponsorshipSnapshot snapshot) {
+    if (!features.isEnabled(Feature.SPONSORSHIPS)) {
+      return SponsorshipResult.disabled(state);
+    }
+    SponsorshipResult result = SPONSORSHIPS.processMonthly(state, snapshot);
+    applySponsorshipResult(result);
+    return result;
+  }
+
   public static synchronized ModState getState() {
     return state;
   }
@@ -93,6 +140,11 @@ public final class ModRuntime {
 
   public static synchronized String getWarning() {
     return warning;
+  }
+
+  private static void applySponsorshipResult(SponsorshipResult result) {
+    state = result.getState();
+    features = FeatureRegistry.from(state);
   }
 
   private static Path normalize(Path path) {

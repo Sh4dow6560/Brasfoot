@@ -1,0 +1,12 @@
+package mod.extension.sponsorship;
+
+public enum SponsorshipStatus {
+  DISABLED,
+  OFFERS_CREATED,
+  OFFERS_AVAILABLE,
+  CONTRACT_ACTIVE,
+  CONTRACT_ACTIVATED,
+  PAYMENT_DUE,
+  ALREADY_PROCESSED,
+  CONTRACT_EXPIRED
+}

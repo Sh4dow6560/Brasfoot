@@ -48,6 +48,7 @@ import mod.recovered.finance.ClubFinances;
 import mod.recovered.model.Club;
 import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
+import mod.extension.ui.ModSettingsAction;
 
 public class C0272 extends JPanel {
    private Club zu = null;
@@ -1344,6 +1345,9 @@ public class C0272 extends JPanel {
       var3.setIcon(var4);
       var3.setAccelerator(KeyStroke.getKeyStroke(114, 0));
       this.Hy.add(var3);
+      JMenuItem var24 = new JMenuItem("Recursos adicionais");
+      var24.addActionListener(new ModSettingsAction(this));
+      this.Hy.add(var24);
       this.Hy.addSeparator();
       JMenuItem var5 = new JMenuItem("Pedir demissão");
       var5.addActionListener(new C0322(this));

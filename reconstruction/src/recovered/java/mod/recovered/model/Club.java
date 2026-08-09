@@ -39,6 +39,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import mod.recovered.finance.ClubFinances;
 import mod.recovered.team.LineupPreset;
+import mod.extension.sponsorship.SponsorshipBridge;
 
 public class Club implements Serializable {
    private static final long serialVersionUID = 1L;
@@ -1593,6 +1594,10 @@ public class Club implements Serializable {
    public void applyNewSeasonRevenue() {
       if (this.pais != 29 && GamePersistence.careerState.isJogaEstadual()) {
          this.cashBalance = (long)(this.cashBalance + 3.2 * this.getTotalPayroll());
+      }
+
+      if (SponsorshipBridge.replaceLegacySeasonRevenue(this)) {
+         return;
       }
 
       if (this.divisao >= 0 & this.divisao <= 4) {

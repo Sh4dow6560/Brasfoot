@@ -38,7 +38,9 @@ public final class C0711 {
       "Vaga nas Oitavas da Sul-Americana",
       "Desejo de aposentadoria",
       "Vaga na Conference League",
-      "Avalia\u00e7\u00e3o mensal da diretoria"
+      "Avalia\u00e7\u00e3o mensal da diretoria",
+      "Contrato de patroc\u00ednio",
+      "B\u00f4nus de patroc\u00ednio"
    };
    public static final String[] tQ = new String[]{
       "O jogador simplesmente cuspiu na cara do árbitro. 10 jogos de suspensão até que foi uma pena leve.",
@@ -133,6 +135,8 @@ public final class C0711 {
       "O jogador $1 demonstrou um desejo de se aposentar. Talvez não seja a melhor ideia mantê-lo em atividade.",
       "Seu time foi eliminado da Liga dos Campeões, mas garantiu uma vaga em uma das fases da Conference League"
       ,
-      "A diretoria concluiu a avalia\u00e7\u00e3o mensal."
+      "A diretoria concluiu a avalia\u00e7\u00e3o mensal.",
+      "Um novo contrato de patroc\u00ednio foi assinado.",
+      "Uma meta do contrato de patroc\u00ednio foi cumprida."
    };
 }

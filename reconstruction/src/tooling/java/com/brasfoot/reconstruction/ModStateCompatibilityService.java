@@ -12,7 +12,9 @@ final class ModStateCompatibilityService {
   private static final String SUCCESS_MARKER =
       "MOD_STATE_API missing=true current=true corrupt=true migrated=true "
           + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
-          + "boardObjectives=true monthly=true idempotent=true jobSecurity=true";
+          + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
+          + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
+          + "transition=true";
 
   private final ProjectContext context;
 

@@ -12,7 +12,8 @@ Para um save `carreira.s22`, o estado fica em
 ```json
 {
   "features": {
-    "boardObjectives": true
+    "boardObjectives": true,
+    "sponsorships": true
   },
   "modules": {
     "boardObjectives": {
@@ -57,3 +58,5 @@ Execute a validacao no runtime real com:
 O probe cobre estado ausente, atual, corrompido, antigo e futuro no Java 8.
 Tambem executa a avaliacao mensal da diretoria, confirma idempotencia e
 restaura o modulo depois de fechar e anexar novamente o save.
+O mesmo probe valida ofertas, contrato, duracao, luvas, parcela, bonus e a
+transicao idempotente da receita legada de patrocinadores.

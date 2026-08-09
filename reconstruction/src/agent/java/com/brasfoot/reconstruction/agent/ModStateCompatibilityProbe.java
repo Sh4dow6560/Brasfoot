@@ -14,6 +14,11 @@ import mod.extension.state.ModRuntime;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.sponsorship.SponsorOffer;
+import mod.extension.sponsorship.SponsorshipResult;
+import mod.extension.sponsorship.SponsorshipSnapshot;
+import mod.extension.sponsorship.SponsorshipStatus;
+import mod.extension.sponsorship.SponsorshipTransition;
 
 public final class ModStateCompatibilityProbe {
   private ModStateCompatibilityProbe() {
@@ -105,14 +110,48 @@ public final class ModStateCompatibilityProbe {
         || duplicate.getOutcome() != BoardOutcome.UNCHANGED) {
       throw new IllegalStateException("Board objectives evaluation is not deterministic");
     }
+    ModRuntime.setFeatureEnabled(Feature.SPONSORSHIPS, true);
+    SponsorshipSnapshot sponsorJanuary = sponsorshipSnapshot(2026, 1, 1, 8, 5, 1);
+    SponsorshipTransition sponsorTransition =
+        ModRuntime.prepareSponsorshipSeason(sponsorJanuary);
+    SponsorshipTransition duplicateTransition =
+        ModRuntime.prepareSponsorshipSeason(sponsorJanuary);
+    if (!sponsorTransition.isLegacyRevenueReplacementDue()
+        || duplicateTransition.isLegacyRevenueReplacementDue()) {
+      throw new IllegalStateException("Legacy sponsorship transition is not idempotent");
+    }
+    SponsorshipResult offers = ModRuntime.ensureSponsorshipOffers(sponsorJanuary);
+    if (offers.getOffers().size() != 3) {
+      throw new IllegalStateException("Sponsorship offers were not generated");
+    }
+    SponsorOffer selected = offers.getOffers().get(2);
+    SponsorshipResult activated = ModRuntime.acceptSponsorshipOffer(
+        sponsorJanuary, selected.getId());
+    SponsorshipResult sponsorPayment = ModRuntime.processSponsorshipMonth(
+        sponsorJanuary);
+    SponsorshipResult duplicatePayment = ModRuntime.processSponsorshipMonth(
+        sponsorJanuary);
+    SponsorshipResult sponsorBonus = ModRuntime.processSponsorshipMonth(
+        sponsorshipSnapshot(2026, 2, 1, 12, 7, 2));
+    if (activated.getContract().getEndPeriod() != 202712
+        || activated.getSigningBonus() <= 0
+        || sponsorPayment.getStatus() != SponsorshipStatus.PAYMENT_DUE
+        || sponsorPayment.getMonthlyPayment() <= 0
+        || sponsorPayment.getGoalBonus() != 0
+        || duplicatePayment.getStatus() != SponsorshipStatus.ALREADY_PROCESSED
+        || sponsorBonus.getGoalBonus() != selected.getGoalBonus()) {
+      throw new IllegalStateException("Sponsorship contract processing is inconsistent");
+    }
     if (!ModRuntime.persist(boardSave)) {
-      throw new IllegalStateException("Board objectives state was not persisted");
+      throw new IllegalStateException("Extension state was not persisted");
     }
     ModRuntime.startNewCareer();
     ModRuntime.attach(boardSave);
     if (!ModRuntime.isFeatureEnabled(Feature.BOARD_OBJECTIVES)
-        || ModRuntime.getState().getModule("boardObjectives").isEmpty()) {
-      throw new IllegalStateException("Board objectives state was not restored");
+        || !ModRuntime.isFeatureEnabled(Feature.SPONSORSHIPS)
+        || ModRuntime.getState().getModule("boardObjectives").isEmpty()
+        || ModRuntime.getState().getModule("sponsorships").isEmpty()) {
+      throw new IllegalStateException("Extension modules were not restored");
     }
     try (java.util.stream.Stream<Path> files = Files.list(root)) {
       if (files.anyMatch(path -> path.getFileName().toString().endsWith(".tmp"))) {
@@ -121,7 +160,9 @@ public final class ModStateCompatibilityProbe {
     }
     System.out.println("MOD_STATE_API missing=true current=true corrupt=true migrated=true "
         + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
-        + "boardObjectives=true monthly=true idempotent=true jobSecurity=true");
+        + "boardObjectives=true monthly=true idempotent=true jobSecurity=true "
+        + "sponsorships=true offers=true contracts=true bonuses=true payments=true "
+        + "transition=true");
   }
 
   private static BoardSnapshot boardSnapshot(
@@ -141,6 +182,17 @@ public final class ModStateCompatibilityProbe {
         80,
         1_000_000L + month * 100_000L,
         month * 100_000L);
+  }
+
+  private static SponsorshipSnapshot sponsorshipSnapshot(
+      int year,
+      int month,
+      int season,
+      int matches,
+      int wins,
+      int titles) {
+    return new SponsorshipSnapshot(
+        year, month, season, 101, 1, 3, 6_000_000, matches, wins, titles);
   }
 
   private static Path createSave(Path root, String name) throws Exception {

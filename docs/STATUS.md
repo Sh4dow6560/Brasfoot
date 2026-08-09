@@ -12,7 +12,7 @@
 - Dependencias: as seis classes do carregador Eclipse Jar-in-Jar continuam como
   binarios externos; elas nao pertencem ao codigo do Brasfoot.
 - Reconstrucao hibrida: 1.032 classes do jogo sobrepostas por fonte recuperada
-  e 17 bytecodes novos de extensao; 1.049 overlays no total.
+  e 29 bytecodes novos de extensao; 1.061 overlays no total.
 - Integridade: 1.161 recursos e entradas nao sobrepostas permanecem
   byte-identicos ao original.
 - Serializacao: 88 contratos diretos preservam campos e `serialVersionUID`; o
@@ -153,5 +153,11 @@
   tecnico, preserva 24 relatorios no sidecar e envia o resultado ao inbox. O
   processamento e idempotente e fica totalmente inerte quando a feature esta
   desligada.
-- Proxima fase: implementar ofertas, contratos, bonus, metas e pagamentos
-  mensais de patrocinadores sobre a mesma camada lateral.
+- Patrocinadores: tres ofertas deterministicas combinam contratos de 12, 18 ou
+  24 meses, luvas, parcelas, metas e bonus. Pagamentos entram na categoria
+  financeira original, renovacoes preservam historico e a verba anual antiga
+  e estornada uma unica vez ao migrar uma temporada em andamento.
+- Configuracao: `Recursos adicionais` no menu principal ativa ou desativa
+  objetivos da diretoria e patrocinadores sem editar o save manualmente.
+- Proxima fase: implementar o programa de socio-torcedor vinculado a
+  reputacao, fase e publico.
