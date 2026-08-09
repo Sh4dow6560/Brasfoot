@@ -35,6 +35,7 @@ Depois de validar uma carreira pela interface, preserve-a como referencia:
 .\gradlew.bat verifyReferenceSave
 .\gradlew.bat saveCompatibilityTest
 .\gradlew.bat fullSaveCompatibilityTest
+.\gradlew.bat differentialTest
 ```
 
 O build jogavel fica em `C:\Brasfoot22-23_modkit\build\Brasfoot22-23_hybrid`.
@@ -53,6 +54,10 @@ carreira com dez partidas e valide salvar e carregar pela interface.
 `buildSerializationAtlas` gera o contrato de todas as classes serializaveis.
 `saveCompatibilityTest` carrega os tipos recuperados no Java 8, executa
 round-trip e desserializa o `reference.info` preservado.
+`differentialTest` executa os mesmos cenarios deterministas no JAR original e
+no hibrido. Os 88 modelos serializaveis e os fluxos de calendario, partida,
+elenco, mercado, carreira do tecnico e financas precisam produzir marcadores
+identicos; o relatorio fica em `build/reports/differential-test.json`.
 
 ## Espacos De Nomes
 

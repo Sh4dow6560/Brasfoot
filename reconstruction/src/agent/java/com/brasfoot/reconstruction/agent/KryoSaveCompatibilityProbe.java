@@ -21,6 +21,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -886,6 +887,7 @@ public final class KryoSaveCompatibilityProbe {
 
   private static String validateCoachCareerBehavior(ClassLoader loader, Object career)
       throws Exception {
+    seedCollectionsShuffle(0x42524153464F4F54L);
     Class<?> coachClass = loader.loadClass("best.al");
     Class<?> seasonRecordClass = loader.loadClass("best.j");
     Class<?> changeRecordClass = loader.loadClass("best.u");
@@ -1271,6 +1273,12 @@ public final class KryoSaveCompatibilityProbe {
       }
     }
     throw new IllegalStateException("Reference career has no usable non-user club");
+  }
+
+  private static void seedCollectionsShuffle(long seed) throws Exception {
+    Field random = Collections.class.getDeclaredField("r");
+    random.setAccessible(true);
+    random.set(null, new Random(seed));
   }
 
   private static Object createCoachMarketClub(

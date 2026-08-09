@@ -46,6 +46,7 @@ public final class ReconstructionTool {
       case "runtime-smoke" -> new SmokeService(context).runtimeSmoke();
       case "save-compatibility" -> new SaveCompatibilityService(context).verify();
       case "full-save-compatibility" -> new FullSaveCompatibilityService(context).verify();
+      case "differential-test" -> new DifferentialTestService(context).verify();
       case "run-hybrid" -> new SmokeService(context).runHybrid();
       default -> throw new IllegalArgumentException("Unknown command: " + command);
     }

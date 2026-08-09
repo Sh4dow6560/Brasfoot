@@ -111,14 +111,17 @@
 - Os reparos de decompilacao traduzem automaticamente identificadores
   intermediarios para o namespace atual. A regeneracao completa voltou a
   produzir e compilar as 1.032 fontes depois das renomeacoes.
+- `differentialTest` executa 107 comparacoes deterministicas entre o runtime
+  original e o hibrido: 88 contagens de modelos serializaveis e 19 cenarios de
+  save, calendario, partida, elenco, transferencias, tecnico e financas. O
+  marco atual possui zero divergencias e round-trip byte-identico.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Testes diferenciais entre o original e o hibrido.
-2. Estado lateral versionado e registro de funcionalidades.
-3. Verificacao editorial dos dados brasileiros de agosto de 2026.
-4. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
+1. Estado lateral versionado e registro de funcionalidades.
+2. Verificacao editorial dos dados brasileiros de agosto de 2026.
+3. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
 
 Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
 de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

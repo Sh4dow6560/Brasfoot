@@ -82,7 +82,8 @@ final class FullSaveCompatibilityService {
         || !log.contains("COACH_CAREER_API ")
         || !log.contains("CLUB_FINANCES_API ")
         || !log.contains("STADIUM_EXPANSION ")
-        || !log.contains("ROUNDTRIP ")) {
+        || !log.contains("ROUNDTRIP ")
+        || !log.contains("byteIdentical=true")) {
       throw new IllegalStateException("Full save did not complete a Kryo round-trip:\n" + log);
     }
     System.out.println("Full save compatibility passed on Java 8: Kryo loaded and rewrote the "

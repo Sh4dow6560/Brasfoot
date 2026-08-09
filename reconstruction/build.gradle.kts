@@ -301,6 +301,10 @@ val fullSaveCompatibilityTest = registerToolTask(
     dependsOn(assembleHybrid, agentJar, extractEmbeddedLibraries)
 }
 
+val differentialTest = registerToolTask("differentialTest", "differential-test") {
+    dependsOn(assembleHybrid, agentJar, extractEmbeddedLibraries)
+}
+
 val teamRoundTrip = tasks.register<Exec>("teamRoundTrip") {
     group = "verification"
     dependsOn(assembleHybrid)
@@ -326,6 +330,7 @@ tasks.register("smokeTest") {
         runtimeSmokeTest,
         saveCompatibilityTest,
         fullSaveCompatibilityTest,
+        differentialTest,
         teamRoundTrip,
         dataUpdate2026RoundTrip
     )

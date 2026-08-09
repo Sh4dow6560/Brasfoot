@@ -138,5 +138,9 @@
 - Decompilacao reproduzivel: os reparos antigos agora traduzem nomes
   intermediarios pelo Tiny v2. As 1.032 fontes brutas voltaram a regenerar e
   compilar mesmo depois das renomeacoes semanticas.
-- Proxima fase: criar testes diferenciais entre original e hibrido e a camada
-  lateral segura para novas funcionalidades.
+- Teste diferencial: `differentialTest` executa o mesmo probe Java 8 no JAR
+  original normalizado e no hibrido. Os 88 modelos serializaveis e 19 cenarios
+  funcionais produziram 107 marcadores identicos, sem divergencias; ambos
+  regravaram o save de 4.758.811 bytes de forma byte-identica.
+- Proxima fase: criar a camada lateral versionada para novas funcionalidades,
+  com `ModStateStore` e `FeatureRegistry` sem alterar os contratos Kryo.
