@@ -16,7 +16,9 @@ Para um save `carreira.s22`, o estado fica em
   },
   "modules": {
     "boardObjectives": {
-      "targetPoints": 72
+      "latestProfile": "7@101",
+      "lastEvaluationPeriod": 202602,
+      "profiles": {}
     }
   },
   "revision": 1,
@@ -53,3 +55,5 @@ Execute a validacao no runtime real com:
 ```
 
 O probe cobre estado ausente, atual, corrompido, antigo e futuro no Java 8.
+Tambem executa a avaliacao mensal da diretoria, confirma idempotencia e
+restaura o modulo depois de fechar e anexar novamente o save.

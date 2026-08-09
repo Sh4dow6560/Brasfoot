@@ -5543,7 +5543,7 @@
       "namedName": "mod/recovered/game/ScheduleDay",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "CDC4BE938D5FB277B22367FEEDC149EE3CC9F8DEE661D37B80D1C1CE4F504AD5"
+      "sourceSha256": "8EE2E56F2C5888A4E8842CE18C4FE2E457F09C4FA65F5E6A97DBCBBF43CEA980"
     },
     {
       "officialName": "best/aa",
@@ -5687,7 +5687,7 @@
       "namedName": "bf22/intermediary/C0711",
       "introducedIn": "2021",
       "status": "compile-clean",
-      "sourceSha256": "8BB78E6F7385DC54F5A1D927B1753BC1ED4A240D2CBC42340C46221964594BD4"
+      "sourceSha256": "8B1C6244D041D5115E8801712EB05CB9E85F2DFA17DE60E3C6118A49B3E694E7"
     },
     {
       "officialName": "best/as",
@@ -5959,7 +5959,7 @@
       "namedName": "mod/recovered/save/GamePersistence",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "3A6856536ED8E755A53CCC05640FEEF82558174C709657AD23FE6006227F2C1C"
+      "sourceSha256": "BB80FE18660E1D61D5206CF97595A89009E3811BDF95775D0E63143738A146B3"
     },
     {
       "officialName": "c/b",

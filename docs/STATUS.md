@@ -11,7 +11,8 @@
   reparadas e compiladas em conjunto com alvo Java 8.
 - Dependencias: as seis classes do carregador Eclipse Jar-in-Jar continuam como
   binarios externos; elas nao pertencem ao codigo do Brasfoot.
-- Reconstrucao hibrida: 1.032 classes sobrepostas por fonte recuperada.
+- Reconstrucao hibrida: 1.032 classes do jogo sobrepostas por fonte recuperada
+  e 17 bytecodes novos de extensao; 1.049 overlays no total.
 - Integridade: 1.161 recursos e entradas nao sobrepostas permanecem
   byte-identicos ao original.
 - Serializacao: 88 contratos diretos preservam campos e `serialVersionUID`; o
@@ -147,5 +148,10 @@
   lateral por save possui schema, revisao, gravacao atomica, verificacao de
   concorrencia e fallback desligado para arquivos ausentes, corrompidos ou
   futuros. Nenhum dos 88 contratos Kryo recebeu campos.
-- Proxima fase: implementar objetivos mensais da diretoria sobre essa camada,
-  mantendo a funcionalidade desativada como fallback.
+- Diretoria: objetivos esportivos, financeiros e de torcida sao avaliados uma
+  vez por mes. A mecanica calcula seguranca no emprego, ajusta a confianca do
+  tecnico, preserva 24 relatorios no sidecar e envia o resultado ao inbox. O
+  processamento e idempotente e fica totalmente inerte quando a feature esta
+  desligada.
+- Proxima fase: implementar ofertas, contratos, bonus, metas e pagamentos
+  mensais de patrocinadores sobre a mesma camada lateral.

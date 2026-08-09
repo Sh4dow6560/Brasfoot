@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
 final class ModStateCompatibilityService {
   private static final String SUCCESS_MARKER =
       "MOD_STATE_API missing=true current=true corrupt=true migrated=true "
-          + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true";
+          + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
+          + "boardObjectives=true monthly=true idempotent=true jobSecurity=true";
 
   private final ProjectContext context;
 

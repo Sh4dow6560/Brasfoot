@@ -50,6 +50,13 @@ recovered.compileClasspath += fileTree(embeddedLibrariesDir) {
 val extension = sourceSets.create("extension") {
     java.setSrcDirs(listOf("src/extension/java"))
 }
+extension.compileClasspath += files(
+    layout.buildDirectory.file("work/named/bf22-23-named.jar")
+)
+extension.compileClasspath += fileTree(embeddedLibrariesDir) {
+    include("*.jar")
+}
+recovered.compileClasspath += extension.output
 
 val agent = sourceSets.create("agent") {
     java.setSrcDirs(listOf("src/agent/java"))
@@ -92,7 +99,8 @@ tasks.named<JavaCompile>(recovered.compileJavaTaskName) {
     dependsOn(
         "prepareRecoveredSources",
         "buildSyntheticCompileClasspath",
-        "extractEmbeddedLibraries"
+        "extractEmbeddedLibraries",
+        tasks.named(extension.classesTaskName)
     )
     options.release.set(8)
     options.compilerArgs.add("-Xlint:-options")
@@ -170,6 +178,10 @@ val generateMappings = registerToolTask("generateMappings", "generate-mappings")
 
 val remapGame = registerToolTask("remapGame", "remap-game") {
     dependsOn(normalizeGame, generateMappings)
+}
+
+tasks.named<JavaCompile>(extension.compileJavaTaskName) {
+    dependsOn(remapGame, extractEmbeddedLibraries)
 }
 
 val prepareRecoveredSources = registerToolTask(

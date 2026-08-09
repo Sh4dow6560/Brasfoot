@@ -103,6 +103,11 @@ public final class ModState {
         this.schemaVersion, this.revision + 1L, this.featureOverrides, this.modules);
   }
 
+  ModState atRevision(long revision) {
+    return new ModState(
+        this.schemaVersion, revision, this.featureOverrides, this.modules);
+  }
+
   static void requireIdentifier(String value, String label) {
     if (value == null) {
       throw new NullPointerException(label);

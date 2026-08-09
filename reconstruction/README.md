@@ -66,6 +66,10 @@ save de forma atomica; `FeatureRegistry` deixa todas as novidades desligadas
 por padrao. O contrato e os estados de erro estao em
 `docs/EXTENSION_STATE.md`.
 
+O primeiro modulo sobre essa base implementa objetivos mensais da diretoria,
+seguranca no emprego, impacto na confianca e relatorio no inbox. As regras e
+o fallback estao em `docs/BOARD_OBJECTIVES.md`.
+
 ## Espacos De Nomes
 
 - `official`: nomes binarios originais exigidos pelo jogo.

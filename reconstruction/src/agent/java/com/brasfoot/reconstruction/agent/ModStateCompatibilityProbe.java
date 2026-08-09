@@ -10,6 +10,10 @@ import mod.extension.state.Feature;
 import mod.extension.state.FeatureRegistry;
 import mod.extension.state.ModState;
 import mod.extension.state.ModStateStore;
+import mod.extension.state.ModRuntime;
+import mod.extension.board.BoardEvaluation;
+import mod.extension.board.BoardOutcome;
+import mod.extension.board.BoardSnapshot;
 
 public final class ModStateCompatibilityProbe {
   private ModStateCompatibilityProbe() {
@@ -87,13 +91,56 @@ public final class ModStateCompatibilityProbe {
     assertStatus(future, ModStateStore.LoadStatus.UNSUPPORTED);
     assertRefusesSave(store, futureSave, future);
 
+    Path boardSave = createSave(root, "board.s22");
+    ModRuntime.startNewCareer();
+    ModRuntime.setFeatureEnabled(Feature.BOARD_OBJECTIVES, true);
+    BoardSnapshot january = boardSnapshot(2026, 1, 0, 0);
+    BoardSnapshot february = boardSnapshot(2026, 2, 4, 3);
+    BoardEvaluation initialized = ModRuntime.evaluateBoardObjectives(january);
+    BoardEvaluation evaluated = ModRuntime.evaluateBoardObjectives(february);
+    BoardEvaluation duplicate = ModRuntime.evaluateBoardObjectives(february);
+    if (initialized.getOutcome() != BoardOutcome.INITIALIZED
+        || evaluated.getOutcome() != BoardOutcome.EXCEEDED
+        || evaluated.getApprovalDelta() != 3
+        || duplicate.getOutcome() != BoardOutcome.UNCHANGED) {
+      throw new IllegalStateException("Board objectives evaluation is not deterministic");
+    }
+    if (!ModRuntime.persist(boardSave)) {
+      throw new IllegalStateException("Board objectives state was not persisted");
+    }
+    ModRuntime.startNewCareer();
+    ModRuntime.attach(boardSave);
+    if (!ModRuntime.isFeatureEnabled(Feature.BOARD_OBJECTIVES)
+        || ModRuntime.getState().getModule("boardObjectives").isEmpty()) {
+      throw new IllegalStateException("Board objectives state was not restored");
+    }
     try (java.util.stream.Stream<Path> files = Files.list(root)) {
       if (files.anyMatch(path -> path.getFileName().toString().endsWith(".tmp"))) {
         throw new IllegalStateException("Atomic save left a temporary file behind");
       }
     }
     System.out.println("MOD_STATE_API missing=true current=true corrupt=true migrated=true "
-        + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true");
+        + "unsupported=true atomic=true revision=true utf8=true defaultsDisabled=true "
+        + "boardObjectives=true monthly=true idempotent=true jobSecurity=true");
+  }
+
+  private static BoardSnapshot boardSnapshot(
+      int year, int month, int matches, int wins) {
+    return new BoardSnapshot(
+        year,
+        month,
+        1,
+        7,
+        101,
+        1,
+        3,
+        matches,
+        wins,
+        matches - wins,
+        75,
+        80,
+        1_000_000L + month * 100_000L,
+        month * 100_000L);
   }
 
   private static Path createSave(Path root, String name) throws Exception {

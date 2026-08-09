@@ -21,6 +21,7 @@ import java.nio.file.StandardCopyOption;
 import javax.swing.JOptionPane;
 import mod.recovered.config.GameOptions;
 import mod.recovered.save.SavedGameInfo;
+import mod.extension.state.ModRuntime;
 
 public class GamePersistence {
    static PrintWriter logWriter;
@@ -32,6 +33,7 @@ public class GamePersistence {
    private static final File[] soundFiles = new File[7];
 
    public GamePersistence() {
+      ModRuntime.startNewCareer();
       loadOptions();
       if (options == null) {
          options = new GameOptions();
@@ -128,6 +130,14 @@ public class GamePersistence {
                   var9.printStackTrace();
                }
             }
+
+            try {
+               if (!ModRuntime.persist(Paths.get(System.getProperty("user.dir"), "sav", string + ".s22"))) {
+                  System.err.println("Mod state was not saved: " + ModRuntime.getWarning());
+               }
+            } catch (IOException var8) {
+               var8.printStackTrace();
+            }
          }
       }
    }
@@ -151,6 +161,12 @@ public class GamePersistence {
             careerState = (CareerState)var3.readClassAndObject(var4);
             coachJobMarket = (CoachJobMarket)var3.readClassAndObject(var4);
             var4.close();
+            try {
+               ModRuntime.attach(Paths.get(System.getProperty("user.dir"), "sav", string + ".s22"));
+            } catch (IOException var5) {
+               var5.printStackTrace();
+               ModRuntime.startNewCareer();
+            }
          } catch (Exception var6) {
             var6.printStackTrace();
             if (!bl) {

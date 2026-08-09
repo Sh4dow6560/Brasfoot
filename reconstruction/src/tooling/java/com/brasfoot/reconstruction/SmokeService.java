@@ -15,6 +15,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.LdcInsnNode;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
 
 final class SmokeService {
   private final ProjectContext context;
@@ -56,6 +61,7 @@ final class SmokeService {
       throw new IllegalStateException("Expected " + expectedClassCount
           + " classes in hybrid JAR, got " + classCount);
     }
+    verifyExtensionHooks(hybrid);
 
     byte[] recovered = hybrid.get(HybridService.ORIGINAL_COMPONENT);
     if (recovered == null) {
@@ -89,6 +95,83 @@ final class SmokeService {
     System.out.println("Static smoke passed: " + classCount
         + " classes, recovered component present, "
         + manifest.unchangedEntries() + " unchanged entries verified.");
+  }
+
+  private void verifyExtensionHooks(Map<String, byte[]> hybrid) {
+    Set<String> scheduleCalls = methodCalls(hybrid, "best/a.class");
+    requireCall(
+        scheduleCalls,
+        "mod/extension/board/BoardObjectivesBridge.evaluateMonthly(II)I",
+        "monthly board evaluation");
+
+    Set<String> persistenceCalls = methodCalls(hybrid, "c/a.class");
+    requireCall(
+        persistenceCalls,
+        "mod/extension/state/ModRuntime.startNewCareer()V",
+        "new-career state reset");
+    requireCall(
+        persistenceCalls,
+        "mod/extension/state/ModRuntime.attach(Ljava/nio/file/Path;)"
+            + "Lmod/extension/state/ModStateStore$LoadStatus;",
+        "sidecar load");
+    requireCall(
+        persistenceCalls,
+        "mod/extension/state/ModRuntime.persist(Ljava/nio/file/Path;)Z",
+        "sidecar save");
+
+    Set<String> inboxTemplates = stringConstants(hybrid, "best/ar.class");
+    if (!inboxTemplates.contains("Avalia\u00e7\u00e3o mensal da diretoria")
+        || !inboxTemplates.contains("A diretoria concluiu a avalia\u00e7\u00e3o mensal.")) {
+      throw new IllegalStateException("Hybrid JAR is missing board inbox templates");
+    }
+    Set<String> boardBridgeCalls = methodCalls(
+        hybrid, "mod/extension/board/BoardObjectivesBridge.class");
+    if (boardBridgeCalls.stream().noneMatch(call -> call.startsWith("components/as.<init>("))) {
+      throw new IllegalStateException("Hybrid JAR is missing board inbox report hook");
+    }
+  }
+
+  private Set<String> methodCalls(Map<String, byte[]> hybrid, String entry) {
+    byte[] bytecode = hybrid.get(entry);
+    if (bytecode == null) {
+      throw new IllegalStateException("Hybrid JAR is missing hook owner " + entry);
+    }
+    ClassNode owner = new ClassNode(Opcodes.ASM9);
+    new ClassReader(bytecode).accept(owner, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+    Set<String> calls = new TreeSet<>();
+    for (MethodNode method : owner.methods) {
+      for (var instruction : method.instructions) {
+        if (instruction instanceof MethodInsnNode call) {
+          calls.add(call.owner + "." + call.name + call.desc);
+        }
+      }
+    }
+    return calls;
+  }
+
+  private void requireCall(Set<String> calls, String expected, String purpose) {
+    if (!calls.contains(expected)) {
+      throw new IllegalStateException(
+          "Hybrid JAR is missing " + purpose + " hook: " + expected);
+    }
+  }
+
+  private Set<String> stringConstants(Map<String, byte[]> hybrid, String entry) {
+    byte[] bytecode = hybrid.get(entry);
+    if (bytecode == null) {
+      throw new IllegalStateException("Hybrid JAR is missing template owner " + entry);
+    }
+    ClassNode owner = new ClassNode(Opcodes.ASM9);
+    new ClassReader(bytecode).accept(owner, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+    Set<String> constants = new TreeSet<>();
+    for (MethodNode method : owner.methods) {
+      for (var instruction : method.instructions) {
+        if (instruction instanceof LdcInsnNode constant && constant.cst instanceof String value) {
+          constants.add(value);
+        }
+      }
+    }
+    return constants;
   }
 
   private void verifyMappingRoundTrip() throws IOException {

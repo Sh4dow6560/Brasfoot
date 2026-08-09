@@ -37,7 +37,8 @@ public final class C0711 {
       "Vaga na Sul-Americana",
       "Vaga nas Oitavas da Sul-Americana",
       "Desejo de aposentadoria",
-      "Vaga na Conference League"
+      "Vaga na Conference League",
+      "Avalia\u00e7\u00e3o mensal da diretoria"
    };
    public static final String[] tQ = new String[]{
       "O jogador simplesmente cuspiu na cara do árbitro. 10 jogos de suspensão até que foi uma pena leve.",
@@ -131,5 +132,7 @@ public final class C0711 {
       "Seu time ficou em terceiro lugar no grupo da Libertadores e foi eliminado, mas garantiu uma vaga nas oitavas de final da Sul-Americana.",
       "O jogador $1 demonstrou um desejo de se aposentar. Talvez não seja a melhor ideia mantê-lo em atividade.",
       "Seu time foi eliminado da Liga dos Campeões, mas garantiu uma vaga em uma das fases da Conference League"
+      ,
+      "A diretoria concluiu a avalia\u00e7\u00e3o mensal."
    };
 }
