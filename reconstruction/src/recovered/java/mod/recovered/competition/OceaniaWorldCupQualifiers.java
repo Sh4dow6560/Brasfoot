@@ -68,8 +68,8 @@ public class OceaniaWorldCupQualifiers extends Competition implements Serializab
       this.agb = var9;
       var9.setNome(this.getNome());
       var9.fb(9500);
-      GamePersistence.coachJobMarket.L(var1);
-      GamePersistence.coachJobMarket.L(this.YF);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(var1);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
    }
 
    public void yt() {

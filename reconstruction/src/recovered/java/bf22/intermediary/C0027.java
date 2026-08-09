@@ -58,7 +58,7 @@ public class C0027 extends JPanel {
 
    private void mI() {
       if (this.uf.getText().toString() != "" && !this.uf.getText().isEmpty() && this.uf.getText().length() > 1 && this.uf.getText().length() < 50) {
-         Coach.c(this.uf.getText().toString(), C0732.H(this.ue.getSelectedIndex()));
+         Coach.createUserCoach(this.uf.getText().toString(), C0732.H(this.ue.getSelectedIndex()));
          this.ub.dispose();
       } else {
          JOptionPane.showMessageDialog(this.ub, "Nome inválido", "Adicionar técnico", 2);

@@ -49,6 +49,7 @@ public final class KryoSaveCompatibilityProbe {
       String contractLoanApi = validateContractAndLoanBehavior(loader, roots[0]);
       String transferNegotiationApi = validateTransferNegotiationBehavior(loader);
       String aiSquadApi = validateAiSquadManagerBehavior(loader, roots[0]);
+      String coachCareerApi = validateCoachCareerBehavior(loader, roots[0]);
       String playerSearchApi = validatePlayerSearchCriteriaBehavior(loader, roots[0]);
       String transferHistoryApi = validatePlayerTransferRecordBehavior(loader, roots[0]);
       String clubFinancesApi = validateClubFinancesBehavior(loader, roots[0]);
@@ -97,6 +98,7 @@ public final class KryoSaveCompatibilityProbe {
       System.out.println("CONTRACT_LOAN_API " + contractLoanApi);
       System.out.println("TRANSFER_NEGOTIATION_API " + transferNegotiationApi);
       System.out.println("AI_SQUAD_API " + aiSquadApi);
+      System.out.println("COACH_CAREER_API " + coachCareerApi);
       System.out.println("PLAYER_SEARCH_API " + playerSearchApi);
       System.out.println("TRANSFER_HISTORY_API " + transferHistoryApi);
       System.out.println("CLUB_FINANCES_API " + clubFinancesApi);
@@ -880,6 +882,424 @@ public final class KryoSaveCompatibilityProbe {
     }
 
     return "entryPoints=true balancedPlayers=2 loanProtected=5 userProtected=5";
+  }
+
+  private static String validateCoachCareerBehavior(ClassLoader loader, Object career)
+      throws Exception {
+    Class<?> coachClass = loader.loadClass("best.al");
+    Class<?> seasonRecordClass = loader.loadClass("best.j");
+    Class<?> changeRecordClass = loader.loadClass("best.u");
+    Class<?> marketClass = loader.loadClass("best.ay");
+    Class<?> clubClass = loader.loadClass("best.ah");
+    Class<?> countryClass = loader.loadClass("best.Z");
+    Class<?> matchClass = loader.loadClass("best.I");
+    Class<?> eventClass = loader.loadClass("best.A");
+    Class<?> persistenceClass = loader.loadClass("c.a");
+
+    Object previousCareer = readStaticField(persistenceClass, "SR");
+    try {
+      setStaticField(persistenceClass, "SR", career);
+      int season = readInt(career, "ae");
+      Object club = findProbeClub(clubClass, castList(readField(career, "aj")));
+      int clubId = ((Integer)clubClass.getDeclaredMethod("lk").invoke(club)).intValue();
+      int countryId = ((Integer)clubClass.getDeclaredMethod("getPais").invoke(club)).intValue();
+      int division = ((Integer)clubClass.getDeclaredMethod("getDivisao").invoke(club)).intValue();
+      String clubName = (String)clubClass.getDeclaredMethod("getNome").invoke(club);
+
+      Object coach = coachClass.getDeclaredConstructor().newInstance();
+      coachClass.getDeclaredMethod("i", String.class).invoke(coach, "Probe Coach");
+      assertString("Probe Coach", coachClass.getDeclaredMethod("dS").invoke(coach),
+          "coach name");
+      coachClass.getDeclaredMethod("k", Boolean.class).invoke(coach, Boolean.TRUE);
+      assertBoolean(coachClass, coach, "jZ", true);
+      coachClass.getDeclaredMethod("n", clubClass).invoke(coach, club);
+      assertSame(club, coachClass.getDeclaredMethod("fg").invoke(coach), "coach club");
+      coachClass.getDeclaredMethod("cg", Integer.TYPE).invoke(coach, countryId);
+      assertInteger(coachClass, coach, "lE", countryId);
+      coachClass.getDeclaredMethod("B", clubClass).invoke(coach, club);
+      assertSame(club, coachClass.getDeclaredMethod("lF").invoke(coach),
+          "previous coach club");
+      coachClass.getDeclaredMethod("ch", Integer.TYPE).invoke(coach, division - 1);
+      assertInteger(coachClass, coach, "lG", division - 1);
+      coachClass.getDeclaredMethod("ci", Integer.TYPE).invoke(coach, season - 1);
+      assertInteger(coachClass, coach, "lH", season - 1);
+      coachClass.getDeclaredMethod("v", Integer.TYPE).invoke(coach, countryId);
+      assertInteger(coachClass, coach, "bz", countryId);
+      coachClass.getDeclaredMethod("lN").invoke(coach);
+      assertSame(club, coachClass.getDeclaredMethod("lF").invoke(coach),
+          "remembered coach club");
+      assertInteger(coachClass, coach, "bz", countryId);
+      assertInteger(coachClass, coach, "lG", division - 1);
+
+      coachClass.getDeclaredMethod("cl", Integer.TYPE).invoke(coach, 95);
+      coachClass.getDeclaredMethod("cj", Integer.TYPE).invoke(coach, 10);
+      assertInteger(coachClass, coach, "lL", 100);
+      coachClass.getDeclaredMethod("cj", Integer.TYPE).invoke(coach, -150);
+      assertInteger(coachClass, coach, "lL", 0);
+      coachClass.getDeclaredMethod("cl", Integer.TYPE).invoke(coach, 80);
+      coachClass.getDeclaredMethod("cm", Integer.TYPE).invoke(coach, 95);
+      coachClass.getDeclaredMethod("ck", Integer.TYPE).invoke(coach, 10);
+      assertInteger(coachClass, coach, "lM", 100);
+      coachClass.getDeclaredMethod("ck", Integer.TYPE).invoke(coach, -150);
+      assertInteger(coachClass, coach, "lM", 0);
+      coachClass.getDeclaredMethod("cm", Integer.TYPE).invoke(coach, 70);
+
+      ArrayList<String> inbox = new ArrayList<String>();
+      inbox.add("probe-message");
+      coachClass.getDeclaredMethod("T", ArrayList.class).invoke(coach, inbox);
+      assertSame(inbox, coachClass.getDeclaredMethod("lQ").invoke(coach), "coach inbox");
+      coachClass.getDeclaredMethod("cn", Integer.TYPE).invoke(coach, 2);
+      coachClass.getDeclaredMethod("lS").invoke(coach);
+      assertInteger(coachClass, coach, "lR", 3);
+      coachClass.getDeclaredMethod("z", clubClass).invoke(coach, club);
+      assertSame(club, coachClass.getDeclaredMethod("jo").invoke(coach),
+          "coach national team");
+      coachClass.getDeclaredMethod("z", clubClass).invoke(coach, new Object[]{null});
+
+      coachClass.getDeclaredMethod("setReputacao", Integer.TYPE).invoke(coach, 0);
+      coachClass.getDeclaredMethod(
+          "a", Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE, Integer.TYPE)
+          .invoke(coach, 0, 1, 1, true, 1);
+      coachClass.getDeclaredMethod("kk").invoke(coach);
+      assertInteger(coachClass, coach, "getReputacao", 2);
+      if (readInt(coach, "nu") != 600) {
+        throw new IllegalStateException("Coach reputation progress was not preserved");
+      }
+
+      Object seasonRecord = coachClass.getDeclaredMethod("C", clubClass).invoke(coach, club);
+      assertSame(seasonRecord,
+          coachClass.getDeclaredMethod("C", clubClass).invoke(coach, club),
+          "coach season record");
+      assertInteger(seasonRecordClass, seasonRecord, "H", season);
+      assertInteger(seasonRecordClass, seasonRecord, "ct", clubId);
+      assertString(clubName, seasonRecordClass.getDeclaredMethod("ck").invoke(seasonRecord),
+          "season club name");
+      coachClass.getDeclaredMethod("D", clubClass).invoke(coach, club);
+
+      Object awayClub = clubClass.getDeclaredConstructor().newInstance();
+      setField(awayClub, "mU", 2_000_001);
+      setField(awayClub, "dm", "Probe Away");
+      Object match = matchClass.getDeclaredConstructor().newInstance();
+      ArrayList<Object> events = new ArrayList<Object>();
+      events.add(createMatchEvent(eventClass, clubClass, club, 1));
+      events.add(createMatchEvent(eventClass, clubClass, awayClub, 1));
+      events.add(createMatchEvent(eventClass, clubClass, club, 1));
+      setField(match, "fz", club);
+      setField(match, "fA", awayClub);
+      setField(match, "fN", events);
+      matchClass.getDeclaredMethod("hF").invoke(match);
+      assertInteger(matchClass, match, "hu", 2);
+      assertInteger(matchClass, match, "hw", 1);
+      coachClass.getDeclaredMethod("e", matchClass).invoke(coach, match);
+      assertInteger(coachClass, coach, "A", 1);
+      assertInteger(coachClass, coach, "lJ", 1);
+      assertInteger(coachClass, coach, "lK", 0);
+      assertInteger(coachClass, coach, "lI", 0);
+      assertInteger(coachClass, coach, "cr", 1);
+      assertInteger(seasonRecordClass, seasonRecord, "w", 1);
+      assertInteger(seasonRecordClass, seasonRecord, "cm", 1);
+      assertInteger(seasonRecordClass, seasonRecord, "co", 0);
+      assertInteger(seasonRecordClass, seasonRecord, "cr", 1);
+
+      Object restoredCoach = roundTripObject(coach, loader);
+      if (readField(restoredCoach, "nV") != null || readField(restoredCoach, "nW") != null) {
+        throw new IllegalStateException("Transient coach club references were serialized");
+      }
+      assertString("Probe Coach", coachClass.getDeclaredMethod("dS").invoke(restoredCoach),
+          "restored coach name");
+      assertSame(club, coachClass.getDeclaredMethod("fg").invoke(restoredCoach),
+          "restored coach club");
+      assertSame(club, coachClass.getDeclaredMethod("lF").invoke(restoredCoach),
+          "restored previous coach club");
+      assertInteger(coachClass, restoredCoach, "lL", 80);
+      assertInteger(coachClass, restoredCoach, "lM", 70);
+      assertInteger(coachClass, restoredCoach, "lR", 3);
+      assertInteger(coachClass, restoredCoach, "A", 1);
+      assertInteger(coachClass, restoredCoach, "cr", 1);
+
+      Object standaloneRecord = seasonRecordClass.getDeclaredConstructor(clubClass)
+          .newInstance(club);
+      seasonRecordClass.getDeclaredMethod("cl").invoke(standaloneRecord);
+      seasonRecordClass.getDeclaredMethod("cl").invoke(standaloneRecord);
+      seasonRecordClass.getDeclaredMethod("cn").invoke(standaloneRecord);
+      seasonRecordClass.getDeclaredMethod("cp").invoke(standaloneRecord);
+      seasonRecordClass.getDeclaredMethod("B", Integer.TYPE).invoke(standaloneRecord, 7);
+      seasonRecordClass.getDeclaredMethod("cs").invoke(standaloneRecord);
+      Object restoredRecord = roundTripObject(standaloneRecord, loader);
+      assertInteger(seasonRecordClass, restoredRecord, "H", season);
+      assertInteger(seasonRecordClass, restoredRecord, "ct", clubId);
+      assertInteger(seasonRecordClass, restoredRecord, "w", 2);
+      assertInteger(seasonRecordClass, restoredRecord, "cm", 1);
+      assertInteger(seasonRecordClass, restoredRecord, "co", 1);
+      assertInteger(seasonRecordClass, restoredRecord, "cq", 7);
+      assertInteger(seasonRecordClass, restoredRecord, "cr", 1);
+      assertString(clubName, seasonRecordClass.getDeclaredMethod("ck").invoke(restoredRecord),
+          "restored season club name");
+
+      Object outgoing = coachClass.getDeclaredConstructor().newInstance();
+      Object incoming = coachClass.getDeclaredConstructor().newInstance();
+      coachClass.getDeclaredMethod("i", String.class).invoke(outgoing, "Outgoing Coach");
+      coachClass.getDeclaredMethod("i", String.class).invoke(incoming, "Incoming Coach");
+      Calendar changeDate = Calendar.getInstance();
+      changeDate.clear();
+      changeDate.set(2026, Calendar.AUGUST, 14);
+      Object change = changeRecordClass.getDeclaredConstructor().newInstance();
+      changeRecordClass.getDeclaredMethod("c", coachClass).invoke(change, outgoing);
+      changeRecordClass.getDeclaredMethod("d", coachClass).invoke(change, incoming);
+      changeRecordClass.getDeclaredMethod("b", Calendar.class).invoke(change, changeDate);
+      changeRecordClass.getDeclaredMethod("C", Integer.TYPE).invoke(change, clubId);
+      changeRecordClass.getDeclaredMethod("M", Integer.TYPE).invoke(change, 7);
+      assertSame(outgoing, changeRecordClass.getDeclaredMethod("dO").invoke(change),
+          "outgoing coach");
+      assertSame(incoming, changeRecordClass.getDeclaredMethod("dP").invoke(change),
+          "incoming coach");
+      assertInteger(changeRecordClass, change, "ct", clubId);
+      assertInteger(changeRecordClass, change, "dQ", 7);
+      assertString(clubName, changeRecordClass.getDeclaredMethod("dR").invoke(change),
+          "coach change club name");
+      String dateText = (String)changeRecordClass.getDeclaredMethod("f").invoke(change);
+      if (dateText == null || dateText.trim().isEmpty()) {
+        throw new IllegalStateException("Coach change date text is empty");
+      }
+      Object restoredChange = roundTripObject(change, loader);
+      if (readField(restoredChange, "dl") != null) {
+        throw new IllegalStateException("Transient coach change club name was serialized");
+      }
+      assertInteger(changeRecordClass, restoredChange, "ct", clubId);
+      assertInteger(changeRecordClass, restoredChange, "dQ", 7);
+      Calendar restoredDate = (Calendar)changeRecordClass.getDeclaredMethod("a")
+          .invoke(restoredChange);
+      if (restoredDate.getTimeInMillis() != changeDate.getTimeInMillis()) {
+        throw new IllegalStateException("Coach change date changed during Kryo round-trip");
+      }
+      assertString("Outgoing Coach", coachClass.getDeclaredMethod("dS").invoke(
+          changeRecordClass.getDeclaredMethod("dO").invoke(restoredChange)),
+          "restored outgoing coach");
+      assertString("Incoming Coach", coachClass.getDeclaredMethod("dS").invoke(
+          changeRecordClass.getDeclaredMethod("dP").invoke(restoredChange)),
+          "restored incoming coach");
+      assertString(clubName, changeRecordClass.getDeclaredMethod("dR")
+          .invoke(restoredChange), "restored coach change club name");
+
+      Object previousCoachChanges = readField(career, "at");
+      try {
+        ArrayList<Object> coachChanges = new ArrayList<Object>();
+        setField(career, "at", coachChanges);
+        Object managedClub = clubClass.getDeclaredConstructor().newInstance();
+        setField(managedClub, "mU", 2_000_002);
+        setField(managedClub, "dm", "Probe Managed Club");
+        clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(managedClub, countryId);
+        clubClass.getDeclaredMethod("setDivisao", Integer.TYPE).invoke(managedClub, 1);
+        Object departingCoach = coachClass.getDeclaredConstructor().newInstance();
+        Object replacementCoach = coachClass.getDeclaredConstructor().newInstance();
+        coachClass.getDeclaredMethod("i", String.class)
+            .invoke(departingCoach, "Departing Coach");
+        coachClass.getDeclaredMethod("i", String.class)
+            .invoke(replacementCoach, "Replacement Coach");
+        coachClass.getDeclaredMethod("k", Boolean.class)
+            .invoke(departingCoach, Boolean.FALSE);
+        coachClass.getDeclaredMethod("k", Boolean.class)
+            .invoke(replacementCoach, Boolean.FALSE);
+        coachClass.getDeclaredMethod("n", clubClass).invoke(departingCoach, managedClub);
+        clubClass.getDeclaredMethod("h", coachClass).invoke(managedClub, departingCoach);
+
+        coachClass.getDeclaredMethod("i", coachClass)
+            .invoke(departingCoach, replacementCoach);
+        if (coachChanges.size() != 1) {
+          throw new IllegalStateException("Coach departure did not create one history record");
+        }
+        Object generatedChange = coachChanges.get(0);
+        assertSame(departingCoach,
+            changeRecordClass.getDeclaredMethod("dO").invoke(generatedChange),
+            "generated outgoing coach");
+        assertSame(replacementCoach,
+            changeRecordClass.getDeclaredMethod("dP").invoke(generatedChange),
+            "generated incoming coach");
+        assertInteger(changeRecordClass, generatedChange, "ct", 2_000_002);
+        if (coachClass.getDeclaredMethod("fg").invoke(departingCoach) != null
+            || readField(managedClub, "mZ") != null) {
+          throw new IllegalStateException("Departing coach remained assigned to the club");
+        }
+        assertSame(managedClub, coachClass.getDeclaredMethod("lF").invoke(departingCoach),
+            "departing coach previous club");
+
+        coachClass.getDeclaredMethod("E", clubClass).invoke(replacementCoach, managedClub);
+        assertSame(managedClub, coachClass.getDeclaredMethod("fg").invoke(replacementCoach),
+            "replacement coach club");
+        assertSame(replacementCoach, clubClass.getDeclaredMethod("ka").invoke(managedClub),
+            "club replacement coach");
+        assertInteger(coachClass, replacementCoach, "lL", 95);
+        assertInteger(coachClass, replacementCoach, "lM", 85);
+        assertInteger(coachClass, replacementCoach, "lR", 0);
+      } finally {
+        setField(career, "at", previousCoachChanges);
+      }
+
+      Object market = marketClass.getDeclaredConstructor().newInstance();
+      ArrayList<Object> syntheticCandidates = new ArrayList<Object>();
+      syntheticCandidates.add(createCoachMarketClub(clubClass, 11, false));
+      syntheticCandidates.add(createCoachMarketClub(clubClass, 11, false));
+      syntheticCandidates.add(createCoachMarketClub(clubClass, 12, false));
+      syntheticCandidates.add(createCoachMarketClub(clubClass, 13, true));
+      marketClass.getDeclaredMethod("L", ArrayList.class).invoke(market, syntheticCandidates);
+      List<Object> offerCountries = castList(readField(market, "Jg"));
+      List<Object> vacancyCountries = castList(readField(market, "Jh"));
+      if (offerCountries.size() != 2 || vacancyCountries.size() != 2
+          || !offerCountries.contains(11) || !offerCountries.contains(12)
+          || offerCountries.contains(13)) {
+        throw new IllegalStateException("Coach market did not deduplicate national candidates");
+      }
+      marketClass.getDeclaredMethod("zi").invoke(market);
+      if (!castList(readField(market, "Jg")).isEmpty()
+          || !castList(readField(market, "Jh")).isEmpty()
+          || !castList(readField(market, "Jj")).isEmpty()
+          || !castList(readField(market, "Jl")).isEmpty()) {
+        throw new IllegalStateException("Coach market candidate pools were not cleared");
+      }
+      ArrayList<Integer> vacancyIds = new ArrayList<Integer>();
+      for (int index = 0; index < 5; index++) {
+        vacancyIds.add(100 + index);
+      }
+      invokePrivateWithArgument(
+          marketClass, market, "M", ArrayList.class, vacancyIds);
+      List<Object> selectedVacancies = castList(readField(market, "Jl"));
+      if (selectedVacancies.size() != 3 || !vacancyIds.containsAll(selectedVacancies)) {
+        throw new IllegalStateException("Coach market did not select three club vacancies");
+      }
+      marketClass.getDeclaredMethod("L", ArrayList.class).invoke(market, syntheticCandidates);
+      Object restoredMarket = roundTripObject(market, loader);
+      if (!readField(market, "Jg").equals(readField(restoredMarket, "Jg"))
+          || !readField(market, "Jh").equals(readField(restoredMarket, "Jh"))
+          || !readField(market, "Jl").equals(readField(restoredMarket, "Jl"))) {
+        throw new IllegalStateException("Coach market pools changed during Kryo round-trip");
+      }
+
+      Object liveMarket = marketClass.getDeclaredConstructor().newInstance();
+      Object previousNationalCountries = readField(career, "ap");
+      try {
+        ArrayList<Object> nationalTeams = new ArrayList<Object>();
+        for (Object country : castList(previousNationalCountries)) {
+          if (country != null && countryClass.isInstance(country)) {
+            Object nationalTeam = countryClass.getDeclaredMethod("jn").invoke(country);
+            if (nationalTeam != null) {
+              nationalTeams.add(nationalTeam);
+            }
+          }
+        }
+        if (nationalTeams.isEmpty()) {
+          ArrayList<Object> syntheticCountries = new ArrayList<Object>();
+          ArrayList<Integer> countryIds = new ArrayList<Integer>();
+          countryIds.add(countryId);
+          for (Object loadedCountry : castList(readField(career, "ao"))) {
+            if (loadedCountry != null && countryClass.isInstance(loadedCountry)) {
+              int loadedCountryId = ((Integer)countryClass.getDeclaredMethod("jc")
+                  .invoke(loadedCountry)).intValue();
+              if (!countryIds.contains(loadedCountryId)) {
+                countryIds.add(loadedCountryId);
+              }
+              if (countryIds.size() == 3) {
+                break;
+              }
+            }
+          }
+          for (int index = 0; index < countryIds.size(); index++) {
+            int nationalCountryId = countryIds.get(index).intValue();
+            Object country = countryClass.getDeclaredConstructor(Integer.TYPE)
+                .newInstance(nationalCountryId);
+            Object nationalTeam = createCoachMarketClub(
+                clubClass, nationalCountryId, false);
+            setField(nationalTeam, "mU", 3_000_000 + nationalCountryId);
+            setField(nationalTeam, "dm", "Probe National " + nationalCountryId);
+            clubClass.getDeclaredMethod("setReputacao", Integer.TYPE)
+                .invoke(nationalTeam, 1 + index);
+            countryClass.getDeclaredMethod("z", clubClass).invoke(country, nationalTeam);
+            syntheticCountries.add(country);
+            nationalTeams.add(nationalTeam);
+          }
+          setField(career, "ap", syntheticCountries);
+        }
+        marketClass.getDeclaredMethod("L", ArrayList.class).invoke(liveMarket, nationalTeams);
+        int nationalVacancies = validateNonUserClubList(
+            clubClass, marketClass.getDeclaredMethod("Aq").invoke(liveMarket),
+            "national-team vacancies");
+        if (nationalVacancies == 0) {
+          throw new IllegalStateException("Coach market produced no national-team vacancies");
+        }
+        marketClass.getDeclaredMethod("zj").invoke(liveMarket);
+        int clubVacancies = validateNonUserClubList(
+            clubClass, marketClass.getDeclaredMethod("Ap").invoke(liveMarket),
+            "club vacancies");
+        if (clubVacancies == 0) {
+          throw new IllegalStateException("Reference career produced no club vacancies");
+        }
+        int nationalOffers = validateNonUserClubList(
+            clubClass,
+            marketClass.getDeclaredMethod("a", coachClass, Boolean.TYPE)
+                .invoke(liveMarket, coach, false),
+            "national-team offers");
+        int clubOffers = validateNonUserClubList(
+            clubClass,
+            marketClass.getDeclaredMethod("b", coachClass, Boolean.TYPE)
+                .invoke(liveMarket, coach, false),
+            "club offers");
+
+        return "accessors=true approvals=0..100 matches=1 wins=1 titles=1 exchange=true "
+            + "coachRoundTrip=true seasonRoundTrip=true changeRoundTrip=true "
+            + "clubVacancies=" + clubVacancies
+            + " nationalVacancies=" + nationalVacancies
+            + " clubOffers=" + clubOffers
+            + " nationalOffers=" + nationalOffers;
+      } finally {
+        setField(career, "ap", previousNationalCountries);
+      }
+    } finally {
+      setStaticField(persistenceClass, "SR", previousCareer);
+    }
+  }
+
+  private static Object findProbeClub(Class<?> clubClass, List<Object> clubs) throws Exception {
+    for (Object club : clubs) {
+      if (club == null || !clubClass.isInstance(club)) {
+        continue;
+      }
+      String name = (String)clubClass.getDeclaredMethod("getNome").invoke(club);
+      int clubId = ((Integer)clubClass.getDeclaredMethod("lk").invoke(club)).intValue();
+      boolean userControlled = ((Boolean)clubClass.getDeclaredMethod("jZ").invoke(club))
+          .booleanValue();
+      if (clubId >= 0 && name != null && !name.trim().isEmpty() && !userControlled) {
+        return club;
+      }
+    }
+    throw new IllegalStateException("Reference career has no usable non-user club");
+  }
+
+  private static Object createCoachMarketClub(
+      Class<?> clubClass, int countryId, boolean userControlled) throws Exception {
+    Object club = clubClass.getDeclaredConstructor().newInstance();
+    clubClass.getDeclaredMethod("setPais", Integer.TYPE).invoke(club, countryId);
+    clubClass.getDeclaredMethod("k", Boolean.class)
+        .invoke(club, Boolean.valueOf(userControlled));
+    return club;
+  }
+
+  private static int validateNonUserClubList(
+      Class<?> clubClass, Object value, String description) throws Exception {
+    if (!(value instanceof List)) {
+      throw new IllegalStateException(description + " is not a list");
+    }
+    int count = 0;
+    for (Object club : (List<?>)value) {
+      if (club == null || !clubClass.isInstance(club)) {
+        throw new IllegalStateException(description + " contains an invalid club");
+      }
+      boolean userControlled = ((Boolean)clubClass.getDeclaredMethod("jZ").invoke(club))
+          .booleanValue();
+      if (userControlled) {
+        throw new IllegalStateException(description + " contains a user-controlled club");
+      }
+      count++;
+    }
+    return count;
   }
 
   private static String validatePlayerSearchCriteriaBehavior(

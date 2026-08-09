@@ -410,7 +410,7 @@ public class Match implements Serializable {
       this.homeClub.e(this);
       this.awayClub.e(this);
       if (this.homeClub.getCoach() != null) {
-         this.homeClub.getCoach().e(this);
+         this.homeClub.getCoach().recordMatchResult(this);
          if (this.competition != null
             && (
                this.competition.b() == 1
@@ -422,12 +422,12 @@ public class Match implements Serializable {
                   || this.competition.b() == 8
                   || this.competition.b() == 10
             )) {
-            this.homeClub.getCoach().a(this, false, -1);
+            this.homeClub.getCoach().updateApprovalFromMatch(this, false, -1);
          }
       }
 
       if (this.awayClub.getCoach() != null) {
-         this.awayClub.getCoach().e(this);
+         this.awayClub.getCoach().recordMatchResult(this);
          if (this.competition != null
             && (
                this.competition.b() == 1
@@ -439,7 +439,7 @@ public class Match implements Serializable {
                   || this.competition.b() == 8
                   || this.competition.b() == 10
             )) {
-            this.awayClub.getCoach().a(this, false, -1);
+            this.awayClub.getCoach().updateApprovalFromMatch(this, false, -1);
          }
       }
    }

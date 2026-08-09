@@ -60,7 +60,7 @@ public class C0360 extends JPanel {
       this.Es = coach;
       this.w = i;
       this.mJ();
-      this.Fs.setText(this.Es.dS());
+      this.Fs.setText(this.Es.getName());
       this.Ay();
       this.mH();
       this.AP();

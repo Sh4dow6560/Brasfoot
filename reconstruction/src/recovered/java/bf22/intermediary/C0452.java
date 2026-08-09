@@ -606,7 +606,7 @@ public class C0452 extends JPanel {
       this.uu.setText(this.uk.getNome());
       this.MP.setText(ClubFinances.formatAmount(this.ul.getCashBalance()));
       if (this.uk.getCoach() != null) {
-         this.MS.setText(this.uk.getCoach().dS());
+         this.MS.setText(this.uk.getCoach().getName());
       } else {
          this.MS.setText("interino");
       }
@@ -622,8 +622,8 @@ public class C0452 extends JPanel {
          this.MM.setVisible(false);
       }
 
-      this.Hf.setValue(this.uk.getCoach().lL());
-      this.Ig.setValue(this.uk.getCoach().lM());
+      this.Hf.setValue(this.uk.getCoach().getBoardApproval());
+      this.Ig.setValue(this.uk.getCoach().getFanApproval());
       long var2 = 0L;
 
       for (int var4 = 0; var4 < this.uk.getSeniorPlayers().size(); var4++) {

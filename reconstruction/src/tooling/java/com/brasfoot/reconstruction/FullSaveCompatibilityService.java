@@ -79,6 +79,7 @@ final class FullSaveCompatibilityService {
         || !log.contains("MATCH_STATE count=")
         || !log.contains("MATCH_STATE_API ")
         || !log.contains("MATCH_ENGINE_API ")
+        || !log.contains("COACH_CAREER_API ")
         || !log.contains("CLUB_FINANCES_API ")
         || !log.contains("STADIUM_EXPANSION ")
         || !log.contains("ROUNDTRIP ")) {

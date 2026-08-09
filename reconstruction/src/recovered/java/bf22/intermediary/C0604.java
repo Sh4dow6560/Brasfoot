@@ -19,8 +19,8 @@ public class C0604 extends DefaultTableCellRenderer {
       Coach var7 = (Coach)object;
       if (var7 != null) {
          if (j == 0) {
-            this.setText(var7.dS());
-            ImageIcon var8 = new ImageIcon(this.getClass().getResource("/aflags/" + var7.lE() + ".png"));
+            this.setText(var7.getName());
+            ImageIcon var8 = new ImageIcon(this.getClass().getResource("/aflags/" + var7.getNationalityId() + ".png"));
             this.setIcon(var8);
          } else if (j == 1 && var7.getClub() != null) {
             this.setText(var7.getClub().getNome());

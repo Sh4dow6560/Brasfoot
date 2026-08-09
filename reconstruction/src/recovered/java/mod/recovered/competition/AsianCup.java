@@ -75,7 +75,7 @@ public class AsianCup extends Competition implements Serializable {
          LeagueStage var6 = new LeagueStage(var5, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var6;
          var6.setNome(this.getNome());
-         GamePersistence.coachJobMarket.L(this.YF);
+         GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
       }
    }
 

@@ -86,7 +86,7 @@ public class C0475 extends JPanel {
    }
 
    private void sL() {
-      this.zP.setText(((Club)this.Nd.get(this.index)).getCoach().dS() + ", dinheiro em caixa:" + ClubFinances.formatAmount(((Club)this.Nd.get(this.index)).getCashBalance()));
+      this.zP.setText(((Club)this.Nd.get(this.index)).getCoach().getName() + ", dinheiro em caixa:" + ClubFinances.formatAmount(((Club)this.Nd.get(this.index)).getCashBalance()));
       this.zP.setIcon(((Club)this.Nd.get(this.index)).kU());
    }
 

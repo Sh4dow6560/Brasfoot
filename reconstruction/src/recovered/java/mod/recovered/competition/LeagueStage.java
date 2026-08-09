@@ -676,7 +676,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
       this.Zf++;
       if (this.b() == 1 && this.Zd == 0 && this.Zf == this.zk()) {
-         GamePersistence.coachJobMarket.zj();
+         GamePersistence.coachJobMarket.refreshClubVacancies();
          AiSquadManager.balanceLeagueStageSquads(this);
       }
 
@@ -1058,7 +1058,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
       }
 
       for (int var7 = var5; var7 < var6; var7++) {
-         if (!((Club)this.Zb.get(var7)).isUserControlled() && this.Zb.get(var7) != coach.lF()) {
+         if (!((Club)this.Zb.get(var7)).isUserControlled() && this.Zb.get(var7) != coach.getPreviousClub()) {
             var4.add((Club)this.Zb.get(var7));
          }
       }
@@ -1354,7 +1354,7 @@ public class LeagueStage extends CompetitionStage implements Serializable {
 
    public void A(ArrayList arrayList) {
       for (int var2 = 0; var2 < this.yK().size(); var2++) {
-         if (((Club)this.yK().get(var2)).getCoach() != null && ((Club)this.yK().get(var2)).getCoach().lL() < 10) {
+         if (((Club)this.yK().get(var2)).getCoach() != null && ((Club)this.yK().get(var2)).getCoach().getBoardApproval() < 10) {
             if (((Club)this.yK().get(var2)).isUserControlled()) {
                int var3 = 2;
                if (((Club)this.yK().get(var2)).getCashBalance() < 0L) {

@@ -178,7 +178,7 @@ public class C0971 {
 
    private void K(Club club) {
       if (GamePersistence.careerState.getSavedGameInfo() != null) {
-         GamePersistence.careerState.getSavedGameInfo().setClubName(club.getCoach().dS());
+         GamePersistence.careerState.getSavedGameInfo().setClubName(club.getCoach().getName());
          GamePersistence.careerState.getSavedGameInfo().setManagerName(club.getNome());
          GamePersistence.careerState.getSavedGameInfo().setSeasonYear(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset());
          GamePersistence.careerState.getSavedGameInfo().setNextMatch("");

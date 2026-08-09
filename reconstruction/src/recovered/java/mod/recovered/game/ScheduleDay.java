@@ -599,7 +599,7 @@ public class ScheduleDay implements Serializable {
             } else if (var9.equals(var13.get(var14))) {
                this.b(true);
             } else if (var10.equals(var13.get(var14))) {
-               GamePersistence.coachJobMarket.zw();
+               GamePersistence.coachJobMarket.showClubOffersForUserCoaches();
             } else {
                var12.equals(var13.get(var14));
             }
@@ -612,8 +612,8 @@ public class ScheduleDay implements Serializable {
    private void k() {
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          for (int var1 = 0; var1 < GamePersistence.careerState.M().size(); var1++) {
-            if (((Coach)GamePersistence.careerState.M().get(var1)).jo() != null) {
-               MainWindow.a(((Coach)GamePersistence.careerState.M().get(var1)).jo().getCoach().jo(), true);
+            if (((Coach)GamePersistence.careerState.M().get(var1)).getNationalTeam() != null) {
+               MainWindow.a(((Coach)GamePersistence.careerState.M().get(var1)).getNationalTeam().getCoach().getNationalTeam(), true);
             }
          }
       }
@@ -623,14 +623,14 @@ public class ScheduleDay implements Serializable {
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
             if (!bl) {
-               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
-                  ArrayList var2 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), bl);
+               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).getNationalTeam() == null) {
+                  ArrayList var2 = GamePersistence.coachJobMarket.findNationalTeamOffers((Coach)GamePersistence.careerState.M().get(var3), bl);
                   if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                      MainWindow.a(var2, (Coach)GamePersistence.careerState.M().get(var3), 1);
                   }
                }
             } else if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled()) {
-               ArrayList var4 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), bl);
+               ArrayList var4 = GamePersistence.coachJobMarket.findNationalTeamOffers((Coach)GamePersistence.careerState.M().get(var3), bl);
                if (!GamePersistence.careerState.bD() && var4 != null && var4.size() > 0) {
                   MainWindow.a(var4, (Coach)GamePersistence.careerState.M().get(var3), 1);
                }

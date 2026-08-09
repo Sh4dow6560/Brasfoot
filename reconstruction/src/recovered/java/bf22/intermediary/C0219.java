@@ -49,7 +49,7 @@ public class C0219 extends JPanel {
       this.ub = jDialog;
       this.Es = coach;
       this.mJ();
-      this.vf.setText(coach.dS());
+      this.vf.setText(coach.getName());
       JLabel[] var3 = new JLabel[]{this.xJ, this.ED, this.EH, this.EI, this.EJ, this.EK, this.EL, this.EM, this.EN, this.EO, this.EE, this.EF, this.EG};
       this.Ey = var3;
 
@@ -142,11 +142,11 @@ public class C0219 extends JPanel {
       Club var5 = null;
       int var6 = 0;
 
-      for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
-         if (((C0708)this.Es.cT().get(var7)).b() == i) {
-            var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = GamePersistence.careerState.x(((C0708)this.Es.cT().get(var7)).ct());
-            var6 = ((C0708)this.Es.cT().get(var7)).H();
+      for (int var7 = this.Es.getCompetitionAchievements().size() - 1; var7 >= 0; var7--) {
+         if (((C0708)this.Es.getCompetitionAchievements().get(var7)).b() == i) {
+            var4 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).gS();
+            var5 = GamePersistence.careerState.x(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
+            var6 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
       }
@@ -157,11 +157,11 @@ public class C0219 extends JPanel {
       Club var5 = null;
       int var6 = 0;
 
-      for (int var7 = this.Es.cT().size() - 1; var7 >= 0; var7--) {
-         if (((C0708)this.Es.cT().get(var7)).b() == i && ((C0708)this.Es.cT().get(var7)).el() == j) {
-            var4 = ((C0708)this.Es.cT().get(var7)).gS();
-            var5 = GamePersistence.careerState.x(((C0708)this.Es.cT().get(var7)).ct());
-            var6 = ((C0708)this.Es.cT().get(var7)).H();
+      for (int var7 = this.Es.getCompetitionAchievements().size() - 1; var7 >= 0; var7--) {
+         if (((C0708)this.Es.getCompetitionAchievements().get(var7)).b() == i && ((C0708)this.Es.getCompetitionAchievements().get(var7)).el() == j) {
+            var4 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).gS();
+            var5 = GamePersistence.careerState.x(((C0708)this.Es.getCompetitionAchievements().get(var7)).ct());
+            var6 = ((C0708)this.Es.getCompetitionAchievements().get(var7)).H();
             this.a(var6, i, j, var4, var5, arrayList);
          }
       }

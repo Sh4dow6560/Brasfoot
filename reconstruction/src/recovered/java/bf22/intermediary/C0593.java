@@ -27,19 +27,19 @@ public class C0593 extends DefaultTableCellRenderer {
          if (j == 0) {
             this.setText(Integer.toString(i + 1));
          } else if (j == 1) {
-            this.setText(var7.dS());
+            this.setText(var7.getName());
          } else if (j == 2) {
             if (var7.getClub() != null) {
                this.setText(var7.getClub().getNome());
             }
          } else if (j == 3) {
             if (this.w == 0) {
-               this.setText(Integer.toString(var7.lI()));
+               this.setText(Integer.toString(var7.getCareerScore()));
             } else if (var7.getReputacao() < GameConstants.pZ.length) {
                this.setText(GameConstants.pZ[var7.getReputacao()]);
             }
          } else if (j == 4 && this.w == 0) {
-            this.setText(Integer.toString(var7.cr()));
+            this.setText(Integer.toString(var7.getTitleCount()));
          }
       }
 

@@ -60,9 +60,9 @@ public class ConcacafNationsLeague extends Competition implements Serializable {
       this.agr = this.e(this.agv, 14403);
       this.agy = -1;
       this.YH++;
-      GamePersistence.coachJobMarket.L(this.agt);
-      GamePersistence.coachJobMarket.L(this.agu);
-      GamePersistence.coachJobMarket.L(this.agv);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agt);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agu);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agv);
    }
 
    private LeagueStage e(ArrayList arrayList, int i) {

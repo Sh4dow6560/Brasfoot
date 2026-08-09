@@ -10,27 +10,27 @@ import mod.recovered.model.Coach;
 
 public class CoachChangeRecord implements Serializable {
    private static final long serialVersionUID = 1L;
-   private Calendar p = Calendar.getInstance();
-   private int bW = -1;
-   private Coach di = null;
-   private Coach dj = null;
+   private Calendar date = Calendar.getInstance();
+   private int clubId = -1;
+   private Coach outgoingCoach = null;
+   private Coach incomingCoach = null;
    private int dk = 0;
-   transient String dl = null;
+   transient String clubName = null;
 
-   public Coach dO() {
-      return this.di;
+   public Coach getOutgoingCoach() {
+      return this.outgoingCoach;
    }
 
-   public void c(Coach coach) {
-      this.di = coach;
+   public void setOutgoingCoach(Coach coach) {
+      this.outgoingCoach = coach;
    }
 
-   public Coach dP() {
-      return this.dj;
+   public Coach getIncomingCoach() {
+      return this.incomingCoach;
    }
 
-   public void d(Coach coach) {
-      this.dj = coach;
+   public void setIncomingCoach(Coach coach) {
+      this.incomingCoach = coach;
    }
 
    public int dQ() {
@@ -41,35 +41,35 @@ public class CoachChangeRecord implements Serializable {
       this.dk = i;
    }
 
-   public String f() {
+   public String getDateText() {
       DateFormat var1 = DateFormat.getDateInstance();
-      return var1.format(this.a().getTime());
+      return var1.format(this.getDate().getTime());
    }
 
-   public int ct() {
-      return this.bW;
+   public int getClubId() {
+      return this.clubId;
    }
 
-   public void C(int i) {
-      this.bW = i;
+   public void setClubId(int i) {
+      this.clubId = i;
    }
 
-   public String dR() {
-      if (this.dl == null && this.bW >= 0) {
-         Club var1 = GamePersistence.careerState.x(this.bW);
+   public String getClubName() {
+      if (this.clubName == null && this.clubId >= 0) {
+         Club var1 = GamePersistence.careerState.x(this.clubId);
          if (var1 != null) {
-            this.dl = var1.getNome();
+            this.clubName = var1.getNome();
          }
       }
 
-      return this.dl;
+      return this.clubName;
    }
 
-   public Calendar a() {
-      return this.p;
+   public Calendar getDate() {
+      return this.date;
    }
 
-   public void b(Calendar calendar) {
-      this.p = calendar;
+   public void setDate(Calendar calendar) {
+      this.date = calendar;
    }
 }

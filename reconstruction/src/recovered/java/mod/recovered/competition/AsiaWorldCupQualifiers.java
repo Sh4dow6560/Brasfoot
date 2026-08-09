@@ -91,8 +91,8 @@ public class AsiaWorldCupQualifiers extends Competition implements Serializable 
       this.YJ = new KnockoutStage(null, var3.size(), this.b(), 1, var15, this, 9300);
       KnockoutRound var7 = new KnockoutRound();
       var7.a(this.YJ, var3, 0, var15[0], 0, 0, this.b(), false);
-      GamePersistence.coachJobMarket.L(var3);
-      GamePersistence.coachJobMarket.L(this.YF);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(var3);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
    }
 
    public void aw(ArrayList arrayList) {

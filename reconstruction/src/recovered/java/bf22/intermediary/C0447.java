@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.manager.CoachSeasonRecord;
 import mod.recovered.competition.Competition;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
@@ -133,9 +134,11 @@ public class C0447 extends JPanel {
       int var2 = this.uk.getClubId();
 
       for (int var3 = 0; var3 < GamePersistence.careerState.L().size(); var3++) {
-         for (int var4 = 0; var4 < ((Coach)GamePersistence.careerState.L().get(var3)).lO().size(); var4++) {
-            if (((C0728)((Coach)GamePersistence.careerState.L().get(var3)).lO().get(var4)).ct() == var2) {
-               var1.add(new C0449(this, ((C0728)((Coach)GamePersistence.careerState.L().get(var3)).lO().get(var4)).H(), ((Coach)GamePersistence.careerState.L().get(var3)).dS()));
+         for (int var4 = 0; var4 < ((Coach)GamePersistence.careerState.L().get(var3)).getSeasonRecords().size(); var4++) {
+            if (((CoachSeasonRecord)((Coach)GamePersistence.careerState.L().get(var3)).getSeasonRecords().get(var4)).getClubId() == var2) {
+               var1.add(new C0449(this,
+                  ((CoachSeasonRecord)((Coach)GamePersistence.careerState.L().get(var3)).getSeasonRecords().get(var4)).getSeasonNumber(),
+                  ((Coach)GamePersistence.careerState.L().get(var3)).getName()));
             }
          }
       }

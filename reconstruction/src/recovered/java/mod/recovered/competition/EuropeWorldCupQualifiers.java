@@ -129,7 +129,7 @@ public class EuropeWorldCupQualifiers extends Competition implements Serializabl
       var12.fb(9001);
       this.YD = var12;
       var12.setNome(this.getNome());
-      GamePersistence.coachJobMarket.L(var20);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(var20);
    }
 
    public void Bk() {

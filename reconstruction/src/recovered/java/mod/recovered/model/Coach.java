@@ -6,7 +6,7 @@ import mod.recovered.game.ScheduleDay;
 import bf22.intermediary.C0708;
 import mod.recovered.core.GameConstants;
 import mod.recovered.competition.Competition;
-import bf22.intermediary.C0728;
+import mod.recovered.manager.CoachSeasonRecord;
 import mod.recovered.manager.CoachChangeRecord;
 import mod.recovered.save.GamePersistence;
 import bf22.intermediary.C0799;
@@ -18,45 +18,45 @@ import java.util.Random;
 
 public class Coach implements Serializable {
    private static final long serialVersionUID = 1L;
-   private String dm;
+   private String name;
    private Boolean userControlled = false;
-   private int nU = -1;
+   private int coachId = -1;
    private transient Club club = null;
-   private transient Club nW = null;
+   private transient Club previousClub = null;
    private int clubId = -1;
-   private int nX = -1;
-   private int nY = 0;
-   private int bf = -1;
-   private int nZ;
-   private Club hy = null;
-   private int oa = 1;
-   private ArrayList ob = new ArrayList();
-   private int oc;
-   private int W;
-   private int od;
-   private int oe;
-   private int of = 95;
-   private int og = 85;
-   private int nc = 0;
-   private int nu = 0;
-   private ArrayList cA = new ArrayList();
-   private ArrayList oh = null;
-   private int oi = 0;
-   private int bZ = 0;
+   private int previousClubId = -1;
+   private int lastManagedDivisionIndex = 0;
+   private int lastManagedCountryId = -1;
+   private int nationalityId;
+   private Club nationalTeam = null;
+   private int careerStartSeason = 1;
+   private ArrayList seasonRecords = new ArrayList();
+   private int careerScore;
+   private int matchCount;
+   private int winCount;
+   private int lossCount;
+   private int boardApproval = 95;
+   private int fanApproval = 85;
+   private int reputation = 0;
+   private int reputationProgress = 0;
+   private ArrayList competitionAchievements = new ArrayList();
+   private ArrayList inbox = null;
+   private int clubTenure = 0;
+   private int titleCount = 0;
 
    public Coach() {
    }
 
    public Coach(String string) {
-      this.dm = string;
-      this.nU = GamePersistence.careerState.bU();
+      this.name = string;
+      this.coachId = GamePersistence.careerState.bU();
    }
 
    public Boolean isUserControlled() {
       return this.userControlled;
    }
 
-   public void k(Boolean boolean_) {
+   public void setUserControlled(Boolean boolean_) {
       this.userControlled = boolean_;
    }
 
@@ -71,7 +71,7 @@ public class Coach implements Serializable {
       }
    }
 
-   public void n(Club club) {
+   public void setClub(Club club) {
       this.club = club;
       if (club != null) {
          this.clubId = club.getClubId();
@@ -80,84 +80,85 @@ public class Coach implements Serializable {
       }
    }
 
-   public int lE() {
-      return this.nZ;
+   public int getNationalityId() {
+      return this.nationalityId;
    }
 
-   public void cg(int i) {
-      this.nZ = i;
+   public void setNationalityId(int i) {
+      this.nationalityId = i;
    }
 
-   public Club lF() {
-      Club var1 = this.nW;
-      if (var1 == null && this.nX >= 0) {
-         var1 = GamePersistence.careerState.x(this.nX);
-         this.nW = var1;
+   public Club getPreviousClub() {
+      Club var1 = this.previousClub;
+      if (var1 == null && this.previousClubId >= 0) {
+         var1 = GamePersistence.careerState.x(this.previousClubId);
+         this.previousClub = var1;
          return var1;
       } else {
-         return this.nX == -1 ? null : var1;
+         return this.previousClubId == -1 ? null : var1;
       }
    }
 
-   public void B(Club club) {
-      this.nW = club;
+   public void setPreviousClub(Club club) {
+      this.previousClub = club;
       if (club != null) {
-         this.nX = club.getClubId();
+         this.previousClubId = club.getClubId();
       } else {
-         this.nX = -1;
+         this.previousClubId = -1;
       }
    }
 
-   public int lG() {
-      return this.nY;
+   public int getLastManagedDivisionIndex() {
+      return this.lastManagedDivisionIndex;
    }
 
-   public void ch(int i) {
-      this.nY = i;
+   public void setLastManagedDivisionIndex(int i) {
+      this.lastManagedDivisionIndex = i;
    }
 
-   public int lH() {
-      return this.oa;
+   public int getCareerStartSeason() {
+      return this.careerStartSeason;
    }
 
-   public void ci(int i) {
-      this.oa = i;
+   public void setCareerStartSeason(int i) {
+      this.careerStartSeason = i;
    }
 
-   public C0728 C(Club club) {
-      for (int var2 = 0; var2 < this.ob.size(); var2++) {
+   public CoachSeasonRecord getOrCreateSeasonRecord(Club club) {
+      for (int var2 = 0; var2 < this.seasonRecords.size(); var2++) {
          try {
-            if (((C0728)this.ob.get(var2)).ct() == club.getClubId() && ((C0728)this.ob.get(var2)).H() == GamePersistence.careerState.getSeasonNumber()) {
-               return (C0728)this.ob.get(var2);
+            if (((CoachSeasonRecord)this.seasonRecords.get(var2)).getClubId() == club.getClubId()
+               && ((CoachSeasonRecord)this.seasonRecords.get(var2)).getSeasonNumber() == GamePersistence.careerState.getSeasonNumber()) {
+               return (CoachSeasonRecord)this.seasonRecords.get(var2);
             }
          } catch (Exception var4) {
          }
       }
 
-      C0728 var5 = new C0728(club);
-      this.ob.add(var5);
+      CoachSeasonRecord var5 = new CoachSeasonRecord(club);
+      this.seasonRecords.add(var5);
       return var5;
    }
 
-   public void cj(int i) {
-      this.of += i;
-      if (this.of > 100) {
-         this.of = 100;
-      } else if (this.of < 0) {
-         this.of = 0;
+   public void adjustBoardApproval(int i) {
+      this.boardApproval += i;
+      if (this.boardApproval > 100) {
+         this.boardApproval = 100;
+      } else if (this.boardApproval < 0) {
+         this.boardApproval = 0;
       }
    }
 
-   public void ck(int i) {
-      this.og += i;
-      if (this.og > 100) {
-         this.og = 100;
-      } else if (this.og < 0) {
-         this.og = 0;
+   public void adjustFanApproval(int i) {
+      this.fanApproval += i;
+      if (this.fanApproval > 100) {
+         this.fanApproval = 100;
+      } else if (this.fanApproval < 0) {
+         this.fanApproval = 0;
       }
    }
 
-   public void a(Match c0675, boolean bl, int i) {
+   public void updateApprovalFromMatch(Match c0675, boolean bl, int i) {
       int var4 = 0;
       int var5 = 0;
       boolean var6 = false;
@@ -220,17 +221,17 @@ public class Coach implements Serializable {
 
       if (var11 == 0) {
          if (var12 >= 0 && !var8) {
-            this.cj(-1);
-            this.ck(-1);
+            this.adjustBoardApproval(-1);
+            this.adjustFanApproval(-1);
          } else if (var12 < 0) {
-            this.cj(1);
+            this.adjustBoardApproval(1);
          }
       } else if (var11 != 1) {
          if (var12 >= 0 && !var8) {
-            this.cj(-3);
-            this.ck(-3);
+            this.adjustBoardApproval(-3);
+            this.adjustFanApproval(-3);
          } else if (var12 >= 0 && var8) {
-            this.cj(-1);
+            this.adjustBoardApproval(-1);
          }
       }
 
@@ -262,7 +263,7 @@ public class Coach implements Serializable {
       if (!var15) {
          if (var14 == 1) {
             if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
-               this.cj(-10);
+               this.adjustBoardApproval(-10);
             }
 
             int[] var23 = new int[]{0, 5, 4, 1, 1, 0};
@@ -280,7 +281,7 @@ public class Coach implements Serializable {
          } else if (var14 != 3 && var14 != 10) {
             if (var14 != 4 && var14 != 6) {
                if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
-                  this.cj(-5);
+                  this.adjustBoardApproval(-5);
                }
 
                int[] var33 = new int[]{0, 5, 4, 1, 1, 0};
@@ -297,7 +298,7 @@ public class Coach implements Serializable {
                var22 = var48;
             } else {
                if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
-                  this.cj(-5);
+                  this.adjustBoardApproval(-5);
                }
 
                int[] var32 = new int[]{0, 5, 4, 3, 3, 3};
@@ -315,7 +316,7 @@ public class Coach implements Serializable {
             }
          } else {
             if (this.isUserControlled() && this.getClub() != null && this.getClub().getCashBalance() < 0L) {
-               this.cj(-5);
+               this.adjustBoardApproval(-5);
             }
 
             int[] var31 = new int[]{0, 2, 2, 1, 1, 1};
@@ -335,35 +336,35 @@ public class Coach implements Serializable {
 
       if (var11 == 0) {
          if (var8) {
-            this.cj(var21[var16]);
+            this.adjustBoardApproval(var21[var16]);
          } else {
-            this.cj(var18[var16]);
+            this.adjustBoardApproval(var18[var16]);
          }
       } else if (var11 == 1) {
          if (var8) {
-            this.cj(var20[var16]);
+            this.adjustBoardApproval(var20[var16]);
          } else {
-            this.cj(var17[var16]);
+            this.adjustBoardApproval(var17[var16]);
          }
       } else if (var11 == 2) {
          if (var8) {
-            this.cj(var22[var16]);
+            this.adjustBoardApproval(var22[var16]);
          } else {
-            this.cj(var19[var16]);
+            this.adjustBoardApproval(var19[var16]);
          }
       }
 
       if (var11 == 0) {
          if (var8) {
-            this.ck(1);
+            this.adjustFanApproval(1);
          } else {
-            this.ck(-1);
+            this.adjustFanApproval(-1);
          }
       } else if (var11 == 1) {
          if (var8) {
-            this.ck(4);
+            this.adjustFanApproval(4);
          } else {
-            this.ck(3);
+            this.adjustFanApproval(3);
          }
 
          if (var9) {
@@ -372,16 +373,16 @@ public class Coach implements Serializable {
             }
 
             if (var8) {
-               this.ck(5);
+               this.adjustFanApproval(5);
             } else {
-               this.ck(4);
+               this.adjustFanApproval(4);
             }
          }
       } else if (var11 == 2) {
          if (var8) {
-            this.ck(-4);
+            this.adjustFanApproval(-4);
          } else {
-            this.ck(-5);
+            this.adjustFanApproval(-5);
          }
 
          if (var9) {
@@ -394,37 +395,37 @@ public class Coach implements Serializable {
             }
 
             if (var8) {
-               this.ck(-5);
+               this.adjustFanApproval(-5);
             } else {
-               this.ck(-7);
+               this.adjustFanApproval(-7);
             }
          }
       }
 
-      if (this.og < 20) {
-         this.cj(-3);
+      if (this.fanApproval < 20) {
+         this.adjustBoardApproval(-3);
       }
 
-      if (this.of < 0) {
-         this.of = 0;
-      } else if (this.of > 100) {
-         this.of = 100;
+      if (this.boardApproval < 0) {
+         this.boardApproval = 0;
+      } else if (this.boardApproval > 100) {
+         this.boardApproval = 100;
       }
 
-      if (this.og < 0) {
-         this.og = 0;
-      } else if (this.og > 100) {
-         this.og = 100;
+      if (this.fanApproval < 0) {
+         this.fanApproval = 0;
+      } else if (this.fanApproval > 100) {
+         this.fanApproval = 100;
       }
    }
 
-   public void D(Club club) {
-      C0728 var2 = this.C(club);
-      var2.cs();
-      this.bZ++;
+   public void recordTitleWon(Club club) {
+      CoachSeasonRecord var2 = this.getOrCreateSeasonRecord(club);
+      var2.incrementTitleCount();
+      this.titleCount++;
    }
 
-   public void e(Match c0675) {
+   public void recordMatchResult(Match c0675) {
       int var2 = 0;
       int var3 = 0;
       boolean var4 = false;
@@ -438,14 +439,14 @@ public class Coach implements Serializable {
          var3 = c0675.getHomeGoals();
          var4 = true;
          var5 = this.getClub();
-      } else if (c0675.getHomeClub() == this.hy) {
+      } else if (c0675.getHomeClub() == this.nationalTeam) {
          var2 = c0675.getHomeGoals();
          var3 = c0675.getAwayGoals();
-         var5 = this.hy;
-      } else if (c0675.getAwayClub() == this.hy) {
+         var5 = this.nationalTeam;
+      } else if (c0675.getAwayClub() == this.nationalTeam) {
          var2 = c0675.getAwayGoals();
          var3 = c0675.getHomeGoals();
-         var5 = this.hy;
+         var5 = this.nationalTeam;
          var4 = true;
       }
 
@@ -460,12 +461,12 @@ public class Coach implements Serializable {
       }
 
       int var9 = 0;
-      C0728 var10 = this.C(var5);
-      var10.cl();
-      this.W++;
+      CoachSeasonRecord var10 = this.getOrCreateSeasonRecord(var5);
+      var10.incrementMatchCount();
+      this.matchCount++;
       if (var2 > var3) {
-         var10.cn();
-         this.od++;
+         var10.incrementWinCount();
+         this.winCount++;
          if (var6 == 1) {
             if (var7 == 1) {
                var9 = 4;
@@ -513,11 +514,11 @@ public class Coach implements Serializable {
          }
 
          if (var9 > 0) {
-            var10.B(var9);
+            var10.addCareerScore(var9);
          }
       } else if (var2 < var3) {
-         var10.cp();
-         this.oe++;
+         var10.incrementLossCount();
+         this.lossCount++;
       } else if (var2 == var3) {
          if (var4 && var6 != 7 && var6 != 5) {
             var9++;
@@ -560,101 +561,101 @@ public class Coach implements Serializable {
          }
 
          if (var9 > 0) {
-            var10.B(var9);
+            var10.addCareerScore(var9);
          }
       }
 
       if (var9 > 0) {
-         this.oc += var9;
+         this.careerScore += var9;
       }
    }
 
-   public int lI() {
-      return this.oc;
+   public int getCareerScore() {
+      return this.careerScore;
    }
 
-   public int A() {
-      return this.W;
+   public int getMatchCount() {
+      return this.matchCount;
    }
 
-   public int lJ() {
-      return this.od;
+   public int getWinCount() {
+      return this.winCount;
    }
 
-   public int lK() {
-      return this.oe;
+   public int getLossCount() {
+      return this.lossCount;
    }
 
-   public int lL() {
-      return this.of;
+   public int getBoardApproval() {
+      return this.boardApproval;
    }
 
-   public void cl(int i) {
-      this.of = i;
+   public void setBoardApproval(int i) {
+      this.boardApproval = i;
    }
 
-   public int lM() {
-      return this.og;
+   public int getFanApproval() {
+      return this.fanApproval;
    }
 
-   public void cm(int i) {
-      this.og = i;
+   public void setFanApproval(int i) {
+      this.fanApproval = i;
    }
 
    public int getReputacao() {
-      return this.nc;
+      return this.reputation;
    }
 
    public void setReputacao(int i) {
-      this.nc = i;
+      this.reputation = i;
    }
 
    public void g(LeagueStage c0955) {
    }
 
-   public int bz() {
-      return this.bf;
+   public int getLastManagedCountryId() {
+      return this.lastManagedCountryId;
    }
 
-   public void v(int i) {
-      this.bf = i;
+   public void setLastManagedCountryId(int i) {
+      this.lastManagedCountryId = i;
    }
 
-   public void lN() {
-      this.B(this.getClub());
-      this.bf = this.getClub().getPais();
-      this.nY = this.getClub().getDivisao() - 1;
+   public void rememberPreviousClubContext() {
+      this.setPreviousClub(this.getClub());
+      this.lastManagedCountryId = this.getClub().getPais();
+      this.lastManagedDivisionIndex = this.getClub().getDivisao() - 1;
    }
 
-   public void b(Club club, Player player) {
+   public void initializeCareerFromPlayer(Club club, Player player) {
       if (club != null) {
-         this.v(club.getPais());
+         this.setLastManagedCountryId(club.getPais());
       }
 
-      this.cg(player.getPais());
+      this.setNationalityId(player.getPais());
       if (club != null) {
-         this.ch(club.getDivisao() - 1);
+         this.setLastManagedDivisionIndex(club.getDivisao() - 1);
       }
 
       if (club != null) {
          this.setReputacao(club.getReputacao());
       }
 
-      this.ci(GamePersistence.careerState.getSeasonNumber());
+      this.setCareerStartSeason(GamePersistence.careerState.getSeasonNumber());
    }
 
-   public void i(Coach coach) {
+   public void leaveClubForReplacement(Coach coach) {
       CoachChangeRecord var2 = new CoachChangeRecord();
-      var2.c(this);
-      var2.d(coach);
+      var2.setOutgoingCoach(this);
+      var2.setIncomingCoach(coach);
       Calendar var3 = ((ScheduleDay)GamePersistence.careerState.getScheduleDays().get(GamePersistence.careerState.getCurrentScheduleIndex())).a();
-      var2.a().set(var3.get(1), var3.get(2), var3.get(5));
+      var2.getDate().set(var3.get(1), var3.get(2), var3.get(5));
       if (this.getClub() != null) {
-         var2.C(this.getClub().getClubId());
+         var2.setClubId(this.getClub().getClubId());
       }
 
       GamePersistence.careerState.bn().add(var2);
-      this.lN();
+      this.rememberPreviousClubContext();
       if (this.isUserControlled()) {
          if (this.getClub().getPais() == 29) {
             GamePersistence.careerState.u(this.getClub().getEstado());
@@ -665,7 +666,7 @@ public class Coach implements Serializable {
          this.getClub().resetFinances();
          this.getClub().M(true);
          GamePersistence.careerState.aN().remove(this.getClub());
-         this.T(null);
+         this.setInbox(null);
       }
 
       if (this.getClub() != null && this.getClub().getFinances() != null) {
@@ -673,15 +674,15 @@ public class Coach implements Serializable {
       }
 
       this.getClub().h(null);
-      this.n(null);
+      this.setClub(null);
    }
 
-   public void E(Club club) {
+   public void joinClub(Club club) {
       club.h(this);
-      this.n(club);
-      this.of = 95;
-      this.og = 85;
-      this.oi = 0;
+      this.setClub(club);
+      this.boardApproval = 95;
+      this.fanApproval = 85;
+      this.clubTenure = 0;
       club.resetFinances();
       if (this.isUserControlled()) {
          club.k(true);
@@ -698,15 +699,15 @@ public class Coach implements Serializable {
       }
    }
 
-   public String dS() {
-      return this.dm;
+   public String getName() {
+      return this.name;
    }
 
-   public ArrayList lO() {
-      return this.ob;
+   public ArrayList getSeasonRecords() {
+      return this.seasonRecords;
    }
 
-   public void b(Competition c0713, int i, int j) {
+   public void recordCompetitionResult(Competition c0713, int i, int j) {
       int var4 = c0713.b();
       int[][] var5 = new int[][]{
          new int[11],
@@ -748,34 +749,34 @@ public class Coach implements Serializable {
       }
 
       if (var4 <= 14 && i >= 0 && i < var6.length) {
-         this.oc = this.oc + var6[i];
+         this.careerScore = this.careerScore + var6[i];
       }
 
       if (i == 1) {
          if (GameConstants.fs(var4)) {
-            this.D(this.hy);
+            this.recordTitleWon(this.nationalTeam);
          } else {
-            this.D(this.getClub());
+            this.recordTitleWon(this.getClub());
          }
 
-         this.q(c0713);
+         this.recordCompetitionTitle(c0713);
       }
    }
 
-   public void fh() {
+   public void syncClubId() {
       if (this.club != null) {
          this.clubId = this.club.getClubId();
       }
    }
 
-   private void q(Competition c0713) {
+   private void recordCompetitionTitle(Competition c0713) {
       int var2 = c0713.b();
       int var3 = -1;
       C0708 var4 = new C0708();
       var4.k(GamePersistence.careerState.getSeasonNumber());
       if (var2 == 7) {
-         if (this.jo() != null) {
-            var4.C(this.jo().getClubId());
+         if (this.getNationalTeam() != null) {
+            var4.C(this.getNationalTeam().getClubId());
          }
       } else if (this.getClub() != null) {
          var4.C(this.getClub().getClubId());
@@ -787,40 +788,40 @@ public class Coach implements Serializable {
          var3 = c0713.ip();
          var4.R(var3);
          if (var3 == 1) {
-            this.ck(20);
-            this.cj(15);
+            this.adjustFanApproval(20);
+            this.adjustBoardApproval(15);
             if (var2 == 1) {
-               this.ck(20);
-               this.cj(15);
+               this.adjustFanApproval(20);
+               this.adjustBoardApproval(15);
             }
          } else {
-            this.ck(20);
-            this.cj(10);
+            this.adjustFanApproval(20);
+            this.adjustBoardApproval(10);
          }
       } else if (c0713.b() == 11) {
          if (this.getClub() != null) {
             var4.R(this.getClub().getPais());
          }
 
-         this.ck(10);
+         this.adjustFanApproval(10);
       } else {
          var4.R(c0713.gg());
          if (var2 == 2) {
-            this.ck(30);
-            this.cj(30);
+            this.adjustFanApproval(30);
+            this.adjustBoardApproval(30);
          } else if (var2 == 4) {
-            this.ck(30);
-            this.cj(30);
+            this.adjustFanApproval(30);
+            this.adjustBoardApproval(30);
          } else if (var2 == 5) {
-            this.ck(30);
-            this.cj(30);
+            this.adjustFanApproval(30);
+            this.adjustBoardApproval(30);
          } else if (var2 == 6 || var2 == 12) {
-            this.ck(30);
-            this.cj(30);
+            this.adjustFanApproval(30);
+            this.adjustBoardApproval(30);
          }
       }
 
-      this.cA.add(var4);
+      this.competitionAchievements.add(var4);
       if (this.isUserControlled() && this.getClub() != null) {
          String var5 = "";
          if (var2 == 4) {
@@ -847,30 +848,30 @@ public class Coach implements Serializable {
       }
    }
 
-   public ArrayList cT() {
-      return this.cA;
+   public ArrayList getCompetitionAchievements() {
+      return this.competitionAchievements;
    }
 
-   public Club jo() {
-      return this.hy;
+   public Club getNationalTeam() {
+      return this.nationalTeam;
    }
 
-   public void z(Club club) {
-      this.hy = club;
+   public void setNationalTeam(Club club) {
+      this.nationalTeam = club;
    }
 
-   public void lP() {
+   public void retire() {
       GamePersistence.careerState.bu().add(this);
       GamePersistence.careerState.M().remove(this);
       GamePersistence.careerState.L().remove(this);
    }
 
-   public static void c(String string, int i) {
+   public static void createUserCoach(String string, int i) {
       Coach var2 = new Coach(string);
-      var2.cg(i);
+      var2.setNationalityId(i);
       var2.setReputacao(3);
       if (!GamePersistence.careerState.bD()) {
-         var2.k(true);
+         var2.setUserControlled(true);
       }
 
       CountryCompetitions var3 = GamePersistence.careerState.o(i);
@@ -878,47 +879,47 @@ public class Coach implements Serializable {
          var3 = (CountryCompetitions)GamePersistence.careerState.N().get(0);
       }
 
-      var2.v(var3.jc());
-      var2.ch(var3.eb().size() - 1);
+      var2.setLastManagedCountryId(var3.jc());
+      var2.setLastManagedDivisionIndex(var3.eb().size() - 1);
       GamePersistence.careerState.a(var2);
       if (!GamePersistence.careerState.bD()) {
          GamePersistence.careerState.M().add(var2);
       }
    }
 
-   public void i(String string) {
-      this.dm = string;
+   public void setName(String string) {
+      this.name = string;
    }
 
-   public ArrayList lQ() {
-      return this.oh;
+   public ArrayList getInbox() {
+      return this.inbox;
    }
 
-   public void T(ArrayList arrayList) {
-      this.oh = arrayList;
+   public void setInbox(ArrayList arrayList) {
+      this.inbox = arrayList;
    }
 
-   public int lR() {
-      return this.oi;
+   public int getClubTenure() {
+      return this.clubTenure;
    }
 
-   public void cn(int i) {
-      this.oi = i;
+   public void setClubTenure(int i) {
+      this.clubTenure = i;
    }
 
-   public void lS() {
-      this.oi++;
+   public void incrementClubTenure() {
+      this.clubTenure++;
    }
 
-   public int lT() {
-      return this.nU;
+   public int getCoachId() {
+      return this.coachId;
    }
 
-   public int cr() {
-      return this.bZ;
+   public int getTitleCount() {
+      return this.titleCount;
    }
 
-   public void a(int i, int j, int k, boolean bl, int l) {
+   public void addReputationProgress(int i, int j, int k, boolean bl, int l) {
       int[][] var6 = new int[][]{
          {0, 600, 500, 30, 6000, 10000, 2000, 0, 500, 0, 50, 100, 3000, 3000, 20000}, {0, 150, 150, 5, 1000, 1000, 500, 2000, 0, 0, 0, 0, 300, 500, 0}
       };
@@ -943,55 +944,55 @@ public class Coach implements Serializable {
          }
       }
 
-      this.nu += var7;
+      this.reputationProgress += var7;
    }
 
-   public void kk() {
+   public void updateReputation() {
       byte var1 = 0;
-      if (this.nc == 5) {
-         this.nu -= 6000;
-         if (this.nu < -20000) {
-            this.nc = 4;
-            this.nu = 0;
+      if (this.reputation == 5) {
+         this.reputationProgress -= 6000;
+         if (this.reputationProgress < -20000) {
+            this.reputation = 4;
+            this.reputationProgress = 0;
          }
-      } else if (this.nc == 4) {
-         this.nu -= 600;
-         if (this.nu < -3000) {
-            this.nc = 3;
-            this.nu = 0;
+      } else if (this.reputation == 4) {
+         this.reputationProgress -= 600;
+         if (this.reputationProgress < -3000) {
+            this.reputation = 3;
+            this.reputationProgress = 0;
          }
-      } else if (this.nc == 3 && this.Av()) {
-         this.nu -= 50;
-         if (this.nu < -500) {
-            this.nc = 2;
-            this.nu = 0;
+      } else if (this.reputation == 3 && this.managesLoadedClub()) {
+         this.reputationProgress -= 50;
+         if (this.reputationProgress < -500) {
+            this.reputation = 2;
+            this.reputationProgress = 0;
          }
-      } else if (this.nc == 2 && this.Av()) {
-         this.nu -= 5;
-         if (this.nu < -50) {
-            this.nc = 1;
-            this.nu = 0;
+      } else if (this.reputation == 2 && this.managesLoadedClub()) {
+         this.reputationProgress -= 5;
+         if (this.reputationProgress < -50) {
+            this.reputation = 1;
+            this.reputationProgress = 0;
          }
       }
 
-      if (this.nu > 22000) {
+      if (this.reputationProgress > 22000) {
          var1 = 5;
-      } else if (this.nu > 10000) {
+      } else if (this.reputationProgress > 10000) {
          var1 = 4;
-      } else if (this.nu > 1000) {
+      } else if (this.reputationProgress > 1000) {
          var1 = 3;
-      } else if (this.nu > 100) {
+      } else if (this.reputationProgress > 100) {
          var1 = 2;
-      } else if (this.nu > 10) {
+      } else if (this.reputationProgress > 10) {
          var1 = 1;
       }
 
-      if (var1 > this.nc) {
-         this.nc = var1;
+      if (var1 > this.reputation) {
+         this.reputation = var1;
       }
    }
 
-   public boolean Av() {
+   public boolean managesLoadedClub() {
       return this.getClub() != null ? this.getClub().kn() : false;
    }
 }

@@ -88,7 +88,7 @@ public class C0185 extends JPanel {
             if (this.CY.getClub().isUserControlled()) {
                int var4 = Integer.parseInt(var1);
                String var5 = this.ul.getNome();
-               String var6 = this.CY.getClub().getCoach().dS();
+               String var6 = this.CY.getClub().getCoach().getName();
                var2 = JOptionPane.showConfirmDialog(this.ub, var6 + " proposta pelo seu jogador\n" + "Deseja aceitar?", "Proposta de compra", 0);
                if (var2 == 0) {
                   if (!this.CZ) {

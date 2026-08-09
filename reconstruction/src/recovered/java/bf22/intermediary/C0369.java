@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.manager.CoachSeasonRecord;
 import mod.recovered.competition.CountryCompetitions;
 import mod.recovered.core.GameConstants;
 import mod.recovered.save.GamePersistence;
@@ -61,7 +62,7 @@ public class C0369 extends JPanel {
          if (coach.getClub() != null) {
             this.vk = coach.getClub().getPais();
          } else {
-            this.vk = coach.bz();
+            this.vk = coach.getLastManagedCountryId();
          }
       }
 
@@ -133,7 +134,7 @@ public class C0369 extends JPanel {
             if (((Coach)GamePersistence.careerState.L().get(var4)).getClub() != null) {
                var3 = ((Coach)GamePersistence.careerState.L().get(var4)).getClub().getPais();
             } else {
-               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).bz();
+               var3 = ((Coach)GamePersistence.careerState.L().get(var4)).getLastManagedCountryId();
             }
 
             if (var3 == var2) {
@@ -214,21 +215,21 @@ public class C0369 extends JPanel {
             var2 = GameConstants.pZ[this.Es.getReputacao()];
          }
 
-         this.Fs.setText(this.Es.dS() + "       (reputação: " + var2 + ")");
+         this.Fs.setText(this.Es.getName() + "       (reputação: " + var2 + ")");
          this.Fj.clear();
 
-         for (int var3 = this.Es.lO().size() - 1; var3 >= 0; var3--) {
-            this.Fj.add((C0728)this.Es.lO().get(var3));
+         for (int var3 = this.Es.getSeasonRecords().size() - 1; var3 >= 0; var3--) {
+            this.Fj.add((CoachSeasonRecord)this.Es.getSeasonRecords().get(var3));
          }
 
          this.Fl.addNotify();
 
-         for (int var4 = this.Es.lO().size() - 1; var4 >= 0; var4--) {
-            var1[0] += ((C0728)this.Es.lO().get(var4)).w();
-            var1[1] += ((C0728)this.Es.lO().get(var4)).cm();
-            var1[2] += ((C0728)this.Es.lO().get(var4)).co();
-            var1[3] += ((C0728)this.Es.lO().get(var4)).cq();
-            var1[4] += ((C0728)this.Es.lO().get(var4)).cr();
+         for (int var4 = this.Es.getSeasonRecords().size() - 1; var4 >= 0; var4--) {
+            var1[0] += ((CoachSeasonRecord)this.Es.getSeasonRecords().get(var4)).getMatchCount();
+            var1[1] += ((CoachSeasonRecord)this.Es.getSeasonRecords().get(var4)).getWinCount();
+            var1[2] += ((CoachSeasonRecord)this.Es.getSeasonRecords().get(var4)).getLossCount();
+            var1[3] += ((CoachSeasonRecord)this.Es.getSeasonRecords().get(var4)).getCareerScore();
+            var1[4] += ((CoachSeasonRecord)this.Es.getSeasonRecords().get(var4)).getTitleCount();
          }
 
          this.xI
@@ -259,7 +260,7 @@ public class C0369 extends JPanel {
       this.Fl.setAutoResizeMode(3);
       this.Fl.setRowHeight(20);
       this.Fl.setShowGrid(false);
-      this.Fl.setDefaultRenderer(C0728.class, new C0605());
+      this.Fl.setDefaultRenderer(CoachSeasonRecord.class, new C0605());
       this.Fl.setAutoCreateRowSorter(false);
       this.Fl.getTableHeader().setReorderingAllowed(false);
       this.Fl.setIntercellSpacing(new Dimension(0, 0));

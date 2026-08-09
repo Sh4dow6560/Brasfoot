@@ -29,7 +29,7 @@ public class CompetitionSeasonResult implements Serializable {
       }
 
       if (club != null && club.getCoach() != null) {
-         this.bU = club.getCoach().lT();
+         this.bU = club.getCoach().getCoachId();
       }
 
       if (club2 != null) {
@@ -37,7 +37,7 @@ public class CompetitionSeasonResult implements Serializable {
       }
 
       if (club2 != null && club2.getCoach() != null) {
-         this.bV = club2.getCoach().lT();
+         this.bV = club2.getCoach().getCoachId();
       }
 
       int var5 = 0;

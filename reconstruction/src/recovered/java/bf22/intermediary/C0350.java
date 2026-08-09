@@ -65,13 +65,13 @@ public class C0350 extends JPanel {
       ArrayList var1 = new ArrayList();
       ArrayList var2 = new ArrayList();
       if (this.w == 0) {
-         var1.addAll(GamePersistence.coachJobMarket.Ap());
+         var1.addAll(GamePersistence.coachJobMarket.getAvailableClubVacancies());
          if (var1.size() == 0) {
-            GamePersistence.coachJobMarket.zj();
-            var1.addAll(GamePersistence.coachJobMarket.Ap());
+            GamePersistence.coachJobMarket.refreshClubVacancies();
+            var1.addAll(GamePersistence.coachJobMarket.getAvailableClubVacancies());
          }
       } else {
-         var1.addAll(GamePersistence.coachJobMarket.Aq());
+         var1.addAll(GamePersistence.coachJobMarket.getAvailableNationalTeamVacancies());
       }
 
       ArrayList var3 = new ArrayList();

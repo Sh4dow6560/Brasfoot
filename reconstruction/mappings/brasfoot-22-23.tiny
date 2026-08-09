@@ -1080,11 +1080,84 @@ c	best/ai	bf22/intermediary/C0702	mod/recovered/model/ClubPlayerComparator
 c	best/aj	bf22/intermediary/C0703	bf22/intermediary/C0703
 c	best/ak	bf22/intermediary/C0704	bf22/intermediary/C0704
 c	best/al	bf22/intermediary/C0705	mod/recovered/model/Coach
+	f	I	W	W	matchCount
 	f	I	bW	bW	clubId
+	f	I	bZ	bZ	titleCount
+	f	I	bf	bf	lastManagedCountryId
+	f	Ljava/util/ArrayList;	cA	cA	competitionAchievements
+	f	Ljava/lang/String;	dm	dm	name
+	f	Lbest/ah;	hy	hy	nationalTeam
 	f	Ljava/lang/Boolean;	mW	mW	userControlled
+	f	I	nU	nU	coachId
 	f	Lbest/ah;	nV	nV	club
+	f	Lbest/ah;	nW	nW	previousClub
+	f	I	nX	nX	previousClubId
+	f	I	nY	nY	lastManagedDivisionIndex
+	f	I	nZ	nZ	nationalityId
+	f	I	nc	nc	reputation
+	f	I	nu	nu	reputationProgress
+	f	I	oa	oa	careerStartSeason
+	f	Ljava/util/ArrayList;	ob	ob	seasonRecords
+	f	I	oc	oc	careerScore
+	f	I	od	od	winCount
+	f	I	oe	oe	lossCount
+	f	I	of	of	boardApproval
+	f	I	og	og	fanApproval
+	f	Ljava/util/ArrayList;	oh	oh	inbox
+	f	I	oi	oi	clubTenure
+	m	()I	A	A	getMatchCount
+	m	()Z	Av	Av	managesLoadedClub
+	m	(Lbest/ah;)V	B	B	setPreviousClub
+	m	(Lbest/ah;)Lbest/j;	C	C	getOrCreateSeasonRecord
+	m	(Lbest/ah;)V	D	D	recordTitleWon
+	m	(Lbest/ah;)V	E	E	joinClub
+	m	(Ljava/util/ArrayList;)V	T	T	setInbox
+	m	(IIIZI)V	a	a	addReputationProgress
+	m	(Lbest/I;ZI)V	a	a	updateApprovalFromMatch
+	m	(Lbest/ah;Lbest/F;)V	b	b	initializeCareerFromPlayer
+	m	(Lbest/at;II)V	b	b	recordCompetitionResult
+	m	()I	bz	bz	getLastManagedCountryId
+	m	(Ljava/lang/String;I)V	c	c	createUserCoach
+	m	()Ljava/util/ArrayList;	cT	cT	getCompetitionAchievements
+	m	(I)V	cg	cg	setNationalityId
+	m	(I)V	ch	ch	setLastManagedDivisionIndex
+	m	(I)V	ci	ci	setCareerStartSeason
+	m	(I)V	cj	cj	adjustBoardApproval
+	m	(I)V	ck	ck	adjustFanApproval
+	m	(I)V	cl	cl	setBoardApproval
+	m	(I)V	cm	cm	setFanApproval
+	m	(I)V	cn	cn	setClubTenure
+	m	()I	cr	cr	getTitleCount
+	m	()Ljava/lang/String;	dS	dS	getName
+	m	(Lbest/I;)V	e	e	recordMatchResult
 	m	()Lbest/ah;	fg	fg	getClub
+	m	()V	fh	fh	syncClubId
+	m	(Lbest/al;)V	i	i	leaveClubForReplacement
+	m	(Ljava/lang/String;)V	i	i	setName
 	m	()Ljava/lang/Boolean;	jZ	jZ	isUserControlled
+	m	()Lbest/ah;	jo	jo	getNationalTeam
+	m	(Ljava/lang/Boolean;)V	k	k	setUserControlled
+	m	()V	kk	kk	updateReputation
+	m	()I	lE	lE	getNationalityId
+	m	()Lbest/ah;	lF	lF	getPreviousClub
+	m	()I	lG	lG	getLastManagedDivisionIndex
+	m	()I	lH	lH	getCareerStartSeason
+	m	()I	lI	lI	getCareerScore
+	m	()I	lJ	lJ	getWinCount
+	m	()I	lK	lK	getLossCount
+	m	()I	lL	lL	getBoardApproval
+	m	()I	lM	lM	getFanApproval
+	m	()V	lN	lN	rememberPreviousClubContext
+	m	()Ljava/util/ArrayList;	lO	lO	getSeasonRecords
+	m	()V	lP	lP	retire
+	m	()Ljava/util/ArrayList;	lQ	lQ	getInbox
+	m	()I	lR	lR	getClubTenure
+	m	()V	lS	lS	incrementClubTenure
+	m	()I	lT	lT	getCoachId
+	m	(Lbest/ah;)V	n	n	setClub
+	m	(Lbest/at;)V	q	q	recordCompetitionTitle
+	m	(I)V	v	v	setLastManagedCountryId
+	m	(Lbest/ah;)V	z	z	setNationalTeam
 c	best/am	bf22/intermediary/C0706	bf22/intermediary/C0706
 c	best/an	bf22/intermediary/C0707	bf22/intermediary/C0707
 	f	Lbest/ah;	cg	cg	club
@@ -1133,6 +1206,20 @@ c	best/aw	bf22/intermediary/C0716	mod/recovered/competition/CompetitionPerforman
 c	best/ax	bf22/intermediary/C0717	mod/recovered/competition/CompetitionCoachComparator
 	m	(Lbest/an;Lbest/an;)I	a	a	compare
 c	best/ay	bf22/intermediary/C0718	mod/recovered/manager/CoachJobMarket
+	f	Ljava/util/ArrayList;	Jg	Jg	nationalTeamOfferCountryIds
+	f	Ljava/util/ArrayList;	Jh	Jh	availableNationalTeamCountryIds
+	f	Ljava/util/ArrayList;	Jl	Jl	availableClubIds
+	m	()Ljava/util/ArrayList;	Ap	Ap	getAvailableClubVacancies
+	m	()Ljava/util/ArrayList;	Aq	Aq	getAvailableNationalTeamVacancies
+	m	(Ljava/util/ArrayList;)V	L	L	registerNationalTeamCandidates
+	m	(Ljava/util/ArrayList;)V	M	M	selectClubVacancies
+	m	(Lbest/al;Z)Ljava/util/ArrayList;	a	a	findNationalTeamOffers
+	m	(Lbest/al;Z)Ljava/util/ArrayList;	b	b	findClubOffers
+	m	(Lbest/al;Z)Ljava/util/ArrayList;	c	c	findTournamentNationalTeamOffers
+	m	(Ljava/util/ArrayList;I)V	d	d	addUniqueId
+	m	()V	zi	zi	clearCandidatePools
+	m	()V	zj	zj	refreshClubVacancies
+	m	()V	zw	zw	showClubOffersForUserCoaches
 c	best/b	bf22/intermediary/C0719	bf22/intermediary/C0719
 c	best/c	bf22/intermediary/C0720	mod/recovered/competition/CompetitionPlayerStats
 c	best/d	bf22/intermediary/C0721	bf22/intermediary/C0721
@@ -1172,7 +1259,29 @@ c	best/h	bf22/intermediary/C0725	bf22/intermediary/C0725
 	m	()V	do	method_kw_do	method_kw_do
 c	best/h2	bf22/intermediary/C0726	bf22/intermediary/C0726
 c	best/i	bf22/intermediary/C0727	mod/recovered/competition/CompetitionSeasonResult
-c	best/j	bf22/intermediary/C0728	bf22/intermediary/C0728
+c	best/j	bf22/intermediary/C0728	mod/recovered/manager/CoachSeasonRecord
+	f	I	T	T	matchCount
+	f	I	ae	ae	seasonNumber
+	f	I	bW	bW	clubId
+	f	I	bX	bX	winCount
+	f	I	bY	bY	careerScore
+	f	I	bZ	bZ	titleCount
+	f	I	d	d	lossCount
+	m	(I)V	B	B	addCareerScore
+	m	(I)V	C	C	setClubId
+	m	()I	H	H	getSeasonNumber
+	m	()Ljava/lang/String;	ck	ck	getClubName
+	m	()V	cl	cl	incrementMatchCount
+	m	()I	cm	cm	getWinCount
+	m	()V	cn	cn	incrementWinCount
+	m	()I	co	co	getLossCount
+	m	()V	cp	cp	incrementLossCount
+	m	()I	cq	cq	getCareerScore
+	m	()I	cr	cr	getTitleCount
+	m	()V	cs	cs	incrementTitleCount
+	m	()I	ct	ct	getClubId
+	m	(I)V	k	k	setSeasonNumber
+	m	()I	w	w	getMatchCount
 c	best/k	bf22/intermediary/C0729	bf22/intermediary/C0729
 c	best/l	bf22/intermediary/C0730	mod/recovered/transfer/TransferNegotiation
 	f	Lbest/F;	U	U	player
@@ -1222,6 +1331,21 @@ c	best/r	bf22/intermediary/C0736	bf22/intermediary/C0736
 c	best/s	bf22/intermediary/C0737	bf22/intermediary/C0737
 c	best/t	bf22/intermediary/C0738	bf22/intermediary/C0738
 c	best/u	bf22/intermediary/C0739	mod/recovered/manager/CoachChangeRecord
+	f	I	bW	bW	clubId
+	f	Lbest/al;	di	di	outgoingCoach
+	f	Lbest/al;	dj	dj	incomingCoach
+	f	Ljava/lang/String;	dl	dl	clubName
+	f	Ljava/util/Calendar;	p	p	date
+	m	(I)V	C	C	setClubId
+	m	()Ljava/util/Calendar;	a	a	getDate
+	m	(Ljava/util/Calendar;)V	b	b	setDate
+	m	(Lbest/al;)V	c	c	setOutgoingCoach
+	m	()I	ct	ct	getClubId
+	m	(Lbest/al;)V	d	d	setIncomingCoach
+	m	()Lbest/al;	dO	dO	getOutgoingCoach
+	m	()Lbest/al;	dP	dP	getIncomingCoach
+	m	()Ljava/lang/String;	dR	dR	getClubName
+	m	()Ljava/lang/String;	f	f	getDateText
 c	best/v	bf22/intermediary/C0740	mod/recovered/model/Stadium
 	f	[I	do	field_kw_do	field_kw_do
 c	best/w	bf22/intermediary/C0741	bf22/intermediary/C0741

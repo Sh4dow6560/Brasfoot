@@ -18,17 +18,17 @@ public class C0609 extends DefaultTableCellRenderer {
       CoachChangeRecord var7 = (CoachChangeRecord)object;
       if (var7 != null) {
          if (j == 0) {
-            this.setText(var7.f());
+            this.setText(var7.getDateText());
          } else if (j == 1) {
-            if (var7.ct() >= 0) {
-               this.setText(var7.dR());
+            if (var7.getClubId() >= 0) {
+               this.setText(var7.getClubName());
             }
          } else if (j == 2) {
-            if (var7.dP() != null) {
-               this.setText(var7.dP().dS());
+            if (var7.getIncomingCoach() != null) {
+               this.setText(var7.getIncomingCoach().getName());
             }
-         } else if (j == 3 && var7.dO() != null) {
-            this.setText(var7.dO().dS());
+         } else if (j == 3 && var7.getOutgoingCoach() != null) {
+            this.setText(var7.getOutgoingCoach().getName());
          }
       }
 

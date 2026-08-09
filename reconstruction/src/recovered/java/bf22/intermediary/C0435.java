@@ -295,7 +295,7 @@ public class C0435 extends JPanel {
       }
 
       if (var1 != null && var1.isUserControlled()) {
-         String var2 = var1.getCoach().dS();
+         String var2 = var1.getCoach().getName();
          int var3 = -1;
          var3 = JOptionPane.showConfirmDialog(this.Br, var2 + " deseja ser demitido do " + var1.getNome(), "Pedido de demissão", 0);
          if (var3 == 0) {

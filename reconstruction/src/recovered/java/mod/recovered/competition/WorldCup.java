@@ -135,7 +135,7 @@ public class WorldCup extends Competition implements Serializable {
             LeagueStage var8 = new LeagueStage(var7, this.YF, 0, null, null, null, 7, null, false, null, true, this);
             this.YD = var8;
             var8.setNome(this.getNome());
-            GamePersistence.coachJobMarket.L(this.YF);
+            GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
          }
 
          this.YM.clear();

@@ -105,8 +105,8 @@ public class ConcacafWorldCupQualifiers extends Competition implements Serializa
       this.agb = var11;
       var11.setNome(this.getNome());
       var11.fb(9400);
-      GamePersistence.coachJobMarket.L(var2);
-      GamePersistence.coachJobMarket.L(this.agc);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(var2);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agc);
    }
 
    public void Bp() {

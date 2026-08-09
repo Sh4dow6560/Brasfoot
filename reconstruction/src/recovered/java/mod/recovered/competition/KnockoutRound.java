@@ -469,7 +469,7 @@ public class KnockoutRound implements Serializable {
 
    private void a(Match c0675, Coach coach, int i) {
       if (c0675 != null && coach != null && c0675.getCompetition() != null && c0675.getCompetition().b() != 7 && c0675.getCompetition().b() != 9) {
-         coach.a(c0675, true, i);
+         coach.updateApprovalFromMatch(c0675, true, i);
       }
    }
 

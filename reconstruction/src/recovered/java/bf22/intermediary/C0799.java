@@ -47,11 +47,11 @@ public class C0799 implements Serializable {
       this.RX = string2;
       this.data = GamePersistence.careerState.getCurrentDateText();
       if (coach != null) {
-         if (coach.lQ() == null) {
-            coach.T(new ArrayList());
+         if (coach.getInbox() == null) {
+            coach.setInbox(new ArrayList());
          }
 
-         coach.lQ().add(this);
+         coach.getInbox().add(this);
       }
    }
 

@@ -152,7 +152,7 @@ public abstract class C0734 {
       }
 
       for (int var5 = 0; var5 < GamePersistence.careerState.L().size(); var5++) {
-         ((Coach)GamePersistence.careerState.L().get(var5)).fh();
+         ((Coach)GamePersistence.careerState.L().get(var5)).syncClubId();
       }
 
       GamePersistence.careerState.aU();
@@ -161,7 +161,7 @@ public abstract class C0734 {
          GamePersistence.careerState.rU();
       }
 
-      GamePersistence.coachJobMarket.zj();
+      GamePersistence.coachJobMarket.refreshClubVacancies();
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          GamePersistence.careerState.ab();
          GamePersistence.careerState.ac();

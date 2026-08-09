@@ -171,8 +171,8 @@ public class C0272 extends JPanel {
          this.Hw = this.bv.ic();
       }
 
-      this.zu.getCoach().jo();
-      if (this.zu.getCoach().jo() == this.zu) {
+      this.zu.getCoach().getNationalTeam();
+      if (this.zu.getCoach().getNationalTeam() == this.zu) {
          this.yp = true;
       }
 
@@ -550,8 +550,8 @@ public class C0272 extends JPanel {
       this.Eh.setForeground(this.zu.kC());
       this.If.setBorder(BorderFactory.createLineBorder(this.zu.kC()));
       this.If.oJ();
-      this.Hf.setValue(this.zu.getCoach().lL());
-      this.Ig.setValue(this.zu.getCoach().lM());
+      this.Hf.setValue(this.zu.getCoach().getBoardApproval());
+      this.Ig.setValue(this.zu.getCoach().getFanApproval());
    }
 
    public void qv() {
@@ -584,10 +584,10 @@ public class C0272 extends JPanel {
       }
 
       this.ug.setText(this.zu.getNome());
-      this.a_.setText(this.zu.getCoach().dS());
+      this.a_.setText(this.zu.getCoach().getName());
       this.ze.setText("Mensagens");
-      this.Hf.setValue(this.zu.getCoach().lL());
-      this.Ig.setValue(this.zu.getCoach().lM());
+      this.Hf.setValue(this.zu.getCoach().getBoardApproval());
+      this.Ig.setValue(this.zu.getCoach().getFanApproval());
       this.Eg.setText(GamePersistence.careerState.getCurrentDateText());
       if (!this.yp) {
          this.Fq.setIcon(this.zu.kP());
@@ -642,9 +642,9 @@ public class C0272 extends JPanel {
    private void qw() {
       int var1 = 0;
       this.ze.setText("");
-      if (this.zu.getCoach().lQ() != null) {
-         for (int var2 = 0; var2 < this.zu.getCoach().lQ().size(); var2++) {
-            if (!((C0799)this.zu.getCoach().lQ().get(var2)).vo()) {
+      if (this.zu.getCoach().getInbox() != null) {
+         for (int var2 = 0; var2 < this.zu.getCoach().getInbox().size(); var2++) {
+            if (!((C0799)this.zu.getCoach().getInbox().get(var2)).vo()) {
                var1++;
             }
          }
@@ -674,7 +674,7 @@ public class C0272 extends JPanel {
             var1 = "F - ";
          }
 
-         GamePersistence.careerState.getSavedGameInfo().setClubName(this.zu.getCoach().dS());
+         GamePersistence.careerState.getSavedGameInfo().setClubName(this.zu.getCoach().getName());
          GamePersistence.careerState.getSavedGameInfo().setManagerName(this.zu.getNome());
          GamePersistence.careerState.getSavedGameInfo().setSeasonYear(GamePersistence.careerState.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset());
          GamePersistence.careerState.getSavedGameInfo().setNextMatch(var1 + this.Hv.getNome() + " - " + this.Bj.getText());
@@ -931,14 +931,14 @@ public class C0272 extends JPanel {
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
          for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
             if (!var1) {
-               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).jo() == null) {
-                  ArrayList var2 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), var1);
+               if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var3)).getNationalTeam() == null) {
+                  ArrayList var2 = GamePersistence.coachJobMarket.findNationalTeamOffers((Coach)GamePersistence.careerState.M().get(var3), var1);
                   if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                      MainWindow.a(var2, (Coach)GamePersistence.careerState.M().get(var3), 1);
                   }
                }
             } else if (((Coach)GamePersistence.careerState.M().get(var3)).isUserControlled()) {
-               ArrayList var4 = GamePersistence.coachJobMarket.a((Coach)GamePersistence.careerState.M().get(var3), var1);
+               ArrayList var4 = GamePersistence.coachJobMarket.findNationalTeamOffers((Coach)GamePersistence.careerState.M().get(var3), var1);
                if (!GamePersistence.careerState.bD() && var4 != null && var4.size() > 0) {
                   MainWindow.a(var4, (Coach)GamePersistence.careerState.M().get(var3), 1);
                }
@@ -1305,7 +1305,7 @@ public class C0272 extends JPanel {
       var2.addActionListener(new C0263(this));
       this.afi.add(var2);
       this.afi.addSeparator();
-      if (this.qp().getCoach().jo() == null) {
+      if (this.qp().getCoach().getNationalTeam() == null) {
          var1.setEnabled(false);
          var2.setEnabled(false);
       }
@@ -1317,14 +1317,14 @@ public class C0272 extends JPanel {
       JMenuItem var4 = new JMenuItem("Pedir demissão da seleção");
       var4.addActionListener(new C0319(this));
       this.afi.add(var4);
-      if (this.qp().getCoach().jo() == null || this.HK) {
+      if (this.qp().getCoach().getNationalTeam() == null || this.HK) {
          var3.setEnabled(false);
          var4.setEnabled(false);
       }
 
-      if (this.qp().getCoach().jo() != null) {
+      if (this.qp().getCoach().getNationalTeam() != null) {
          this.afl.setVisible(true);
-         this.afl.setIcon(this.qp().getCoach().jo().K(true));
+         this.afl.setIcon(this.qp().getCoach().getNationalTeam().K(true));
       } else {
          this.afl.setVisible(false);
       }
@@ -1430,7 +1430,7 @@ public class C0272 extends JPanel {
    }
 
    private void rc() {
-      Club var1 = this.zu.getCoach().jo();
+      Club var1 = this.zu.getCoach().getNationalTeam();
       if (var1 != null) {
          MainWindow.a(var1, false);
          this.qA();
@@ -1472,7 +1472,7 @@ public class C0272 extends JPanel {
       if (!bl) {
          var2 = this.zu.getCoach().getClub();
       } else {
-         var2 = this.zu.getCoach().jo();
+         var2 = this.zu.getCoach().getNationalTeam();
       }
 
       if (var2 != null) {
@@ -1499,7 +1499,7 @@ public class C0272 extends JPanel {
    }
 
    public void rf() {
-      Club var1 = this.zu.getCoach().jo();
+      Club var1 = this.zu.getCoach().getNationalTeam();
       if (var1 != null) {
          MainWindow.x(var1);
       }
@@ -1616,7 +1616,7 @@ public class C0272 extends JPanel {
 
    public void rm() {
       JDialog var1 = new JDialog(this.Br);
-      C0120 var2 = new C0120(var1, this.zu.getCoach().lQ(), this.zu);
+      C0120 var2 = new C0120(var1, this.zu.getCoach().getInbox(), this.zu);
       var1.add(var2);
       var1.setSize(894, 391);
       var1.setPreferredSize(new Dimension(894, 391));
@@ -1700,8 +1700,8 @@ public class C0272 extends JPanel {
       var1 = JOptionPane.showConfirmDialog(this.Br, "Deseja realmente ser demitido da seleção?", "Confirmação", 0);
       if (var1 == 0) {
          int var2 = -1;
-         if (this.zu.getCoach().jo() != null) {
-            var2 = this.zu.getCoach().jo().getPais();
+         if (this.zu.getCoach().getNationalTeam() != null) {
+            var2 = this.zu.getCoach().getNationalTeam().getPais();
          }
 
          CountryCompetitions var3 = GamePersistence.careerState.s(var2);
@@ -1709,7 +1709,7 @@ public class C0272 extends JPanel {
             Coach var4 = this.zu.getCoach();
             Coach var5 = var3.ji();
             var3.z(false);
-            var4.z(null);
+            var4.setNationalTeam(null);
             var3.jo().h(null);
             var3.jo().k(false);
             var3.g(var5);

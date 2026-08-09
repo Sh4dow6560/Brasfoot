@@ -1,5 +1,6 @@
 package bf22.intermediary;
 
+import mod.recovered.manager.CoachSeasonRecord;
 import mod.recovered.save.GamePersistence;
 import java.awt.Color;
 import java.awt.Component;
@@ -15,25 +16,25 @@ public class C0605 extends DefaultTableCellRenderer {
       this.setHorizontalAlignment(2);
       this.setIcon(null);
       this.setText("");
-      C0728 var7 = (C0728)object;
+      CoachSeasonRecord var7 = (CoachSeasonRecord)object;
       if (var7 != null) {
          if (j == 0) {
-            this.setText(Integer.toString(var7.H() + GamePersistence.careerState.getSeasonYearOffset()));
+            this.setText(Integer.toString(var7.getSeasonNumber() + GamePersistence.careerState.getSeasonYearOffset()));
          } else if (j == 1) {
-            this.setText(var7.ck());
+            this.setText(var7.getClubName());
          } else if (j == 2) {
-            this.setText(Integer.toString(var7.w()));
+            this.setText(Integer.toString(var7.getMatchCount()));
          } else if (j == 3) {
-            this.setText(Integer.toString(var7.cm()));
+            this.setText(Integer.toString(var7.getWinCount()));
          } else if (j == 4) {
-            this.setText(Integer.toString(var7.co()));
+            this.setText(Integer.toString(var7.getLossCount()));
          } else if (j == 5) {
-            int var8 = (int)(var7.cm() * 100.0F / var7.w());
+            int var8 = (int)(var7.getWinCount() * 100.0F / var7.getMatchCount());
             this.setText(Integer.toString(var8) + "%");
          } else if (j == 6) {
-            this.setText(Integer.toString(var7.cq()));
+            this.setText(Integer.toString(var7.getCareerScore()));
          } else if (j == 7) {
-            this.setText(Integer.toString(var7.cr()));
+            this.setText(Integer.toString(var7.getTitleCount()));
          }
       }
 

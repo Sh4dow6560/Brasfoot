@@ -162,7 +162,7 @@ public class C0151 extends JPanel {
          var6.dO(1);
          var6.k(c0727.ce());
          if (c0727.ci() != null) {
-            var6.Z(c0727.ci().dS());
+            var6.Z(c0727.ci().getName());
          }
 
          arrayList.add(var6);
@@ -171,7 +171,7 @@ public class C0151 extends JPanel {
          var7.dO(2);
          var7.k(c0727.cf());
          if (c0727.cj() != null) {
-            var7.Z(c0727.cj().dS());
+            var7.Z(c0727.cj().getName());
          }
 
          arrayList.add(var7);
@@ -205,8 +205,8 @@ public class C0151 extends JPanel {
          }
 
          for (int var3 = 0; var3 < GamePersistence.careerState.M().size(); var3++) {
-            if (((Coach)GamePersistence.careerState.M().get(var3)).jo() != null) {
-               MainWindow.x(((Coach)GamePersistence.careerState.M().get(var3)).jo());
+            if (((Coach)GamePersistence.careerState.M().get(var3)).getNationalTeam() != null) {
+               MainWindow.x(((Coach)GamePersistence.careerState.M().get(var3)).getNationalTeam());
             }
          }
       }

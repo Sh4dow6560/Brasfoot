@@ -24,11 +24,11 @@ public class C0631 extends DefaultTableCellRenderer {
             }
          } else if (j == 1) {
             if (var7.tj() != null) {
-               this.setText(var7.tj().dS());
+               this.setText(var7.tj().getName());
             }
          } else if (j == 2) {
             if (var7.tk() != null) {
-               this.setText(var7.tk().dS());
+               this.setText(var7.tk().getName());
             }
          } else if (j == 3) {
             this.setText(GameConstants.sh[var7.tl()]);

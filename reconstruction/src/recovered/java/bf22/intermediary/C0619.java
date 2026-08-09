@@ -50,7 +50,7 @@ public class C0619 extends DefaultTableCellRenderer {
                this.setText(var7.cg() + var9 + " - " + Integer.toString(var7.y()) + " g");
             }
          } else if (j == 4 && var7.ci() != null) {
-            this.setText(var7.ci().dS());
+            this.setText(var7.ci().getName());
          }
       }
 

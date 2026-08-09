@@ -786,7 +786,7 @@ public class C0137 extends JPanel {
 
    private void pd() {
       if (this.zu.getCoach() != null) {
-         this.DD.setText("Tec:" + this.zu.getCoach().dS());
+         this.DD.setText("Tec:" + this.zu.getCoach().getName());
       } else {
          this.DD.setText("");
       }

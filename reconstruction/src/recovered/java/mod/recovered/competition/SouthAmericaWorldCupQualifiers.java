@@ -73,7 +73,7 @@ public class SouthAmericaWorldCupQualifiers extends Competition implements Seria
          var7.setNome(this.getNome());
       }
 
-      GamePersistence.coachJobMarket.L(this.YF);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
    }
 
    public void Bm() {

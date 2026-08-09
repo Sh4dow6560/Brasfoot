@@ -737,7 +737,7 @@
   "best/r": "compile-clean",
   "best/s": "compile-clean",
   "best/t": "compile-clean",
-  "best/u": "compile-clean",
+  "best/u": "runtime-verified",
   "best/v": "runtime-verified",
   "best/w": "compile-clean",
   "best/x": "compile-clean",

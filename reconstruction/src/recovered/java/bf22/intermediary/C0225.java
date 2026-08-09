@@ -49,12 +49,12 @@ public class C0225 extends JPanel {
    }
 
    private void mK() {
-      this.Fs.setText(this.Fn.dS());
+      this.Fs.setText(this.Fn.getName());
       this.yA.setText("A razão foi: " + GameConstants.sg[this.Fp]);
       this.Fq.setIcon(this.uk.kP());
       String var1 = "um interino.";
       if (this.Fo != null) {
-         var1 = this.Fo.dS();
+         var1 = this.Fo.getName();
       }
 
       this.yB.setText("Para o seu lugar foi contratado: " + var1);

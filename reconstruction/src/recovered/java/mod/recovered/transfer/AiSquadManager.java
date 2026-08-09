@@ -1,5 +1,6 @@
 package mod.recovered.transfer;
 
+import mod.recovered.manager.CoachSeasonRecord;
 import mod.recovered.competition.NationalLeague;
 import bf22.intermediary.*;
 import mod.recovered.competition.CountryCompetitions;
@@ -44,20 +45,21 @@ public abstract class AiSquadManager {
 
       for (int var0 = 0; var0 < GamePersistence.careerState.L().size(); var0++) {
          if (((Coach)GamePersistence.careerState.L().get(var0)).getClub() != null) {
-            ((Coach)GamePersistence.careerState.L().get(var0)).lS();
+            ((Coach)GamePersistence.careerState.L().get(var0)).incrementClubTenure();
          }
       }
 
       Coach var4 = null;
 
       for (int var1 = 0; var1 < GamePersistence.careerState.L().size(); var1++) {
-         if (((Coach)GamePersistence.careerState.L().get(var1)).getClub() != null && !((Coach)GamePersistence.careerState.L().get(var1)).isUserControlled() && ((Coach)GamePersistence.careerState.L().get(var1)).lR() >= 1) {
+         if (((Coach)GamePersistence.careerState.L().get(var1)).getClub() != null && !((Coach)GamePersistence.careerState.L().get(var1)).isUserControlled() && ((Coach)GamePersistence.careerState.L().get(var1)).getClubTenure() >= 1) {
             var4 = (Coach)GamePersistence.careerState.L().get(var1);
             int var2 = 0;
 
-            for (int var3 = var4.lO().size() - 1; var3 >= 0; var3--) {
-               if (((C0728)var4.lO().get(var3)).H() == GamePersistence.careerState.getSeasonNumber() - 1) {
-                  var2 = (int)(((C0728)var4.lO().get(var3)).cm() * 100.0F / ((C0728)var4.lO().get(var3)).w());
+            for (int var3 = var4.getSeasonRecords().size() - 1; var3 >= 0; var3--) {
+               if (((CoachSeasonRecord)var4.getSeasonRecords().get(var3)).getSeasonNumber() == GamePersistence.careerState.getSeasonNumber() - 1) {
+                  var2 = (int)(((CoachSeasonRecord)var4.getSeasonRecords().get(var3)).getWinCount()
+                     * 100.0F / ((CoachSeasonRecord)var4.getSeasonRecords().get(var3)).getMatchCount());
                   break;
                }
             }

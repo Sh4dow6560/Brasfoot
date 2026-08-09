@@ -31,7 +31,7 @@ public class C0196 extends JPanel {
       this.uu.setText(club.getNome());
       this.uu.setIcon(club.kU());
       if (club.getCoach() != null) {
-         this.Fs.setText(club.getCoach().dS());
+         this.Fs.setText(club.getCoach().getName());
       }
 
       this.Sx.setText(c0713.getNome());

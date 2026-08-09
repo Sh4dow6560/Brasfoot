@@ -82,7 +82,7 @@ public class C0493 extends JPanel {
             int var2 = -1;
             var2 = JOptionPane.showConfirmDialog(this.ub, "Deseja aposentar o técnico?", "Confirmação", 0);
             if (var2 == 0) {
-               this.Es.lP();
+               this.Es.retire();
                this.Es = null;
                this.MD.addNotify();
             }

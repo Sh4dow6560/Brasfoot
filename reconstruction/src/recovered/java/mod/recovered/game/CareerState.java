@@ -468,8 +468,8 @@ public class CareerState implements Serializable {
          this.W();
       }
 
-      GamePersistence.coachJobMarket.zi();
-      GamePersistence.coachJobMarket.zj();
+      GamePersistence.coachJobMarket.clearCandidatePools();
+      GamePersistence.coachJobMarket.refreshClubVacancies();
       AiSquadManager.runSeasonSquadMaintenance();
       AiSquadManager.reviewCoachPerformance();
       if (GamePersistence.careerState.isJogaSelecoesAll()) {
@@ -1120,7 +1120,7 @@ public class CareerState implements Serializable {
 
    private void iZ() {
       for (int var1 = 0; var1 < this.al.size(); var1++) {
-         ((Coach)this.al.get(var1)).kk();
+         ((Coach)this.al.get(var1)).updateReputation();
       }
    }
 
@@ -1135,8 +1135,8 @@ public class CareerState implements Serializable {
          }
 
          if (((Club)this.aj.get(var1)).getCoach() != null) {
-            ((Club)this.aj.get(var1)).getCoach().cj(50);
-            ((Club)this.aj.get(var1)).getCoach().ck(50);
+            ((Club)this.aj.get(var1)).getCoach().adjustBoardApproval(50);
+            ((Club)this.aj.get(var1)).getCoach().adjustFanApproval(50);
          }
       }
 
@@ -1574,7 +1574,7 @@ public class CareerState implements Serializable {
 
       if (this.bs) {
          if (this.bk) {
-            GamePersistence.coachJobMarket.zw();
+            GamePersistence.coachJobMarket.showClubOffersForUserCoaches();
             this.al();
             MainWindow.aY(6);
          } else {
@@ -1652,7 +1652,7 @@ public class CareerState implements Serializable {
    private void n(int i) {
       for (int var3 = 0; var3 < this.am.size(); var3++) {
          if (((Coach)this.am.get(var3)).isUserControlled() && ((Coach)this.am.get(var3)).getClub() == null) {
-            ArrayList var2 = GamePersistence.coachJobMarket.b((Coach)this.am.get(var3), false);
+            ArrayList var2 = GamePersistence.coachJobMarket.findClubOffers((Coach)this.am.get(var3), false);
             if (!GamePersistence.careerState.bD() && var2 != null && var2.size() > 0) {
                MainWindow.a(var2, (Coach)this.am.get(var3), 0);
             }
@@ -2067,7 +2067,7 @@ public class CareerState implements Serializable {
          if (((Coach)this.al.get(var6)).getClub() == null
             && !((Coach)this.al.get(var6)).isUserControlled()
             && ((Coach)this.al.get(var6)).getClub() != club
-            && (((Coach)this.al.get(var6)).bz() == club.getPais() || ((Coach)this.al.get(var6)).lE() == club.getPais())
+            && (((Coach)this.al.get(var6)).getLastManagedCountryId() == club.getPais() || ((Coach)this.al.get(var6)).getNationalityId() == club.getPais())
             && ((Coach)this.al.get(var6)).getReputacao() >= var4
             && ((Coach)this.al.get(var6)).getReputacao() <= var5) {
             var3.add((Coach)this.al.get(var6));
@@ -2089,19 +2089,19 @@ public class CareerState implements Serializable {
    public void a(Coach coach, Coach coach2) {
       Club var3 = coach.getClub();
       Club var4 = coach2.getClub();
-      coach.i(coach2);
-      coach2.i(coach);
-      coach.E(var4);
-      coach2.E(var3);
+      coach.leaveClubForReplacement(coach2);
+      coach2.leaveClubForReplacement(coach);
+      coach.joinClub(var4);
+      coach2.joinClub(var3);
    }
 
    public void a(Club club, Coach coach, Coach coach2) {
       if (coach != null) {
-         coach.i(coach2);
+         coach.leaveClubForReplacement(coach2);
       }
 
       if (coach2 != null) {
-         coach2.E(club);
+         coach2.joinClub(club);
       }
    }
 
@@ -2404,7 +2404,7 @@ public class CareerState implements Serializable {
       byte var1 = -1;
       if (GamePersistence.careerState.M().size() > 0) {
          Coach var2 = (Coach)GamePersistence.careerState.M().get(0);
-         return var2.getClub() != null ? var2.getClub().getPais() : var2.bz();
+         return var2.getClub() != null ? var2.getClub().getPais() : var2.getLastManagedCountryId();
       } else {
          return var1;
       }
@@ -2578,7 +2578,7 @@ public class CareerState implements Serializable {
       Object var2 = null;
 
       for (int var3 = 0; var3 < GamePersistence.careerState.L().size(); var3++) {
-         if (((Coach)GamePersistence.careerState.L().get(var3)).lT() == i) {
+         if (((Coach)GamePersistence.careerState.L().get(var3)).getCoachId() == i) {
             return (Coach)GamePersistence.careerState.L().get(var3);
          }
       }

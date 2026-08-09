@@ -76,7 +76,7 @@ public class AfricaCupOfNations extends Competition implements Serializable {
          this.YD = var6;
          var6.setNome(this.getNome());
          var6.setNome(this.getNome());
-         GamePersistence.coachJobMarket.L(this.YF);
+         GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
       }
    }
 

@@ -70,10 +70,10 @@ public class UefaNationsLeague extends Competition implements Serializable {
       this.ags = this.e(this.agw, 14004);
       this.agy = -1;
       this.YH++;
-      GamePersistence.coachJobMarket.L(this.agt);
-      GamePersistence.coachJobMarket.L(this.agu);
-      GamePersistence.coachJobMarket.L(this.agv);
-      GamePersistence.coachJobMarket.L(this.agw);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agt);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agu);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agv);
+      GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.agw);
    }
 
    private LeagueStage e(ArrayList arrayList, int i) {

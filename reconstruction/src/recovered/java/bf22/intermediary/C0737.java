@@ -399,9 +399,9 @@ public abstract class C0737 {
                   var0 = true;
                } else if (var3 == null
                   && !GamePersistence.careerState.isIgnoraEstadual()
-                  && ((Coach)GamePersistence.careerState.M().get(var2)).lF() != null
-                  && ((Coach)GamePersistence.careerState.M().get(var2)).lF().getPais() == 29
-                  && d(((Coach)GamePersistence.careerState.M().get(var2)).lF().getEstado(), var1)) {
+                  && ((Coach)GamePersistence.careerState.M().get(var2)).getPreviousClub() != null
+                  && ((Coach)GamePersistence.careerState.M().get(var2)).getPreviousClub().getPais() == 29
+                  && d(((Coach)GamePersistence.careerState.M().get(var2)).getPreviousClub().getEstado(), var1)) {
                   var0 = true;
                }
             }
@@ -422,9 +422,9 @@ public abstract class C0737 {
             if (var4.getEstado() != 18) {
                var2 = false;
             }
-         } else if (var4 == null && ((Coach)GamePersistence.careerState.M().get(var3)).lF() != null && ((Coach)GamePersistence.careerState.M().get(var3)).lF().getPais() == 29) {
+         } else if (var4 == null && ((Coach)GamePersistence.careerState.M().get(var3)).getPreviousClub() != null && ((Coach)GamePersistence.careerState.M().get(var3)).getPreviousClub().getPais() == 29) {
             var1 = true;
-            if (((Coach)GamePersistence.careerState.M().get(var3)).lF().getEstado() != 18) {
+            if (((Coach)GamePersistence.careerState.M().get(var3)).getPreviousClub().getEstado() != 18) {
                var2 = false;
             }
          }

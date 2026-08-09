@@ -75,7 +75,7 @@ public class CopaAmerica extends Competition implements Serializable {
          LeagueStage var7 = new LeagueStage(var6, this.YF, 0, null, null, null, 7, null, false, null, true, this);
          this.YD = var7;
          var7.setNome(this.getNome());
-         GamePersistence.coachJobMarket.L(this.YF);
+         GamePersistence.coachJobMarket.registerNationalTeamCandidates(this.YF);
       }
    }
 

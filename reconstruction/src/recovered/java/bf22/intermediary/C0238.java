@@ -112,7 +112,7 @@ public class C0238 extends JPanel {
 
    private void pQ() {
       this.Gg.setIcon(this.FV.kU());
-      this.Gg.setText(this.FV.getCoach().dS() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.formatAmount(this.FV.getCashBalance()));
+      this.Gg.setText(this.FV.getCoach().getName() + " (" + this.FV.getNome() + ") " + "dinheiro em caixa: " + ClubFinances.formatAmount(this.FV.getCashBalance()));
    }
 
    private void a(C0680 c0680) {

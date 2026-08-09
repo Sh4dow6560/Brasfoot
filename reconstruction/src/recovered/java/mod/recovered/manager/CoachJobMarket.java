@@ -14,36 +14,36 @@ import mod.recovered.model.Coach;
 
 public class CoachJobMarket implements Serializable {
    private static final long serialVersionUID = 1L;
-   private ArrayList Jg = new ArrayList();
-   private ArrayList Jh = new ArrayList();
+   private ArrayList nationalTeamOfferCountryIds = new ArrayList();
+   private ArrayList availableNationalTeamCountryIds = new ArrayList();
    private ArrayList Jj = new ArrayList();
-   private ArrayList Jl = new ArrayList();
+   private ArrayList availableClubIds = new ArrayList();
 
-   public void L(ArrayList arrayList) {
+   public void registerNationalTeamCandidates(ArrayList arrayList) {
       for (int var2 = 0; var2 < arrayList.size(); var2++) {
          if (!((Club)arrayList.get(var2)).isUserControlled()) {
-            this.d(this.Jg, ((Club)arrayList.get(var2)).getPais());
-            this.d(this.Jh, ((Club)arrayList.get(var2)).getPais());
+            this.addUniqueId(this.nationalTeamOfferCountryIds, ((Club)arrayList.get(var2)).getPais());
+            this.addUniqueId(this.availableNationalTeamCountryIds, ((Club)arrayList.get(var2)).getPais());
          }
       }
 
-      Collections.shuffle(this.Jh);
+      Collections.shuffle(this.availableNationalTeamCountryIds);
    }
 
-   public void zi() {
-      this.Jg.clear();
-      this.Jh.clear();
+   public void clearCandidatePools() {
+      this.nationalTeamOfferCountryIds.clear();
+      this.availableNationalTeamCountryIds.clear();
       this.Jj.clear();
-      this.Jl.clear();
+      this.availableClubIds.clear();
    }
 
-   public ArrayList a(Coach coach, boolean bl) {
+   public ArrayList findNationalTeamOffers(Coach coach, boolean bl) {
       ArrayList var3 = new ArrayList();
       ArrayList var4 = new ArrayList();
       ArrayList var5 = new ArrayList();
 
-      for (int var6 = 0; var6 < this.Jg.size(); var6++) {
-         Club var7 = GamePersistence.careerState.s((Integer)this.Jg.get(var6)).jn();
+      for (int var6 = 0; var6 < this.nationalTeamOfferCountryIds.size(); var6++) {
+         Club var7 = GamePersistence.careerState.s((Integer)this.nationalTeamOfferCountryIds.get(var6)).jn();
          if (var7 != null && !var7.isUserControlled()) {
             var3.add(var7);
          }
@@ -119,7 +119,7 @@ public class CoachJobMarket implements Serializable {
          Coach var18 = null;
          byte var20 = 0;
          if (var20 < GamePersistence.careerState.M().size()) {
-            var17 = ((Coach)GamePersistence.careerState.M().get(var20)).lE();
+            var17 = ((Coach)GamePersistence.careerState.M().get(var20)).getNationalityId();
             var18 = (Coach)GamePersistence.careerState.M().get(var20);
          }
 
@@ -151,14 +151,14 @@ public class CoachJobMarket implements Serializable {
       return var5;
    }
 
-   public void d(ArrayList arrayList, int i) {
+   public void addUniqueId(ArrayList arrayList, int i) {
       if (!arrayList.contains(i)) {
          arrayList.add(i);
       }
    }
 
-   public void zj() {
-      this.Jl.clear();
+   public void refreshClubVacancies() {
+      this.availableClubIds.clear();
       int var1 = 0;
       ArrayList var2 = new ArrayList();
 
@@ -173,27 +173,27 @@ public class CoachJobMarket implements Serializable {
                var2.add(((Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(var3)).eb().get(var4)).yi().yK().get(var5)).getClubId());
             }
 
-            this.M(var2);
+            this.selectClubVacancies(var2);
          }
       }
 
-      Collections.shuffle(this.Jl);
+      Collections.shuffle(this.availableClubIds);
    }
 
-   private void M(ArrayList arrayList) {
+   private void selectClubVacancies(ArrayList arrayList) {
       Collections.shuffle(arrayList);
 
       for (int var2 = 0; var2 <= 2; var2++) {
          if (var2 < arrayList.size()) {
-            this.Jl.add((Integer)arrayList.get(var2));
+            this.availableClubIds.add((Integer)arrayList.get(var2));
          }
       }
    }
 
-   public ArrayList b(Coach coach, boolean bl) {
+   public ArrayList findClubOffers(Coach coach, boolean bl) {
       ArrayList var3 = new ArrayList();
-      CountryCompetitions var4 = GamePersistence.careerState.o(coach.lE());
-      CountryCompetitions var5 = GamePersistence.careerState.s(coach.bz());
+      CountryCompetitions var4 = GamePersistence.careerState.o(coach.getNationalityId());
+      CountryCompetitions var5 = GamePersistence.careerState.s(coach.getLastManagedCountryId());
       if (var5 != null) {
          var5.a(var3, coach, bl, true);
       }
@@ -203,7 +203,7 @@ public class CoachJobMarket implements Serializable {
       }
 
       boolean var6 = false;
-      if (coach.isUserControlled() && (coach.lG() < 2 || coach.getReputacao() > 3)) {
+      if (coach.isUserControlled() && (coach.getLastManagedDivisionIndex() < 2 || coach.getReputacao() > 3)) {
          var6 = true;
       }
 
@@ -232,10 +232,10 @@ public class CoachJobMarket implements Serializable {
       return var3;
    }
 
-   public void zw() {
+   public void showClubOffersForUserCoaches() {
       for (int var2 = 0; var2 < GamePersistence.careerState.M().size(); var2++) {
          if (((Coach)GamePersistence.careerState.M().get(var2)).isUserControlled() && ((Coach)GamePersistence.careerState.M().get(var2)).getClub() != null) {
-            ArrayList var1 = this.b((Coach)GamePersistence.careerState.M().get(var2), true);
+            ArrayList var1 = this.findClubOffers((Coach)GamePersistence.careerState.M().get(var2), true);
             if (var1 != null && var1.size() > 0) {
                MainWindow.a(var1, (Coach)GamePersistence.careerState.M().get(var2), 0);
             }
@@ -243,7 +243,7 @@ public class CoachJobMarket implements Serializable {
       }
    }
 
-   public static ArrayList c(Coach coach, boolean bl) {
+   public static ArrayList findTournamentNationalTeamOffers(Coach coach, boolean bl) {
       ArrayList var2 = new ArrayList();
       ArrayList var3 = new ArrayList();
       ArrayList var4 = new ArrayList();
@@ -364,7 +364,7 @@ public class CoachJobMarket implements Serializable {
             var11 = var26[var28];
             int[] var12 = new int[]{12, 7, 7, 8, 10, 10};
             int[] var13 = new int[6];
-            CountryCompetitions var14 = GamePersistence.careerState.s(coach.lE());
+            CountryCompetitions var14 = GamePersistence.careerState.s(coach.getNationalityId());
             int var15 = var14.gg();
             if (coach.getClub() != null) {
                if (coach.getClub().gg() == 0) {
@@ -463,7 +463,7 @@ public class CoachJobMarket implements Serializable {
       Coach var27 = null;
       byte var29 = 0;
       if (var29 < GamePersistence.careerState.M().size()) {
-         var25 = ((Coach)GamePersistence.careerState.M().get(var29)).lE();
+         var25 = ((Coach)GamePersistence.careerState.M().get(var29)).getNationalityId();
          var27 = (Coach)GamePersistence.careerState.M().get(var29);
       }
 
@@ -495,11 +495,11 @@ public class CoachJobMarket implements Serializable {
       return var2;
    }
 
-   public ArrayList Ap() {
+   public ArrayList getAvailableClubVacancies() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < this.Jl.size(); var2++) {
-         Club var3 = GamePersistence.careerState.x((Integer)this.Jl.get(var2));
+      for (int var2 = 0; var2 < this.availableClubIds.size(); var2++) {
+         Club var3 = GamePersistence.careerState.x((Integer)this.availableClubIds.get(var2));
          if (var3 != null && !var3.isUserControlled()) {
             var1.add(var3);
          }
@@ -508,11 +508,11 @@ public class CoachJobMarket implements Serializable {
       return var1;
    }
 
-   public ArrayList Aq() {
+   public ArrayList getAvailableNationalTeamVacancies() {
       ArrayList var1 = new ArrayList();
 
-      for (int var2 = 0; var2 < this.Jh.size(); var2++) {
-         Club var3 = GamePersistence.careerState.s((Integer)this.Jh.get(var2)).jn();
+      for (int var2 = 0; var2 < this.availableNationalTeamCountryIds.size(); var2++) {
+         Club var3 = GamePersistence.careerState.s((Integer)this.availableNationalTeamCountryIds.get(var2)).jn();
          if (var3 != null && !var3.isUserControlled()) {
             var1.add(var3);
          }

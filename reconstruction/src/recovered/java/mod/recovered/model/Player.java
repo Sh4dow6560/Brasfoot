@@ -2135,7 +2135,7 @@ public class Player implements Serializable {
       if (var4) {
          Coach var18 = new Coach(this.dm);
          GamePersistence.careerState.a(var18);
-         var18.b(this.getClub(), this);
+         var18.initializeCareerFromPlayer(this.getClub(), this);
       }
 
       return true;

@@ -129,8 +129,8 @@ public class Club implements Serializable {
          this.a(string4, n);
          Coach var15 = new Coach(string3);
          this.coach = var15;
-         this.coach.n(this);
-         this.coachId = var15.lT();
+         this.coach.setClub(this);
+         this.coachId = var15.getCoachId();
          this.coach.setReputacao(m);
          GamePersistence.careerState.a(var15);
          GamePersistence.careerState.c(this);
@@ -230,7 +230,7 @@ public class Club implements Serializable {
    public void h(Coach coach) {
       this.coach = coach;
       if (this.coach != null) {
-         this.coachId = this.coach.lT();
+         this.coachId = this.coach.getCoachId();
       } else {
          this.coachId = -1;
       }
@@ -779,7 +779,7 @@ public class Club implements Serializable {
       if (i <= 10) {
          this.b(c0713, i, j);
          if (this.getCoach() != null) {
-            this.getCoach().b(c0713, i, j);
+            this.getCoach().recordCompetitionResult(c0713, i, j);
          }
 
          if (this.isUserControlled() && (c0713.b() == 1 || c0713.b() == 3)) {
@@ -829,7 +829,7 @@ public class Club implements Serializable {
 
       this.nu += var5;
       if (this.coach != null) {
-         this.coach.a(i, j, k, this.mX, this.gg());
+         this.coach.addReputationProgress(i, j, k, this.mX, this.gg());
       }
    }
 
@@ -1227,10 +1227,10 @@ public class Club implements Serializable {
       this.setNivel(c0915.getNivel());
       this.a(c0915.getEstadio(), c0915.getCapacidade());
       Coach var2 = new Coach(c0915.getTecnico());
-      var2.cg(c0915.getTecNac());
+      var2.setNationalityId(c0915.getTecNac());
       this.coach = var2;
-      this.coachId = var2.lT();
-      this.coach.n(this);
+      this.coachId = var2.getCoachId();
+      this.coach.setClub(this);
       this.coach.setReputacao(c0915.getReputacao());
       GamePersistence.careerState.a(var2);
       this.nl = c0915.getCorBase();
@@ -1514,7 +1514,7 @@ public class Club implements Serializable {
 
    public Coach kE() {
       Coach var1 = null;
-      this.getCoach().lN();
+      this.getCoach().rememberPreviousClubContext();
       var1 = GamePersistence.careerState.a(this, 0);
       if (var1 == null) {
          var1 = GamePersistence.careerState.a(this, 1);
@@ -1533,7 +1533,7 @@ public class Club implements Serializable {
       }
 
       if (var1 == null && !this.getCoach().isUserControlled()) {
-         ArrayList var2 = GamePersistence.coachJobMarket.b(this.getCoach(), false);
+         ArrayList var2 = GamePersistence.coachJobMarket.findClubOffers(this.getCoach(), false);
          Coach var3 = null;
          if (var2.size() > 0) {
             var1 = ((Club)var2.get(0)).getCoach();
@@ -1926,16 +1926,16 @@ public class Club implements Serializable {
 
    public void b(String string, int i) {
       if (this.coach != null) {
-         this.coach.lN();
-         this.coach.n(null);
+         this.coach.rememberPreviousClubContext();
+         this.coach.setClub(null);
       }
 
       Coach var3 = new Coach(string);
-      var3.cg(i);
-      var3.k(true);
+      var3.setNationalityId(i);
+      var3.setUserControlled(true);
       this.coach = var3;
-      this.coachId = this.coach.lT();
-      this.coach.n(this);
+      this.coachId = this.coach.getCoachId();
+      this.coach.setClub(this);
       this.coach.setReputacao(this.reputation);
       this.k(true);
       this.ks();
