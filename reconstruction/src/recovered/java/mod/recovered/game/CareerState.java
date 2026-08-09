@@ -1080,7 +1080,7 @@ public class CareerState implements Serializable {
          int[] var4 = new int[]{0, 1, 2, 3, 4};
 
          for (int var5 = 0; var5 < this.aj.size(); var5++) {
-            if (((Club)this.aj.get(var5)).kn() && ((Club)this.aj.get(var5)).getReputacao() >= 3) {
+            if (((Club)this.aj.get(var5)).kn() && ((Club)this.aj.get(var5)).getReputation() >= 3) {
                if (((Club)this.aj.get(var5)).kx() < 12) {
                   for (int var10 = 0; var10 < var3.length; var10++) {
                      Player.a((Club)this.aj.get(var5), var3[var10], null, 0, null, bl);
@@ -1429,7 +1429,7 @@ public class CareerState implements Serializable {
          ((Match)var1.get(var3)).hh();
          ((Match)var1.get(var3)).getHomeClub().setLineupReady(false);
          ((Match)var1.get(var3)).getAwayClub().setLineupReady(false);
-         ((Match)var1.get(var3)).a(null);
+         ((Match)var1.get(var3)).setMatchEngine(null);
       }
 
       for (int var6 = 0; var6 < GamePersistence.careerState.O().size(); var6++) {
@@ -2054,22 +2054,22 @@ public class CareerState implements Serializable {
             var4 = 0;
             var5 = 5;
          } else if (i == 0) {
-            var4 = club.getReputacao();
-            var5 = club.getReputacao();
+            var4 = club.getReputation();
+            var5 = club.getReputation();
          } else if (i == 1) {
-            var4 = club.getReputacao() - 1;
-            var5 = club.getReputacao();
+            var4 = club.getReputation() - 1;
+            var5 = club.getReputation();
          } else if (i == 2) {
-            var4 = club.getReputacao() - 2;
-            var5 = club.getReputacao() + 1;
+            var4 = club.getReputation() - 2;
+            var5 = club.getReputation() + 1;
          }
 
          if (((Coach)this.al.get(var6)).getClub() == null
             && !((Coach)this.al.get(var6)).isUserControlled()
             && ((Coach)this.al.get(var6)).getClub() != club
             && (((Coach)this.al.get(var6)).getLastManagedCountryId() == club.getPais() || ((Coach)this.al.get(var6)).getNationalityId() == club.getPais())
-            && ((Coach)this.al.get(var6)).getReputacao() >= var4
-            && ((Coach)this.al.get(var6)).getReputacao() <= var5) {
+            && ((Coach)this.al.get(var6)).getReputation() >= var4
+            && ((Coach)this.al.get(var6)).getReputation() <= var5) {
             var3.add((Coach)this.al.get(var6));
          }
       }
@@ -2522,7 +2522,7 @@ public class CareerState implements Serializable {
       this.ax = arrayList;
    }
 
-   public void n(ArrayList arrayList) {
+   public void setScheduleDays(ArrayList arrayList) {
       this.scheduleDays = arrayList;
    }
 

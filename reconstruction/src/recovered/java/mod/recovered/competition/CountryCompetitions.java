@@ -599,27 +599,27 @@ public class CountryCompetitions implements Serializable {
 
       for (int var8 = 0; var8 < GamePersistence.careerState.L().size(); var8++) {
          if (!((Coach)GamePersistence.careerState.L().get(var8)).isUserControlled() && ((Coach)GamePersistence.careerState.L().get(var8)).getNationalTeam() == null) {
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 5) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 5) {
                var1.add((Coach)GamePersistence.careerState.L().get(var8));
             }
 
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 4) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 4) {
                var2.add((Coach)GamePersistence.careerState.L().get(var8));
             }
 
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 3) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getNationalityId() == var7 && ((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 3) {
                var3.add((Coach)GamePersistence.careerState.L().get(var8));
             }
 
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 5) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 5) {
                var4.add((Coach)GamePersistence.careerState.L().get(var8));
             }
 
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 4) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 4) {
                var5.add((Coach)GamePersistence.careerState.L().get(var8));
             }
 
-            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputacao() == 3) {
+            if (((Coach)GamePersistence.careerState.L().get(var8)).getReputation() == 3) {
                var6.add((Coach)GamePersistence.careerState.L().get(var8));
             }
          }
@@ -756,7 +756,7 @@ public class CountryCompetitions implements Serializable {
       }
 
       Collections.sort(var6, C1007.abe);
-      this.hy.N(var6);
+      this.hy.setSeniorPlayers(var6);
       this.hy.o(null);
       this.hy.n((Player)null);
       this.hy.kA();
@@ -990,7 +990,7 @@ public class CountryCompetitions implements Serializable {
       if (this.hy == null) {
          Club var1 = new Club(this.jf(), null, -1, this.jc(), -1, this.getNivel(), null, this.jt(), null, null, null, -1, null, true);
          this.hy = var1;
-         var1.bX(GamePersistence.careerState.bH());
+         var1.setClubId(GamePersistence.careerState.bH());
          GamePersistence.careerState.bI();
          int[] var2 = C0696.values()[this.jc()].jB();
          int[] var3 = C0696.values()[this.jc()].jC();
@@ -1127,7 +1127,7 @@ public class CountryCompetitions implements Serializable {
          Coach var5 = var3.ji();
          var4.setNationalTeam(null);
          var3.jo().h(null);
-         var3.jo().k(false);
+         var3.jo().setUserControlled(false);
          if (var5 != null) {
             var3.g(var5);
          }
@@ -1147,7 +1147,7 @@ public class CountryCompetitions implements Serializable {
 
       this.jo().h(coach);
       coach.setNationalTeam(this.jo());
-      this.jo().k(coach.isUserControlled());
+      this.jo().setUserControlled(coach.isUserControlled());
    }
 
    public void a(NationalCup c0942) {

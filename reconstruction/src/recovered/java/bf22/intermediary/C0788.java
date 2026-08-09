@@ -40,7 +40,7 @@ public class C0788 implements Serializable {
       return this.clubId;
    }
 
-   public void bX(int i) {
+   public void setClubId(int i) {
       this.clubId = i;
    }
 

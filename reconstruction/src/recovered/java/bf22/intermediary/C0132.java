@@ -375,7 +375,7 @@ public class C0132 extends JPanel {
          LineupPreset var2 = this.zu.getLineupPreset();
          if (var2 == null) {
             var2 = new LineupPreset();
-            this.zu.a(var2);
+            this.zu.setLineupPreset(var2);
          }
 
          var2.clear();

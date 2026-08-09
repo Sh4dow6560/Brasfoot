@@ -16,7 +16,7 @@ class C0974 implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent actionEvent) {
       Club var2 = (Club)((NationalLeague)((CountryCompetitions)GamePersistence.careerState.N().get(0)).eb().get(0)).yi().yK().get(0);
-      var2.k(true);
+      var2.setUserControlled(true);
       var2.getCoach().setUserControlled(true);
       GamePersistence.careerState.M().add(var2.getCoach());
       GamePersistence.careerState.aN().add(var2);

@@ -186,7 +186,7 @@ public class TransferNegotiation {
             var3 = this.findDestinationInCompetitions(this.cn, bl);
          }
 
-         if (this.destinationClub == null && this.sourceClub.getReputacao() > 2) {
+         if (this.destinationClub == null && this.sourceClub.getReputation() > 2) {
             var3 = this.findDestinationInCompetitions(this.co, bl);
          }
       } else {
@@ -202,7 +202,7 @@ public class TransferNegotiation {
             var3 = this.findDestinationInCompetitions(this.cp, bl);
          }
 
-         if (this.destinationClub == null && this.sourceClub.getReputacao() > 2) {
+         if (this.destinationClub == null && this.sourceClub.getReputation() > 2) {
             var3 = this.findDestinationInCompetitions(this.co, bl);
          }
 
@@ -255,7 +255,7 @@ public class TransferNegotiation {
 
       if (this.transferMode == 2) {
          for (int var6 = 0; var6 < var2.size(); var6++) {
-            if (!((Club)var2.get(var6)).lh() && ((Club)var2.get(var6)).gg() == 0 && ((Club)var2.get(var6)).getReputacao() >= 4) {
+            if (!((Club)var2.get(var6)).lh() && ((Club)var2.get(var6)).gg() == 0 && ((Club)var2.get(var6)).getReputation() >= 4) {
                var1 = (Club)var2.get(var6);
                this.selectDestination((Club)var2.get(var6), this.requestedFee);
                break;
@@ -299,7 +299,7 @@ public class TransferNegotiation {
       ArrayList var2 = new ArrayList();
 
       for (int var3 = 0; var3 < GamePersistence.careerState.P().size(); var3++) {
-         if (((Club)GamePersistence.careerState.P().get(var3)).getReputacao() >= 4
+         if (((Club)GamePersistence.careerState.P().get(var3)).getReputation() >= 4
             && GamePersistence.careerState.P().get(var3) != this.player.getClub()
             && !((Club)GamePersistence.careerState.P().get(var3)).isUserControlled()
             && ((Club)GamePersistence.careerState.P().get(var3)).getSeniorPlayers().size() < this.maxDestinationSquadSize
@@ -410,7 +410,7 @@ public class TransferNegotiation {
       if (this.transferMode == 1) {
          var4 = 1;
          var5 = 2;
-         if (this.sourceClub.gg() == 0 && this.sourceClub.getReputacao() >= 4 && this.player.getOverallStrength() >= 40) {
+         if (this.sourceClub.gg() == 0 && this.sourceClub.getReputation() >= 4 && this.player.getOverallStrength() >= 40) {
             var5 = 1;
          }
       }
@@ -472,7 +472,7 @@ public class TransferNegotiation {
          }
       } else if (this.transferMode == 2) {
          for (int var15 = 0; var15 < var3.size(); var15++) {
-            if (!((Club)var3.get(var15)).lh() && ((Club)var3.get(var15)).getReputacao() >= 4) {
+            if (!((Club)var3.get(var15)).lh() && ((Club)var3.get(var15)).getReputation() >= 4) {
                var10 = (Club)var3.get(var15);
                break;
             }
@@ -611,29 +611,29 @@ public class TransferNegotiation {
          return 0;
       }
 
-      if (player.gh() == 0 && player.getClub().getReputacao() >= 4) {
-         if (club.getReputacao() >= 4 || club.getDivisao() == 1) {
+      if (player.gh() == 0 && player.getClub().getReputation() >= 4) {
+         if (club.getReputation() >= 4 || club.getDivisao() == 1) {
             return 0;
          }
 
-         if (club.getReputacao() >= 3 || club.getDivisao() == 1) {
+         if (club.getReputation() >= 3 || club.getDivisao() == 1) {
             requestedSalary = player.getSalary() * 2;
             return 2;
          }
       } else {
-         if (player.getClub().getReputacao() >= 3 && club.getReputacao() >= 3) {
+         if (player.getClub().getReputation() >= 3 && club.getReputation() >= 3) {
             return 0;
          }
 
-         if (player.getClub().getReputacao() == 3 && club.getReputacao() == 2) {
+         if (player.getClub().getReputation() == 3 && club.getReputation() == 2) {
             return 0;
          }
 
-         if (player.getClub().getReputacao() == 3 && club.getReputacao() == 1) {
+         if (player.getClub().getReputation() == 3 && club.getReputation() == 1) {
             return 0;
          }
 
-         if (player.getClub().getReputacao() <= 2) {
+         if (player.getClub().getReputation() <= 2) {
             return 0;
          }
       }
@@ -646,24 +646,24 @@ public class TransferNegotiation {
          return true;
       }
 
-      if (player.gh() == 0 && player.getClub().getReputacao() >= 4) {
-         if (club.getReputacao() >= 4 || club.getDivisao() == 1) {
+      if (player.gh() == 0 && player.getClub().getReputation() >= 4) {
+         if (club.getReputation() >= 4 || club.getDivisao() == 1) {
             return true;
          }
       } else {
-         if (player.getClub().getReputacao() >= 3 && club.getReputacao() >= 3) {
+         if (player.getClub().getReputation() >= 3 && club.getReputation() >= 3) {
             return true;
          }
 
-         if (player.getClub().getReputacao() == 3 && club.getReputacao() == 2) {
+         if (player.getClub().getReputation() == 3 && club.getReputation() == 2) {
             return true;
          }
 
-         if (player.getClub().getReputacao() == 3 && club.getReputacao() == 1) {
+         if (player.getClub().getReputation() == 3 && club.getReputation() == 1) {
             return true;
          }
 
-         if (player.getClub().getReputacao() <= 2) {
+         if (player.getClub().getReputation() <= 2) {
             return true;
          }
       }
@@ -684,7 +684,7 @@ public class TransferNegotiation {
    }
 
    public static void recruitPlayerForNeed(Club club, int[] is) {
-      int var2 = club.getReputacao();
+      int var2 = club.getReputation();
       int var3 = var2 - 2;
       int var4 = var2 + 1;
       if (var3 < 0) {
@@ -700,8 +700,8 @@ public class TransferNegotiation {
             for (int var8 = 0; var8 < var5.jg().size(); var8++) {
                if (!((Club)var5.jg().get(var8)).isUserControlled()
                   && var5.jg().get(var8) != club
-                  && var3 <= ((Club)var5.jg().get(var8)).getReputacao()
-                  && var4 >= ((Club)var5.jg().get(var8)).getReputacao()) {
+                  && var3 <= ((Club)var5.jg().get(var8)).getReputation()
+                  && var4 >= ((Club)var5.jg().get(var8)).getReputation()) {
                   var7.add((Club)var5.jg().get(var8));
                }
             }
@@ -720,8 +720,8 @@ public class TransferNegotiation {
             if (!((Club)GamePersistence.careerState.P().get(var13)).isUserControlled()
                && GamePersistence.careerState.P().get(var13) != club
                && ((Club)GamePersistence.careerState.P().get(var13)).gg() == club.gg()
-               && var3 <= ((Club)GamePersistence.careerState.P().get(var13)).getReputacao()
-               && var4 >= ((Club)GamePersistence.careerState.P().get(var13)).getReputacao()) {
+               && var3 <= ((Club)GamePersistence.careerState.P().get(var13)).getReputation()
+               && var4 >= ((Club)GamePersistence.careerState.P().get(var13)).getReputation()) {
                var7.add((Club)GamePersistence.careerState.P().get(var13));
             }
          }

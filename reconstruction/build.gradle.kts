@@ -22,6 +22,7 @@ dependencies {
     implementation("net.fabricmc:tiny-remapper:0.14.0")
     implementation("org.ow2.asm:asm:9.9.1")
     implementation("org.ow2.asm:asm-tree:9.9.1")
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.28.1")
 
     vineflower("org.vineflower:vineflower:1.12.0")
 
@@ -236,6 +237,29 @@ registerToolTask("promoteCandidateBatch", "promote-candidate-batch") {
 registerToolTask("applySemanticSourceMappings", "apply-semantic-source-mappings")
 registerToolTask("applySemanticMemberMappings", "apply-semantic-member-mappings")
 
+val buildSemanticCandidates = registerToolTask(
+    "buildSemanticCandidates", "build-semantic-candidates"
+) {
+    dependsOn(generateMappings)
+    inputs.file(layout.projectDirectory.file("config/semantic-names.json"))
+    inputs.file(layout.projectDirectory.file("config/semantic-auto-names.json"))
+    inputs.file(layout.projectDirectory.file("mappings/brasfoot-22-23.tiny"))
+    outputs.file(layout.buildDirectory.file("reports/semantic-candidates.json"))
+}
+
+registerToolTask("acceptSemanticCandidates", "accept-semantic-candidates") {
+    dependsOn(buildSemanticCandidates)
+}
+
+val semanticCoverage = registerToolTask("semanticCoverage", "semantic-coverage") {
+    dependsOn(generateMappings)
+    inputs.file(layout.projectDirectory.file("config/semantic-names.json"))
+    inputs.file(layout.projectDirectory.file("config/semantic-auto-names.json"))
+    inputs.file(layout.projectDirectory.file("mappings/brasfoot-22-23.tiny"))
+    outputs.file(layout.buildDirectory.file("reports/semantic-coverage.json"))
+    outputs.file(layout.projectDirectory.file("../docs/SEMANTIC_COVERAGE.md"))
+}
+
 tasks.register("compileRecovered") {
     group = "reconstruction"
     dependsOn(tasks.named(recovered.classesTaskName))
@@ -312,5 +336,11 @@ registerToolTask("runHybrid", "run-hybrid") {
 }
 
 tasks.named("check") {
-    dependsOn(buildVersionAtlas, buildSerializationAtlas, generateMappings)
+    dependsOn(
+        buildVersionAtlas,
+        buildSerializationAtlas,
+        generateMappings,
+        buildSemanticCandidates,
+        semanticCoverage
+    )
 }

@@ -71,42 +71,42 @@ public class FriendlyMatches extends Competition implements Serializable {
       }
 
       if (i == 0) {
-         if (club2.getReputacao() == 5 && club.getReputacao() < 4) {
+         if (club2.getReputation() == 5 && club.getReputation() < 4) {
             ci = 300000;
             return 3;
          }
 
-         if (club2.getReputacao() == 5 && club.getReputacao() < 3) {
+         if (club2.getReputation() == 5 && club.getReputation() < 3) {
             return 0;
          }
 
-         if (club2.getReputacao() == 4 && club.getReputacao() < 2) {
+         if (club2.getReputation() == 4 && club.getReputation() < 2) {
             ci = 200000;
             return 3;
          }
 
-         if (club2.getReputacao() == 4 && club.getReputacao() <= 1) {
+         if (club2.getReputation() == 4 && club.getReputation() <= 1) {
             return 0;
          }
 
          if (club.getPais() == club2.getPais()) {
-            ci = var4[club2.getReputacao()];
+            ci = var4[club2.getReputation()];
          } else {
-            ci = var5[club2.getReputacao()];
+            ci = var5[club2.getReputation()];
          }
       } else {
-         if (club2.getReputacao() == 5 && club.getReputacao() != 5) {
+         if (club2.getReputation() == 5 && club.getReputation() != 5) {
             return 0;
          }
 
-         if (club2.getReputacao() == 4 && club.getReputacao() < 2) {
+         if (club2.getReputation() == 4 && club.getReputation() < 2) {
             return 0;
          }
 
          if (club.getPais() == club2.getPais()) {
-            ci = var5[club2.getReputacao()];
+            ci = var5[club2.getReputation()];
          } else {
-            ci = var6[club2.getReputacao()];
+            ci = var6[club2.getReputation()];
          }
       }
 

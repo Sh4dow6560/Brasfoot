@@ -78,7 +78,7 @@
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 777 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 808 membros
   recuperados no total.
 - `PlayerSearchCriteria` identifica os filtros por nome, elenco, pais, posicao,
   idade, forca, valor, caracteristicas e atributos. `PlayerTransferRecord`
@@ -102,15 +102,23 @@
 - O lote inicial de dados 2026 contem 40 clubes das Series A e B confirmados
   em fontes oficiais da CBF. A montagem importa somente dados e recursos
   selecionados por manifesto e preserva o executavel externo fora do build.
+- `buildSemanticCandidates` usa ASM para detectar acessores triviais ligados
+  a campos ja nomeados. O migrador usa JavaParser Symbol Solver nos nomes
+  ambiguos, compara declaracoes e referencias com o bytecode compilado e so
+  entao grava as fontes. O primeiro lote promoveu 31 metodos sem colisao.
+- `semanticCoverage` registra 721 membros semanticos explicitos, 808 entradas
+  de membros no Tiny v2 e as maiores lacunas por modulo.
+- Os reparos de decompilacao traduzem automaticamente identificadores
+  intermediarios para o namespace atual. A regeneracao completa voltou a
+  produzir e compilar as 1.032 fontes depois das renomeacoes.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Sugestao automatica de nomes semanticos e cobertura por modulo.
-2. Testes diferenciais entre o original e o hibrido.
-3. Estado lateral versionado e registro de funcionalidades.
-4. Verificacao editorial dos dados brasileiros de agosto de 2026.
-5. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
+1. Testes diferenciais entre o original e o hibrido.
+2. Estado lateral versionado e registro de funcionalidades.
+3. Verificacao editorial dos dados brasileiros de agosto de 2026.
+4. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
 
 Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
 de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

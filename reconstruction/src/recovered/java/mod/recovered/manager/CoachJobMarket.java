@@ -58,9 +58,9 @@ public class CoachJobMarket implements Serializable {
          var4.add(4);
          var4.add(5);
          int[][] var15 = new int[][]{{2, 1, 1, 1, 1}, {2, 2, 1, 1, 1}, {3, 2, 2, 1, 1}, {4, 3, 2, 2, 1}, {5, 4, 5, 3, 2}, {5, 4, 4, 3, 2}};
-         int var16 = coach.getReputacao();
-         if (coach.getClub() != null && coach.getClub().getReputacao() > var16) {
-            var16 = coach.getClub().getReputacao();
+         int var16 = coach.getReputation();
+         if (coach.getClub() != null && coach.getClub().getReputation() > var16) {
+            var16 = coach.getClub().getReputation();
          }
 
          int[] var8 = var15[var16];
@@ -72,7 +72,7 @@ public class CoachJobMarket implements Serializable {
             for (int var12 = 0; var12 < var8.length; var12++) {
                if (var8[var12] >= 1) {
                   for (int var13 = 0; var13 < var3.size(); var13++) {
-                     if (((Club)var3.get(var13)).getReputacao() == var8[var12]
+                     if (((Club)var3.get(var13)).getReputation() == var8[var12]
                         && ((Club)var3.get(var13)).gg() == (Integer)var4.get(var11)
                         && !var5.contains(var3.get(var13))) {
                         if ((Integer)var4.get(var11) == 5 && !var9) {
@@ -97,7 +97,7 @@ public class CoachJobMarket implements Serializable {
                for (int var19 = 0; var19 < var8.length; var19++) {
                   if (var8[var19] >= 1 && var5.size() < var8.length) {
                      for (int var22 = 0; var22 < var3.size(); var22++) {
-                        if (((Club)var3.get(var22)).getReputacao() == var8[var19] && !var5.contains(var3.get(var22))) {
+                        if (((Club)var3.get(var22)).getReputation() == var8[var19] && !var5.contains(var3.get(var22))) {
                            if (((Club)var3.get(var22)).gg() == 5 && !var9) {
                               var5.add((Club)var3.get(var22));
                               var9 = true;
@@ -132,7 +132,7 @@ public class CoachJobMarket implements Serializable {
                   var23 = (Club)var3.get(var14);
                   if (((Club)var3.get(var14)).getNivel() < 18) {
                      var21 = true;
-                  } else if (var18 != null && var18.getClub() != null && var18.getClub().getReputacao() >= 3) {
+                  } else if (var18 != null && var18.getClub() != null && var18.getClub().getReputation() >= 3) {
                      var21 = true;
                   }
                }
@@ -203,7 +203,7 @@ public class CoachJobMarket implements Serializable {
       }
 
       boolean var6 = false;
-      if (coach.isUserControlled() && (coach.getLastManagedDivisionIndex() < 2 || coach.getReputacao() > 3)) {
+      if (coach.isUserControlled() && (coach.getLastManagedDivisionIndex() < 2 || coach.getReputation() > 3)) {
          var6 = true;
       }
 
@@ -354,9 +354,9 @@ public class CoachJobMarket implements Serializable {
          Collections.shuffle(var3);
          int[][] var24 = new int[][]{{2, 1, 1, -1, -1}, {2, 2, 1, 1, 1}, {3, 2, 2, 1, 1}, {4, 3, 2, 2, 1}, {5, 4, 5, 3, 2}, {5, 4, 4, 3, 2}};
          int[][] var26 = new int[][]{{-1, -1, -1, -1, -1}, {2, 2, 1, 1, 1, 1}, {2, 2, 1, 1, 1, 1}, {4, 3, 2, 2, 2, 1}, {5, 4, 4, 3, 2, 1}, {5, 5, 4, 4, 3, 2}};
-         int var28 = coach.getReputacao();
-         if (coach.getClub() != null && coach.getClub().getReputacao() > var28) {
-            var28 = coach.getClub().getReputacao();
+         int var28 = coach.getReputation();
+         if (coach.getClub() != null && coach.getClub().getReputation() > var28) {
+            var28 = coach.getClub().getReputation();
          }
 
          int[] var11 = var24[var28];
@@ -382,7 +382,7 @@ public class CoachJobMarket implements Serializable {
                   var13[((Club)var3.get(var16)).gg()]++;
                }
 
-               if (var15 == ((Club)var3.get(var16)).gg() && ((Club)var3.get(var16)).getReputacao() >= 4 && !var4.contains(var3.get(var16))) {
+               if (var15 == ((Club)var3.get(var16)).gg() && ((Club)var3.get(var16)).getReputation() >= 4 && !var4.contains(var3.get(var16))) {
                   var4.add((Club)var3.get(var16));
                }
             }
@@ -402,7 +402,7 @@ public class CoachJobMarket implements Serializable {
                   for (int var40 = 0; var40 < var11.length; var40++) {
                      if (var11[var40] >= 1) {
                         for (int var41 = 0; var41 < var3.size(); var41++) {
-                           if (((Club)var3.get(var41)).getReputacao() == var11[var40]
+                           if (((Club)var3.get(var41)).getReputation() == var11[var40]
                               && ((Club)var3.get(var41)).gg() == (Integer)var5.get(var38)
                               && !var2.contains(var3.get(var41))) {
                               if ((Integer)var5.get(var38) == 5 && !var33) {
@@ -428,7 +428,7 @@ public class CoachJobMarket implements Serializable {
                   for (int var37 = 0; var37 < var11.length; var37++) {
                      if (var11[var37] >= 1 && var2.size() < var11.length) {
                         for (int var39 = 0; var39 < var3.size(); var39++) {
-                           if (((Club)var3.get(var39)).getReputacao() == var11[var37] && !var2.contains(var3.get(var39))) {
+                           if (((Club)var3.get(var39)).getReputation() == var11[var37] && !var2.contains(var3.get(var39))) {
                               if (((Club)var3.get(var39)).gg() == 5 && !var33) {
                                  var2.add((Club)var3.get(var39));
                                  var33 = true;
@@ -449,7 +449,7 @@ public class CoachJobMarket implements Serializable {
             for (int var32 = 0; var32 < var11.length; var32++) {
                if (var11[var32] >= 1) {
                   for (int var35 = 0; var35 < var3.size(); var35++) {
-                     if (((Club)var3.get(var35)).getReputacao() == var11[var32] && !var2.contains(var3.get(var35))) {
+                     if (((Club)var3.get(var35)).getReputation() == var11[var32] && !var2.contains(var3.get(var35))) {
                         var2.add((Club)var3.get(var35));
                         break;
                      }
@@ -476,7 +476,7 @@ public class CoachJobMarket implements Serializable {
                var31 = (Club)var3.get(var34);
                if (((Club)var3.get(var34)).getNivel() < 18) {
                   var30 = true;
-               } else if (var27 != null && var27.getClub() != null && var27.getClub().getReputacao() >= 3) {
+               } else if (var27 != null && var27.getClub() != null && var27.getClub().getReputation() >= 3) {
                   var30 = true;
                }
             }

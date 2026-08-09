@@ -81,36 +81,36 @@ public class C0350 extends JPanel {
       ArrayList var7 = new ArrayList();
 
       for (int var8 = 0; var8 < var1.size(); var8++) {
-         if (((Club)var1.get(var8)).getReputacao() == 1) {
+         if (((Club)var1.get(var8)).getReputation() == 1) {
             var3.add((Club)var1.get(var8));
-         } else if (((Club)var1.get(var8)).getReputacao() == 2) {
+         } else if (((Club)var1.get(var8)).getReputation() == 2) {
             var4.add((Club)var1.get(var8));
-         } else if (((Club)var1.get(var8)).getReputacao() == 3) {
+         } else if (((Club)var1.get(var8)).getReputation() == 3) {
             var5.add((Club)var1.get(var8));
-         } else if (((Club)var1.get(var8)).getReputacao() == 4) {
+         } else if (((Club)var1.get(var8)).getReputation() == 4) {
             var6.add((Club)var1.get(var8));
-         } else if (((Club)var1.get(var8)).getReputacao() == 5) {
+         } else if (((Club)var1.get(var8)).getReputation() == 5) {
             var7.add((Club)var1.get(var8));
          }
       }
 
       if (this.w == 0) {
-         if (this.Es.getReputacao() == 5) {
+         if (this.Es.getReputation() == 5) {
             this.a(var2, var7, 1);
             this.a(var2, var6, 1);
             this.a(var2, var5, 2);
             this.a(var2, var4, 1);
             this.a(var2, var3, 1);
-         } else if (this.Es.getReputacao() == 4) {
+         } else if (this.Es.getReputation() == 4) {
             this.a(var2, var6, 1);
             this.a(var2, var5, 1);
             this.a(var2, var4, 2);
             this.a(var2, var3, 1);
-         } else if (this.Es.getReputacao() == 3) {
+         } else if (this.Es.getReputation() == 3) {
             this.a(var2, var5, 1);
             this.a(var2, var4, 2);
             this.a(var2, var3, 1);
-         } else if (this.Es.getReputacao() == 2) {
+         } else if (this.Es.getReputation() == 2) {
             this.a(var2, var5, 2);
             this.a(var2, var4, 2);
             this.a(var2, var3, 1);
@@ -118,22 +118,22 @@ public class C0350 extends JPanel {
             this.a(var2, var4, 2);
             this.a(var2, var3, 2);
          }
-      } else if (this.Es.getReputacao() == 5) {
+      } else if (this.Es.getReputation() == 5) {
          this.a(var2, var7, 1);
          this.a(var2, var6, 2);
          this.a(var2, var5, 3);
          this.a(var2, var4, 3);
          this.a(var2, var3, 3);
-      } else if (this.Es.getReputacao() == 4) {
+      } else if (this.Es.getReputation() == 4) {
          this.a(var2, var6, 2);
          this.a(var2, var5, 2);
          this.a(var2, var4, 3);
          this.a(var2, var3, 3);
-      } else if (this.Es.getReputacao() == 3) {
+      } else if (this.Es.getReputation() == 3) {
          this.a(var2, var5, 2);
          this.a(var2, var4, 3);
          this.a(var2, var3, 3);
-      } else if (this.Es.getReputacao() == 2) {
+      } else if (this.Es.getReputation() == 2) {
          this.a(var2, var5, 2);
          this.a(var2, var4, 3);
          this.a(var2, var3, 3);

@@ -26,13 +26,13 @@ public abstract class C0677 {
             var3 += 5;
          }
       } else {
-         if (club.getReputacao() == 5) {
+         if (club.getReputation() == 5) {
             var3 = (byte)20;
-         } else if (club.getReputacao() == 4) {
+         } else if (club.getReputation() == 4) {
             var3 = (byte)15;
-         } else if (club.getReputacao() == 3) {
+         } else if (club.getReputation() == 3) {
             var3 = (byte)12;
-         } else if (club.getReputacao() == 2) {
+         } else if (club.getReputation() == 2) {
             var3 = (byte)7;
          } else {
             var3 = (byte)5;
@@ -71,7 +71,7 @@ public abstract class C0677 {
                   var9 = 1;
             }
          } else {
-            switch (club.getReputacao()) {
+            switch (club.getReputation()) {
                case 1:
                   var9 = 1;
                   break;
@@ -97,7 +97,7 @@ public abstract class C0677 {
          player.j(var10, var9);
       }
 
-      player.h(false);
+      player.setYouthPlayer(false);
       player.ar(GamePersistence.careerState.getSeasonNumber());
       player.d(0.0);
       player.renewContract(180L, true);
@@ -111,7 +111,7 @@ public abstract class C0677 {
          }
       } else if (player.isWorldClassPlayer()) {
          player.setStarPlayer(true);
-         player.j(false);
+         player.setWorldClassPlayer(false);
       } else if (new Random().nextInt(200) == 1) {
          player.setStarPlayer(true);
       }
@@ -198,7 +198,7 @@ public abstract class C0677 {
 
       var3 = var3 - 5 + new Random().nextInt(8);
       player.setOverallStrength(var3);
-      player.h(false);
+      player.setYouthPlayer(false);
       player.ar(GamePersistence.careerState.getSeasonNumber());
       player.d(0.0);
       player.renewContract(180L, true);

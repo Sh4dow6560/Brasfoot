@@ -322,7 +322,7 @@ public class Match implements Serializable {
       return this.homeClub;
    }
 
-   public void s(Club club) {
+   public void setHomeClub(Club club) {
       this.homeClub = club;
    }
 
@@ -330,7 +330,7 @@ public class Match implements Serializable {
       return this.awayClub;
    }
 
-   public void t(Club club) {
+   public void setAwayClub(Club club) {
       this.awayClub = club;
    }
 
@@ -1139,7 +1139,7 @@ public class Match implements Serializable {
       MatchEngine var3 = null;
       if (this.matchEngine == null) {
          var3 = new MatchEngine(this);
-         this.a(var3);
+         this.setMatchEngine(var3);
       } else {
          var3 = this.matchEngine;
       }
@@ -1176,7 +1176,7 @@ public class Match implements Serializable {
 
    public void V() {
       MatchEngine var1 = new MatchEngine(this);
-      this.a(var1);
+      this.setMatchEngine(var1);
       int[] var10000 = new int[]{-1, -1};
       if (this.getCompetitionStage() instanceof KnockoutStage) {
          if (((KnockoutStage)this.getCompetitionStage()).zu()) {
@@ -1405,7 +1405,7 @@ public class Match implements Serializable {
       return this.possessionPercentages;
    }
 
-   public void d(int[] is) {
+   public void setPossessionPercentages(int[] is) {
       this.possessionPercentages = is;
    }
 
@@ -1413,7 +1413,7 @@ public class Match implements Serializable {
       return this.shots;
    }
 
-   public void e(int[] is) {
+   public void setShots(int[] is) {
       this.shots = is;
    }
 
@@ -1421,7 +1421,7 @@ public class Match implements Serializable {
       return this.tackles;
    }
 
-   public void f(int[] is) {
+   public void setTackles(int[] is) {
       this.tackles = is;
    }
 
@@ -1429,7 +1429,7 @@ public class Match implements Serializable {
       return this.misplacedPasses;
    }
 
-   public void g(int[] is) {
+   public void setMisplacedPasses(int[] is) {
       this.misplacedPasses = is;
    }
 
@@ -1437,7 +1437,7 @@ public class Match implements Serializable {
       return this.fouls;
    }
 
-   public void h(int[] is) {
+   public void setFouls(int[] is) {
       this.fouls = is;
    }
 
@@ -1640,7 +1640,7 @@ public class Match implements Serializable {
       return this.matchEngine;
    }
 
-   public void a(MatchEngine c0746) {
+   public void setMatchEngine(MatchEngine c0746) {
       this.matchEngine = c0746;
    }
 

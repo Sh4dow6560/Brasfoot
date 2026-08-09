@@ -602,11 +602,11 @@ public class Coach implements Serializable {
       this.fanApproval = i;
    }
 
-   public int getReputacao() {
+   public int getReputation() {
       return this.reputation;
    }
 
-   public void setReputacao(int i) {
+   public void setReputation(int i) {
       this.reputation = i;
    }
 
@@ -638,7 +638,7 @@ public class Coach implements Serializable {
       }
 
       if (club != null) {
-         this.setReputacao(club.getReputacao());
+         this.setReputation(club.getReputation());
       }
 
       this.setCareerStartSeason(GamePersistence.careerState.getSeasonNumber());
@@ -662,7 +662,7 @@ public class Coach implements Serializable {
          }
 
          GamePersistence.careerState.v(this.getClub().getPais());
-         this.getClub().k(false);
+         this.getClub().setUserControlled(false);
          this.getClub().resetFinances();
          this.getClub().M(true);
          GamePersistence.careerState.aN().remove(this.getClub());
@@ -685,7 +685,7 @@ public class Coach implements Serializable {
       this.clubTenure = 0;
       club.resetFinances();
       if (this.isUserControlled()) {
-         club.k(true);
+         club.setUserControlled(true);
          GamePersistence.careerState.aN().add(club);
          club.ks();
          new C0799(this, 0, 74, club.getNome(), "");
@@ -869,7 +869,7 @@ public class Coach implements Serializable {
    public static void createUserCoach(String string, int i) {
       Coach var2 = new Coach(string);
       var2.setNationalityId(i);
-      var2.setReputacao(3);
+      var2.setReputation(3);
       if (!GamePersistence.careerState.bD()) {
          var2.setUserControlled(true);
       }

@@ -128,7 +128,7 @@ public class C0498 extends JPanel {
                ((C0795)this.AE.get(var4[var3])).a((Player)((C0706)this.vu.zN().get(var2)).lV().get(var3));
                if (((C0706)this.vu.zN().get(var2)).lW().get(var3) != null) {
                   ((C0795)this.AE.get(var4[var3])).h(((Club)((C0706)this.vu.zN().get(var2)).lW().get(var3)).kS());
-                  ((C0795)this.AE.get(var4[var3])).n((Club)((C0706)this.vu.zN().get(var2)).lW().get(var3));
+                  ((C0795)this.AE.get(var4[var3])).setClub((Club)((C0706)this.vu.zN().get(var2)).lW().get(var3));
                } else {
                   ((C0795)this.AE.get(var4[var3])).h(this.AL);
                }
@@ -145,7 +145,7 @@ public class C0498 extends JPanel {
                ((C0795)this.AE.get(var4[var6])).a((Player)((C0706)this.vu.zI().get(var5)).lV().get(var6));
                if (((C0706)this.vu.zI().get(var5)).lW().get(var6) != null) {
                   ((C0795)this.AE.get(var4[var6])).h(((Club)((C0706)this.vu.zI().get(var5)).lW().get(var6)).kS());
-                  ((C0795)this.AE.get(var4[var6])).n((Club)((C0706)this.vu.zI().get(var5)).lW().get(var6));
+                  ((C0795)this.AE.get(var4[var6])).setClub((Club)((C0706)this.vu.zI().get(var5)).lW().get(var6));
                } else {
                   ((C0795)this.AE.get(var4[var6])).h(this.AL);
                }

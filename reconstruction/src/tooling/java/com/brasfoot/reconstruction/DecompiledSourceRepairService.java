@@ -10,6 +10,8 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -43,6 +45,7 @@ final class DecompiledSourceRepairService {
       throw new IOException("Unsupported decompiler repair configuration");
     }
     Map<String, String> mappings = readNamedMappings();
+    SourceNameTranslations translations = readSourceNameTranslations();
     int replacementCount = 0;
     for (ClassRepair repair : configuration.repairs()) {
       String namedClass = mappings.get(repair.officialClass());
@@ -55,13 +58,15 @@ final class DecompiledSourceRepairService {
       }
       String text = Files.readString(source, StandardCharsets.UTF_8);
       for (Replacement replacement : repair.replacements()) {
-        int occurrences = countOccurrences(text, replacement.search());
+        String search = translations.translate(replacement.search());
+        String replacementText = translations.translate(replacement.replacement());
+        int occurrences = countOccurrences(text, search);
         if (occurrences != replacement.expectedOccurrences()) {
           throw new IllegalStateException("Repair occurrence mismatch for "
               + repair.officialClass() + ": expected " + replacement.expectedOccurrences()
-              + " but found " + occurrences + " for " + replacement.search());
+              + " but found " + occurrences + " for " + search);
         }
-        text = text.replace(replacement.search(), replacement.replacement());
+        text = text.replace(search, replacementText);
         replacementCount += occurrences;
       }
       Files.writeString(source, text, StandardCharsets.UTF_8);
@@ -204,6 +209,38 @@ final class DecompiledSourceRepairService {
     return mappings;
   }
 
+  private SourceNameTranslations readSourceNameTranslations() throws IOException {
+    Map<String, String> classes = new LinkedHashMap<>();
+    Map<String, String> qualifiedMembers = new LinkedHashMap<>();
+    String intermediaryOwner = null;
+    String namedOwner = null;
+    for (String line : Files.readAllLines(context.mappingsFile(), StandardCharsets.UTF_8)) {
+      if (line.startsWith("c\t")) {
+        String[] values = line.split("\t", -1);
+        intermediaryOwner = simpleName(values[2]);
+        namedOwner = simpleName(values[3]);
+        if (!intermediaryOwner.equals(namedOwner)) {
+          classes.put(intermediaryOwner, namedOwner);
+        }
+      } else if (intermediaryOwner != null
+          && (line.startsWith("\tf\t") || line.startsWith("\tm\t"))) {
+        String[] values = line.split("\t", -1);
+        String intermediaryMember = values[4];
+        String namedMember = values[5];
+        String input = intermediaryOwner + "." + intermediaryMember;
+        String output = namedOwner + "." + namedMember;
+        if (!input.equals(output)) {
+          qualifiedMembers.put(input, output);
+        }
+      }
+    }
+    return new SourceNameTranslations(classes, qualifiedMembers);
+  }
+
+  private String simpleName(String internalName) {
+    return internalName.substring(internalName.lastIndexOf('/') + 1);
+  }
+
   private int countOccurrences(String text, String search) {
     if (search.isEmpty()) {
       throw new IllegalArgumentException("Repair search text must not be empty");
@@ -245,5 +282,39 @@ final class DecompiledSourceRepairService {
   }
 
   record Replacement(String search, String replacement, int expectedOccurrences) {
+  }
+
+  private static final class SourceNameTranslations {
+    private final List<Map.Entry<String, String>> qualifiedMembers;
+    private final List<Map.Entry<String, String>> classes;
+
+    private SourceNameTranslations(
+        Map<String, String> classes, Map<String, String> qualifiedMembers) {
+      Comparator<Map.Entry<String, String>> longestFirst = Comparator
+          .comparingInt((Map.Entry<String, String> entry) -> entry.getKey().length())
+          .reversed();
+      this.qualifiedMembers = new ArrayList<>(qualifiedMembers.entrySet());
+      this.qualifiedMembers.sort(longestFirst);
+      this.classes = new ArrayList<>(classes.entrySet());
+      this.classes.sort(longestFirst);
+    }
+
+    private String translate(String source) {
+      String translated = source;
+      for (Map.Entry<String, String> member : qualifiedMembers) {
+        translated = replaceIdentifier(translated, member.getKey(), member.getValue());
+      }
+      for (Map.Entry<String, String> type : classes) {
+        translated = replaceIdentifier(translated, type.getKey(), type.getValue());
+      }
+      return translated;
+    }
+
+    private String replaceIdentifier(String source, String input, String output) {
+      return Pattern.compile("(?<![A-Za-z0-9_$])" + Pattern.quote(input)
+          + "(?![A-Za-z0-9_$])")
+          .matcher(source)
+          .replaceAll(Matcher.quoteReplacement(output));
+    }
   }
 }

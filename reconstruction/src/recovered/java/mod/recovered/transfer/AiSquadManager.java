@@ -106,9 +106,9 @@ public abstract class AiSquadManager {
       for (int var2 = 0; var2 < GamePersistence.careerState.P().size(); var2++) {
          var0 = false;
          if (!((Club)GamePersistence.careerState.P().get(var2)).isUserControlled()) {
-            if (((Club)GamePersistence.careerState.P().get(var2)).gg() != 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 5) {
+            if (((Club)GamePersistence.careerState.P().get(var2)).gg() != 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputation() < 5) {
                var0 = true;
-            } else if (((Club)GamePersistence.careerState.P().get(var2)).gg() == 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputacao() < 4) {
+            } else if (((Club)GamePersistence.careerState.P().get(var2)).gg() == 0 && ((Club)GamePersistence.careerState.P().get(var2)).getReputation() < 4) {
                var0 = true;
             }
          }

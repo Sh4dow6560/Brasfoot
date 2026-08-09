@@ -245,7 +245,7 @@ public class C0054 extends JPanel {
 
          for (int var8 = 0; var8 < var7.size(); var8++) {
             C0810 var9 = new C0810();
-            var9.n((Club)var7.get(var8));
+            var9.setClub((Club)var7.get(var8));
             var2 = ((Club)var7.get(var8)).d(c0955);
             var9.l(var2);
             if (var8 == 0) {
@@ -295,7 +295,7 @@ public class C0054 extends JPanel {
 
             for (int var10 = 0; var10 < var23.size(); var10++) {
                C0810 var11 = new C0810();
-               var11.n((Club)var23.get(var10));
+               var11.setClub((Club)var23.get(var10));
                var2 = ((Club)var23.get(var10)).d(c0955);
                var11.l(var2);
                if (var10 == 0) {

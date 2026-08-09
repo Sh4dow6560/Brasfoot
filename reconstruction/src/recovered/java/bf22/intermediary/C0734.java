@@ -294,7 +294,7 @@ public abstract class C0734 {
 
    private static void dj() {
       for (int var0 = 0; var0 < GamePersistence.careerState.P().size(); var0++) {
-         ((Club)GamePersistence.careerState.P().get(var0)).bX(var0);
+         ((Club)GamePersistence.careerState.P().get(var0)).setClubId(var0);
       }
 
       GamePersistence.careerState.w(GamePersistence.careerState.P().size());

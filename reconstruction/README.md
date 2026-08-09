@@ -69,17 +69,24 @@ Ao adicionar nomes de classes em `config/semantic-names.json`, execute
 mapeamentos. O pipeline bloqueia a ordem incorreta para proteger as fontes
 revisadas.
 
-Ao adicionar nomes de membros estaticos, membros privados, metodos de
-instancia cujo nome seja unico em toda a engine ou metodos sem argumentos
-unicos entre os demais metodos sem argumentos, execute
-`applySemanticMemberMappings` antes de `generateMappings`. A tarefa atualiza
-as referencias nas 1.032 fontes, valida a migracao e mantem uma copia de
-seguranca transacional em `build/generated`. Membros de instancia ambiguos
-continuam exigindo migracao dirigida pelo tipo. Um grupo repetido sem
-argumentos pode ser migrado junto quando todos os membros do grupo estiverem
-explicitamente configurados com o mesmo nome semantico.
+Para localizar acessores inequivocos ligados a campos ja identificados:
 
-Quando o nome e o numero de argumentos ainda colidem entre tipos diferentes,
-a migracao deve alterar somente receptores cujo tipo foi confirmado e depois
-recompilar as 1.032 fontes. Os setters centrais de `Player` sao o primeiro
-lote validado por esse procedimento dirigido.
+```powershell
+.\gradlew.bat buildSemanticCandidates semanticCoverage
+```
+
+`buildSemanticCandidates` grava a evidencia em
+`build/reports/semantic-candidates.json`. `semanticCoverage` atualiza o
+relatorio por modulo. Para aceitar e aplicar um lote de alta confianca:
+
+```powershell
+.\gradlew.bat compileRecovered
+.\gradlew.bat acceptSemanticCandidates
+.\gradlew.bat applySemanticMemberMappings
+.\gradlew.bat generateMappings compileRecovered smokeTest check
+```
+
+Os nomes aceitos ficam separados em `config/semantic-auto-names.json`. O
+migrador usa substituicao transacional nos casos simples e JavaParser Symbol
+Solver quando nomes ofuscados colidem. Declaracoes e chamadas resolvidas devem
+coincidir com o bytecode compilado antes de qualquer fonte ser substituida.

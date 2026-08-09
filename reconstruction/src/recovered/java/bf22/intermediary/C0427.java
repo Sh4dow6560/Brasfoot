@@ -124,10 +124,10 @@ public class C0427 extends JPanel {
 
       for (int var6 = 0; var6 < this.KG.size(); var6++) {
          C0785 var4 = new C0785();
-         var4.n((Club)this.KG.get(var6));
+         var4.setClub((Club)this.KG.get(var6));
          var4.a(this.w);
          if (this.w == 0) {
-            var4.dQ(((Club)this.KG.get(var6)).getReputacao());
+            var4.dQ(((Club)this.KG.get(var6)).getReputation());
          } else if (this.w == 1) {
             var4.m(((Club)this.KG.get(var6)).ld());
          } else if (this.w == 2) {
@@ -209,7 +209,7 @@ public class C0427 extends JPanel {
       this.uu.setText(this.uk.getNome());
       this.Fj.clear();
       if (this.w == 0) {
-         this.xI.setText(GameConstants.pZ[this.uk.getReputacao()]);
+         this.xI.setText(GameConstants.pZ[this.uk.getReputation()]);
       } else if (this.w == 1) {
          int[][] var1 = this.uk.lc();
          int[] var2 = this.uk.ld();
@@ -218,7 +218,7 @@ public class C0427 extends JPanel {
          for (int var3 = 1; var3 <= 14; var3++) {
             if (var1[var3][0] > 0 && this.dy(var3)) {
                C0784 var4 = new C0784();
-               var4.n(this.uk);
+               var4.setClub(this.uk);
                var4.a(var3);
                var4.m(var1[var3]);
                var4.dR(1);
@@ -232,7 +232,7 @@ public class C0427 extends JPanel {
          for (int var6 = 1; var6 <= 14; var6++) {
             if (var5[var6] > 0 && this.dy(var6)) {
                C0784 var7 = new C0784();
-               var7.n(this.uk);
+               var7.setClub(this.uk);
                var7.a(var6);
                var7.dQ(var5[var6]);
                var7.dR(2);

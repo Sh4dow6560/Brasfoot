@@ -35,8 +35,8 @@ public class C0593 extends DefaultTableCellRenderer {
          } else if (j == 3) {
             if (this.w == 0) {
                this.setText(Integer.toString(var7.getCareerScore()));
-            } else if (var7.getReputacao() < GameConstants.pZ.length) {
-               this.setText(GameConstants.pZ[var7.getReputacao()]);
+            } else if (var7.getReputation() < GameConstants.pZ.length) {
+               this.setText(GameConstants.pZ[var7.getReputation()]);
             }
          } else if (j == 4 && this.w == 0) {
             this.setText(Integer.toString(var7.getTitleCount()));

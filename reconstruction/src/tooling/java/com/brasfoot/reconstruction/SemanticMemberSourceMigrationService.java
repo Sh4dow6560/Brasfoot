@@ -64,7 +64,9 @@ final class SemanticMemberSourceMigrationService {
         String original = Files.readString(source, StandardCharsets.UTF_8);
         String migrated = migrateExternalReferences(original, migrations);
         for (MemberMigration migration : byOwner.getOrDefault(className, List.of())) {
-          migrated = migrateOwnerReference(migrated, migration);
+          if (!migration.symbolResolvedReferences()) {
+            migrated = migrateOwnerReference(migrated, migration);
+          }
         }
         if (!original.equals(migrated)) {
           changedFiles++;
@@ -74,6 +76,11 @@ final class SemanticMemberSourceMigrationService {
         Files.writeString(target, migrated, StandardCharsets.UTF_8);
       }
     }
+    List<MemberMigration> symbolMigrations = migrations.stream()
+        .filter(MemberMigration::symbolResolvedReferences)
+        .toList();
+    SymbolAwareSourceMigrationService.MigrationResult symbolResult =
+        new SymbolAwareSourceMigrationService(context).migrate(stagedRoot, symbolMigrations);
     if (sourceCount != GAME_CLASS_COUNT) {
       throw new IllegalStateException("Expected " + GAME_CLASS_COUNT
           + " tracked game sources, got " + sourceCount);
@@ -96,9 +103,10 @@ final class SemanticMemberSourceMigrationService {
       throw exception;
     }
     context.writeJson(context.reportsDir().resolve("semantic-member-source-migration.json"),
-        new MigrationReport(sourceCount, changedFiles, migrations));
+        new MigrationReport(sourceCount, changedFiles, migrations, symbolResult));
     System.out.println("Applied " + migrations.size() + " semantic member mappings across "
-        + changedFiles + " of " + sourceCount + " recovered sources.");
+        + changedFiles + " text-migrated and " + symbolResult.changedFiles()
+        + " symbol-resolved source files out of " + sourceCount + ".");
   }
 
   private List<MemberMigration> pendingMigrations(TinyState current, ArchiveData game)
@@ -166,8 +174,10 @@ final class SemanticMemberSourceMigrationService {
                 .filter(candidate -> Type.getArgumentTypes(candidate.descriptor()).length == 0)
                 .count() == 1
             || desiredName.equals(coalescedZeroArgumentName));
-    if (!externalReferences && !privateMember && !globalInstanceReferences
-        && !globalZeroArgumentReferences) {
+    boolean sourceAddressable = externalReferences || privateMember
+        || globalInstanceReferences || globalZeroArgumentReferences;
+    boolean symbolResolvedReferences = "method".equals(kind) && !sourceAddressable;
+    if (!sourceAddressable && !symbolResolvedReferences) {
       throw new IllegalStateException("Automatic source migration requires a static member, "
           + "a private member, a globally unique instance method, or a globally unique "
           + "zero-argument method: " + key);
@@ -176,13 +186,17 @@ final class SemanticMemberSourceMigrationService {
         .filter(candidate -> candidate.kind().equals(kind))
         .filter(candidate -> candidate.name().equals(officialName))
         .count();
-    if (sameNameMembers != 1) {
+    if (sameNameMembers != 1 && !"method".equals(kind)) {
       throw new IllegalStateException("Automatic source migration requires a unique member name: "
           + key);
     }
+    if (sameNameMembers != 1) {
+      symbolResolvedReferences = true;
+    }
     migrations.add(new MemberMigration(
         owner, ownerNamed, kind, officialName, descriptor, currentName, desiredName,
-        externalReferences, globalInstanceReferences, globalZeroArgumentReferences));
+        externalReferences, globalInstanceReferences, globalZeroArgumentReferences,
+        symbolResolvedReferences));
   }
 
   private Map<String, String> coalescedZeroArgumentNames(
@@ -228,6 +242,9 @@ final class SemanticMemberSourceMigrationService {
   private String migrateExternalReferences(String source, List<MemberMigration> migrations) {
     String migrated = source;
     for (MemberMigration migration : migrations) {
+      if (migration.symbolResolvedReferences()) {
+        continue;
+      }
       if (migration.externalReferences()) {
         String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
         String newReference = simpleName(migration.ownerNamed()) + "." + migration.desiredName();
@@ -264,7 +281,9 @@ final class SemanticMemberSourceMigrationService {
       }
     }
     for (MemberMigration migration : migrations) {
-      if (migration.externalReferences()) {
+      if (migration.symbolResolvedReferences()) {
+        // Symbol-aware migration validates exact declarations and references against bytecode.
+      } else if (migration.externalReferences()) {
         String oldReference = simpleName(migration.ownerNamed()) + "." + migration.currentName();
         for (Map.Entry<String, String> source : sources.entrySet()) {
           if (containsIdentifier(source.getValue(), oldReference)) {
@@ -386,7 +405,8 @@ final class SemanticMemberSourceMigrationService {
       String desiredName,
       boolean externalReferences,
       boolean globalInstanceReferences,
-      boolean globalZeroArgumentReferences) {
+      boolean globalZeroArgumentReferences,
+      boolean symbolResolvedReferences) {
     String key() {
       return ownerOfficial + ":" + kind + ":" + officialName + ":" + descriptor;
     }
@@ -395,6 +415,7 @@ final class SemanticMemberSourceMigrationService {
   record MigrationReport(
       int sourceCount,
       int changedFiles,
-      List<MemberMigration> migrations) {
+      List<MemberMigration> migrations,
+      SymbolAwareSourceMigrationService.MigrationResult symbolMigration) {
   }
 }

@@ -8,6 +8,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -129,11 +131,66 @@ final class ProjectContext {
       if (value == null) {
         return new SemanticNames(Map.of(), List.of(), List.of());
       }
-      return new SemanticNames(
+      SemanticNames base = new SemanticNames(
           value.classes() == null ? Map.of() : value.classes(),
           value.fields() == null ? List.of() : value.fields(),
           value.methods() == null ? List.of() : value.methods());
+      return mergeAutomaticSemanticNames(base);
     }
+  }
+
+  private SemanticNames mergeAutomaticSemanticNames(SemanticNames base) throws IOException {
+    Path automaticPath = projectDir.resolve("config/semantic-auto-names.json");
+    if (!Files.isRegularFile(automaticPath)) {
+      return base;
+    }
+    AutomaticSemanticNames automatic;
+    try (Reader reader = Files.newBufferedReader(automaticPath, StandardCharsets.UTF_8)) {
+      automatic = JSON.fromJson(reader, AutomaticSemanticNames.class);
+    }
+    if (automatic == null) {
+      return base;
+    }
+
+    List<FieldSemanticName> fields = new ArrayList<>(base.fields());
+    List<MethodSemanticName> methods = new ArrayList<>(base.methods());
+    Map<String, String> fieldNames = new HashMap<>();
+    Map<String, String> methodNames = new HashMap<>();
+    for (FieldSemanticName field : fields) {
+      fieldNames.put(fieldKey(field), field.named());
+    }
+    for (MethodSemanticName method : methods) {
+      methodNames.put(methodKey(method), method.named());
+    }
+    for (FieldSemanticName field : automatic.fields() == null
+        ? List.<FieldSemanticName>of() : automatic.fields()) {
+      mergeSemanticName(fields, fieldNames, fieldKey(field), field.named(), field);
+    }
+    for (MethodSemanticName method : automatic.methods() == null
+        ? List.<MethodSemanticName>of() : automatic.methods()) {
+      mergeSemanticName(methods, methodNames, methodKey(method), method.named(), method);
+    }
+    return new SemanticNames(base.classes(), List.copyOf(fields), List.copyOf(methods));
+  }
+
+  private <T> void mergeSemanticName(
+      List<T> target, Map<String, String> names, String key, String named, T value) {
+    String previous = names.putIfAbsent(key, named);
+    if (previous == null) {
+      target.add(value);
+    } else if (!previous.equals(named)) {
+      throw new IllegalStateException(
+          "Conflicting base and automatic semantic names for " + key
+              + ": " + previous + " != " + named);
+    }
+  }
+
+  private String fieldKey(FieldSemanticName field) {
+    return field.owner() + ":" + field.name() + ":" + field.descriptor();
+  }
+
+  private String methodKey(MethodSemanticName method) {
+    return method.owner() + ":" + method.name() + ":" + method.descriptor();
   }
 
   void writeJson(Path path, Object value) throws IOException {
@@ -181,5 +238,11 @@ final class ProjectContext {
   }
 
   record MethodSemanticName(String owner, String name, String descriptor, String named) {
+  }
+
+  record AutomaticSemanticNames(
+      int schemaVersion,
+      List<FieldSemanticName> fields,
+      List<MethodSemanticName> methods) {
   }
 }

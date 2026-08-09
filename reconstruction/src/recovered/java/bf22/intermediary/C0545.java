@@ -95,10 +95,10 @@ public class C0545 extends JPanel {
 
       for (int var4 = 0; var4 < this.KG.size(); var4++) {
          C0785 var3 = new C0785();
-         var3.n((Club)this.KG.get(var4));
+         var3.setClub((Club)this.KG.get(var4));
          var3.a(this.w);
          if (this.w == 0) {
-            var3.dQ(((Club)this.KG.get(var4)).getReputacao());
+            var3.dQ(((Club)this.KG.get(var4)).getReputation());
          } else if (this.w == 1) {
             var3.m(((Club)this.KG.get(var4)).ld());
          } else if (this.w == 2) {

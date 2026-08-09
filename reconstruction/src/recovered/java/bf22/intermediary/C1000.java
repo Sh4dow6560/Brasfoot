@@ -5,8 +5,8 @@ import mod.recovered.model.Club;
 
 class C1000 implements Comparator<Club> {
    public int compare(Club club, Club club2) {
-      int var3 = club.getReputacao();
-      int var4 = club2.getReputacao();
+      int var3 = club.getReputation();
+      int var4 = club2.getReputation();
       int var5 = club.getNivel();
       int var6 = club2.getNivel();
       int var7 = club.iS();

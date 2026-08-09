@@ -30,8 +30,8 @@
       "officialClass": "a/hz",
       "replacements": [
         {
-          "search": "C0745.ae(C0745.SR.br());",
-          "replacement": "if (false) {\n            throw new FileNotFoundException();\n         }\n         C0745.ae(C0745.SR.br());",
+          "search": "GamePersistence.saveCareer(GamePersistence.careerState.getSaveName());",
+          "replacement": "if (false) {\n            throw new FileNotFoundException();\n         }\n         GamePersistence.saveCareer(GamePersistence.careerState.getSaveName());",
           "expectedOccurrences": 1
         }
       ]

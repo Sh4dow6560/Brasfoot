@@ -5,8 +5,8 @@ import mod.recovered.model.Coach;
 
 class C0370 implements Comparator<Coach> {
    public int compare(Coach coach, Coach coach2) {
-      int var3 = coach.getReputacao();
-      int var4 = coach2.getReputacao();
+      int var3 = coach.getReputation();
+      int var4 = coach2.getReputation();
       return var3 != var4 ? var4 - var3 : 0;
    }
 }

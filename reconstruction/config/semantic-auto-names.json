@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "fields": [],
+  "methods": [
+    {
+      "owner": "best/F",
+      "name": "d",
+      "descriptor": "(J)V",
+      "named": "setInjuryEndTimeMillis"
+    },
+    {
+      "owner": "best/F",
+      "name": "h",
+      "descriptor": "(Ljava/lang/Boolean;)V",
+      "named": "setYouthPlayer"
+    },
+    {
+      "owner": "best/F",
+      "name": "j",
+      "descriptor": "(Ljava/lang/Boolean;)V",
+      "named": "setWorldClassPlayer"
+    },
+    {
+      "owner": "best/I",
+      "name": "a",
+      "descriptor": "(Lc/b;)V",
+      "named": "setMatchEngine"
+    },
+    {
+      "owner": "best/I",
+      "name": "d",
+      "descriptor": "([I)V",
+      "named": "setPossessionPercentages"
+    },
+    {
+      "owner": "best/I",
+      "name": "e",
+      "descriptor": "([I)V",
+      "named": "setShots"
+    },
+    {
+      "owner": "best/I",
+      "name": "f",
+      "descriptor": "([I)V",
+      "named": "setTackles"
+    },
+    {
+      "owner": "best/I",
+      "name": "g",
+      "descriptor": "([I)V",
+      "named": "setMisplacedPasses"
+    },
+    {
+      "owner": "best/I",
+      "name": "h",
+      "descriptor": "([I)V",
+      "named": "setFouls"
+    },
+    {
+      "owner": "best/I",
+      "name": "s",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setHomeClub"
+    },
+    {
+      "owner": "best/I",
+      "name": "t",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setAwayClub"
+    },
+    {
+      "owner": "best/ah",
+      "name": "N",
+      "descriptor": "(Ljava/util/ArrayList;)V",
+      "named": "setSeniorPlayers"
+    },
+    {
+      "owner": "best/ah",
+      "name": "S",
+      "descriptor": "(Ljava/util/ArrayList;)V",
+      "named": "setYouthPlayers"
+    },
+    {
+      "owner": "best/ah",
+      "name": "a",
+      "descriptor": "(Lbest/v;)V",
+      "named": "setStadium"
+    },
+    {
+      "owner": "best/ah",
+      "name": "a",
+      "descriptor": "(Lcomponents/ag;)V",
+      "named": "setLineupPreset"
+    },
+    {
+      "owner": "best/ah",
+      "name": "bX",
+      "descriptor": "(I)V",
+      "named": "setClubId"
+    },
+    {
+      "owner": "best/ah",
+      "name": "getReputacao",
+      "descriptor": "()I",
+      "named": "getReputation"
+    },
+    {
+      "owner": "best/ah",
+      "name": "k",
+      "descriptor": "(Ljava/lang/Boolean;)V",
+      "named": "setUserControlled"
+    },
+    {
+      "owner": "best/ah",
+      "name": "setReputacao",
+      "descriptor": "(I)V",
+      "named": "setReputation"
+    },
+    {
+      "owner": "best/al",
+      "name": "getReputacao",
+      "descriptor": "()I",
+      "named": "getReputation"
+    },
+    {
+      "owner": "best/al",
+      "name": "setReputacao",
+      "descriptor": "(I)V",
+      "named": "setReputation"
+    },
+    {
+      "owner": "best/f",
+      "name": "n",
+      "descriptor": "(Ljava/util/ArrayList;)V",
+      "named": "setScheduleDays"
+    },
+    {
+      "owner": "c/b",
+      "name": "hY",
+      "descriptor": "()[I",
+      "named": "getPossessionWins"
+    },
+    {
+      "owner": "components/ad",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/ae",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/af",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/ah",
+      "name": "bX",
+      "descriptor": "(I)V",
+      "named": "setClubId"
+    },
+    {
+      "owner": "components/ak",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/ao",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/e",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    },
+    {
+      "owner": "components/h",
+      "name": "n",
+      "descriptor": "(Lbest/ah;)V",
+      "named": "setClub"
+    }
+  ]
+}

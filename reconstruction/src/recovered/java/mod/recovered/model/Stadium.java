@@ -35,18 +35,18 @@ public class Stadium implements Serializable {
    private void h(Club club) {
       if (club != null) {
          Random var2 = new Random();
-         if (club.getReputacao() >= 4) {
+         if (club.getReputation() >= 4) {
             if (var2.nextInt(100) >= 95) {
                this.dq = 1;
             }
-         } else if (club.getReputacao() == 3) {
+         } else if (club.getReputation() == 3) {
             int var3 = var2.nextInt(100);
             if (var3 >= 50) {
                this.dq = 1;
             } else if (var3 <= 5) {
                this.dq = 2;
             }
-         } else if (club.getReputacao() == 2) {
+         } else if (club.getReputation() == 2) {
             int var4 = var2.nextInt(100);
             if (var4 >= 50) {
                this.dq = 1;
@@ -72,7 +72,7 @@ public class Stadium implements Serializable {
 
    public void i(Club club) {
       Random var2 = new Random();
-      if (club.getReputacao() >= 4) {
+      if (club.getReputation() >= 4) {
          if (var2.nextInt(100) >= 70) {
             this.dq = 1;
          } else {
@@ -115,7 +115,7 @@ public class Stadium implements Serializable {
          {200, 500, 50, 0}, {1000, 5000, 1200, 20}, {2000, 10000, 1500, 50}, {4000, 20000, 2500, 300}, {4500, 30000, 3500, 400}, {5000, 40000, 5500, 500}
       };
       int var11 = c0675.getHomeClub().getDivisao();
-      int var12 = c0675.getHomeClub().getReputacao();
+      int var12 = c0675.getHomeClub().getReputation();
 
       for (int var13 = 0; var13 < var8.length; var13++) {
          var8[var13] = var27[var12][var13];
@@ -151,7 +151,7 @@ public class Stadium implements Serializable {
       }
 
       double var31 = 0.0;
-      int var17 = c0675.getAwayClub().getReputacao() - c0675.getHomeClub().getReputacao();
+      int var17 = c0675.getAwayClub().getReputation() - c0675.getHomeClub().getReputation();
       double[] var18 = new double[]{0.0, 0.05, 0.1, 0.15, 0.2, 0.25};
       var31 += var18[Math.abs(var17)];
       if (var17 > 0) {
@@ -237,7 +237,7 @@ public class Stadium implements Serializable {
 
       int var3 = club.gg();
       int var4 = club.getDivisao();
-      int var5 = club.getReputacao();
+      int var5 = club.getReputation();
       if (var3 > 1) {
          var3 = 1;
       }

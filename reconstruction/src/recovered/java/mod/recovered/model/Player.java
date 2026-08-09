@@ -112,12 +112,12 @@ public class Player implements Serializable {
       if (!this.isWorldClassPlayer() && this.fp >= 2 && this.getClub() != null && this.em < 35) {
          if (this.getClub().gg() == 0) {
             if (this.getClub().getPais() == 1 || this.getClub().getPais() == 65 || this.getClub().getPais() == 97) {
-               this.j(true);
+               this.setWorldClassPlayer(true);
             } else if ((this.getClub().getPais() == 104 || this.getClub().getPais() == 72 || this.getClub().getPais() == 154) && this.fp >= 3) {
-               this.j(true);
+               this.setWorldClassPlayer(true);
             }
          } else if (this.getClub().getPais() == 29 && this.fp >= 4) {
-            this.j(true);
+            this.setWorldClassPlayer(true);
          }
       }
    }
@@ -153,9 +153,9 @@ public class Player implements Serializable {
       this.setCr1(c0689.hn);
       this.setCr2(c0689.ho);
       if (c0689.hp == 1) {
-         this.h(true);
+         this.setYouthPlayer(true);
       } else {
-         this.h(false);
+         this.setYouthPlayer(false);
       }
 
       this.setIdade(c0689.em);
@@ -327,7 +327,7 @@ public class Player implements Serializable {
       return this.injuryEndTimeMillis;
    }
 
-   public void d(long l) {
+   public void setInjuryEndTimeMillis(long l) {
       this.injuryEndTimeMillis = l;
    }
 
@@ -494,7 +494,7 @@ public class Player implements Serializable {
       return this.youthPlayer;
    }
 
-   public void h(Boolean boolean_) {
+   public void setYouthPlayer(Boolean boolean_) {
       this.youthPlayer = boolean_;
    }
 
@@ -594,7 +594,7 @@ public class Player implements Serializable {
                   var5 = 1;
             }
          } else {
-            switch (this.getClub().getReputacao()) {
+            switch (this.getClub().getReputation()) {
                case 1:
                   var4 = 5;
                   var5 = 1;
@@ -1421,20 +1421,20 @@ public class Player implements Serializable {
             {25, 30, 30, 30, 50, 60},
             {30, 30, 30, 30, 30, 30}
          };
-         if (this.getClub().getReputacao() < 0 || this.getClub().getReputacao() > 5) {
-            this.getClub().setReputacao(1);
+         if (this.getClub().getReputation() < 0 || this.getClub().getReputation() > 5) {
+            this.getClub().setReputation(1);
          }
 
-         var4 = var6[this.getClub().getDivisao()][this.getClub().getReputacao()];
-      } else if (this.getClub().getReputacao() == 5) {
+         var4 = var6[this.getClub().getDivisao()][this.getClub().getReputation()];
+      } else if (this.getClub().getReputation() == 5) {
          var4 = 100;
-      } else if (this.getClub().getReputacao() == 4) {
+      } else if (this.getClub().getReputation() == 4) {
          var4 = 100;
-      } else if (this.getClub().getReputacao() == 3) {
+      } else if (this.getClub().getReputation() == 3) {
          var4 = 70;
-      } else if (this.getClub().getReputacao() == 2) {
+      } else if (this.getClub().getReputation() == 2) {
          var4 = 40;
-      } else if (this.getClub().getReputacao() == 1) {
+      } else if (this.getClub().getReputation() == 1) {
          var4 = 30;
       } else {
          var4 = 20;
@@ -1529,9 +1529,9 @@ public class Player implements Serializable {
          var3 = this.getClub().getNivel();
          if (!this.getClub().kn()) {
             var4 = 0.03;
-            if (this.getClub().getReputacao() >= 4) {
+            if (this.getClub().getReputation() >= 4) {
                var3 = 20;
-            } else if (this.getClub().getReputacao() == 3) {
+            } else if (this.getClub().getReputation() == 3) {
                var3 = 18;
             } else {
                var3 = 12;
@@ -1662,20 +1662,20 @@ public class Player implements Serializable {
             {25, 30, 30, 30, 50, 60},
             {30, 30, 30, 30, 30, 30}
          };
-         if (this.getClub().getReputacao() < 0 || this.getClub().getReputacao() > 5) {
-            this.getClub().setReputacao(1);
+         if (this.getClub().getReputation() < 0 || this.getClub().getReputation() > 5) {
+            this.getClub().setReputation(1);
          }
 
-         var8 = var9[this.getClub().getDivisao()][this.getClub().getReputacao()];
-      } else if (this.getClub().getReputacao() == 5) {
+         var8 = var9[this.getClub().getDivisao()][this.getClub().getReputation()];
+      } else if (this.getClub().getReputation() == 5) {
          var8 = 100;
-      } else if (this.getClub().getReputacao() == 4) {
+      } else if (this.getClub().getReputation() == 4) {
          var8 = 100;
-      } else if (this.getClub().getReputacao() == 3) {
+      } else if (this.getClub().getReputation() == 3) {
          var8 = 65;
-      } else if (this.getClub().getReputacao() == 2) {
+      } else if (this.getClub().getReputation() == 2) {
          var8 = 40;
-      } else if (this.getClub().getReputacao() == 1) {
+      } else if (this.getClub().getReputation() == 1) {
          var8 = 30;
       } else {
          var8 = 20;
@@ -1781,9 +1781,9 @@ public class Player implements Serializable {
       double var7 = 0.0;
       double var9 = this.em - 31;
       if (!this.getClub().kn()) {
-         if (this.getClub().getReputacao() >= 4) {
+         if (this.getClub().getReputation() >= 4) {
             var1 = 1;
-         } else if (this.getClub().getReputacao() >= 3) {
+         } else if (this.getClub().getReputation() >= 3) {
             var1 = 2;
          } else {
             var1 = 3;
@@ -2085,7 +2085,7 @@ public class Player implements Serializable {
          var10 = 5;
       }
 
-      if (var6.getReputacao() < 3) {
+      if (var6.getReputation() < 3) {
          var10 = 5;
       }
 
@@ -2152,7 +2152,7 @@ public class Player implements Serializable {
       int var3 = 4;
       int[] var4 = new int[]{1, 4, 5, 6, 6, 6};
       if (var2 != null && this.em >= 20) {
-         var3 = var4[var2.getReputacao()];
+         var3 = var4[var2.getReputation()];
          int[] var5 = var2.J(true);
          int[] var6 = new int[]{3, 5, 5, 8, 6};
          if (this.es >= var3 && var5[this.en] < var6[this.en]) {
@@ -2194,7 +2194,7 @@ public class Player implements Serializable {
       var6.n(club);
       int var11 = new Random().nextInt(100) + 1;
       byte var8 = 1;
-      if (club.getNivel() < 19 && club.getReputacao() <= 3) {
+      if (club.getNivel() < 19 && club.getReputation() <= 3) {
          if (club.getNivel() >= 15) {
             if (var11 <= 2) {
                var8 = 1;
@@ -2533,7 +2533,7 @@ public class Player implements Serializable {
       this.setStatus(c0914.getStatus());
       this.setCr1(c0914.getCr1());
       this.setCr2(c0914.getCr2());
-      this.h(bl);
+      this.setYouthPlayer(bl);
       this.setIdade(c0914.getIdade());
       this.fG();
    }
@@ -3466,7 +3466,7 @@ public class Player implements Serializable {
       this.eU = arrayList;
    }
 
-   public void j(Boolean boolean_) {
+   public void setWorldClassPlayer(Boolean boolean_) {
       this.worldClassPlayer = boolean_;
    }
 
@@ -3476,7 +3476,7 @@ public class Player implements Serializable {
 
    public void ay(int i) {
       if (this.isWorldClassPlayer() && this.getIdade() > 34) {
-         this.j(false);
+         this.setWorldClassPlayer(false);
       }
 
       this.fp = i;

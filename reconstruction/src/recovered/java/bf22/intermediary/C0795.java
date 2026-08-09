@@ -647,7 +647,7 @@ public class C0795 {
       return new ImageIcon(var14);
    }
 
-   public void n(Club club) {
+   public void setClub(Club club) {
       this.club = club;
    }
 

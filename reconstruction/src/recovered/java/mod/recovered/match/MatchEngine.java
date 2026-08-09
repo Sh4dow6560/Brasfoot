@@ -436,28 +436,28 @@ public class MatchEngine {
 
       if (this.match != null && this.match.getCompetition().b() == 7) {
          if (this.match.getHomeClub() != null && player.getPais() == this.match.getHomeClub().getPais()) {
-            if (this.match.getHomeClub().getReputacao() < 3) {
+            if (this.match.getHomeClub().getReputation() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.match.getHomeClub().getReputacao() == 3) {
+            } else if (this.match.getHomeClub().getReputation() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.match.getHomeClub().getReputacao() == 4) {
+            } else if (this.match.getHomeClub().getReputation() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
          } else if (this.match.getAwayClub() != null && player.getPais() == this.match.getAwayClub().getPais()) {
-            if (this.match.getAwayClub().getReputacao() < 3) {
+            if (this.match.getAwayClub().getReputation() < 3) {
                var2 = (int)Math.round(var2 * 0.65);
-            } else if (this.match.getAwayClub().getReputacao() == 3) {
+            } else if (this.match.getAwayClub().getReputation() == 3) {
                var2 = (int)Math.round(var2 * 0.85);
-            } else if (this.match.getAwayClub().getReputacao() == 4) {
+            } else if (this.match.getAwayClub().getReputation() == 4) {
                var2 = (int)Math.round(var2 * 0.95);
             }
          }
       }
 
       if (this.match != null && this.match.getCompetition().b() == 4) {
-         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputation() < 3) {
             var2 = (int)Math.round(var2 * 0.75);
-         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputation() == 3) {
             var2 = (int)Math.round(var2 * 0.85);
          } else if (player.getClub() != null && player.getClub().getPais() == 29) {
             var2 = (int)Math.round(var2 * 0.9);
@@ -465,9 +465,9 @@ public class MatchEngine {
       }
 
       if (this.match != null && this.match.getCompetition().b() == 5) {
-         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputation() < 3) {
             var2 = (int)Math.round(var2 * 0.55);
-         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputation() == 3) {
             var2 = (int)Math.round(var2 * 0.75);
          } else if (player.getClub() != null && player.getClub().gg() != 0) {
             var2 = (int)Math.round(var2 * 0.9);
@@ -475,17 +475,17 @@ public class MatchEngine {
       }
 
       if (this.match != null && this.match.getCompetition().b() == 1) {
-         if (player.getClub() != null && player.getClub().getReputacao() < 3) {
+         if (player.getClub() != null && player.getClub().getReputation() < 3) {
             var2 = (int)Math.round(var2 * 0.85);
-         } else if (player.getClub() != null && player.getClub().getReputacao() == 3) {
+         } else if (player.getClub() != null && player.getClub().getReputation() == 3) {
             var2 = (int)Math.round(var2 * 0.95);
          }
       }
 
       if (this.match != null
          && (this.match.getCompetition().b() == 3 || this.match.getCompetition().b() == 2)
-         && this.match.getHomeClub().getReputacao() < 3
-         && this.match.getAwayClub().getReputacao() >= 3
+         && this.match.getHomeClub().getReputation() < 3
+         && this.match.getAwayClub().getReputation() >= 3
          && player.getClub() != null
          && player.getClub().equals(this.match.getAwayClub())) {
          var2 = (int)Math.round(var2 * 0.8);
@@ -660,7 +660,7 @@ public class MatchEngine {
          var15 = TV;
       }
 
-      if (this.goalCounts[this.activeTeamIndex] >= 2 && this.clubs[this.getOpposingTeamIndex()].getReputacao() - this.clubs[this.activeTeamIndex].getReputacao() >= 2) {
+      if (this.goalCounts[this.activeTeamIndex] >= 2 && this.clubs[this.getOpposingTeamIndex()].getReputation() - this.clubs[this.activeTeamIndex].getReputation() >= 2) {
          var15 = TW;
       }
 
@@ -1130,7 +1130,7 @@ public class MatchEngine {
       return this.defensiveTackles;
    }
 
-   public int[] hY() {
+   public int[] getPossessionWins() {
       return this.possessionWins;
    }
 

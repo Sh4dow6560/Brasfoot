@@ -32,6 +32,10 @@ public final class ReconstructionTool {
           new SemanticSourceMigrationService(context).migrate();
       case "apply-semantic-member-mappings" ->
           new SemanticMemberSourceMigrationService(context).migrate();
+      case "build-semantic-candidates" -> new SemanticCandidateService(context).build();
+      case "accept-semantic-candidates" ->
+          new SemanticCandidateService(context).acceptHighConfidence();
+      case "semantic-coverage" -> new SemanticCoverageService(context).build();
       case "generate-mappings" -> new MappingService(context).generate();
       case "remap-game" -> {
         new MappingService(context).validateExisting();

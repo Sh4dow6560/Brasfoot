@@ -611,7 +611,7 @@ public class C0452 extends JPanel {
          this.MS.setText("interino");
       }
 
-      this.MR.setText(GameConstants.pZ[this.uk.getReputacao()]);
+      this.MR.setText(GameConstants.pZ[this.uk.getReputation()]);
       this.Fq.setIcon(this.uk.kP());
       this.MQ.setText(C0696.values()[this.uk.getPais()].getNome());
       ImageIcon var1 = new ImageIcon(this.getClass().getResource("/aflags/" + this.uk.getPais() + ".png"));

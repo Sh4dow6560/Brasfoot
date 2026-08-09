@@ -33,7 +33,7 @@ public class C0810 {
       return this.club;
    }
 
-   public void n(Club club) {
+   public void setClub(Club club) {
       this.club = club;
    }
 
@@ -108,7 +108,7 @@ public class C0810 {
 
          for (int var11 = 0; var11 < j; var11++) {
             C0810 var12 = new C0810();
-            var12.n(null);
+            var12.setClub(null);
             if (arrayList != null && var6 < arrayList.size()) {
                var12.setInfo((String)arrayList.get(var6));
             } else {

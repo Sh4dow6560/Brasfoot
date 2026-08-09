@@ -115,7 +115,7 @@ public class C0404 extends JPanel {
          Club.buildAiLineup(var19.getHomeClub(), var19, 1, var16, false);
          Club.buildAiLineup(var19.getAwayClub(), var19, 2, var17, false);
          MatchEngine var20 = new MatchEngine(var19);
-         var19.a(var20);
+         var19.setMatchEngine(var20);
          int[] var21 = new int[]{new Random().nextInt(3), new Random().nextInt(5) + 1};
 
          for (int var22 = 0; var22 < 45 + var21[0]; var22++) {
@@ -158,8 +158,8 @@ public class C0404 extends JPanel {
 
          var8[0] += var20.getShotCounts()[0];
          var8[1] += var20.getShotCounts()[1];
-         var9[0] += var20.hY()[0];
-         var9[1] += var20.hY()[1];
+         var9[0] += var20.getPossessionWins()[0];
+         var9[1] += var20.getPossessionWins()[1];
          var10[0] += var20.getMidfieldAdvances()[0];
          var10[1] += var20.getMidfieldAdvances()[1];
          var11[0] += var20.getAttackingAdvances()[0];
@@ -173,7 +173,7 @@ public class C0404 extends JPanel {
             this.GJ.setText(var19.getHomeClub().getNome() + Integer.toString(var29[0]) + " x " + Integer.toString(var29[1]) + var19.getAwayClub().getNome());
             String var45 = "<html>";
             var45 = var45 + "<br>Placar:" + Integer.toString(var20.getGoalCounts()[0]) + " x " + Integer.toString(var20.getGoalCounts()[1]);
-            var45 = var45 + "<br>Venceu meio: " + Integer.toString(var20.hY()[0]) + "/" + Integer.toString(var20.hY()[1]);
+            var45 = var45 + "<br>Venceu meio: " + Integer.toString(var20.getPossessionWins()[0]) + "/" + Integer.toString(var20.getPossessionWins()[1]);
             var45 = var45 + "<br>Avancos no meio: " + Integer.toString(var20.getMidfieldAdvances()[0]) + "/" + Integer.toString(var20.getMidfieldAdvances()[1]);
             var45 = var45 + "<br>Desarmes no meio: " + Integer.toString(var20.getMidfieldTackles()[0]) + "/" + Integer.toString(var20.getMidfieldTackles()[1]);
             var45 = var45 + "<br>Avancos Ataque:" + Integer.toString(var20.getAttackingAdvances()[0]) + "/" + Integer.toString(var20.getAttackingAdvances()[1]);

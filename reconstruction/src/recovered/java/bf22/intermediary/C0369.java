@@ -211,8 +211,8 @@ public class C0369 extends JPanel {
       int[] var1 = new int[5];
       if (this.Es != null) {
          String var2 = "";
-         if (this.Es.getReputacao() < GameConstants.pZ.length) {
-            var2 = GameConstants.pZ[this.Es.getReputacao()];
+         if (this.Es.getReputation() < GameConstants.pZ.length) {
+            var2 = GameConstants.pZ[this.Es.getReputation()];
          }
 
          this.Fs.setText(this.Es.getName() + "       (reputação: " + var2 + ")");

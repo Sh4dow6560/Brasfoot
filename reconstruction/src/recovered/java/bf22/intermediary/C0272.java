@@ -1711,7 +1711,7 @@ public class C0272 extends JPanel {
             var3.z(false);
             var4.setNationalTeam(null);
             var3.jo().h(null);
-            var3.jo().k(false);
+            var3.jo().setUserControlled(false);
             var3.g(var5);
             afk = false;
             afj = false;

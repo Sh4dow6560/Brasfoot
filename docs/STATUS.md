@@ -26,9 +26,10 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 84 classes e 777 membros mapeados possuem nomes validos ou
-  semanticos. A API central de persistencia agora expoe nomes diretos para
-  estado da carreira, opcoes, salvar, carregar, backups e sons.
+- Legibilidade: 84 classes e 808 membros possuem entradas no Tiny v2; 721
+  campos e metodos tem nomes semanticos explicitos. A API central de
+  persistencia agora expoe nomes diretos para estado da carreira, opcoes,
+  salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
   expoe temporada, ano inicial, data atual, indice, partidas e dias agendados
   por nomes diretos.
@@ -130,5 +131,12 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: automatizar candidatos semanticos, medir cobertura por modulo
-  e criar a camada lateral segura para novas funcionalidades.
+- Automacao semantica: `buildSemanticCandidates` detecta acessores triviais a
+  partir de campos ja identificados. O primeiro lote promoveu 31 metodos por
+  resolucao de simbolos e conferiu todas as referencias contra o bytecode. A
+  cobertura por modulo fica em `docs/SEMANTIC_COVERAGE.md`.
+- Decompilacao reproduzivel: os reparos antigos agora traduzem nomes
+  intermediarios pelo Tiny v2. As 1.032 fontes brutas voltaram a regenerar e
+  compilar mesmo depois das renomeacoes semanticas.
+- Proxima fase: criar testes diferenciais entre original e hibrido e a camada
+  lateral segura para novas funcionalidades.

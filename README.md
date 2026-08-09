@@ -55,3 +55,10 @@ O pipeline fica em `reconstruction/`. As 1.032 classes pertencentes ao Brasfoot
 22/23 ja foram recuperadas em fonte, recompiladas para Java 8 e validadas em uma
 copia jogavel sem modificar `C:\Brasfoot22-23`. Executaveis, saves e codigo
 bruto decompilado permanecem fora do Git. Consulte `reconstruction/README.md`.
+
+Os proximos nomes triviais e a cobertura atual podem ser gerados por:
+
+```powershell
+cd .\reconstruction
+.\gradlew.bat buildSemanticCandidates semanticCoverage
+```

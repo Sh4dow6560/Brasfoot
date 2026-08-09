@@ -121,7 +121,7 @@ public class Club implements Serializable {
       this.mY = i;
       this.pais = j;
       this.dr = k;
-      this.setReputacao(m);
+      this.setReputation(m);
       this.nm = color;
       this.nn = color2;
       this.setNivel(l);
@@ -131,7 +131,7 @@ public class Club implements Serializable {
          this.coach = var15;
          this.coach.setClub(this);
          this.coachId = var15.getCoachId();
-         this.coach.setReputacao(m);
+         this.coach.setReputation(m);
          GamePersistence.careerState.a(var15);
          GamePersistence.careerState.c(this);
 
@@ -146,7 +146,7 @@ public class Club implements Serializable {
             }
          }
       } else {
-         this.reputation = this.getReputacao();
+         this.reputation = this.getReputation();
       }
    }
 
@@ -215,7 +215,7 @@ public class Club implements Serializable {
       return this.userControlled;
    }
 
-   public void k(Boolean boolean_) {
+   public void setUserControlled(Boolean boolean_) {
       this.userControlled = boolean_;
    }
 
@@ -244,11 +244,11 @@ public class Club implements Serializable {
       this.cashBalance = l;
    }
 
-   public int getReputacao() {
+   public int getReputation() {
       return this.reputation;
    }
 
-   public void setReputacao(int i) {
+   public void setReputation(int i) {
       this.reputation = i;
    }
 
@@ -256,7 +256,7 @@ public class Club implements Serializable {
       return this.seniorPlayers;
    }
 
-   public void N(ArrayList arrayList) {
+   public void setSeniorPlayers(ArrayList arrayList) {
       this.seniorPlayers = arrayList;
    }
 
@@ -296,7 +296,7 @@ public class Club implements Serializable {
       return this.stadium;
    }
 
-   public void a(Stadium stadium) {
+   public void setStadium(Stadium stadium) {
       this.stadium = stadium;
    }
 
@@ -1148,7 +1148,7 @@ public class Club implements Serializable {
             if (this.kn()) {
                var4 = GameConstants.qg[this.getDivisao()];
             } else {
-               var4 = GameConstants.qh[this.getReputacao()];
+               var4 = GameConstants.qh[this.getReputation()];
             }
 
             int[] var5 = new int[]{var3, var4};
@@ -1219,7 +1219,7 @@ public class Club implements Serializable {
       this.mY = c0915.getId();
       this.pais = c0915.getPais();
       this.dr = c0915.getEstado();
-      this.setReputacao(c0915.getReputacao());
+      this.setReputation(c0915.getReputacao());
       this.nm = c0915.getCorF();
       this.nn = c0915.getCorT();
       this.cor1 = c0915.getCor1();
@@ -1231,7 +1231,7 @@ public class Club implements Serializable {
       this.coach = var2;
       this.coachId = var2.getCoachId();
       this.coach.setClub(this);
-      this.coach.setReputacao(c0915.getReputacao());
+      this.coach.setReputation(c0915.getReputacao());
       GamePersistence.careerState.a(var2);
       this.nl = c0915.getCorBase();
 
@@ -1936,8 +1936,8 @@ public class Club implements Serializable {
       this.coach = var3;
       this.coachId = this.coach.getCoachId();
       this.coach.setClub(this);
-      this.coach.setReputacao(this.reputation);
-      this.k(true);
+      this.coach.setReputation(this.reputation);
+      this.setUserControlled(true);
       this.ks();
       new C0799(this.coach, 0, 73, this.getNome(), "");
       GamePersistence.careerState.a(var3);
@@ -1957,7 +1957,7 @@ public class Club implements Serializable {
       this.nA = i;
    }
 
-   public void a(LineupPreset lineupPreset) {
+   public void setLineupPreset(LineupPreset lineupPreset) {
       this.lineupPreset = lineupPreset;
    }
 
@@ -2061,11 +2061,11 @@ public class Club implements Serializable {
          if (player.getOverallStrength() < GameConstants.qg[this.getDivisao()]) {
             return false;
          }
-      } else if (player.getOverallStrength() < GameConstants.qh[this.getReputacao()]) {
+      } else if (player.getOverallStrength() < GameConstants.qh[this.getReputation()]) {
          return false;
       }
 
-      if (player.getOverallStrength() > GameConstants.qi[this.getReputacao()]) {
+      if (player.getOverallStrength() > GameConstants.qi[this.getReputation()]) {
          return false;
       }
 
@@ -2108,7 +2108,7 @@ public class Club implements Serializable {
          if (player.getOverallStrength() < GameConstants.qg[this.getDivisao()]) {
             return false;
          }
-      } else if (player.getOverallStrength() < GameConstants.qh[this.getReputacao()]) {
+      } else if (player.getOverallStrength() < GameConstants.qh[this.getReputation()]) {
          return false;
       }
 
@@ -2119,7 +2119,7 @@ public class Club implements Serializable {
       return this.nl;
    }
 
-   public void S(ArrayList arrayList) {
+   public void setYouthPlayers(ArrayList arrayList) {
       this.youthPlayers = arrayList;
    }
 
@@ -2149,7 +2149,7 @@ public class Club implements Serializable {
       return this.clubId;
    }
 
-   public void bX(int i) {
+   public void setClubId(int i) {
       this.clubId = i;
    }
 

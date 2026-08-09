@@ -20,7 +20,7 @@ public class C0791 {
       return this.club;
    }
 
-   public void n(Club club) {
+   public void setClub(Club club) {
       this.club = club;
    }
 

@@ -1411,7 +1411,7 @@ public class C0065 extends JPanel {
 
       for (int var10 = 0; var10 < var9.size(); var10++) {
          C0810 var11 = new C0810();
-         var11.n((Club)var9.get(var10));
+         var11.setClub((Club)var9.get(var10));
          var5 = ((Club)var9.get(var10)).d(c0955);
          var11.l(var5);
          if (var10 == 0) {
