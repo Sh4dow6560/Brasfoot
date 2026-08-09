@@ -13,6 +13,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +29,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
+import java.util.TreeMap;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public final class BrasfootDataTool {
   private BrasfootDataTool() {
@@ -42,13 +48,31 @@ public final class BrasfootDataTool {
     Map<String, String> options = parseOptions(Arrays.copyOfRange(args, 1, args.length));
 
     if ("export-teams".equals(command)) {
-      exportTeams(required(options, "--game"), required(options, "--out"));
+      exportTeams(
+          required(options, "--game"),
+          required(options, "--out"),
+          optionalInt(options, "--country"),
+          optionalBoolean(options, "--skip-invalid", false),
+          options.get("--selection"));
     } else if ("import-teams".equals(command)) {
       importTeams(required(options, "--in"), required(options, "--out"));
     } else if ("validate".equals(command)) {
-      validate(required(options, "--game-or-build"), true);
+      validate(
+          required(options, "--game-or-build"),
+          true,
+          optionalBoolean(options, "--summary-only", false));
     } else if ("compare-teams".equals(command)) {
       compareTeams(required(options, "--left"), required(options, "--right"));
+    } else if ("audit-source".equals(command)) {
+      auditSource(
+          required(options, "--game"),
+          required(options, "--out"),
+          optionalInt(options, "--country"));
+    } else if ("stage-resources".equals(command)) {
+      stageResources(
+          required(options, "--game"),
+          required(options, "--selection"),
+          required(options, "--out"));
     } else {
       throw new IllegalArgumentException("Unknown command: " + command);
     }
@@ -56,10 +80,16 @@ public final class BrasfootDataTool {
 
   private static void printHelp() {
     System.out.println("BrasfootDataTool");
-    System.out.println("  export-teams --game <gameRootOrTeamsDir> --out <teams.json>");
+    System.out.println("  export-teams --game <gameRootOrTeamsDir> --out <teams.json>"
+        + " [--country <id>] [--skip-invalid <true|false>] [--selection <manifest.json>]");
     System.out.println("  import-teams --in <teams.json> --out <teamsDir>");
-    System.out.println("  validate --game-or-build <gameRootOrTeamsDir>");
+    System.out.println("  validate --game-or-build <gameRootOrTeamsDir>"
+        + " [--summary-only <true|false>]");
     System.out.println("  compare-teams --left <teams.json> --right <teams.json>");
+    System.out.println("  audit-source --game <gameRootOrTeamsDir> --out <manifest.json>"
+        + " [--country <id>]");
+    System.out.println("  stage-resources --game <gameRootOrTeamsDir>"
+        + " --selection <manifest.json> --out <teamsDir>");
   }
 
   private static Map<String, String> parseOptions(String[] args) {
@@ -85,28 +115,423 @@ public final class BrasfootDataTool {
     return value;
   }
 
-  private static void exportTeams(String gamePath, String outPath) throws Exception {
+  private static Integer optionalInt(Map<String, String> options, String key) {
+    String value = options.get(key);
+    if (value == null || value.trim().isEmpty()) {
+      return null;
+    }
+    return Integer.valueOf(value);
+  }
+
+  private static boolean optionalBoolean(
+      Map<String, String> options, String key, boolean fallback) {
+    String value = options.get(key);
+    if (value == null || value.trim().isEmpty()) {
+      return fallback;
+    }
+    if (!"true".equalsIgnoreCase(value) && !"false".equalsIgnoreCase(value)) {
+      throw new IllegalArgumentException(key + " must be true or false");
+    }
+    return Boolean.parseBoolean(value);
+  }
+
+  private static void exportTeams(
+      String gamePath, String outPath, Integer countryFilter, boolean skipInvalid,
+      String selectionPath)
+      throws Exception {
     File teamsDir = findTeamsDir(new File(gamePath));
     List<File> files = listBanFiles(teamsDir);
+    Set<String> selectedFiles = readSelectedFiles(selectionPath);
+    Set<String> matchedSelection = new LinkedHashSet<String>();
     List<Object> teams = new ArrayList<Object>();
+    List<String> skipped = new ArrayList<String>();
+    List<String> warnings = new ArrayList<String>();
 
     for (File file : files) {
-      Object loaded = readSerialized(file);
-      if (!(loaded instanceof t)) {
-        throw new IOException("Not a team file: " + file.getAbsolutePath());
+      if (selectedFiles != null
+          && !selectedFiles.contains(file.getName().toLowerCase(Locale.ROOT))) {
+        continue;
       }
-      teams.add(teamToJson(file, (t) loaded));
+      if (selectedFiles != null) {
+        matchedSelection.add(file.getName().toLowerCase(Locale.ROOT));
+      }
+      try {
+        Object loaded = readSerialized(file);
+        if (!(loaded instanceof t)) {
+          throw new IOException("Not a team file: " + file.getAbsolutePath());
+        }
+        t team = (t) loaded;
+        List<String> teamWarnings = new ArrayList<String>();
+        List<String> teamErrors = new ArrayList<String>();
+        validateTeam(teamsDir, file, team, teamWarnings, teamErrors);
+        if (skipInvalid && !teamErrors.isEmpty()) {
+          skipped.addAll(teamErrors);
+          continue;
+        }
+        if (countryFilter == null || team.getPais() == countryFilter.intValue()) {
+          teams.add(teamToJson(file, team));
+          warnings.addAll(teamWarnings);
+        }
+      } catch (Exception exception) {
+        if (!skipInvalid) {
+          throw exception;
+        }
+        skipped.add(file.getName() + ": " + exception.getClass().getSimpleName()
+            + ": " + exception.getMessage());
+      }
+    }
+    if (selectedFiles != null && !matchedSelection.equals(selectedFiles)) {
+      Set<String> missing = new LinkedHashSet<String>(selectedFiles);
+      missing.removeAll(matchedSelection);
+      throw new IOException("Selection files not found: " + missing);
     }
 
     Map<String, Object> root = new LinkedHashMap<String, Object>();
     root.put("schemaVersion", 1);
     root.put("source", teamsDir.getAbsolutePath());
     root.put("generatedAt", isoNow());
+    root.put("sourceTeamFiles", files.size());
+    root.put("countryFilter", countryFilter);
+    root.put("selection", selectionPath == null ? null : new File(selectionPath).getName());
+    root.put("skipInvalid", Boolean.valueOf(skipInvalid));
     root.put("teamCount", teams.size());
+    root.put("skipped", skipped);
+    root.put("warningCount", warnings.size());
     root.put("teams", teams);
 
     writeJson(new File(outPath), root);
-    System.out.println("Exported " + teams.size() + " teams to " + new File(outPath).getAbsolutePath());
+    System.out.println("Exported " + teams.size() + " teams to "
+        + new File(outPath).getAbsolutePath() + "; skipped=" + skipped.size()
+        + " warnings=" + warnings.size());
+  }
+
+  private static Set<String> readSelectedFiles(String selectionPath) throws Exception {
+    if (selectionPath == null || selectionPath.trim().isEmpty()) {
+      return null;
+    }
+    Map<String, Object> root = asMap(
+        Json.parse(readText(new File(selectionPath))), "selection root");
+    Set<String> selected = new LinkedHashSet<String>();
+    Object files = root.get("files");
+    if (files != null) {
+      addSelectedFiles(selected, asList(files, "selection files"));
+    }
+    Object groups = root.get("groups");
+    if (groups != null) {
+      for (Object item : asList(groups, "selection groups")) {
+        Map<String, Object> group = asMap(item, "selection group");
+        addSelectedFiles(selected, asList(group.get("files"), "selection group files"));
+      }
+    }
+    if (selected.isEmpty()) {
+      throw new IllegalArgumentException("Selection contains no team files: " + selectionPath);
+    }
+    return selected;
+  }
+
+  private static void addSelectedFiles(Set<String> selected, List<Object> files) {
+    for (Object item : files) {
+      String file = safeFileName(asString(item, "selection file"));
+      String normalized = file.toLowerCase(Locale.ROOT);
+      if (!selected.add(normalized)) {
+        throw new IllegalArgumentException("Duplicated selection file: " + file);
+      }
+    }
+  }
+
+  private static void auditSource(String gamePath, String outPath, Integer countryFilter)
+      throws Exception {
+    File input = new File(gamePath).getCanonicalFile();
+    File teamsDir = findTeamsDir(input);
+    File sourceRoot = teamsDir.getParentFile() == null ? teamsDir : teamsDir.getParentFile();
+    List<File> allFiles = new ArrayList<File>();
+    collectFiles(sourceRoot, allFiles);
+    Collections.sort(allFiles, new Comparator<File>() {
+      public int compare(File left, File right) {
+        return relativePath(sourceRoot, left).compareToIgnoreCase(relativePath(sourceRoot, right));
+      }
+    });
+
+    long totalBytes = 0L;
+    Map<String, Integer> extensions = new TreeMap<String, Integer>();
+    List<Object> executables = new ArrayList<Object>();
+    for (File file : allFiles) {
+      totalBytes += file.length();
+      String extension = extension(file.getName());
+      increment(extensions, extension);
+      if (".exe".equals(extension)) {
+        Map<String, Object> executable = new LinkedHashMap<String, Object>();
+        executable.put("file", relativePath(sourceRoot, file));
+        executable.put("size", Long.valueOf(file.length()));
+        executable.put("sha256", sha256(file));
+        executable.put("classEntries", Integer.valueOf(countClassEntries(file)));
+        executables.add(executable);
+      }
+    }
+
+    List<File> teamFiles = listBanFiles(teamsDir);
+    List<String> errors = new ArrayList<String>();
+    List<String> warnings = new ArrayList<String>();
+    List<Object> selectedTeams = new ArrayList<Object>();
+    StringBuilder selectedFingerprint = new StringBuilder();
+    int readableTeams = 0;
+    for (File file : teamFiles) {
+      try {
+        Object loaded = readSerialized(file);
+        if (!(loaded instanceof t)) {
+          errors.add(file.getName() + ": object is " + loaded.getClass().getName()
+              + ", expected e.t");
+          continue;
+        }
+        readableTeams++;
+        t team = (t) loaded;
+        List<String> teamWarnings = new ArrayList<String>();
+        List<String> teamErrors = new ArrayList<String>();
+        validateTeam(teamsDir, file, team, teamWarnings, teamErrors);
+        warnings.addAll(teamWarnings);
+        errors.addAll(teamErrors);
+        if (countryFilter == null || team.getPais() == countryFilter.intValue()) {
+          String teamHash = sha256(file);
+          selectedFingerprint.append(file.getName().toLowerCase(Locale.ROOT))
+              .append(':').append(teamHash).append('\n');
+          selectedTeams.add(teamAuditSummary(
+              teamsDir, file, team, teamHash, teamWarnings, teamErrors));
+        }
+      } catch (Exception exception) {
+        errors.add(file.getName() + ": " + exception.getClass().getSimpleName()
+            + ": " + exception.getMessage());
+      }
+    }
+
+    Map<String, Integer> errorCategories = categorizeIssues(errors);
+    Map<String, Integer> warningCategories = categorizeIssues(warnings);
+    Map<String, Object> manifest = new LinkedHashMap<String, Object>();
+    manifest.put("schemaVersion", 1);
+    manifest.put("sourceName", sourceRoot.getName());
+    manifest.put("generatedAt", isoNow());
+    manifest.put("countryFilter", countryFilter);
+    manifest.put("files", Integer.valueOf(allFiles.size()));
+    manifest.put("bytes", Long.valueOf(totalBytes));
+    manifest.put("extensions", extensions);
+    manifest.put("executables", executables);
+    manifest.put("teamFiles", Integer.valueOf(teamFiles.size()));
+    manifest.put("readableTeams", Integer.valueOf(readableTeams));
+    manifest.put("errorCount", Integer.valueOf(errors.size()));
+    manifest.put("errorCategories", errorCategories);
+    manifest.put("errors", errors);
+    manifest.put("warningCount", Integer.valueOf(warnings.size()));
+    manifest.put("warningCategories", warningCategories);
+    manifest.put("selectedTeamCount", Integer.valueOf(selectedTeams.size()));
+    manifest.put("selectedTeamSetSha256", sha256(selectedFingerprint.toString()));
+    manifest.put("selectedTeams", selectedTeams);
+    writeJson(new File(outPath), manifest);
+    System.out.println("Audited " + teamFiles.size() + " teams and " + allFiles.size()
+        + " files; selected=" + selectedTeams.size() + " errors=" + errors.size()
+        + " warnings=" + warnings.size());
+  }
+
+  private static void stageResources(
+      String gamePath, String selectionPath, String outPath) throws Exception {
+    File teamsDir = findTeamsDir(new File(gamePath));
+    File output = new File(outPath).getCanonicalFile();
+    if (output.toPath().startsWith(teamsDir.toPath())) {
+      throw new IOException("Resource output must be outside the source teams directory");
+    }
+    Set<String> selected = readSelectedFiles(selectionPath);
+    String[] requiredDirectories = new String[]{
+        "escudos", "escudosMini", "camisas", "camisas2"};
+    String[] optionalDirectories = new String[]{"camisas3"};
+    List<String> missing = new ArrayList<String>();
+    List<Object> copied = new ArrayList<Object>();
+    StringBuilder fingerprint = new StringBuilder();
+
+    for (String selectedFile : selected) {
+      String imageName = stripExtension(selectedFile) + ".png";
+      for (String directory : requiredDirectories) {
+        copySelectedResource(
+            teamsDir, output, directory, imageName, true, missing, copied, fingerprint);
+      }
+      for (String directory : optionalDirectories) {
+        copySelectedResource(
+            teamsDir, output, directory, imageName, false, missing, copied, fingerprint);
+      }
+    }
+
+    Map<String, Object> manifest = new LinkedHashMap<String, Object>();
+    manifest.put("schemaVersion", 1);
+    manifest.put("sourceName", teamsDir.getParentFile() == null
+        ? teamsDir.getName() : teamsDir.getParentFile().getName());
+    manifest.put("selection", new File(selectionPath).getName());
+    manifest.put("teamCount", Integer.valueOf(selected.size()));
+    manifest.put("copiedFiles", Integer.valueOf(copied.size()));
+    manifest.put("missingRequired", missing);
+    manifest.put("resourceSetSha256", sha256(fingerprint.toString()));
+    manifest.put("resources", copied);
+    writeJson(new File(output, "update-resource-manifest.json"), manifest);
+    if (!missing.isEmpty()) {
+      throw new IOException("Missing required selected resources: " + missing);
+    }
+    System.out.println("Staged " + copied.size() + " resources for " + selected.size()
+        + " teams; sha256=" + sha256(fingerprint.toString()));
+  }
+
+  private static void copySelectedResource(
+      File teamsDir, File output, String directory, String imageName, boolean required,
+      List<String> missing, List<Object> copied, StringBuilder fingerprint) throws Exception {
+    File source = new File(new File(teamsDir, directory), imageName);
+    String relative = directory + "/" + imageName;
+    if (!source.isFile()) {
+      if (required) {
+        missing.add(relative);
+      }
+      return;
+    }
+    File target = new File(new File(output, directory), imageName);
+    File parent = target.getParentFile();
+    if (!parent.isDirectory() && !parent.mkdirs()) {
+      throw new IOException("Could not create resource directory: " + parent);
+    }
+    Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    String hash = sha256(source);
+    if (target.length() != source.length() || !hash.equals(sha256(target))) {
+      throw new IOException("Copied resource differs: " + relative);
+    }
+    Map<String, Object> metadata = new LinkedHashMap<String, Object>();
+    metadata.put("file", relative);
+    metadata.put("size", Long.valueOf(source.length()));
+    metadata.put("sha256", hash);
+    copied.add(metadata);
+    fingerprint.append(relative.toLowerCase(Locale.ROOT)).append(':').append(hash).append('\n');
+  }
+
+  private static Map<String, Object> teamAuditSummary(
+      File teamsDir, File file, t team, String teamHash,
+      List<String> warnings, List<String> errors) throws Exception {
+    Map<String, Object> summary = new LinkedHashMap<String, Object>();
+    summary.put("file", file.getName());
+    summary.put("sha256", teamHash);
+    summary.put("modifiedAt", iso(file.lastModified()));
+    summary.put("id", Integer.valueOf(team.getId()));
+    summary.put("pais", Integer.valueOf(team.getPais()));
+    summary.put("estado", Integer.valueOf(team.getEstado()));
+    summary.put("nivel", Integer.valueOf(team.getNivel()));
+    summary.put("nome", team.getNome());
+    summary.put("estadio", team.getEstadio());
+    summary.put("capacidade", Integer.valueOf(team.getCapacidade()));
+    summary.put("tecnico", team.getTecnico());
+    summary.put("reputacao", Integer.valueOf(team.getReputacao()));
+    summary.put("players", Integer.valueOf(team.getJogadores() == null
+        ? 0 : team.getJogadores().size()));
+    summary.put("youthPlayers", Integer.valueOf(team.getJuniores() == null
+        ? 0 : team.getJuniores().size()));
+    summary.put("warningCount", Integer.valueOf(warnings.size()));
+    summary.put("errorCount", Integer.valueOf(errors.size()));
+    summary.put("resources", teamResourceSummary(teamsDir, file));
+    return summary;
+  }
+
+  private static Map<String, Object> teamResourceSummary(File teamsDir, File teamFile)
+      throws Exception {
+    Map<String, Object> resources = new LinkedHashMap<String, Object>();
+    String base = stripExtension(teamFile.getName()) + ".png";
+    String[] directories = new String[]{
+        "escudos", "escudosMini", "camisas", "camisas2", "camisas3"};
+    for (String directory : directories) {
+      File resource = new File(new File(teamsDir, directory), base);
+      if (!resource.isFile()) {
+        resources.put(directory, null);
+        continue;
+      }
+      Map<String, Object> metadata = new LinkedHashMap<String, Object>();
+      metadata.put("file", directory + "/" + base);
+      metadata.put("size", Long.valueOf(resource.length()));
+      metadata.put("sha256", sha256(resource));
+      resources.put(directory, metadata);
+    }
+    return resources;
+  }
+
+  private static void collectFiles(File directory, List<File> files) {
+    File[] children = directory.listFiles();
+    if (children == null) {
+      return;
+    }
+    Arrays.sort(children, new Comparator<File>() {
+      public int compare(File left, File right) {
+        return left.getName().compareToIgnoreCase(right.getName());
+      }
+    });
+    for (File child : children) {
+      if (child.isDirectory()) {
+        collectFiles(child, files);
+      } else if (child.isFile()) {
+        files.add(child);
+      }
+    }
+  }
+
+  private static String relativePath(File root, File file) {
+    return root.toPath().relativize(file.toPath()).toString()
+        .replace(File.separatorChar, '/');
+  }
+
+  private static String extension(String name) {
+    int index = name.lastIndexOf('.');
+    return index < 0 ? "<none>" : name.substring(index).toLowerCase(Locale.ROOT);
+  }
+
+  private static void increment(Map<String, Integer> counts, String key) {
+    Integer count = counts.get(key);
+    counts.put(key, Integer.valueOf(count == null ? 1 : count.intValue() + 1));
+  }
+
+  private static int countClassEntries(File archiveFile) {
+    try {
+      ZipFile archive = new ZipFile(archiveFile);
+      try {
+        int classes = 0;
+        Enumeration<? extends ZipEntry> entries = archive.entries();
+        while (entries.hasMoreElements()) {
+          ZipEntry entry = entries.nextElement();
+          if (!entry.isDirectory() && entry.getName().endsWith(".class")) {
+            classes++;
+          }
+        }
+        return classes;
+      } finally {
+        archive.close();
+      }
+    } catch (IOException exception) {
+      return -1;
+    }
+  }
+
+  private static Map<String, Integer> categorizeIssues(List<String> issues) {
+    Map<String, Integer> categories = new TreeMap<String, Integer>();
+    for (String issue : issues) {
+      increment(categories, issueCategory(issue));
+    }
+    return categories;
+  }
+
+  private static String issueCategory(String issue) {
+    String value = issue.toLowerCase(Locale.ROOT);
+    if (value.contains("missing camisa 1")) return "missing-shirt-1";
+    if (value.contains("missing camisa 2")) return "missing-shirt-2";
+    if (value.contains("missing escudo mini")) return "missing-mini-shield";
+    if (value.contains("missing escudo")) return "missing-shield";
+    if (value.contains("duplicated player name")) return "duplicate-player-name";
+    if (value.contains("unusual player count")) return "unusual-player-count";
+    if (value.contains("player with empty name")) return "empty-player-name";
+    if (value.contains("empty team name")) return "empty-team-name";
+    if (value.contains("no players")) return "no-players";
+    if (value.contains("cor1 is not")) return "invalid-color-1";
+    if (value.contains("cor2 is not")) return "invalid-color-2";
+    if (value.contains("streamcorruptedexception")) return "corrupt-serialization";
+    if (value.contains("expected e.t") || value.contains("not a team file")) {
+      return "invalid-team-type";
+    }
+    return "other";
   }
 
   private static void importTeams(String inPath, String outPath) throws Exception {
@@ -129,7 +554,8 @@ public final class BrasfootDataTool {
     System.out.println("Imported " + written + " teams to " + outDir.getAbsolutePath());
   }
 
-  private static void validate(String gameOrBuildPath, boolean printDetails) throws Exception {
+  private static void validate(
+      String gameOrBuildPath, boolean printDetails, boolean summaryOnly) throws Exception {
     File teamsDir = findTeamsDir(new File(gameOrBuildPath));
     List<File> files = listBanFiles(teamsDir);
     List<String> errors = new ArrayList<String>();
@@ -156,7 +582,20 @@ public final class BrasfootDataTool {
     summary.put("ok", errors.isEmpty());
 
     if (printDetails) {
-      System.out.println(Json.stringify(summary));
+      if (summaryOnly) {
+        Map<String, Object> compact = new LinkedHashMap<String, Object>();
+        compact.put("teamsDir", teamsDir.getAbsolutePath());
+        compact.put("teamFiles", Integer.valueOf(files.size()));
+        compact.put("errorCount", Integer.valueOf(errors.size()));
+        compact.put("errorCategories", categorizeIssues(errors));
+        compact.put("errors", errors);
+        compact.put("warningCount", Integer.valueOf(warnings.size()));
+        compact.put("warningCategories", categorizeIssues(warnings));
+        compact.put("ok", Boolean.valueOf(errors.isEmpty()));
+        System.out.println(Json.stringify(compact));
+      } else {
+        System.out.println(Json.stringify(summary));
+      }
     }
 
     if (!errors.isEmpty()) {
@@ -462,14 +901,39 @@ public final class BrasfootDataTool {
   }
 
   private static String isoNow() {
+    return iso(System.currentTimeMillis());
+  }
+
+  private static String iso(long time) {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
     format.setTimeZone(TimeZone.getTimeZone("UTC"));
-    return format.format(new Date());
+    return format.format(new Date(time));
+  }
+
+  private static String sha256(File file) throws Exception {
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    FileInputStream input = new FileInputStream(file);
+    try {
+      byte[] buffer = new byte[8192];
+      int read;
+      while ((read = input.read(buffer)) >= 0) {
+        if (read > 0) {
+          digest.update(buffer, 0, read);
+        }
+      }
+    } finally {
+      input.close();
+    }
+    return hex(digest.digest());
   }
 
   private static String sha256(String value) throws Exception {
     MessageDigest digest = MessageDigest.getInstance("SHA-256");
     byte[] bytes = digest.digest(value.getBytes(StandardCharsets.UTF_8));
+    return hex(bytes);
+  }
+
+  private static String hex(byte[] bytes) {
     StringBuilder builder = new StringBuilder();
     for (byte b : bytes) {
       builder.append(String.format("%02x", b & 0xff));

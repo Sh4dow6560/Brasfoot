@@ -286,6 +286,15 @@ val teamRoundTrip = tasks.register<Exec>("teamRoundTrip") {
     )
 }
 
+val dataUpdate2026RoundTrip = tasks.register<Exec>("dataUpdate2026RoundTrip") {
+    group = "verification"
+    dependsOn(assembleHybrid)
+    commandLine(
+        "powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
+        projectDir.resolve("scripts/data-update-2026-roundtrip.ps1").absolutePath
+    )
+}
+
 tasks.register("smokeTest") {
     group = "verification"
     dependsOn(
@@ -293,7 +302,8 @@ tasks.register("smokeTest") {
         runtimeSmokeTest,
         saveCompatibilityTest,
         fullSaveCompatibilityTest,
-        teamRoundTrip
+        teamRoundTrip,
+        dataUpdate2026RoundTrip
     )
 }
 

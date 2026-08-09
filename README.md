@@ -33,6 +33,22 @@ Brasfoot 22/23 com seguranca.
 
 O executavel original nao precisa ser alterado para a primeira fase.
 
+## Lote Brasil 2026
+
+O lote inicial versionado contem os 40 participantes oficiais das Series A e
+B de 2026. Para montar uma copia jogavel usando a fonte externa auditada:
+
+```powershell
+cd .\reconstruction
+.\gradlew.bat assembleHybrid
+cd ..
+.\tools\assemble-update-2026.ps1 -SourceRoot "C:\caminho\para\atualizacao-2026"
+```
+
+A copia fica em `build\Brasfoot22-23_2026_preview`. O script nunca copia os
+executaveis do pacote externo e somente sobrepoe `.ban`, escudos e camisas
+listados em `reconstruction\config\data-update-2026-brazil.json`.
+
 ## Reconstrucao Da Engine
 
 O pipeline fica em `reconstruction/`. As 1.032 classes pertencentes ao Brasfoot

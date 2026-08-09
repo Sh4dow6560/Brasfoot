@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "snapshot": {
+    "id": "community-pc-update-2026-03",
+    "sourceName": "BRASFOOT DE PC ATUALIZADO 2026 (NOVAS TRANSFERENCIAS)",
+    "auditedAt": "2026-08-09",
+    "countryId": 29,
+    "allBrazilTeamCount": 954,
+    "allBrazilTeamSetSha256": "20d46a1fde3c96deba60b80bca2a2dba3a140cc17126f5539be954d7991f7c6b",
+    "selectedCanonicalTeamsSha256": "4f9c6f90aab2e3aaddf6c02ace59e22a61d7545e83767b4c1adf4e9bdb4f25fc",
+    "selectedResourceSetSha256": "33c95f3b79ef7003a9e4716481b8c138a93f0279de46ecdc56972c04bb2fdb10",
+    "normalExecutableSha256": "b08abaf526a8c15e63dead6e1bd10c4ed859efa9d635bd70c051b5858abcb9c9",
+    "superWorldExecutableSha256": "d714ed91352226856041db64701ebe9f723d1c4aa344da8c506b6329e705c0a7"
+  },
+  "groups": [
+    {
+      "id": "serie-a-2026",
+      "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/noticias-supercopa/a/confira-o-retrospecto-dos-confrontos-entre-os-clubes-do-brasileirao-betano-2026",
+      "files": [
+        "atleticopr_bra.ban",
+        "atleticomg_bra.ban",
+        "bahia.ban",
+        "botafogorj_bra.ban",
+        "chapecoense_bra.ban",
+        "corinthians_bra.ban",
+        "coritiba_bra.ban",
+        "cruzeiro_bra.ban",
+        "flarj.ban",
+        "flurj.ban",
+        "gremio.ban",
+        "internacional_bra.ban",
+        "miirassol_sp.ban",
+        "palmeiras.ban",
+        "bragantino_bra.ban",
+        "remo.ban",
+        "santos.ban",
+        "saopaulo_bra.ban",
+        "vasco.ban",
+        "vitoria.ban"
+      ]
+    },
+    {
+      "id": "serie-b-2026",
+      "source": "https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/Tabela_Basica_Brasileiro_Serie_B_2026_efe6ba77b5.pdf",
+      "files": [
+        "botafogosp_bra.ban",
+        "atleticogo_bra.ban",
+        "pontepreta_bra.ban",
+        "londrina_pr.ban",
+        "saobernardo_sp.ban",
+        "americamg_bra.ban",
+        "athleticclub_mg.ban",
+        "juventude.ban",
+        "operario_pr.ban",
+        "nautico.ban",
+        "ceara_bra.ban",
+        "fortaleza.ban",
+        "goias.ban",
+        "criciuma_bra.ban",
+        "sport.ban",
+        "crb_bra.ban",
+        "cuiaba_bra.ban",
+        "novorinzontino_sp.ban",
+        "vilago.ban",
+        "avai_bra.ban"
+      ]
+    }
+  ],
+  "blockedFiles": [
+    {
+      "file": "libertad_par.ban",
+      "reason": "corrupt Java serialization stream"
+    },
+    {
+      "file": "yenisey_rus.ban",
+      "reason": "contains a player with an empty name"
+    }
+  ]
+}

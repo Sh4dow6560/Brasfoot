@@ -39,7 +39,7 @@
   assistente.
 - A expansao de estadio possui cenario funcional isolado que confirma aumento
   de capacidade, consumo dos lugares pendentes e idempotencia.
-- 83 classes ja possuem nomes semanticos. O nucleo legivel cobre
+- 84 classes ja possuem nomes semanticos. O nucleo legivel cobre
   `CareerState`, `GamePersistence`, `Competition`, `LeagueStage`,
   `KnockoutStage`, `TransferNegotiation`, `Match`, `MatchEvent` e
   `MatchEngine`, alem das competicoes concretas nacionais e internacionais.
@@ -78,7 +78,7 @@
   metodos de instancia globalmente unicos e metodos sem argumentos sem
   colisao equivalente de forma transacional. Metodos repetidos sem argumentos
   podem ser unificados quando todo o grupo declara o mesmo nome. Os lotes ja
-  cobrem a persistencia central, o estado essencial de `Match` e 653 membros
+  cobrem a persistencia central, o estado essencial de `Match` e 777 membros
   recuperados no total.
 - `PlayerSearchCriteria` identifica os filtros por nome, elenco, pais, posicao,
   idade, forca, valor, caracteristicas e atributos. `PlayerTransferRecord`
@@ -95,15 +95,22 @@
   no original. Aplicacao sazonal, caixa inicial e reset financeiro possuem
   nomes diretos e cenarios funcionais, formando o ponto de extensao para uma
   futura negociacao comercial real.
+- `Coach`, `CoachJobMarket`, `CoachSeasonRecord` e `CoachChangeRecord` cobrem
+  vinculos, aprovacao, reputacao, estatisticas, ofertas, vagas e historico. Um
+  cenario funcional executa a saida e entrada de tecnico e valida os contratos
+  Kryo, inclusive referencias transitorias restauradas depois da leitura.
+- O lote inicial de dados 2026 contem 40 clubes das Series A e B confirmados
+  em fontes oficiais da CBF. A montagem importa somente dados e recursos
+  selecionados por manifesto e preserva o executavel externo fora do build.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Recuperacao da carreira do tecnico e do mercado de empregos.
-2. Testes funcionais dirigidos por cenarios para cada modulo identificado.
-3. Pontos de extensao estaveis para novas regras sem quebrar saves existentes.
-4. Atualizacao de dados 2026.
-5. Novas mecanicas e modernizacao gradual da interface.
+1. Sugestao automatica de nomes semanticos e cobertura por modulo.
+2. Testes diferenciais entre o original e o hibrido.
+3. Estado lateral versionado e registro de funcionalidades.
+4. Verificacao editorial dos dados brasileiros de agosto de 2026.
+5. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
 
 Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
 de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

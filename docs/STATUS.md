@@ -26,7 +26,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 83 classes e 653 membros mapeados possuem nomes validos ou
+- Legibilidade: 84 classes e 777 membros mapeados possuem nomes validos ou
   semanticos. A API central de persistencia agora expoe nomes diretos para
   estado da carreira, opcoes, salvar, carregar, backups e sons.
 - Calendario: `ScheduleDay` identifica cada data da temporada; `CareerState`
@@ -102,6 +102,19 @@
   `Club` agora identifica a aplicacao na abertura da temporada, a inicializacao
   financeira por divisao e o reset ao trocar de clube. O teste valida tambem o
   bonus legado de 3,2 vezes a folha quando os estaduais estao habilitados.
+- Carreira do tecnico: `Coach`, `CoachJobMarket`, `CoachSeasonRecord` e
+  `CoachChangeRecord` identificam vinculos atuais e anteriores, reputacao,
+  aprovacao, estatisticas, vagas, ofertas e trocas. O teste funcional executa
+  demissao e contratacao reais, preserva os campos transitorios e confirma o
+  round-trip Kryo no save completo.
+- Atualizacao 2026: um lote versionado com os 40 participantes oficiais das
+  Series A e B importa, valida e exporta sem diferencas. A copia jogavel em
+  `build\Brasfoot22-23_2026_preview` usa 198 recursos identificados por nome e
+  nunca copia executaveis do pacote externo.
+- Auditoria externa: 35.981 arquivos e 8.616 times foram inventariados; 8.615
+  times sao legiveis. `libertad_par.ban` e `yenisey_rus.ban` estao bloqueados
+  por erro estrutural. O lote brasileiro selecionado tem zero erros e cinco
+  avisos conhecidos.
 - Paises: 48 consultas que dependiam dos nomes internos `P0...P223`, perdidos
   ao recompilar o enum, agora usam o mesmo indice numerico do bytecode. O fluxo
   de negociacao exercita essa correcao e o contrato binario permanece intacto.
@@ -117,4 +130,5 @@
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
   de referencias. Metodos equivalentes repetidos tambem podem ser migrados
   juntos quando todos possuem explicitamente o mesmo nome semantico.
-- Proxima fase: recuperar a carreira do tecnico e o mercado de empregos.
+- Proxima fase: automatizar candidatos semanticos, medir cobertura por modulo
+  e criar a camada lateral segura para novas funcionalidades.
