@@ -854,6 +854,7 @@ c	best/G	bf22/intermediary/C0673	bf22/intermediary/C0673
 c	best/H	bf22/intermediary/C0674	bf22/intermediary/C0674
 c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	f	Lbest/v;	dH	dH	stadium
+	f	I	dq	dq	pitchCondition
 	f	Lbest/ah;	fA	fA	awayClub
 	f	I	fB	fB	homeGoals
 	f	I	fC	fC	awayGoals
@@ -879,12 +880,14 @@ c	best/I	bf22/intermediary/C0675	mod/recovered/match/Match
 	f	[I	gc	gc	misplacedPasses
 	f	[I	gd	gd	fouls
 	f	Lc/b;	go	go	matchEngine
+	m	(I)V	O	O	setPitchCondition
 	m	(IIIILjava/util/ArrayList;)Z	a	a	attemptAutomaticSubstitution
 	m	(ILbest/F;Lbest/F;III)Lbest/A;	a	a	performSubstitution
 	m	(Lc/b;)V	a	a	setMatchEngine
 	m	(I)I	aR	aR	getRemainingSubstitutions
 	m	(I)V	aS	aS	consumeSubstitution
 	m	([I)V	d	d	setPossessionPercentages
+	m	()I	dX	dX	getPitchCondition
 	m	([I)V	e	e	setShots
 	m	()Lbest/v;	ev	ev	getStadium
 	m	([I)V	f	f	setTackles
@@ -1385,8 +1388,24 @@ c	best/u	bf22/intermediary/C0739	mod/recovered/manager/CoachChangeRecord
 	m	()Ljava/lang/String;	dR	dR	getClubName
 	m	()Ljava/lang/String;	f	f	getDateText
 c	best/v	bf22/intermediary/C0740	mod/recovered/model/Stadium
-	f	[I	do	field_kw_do	field_kw_do
+	f	Ljava/lang/String;	dm	dm	name
+	f	[I	dn	dn	sectorCapacities
+	f	[I	do	field_kw_do	ticketPrices
+	f	Z	dp	dp	useSuggestedTicketPrices
+	f	I	dq	dq	pitchCondition
+	f	I	pais	pais	countryId
+	m	(I)V	O	O	setPitchCondition
+	m	([I)V	a	a	setSectorCapacities
+	m	([I)V	b	b	setTicketPrices
+	m	()Ljava/lang/String;	dS	dS	getName
+	m	()[I	dT	dT	getSectorCapacities
+	m	()[I	dU	dU	getTicketPrices
+	m	()Z	dV	dV	usesSuggestedTicketPrices
 	m	()I	dW	dW	getCapacity
+	m	()I	dX	dX	getPitchCondition
+	m	(II)V	f	f	addSectorCapacity
+	m	(Ljava/lang/String;)V	i	i	setName
+	m	(Z)V	o	o	setUseSuggestedTicketPrices
 c	best/w	bf22/intermediary/C0741	bf22/intermediary/C0741
 c	best/x	bf22/intermediary/C0742	bf22/intermediary/C0742
 	m	(Lcomponents/aD;Lcomponents/aD;)I	a	a	compare

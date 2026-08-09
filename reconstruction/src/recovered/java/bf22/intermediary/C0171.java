@@ -52,7 +52,7 @@ public class C0171 extends JPanel {
 
    private void oA() {
       this.BX = Stadium.a(this.w, this.zY);
-      int[] var1 = this.dH.dT();
+      int[] var1 = this.dH.getSectorCapacities();
       int var2 = this.dH.getCapacity();
       String var3 = "G:"
          + Integer.toString(this.BX[0])
@@ -66,19 +66,19 @@ public class C0171 extends JPanel {
          + " Cm:"
          + Integer.toString(this.BX[3]);
       this.Ch.setText(var3);
-      this.Cg.setText(this.dH.dS() + " - " + Integer.toString(var2) + " lugares");
+      this.Cg.setText(this.dH.getName() + " - " + Integer.toString(var2) + " lugares");
       this.Cf.setText(Integer.toString(var1[0]));
       this.Cc.setText(Integer.toString(var1[1]));
       this.Cd.setText(Integer.toString(var1[2]));
       this.Ce.setText(Integer.toString(var1[3]));
-      this.Cb.setSelected(this.dH.dV());
-      if (!this.dH.dV()) {
+      this.Cb.setSelected(this.dH.usesSuggestedTicketPrices());
+      if (!this.dH.usesSuggestedTicketPrices()) {
          this.oE();
       } else {
          this.oD();
       }
 
-      this.Y(!this.dH.dV());
+      this.Y(!this.dH.usesSuggestedTicketPrices());
       this.zh.setText("");
       this.oB();
    }
@@ -105,9 +105,9 @@ public class C0171 extends JPanel {
    }
 
    private void oC() {
-      this.dH.o(this.Cb.isSelected());
-      this.Y(!this.dH.dV());
-      if (this.dH.dV()) {
+      this.dH.setUseSuggestedTicketPrices(this.Cb.isSelected());
+      this.Y(!this.dH.usesSuggestedTicketPrices());
+      if (this.dH.usesSuggestedTicketPrices()) {
          this.oD();
       } else {
          this.oE();
@@ -122,7 +122,7 @@ public class C0171 extends JPanel {
    }
 
    private void oE() {
-      int[] var1 = this.dH.dU();
+      int[] var1 = this.dH.getTicketPrices();
       this.Cl.setModel(new SpinnerNumberModel(var1[0], 1, 200, 1));
       this.Ci.setModel(new SpinnerNumberModel(var1[1], 1, 300, 1));
       this.Cj.setModel(new SpinnerNumberModel(var1[2], 1, 500, 1));
@@ -130,9 +130,9 @@ public class C0171 extends JPanel {
    }
 
    private void oF() {
-      if (!this.dH.dV()) {
+      if (!this.dH.usesSuggestedTicketPrices()) {
          int[] var1 = new int[]{(Integer)this.Cl.getValue(), (Integer)this.Ci.getValue(), (Integer)this.Cj.getValue(), (Integer)this.Ck.getValue()};
-         this.dH.b(var1);
+         this.dH.setTicketPrices(var1);
       }
    }
 

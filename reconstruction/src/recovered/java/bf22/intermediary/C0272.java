@@ -50,6 +50,7 @@ import mod.recovered.model.Coach;
 import mod.recovered.model.Player;
 import mod.extension.ui.ClubReachAction;
 import mod.extension.ui.ModSettingsAction;
+import mod.extension.ui.StadiumInfrastructureAction;
 
 public class C0272 extends JPanel {
    private Club zu = null;
@@ -1352,6 +1353,9 @@ public class C0272 extends JPanel {
       JMenuItem var25 = new JMenuItem("Torcida e alcance mundial");
       var25.addActionListener(new ClubReachAction(this));
       this.Hy.add(var25);
+      JMenuItem var26 = new JMenuItem("Est\u00e1dio e infraestrutura");
+      var26.addActionListener(new StadiumInfrastructureAction(this));
+      this.Hy.add(var26);
       this.Hy.addSeparator();
       JMenuItem var5 = new JMenuItem("Pedir demissão");
       var5.addActionListener(new C0322(this));

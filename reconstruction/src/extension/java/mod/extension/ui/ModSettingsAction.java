@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import mod.extension.infrastructure.StadiumInfrastructureBridge;
 import mod.extension.reach.ClubReachBridge;
 import mod.extension.sponsorship.SponsorshipBridge;
 import mod.extension.state.Feature;
@@ -30,10 +31,14 @@ public final class ModSettingsAction implements ActionListener {
     JCheckBox clubReach = new JCheckBox(
         "Torcida, redes sociais e alcance mundial",
         ModRuntime.isFeatureEnabled(Feature.CLUB_REACH));
+    JCheckBox stadiumInfrastructure = new JCheckBox(
+        "Est\u00e1dio e infraestrutura",
+        ModRuntime.isFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE));
     JPanel panel = new JPanel(new GridLayout(0, 1, 0, 6));
     panel.add(boardObjectives);
     panel.add(sponsorships);
     panel.add(clubReach);
+    panel.add(stadiumInfrastructure);
     int choice = JOptionPane.showConfirmDialog(
         this.parent,
         panel,
@@ -57,6 +62,13 @@ public final class ModSettingsAction implements ActionListener {
     ModRuntime.setFeatureEnabled(Feature.CLUB_REACH, clubReach.isSelected());
     if (!clubReachWasEnabled && clubReach.isSelected()) {
       ClubReachBridge.openDashboard(this.parent);
+    }
+    boolean infrastructureWasEnabled =
+        ModRuntime.isFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE);
+    ModRuntime.setFeatureEnabled(
+        Feature.STADIUM_INFRASTRUCTURE, stadiumInfrastructure.isSelected());
+    if (!infrastructureWasEnabled && stadiumInfrastructure.isSelected()) {
+      StadiumInfrastructureBridge.openDashboard(this.parent);
     }
   }
 }

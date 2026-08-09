@@ -5,6 +5,11 @@ import java.nio.file.Path;
 import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.infrastructure.FacilityType;
+import mod.extension.infrastructure.InfrastructureResult;
+import mod.extension.infrastructure.InfrastructureSnapshot;
+import mod.extension.infrastructure.InfrastructureUpgradeOffer;
+import mod.extension.infrastructure.StadiumInfrastructureService;
 import mod.extension.reach.ClubReachResult;
 import mod.extension.reach.ClubReachService;
 import mod.extension.reach.ClubReachSnapshot;
@@ -20,6 +25,8 @@ public final class ModRuntime {
   private static final SponsorshipService SPONSORSHIPS =
       new SponsorshipService();
   private static final ClubReachService CLUB_REACH = new ClubReachService();
+  private static final StadiumInfrastructureService STADIUM_INFRASTRUCTURE =
+      new StadiumInfrastructureService();
 
   private static ModState state = ModState.empty();
   private static FeatureRegistry features = FeatureRegistry.from(state);
@@ -145,6 +152,46 @@ public final class ModRuntime {
     return result;
   }
 
+  public static synchronized InfrastructureResult inspectInfrastructure(
+      InfrastructureSnapshot snapshot) {
+    if (!features.isEnabled(Feature.STADIUM_INFRASTRUCTURE)) {
+      return InfrastructureResult.disabled(state, snapshot);
+    }
+    InfrastructureResult result = STADIUM_INFRASTRUCTURE.inspect(state, snapshot);
+    applyInfrastructureResult(result);
+    return result;
+  }
+
+  public static synchronized InfrastructureResult processInfrastructureMonth(
+      InfrastructureSnapshot snapshot) {
+    if (!features.isEnabled(Feature.STADIUM_INFRASTRUCTURE)) {
+      return InfrastructureResult.disabled(state, snapshot);
+    }
+    InfrastructureResult result =
+        STADIUM_INFRASTRUCTURE.processMonthly(state, snapshot);
+    applyInfrastructureResult(result);
+    return result;
+  }
+
+  public static synchronized InfrastructureUpgradeOffer quoteInfrastructureUpgrade(
+      InfrastructureSnapshot snapshot, FacilityType facilityType) {
+    if (!features.isEnabled(Feature.STADIUM_INFRASTRUCTURE)) {
+      return null;
+    }
+    return STADIUM_INFRASTRUCTURE.quoteUpgrade(state, snapshot, facilityType);
+  }
+
+  public static synchronized InfrastructureResult startInfrastructureUpgrade(
+      InfrastructureSnapshot snapshot, FacilityType facilityType) {
+    if (!features.isEnabled(Feature.STADIUM_INFRASTRUCTURE)) {
+      return InfrastructureResult.disabled(state, snapshot);
+    }
+    InfrastructureResult result =
+        STADIUM_INFRASTRUCTURE.startUpgrade(state, snapshot, facilityType);
+    applyInfrastructureResult(result);
+    return result;
+  }
+
   public static synchronized ModState getState() {
     return state;
   }
@@ -158,6 +205,11 @@ public final class ModRuntime {
   }
 
   private static void applySponsorshipResult(SponsorshipResult result) {
+    state = result.getState();
+    features = FeatureRegistry.from(state);
+  }
+
+  private static void applyInfrastructureResult(InfrastructureResult result) {
     state = result.getState();
     features = FeatureRegistry.from(state);
   }

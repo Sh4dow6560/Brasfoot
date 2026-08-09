@@ -70,7 +70,7 @@ public class C0176 extends JPanel {
 
       this.mJ();
       this.mH();
-      this.Cq = stadium.dT();
+      this.Cq = stadium.getSectorCapacities();
       JSpinner[] var5 = new JSpinner[]{this.CA, this.CB, this.CC, this.CD};
 
       for (int var6 = 0; var6 < 4; var6++) {

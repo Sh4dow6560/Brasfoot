@@ -162,9 +162,9 @@ public class C0132 extends JPanel {
    }
 
    private void ob() {
-      if (this.bv.dX() < GameConstants.pb.length) {
-         this.Bm.setText(GameConstants.pb[this.bv.dX()]);
-         this.Bl.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + GameConstants.pc[this.bv.dX()] + ".png")));
+      if (this.bv.getPitchCondition() < GameConstants.pb.length) {
+         this.Bm.setText(GameConstants.pb[this.bv.getPitchCondition()]);
+         this.Bl.setIcon(new ImageIcon(this.getClass().getResource("/aicons/" + GameConstants.pc[this.bv.getPitchCondition()] + ".png")));
       }
    }
 

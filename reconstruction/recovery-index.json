@@ -1055,7 +1055,7 @@
       "namedName": "bf22/intermediary/C0132",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "7DBD196F76A745DE145A7B988D09CAD8989B540014BD91E1231962CA4830B06E"
+      "sourceSha256": "75E25C8C5156F2CA9FE0A18E364B4A2BC8FDD0206304200AA8E9461A8F2E4511"
     },
     {
       "officialName": "a/c",
@@ -1095,7 +1095,7 @@
       "namedName": "bf22/intermediary/C0137",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "DAC1AB2B4666186E94BE86A78935443866134CAC966944A6A59CF42CB7CF48A7"
+      "sourceSha256": "E005C85B9AA00D3A604582CC69342DAD2F8E4ED93A21A6DA4905586C98EF9561"
     },
     {
       "officialName": "a/cE",
@@ -1367,7 +1367,7 @@
       "namedName": "bf22/intermediary/C0171",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "05A410CAF390933E11D29D1F11B8C28ACAAE7870FFEB32EE964F72DF48616B09"
+      "sourceSha256": "4CDD166361CDD224FF9CF54BB066BDE1DBF62BBC99EC71496449A141ED8E2174"
     },
     {
       "officialName": "a/cm",
@@ -1407,7 +1407,7 @@
       "namedName": "bf22/intermediary/C0176",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "224527040B124E34DE0876FD29FBBF77F8E4D5364F63E7B4018939B6EC9F2AD0"
+      "sourceSha256": "E4D47C1E159449BFAFD0E469A9CCE4B292A5D8051582D38FF2198C4F90C2BC36"
     },
     {
       "officialName": "a/cr",
@@ -1663,7 +1663,7 @@
       "namedName": "bf22/intermediary/C0208",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "AAF60E5E00E4EEC8DD7E63DE54452537124D6D8762DEA3424CDF7B95AD690922"
+      "sourceSha256": "46BE5CC98DCD8AE11E5B405BA391C3B679726D60F473859AECAB56096BC8209B"
     },
     {
       "officialName": "a/dW",
@@ -1831,7 +1831,7 @@
       "namedName": "bf22/intermediary/C0229",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "29BA4732C9C650D097E4EAA704203FEE880AF8970E00BE66D5672A438AA21068"
+      "sourceSha256": "C2856AC7D27C64BF6299C7B2D3C943EFF708CC08CD933B12DDA9A69A6771538D"
     },
     {
       "officialName": "a/dr",
@@ -2175,7 +2175,7 @@
       "namedName": "bf22/intermediary/C0272",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "E48709B04328B8C92977203A8D34A4A171CA3B729E91E3CB043C99EAE18F68B4"
+      "sourceSha256": "B5E953405D37978ADED6FF8D5E30038CF4FDB21B97B90B51FF505048FD5AB4B0"
     },
     {
       "officialName": "a/eh",
@@ -3479,7 +3479,7 @@
       "namedName": "bf22/intermediary/C0435",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "F37D78C7EEE4B95AB0AAB756FCF7E0E8BA1E82FEEAA58EF3A8AEDEC53FAB73FA"
+      "sourceSha256": "A23A5CECF1C03A0BDC47DA3B009A2F51D3A68DA48ADBE748178AEBD14B01D705"
     },
     {
       "officialName": "a/hl",
@@ -4791,7 +4791,7 @@
       "namedName": "bf22/intermediary/C0599",
       "introducedIn": "2016",
       "status": "compile-clean",
-      "sourceSha256": "824043229F6E9DDB8E07D58E900342BC11C9C205230AA9F2413C504B954C849A"
+      "sourceSha256": "F76E60CDDEF775AE02293B78BB6A3E50D844DB1B68FEF181AA862C8EF2420C5F"
     },
     {
       "officialName": "b/aH",
@@ -5343,7 +5343,7 @@
       "namedName": "mod/recovered/stadium/StadiumExpansionProject",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "6278FFE38FCC7003DDB01709C0503050312F15C609ACF70A36F542212971B495"
+      "sourceSha256": "EEBB704B14F2FBCD84E3C366A343ECD49D5DA58A12E2BE9DE808ED13DFB7A35E"
     },
     {
       "officialName": "best/C",
@@ -5399,7 +5399,7 @@
       "namedName": "mod/recovered/match/Match",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "C47D9995FC8F20AC882BD0BF1BE3DAEF767A45ACD0975E0BC533B7F2DEE72DD9"
+      "sourceSha256": "6A48273B6E2D805F33908DCA5700FC97D9C9C5D191D9EA09A5F02D353558F48B"
     },
     {
       "officialName": "best/J",
@@ -5543,7 +5543,7 @@
       "namedName": "mod/recovered/game/ScheduleDay",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "6FB5C1EFE07B27AA31DBBED2411062D95285A448D3FA9B362C3B96E6AF8601F0"
+      "sourceSha256": "BC2C35F9A0E73AB486ABB5C3D541651158B84BFE788E33E5A1ECFE7AF7D5BFFC"
     },
     {
       "officialName": "best/aa",
@@ -5919,7 +5919,7 @@
       "namedName": "mod/recovered/model/Stadium",
       "introducedIn": "2016",
       "status": "runtime-verified",
-      "sourceSha256": "0EEA4519C84E35E78D21EFFE9414DA2ED20381BD51F9D04B0F5518BDB4442586"
+      "sourceSha256": "CE44FB6BE7BD39C691FD7DA46C6331E1A229B5C1D71645E4C44ACC9835EEE25C"
     },
     {
       "officialName": "best/w",

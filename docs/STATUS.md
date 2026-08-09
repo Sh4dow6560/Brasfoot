@@ -12,7 +12,7 @@
 - Dependencias: as seis classes do carregador Eclipse Jar-in-Jar continuam como
   binarios externos; elas nao pertencem ao codigo do Brasfoot.
 - Reconstrucao hibrida: 1.032 classes do jogo sobrepostas por fonte recuperada
-  e 29 bytecodes novos de extensao; 1.061 overlays no total.
+  e 51 bytecodes novos de extensao; 1.083 overlays no total.
 - Integridade: 1.161 recursos e entradas nao sobrepostas permanecem
   byte-identicos ao original.
 - Serializacao: 88 contratos diretos preservam campos e `serialVersionUID`; o
@@ -27,7 +27,7 @@
 - Interface: a copia hibrida abriu a janela principal do Brasfoot, e a carreira
   foi salva e carregada. Novas montagens agora preservam automaticamente a
   pasta `sav` da copia hibrida.
-- Legibilidade: 84 classes e 808 membros possuem entradas no Tiny v2; 721
+- Legibilidade: 87 classes e 844 membros possuem entradas no Tiny v2; 758
   campos e metodos tem nomes semanticos explicitos. A API central de
   persistencia agora expoe nomes diretos para estado da carreira, opcoes,
   salvar, carregar, backups e sons.
@@ -124,9 +124,10 @@
   atributos e energia possuem setters semanticos. A migracao foi dirigida pelo
   tipo para nao alterar metodos homonimos de outras classes, e todos os setters
   sao executados no JAR final.
-- Estadios: `StadiumExpansionProject` e o processamento correspondente em
-  `CareerState` estao nomeados. Um teste funcional confirma aplicacao unica de
-  70 lugares, preservacao da data e round-trip Kryo.
+- Estadios: `Stadium`, `StadiumExpansionProject` e os acessos de gramado em
+  `Match` identificam nome, setores, precos, capacidade, expansao e condicao do
+  campo. O teste funcional da expansao confirma aplicacao unica de 70 lugares,
+  preservacao da data e round-trip Kryo.
 - Migracao: membros estaticos, membros privados, metodos de instancia com nome
   globalmente unico e metodos sem argumentos sem colisao equivalente podem ser
   aplicados de forma transacional nas 1.032 fontes, com backup e verificacao
@@ -161,7 +162,11 @@
   seguidores, socios-torcedores, engajamento, sentimento e reputacao mundial.
   A evolucao mensal considera fase, titulos, reputacao, divisao e capacidade do
   estadio, preserva 36 periodos e e idempotente.
+- Infraestrutura: gramado, centro de treinamento, departamento medico,
+  categorias de base e estrutura comercial possuem niveis, manutencao mensal e
+  obras com custo e prazo no sidecar. A qualidade do campo considera uso e
+  manutencao e e sincronizada com o estadio e apenas com suas partidas futuras.
 - Configuracao: `Recursos adicionais` no menu principal ativa ou desativa
-  objetivos da diretoria, patrocinadores e alcance do clube sem editar o save
-  manualmente. Um painel separado exibe os indicadores atuais.
-- Proxima fase: recuperar e ampliar estadio, gramado e infraestrutura.
+  objetivos da diretoria, patrocinadores, alcance do clube e infraestrutura
+  sem editar o save manualmente. Paineis separados exibem os indicadores.
+- Proxima fase: recuperar e ampliar ofertas de compra e emprestimos.

@@ -3,8 +3,8 @@
 Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome direto sao agrupadas pelo modulo semantico mais referenciado; empates permanecem nao classificados.
 
 - Classes: 87/1038 (8.4%).
-- Membros semanticos explicitos: 738/10201 (7.2%).
-- Entradas de membros emitidas no Tiny v2: 825.
+- Membros semanticos explicitos: 758/10201 (7.4%).
+- Entradas de membros emitidas no Tiny v2: 844.
 
 | Modulo | Classes | Nomeadas | Cobertura | Membros | Semanticos | Cobertura |
 |---|---:|---:|---:|---:|---:|---:|
@@ -16,8 +16,8 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 |geo|6|1|16.7%|71|0|0.0%|
 |infrastructure|1|1|100.0%|5|4|80.0%|
 |manager|5|3|60.0%|60|51|85.0%|
-|match|27|3|11.1%|847|142|16.8%|
-|model|168|5|3.0%|2416|235|9.7%|
+|match|27|3|11.1%|847|145|17.1%|
+|model|168|5|3.0%|2416|252|10.4%|
 |named-other|18|3|16.7%|200|16|8.0%|
 |save|32|2|6.3%|247|33|13.4%|
 |stadium|1|1|100.0%|10|9|90.0%|
@@ -51,7 +51,7 @@ Relatorio deterministico gerado a partir do bytecode 22/23. Classes sem nome dir
 |`a/cD`|match|2016|110|110|
 |`est/Options`|config|2016|110|110|
 |`d/n`|core|2016|106|106|
-|`best/I`|match|2016|105|176|
+|`best/I`|match|2016|102|176|
 |`a/hk`|match|2016|98|98|
 |`a/al`|named-other|2016|97|97|
 |`a/bz`|model|2016|97|97|

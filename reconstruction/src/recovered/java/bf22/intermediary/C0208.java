@@ -267,7 +267,7 @@ public class C0208 extends JPanel {
       this.Hh.setIcon(((C0827)vK.get(this.GW)).tR().getHomeClub().kP());
       this.Hi.setIcon(((C0827)vK.get(this.GW)).tR().getAwayClub().kP());
       if (((C0827)vK.get(this.GW)).tR().getStadium() != null) {
-         this.Hl.setText(((C0827)vK.get(this.GW)).tR().getStadium().dS());
+         this.Hl.setText(((C0827)vK.get(this.GW)).tR().getStadium().getName());
          this.Hm.setText(Integer.toString(((C0827)vK.get(this.GW)).hU()));
       } else if (((C0827)vK.get(this.GW)).ik() != null) {
          this.Hl.setText(((C0827)vK.get(this.GW)).ik());

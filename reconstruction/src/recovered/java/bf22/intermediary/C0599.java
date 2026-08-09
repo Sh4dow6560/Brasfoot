@@ -23,7 +23,7 @@ public class C0599 extends DefaultTableCellRenderer {
          if (j == 0) {
             this.setHorizontalAlignment(0);
             if (var7.tR().getStadium() != null) {
-               this.setText(var7.tR().getStadium().dS() + " | " + Integer.toString(var7.hU()));
+               this.setText(var7.tR().getStadium().getName() + " | " + Integer.toString(var7.hU()));
             } else if (var7.ik() != null) {
                this.setText(var7.ik());
             }

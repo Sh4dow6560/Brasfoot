@@ -667,12 +667,12 @@ public class C0435 extends JPanel {
          this.zP.setForeground(c0675.getAwayClub().kC());
          this.zP.setBackground(c0675.getAwayClub().kB());
          if (c0675.getStadium() != null) {
-            this.Cg.setText(c0675.getStadium().dS());
+            this.Cg.setText(c0675.getStadium().getName());
             this.Dz.setText(ClubFinances.formatCompactAmount(c0675.hN(), 0));
             this.Dy.setText(Integer.toString(c0675.hU()));
             this.Dy.setToolTipText(c0675.hV());
          } else if (c0675.il() != null) {
-            this.Cg.setText(c0675.il().dS());
+            this.Cg.setText(c0675.il().getName());
             this.Dz.setText(ClubFinances.formatCompactAmount(c0675.hN(), 0));
             this.Dy.setText(Integer.toString(c0675.hU()));
             this.Dy.setToolTipText(c0675.hV());

@@ -78,6 +78,10 @@ O modulo de torcida calcula alcance local e internacional, seguidores, socios,
 engajamento e reputacao mundial uma vez por mes. O painel, as regras e o
 fallback estao em `docs/CLUB_REACH.md`.
 
+O modulo de estadio e infraestrutura adiciona niveis, manutencao, qualidade do
+gramado e obras com custo e prazo. A integracao com partidas agendadas e o
+fallback estao em `docs/STADIUM_INFRASTRUCTURE.md`.
+
 ## Espacos De Nomes
 
 - `official`: nomes binarios originais exigidos pelo jogo.

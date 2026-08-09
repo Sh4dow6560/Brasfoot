@@ -30,7 +30,7 @@ public class StadiumExpansionProject implements Serializable {
    public void applyExpansion() {
       for (int var1 = 0; var1 < this.seatAdditions.length; var1++) {
          if (this.seatAdditions[var1] > 0) {
-            this.stadium.f(var1, this.seatAdditions[var1]);
+            this.stadium.addSectorCapacity(var1, this.seatAdditions[var1]);
             this.seatAdditions[var1] = 0;
          }
       }

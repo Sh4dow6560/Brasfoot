@@ -78,12 +78,12 @@ public class C0229 extends JPanel {
    }
 
    private void ob() {
-      if (this.Db.tR().dX() < GameConstants.pb.length) {
-         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().dX()] + ".jpg")));
+      if (this.Db.tR().getPitchCondition() < GameConstants.pb.length) {
+         this.Ds.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().getPitchCondition()] + ".jpg")));
       }
 
-      if (this.Db.tR().dX() < GameConstants.pb.length) {
-         this.FH.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().dX()] + ".jpg")));
+      if (this.Db.tR().getPitchCondition() < GameConstants.pb.length) {
+         this.FH.setIcon(new ImageIcon(this.getClass().getResource("/aiconsj/" + GameConstants.pd[this.Db.tR().getPitchCondition()] + ".jpg")));
       }
    }
 
@@ -118,7 +118,7 @@ public class C0229 extends JPanel {
       this.zP.setForeground(this.Db.tR().getAwayClub().kC());
       this.zP.setBackground(this.Db.tR().getAwayClub().kB());
       if (this.Db.tR().getStadium() != null) {
-         this.Cg.setText(this.Db.tR().getStadium().dS());
+         this.Cg.setText(this.Db.tR().getStadium().getName());
          this.Dy.setText(Integer.toString(this.Db.tR().hU()));
          this.Dy.setToolTipText(this.Db.tR().hV());
          this.Dz.setText(ClubFinances.formatAmount(this.Db.tR().hN()));

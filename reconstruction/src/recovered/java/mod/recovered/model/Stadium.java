@@ -8,28 +8,28 @@ import java.util.Random;
 
 public class Stadium implements Serializable {
    private static final long serialVersionUID = 1L;
-   private String dm;
-   private int[] dn = new int[4];
-   private int[] field_kw_do = new int[]{20, 35, 55, 80};
-   private boolean dp = true;
-   private int dq = 0;
-   private int pais = -1;
+   private String name;
+   private int[] sectorCapacities = new int[4];
+   private int[] ticketPrices = new int[]{20, 35, 55, 80};
+   private boolean useSuggestedTicketPrices = true;
+   private int pitchCondition = 0;
+   private int countryId = -1;
 
    public Stadium() {
    }
 
    public Stadium(String string, int i, Club club) {
-      this.dm = string;
+      this.name = string;
       this.N(i);
-      this.field_kw_do = a(1, club);
+      this.ticketPrices = a(1, club);
       this.h(club);
-      this.pais = club.getPais();
+      this.countryId = club.getPais();
    }
 
    public Stadium(boolean bl, String string, int i) {
-      this.dm = string;
+      this.name = string;
       this.N(i);
-      this.field_kw_do = GameConstants.qK[1][1];
+      this.ticketPrices = GameConstants.qK[1][1];
    }
 
    private void h(Club club) {
@@ -37,34 +37,34 @@ public class Stadium implements Serializable {
          Random var2 = new Random();
          if (club.getReputation() >= 4) {
             if (var2.nextInt(100) >= 95) {
-               this.dq = 1;
+               this.pitchCondition = 1;
             }
          } else if (club.getReputation() == 3) {
             int var3 = var2.nextInt(100);
             if (var3 >= 50) {
-               this.dq = 1;
+               this.pitchCondition = 1;
             } else if (var3 <= 5) {
-               this.dq = 2;
+               this.pitchCondition = 2;
             }
          } else if (club.getReputation() == 2) {
             int var4 = var2.nextInt(100);
             if (var4 >= 50) {
-               this.dq = 1;
+               this.pitchCondition = 1;
             } else if (var4 <= 15) {
-               this.dq = 2;
+               this.pitchCondition = 2;
             } else if (var4 == 0) {
-               this.dq = 3;
+               this.pitchCondition = 3;
             }
          } else {
             int var5 = var2.nextInt(100);
             if (var5 >= 90) {
-               this.dq = 0;
+               this.pitchCondition = 0;
             } else if (var5 >= 50) {
-               this.dq = 1;
+               this.pitchCondition = 1;
             } else if (var5 >= 25) {
-               this.dq = 2;
+               this.pitchCondition = 2;
             } else {
-               this.dq = 3;
+               this.pitchCondition = 3;
             }
          }
       }
@@ -74,14 +74,14 @@ public class Stadium implements Serializable {
       Random var2 = new Random();
       if (club.getReputation() >= 4) {
          if (var2.nextInt(100) >= 70) {
-            this.dq = 1;
+            this.pitchCondition = 1;
          } else {
-            this.dq = 0;
+            this.pitchCondition = 0;
          }
       } else if (var2.nextInt(100) >= 70) {
-         this.dq = 1;
+         this.pitchCondition = 1;
       } else {
-         this.dq = 0;
+         this.pitchCondition = 0;
       }
    }
 
@@ -91,10 +91,10 @@ public class Stadium implements Serializable {
       }
 
       double[] var2 = new double[]{0.15, 0.75, 0.09, 0.009};
-      this.dn[0] = (int)Math.round(i * var2[0]);
-      this.dn[2] = (int)Math.round(i * var2[2]);
-      this.dn[3] = (int)Math.round(i * var2[3]);
-      this.dn[1] = i - (this.dn[0] + this.dn[2] + this.dn[3]);
+      this.sectorCapacities[0] = (int)Math.round(i * var2[0]);
+      this.sectorCapacities[2] = (int)Math.round(i * var2[2]);
+      this.sectorCapacities[3] = (int)Math.round(i * var2[3]);
+      this.sectorCapacities[1] = i - (this.sectorCapacities[0] + this.sectorCapacities[2] + this.sectorCapacities[3]);
    }
 
    public void b(Match c0675) {
@@ -108,7 +108,7 @@ public class Stadium implements Serializable {
       int[] var9 = new int[4];
 
       for (int var10 = 0; var10 < var9.length; var10++) {
-         var9[var10] = this.dn[var10];
+         var9[var10] = this.sectorCapacities[var10];
       }
 
       int[][] var27 = new int[][]{
@@ -147,7 +147,7 @@ public class Stadium implements Serializable {
       }
 
       for (int var15 = 0; var15 < var8.length; var15++) {
-         var8[var15] += (int)Math.round(this.dn[var15] * var30);
+         var8[var15] += (int)Math.round(this.sectorCapacities[var15] * var30);
       }
 
       double var31 = 0.0;
@@ -185,10 +185,10 @@ public class Stadium implements Serializable {
       }
 
       int[] var36 = new int[4];
-      if (this.dV()) {
+      if (this.usesSuggestedTicketPrices()) {
          var3 = a(c0675.getCompetition().b(), c0675.getHomeClub());
       } else {
-         var3 = this.dU();
+         var3 = this.getTicketPrices();
 
          for (int var37 = 0; var37 < var3.length; var37++) {
             var36[var37] = var7[var37] - var3[var37];
@@ -204,8 +204,8 @@ public class Stadium implements Serializable {
             var8[var38] = 0;
          }
 
-         if (var8[var38] > this.dn[var38]) {
-            var8[var38] = this.dn[var38];
+         if (var8[var38] > this.sectorCapacities[var38]) {
+            var8[var38] = this.sectorCapacities[var38];
          }
 
          var4 += var8[var38] * var3[var38];
@@ -255,55 +255,55 @@ public class Stadium implements Serializable {
       return var2;
    }
 
-   public String dS() {
-      return this.dm;
+   public String getName() {
+      return this.name;
    }
 
-   public void i(String string) {
-      this.dm = string;
+   public void setName(String string) {
+      this.name = string;
    }
 
-   public int[] dT() {
-      return this.dn;
+   public int[] getSectorCapacities() {
+      return this.sectorCapacities;
    }
 
-   public void a(int[] is) {
-      this.dn = is;
+   public void setSectorCapacities(int[] is) {
+      this.sectorCapacities = is;
    }
 
-   public int[] dU() {
-      return this.field_kw_do;
+   public int[] getTicketPrices() {
+      return this.ticketPrices;
    }
 
-   public void b(int[] is) {
-      this.field_kw_do = is;
+   public void setTicketPrices(int[] is) {
+      this.ticketPrices = is;
    }
 
-   public boolean dV() {
-      return this.dp;
+   public boolean usesSuggestedTicketPrices() {
+      return this.useSuggestedTicketPrices;
    }
 
-   public void o(boolean bl) {
-      this.dp = bl;
+   public void setUseSuggestedTicketPrices(boolean bl) {
+      this.useSuggestedTicketPrices = bl;
    }
 
    public int getCapacity() {
-      return this.dn[0] + this.dn[1] + this.dn[2] + this.dn[3];
+      return this.sectorCapacities[0] + this.sectorCapacities[1] + this.sectorCapacities[2] + this.sectorCapacities[3];
    }
 
-   public void f(int i, int j) {
-      this.dn[i] = this.dn[i] + j;
+   public void addSectorCapacity(int i, int j) {
+      this.sectorCapacities[i] = this.sectorCapacities[i] + j;
    }
 
-   public int dX() {
-      return this.dq;
+   public int getPitchCondition() {
+      return this.pitchCondition;
    }
 
-   public void O(int i) {
-      this.dq = i;
+   public void setPitchCondition(int i) {
+      this.pitchCondition = i;
    }
 
    public int getPais() {
-      return this.pais;
+      return this.countryId;
    }
 }

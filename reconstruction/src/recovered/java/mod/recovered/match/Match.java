@@ -65,7 +65,7 @@ public class Match implements Serializable {
    private int[][] gl = new int[2][11];
    private int[][] gm = new int[][]{{-1, -1, -1, -1}, {-1, -1, -1, -1}};
    private int[][] gn = new int[][]{{-1, -1, -1}, {-1, -1, -1}};
-   private int dq = 0;
+   private int pitchCondition = 0;
    private transient MatchEngine matchEngine = null;
    private transient String gp = "";
    private transient String gq = null;
@@ -190,7 +190,7 @@ public class Match implements Serializable {
       }
 
       if (this.stadium != null) {
-         this.dq = this.stadium.dX();
+         this.pitchCondition = this.stadium.getPitchCondition();
       }
 
       if (c0678 != null) {
@@ -1729,12 +1729,12 @@ public class Match implements Serializable {
       this.gp = string;
    }
 
-   public int dX() {
-      return this.dq;
+   public int getPitchCondition() {
+      return this.pitchCondition;
    }
 
-   public void O(int i) {
-      this.dq = i;
+   public void setPitchCondition(int i) {
+      this.pitchCondition = i;
    }
 
    public String ik() {

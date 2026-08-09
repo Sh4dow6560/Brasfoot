@@ -10,6 +10,10 @@ import mod.extension.board.BoardEvaluation;
 import mod.extension.board.BoardObjectivesService;
 import mod.extension.board.BoardOutcome;
 import mod.extension.board.BoardSnapshot;
+import mod.extension.infrastructure.InfrastructureResult;
+import mod.extension.infrastructure.InfrastructureSnapshot;
+import mod.extension.infrastructure.InfrastructureStatus;
+import mod.extension.infrastructure.StadiumInfrastructureService;
 import mod.extension.reach.ClubReachResult;
 import mod.extension.reach.ClubReachService;
 import mod.extension.reach.ClubReachSnapshot;
@@ -105,6 +109,32 @@ class ModRuntimeTest {
 
     assertTrue(ModRuntime.isFeatureEnabled(Feature.CLUB_REACH));
     assertFalse(ModRuntime.getState().getModule(ClubReachService.MODULE_ID).isEmpty());
+  }
+
+  @Test
+  void keepsInfrastructureOptInAndPersistsItsProfile() throws Exception {
+    InfrastructureSnapshot snapshot = new InfrastructureSnapshot(
+        2026, 1, 1, 101, 1, 3, 40_000, 1, 0, 100_000_000L);
+    ModRuntime.startNewCareer();
+
+    InfrastructureResult disabled = ModRuntime.inspectInfrastructure(snapshot);
+    assertEquals(InfrastructureStatus.DISABLED, disabled.getStatus());
+    assertTrue(ModRuntime.getState()
+        .getModule(StadiumInfrastructureService.MODULE_ID).isEmpty());
+
+    ModRuntime.setFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE, true);
+    InfrastructureResult initialized = ModRuntime.inspectInfrastructure(snapshot);
+    Path save = this.directory.resolve("infrastructure.s22");
+    Files.write(save, new byte[]{10, 11, 12});
+    assertTrue(initialized.isStateChanged());
+    assertTrue(ModRuntime.persist(save));
+
+    ModRuntime.startNewCareer();
+    ModRuntime.attach(save);
+
+    assertTrue(ModRuntime.isFeatureEnabled(Feature.STADIUM_INFRASTRUCTURE));
+    assertFalse(ModRuntime.getState()
+        .getModule(StadiumInfrastructureService.MODULE_ID).isEmpty());
   }
 
   private BoardSnapshot snapshot(int year, int month, int matches, int wins) {
