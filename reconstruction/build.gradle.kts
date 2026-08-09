@@ -47,11 +47,21 @@ recovered.compileClasspath += fileTree(embeddedLibrariesDir) {
     include("*.jar")
 }
 
+val extension = sourceSets.create("extension") {
+    java.setSrcDirs(listOf("src/extension/java"))
+}
+
 val agent = sourceSets.create("agent") {
     java.setSrcDirs(listOf("src/agent/java"))
 }
 agent.compileClasspath += fileTree(embeddedLibrariesDir) {
     include("*.jar")
+}
+agent.compileClasspath += extension.output
+
+sourceSets.named("test") {
+    compileClasspath += extension.output
+    runtimeClasspath += extension.output
 }
 
 val candidate = sourceSets.create("candidate") {
@@ -88,7 +98,13 @@ tasks.named<JavaCompile>(recovered.compileJavaTaskName) {
     options.compilerArgs.add("-Xlint:-options")
 }
 
+tasks.named<JavaCompile>(extension.compileJavaTaskName) {
+    options.release.set(8)
+    options.compilerArgs.add("-Xlint:-options")
+}
+
 tasks.named<JavaCompile>(agent.compileJavaTaskName) {
+    dependsOn(tasks.named(extension.classesTaskName))
     options.release.set(8)
     options.compilerArgs.add("-Xlint:-options")
 }
@@ -99,6 +115,7 @@ tasks.named<JavaCompile>(candidate.compileJavaTaskName) {
 }
 
 tasks.test {
+    dependsOn(tasks.named(extension.classesTaskName))
     useJUnitPlatform()
 }
 
@@ -262,7 +279,7 @@ val semanticCoverage = registerToolTask("semanticCoverage", "semantic-coverage")
 
 tasks.register("compileRecovered") {
     group = "reconstruction"
-    dependsOn(tasks.named(recovered.classesTaskName))
+    dependsOn(tasks.named(recovered.classesTaskName), tasks.named(extension.classesTaskName))
 }
 
 val agentJar = tasks.register<Jar>("agentJar") {
@@ -280,7 +297,11 @@ val agentJar = tasks.register<Jar>("agentJar") {
 }
 
 val assembleHybrid = registerToolTask("assembleHybrid", "assemble-hybrid") {
-    dependsOn(tasks.named(recovered.classesTaskName), remapGame)
+    dependsOn(
+        tasks.named(recovered.classesTaskName),
+        tasks.named(extension.classesTaskName),
+        remapGame
+    )
 }
 
 val staticSmokeTest = registerToolTask("staticSmokeTest", "static-smoke") {
@@ -303,6 +324,12 @@ val fullSaveCompatibilityTest = registerToolTask(
 
 val differentialTest = registerToolTask("differentialTest", "differential-test") {
     dependsOn(assembleHybrid, agentJar, extractEmbeddedLibraries)
+}
+
+val modStateCompatibilityTest = registerToolTask(
+    "modStateCompatibilityTest", "mod-state-compatibility"
+) {
+    dependsOn(assembleHybrid, agentJar)
 }
 
 val teamRoundTrip = tasks.register<Exec>("teamRoundTrip") {
@@ -331,6 +358,7 @@ tasks.register("smokeTest") {
         saveCompatibilityTest,
         fullSaveCompatibilityTest,
         differentialTest,
+        modStateCompatibilityTest,
         teamRoundTrip,
         dataUpdate2026RoundTrip
     )

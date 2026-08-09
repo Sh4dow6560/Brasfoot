@@ -59,18 +59,27 @@ final class ZipSupport {
   }
 
   static void jarDirectory(Path classesDirectory, Path output) throws IOException {
-    if (!Files.isDirectory(classesDirectory)) {
-      throw new IOException("Compiled classes directory not found: " + classesDirectory);
-    }
+    jarDirectories(List.of(classesDirectory), output);
+  }
+
+  static void jarDirectories(List<Path> classesDirectories, Path output) throws IOException {
     Map<String, byte[]> entries = new TreeMap<>();
-    try (var paths = Files.walk(classesDirectory)) {
-      for (Path file : paths.filter(Files::isRegularFile).sorted().toList()) {
-        String name = classesDirectory.relativize(file).toString().replace('\\', '/');
-        entries.put(name, Files.readAllBytes(file));
+    for (Path classesDirectory : classesDirectories) {
+      if (!Files.isDirectory(classesDirectory)) {
+        throw new IOException("Compiled classes directory not found: " + classesDirectory);
+      }
+      try (var paths = Files.walk(classesDirectory)) {
+        for (Path file : paths.filter(Files::isRegularFile).sorted().toList()) {
+          String name = classesDirectory.relativize(file).toString().replace('\\', '/');
+          byte[] previous = entries.putIfAbsent(name, Files.readAllBytes(file));
+          if (previous != null) {
+            throw new IOException("Duplicate compiled class entry: " + name);
+          }
+        }
       }
     }
     if (entries.isEmpty()) {
-      throw new IOException("No compiled classes found in: " + classesDirectory);
+      throw new IOException("No compiled classes found in: " + classesDirectories);
     }
     writeArchive(output, entries);
   }

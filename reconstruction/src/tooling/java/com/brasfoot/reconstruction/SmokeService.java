@@ -42,8 +42,19 @@ final class SmokeService {
     Map<String, byte[]> original = ZipSupport.readEntries(context.normalizedGameJar());
     Map<String, byte[]> hybrid = ZipSupport.readEntries(context.hybridJar());
     long classCount = hybrid.keySet().stream().filter(name -> name.endsWith(".class")).count();
-    if (classCount != 1038) {
-      throw new IllegalStateException("Expected 1038 classes in hybrid JAR, got " + classCount);
+    List<HybridService.OverlayEntry> addedClasses = manifest.overlays().stream()
+        .filter(HybridService.OverlayEntry::added)
+        .toList();
+    for (HybridService.OverlayEntry overlay : addedClasses) {
+      if (!overlay.entry().startsWith("mod/extension/")) {
+        throw new IllegalStateException(
+            "Added class is outside mod/extension: " + overlay.entry());
+      }
+    }
+    long expectedClassCount = 1038L + addedClasses.size();
+    if (classCount != expectedClassCount) {
+      throw new IllegalStateException("Expected " + expectedClassCount
+          + " classes in hybrid JAR, got " + classCount);
     }
 
     byte[] recovered = hybrid.get(HybridService.ORIGINAL_COMPONENT);
@@ -75,7 +86,8 @@ final class SmokeService {
         throw new IllegalStateException("Static smoke found changed non-overlay: " + entry.getKey());
       }
     }
-    System.out.println("Static smoke passed: 1038 classes, recovered component present, "
+    System.out.println("Static smoke passed: " + classCount
+        + " classes, recovered component present, "
         + manifest.unchangedEntries() + " unchanged entries verified.");
   }
 

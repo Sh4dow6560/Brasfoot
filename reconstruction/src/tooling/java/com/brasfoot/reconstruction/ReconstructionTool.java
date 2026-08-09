@@ -47,6 +47,7 @@ public final class ReconstructionTool {
       case "save-compatibility" -> new SaveCompatibilityService(context).verify();
       case "full-save-compatibility" -> new FullSaveCompatibilityService(context).verify();
       case "differential-test" -> new DifferentialTestService(context).verify();
+      case "mod-state-compatibility" -> new ModStateCompatibilityService(context).verify();
       case "run-hybrid" -> new SmokeService(context).runHybrid();
       default -> throw new IllegalArgumentException("Unknown command: " + command);
     }

@@ -115,13 +115,17 @@
   original e o hibrido: 88 contagens de modelos serializaveis e 19 cenarios de
   save, calendario, partida, elenco, transferencias, tecnico e financas. O
   marco atual possui zero divergencias e round-trip byte-identico.
+- O source set `extension` aceita novas classes somente em `mod/extension` e
+  compila com Java 8. `ModStateStore` persiste JSON lateral atomico e
+  versionado; `FeatureRegistry` mantem todas as novas mecanicas desligadas por
+  padrao, sem alterar os modelos Kryo originais.
 - O mapa dos principais pontos de entrada esta em `docs/SEMANTIC_CORE.md`.
 
 ## Proximas Fases
 
-1. Estado lateral versionado e registro de funcionalidades.
-2. Verificacao editorial dos dados brasileiros de agosto de 2026.
-3. Diretoria, patrocinadores e novas mecanicas em modulos independentes.
+1. Verificacao editorial dos dados brasileiros de agosto de 2026.
+2. Objetivos da diretoria e seguranca no emprego.
+3. Patrocinadores e novas mecanicas em modulos independentes.
 
 Classes serializaveis continuam protegidas pelo atlas de contratos e pelo save
 de referencia. Nenhuma alteracao nesses modelos pode entrar sem ambos os testes.

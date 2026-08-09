@@ -36,6 +36,7 @@ Depois de validar uma carreira pela interface, preserve-a como referencia:
 .\gradlew.bat saveCompatibilityTest
 .\gradlew.bat fullSaveCompatibilityTest
 .\gradlew.bat differentialTest
+.\gradlew.bat modStateCompatibilityTest
 ```
 
 O build jogavel fica em `C:\Brasfoot22-23_modkit\build\Brasfoot22-23_hybrid`.
@@ -58,6 +59,12 @@ round-trip e desserializa o `reference.info` preservado.
 no hibrido. Os 88 modelos serializaveis e os fluxos de calendario, partida,
 elenco, mercado, carreira do tecnico e financas precisam produzir marcadores
 identicos; o relatorio fica em `build/reports/differential-test.json`.
+
+As novas funcionalidades vivem em `src/extension/java/mod/extension` e sao
+compiladas separadamente para Java 8. `ModStateStore` grava um JSON lateral por
+save de forma atomica; `FeatureRegistry` deixa todas as novidades desligadas
+por padrao. O contrato e os estados de erro estao em
+`docs/EXTENSION_STATE.md`.
 
 ## Espacos De Nomes
 

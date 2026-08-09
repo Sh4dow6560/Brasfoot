@@ -96,6 +96,10 @@ final class ProjectContext {
     return buildDir().resolve("classes/java/recovered");
   }
 
+  Path extensionClassesDir() {
+    return buildDir().resolve("classes/java/extension");
+  }
+
   Path hybridRoot() {
     return modkitRoot().resolve("build/Brasfoot22-23_hybrid");
   }

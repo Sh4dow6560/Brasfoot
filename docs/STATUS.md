@@ -142,5 +142,10 @@
   original normalizado e no hibrido. Os 88 modelos serializaveis e 19 cenarios
   funcionais produziram 107 marcadores identicos, sem divergencias; ambos
   regravaram o save de 4.758.811 bytes de forma byte-identica.
-- Proxima fase: criar a camada lateral versionada para novas funcionalidades,
-  com `ModStateStore` e `FeatureRegistry` sem alterar os contratos Kryo.
+- Extensoes seguras: `ModStateStore` e `FeatureRegistry` vivem no pacote novo
+  `mod.extension`, compilado para Java 8 e preservado pelo remapeamento. O JSON
+  lateral por save possui schema, revisao, gravacao atomica, verificacao de
+  concorrencia e fallback desligado para arquivos ausentes, corrompidos ou
+  futuros. Nenhum dos 88 contratos Kryo recebeu campos.
+- Proxima fase: implementar objetivos mensais da diretoria sobre essa camada,
+  mantendo a funcionalidade desativada como fallback.

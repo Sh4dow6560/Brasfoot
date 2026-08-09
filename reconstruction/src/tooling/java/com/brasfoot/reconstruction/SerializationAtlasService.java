@@ -106,8 +106,11 @@ final class SerializationAtlasService {
     for (ClassInfo replacement : recovered.classes().values()) {
       ClassInfo expected = original.classes().get(replacement.name());
       if (expected == null) {
-        throw new IllegalStateException("Recovered class does not exist in original: "
-            + replacement.name());
+        if (!replacement.name().startsWith("mod/extension/")) {
+          throw new IllegalStateException("Recovered class does not exist in original: "
+              + replacement.name());
+        }
+        continue;
       }
       if (!Objects.equals(expected.superName(), replacement.superName())) {
         throw new IllegalStateException("Recovered superclass changed: " + replacement.name());
